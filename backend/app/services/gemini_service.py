@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import hashlib
 import time
@@ -27,7 +28,7 @@ def get_input_hash(prompt_type: str, content_chunk: str) -> str:
 
 def call_gemini_api(prompt: str, json_schema_required: bool = True) -> str:
     """
-    Calls Gemini API REST endpoint with explicit disclosure and exponential backoff.
+    Calls Gemini API REST endpoint with explicit disclosure, maxOutputTokens=8192, and exponential backoff.
     """
     api_key = get_gemini_api_key()
     if not api_key:
@@ -51,6 +52,7 @@ def call_gemini_api(prompt: str, json_schema_required: bool = True) -> str:
         ],
         "generationConfig": {
             "temperature": 0.2,
+            "maxOutputTokens": 8192,
             "responseMimeType": "application/json" if json_schema_required else "text/plain"
         }
     }
@@ -62,8 +64,8 @@ def call_gemini_api(prompt: str, json_schema_required: bool = True) -> str:
         headers={"Content-Type": "application/json"}
     )
 
-    max_retries = 3
-    backoff_seconds = 2.0
+    max_retries = 5
+    backoff_seconds = 4.0
 
     for attempt in range(max_retries):
         try:

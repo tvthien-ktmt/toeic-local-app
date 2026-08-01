@@ -37,7 +37,7 @@ REAL_VIETNAMESE_DICTIONARY = {
     "benefit": ("phúc lợi", "n", "/ˈbenɪfɪt/", "The package includes medical benefits.", ["advantage", "perk"], ["drawback"])
 }
 
-def split_large_text_chunk(text: str, max_chars: int = 8000) -> List[str]:
+def split_large_text_chunk(text: str, max_chars: int = 4500) -> List[str]:
     """
     Splits large text into smaller sub-chunks cleanly along question boundaries or double newlines.
     Prevents silent truncation of Part 5/6/7 questions while staying well within prompt limits.
@@ -163,13 +163,12 @@ def process_document_extraction(db: Session, doc_id: int) -> Dict[str, Any]:
         part_text = chunk["content"]
         
         # Split text into sub-chunks if text is very long, ensuring ZERO text truncation!
-        text_subchunks = split_large_text_chunk(part_text, max_chars=8000)
+        text_subchunks = split_large_text_chunk(part_text, max_chars=4500)
 
         for sub_idx, sub_text in enumerate(text_subchunks):
             # Throttle requests slightly to respect Gemini Free Tier 15 RPM limits
-            if sub_idx > 0 or part_num > 5:
-                import time
-                time.sleep(1.5)
+            import time
+            time.sleep(3.0)
 
             print(f"[AI EXTRACTION] Part {part_num} (Subchunk {sub_idx + 1}/{len(text_subchunks)}): Sending ALL {len(sub_text)} characters to Gemini...")
 
