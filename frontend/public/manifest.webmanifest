@@ -1,0 +1,9 @@
+{
+  "short_name": "TOEIC Master",
+  "name": "TOEIC AI Master Local Study App",
+  "icons": [],
+  "start_url": "/",
+  "background_color": "#0f172a",
+  "theme_color": "#4f46e5",
+  "display": "standalone"
+}

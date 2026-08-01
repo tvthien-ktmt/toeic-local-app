@@ -1,0 +1,22 @@
+# Python / Virtualenv
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+
+# SQLite Databases & Uploaded Files
+backend/data/toeic.db
+backend/data/uploads/*
+!backend/data/uploads/.gitkeep
+
+# Node / React Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.venv/
+
+# Temporary / OS Files
+.DS_Store
+Thumbs.db
+*.pdf
