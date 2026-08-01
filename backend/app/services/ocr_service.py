@@ -109,7 +109,7 @@ def ocr_image_local(img: Image.Image) -> str:
         reader = get_easyocr_reader()
         if reader:
             img_np = np.array(img)
-            results = reader.readtext(img_np, detail=0)
+            results = reader.readtext(img_np, detail=0, canvas_size=1200)
             if results:
                 text = "\n".join(results)
                 if text and len(text.strip()) > 5:
@@ -164,7 +164,7 @@ def extract_pdf_with_local_ocr(pdf_bytes: bytes, filename: str) -> str:
 
             img = None
             if len(left_text) < 15 or len(right_text) < 15:
-                img = render_pdf_page_to_image(pdf_doc, page_idx, dpi=300)
+                img = render_pdf_page_to_image(pdf_doc, page_idx, dpi=150)
                 left_img, right_img = split_image_into_columns(img)
 
                 if len(left_text) < 15:
@@ -184,7 +184,7 @@ def extract_pdf_with_local_ocr(pdf_bytes: bytes, filename: str) -> str:
         else:
             page_text = page.get_text("text").strip()
             if len(page_text) < 15:
-                img = render_pdf_page_to_image(pdf_doc, page_idx, dpi=300)
+                img = render_pdf_page_to_image(pdf_doc, page_idx, dpi=150)
                 page_text = ocr_image_local(img)
 
             if page_text:

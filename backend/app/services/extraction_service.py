@@ -350,8 +350,10 @@ Nội dung:
             except Exception as e:
                 print(f"Lỗi extract Vocab: {e}")
 
-    doc.status = "extracted"
-    db.commit()
+    doc = db.query(Document).filter(Document.id == doc_id).first()
+    if doc:
+        doc.status = "extracted"
+        db.commit()
 
     return {
         "document_id": doc_id,
