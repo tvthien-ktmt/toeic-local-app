@@ -1,5 +1,19 @@
 import os
-from typing import List
+import sys
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8')
+def safe_print(*args, **kwargs):
+    try:
+        print(*args, **kwargs)
+    except UnicodeEncodeError:
+        try:
+            text = " ".join(str(a) for a in args)
+            sys.stdout.buffer.write((text + "\n").encode("utf-8", errors="replace"))
+        except Exception:
+            pass
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, BackgroundTasks, status
 from sqlalchemy.orm import Session
 from ..db import get_db, SessionLocal
@@ -24,7 +38,7 @@ def process_document_background(doc_id: int, content_bytes: bytes, filename: str
         if not doc:
             return
 
-        print(f"[BACKGROUND TASK] Starting asynchronous conversion for Document #{doc_id} ('{filename}')...")
+        safe_print(f"[BACKGROUND TASK] Starting asynchronous conversion for Document #{doc_id} ('{filename}')...")
         markdown_text = convert_pdf_to_markdown(content_bytes, filename)
 
         if not markdown_text or "conversion_failed" in markdown_text:
@@ -36,14 +50,14 @@ def process_document_background(doc_id: int, content_bytes: bytes, filename: str
             db.commit()
 
             # Auto-trigger AI extraction
-            print(f"[BACKGROUND TASK] Auto-triggering AI extraction for Document #{doc_id}...")
+            safe_print(f"[BACKGROUND TASK] Auto-triggering AI extraction for Document #{doc_id}...")
             process_document_extraction(db, doc.id)
 
         db.commit()
-        print(f"[BACKGROUND TASK COMPLETED] Document #{doc_id} is ready with status='{doc.status}'!")
+        safe_print(f"[BACKGROUND TASK COMPLETED] Document #{doc_id} is ready with status='{doc.status}'!")
 
     except Exception as e:
-        print(f"[BACKGROUND TASK ERROR] Document #{doc_id} failed: {e}")
+        safe_print(f"[BACKGROUND TASK ERROR] Document #{doc_id} failed: {e}")
         doc = db.query(Document).filter(Document.id == doc_id).first()
         if doc:
             doc.status = "conversion_failed"

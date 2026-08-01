@@ -1,8 +1,24 @@
 import os
+import sys
 import json
 import re
 from datetime import datetime
 from typing import Dict, Any, List
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8')
+
+def safe_print(*args, **kwargs):
+    try:
+        print(*args, **kwargs)
+    except UnicodeEncodeError:
+        try:
+            text = " ".join(str(a) for a in args)
+            sys.stdout.buffer.write((text + "\n").encode("utf-8", errors="replace"))
+        except Exception:
+            pass
 from sqlalchemy.orm import Session
 from ..models import Document, Question, Vocabulary, Flashcard
 from .gemini_service import query_gemini_with_cache, get_gemini_api_key
@@ -217,7 +233,7 @@ Nội dung:
                             extracted_questions_count += 1
 
                     except Exception as e:
-                        print(f"Lỗi extract Part 5 câu hỏi: {e}")
+                        safe_print(f"Lỗi extract Part 5 câu hỏi: {e}")
 
                 elif part_num in [6, 7]:
                     prompt_type = f"extract_question_part{part_num}"
@@ -268,7 +284,7 @@ Nội dung:
                             db.add(new_q)
                             extracted_questions_count += 1
                     except Exception as e:
-                        print(f"Lỗi extract Part {part_num} câu hỏi: {e}")
+                        safe_print(f"Lỗi extract Part {part_num} câu hỏi: {e}")
 
             # 2. EXTRACT VOCABULARY
             vocab_prompt_type = f"extract_vocab_part{part_num}"
@@ -348,7 +364,7 @@ Nội dung:
                         extracted_vocab_count += 1
 
             except Exception as e:
-                print(f"Lỗi extract Vocab: {e}")
+                safe_print(f"Lỗi extract Vocab: {e}")
 
     doc = db.query(Document).filter(Document.id == doc_id).first()
     if doc:
