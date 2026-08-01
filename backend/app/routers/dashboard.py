@@ -25,9 +25,13 @@ def get_dashboard_stats(db: Session = Depends(get_db)):
 
     # 3. Accuracy Progress by Part (Part 5, Part 6, Part 7, Listening)
     part_stats = []
-    for part_name in ["Part 5", "Part 6", "Part 7", "Part 1-4"]:
-        q_ids = [q.id for q in db.query(Question.id).filter(Question.topic_tag.ilike(f"%{part_name}%") | Question.grammar_topic.ilike(f"%{part_name}%")).all()]
-        v_ids = [v.id for v in db.query(Vocabulary.id).filter(Vocabulary.appears_in_part.ilike(f"%{part_name}%")).all()]
+    for part_name, part_num in [("Part 5", 5), ("Part 6", 6), ("Part 7", 7), ("Part 1-4", 1)]:
+        if part_name == "Part 1-4":
+            q_ids = []
+            v_ids = [v.id for v in db.query(Vocabulary.id).filter(Vocabulary.appears_in_part.in_(["Part 1", "Part 2", "Part 3", "Part 4"])).all()]
+        else:
+            q_ids = [q.id for q in db.query(Question.id).filter(Question.part == part_num).all()]
+            v_ids = [v.id for v in db.query(Vocabulary.id).filter(Vocabulary.appears_in_part == f"Part {part_num}").all()]
 
         p_attempts = db.query(PracticeAttempt).filter(
             (PracticeAttempt.question_id.in_(q_ids)) | (PracticeAttempt.vocabulary_id.in_(v_ids))

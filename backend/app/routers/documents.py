@@ -90,9 +90,17 @@ async def upload_document(
     # Check if document already uploaded
     existing_doc = db.query(Document).filter(Document.content_hash == file_hash).first()
     if existing_doc:
-        # If existing document has broken markdown (< 2000 chars or conversion_failed), wipe and re-process!
-        if not existing_doc.markdown_content or (len(existing_doc.markdown_content) < 2000 and "OCR Processed" in existing_doc.markdown_content) or existing_doc.status == "conversion_failed":
-            print(f"[RE-PROCESSING BROKEN DOC] Document #{existing_doc.id} ('{file.filename}') has broken markdown. Wiping old record and re-processing...")
+        # Generalized check: if existing doc is broken, conversion failed, or extracted with 0 questions/vocab, wipe & re-process!
+        q_count = db.query(Question).filter(Question.document_id == existing_doc.id).count()
+        v_count = db.query(Vocabulary).filter(Vocabulary.source_document_id == existing_doc.id).count()
+        is_broken = (
+            not existing_doc.markdown_content or
+            len(existing_doc.markdown_content) < 500 or
+            existing_doc.status == "conversion_failed" or
+            (existing_doc.status == "extracted" and q_count == 0 and v_count == 0)
+        )
+        if is_broken:
+            print(f"[RE-PROCESSING BROKEN DOC] Document #{existing_doc.id} ('{file.filename}') has broken status/data. Wiping old record and re-processing...")
             existing_vids = [v.id for v in db.query(Vocabulary.id).filter(Vocabulary.source_document_id == existing_doc.id).all()]
             if existing_vids:
                 db.query(Flashcard).filter(Flashcard.vocabulary_id.in_(existing_vids)).delete(synchronize_session=False)

@@ -177,31 +177,52 @@ def generate_synonyms_quiz(
 ):
     """
     Module 14.3: Synonyms & Antonyms Quiz Mode.
+    Reads synonyms directly from Vocabulary.synonyms column in SQLite DB!
     """
-    DEFAULT_SYNONYMS = {
-        "proposal": "suggestion",
-        "investigation": "inquiry",
-        "renovation": "reconstruction",
-        "venue": "location",
-        "belongings": "possessions",
-        "campaign": "initiative",
-        "secure": "safe",
-        "exceptional": "outstanding",
-        "comprehensive": "thorough"
-    }
-
     words = db.query(Vocabulary).all()
     if not words:
-        raise HTTPException(status_code=400, detail="Không có từ vựng")
+        raise HTTPException(status_code=400, detail="Không có từ vựng trong CSDL!")
 
     sampled = random.sample(words, min(limit, len(words)))
-    all_syn_pool = list(set(list(DEFAULT_SYNONYMS.values()) + [w.word for w in words]))
+    
+    # Build global pool of synonyms for distractors
+    global_syn_pool = []
+    for w in words:
+        if w.synonyms and w.synonyms != "[]":
+            try:
+                syns = json.loads(w.synonyms)
+                if isinstance(syns, list):
+                    global_syn_pool.extend(syns)
+            except Exception:
+                pass
+
+    if len(global_syn_pool) < 5:
+        global_syn_pool.extend(["suggestion", "inquiry", "reconstruction", "location", "possessions", "initiative", "safe", "outstanding", "thorough"])
 
     items = []
     for target in sampled:
-        correct_syn = DEFAULT_SYNONYMS.get(target.word.lower(), "equivalent")
-        distractors = [s for s in all_syn_pool if s != correct_syn and s != target.word]
-        chosen_distractors = random.sample(distractors, 3) if len(distractors) >= 3 else ["option_a", "option_b", "option_c"]
+        correct_syn = None
+        if target.synonyms and target.synonyms != "[]":
+            try:
+                syns = json.loads(target.synonyms)
+                if isinstance(syns, list) and len(syns) > 0:
+                    correct_syn = syns[0]
+            except Exception:
+                pass
+                
+        if not correct_syn:
+            if target.word.lower() in REAL_VIETNAMESE_DICTIONARY:
+                dict_entry = REAL_VIETNAMESE_DICTIONARY[target.word.lower()]
+                if len(dict_entry) >= 5 and dict_entry[4]:
+                    correct_syn = dict_entry[4][0]
+                    
+        if not correct_syn:
+            correct_syn = f"synonym_{target.word}"
+
+        distractors = [s for s in global_syn_pool if s != correct_syn and s.lower() != target.word.lower()]
+        if len(distractors) < 3:
+            distractors = ["suggestion", "location", "possessions", "safe", "thorough"]
+        chosen_distractors = random.sample(distractors, 3)
 
         options = [correct_syn] + chosen_distractors
         random.shuffle(options)

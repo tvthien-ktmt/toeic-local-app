@@ -129,7 +129,28 @@ def query_gemini_with_cache(
         cleaned_response = cleaned_response[:-3]
     cleaned_response = cleaned_response.strip()
 
-    parsed_json = json.loads(cleaned_response)
+    try:
+        parsed_json = json.loads(cleaned_response)
+    except Exception as parse_err:
+        print(f"[GEMINI JSON PARSE WARNING] Direct json.loads failed: {parse_err}. Attempting regex repair...")
+        arr_match = re.search(r'\[.*\]', cleaned_response, re.DOTALL)
+        obj_match = re.search(r'\{.*\}', cleaned_response, re.DOTALL)
+        
+        parsed_json = None
+        if arr_match:
+            try:
+                parsed_json = json.loads(arr_match.group(0))
+            except Exception:
+                pass
+        if not parsed_json and obj_match:
+            try:
+                parsed_json = json.loads(obj_match.group(0))
+            except Exception:
+                pass
+
+        if parsed_json is None:
+            print(f"[GEMINI JSON PARSE ERROR] Failed to parse JSON response ({len(cleaned_response)} chars):\n{cleaned_response[:500]}...")
+            raise parse_err
 
     # 3. Save to Cache
     new_cache = AICache(

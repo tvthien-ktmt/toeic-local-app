@@ -62,12 +62,18 @@ def render_pdf_page_to_image(pdf_doc: fitz.Document, page_num: int, dpi: int = 3
 def detect_two_column_layout(page: fitz.Page) -> bool:
     """
     Detects if page has 2-column TOEIC layout (Part 5/6 questions side by side).
+    Handles both text-layer PDFs and pure scanned bitmap PDFs.
     """
     blocks = page.get_text("blocks")
+    rect = page.rect
+    
     if not blocks or len(blocks) < 2:
+        # Fallback for 0% text layer bitmap scanned PDFs:
+        # Standard TOEIC Part 5/6 reading exam pages have standard portrait aspect ratio (width > 400, height > 600)
+        if rect.width > 400 and rect.height > 600 and rect.height / max(rect.width, 1) > 1.2:
+            return True
         return False
     
-    rect = page.rect
     x_mid = rect.width / 2.0
     left_blocks = 0
     right_blocks = 0
