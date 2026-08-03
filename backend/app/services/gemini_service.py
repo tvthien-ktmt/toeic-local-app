@@ -150,6 +150,16 @@ def query_gemini_with_cache(
             except Exception:
                 pass
 
+        if not parsed_json and cleaned_response.startswith("["):
+            last_brace = cleaned_response.rfind("}")
+            if last_brace != -1:
+                truncated_array = cleaned_response[:last_brace + 1].strip() + "]"
+                try:
+                    parsed_json = json.loads(truncated_array)
+                    print(f"[GEMINI JSON REPAIR SUCCESS] Truncated JSON array repaired cleanly! Parsed {len(parsed_json)} valid items.")
+                except Exception:
+                    pass
+
         if parsed_json is None:
             print(f"[GEMINI JSON PARSE ERROR] Failed to parse JSON response ({len(cleaned_response)} chars):\n{cleaned_response[:500]}...")
             raise parse_err

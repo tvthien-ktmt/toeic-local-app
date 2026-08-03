@@ -14,6 +14,7 @@ def safe_print(*args, **kwargs):
             sys.stdout.buffer.write((text + "\n").encode("utf-8", errors="replace"))
         except Exception:
             pass
+from typing import List, Dict, Any, Optional
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, BackgroundTasks, status
 from sqlalchemy.orm import Session
 from ..db import get_db, SessionLocal
