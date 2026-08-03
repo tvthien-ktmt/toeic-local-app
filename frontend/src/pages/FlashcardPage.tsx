@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+// @ts-ignore
+import * as ReactWindow from 'react-window';
+const List = (ReactWindow as any).FixedSizeList || (ReactWindow as any).default?.FixedSizeList || ReactWindow;
 import { 
   Sparkles, Volume2, Search, Filter, RotateCw, XCircle, 
   BookOpen, Keyboard, Layers, FolderHeart
@@ -69,6 +72,14 @@ export const FlashcardPage: React.FC = () => {
     setCardIndex((prev) => (prev - 1 + Math.max(1, vocabList.length)) % Math.max(1, vocabList.length));
   };
 
+  const typingTimerRef = useRef<any>(null);
+
+  useEffect(() => {
+    return () => {
+      if (typingTimerRef.current) clearTimeout(typingTimerRef.current);
+    };
+  }, []);
+
   const handleCheckTyping = (e: React.FormEvent) => {
     e.preventDefault();
     if (!currentCard) return;
@@ -76,7 +87,8 @@ export const FlashcardPage: React.FC = () => {
     const isMatch = typingInput.trim().toLowerCase() === currentCard.word.toLowerCase();
     if (isMatch) {
       setTypingStatus('correct');
-      setTimeout(() => {
+      if (typingTimerRef.current) clearTimeout(typingTimerRef.current);
+      typingTimerRef.current = setTimeout(() => {
         setTypingInput('');
         setTypingStatus('idle');
         handleNextCard();
@@ -414,23 +426,53 @@ export const FlashcardPage: React.FC = () => {
             Tất Cả Từ Vựng Trích Xuất ({vocabList.length})
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {vocabList.map((v) => (
-              <div key={v.id} className="p-5 rounded-2xl bg-theme-surface border border-theme space-y-2 shadow-lg">
-                <div className="flex items-center justify-between">
-                  <span className="text-base font-extrabold text-theme-accent">{v.word}</span>
-                  <button onClick={() => speakText(v.word)} className="p-1 text-theme-secondary hover:text-theme-accent transition">
-                    <Volume2 className="w-4 h-4" />
-                  </button>
+          {vocabList.length > 100 && List ? (
+            <List
+              height={650}
+              itemCount={vocabList.length}
+              itemSize={160}
+              width="100%"
+            >
+              {({ index, style }: { index: number; style: React.CSSProperties }) => {
+                const v = vocabList[index];
+                return (
+                  <div style={style} className="pr-2 pb-3">
+                    <div className="p-5 rounded-2xl bg-theme-surface border border-theme space-y-2 shadow-lg h-full">
+                      <div className="flex items-center justify-between">
+                        <span className="text-base font-extrabold text-theme-accent">{v.word}</span>
+                        <button onClick={() => speakText(v.word)} className="p-1 text-theme-secondary hover:text-theme-accent transition">
+                          <Volume2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                      <p className="text-xs text-theme-secondary font-mono">{v.ipa} • {v.part_of_speech}</p>
+                      <p className="text-sm font-semibold text-emerald-400">{v.meaning_vi}</p>
+                      {v.example_sentence && (
+                        <p className="text-xs text-theme-primary italic border-l-2 border-theme-accent pl-2 truncate">"{v.example_sentence}"</p>
+                      )}
+                    </div>
+                  </div>
+                );
+              }}
+            </List>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {vocabList.map((v) => (
+                <div key={v.id} className="p-5 rounded-2xl bg-theme-surface border border-theme space-y-2 shadow-lg">
+                  <div className="flex items-center justify-between">
+                    <span className="text-base font-extrabold text-theme-accent">{v.word}</span>
+                    <button onClick={() => speakText(v.word)} className="p-1 text-theme-secondary hover:text-theme-accent transition">
+                      <Volume2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <p className="text-xs text-theme-secondary font-mono">{v.ipa} • {v.part_of_speech}</p>
+                  <p className="text-sm font-semibold text-emerald-400">{v.meaning_vi}</p>
+                  {v.example_sentence && (
+                    <p className="text-xs text-theme-primary italic border-l-2 border-theme-accent pl-2">"{v.example_sentence}"</p>
+                  )}
                 </div>
-                <p className="text-xs text-theme-secondary font-mono">{v.ipa} • {v.part_of_speech}</p>
-                <p className="text-sm font-semibold text-emerald-400">{v.meaning_vi}</p>
-                {v.example_sentence && (
-                  <p className="text-xs text-theme-primary italic border-l-2 border-theme-accent pl-2">"{v.example_sentence}"</p>
-                )}
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
 

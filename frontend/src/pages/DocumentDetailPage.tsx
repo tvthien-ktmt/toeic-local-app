@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { 
@@ -100,11 +100,20 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
     }
   };
 
+  const copyTimerRef = useRef<any>(null);
+
+  useEffect(() => {
+    return () => {
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+    };
+  }, []);
+
   const handleCopyMarkdown = () => {
     if (!doc) return;
     navigator.clipboard.writeText(doc.markdown_content);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+    copyTimerRef.current = setTimeout(() => setCopied(false), 2000);
   };
 
   const toggleShowAnswer = (qId: number) => {

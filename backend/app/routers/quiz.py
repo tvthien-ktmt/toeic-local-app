@@ -1,9 +1,11 @@
 import random
 import re
+import json
 from typing import Optional, List
 from pydantic import BaseModel
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
+from sqlalchemy.sql.expression import func
 from ..db import get_db
 from ..models import Vocabulary, Flashcard, PracticeAttempt
 from ..services.extraction_service import REAL_VIETNAMESE_DICTIONARY
@@ -25,6 +27,7 @@ def generate_vocab_quiz(
 ):
     """
     Generates standard Vocab Quiz with flexible range selectors (Module 14.4).
+    Optimized with SQL ORDER BY RANDOM() LIMIT N to avoid loading full table into RAM.
     """
     query = db.query(Vocabulary)
 
@@ -35,12 +38,13 @@ def generate_vocab_quiz(
     if topic_category:
         query = query.filter(Vocabulary.topic_category == topic_category)
     if unmastered_only:
-        unmastered_vids = [f.vocabulary_id for f in db.query(Flashcard.vocabulary_id).filter(Flashcard.srs_level < 3).all()]
-        query = query.filter(Vocabulary.id.in_(unmastered_vids))
+        unmastered_subq = db.query(Flashcard.vocabulary_id).filter(Flashcard.srs_level < 3).subquery()
+        query = query.filter(Vocabulary.id.in_(unmastered_subq))
 
-    target_words = query.all()
+    # Order by random directly in SQLite and limit to required count
+    target_words = query.order_by(func.random()).limit(limit * 2).all()
     if not target_words or len(target_words) < 4:
-        target_words = db.query(Vocabulary).all()
+        target_words = db.query(Vocabulary).order_by(func.random()).limit(limit * 2).all()
         if not target_words:
             raise HTTPException(
                 status_code=400,
@@ -54,12 +58,18 @@ def generate_vocab_quiz(
         "lịch trình", "ứng viên", "giấy bảo hành", "ngân sách", "phúc lợi"
     ]
 
-    db_meanings = [v.meaning_vi for v in db.query(Vocabulary.meaning_vi).all() if v.meaning_vi and not v.meaning_vi.startswith("Nghĩa từ vựng") and not v.meaning_vi.startswith("từ vựng")]
-    for m in db_meanings:
-        if m not in pool_meanings:
+    # Fetch random 30 meanings directly from DB instead of loading all rows
+    db_meanings_tuples = db.query(Vocabulary.meaning_vi).filter(
+        Vocabulary.meaning_vi != None,
+        ~Vocabulary.meaning_vi.startswith("Nghĩa từ vựng"),
+        ~Vocabulary.meaning_vi.startswith("từ vựng")
+    ).order_by(func.random()).limit(30).all()
+
+    for (m,) in db_meanings_tuples:
+        if m and m not in pool_meanings:
             pool_meanings.append(m)
 
-    sampled_targets = random.sample(target_words, min(limit, len(target_words)))
+    sampled_targets = target_words[:min(limit, len(target_words))]
 
     quiz_items = []
     for target in sampled_targets:
@@ -101,17 +111,19 @@ def generate_listening_quiz(
 ):
     """
     Module 14.1: Listening Quiz mode (TTS pronounced).
+    Optimized with SQL ORDER BY RANDOM() LIMIT N.
     """
     query = db.query(Vocabulary)
     if document_id is not None:
         query = query.filter(Vocabulary.source_document_id == document_id)
 
-    words = query.all()
-    if not words or len(words) < 4:
-        words = db.query(Vocabulary).all()
+    sampled = query.order_by(func.random()).limit(min(limit, 50)).all()
+    if not sampled or len(sampled) < 4:
+        sampled = db.query(Vocabulary).order_by(func.random()).limit(min(limit, 50)).all()
 
-    sampled = random.sample(words, min(limit, len(words)))
-    all_spelling_words = [w.word for w in words]
+    # Fetch random 30 spelling words directly from DB for distractors
+    all_spelling_tuples = db.query(Vocabulary.word).order_by(func.random()).limit(30).all()
+    all_spelling_words = [w[0] for w in all_spelling_tuples if w[0]]
 
     items = []
     for target in sampled:
@@ -177,20 +189,29 @@ def generate_synonyms_quiz(
 ):
     """
     Module 14.3: Synonyms & Antonyms Quiz Mode.
-    Reads synonyms directly from Vocabulary.synonyms column in SQLite DB!
+    Optimized with SQL ORDER BY RANDOM() LIMIT N.
     """
-    words = db.query(Vocabulary).all()
-    if not words:
-        raise HTTPException(status_code=400, detail="Không có từ vựng trong CSDL!")
+    sampled = db.query(Vocabulary).filter(
+        Vocabulary.synonyms != None,
+        Vocabulary.synonyms != "[]"
+    ).order_by(func.random()).limit(min(limit, 50)).all()
 
-    sampled = random.sample(words, min(limit, len(words)))
-    
-    # Build global pool of synonyms for distractors
+    if not sampled:
+        sampled = db.query(Vocabulary).order_by(func.random()).limit(min(limit, 50)).all()
+        if not sampled:
+            raise HTTPException(status_code=400, detail="Không có từ vựng trong CSDL!")
+
+    # Fetch random 20 vocabulary rows with synonyms for distractor pool
+    syn_rows = db.query(Vocabulary.synonyms).filter(
+        Vocabulary.synonyms != None,
+        Vocabulary.synonyms != "[]"
+    ).order_by(func.random()).limit(20).all()
+
     global_syn_pool = []
-    for w in words:
-        if w.synonyms and w.synonyms != "[]":
+    for (syn_str,) in syn_rows:
+        if syn_str and syn_str != "[]":
             try:
-                syns = json.loads(w.synonyms)
+                syns = json.loads(syn_str)
                 if isinstance(syns, list):
                     global_syn_pool.extend(syns)
             except Exception:

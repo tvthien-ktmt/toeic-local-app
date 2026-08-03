@@ -103,15 +103,14 @@ def get_dashboard_stats(db: Session = Depends(get_db)):
     part_stats = []
     for part_name, part_num in [("Part 5", 5), ("Part 6", 6), ("Part 7", 7), ("Part 1-4", 1)]:
         if part_name == "Part 1-4":
-            q_ids = []
-            v_ids = [v.id for v in db.query(Vocabulary.id).filter(Vocabulary.appears_in_part.in_(["Part 1", "Part 2", "Part 3", "Part 4"])).all()]
+            v_subq = db.query(Vocabulary.id).filter(Vocabulary.appears_in_part.in_(["Part 1", "Part 2", "Part 3", "Part 4"])).subquery()
+            p_attempts = db.query(PracticeAttempt).filter(PracticeAttempt.vocabulary_id.in_(v_subq))
         else:
-            q_ids = [q.id for q in db.query(Question.id).filter(Question.part == part_num).all()]
-            v_ids = [v.id for v in db.query(Vocabulary.id).filter(Vocabulary.appears_in_part == f"Part {part_num}").all()]
-
-        p_attempts = db.query(PracticeAttempt).filter(
-            (PracticeAttempt.question_id.in_(q_ids)) | (PracticeAttempt.vocabulary_id.in_(v_ids))
-        ) if (q_ids or v_ids) else db.query(PracticeAttempt).filter(False)
+            q_subq = db.query(Question.id).filter(Question.part == part_num).subquery()
+            v_subq = db.query(Vocabulary.id).filter(Vocabulary.appears_in_part == f"Part {part_num}").subquery()
+            p_attempts = db.query(PracticeAttempt).filter(
+                (PracticeAttempt.question_id.in_(q_subq)) | (PracticeAttempt.vocabulary_id.in_(v_subq))
+            )
 
         p_total = p_attempts.count()
         p_correct = p_attempts.filter(PracticeAttempt.is_correct == True).count()

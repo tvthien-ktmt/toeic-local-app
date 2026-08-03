@@ -116,9 +116,8 @@ async def upload_document(
         )
         if is_broken:
             print(f"[RE-PROCESSING BROKEN DOC] Document #{existing_doc.id} ('{file.filename}') has broken status/data. Wiping old record and re-processing...")
-            existing_vids = [v.id for v in db.query(Vocabulary.id).filter(Vocabulary.source_document_id == existing_doc.id).all()]
-            if existing_vids:
-                db.query(Flashcard).filter(Flashcard.vocabulary_id.in_(existing_vids)).delete(synchronize_session=False)
+            v_subq = db.query(Vocabulary.id).filter(Vocabulary.source_document_id == existing_doc.id).subquery()
+            db.query(Flashcard).filter(Flashcard.vocabulary_id.in_(v_subq)).delete(synchronize_session=False)
             db.query(Question).filter(Question.document_id == existing_doc.id).delete()
             db.query(Vocabulary).filter(Vocabulary.source_document_id == existing_doc.id).delete()
             db.delete(existing_doc)
@@ -191,9 +190,8 @@ def delete_document(doc_id: int, db: Session = Depends(get_db)):
         )
     
     # Cascade delete all questions, vocabulary, and flashcards associated with doc
-    existing_vids = [v.id for v in db.query(Vocabulary.id).filter(Vocabulary.source_document_id == doc.id).all()]
-    if existing_vids:
-        db.query(Flashcard).filter(Flashcard.vocabulary_id.in_(existing_vids)).delete(synchronize_session=False)
+    v_subq = db.query(Vocabulary.id).filter(Vocabulary.source_document_id == doc.id).subquery()
+    db.query(Flashcard).filter(Flashcard.vocabulary_id.in_(v_subq)).delete(synchronize_session=False)
     db.query(Question).filter(Question.document_id == doc.id).delete()
     db.query(Vocabulary).filter(Vocabulary.source_document_id == doc.id).delete()
     db.delete(doc)
