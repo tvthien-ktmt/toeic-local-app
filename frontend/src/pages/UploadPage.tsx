@@ -144,35 +144,35 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
       </div>
 
       {/* Large PDF Multi-Test Safety Warning Banner */}
-      <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs sm:text-sm flex items-start space-x-3 shadow-lg">
-        <AlertCircle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+      <div className="p-4 rounded-2xl alert-warning text-xs sm:text-sm flex items-start space-x-3 shadow-lg">
+        <AlertCircle className="w-5 h-5 alert-warning-icon shrink-0 mt-0.5" />
         <div className="space-y-1">
-          <p className="font-bold text-amber-200">Lưu ý quan trọng khi upload sách tổng hợp nhiều đề thi (450+ trang):</p>
-          <p className="text-amber-300/90 leading-relaxed">
+          <p className="font-bold alert-warning-title">Lưu ý quan trọng khi upload sách tổng hợp nhiều đề thi (450+ trang):</p>
+          <p className="leading-relaxed">
             Hệ thống phân loại câu hỏi theo từng đề thi đơn lẻ (~25-30 trang/đề). Nếu bạn upload nguyên một cuốn sách 450+ trang chứa 10 đề thi gộp chung, câu hỏi giữa các đề thi khác nhau sẽ bị trộn lẫn vào nhau. 
-            <strong className="text-amber-200"> Khuyên dùng:</strong> Hãy dùng công cụ tách file PDF (như Smallpdf hoặc ILovePDF) tách cuốn sách thành từng file đề thi riêng lẻ trước khi upload!
+            <strong className="alert-warning-highlight"> Khuyên dùng:</strong> Hãy dùng công cụ tách file PDF (như Smallpdf hoặc ILovePDF) tách cuốn sách thành từng file đề thi riêng lẻ trước khi upload!
           </p>
         </div>
       </div>
 
       {/* Notifications */}
       {errorMsg && (
-        <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 flex items-center justify-between animate-fade-in">
+        <div className="p-4 rounded-xl alert-error flex items-center justify-between animate-fade-in">
           <div className="flex items-center gap-3">
-            <AlertCircle className="w-5 h-5 text-red-400 shrink-0" />
+            <AlertCircle className="w-5 h-5 alert-error-icon shrink-0" />
             <span className="text-sm font-medium">{errorMsg}</span>
           </div>
-          <button onClick={() => setErrorMsg(null)} className="text-red-400 hover:text-red-200 text-xs underline">Đóng</button>
+          <button onClick={() => setErrorMsg(null)} className="text-xs underline font-semibold opacity-90 hover:opacity-100">Đóng</button>
         </div>
       )}
 
       {successMsg && (
-        <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 flex items-center justify-between animate-fade-in">
+        <div className="p-4 rounded-xl alert-success flex items-center justify-between animate-fade-in">
           <div className="flex items-center gap-3">
-            <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+            <ShieldCheck className="w-5 h-5 alert-success-icon shrink-0" />
             <span className="text-sm font-medium">{successMsg}</span>
           </div>
-          <button onClick={() => setSuccessMsg(null)} className="text-emerald-400 hover:text-emerald-200 text-xs underline">Đóng</button>
+          <button onClick={() => setSuccessMsg(null)} className="text-xs underline font-semibold opacity-90 hover:opacity-100">Đóng</button>
         </div>
       )}
 

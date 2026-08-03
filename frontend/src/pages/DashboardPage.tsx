@@ -72,12 +72,12 @@ export const DashboardPage: React.FC = () => {
 
   if (errorMsg || !stats) {
     return (
-      <div className="max-w-md mx-auto my-12 p-6 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-300 text-center space-y-3">
-        <AlertCircle className="w-8 h-8 mx-auto text-red-400" />
+      <div className="max-w-md mx-auto my-12 p-6 rounded-2xl alert-error text-center space-y-3">
+        <AlertCircle className="w-8 h-8 mx-auto alert-error-icon" />
         <p className="font-semibold text-sm">{errorMsg || 'Chưa có dữ liệu thống kê.'}</p>
         <button
           onClick={fetchStats}
-          className="px-4 py-2 rounded-xl bg-red-500/20 hover:bg-red-500/30 text-red-200 text-xs font-bold transition"
+          className="px-4 py-2 rounded-xl bg-theme-surface hover:bg-theme-surface-2 text-theme-primary text-xs font-bold border border-theme transition"
         >
           Thử lại
         </button>

@@ -56,7 +56,7 @@ export const GrammarQuickRefModal: React.FC<GrammarQuickRefModalProps> = ({ topi
               <p className="text-sm text-theme-secondary">Đang nạp kiến thức ngữ pháp...</p>
             </div>
           ) : error ? (
-            <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm text-center">
+            <div className="p-4 rounded-xl alert-error text-sm text-center">
               {error}
             </div>
           ) : data ? (

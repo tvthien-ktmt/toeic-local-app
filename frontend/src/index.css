@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* -------------------------------------------------------------
- * 3-THEME DESIGN SYSTEM TOKENS (WCAG 2.1 AA Compliant)
+ * 3-THEME DESIGN SYSTEM TOKENS (WCAG 2.1 AAA/AA Compliant)
  * ------------------------------------------------------------- */
 
 /* 1. Light Theme */
@@ -18,6 +18,26 @@
   --accent-error: #DC2626;
   --accent-warning: #D97706;
   --card-shadow: rgba(0, 0, 0, 0.05);
+
+  /* Alert Banners Light Theme Token (WCAG AA >= 4.5:1) */
+  --warning-bg: #FEF3C7;
+  --warning-border: #F59E0B;
+  --warning-title: #78350F;
+  --warning-text: #44403C;
+  --warning-icon: #B45309;
+  --warning-highlight: #B45309;
+
+  --success-bg: #DCFCE7;
+  --success-border: #22C55E;
+  --success-title: #14532D;
+  --success-text: #14532D;
+  --success-icon: #15803D;
+
+  --error-bg: #FEE2E2;
+  --error-border: #EF4444;
+  --error-title: #7F1D1D;
+  --error-text: #7F1D1D;
+  --error-icon: #B91C1C;
 }
 
 /* 2. Dark Theme (Material Dark, #121212) */
@@ -34,6 +54,26 @@
   --accent-error: #F87171;
   --accent-warning: #FBBF24;
   --card-shadow: rgba(0, 0, 0, 0.5);
+
+  /* Alert Banners Dark Theme Token */
+  --warning-bg: rgba(245, 158, 11, 0.12);
+  --warning-border: rgba(245, 158, 11, 0.35);
+  --warning-title: #FDE68A;
+  --warning-text: #FEF3C7;
+  --warning-icon: #FBBF24;
+  --warning-highlight: #FBBF24;
+
+  --success-bg: rgba(34, 197, 94, 0.12);
+  --success-border: rgba(34, 197, 94, 0.35);
+  --success-title: #86EFAC;
+  --success-text: #DCFCE7;
+  --success-icon: #4ADE80;
+
+  --error-bg: rgba(239, 68, 68, 0.12);
+  --error-border: rgba(239, 68, 68, 0.35);
+  --error-title: #FCA5A5;
+  --error-text: #FEE2E2;
+  --error-icon: #F87171;
 }
 
 /* 3. Night Reading Mode (Warm Sepia Amber) */
@@ -50,6 +90,26 @@
   --accent-error: #D97757;
   --accent-warning: #E0A458;
   --card-shadow: rgba(0, 0, 0, 0.6);
+
+  /* Alert Banners Night Theme Token */
+  --warning-bg: rgba(217, 155, 77, 0.15);
+  --warning-border: rgba(217, 155, 77, 0.4);
+  --warning-title: #FDE68A;
+  --warning-text: #E8DCC4;
+  --warning-icon: #D99B4D;
+  --warning-highlight: #E0A458;
+
+  --success-bg: rgba(143, 188, 106, 0.15);
+  --success-border: rgba(143, 188, 106, 0.4);
+  --success-title: #D1E7B6;
+  --success-text: #E8DCC4;
+  --success-icon: #8FBC6A;
+
+  --error-bg: rgba(217, 119, 87, 0.15);
+  --error-border: rgba(217, 119, 87, 0.4);
+  --error-title: #F8B4A0;
+  --error-text: #E8DCC4;
+  --error-icon: #D97757;
 }
 
 /* Helper Theme Classes */
@@ -72,6 +132,46 @@
 
 .bg-theme-warning { background-color: var(--accent-warning); }
 .text-theme-warning { color: var(--accent-warning); }
+
+/* Accessible Theme-Aware Alert Banners */
+.alert-warning {
+  background-color: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  color: var(--warning-text);
+}
+.alert-warning-title {
+  color: var(--warning-title);
+}
+.alert-warning-icon {
+  color: var(--warning-icon);
+}
+.alert-warning-highlight {
+  color: var(--warning-highlight);
+}
+
+.alert-success {
+  background-color: var(--success-bg);
+  border: 1px solid var(--success-border);
+  color: var(--success-text);
+}
+.alert-success-title {
+  color: var(--success-title);
+}
+.alert-success-icon {
+  color: var(--success-icon);
+}
+
+.alert-error {
+  background-color: var(--error-bg);
+  border: 1px solid var(--error-border);
+  color: var(--error-text);
+}
+.alert-error-title {
+  color: var(--error-title);
+}
+.alert-error-icon {
+  color: var(--error-icon);
+}
 
 @layer base {
   body {
