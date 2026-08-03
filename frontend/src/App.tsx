@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { UploadPage } from './pages/UploadPage';
 import { DocumentDetailPage } from './pages/DocumentDetailPage';
@@ -9,6 +9,10 @@ import { DashboardPage } from './pages/DashboardPage';
 export function App() {
   const [activeTab, setActiveTab] = useState<'upload' | 'practice' | 'flashcards' | 'dashboard'>('upload');
   const [selectedDocId, setSelectedDocId] = useState<number | null>(null);
+
+  useEffect(() => {
+    document.title = 'TOEIC AI Master — Ôn Thi Local App';
+  }, []);
 
   const handleSelectDocument = (docId: number) => {
     setSelectedDocId(docId);
