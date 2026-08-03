@@ -4,7 +4,8 @@ from fastapi import APIRouter, Depends, Query, HTTPException, status
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 from ..db import get_db
-from ..models import Question
+from pydantic import BaseModel
+from ..models import Question, PracticeAttempt
 
 router = APIRouter(prefix="/api/questions", tags=["questions"])
 
@@ -95,8 +96,37 @@ def get_question_detail(question_id: int, db: Session = Depends(get_db)):
         "options": opts,
         "correct_answer": q.correct_answer,
         "explanation": q.explanation,
+        "option_explanations_json": q.option_explanations_json,
+        "translated_sentence": q.translated_sentence,
         "grammar_topic": q.grammar_topic or "unclassified",
         "topic_tag": q.topic_tag,
         "is_generated": q.is_generated,
         "created_at": q.created_at
     }
+
+
+class QuestionAttemptRequest(BaseModel):
+    question_id: int
+    is_correct: bool
+    time_spent_seconds: int = 0
+    part: Optional[int] = None
+    session_id: Optional[str] = None
+
+
+@router.post("/attempt")
+def record_question_attempt(req: QuestionAttemptRequest, db: Session = Depends(get_db)):
+    """
+    Module 19.3: Records practice attempt with timing and Part info for speed analytics.
+    """
+    attempt = PracticeAttempt(
+        question_id=req.question_id,
+        attempt_type="question",
+        is_correct=req.is_correct,
+        time_spent_seconds=max(0, req.time_spent_seconds),
+        part=req.part,
+        session_id=req.session_id
+    )
+    db.add(attempt)
+    db.commit()
+    db.refresh(attempt)
+    return {"status": "ok", "attempt_id": attempt.id}

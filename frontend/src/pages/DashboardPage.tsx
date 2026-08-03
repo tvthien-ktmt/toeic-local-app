@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { BarChart3, CheckCircle2, BookOpen, Target, Award, Flame, RefreshCw, AlertCircle, Layers } from 'lucide-react';
+import { BarChart3, CheckCircle2, BookOpen, Target, Award, Flame, RefreshCw, AlertCircle, Layers, Clock, Zap, Activity } from 'lucide-react';
 import axios from 'axios';
 
 interface DashboardStats {
   summary: {
     total_vocab: number;
     learned_vocab: number;
+    unlearned_vocab?: number;
+    total_questions?: number;
+    unpracticed_questions?: number;
     mastery_percentage: number;
     total_attempts: number;
     overall_accuracy: number;
+    total_study_min_7d?: number;
+    total_study_min_30d?: number;
+    active_days_7d?: number;
+    active_days_30d?: number;
+    part5_avg_speed_sec?: number;
+    part6_avg_speed_sec?: number;
+    part7_avg_speed_sec?: number;
   };
   part_stats: Array<{
     part_name: string;
@@ -41,7 +51,7 @@ export const DashboardPage: React.FC = () => {
     setIsLoading(true);
     setErrorMsg(null);
     try {
-      const res = await axios.get('http://127.0.0.1:8000/api/dashboard/stats');
+      const res = await axios.get('/api/dashboard/stats');
       setStats(res.data);
     } catch (err: any) {
       console.error(err);
@@ -89,189 +99,226 @@ export const DashboardPage: React.FC = () => {
         <div>
           <h1 className="text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
             <BarChart3 className="w-8 h-8 text-indigo-400" />
-            Dashboard Tiến Độ Học Tập Đa Chiều
+            Dashboard Tiến Độ Học Tập & Tốc Độ
           </h1>
           <p className="text-slate-400 text-sm mt-1">
-            Tổng hợp dữ liệu thực tế từ SQLite (SRS Level $\ge$ 3, Practice Attempts)
+            Số liệu thời gian học thực tế, theo dõi độ đều đặn 7/30 ngày & tốc độ làm bài theo Part
           </p>
         </div>
 
         <button
           onClick={fetchStats}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition text-xs font-semibold self-start sm:self-auto"
+          className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition"
         >
           <RefreshCw className="w-3.5 h-3.5" />
-          <span>Tải lại số liệu</span>
+          <span>Làm mới số liệu</span>
         </button>
       </div>
 
-      {/* KPI Cards Overview */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/60 shadow-lg space-y-2">
-          <div className="flex items-center justify-between text-indigo-400">
-            <BookOpen className="w-5 h-5" />
-            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/20">
-              {summary.mastery_percentage}% Đã Thuộc
-            </span>
+      {/* Module 20: Study Time & Consistency Analytics Banner */}
+      <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+        <div className="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-lg space-y-1">
+          <div className="flex items-center space-x-2 text-xs font-semibold text-indigo-400">
+            <Clock className="w-4 h-4" />
+            <span>THỜI GIAN HỌC 7 NGÀY</span>
           </div>
-          <div className="text-3xl font-black text-white">{summary.learned_vocab} / {summary.total_vocab}</div>
-          <p className="text-xs text-slate-400 font-medium">Từ vựng đã làm chủ (SRS Level $\ge$ 3)</p>
-          <div className="w-full bg-slate-700 rounded-full h-2 overflow-hidden mt-2">
-            <div className="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full" style={{ width: `${Math.min(summary.mastery_percentage, 100)}%` }} />
-          </div>
+          <p className="text-2xl font-extrabold text-white">
+            {summary.total_study_min_7d || 0} <span className="text-sm font-normal text-slate-400">phút</span>
+          </p>
+          <span className="text-[11px] text-slate-400 block">Tích lũy từ flashcard, quiz & luyện tập</span>
         </div>
 
-        <div className="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/60 shadow-lg space-y-2">
-          <div className="flex items-center justify-between text-emerald-400">
-            <Target className="w-5 h-5" />
-            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-              Độ Chính Xác
-            </span>
+        <div className="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-lg space-y-1">
+          <div className="flex items-center space-x-2 text-xs font-semibold text-purple-400">
+            <Activity className="w-4 h-4" />
+            <span>MỨC ĐỘ ĐỀU ĐẶN</span>
           </div>
-          <div className="text-3xl font-black text-white">{summary.overall_accuracy}%</div>
-          <p className="text-xs text-slate-400 font-medium">Tỷ lệ trả lời đúng tổng thể</p>
-          <div className="w-full bg-slate-700 rounded-full h-2 overflow-hidden mt-2">
-            <div className="bg-emerald-500 h-full rounded-full" style={{ width: `${Math.min(summary.overall_accuracy, 100)}%` }} />
-          </div>
+          <p className="text-2xl font-extrabold text-white">
+            {summary.active_days_7d || 0} / 7 <span className="text-sm font-normal text-slate-400">ngày</span>
+          </p>
+          <span className="text-[11px] text-slate-400 block">Số ngày có học trong tuần qua</span>
         </div>
 
-        <div className="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/60 shadow-lg space-y-2">
-          <div className="flex items-center justify-between text-amber-400">
-            <Flame className="w-5 h-5" />
-            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20">
-              Lượt Luyện Tập
-            </span>
+        <div className="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-lg space-y-1">
+          <div className="flex items-center space-x-2 text-xs font-semibold text-emerald-400">
+            <CheckCircle2 className="w-4 h-4" />
+            <span>TỪ VỰNG THUỘC (SRS $\ge$ 3)</span>
           </div>
-          <div className="text-3xl font-black text-white">{summary.total_attempts}</div>
-          <p className="text-xs text-slate-400 font-medium">Tổng lượt câu hỏi & từ vựng đã làm</p>
+          <p className="text-2xl font-extrabold text-white">
+            {summary.learned_vocab} / {summary.total_vocab}
+          </p>
+          <span className="text-[11px] text-emerald-400 font-semibold block">
+            Còn {summary.unlearned_vocab || 0} từ chưa thuộc
+          </span>
         </div>
 
-        <div className="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/60 shadow-lg space-y-2">
-          <div className="flex items-center justify-between text-purple-400">
-            <Award className="w-5 h-5" />
-            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-purple-500/10 border border-purple-500/20">
-              Topic Albums
-            </span>
+        <div className="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-lg space-y-1">
+          <div className="flex items-center space-x-2 text-xs font-semibold text-amber-400">
+            <Target className="w-4 h-4" />
+            <span>CÂU HỎI ĐÃ LUYỆN</span>
           </div>
-          <div className="text-3xl font-black text-white">{topic_progress.length}</div>
-          <p className="text-xs text-slate-400 font-medium">Chủ đề từ vựng đã được AI phân loại</p>
+          <p className="text-2xl font-extrabold text-white">
+            {summary.total_attempts} <span className="text-sm font-normal text-slate-400">lượt</span>
+          </p>
+          <span className="text-[11px] text-amber-400 font-semibold block">
+            Chính xác {summary.overall_accuracy}%
+          </span>
         </div>
       </div>
 
-      {/* Part Breakdown & Grammar Accuracy */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        
-        {/* Progress by Part */}
-        <div className="bg-slate-800/60 rounded-3xl p-6 border border-slate-700/60 shadow-xl space-y-5">
-          <div className="flex items-center justify-between border-b border-slate-700/50 pb-3">
-            <h2 className="text-lg font-bold text-white flex items-center gap-2">
-              <Layers className="w-5 h-5 text-indigo-400" />
-              Tiến Độ Độ Chính Xác Theo Part
-            </h2>
-            <span className="text-xs text-slate-400">Tỷ lệ đúng %</span>
-          </div>
-
-          <div className="space-y-4">
-            {part_stats.map((part) => (
-              <div key={part.part_name} className="space-y-1.5">
-                <div className="flex justify-between text-xs font-semibold">
-                  <span className="text-slate-200">{part.part_name}</span>
-                  <span className="text-indigo-400 font-mono">{part.accuracy_rate}% ({part.total_attempts} lượt)</span>
-                </div>
-                <div className="w-full bg-slate-700/70 rounded-full h-3 overflow-hidden p-0.5">
-                  <div
-                    className="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full transition-all duration-500"
-                    style={{ width: `${Math.max(part.accuracy_rate, 5)}%` }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* Module 19: Speed Analytics Cards by Part */}
+      <div className="bg-slate-800/60 rounded-3xl p-6 border border-slate-700/60 shadow-xl space-y-4">
+        <div className="flex items-center space-x-2 text-white font-bold text-base">
+          <Zap className="w-5 h-5 text-amber-400" />
+          <h2>Tốc Độ Làm Bài Trung Bình So Với Mục Tiêu (Time Budgeting)</h2>
         </div>
 
-        {/* Grammar Topics Accuracy */}
-        <div className="bg-slate-800/60 rounded-3xl p-6 border border-slate-700/60 shadow-xl space-y-5">
-          <div className="flex items-center justify-between border-b border-slate-700/50 pb-3">
-            <h2 className="text-lg font-bold text-white flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-              Chủ Điểm Ngữ Pháp Yếu / Mạnh (Part 5/6)
-            </h2>
-            <span className="text-xs text-slate-400">Theo SQLite Attempts</span>
-          </div>
-
-          {grammar_stats.length === 0 ? (
-            <div className="py-8 text-center text-slate-500 text-sm">Chưa có lượt làm bài Part 5/6 nào.</div>
-          ) : (
-            <div className="space-y-3 max-h-64 overflow-y-auto pr-2">
-              {grammar_stats.map((item) => (
-                <div key={item.grammar_topic} className="flex items-center justify-between p-3 rounded-xl bg-slate-900/50 border border-slate-700/40 text-xs">
-                  <span className="font-semibold text-slate-200 capitalize">{item.grammar_topic}</span>
-                  <div className="flex items-center gap-3">
-                    <span className="text-slate-400">{item.total_attempts} câu</span>
-                    <span className={`px-2.5 py-0.5 rounded-full font-bold font-mono text-[11px] ${
-                      item.accuracy_rate >= 80 ? 'bg-emerald-500/10 text-emerald-300 border border-emerald-500/30' :
-                      item.accuracy_rate >= 50 ? 'bg-amber-500/10 text-amber-300 border border-amber-500/30' :
-                      'bg-red-500/10 text-red-300 border border-red-500/30'
-                    }`}>
-                      {item.accuracy_rate}%
-                    </span>
-                  </div>
-                </div>
-              ))}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {/* Part 5 Speed Card */}
+          <div className="p-4 bg-slate-900/80 border border-slate-700 rounded-2xl space-y-2">
+            <div className="flex items-center justify-between text-xs font-bold text-indigo-300">
+              <span>PART 5 — Câu ngắn</span>
+              <span>Mục tiêu: 20s/câu</span>
             </div>
-          )}
-        </div>
+            <div className="flex items-baseline space-x-2">
+              <span className="text-2xl font-extrabold text-white">
+                {summary.part5_avg_speed_sec || 0}s
+              </span>
+              <span className="text-xs text-slate-400">/ câu</span>
+            </div>
+            <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+              <div
+                className={`h-full transition-all ${
+                  (summary.part5_avg_speed_sec || 0) <= 20
+                    ? 'bg-emerald-400'
+                    : 'bg-amber-400'
+                }`}
+                style={{ width: `${Math.min(100, ((summary.part5_avg_speed_sec || 0) / 20) * 100)}%` }}
+              />
+            </div>
+          </div>
 
+          {/* Part 6 Speed Card */}
+          <div className="p-4 bg-slate-900/80 border border-slate-700 rounded-2xl space-y-2">
+            <div className="flex items-center justify-between text-xs font-bold text-purple-300">
+              <span>PART 6 — Đoạn văn</span>
+              <span>Mục tiêu: 37s/câu</span>
+            </div>
+            <div className="flex items-baseline space-x-2">
+              <span className="text-2xl font-extrabold text-white">
+                {summary.part6_avg_speed_sec || 0}s
+              </span>
+              <span className="text-xs text-slate-400">/ câu</span>
+            </div>
+            <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+              <div
+                className={`h-full transition-all ${
+                  (summary.part6_avg_speed_sec || 0) <= 37
+                    ? 'bg-emerald-400'
+                    : 'bg-amber-400'
+                }`}
+                style={{ width: `${Math.min(100, ((summary.part6_avg_speed_sec || 0) / 37) * 100)}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Part 7 Speed Card */}
+          <div className="p-4 bg-slate-900/80 border border-slate-700 rounded-2xl space-y-2">
+            <div className="flex items-center justify-between text-xs font-bold text-emerald-300">
+              <span>PART 7 — Đọc hiểu</span>
+              <span>Mục tiêu: 60s/câu</span>
+            </div>
+            <div className="flex items-baseline space-x-2">
+              <span className="text-2xl font-extrabold text-white">
+                {summary.part7_avg_speed_sec || 0}s
+              </span>
+              <span className="text-xs text-slate-400">/ câu</span>
+            </div>
+            <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+              <div
+                className={`h-full transition-all ${
+                  (summary.part7_avg_speed_sec || 0) <= 60
+                    ? 'bg-emerald-400'
+                    : 'bg-amber-400'
+                }`}
+                style={{ width: `${Math.min(100, ((summary.part7_avg_speed_sec || 0) / 60) * 100)}%` }}
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Progress by Topic Album */}
-      <div className="bg-slate-800/60 rounded-3xl p-6 border border-slate-700/60 shadow-xl space-y-5">
-        <div className="flex items-center justify-between border-b border-slate-700/50 pb-3">
-          <h2 className="text-lg font-bold text-white flex items-center gap-2">
-            <BookOpen className="w-5 h-5 text-purple-400" />
-            Tiến Độ Làm Chủ Theo Album Chủ Đề
-          </h2>
-          <span className="text-xs text-slate-400">Từ vựng srs_level $\ge$ 3</span>
+      {/* Accuracy Rate by Part */}
+      <div className="bg-slate-800/60 rounded-3xl p-6 border border-slate-700/60 shadow-xl space-y-4">
+        <div className="flex items-center space-x-2 text-white font-bold text-base">
+          <Target className="w-5 h-5 text-indigo-400" />
+          <h2>Tỉ Lệ Chính Xác Theo Từng Phần Thi (Part Accuracy)</h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {topic_progress.map((t) => (
-            <div key={t.topic_category} className="p-4 rounded-2xl bg-slate-900/50 border border-slate-700/50 space-y-2">
-              <div className="flex justify-between items-center text-xs font-bold text-slate-200">
-                <span className="capitalize text-indigo-300">{t.topic_category}</span>
-                <span className="font-mono text-emerald-400">{t.mastery_rate}%</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {part_stats.map((p, idx) => (
+            <div key={idx} className="p-4 bg-slate-900/80 border border-slate-700 rounded-2xl space-y-2">
+              <span className="text-xs font-bold text-slate-300 block">{p.part_name}</span>
+              <div className="flex items-baseline justify-between">
+                <span className="text-2xl font-extrabold text-emerald-400">{p.accuracy_rate}%</span>
+                <span className="text-xs text-slate-400 font-mono">{p.total_attempts} lượt</span>
               </div>
-              <p className="text-[11px] text-slate-400 font-medium">Đã thuộc {t.learned_words} / {t.total_words} từ</p>
-              <div className="w-full bg-slate-700/70 rounded-full h-2 overflow-hidden">
-                <div className="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full" style={{ width: `${t.mastery_rate}%` }} />
+              <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                <div
+                  className="bg-emerald-500 h-full transition-all duration-300"
+                  style={{ width: `${p.accuracy_rate}%` }}
+                />
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Daily Activity History */}
-      <div className="bg-slate-800/60 rounded-3xl p-6 border border-slate-700/60 shadow-xl space-y-5">
-        <div className="flex items-center justify-between border-b border-slate-700/50 pb-3">
-          <h2 className="text-lg font-bold text-white flex items-center gap-2">
-            <Flame className="w-5 h-5 text-amber-400" />
-            Lịch Sử Luyện Tập 14 Ngày Gần Nhất
-          </h2>
-          <span className="text-xs text-slate-400">Activity Log</span>
-        </div>
+      {/* Topic Albums & Grammar Progress */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Topic Albums */}
+        <div className="bg-slate-800/60 rounded-3xl p-6 border border-slate-700/60 shadow-xl space-y-4">
+          <div className="flex items-center space-x-2 text-white font-bold text-base">
+            <BookOpen className="w-5 h-5 text-purple-400" />
+            <h2>Tiến Độ Album Từ Vựng Theo Chủ Đề</h2>
+          </div>
 
-        {daily_history.length === 0 ? (
-          <div className="py-6 text-center text-slate-500 text-xs">Chưa có lượt ghi nhận học tập nào trong 14 ngày qua.</div>
-        ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3">
-            {daily_history.map((day) => (
-              <div key={day.date} className="p-3 rounded-xl bg-slate-900/60 border border-slate-700/50 text-center space-y-1">
-                <p className="text-[10px] text-slate-400 font-mono">{day.date}</p>
-                <p className="text-lg font-bold text-indigo-300">{day.attempts} câu</p>
+          <div className="space-y-3 max-h-80 overflow-y-auto pr-1">
+            {topic_progress.map((tp, idx) => (
+              <div key={idx} className="p-3 bg-slate-900/60 border border-slate-800 rounded-xl space-y-1.5">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-semibold text-slate-200 capitalize">{tp.topic_category}</span>
+                  <span className="font-mono text-purple-300 font-bold">{tp.learned_words}/{tp.total_words} từ ({tp.mastery_rate}%)</span>
+                </div>
+                <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                  <div className="bg-purple-500 h-full transition-all" style={{ width: `${tp.mastery_rate}%` }} />
+                </div>
               </div>
             ))}
           </div>
-        )}
+        </div>
+
+        {/* Grammar Topics */}
+        <div className="bg-slate-800/60 rounded-3xl p-6 border border-slate-700/60 shadow-xl space-y-4">
+          <div className="flex items-center space-x-2 text-white font-bold text-base">
+            <Layers className="w-5 h-5 text-amber-400" />
+            <h2>Tỉ Lệ Chính Xác Ngữ Pháp Part 5/6</h2>
+          </div>
+
+          <div className="space-y-3 max-h-80 overflow-y-auto pr-1">
+            {grammar_stats.map((g, idx) => (
+              <div key={idx} className="p-3 bg-slate-900/60 border border-slate-800 rounded-xl space-y-1.5">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-semibold text-slate-200">{g.grammar_topic}</span>
+                  <span className="font-mono text-amber-300 font-bold">{g.accuracy_rate}% ({g.total_attempts} lượt)</span>
+                </div>
+                <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                  <div className="bg-amber-400 h-full transition-all" style={{ width: `${g.accuracy_rate}%` }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
     </div>

@@ -86,3 +86,18 @@ class GrammarReferenceResponse(BaseModel):
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+
+class StudySessionCreate(BaseModel):
+    session_type: str  # practice / quiz / flashcard / reading
+    duration_seconds: int
+
+
+class StudySessionResponse(BaseModel):
+    id: int
+    session_type: str
+    duration_seconds: int
+    started_at: datetime
+    ended_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

@@ -84,8 +84,11 @@ class PracticeAttempt(Base):
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     vocabulary_id = Column(Integer, ForeignKey("vocabulary.id"), nullable=True)
     question_id = Column(Integer, ForeignKey("questions.id"), nullable=True)
-    attempt_type = Column(String, nullable=False)  # quiz / typing / flashcard
+    attempt_type = Column(String, nullable=False)  # quiz / typing / flashcard / question
     is_correct = Column(Boolean, nullable=False)
+    time_spent_seconds = Column(Integer, default=0)
+    part = Column(Integer, nullable=True)
+    session_id = Column(String, nullable=True)
     attempted_at = Column(DateTime, default=datetime.utcnow)
 
 
@@ -108,3 +111,13 @@ class GrammarReference(Base):
     key_rules_json = Column(Text, nullable=False)  # JSON array string of rules
     example_sentences_json = Column(Text, nullable=False)  # JSON array string of example sentences
     created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class StudySession(Base):
+    __tablename__ = "study_sessions"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    session_type = Column(String, nullable=False)  # practice / quiz / flashcard / reading
+    duration_seconds = Column(Integer, nullable=False)
+    started_at = Column(DateTime, default=datetime.utcnow)
+    ended_at = Column(DateTime, default=datetime.utcnow)
