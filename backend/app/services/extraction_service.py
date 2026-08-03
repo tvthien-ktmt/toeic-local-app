@@ -200,7 +200,14 @@ Mỗi phần tử gồm:
   "options": ["A. ...","B. ...","C. ...","D. ..."],
   "correct_answer": "A" | "B" | "C" | "D" | null,
   "grammar_topic": "tên chủ điểm ngữ pháp cụ thể (vd: subject-verb agreement, relative clause, verb tense, preposition, word form)",
-  "explanation": "giải thích ngắn gọn 1-2 câu vì sao đáp án đúng"
+  "explanation": "giải thích ngắn gọn vì sao đáp án đúng",
+  "option_explanations": {{
+    "A": "Giải thích vì sao lựa chọn A đúng hoặc sai cụ thể theo ngữ pháp/ngữ nghĩa",
+    "B": "Giải thích vì sao lựa chọn B đúng hoặc sai cụ thể",
+    "C": "Giải thích vì sao lựa chọn C đúng hoặc sai cụ thể",
+    "D": "Giải thích vì sao lựa chọn D đúng hoặc sai cụ thể"
+  }},
+  "translated_sentence": "Bản dịch tiếng Việt hoàn chỉnh và tự nhiên của câu khi đã điền đáp án đúng vào chỗ trống"
 }}
 CHỈ trả về JSON array, không thêm text nào khác.
 Nội dung:
@@ -217,6 +224,8 @@ Nội dung:
                             g_topic = q.get("grammar_topic") or "unclassified"
                             opts = q.get("options", [])
                             opts_str = json.dumps(opts, ensure_ascii=False) if isinstance(opts, list) else "[]"
+                            opt_exps = q.get("option_explanations", {})
+                            opt_exps_str = json.dumps(opt_exps, ensure_ascii=False) if isinstance(opt_exps, dict) else "{}"
 
                             new_q = Question(
                                 document_id=doc.id,
@@ -225,6 +234,8 @@ Nội dung:
                                 options_json=opts_str,
                                 correct_answer=q.get("correct_answer"),
                                 explanation=q.get("explanation"),
+                                option_explanations_json=opt_exps_str,
+                                translated_sentence=q.get("translated_sentence"),
                                 grammar_topic=g_topic,
                                 topic_tag="Part 5 Grammar",
                                 is_generated=False
@@ -247,7 +258,14 @@ Nhiệm vụ: trả về JSON object chứa TẤT CẢ các câu hỏi trong đo
       "question_text": "...",
       "options": ["A. ...","B. ...","C. ...","D. ..."],
       "correct_answer": "...",
-      "explanation": "..."
+      "explanation": "...",
+      "option_explanations": {{
+        "A": "Giải thích A đúng/sai",
+        "B": "Giải thích B đúng/sai",
+        "C": "Giải thích C đúng/sai",
+        "D": "Giải thích D đúng/sai"
+      }},
+      "translated_sentence": "Dịch tự nhiên tiếng Việt câu chứa chỗ trống hoặc câu hỏi"
     }}
   ]
 }}
@@ -270,6 +288,9 @@ Nội dung:
                         for q in q_list:
                             opts = q.get("options", [])
                             opts_str = json.dumps(opts, ensure_ascii=False) if isinstance(opts, list) else "[]"
+                            opt_exps = q.get("option_explanations", {})
+                            opt_exps_str = json.dumps(opt_exps, ensure_ascii=False) if isinstance(opt_exps, dict) else "{}"
+
                             new_q = Question(
                                 document_id=doc.id,
                                 part=part_num,
@@ -277,6 +298,8 @@ Nội dung:
                                 options_json=opts_str,
                                 correct_answer=q.get("correct_answer"),
                                 explanation=q.get("explanation"),
+                                option_explanations_json=opt_exps_str,
+                                translated_sentence=q.get("translated_sentence"),
                                 grammar_topic="reading comprehension",
                                 topic_tag=topic_tag,
                                 is_generated=False

@@ -12,6 +12,8 @@ import type { QuestionItem } from '../api/questions';
 import { fetchVocabulary } from '../api/vocabulary';
 import type { VocabularyItem } from '../api/vocabulary';
 import { speakText } from '../utils/tts';
+import { GrammarQuickRefModal } from '../components/GrammarQuickRefModal';
+import { TextHighlightPopup } from '../components/TextHighlightPopup';
 
 interface DocumentDetailPageProps {
   docId: number;
@@ -27,6 +29,9 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
   const [copied, setCopied] = useState(false);
   const [isExtracting, setIsExtracting] = useState(false);
   const [extractSuccess, setExtractSuccess] = useState<string | null>(null);
+
+  // Module 17: Selected Grammar Topic for Quick Ref Modal
+  const [activeGrammarTopic, setActiveGrammarTopic] = useState<string | null>(null);
 
   // Questions state
   const [questions, setQuestions] = useState<QuestionItem[]>([]);
@@ -125,8 +130,16 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
     : questions;
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 space-y-6">
-      
+    <div className="max-w-6xl mx-auto px-4 py-8 space-y-6 relative">
+      {/* Module 16: Highlight Text Instant Context Lookup Popup */}
+      <TextHighlightPopup documentId={docId} />
+
+      {/* Module 17: Grammar Quick Ref Modal */}
+      <GrammarQuickRefModal
+        topicName={activeGrammarTopic}
+        onClose={() => setActiveGrammarTopic(null)}
+      />
+
       {/* Top Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
         <button
@@ -337,76 +350,114 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
               </div>
             ) : (
               <div className="space-y-6">
-                {filteredQuestions.map((q) => (
-                  <div key={q.id} className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700/60 space-y-4 hover:border-slate-600 transition">
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-center gap-2">
-                        <span className="px-2.5 py-1 rounded-lg bg-indigo-500/20 text-indigo-300 font-mono text-xs font-bold border border-indigo-500/30">
-                          Part {q.part}
-                        </span>
-                        <span className="px-2.5 py-1 rounded-lg bg-slate-700/80 text-slate-300 text-xs font-medium border border-slate-600">
-                          {q.grammar_topic || 'unclassified'}
-                        </span>
-                        {q.topic_tag && (
-                          <span className="px-2.5 py-1 rounded-lg bg-purple-500/20 text-purple-300 text-xs font-medium border border-purple-500/30">
-                            {q.topic_tag}
+                {filteredQuestions.map((q) => {
+                  let optExps: Record<string, string> = {};
+                  if (q.option_explanations_json) {
+                    try { optExps = JSON.parse(q.option_explanations_json); } catch(e) {}
+                  }
+
+                  return (
+                    <div key={q.id} className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700/60 space-y-4 hover:border-slate-600 transition">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex items-center flex-wrap gap-2">
+                          <span className="px-2.5 py-1 rounded-lg bg-indigo-500/20 text-indigo-300 font-mono text-xs font-bold border border-indigo-500/30">
+                            Part {q.part}
                           </span>
-                        )}
-                      </div>
 
-                      <button
-                        onClick={() => toggleShowAnswer(q.id)}
-                        className="px-3 py-1.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-semibold transition"
-                      >
-                        {showAnswers[q.id] ? 'Ẩn đáp án & giải thích' : 'Hiện đáp án & giải thích'}
-                      </button>
-                    </div>
+                          {/* Module 17: Interactive Clickable Grammar Topic Badge */}
+                          <button
+                            onClick={() => setActiveGrammarTopic(q.grammar_topic || 'general grammar')}
+                            className="px-2.5 py-1 rounded-lg bg-amber-400/10 hover:bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-semibold flex items-center space-x-1 transition"
+                            title="Bấm để xem thẻ Ôn Nhanh Ngữ Pháp"
+                          >
+                            <BookOpen className="w-3.5 h-3.5" />
+                            <span>{q.grammar_topic || 'unclassified'}</span>
+                          </button>
 
-                    <h4 className="text-base font-bold text-white leading-relaxed">
-                      {q.question_text}
-                    </h4>
-
-                    {/* Options */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      {q.options.map((opt, oIdx) => (
-                        <div
-                          key={oIdx}
-                          className={`p-3 rounded-xl border text-xs font-medium transition ${
-                            showAnswers[q.id] && q.correct_answer && opt.startsWith(q.correct_answer)
-                              ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-200 font-bold'
-                              : 'bg-slate-900/60 border-slate-700/60 text-slate-300'
-                          }`}
-                        >
-                          {opt}
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Explanation box */}
-                    {showAnswers[q.id] && (
-                      <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-700 space-y-2 animate-fade-in text-xs">
-                        <div className="flex items-center gap-2">
-                          <span className="font-bold text-emerald-400">Đáp án đúng:</span>
-                          {q.correct_answer ? (
-                            <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">
-                              {q.correct_answer}
-                            </span>
-                          ) : (
-                            <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold flex items-center gap-1">
-                              <AlertTriangle className="w-3 h-3" /> Chưa xác định trong đề gốc (null)
+                          {q.topic_tag && (
+                            <span className="px-2.5 py-1 rounded-lg bg-purple-500/20 text-purple-300 text-xs font-medium border border-purple-500/30">
+                              {q.topic_tag}
                             </span>
                           )}
                         </div>
 
-                        {q.explanation && (
-                          <p className="text-slate-300 leading-relaxed pt-1">
-                            <span className="font-bold text-indigo-300">Giải thích:</span> {q.explanation}
-                          </p>
-                        )}
+                        <button
+                          onClick={() => toggleShowAnswer(q.id)}
+                          className="px-3 py-1.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-semibold transition"
+                        >
+                          {showAnswers[q.id] ? 'Ẩn đáp án & giải thích' : 'Hiện đáp án & giải thích'}
+                        </button>
                       </div>
-                    )}
-                  </div>
-                ))}
+
+                      <h4 className="text-base font-bold text-white leading-relaxed select-text">
+                        {q.question_text}
+                      </h4>
+
+                      {/* Options */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        {q.options.map((opt, oIdx) => (
+                          <div
+                            key={oIdx}
+                            className={`p-3 rounded-xl border text-xs font-medium transition ${
+                              showAnswers[q.id] && q.correct_answer && opt.startsWith(q.correct_answer)
+                                ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-200 font-bold'
+                                : 'bg-slate-900/60 border-slate-700/60 text-slate-300'
+                            }`}
+                          >
+                            {opt}
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Explanation box */}
+                      {showAnswers[q.id] && (
+                        <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-700 space-y-3 animate-fade-in text-xs">
+                          <div className="flex items-center gap-2">
+                            <span className="font-bold text-emerald-400">Đáp án đúng:</span>
+                            {q.correct_answer ? (
+                              <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">
+                                {q.correct_answer}
+                              </span>
+                            ) : (
+                              <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold flex items-center gap-1">
+                                <AlertTriangle className="w-3 h-3" /> Chưa xác định trong đề gốc (null)
+                              </span>
+                            )}
+                          </div>
+
+                          {/* Module 18: Option-specific explanations list */}
+                          {Object.keys(optExps).length > 0 && (
+                            <div className="space-y-1.5 pt-1">
+                              <span className="font-bold text-indigo-300 block">Giải thích riêng cho từng lựa chọn:</span>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                {Object.entries(optExps).map(([letter, expText]) => (
+                                  <div key={letter} className="p-2 bg-slate-950/60 border border-slate-800 rounded-lg">
+                                    <span className="font-bold text-amber-400 font-mono mr-1">({letter}):</span>
+                                    <span className="text-slate-300">{expText}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {q.explanation && (
+                            <p className="text-slate-300 leading-relaxed pt-1">
+                              <span className="font-bold text-amber-300">Giải thích chung:</span> {q.explanation}
+                            </p>
+                          )}
+
+                          {/* Module 18: Sentence translation */}
+                          {q.translated_sentence && (
+                            <div className="p-3 bg-slate-950/80 border border-slate-800 rounded-xl space-y-1">
+                              <span className="font-bold text-emerald-400 block">Bản dịch tiếng Việt hoàn chỉnh:</span>
+                              <p className="text-slate-200 italic">"{q.translated_sentence}"</p>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             )}
           </div>

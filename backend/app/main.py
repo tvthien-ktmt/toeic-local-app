@@ -9,7 +9,7 @@ if hasattr(sys.stderr, 'reconfigure'):
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .db import engine, Base
-from .routers import documents, questions, vocabulary, ai_generator, quiz, flashcards, dashboard
+from .routers import documents, questions, vocabulary, ai_generator, quiz, flashcards, dashboard, grammar
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -42,6 +42,7 @@ app.include_router(ai_generator.router)
 app.include_router(quiz.router)
 app.include_router(flashcards.router)
 app.include_router(dashboard.router)
+app.include_router(grammar.router)
 
 @app.get("/")
 def read_root():

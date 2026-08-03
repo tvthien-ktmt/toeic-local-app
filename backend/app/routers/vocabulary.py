@@ -4,6 +4,8 @@ from sqlalchemy.orm import Session
 from sqlalchemy import func
 from ..db import get_db
 from ..models import Vocabulary, Flashcard
+from ..schemas import VocabularyLookupRequest, RelatedVocabRequest
+from ..services.vocabulary_lookup_service import lookup_word_in_context, get_related_vocabulary_suggestions
 
 router = APIRouter(prefix="/api/vocabulary", tags=["vocabulary"])
 
@@ -135,3 +137,36 @@ def get_vocab_detail(vocab_id: int, db: Session = Depends(get_db)):
         "srs_level": flashcard.srs_level if flashcard else 0,
         "next_review_at": flashcard.next_review_at if flashcard else None
     }
+
+
+@router.post("/lookup")
+def lookup_vocabulary_word(req: VocabularyLookupRequest, db: Session = Depends(get_db)):
+    """
+    Module 16.1: Context lookup for highlighted text.
+    First checks DB (0 API tokens spent). If missing, queries Gemini API 1 time and saves to DB.
+    """
+    try:
+        data = lookup_word_in_context(db, req.word, req.context_sentence, req.document_id)
+        return data
+    except Exception as e:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Lỗi khi tra nghĩa từ vựng: {str(e)}"
+        )
+
+
+@router.post("/suggest-related")
+def suggest_related_vocabulary(req: RelatedVocabRequest, db: Session = Depends(get_db)):
+    """
+    Module 16.2: Suggests 3-5 related TOEIC business terms for a given word.
+    Uses Gemini general business knowledge (0 copyright violation of proprietary ETS lists).
+    Caches suggested terms in SQLite DB.
+    """
+    try:
+        data = get_related_vocabulary_suggestions(db, req.word, req.topic_category)
+        return data
+    except Exception as e:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Lỗi khi gợi ý từ vựng liên quan: {str(e)}"
+        )

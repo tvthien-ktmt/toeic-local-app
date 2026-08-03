@@ -79,8 +79,8 @@ def call_gemini_api(prompt: str, json_schema_required: bool = True) -> str:
                 print(f"[GEMINI_API SUCCESS] Received {len(part_text)} chars from API.")
                 return part_text
         except urllib.error.HTTPError as e:
-            if e.code == 429:
-                print(f"[GEMINI_API RATE LIMIT 429] Retry {attempt + 1}/{max_retries} after {backoff_seconds}s backoff...")
+            if e.code in [429, 503]:
+                print(f"[GEMINI_API BUSY/RATE LIMIT HTTP {e.code}] Retry {attempt + 1}/{max_retries} after {backoff_seconds}s backoff...")
                 time.sleep(backoff_seconds)
                 backoff_seconds *= 2
             else:

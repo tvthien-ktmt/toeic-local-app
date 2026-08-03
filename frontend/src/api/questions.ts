@@ -8,6 +8,8 @@ export interface QuestionItem {
   options: string[];
   correct_answer: string | null;
   explanation: string | null;
+  option_explanations_json?: string | null;
+  translated_sentence?: string | null;
   grammar_topic: string;
   topic_tag: string | null;
   is_generated: boolean;

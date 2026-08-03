@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { HelpCircle, CheckCircle2, XCircle, RefreshCw, Filter, Award, Sparkles } from 'lucide-react';
+import { HelpCircle, CheckCircle2, XCircle, RefreshCw, Filter, Award, Sparkles, BookOpen, Languages } from 'lucide-react';
 import { fetchQuestions, fetchTopicsSummary, generateSimilarQuestion } from '../api/questions';
 import type { QuestionItem } from '../api/questions';
+import { GrammarQuickRefModal } from '../components/GrammarQuickRefModal';
+import { TextHighlightPopup } from '../components/TextHighlightPopup';
 
 export const PracticePage: React.FC = () => {
   const [questions, setQuestions] = useState<QuestionItem[]>([]);
@@ -17,6 +19,9 @@ export const PracticePage: React.FC = () => {
   const [score, setScore] = useState<{ correct: number; total: number }>({ correct: 0, total: 0 });
   const [generatingId, setGeneratingId] = useState<number | null>(null);
 
+  // Module 17: Selected Grammar Topic for Quick Ref Modal
+  const [activeGrammarTopic, setActiveGrammarTopic] = useState<string | null>(null);
+
   const handleGenerateSimilar = async (origQuestionId: number) => {
     setGeneratingId(origQuestionId);
     try {
@@ -28,7 +33,6 @@ export const PracticePage: React.FC = () => {
       setGeneratingId(null);
     }
   };
-
 
   const loadData = async () => {
     setIsLoading(true);
@@ -76,19 +80,36 @@ export const PracticePage: React.FC = () => {
     return clean.charAt(0);
   };
 
+  const parseOptionExplanations = (jsonStr?: string | null): Record<string, string> => {
+    if (!jsonStr) return {};
+    try {
+      return JSON.parse(jsonStr);
+    } catch (e) {
+      return {};
+    }
+  };
+
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 space-y-8">
+    <div className="max-w-6xl mx-auto px-4 py-8 space-y-8 relative">
+      {/* Module 16: Highlight Text Instant Context Lookup Popup */}
+      <TextHighlightPopup />
+
+      {/* Module 17: Grammar Quick Ref Modal */}
+      <GrammarQuickRefModal
+        topicName={activeGrammarTopic}
+        onClose={() => setActiveGrammarTopic(null)}
+      />
       
       {/* Header Banner */}
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950/60 to-purple-950/40 p-8 border border-indigo-500/20 shadow-2xl">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div className="space-y-2">
             <span className="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs font-semibold">
-              Module 2 & Module 5 — Luyện Tập Trắc Nghiệm
+              Module 16, 17, 18 — Luyện Tập Thông Minh & Tra Cứu Tức Thì
             </span>
             <h1 className="text-3xl font-extrabold text-white">Luyện Tập Theo Chủ Đề TOEIC</h1>
             <p className="text-slate-300 text-sm max-w-xl">
-              Lọc bài tập theo chủ điểm ngữ pháp Part 5 hoặc chủ đề văn bản Part 6/7. Nhận phản hồi và giải thích chi tiết ngay khi chọn đáp án!
+              Bôi đen từ để tra nghĩa theo ngữ cảnh, bấm nút ngữ pháp để xem thẻ ôn nhanh, và nhận giải thích riêng từng lựa chọn kèm bản dịch câu!
             </p>
           </div>
 
@@ -180,19 +201,28 @@ export const PracticePage: React.FC = () => {
           {questions.map((q, idx) => {
             const userChoice = userAnswers[q.id];
             const isAnswered = !!userChoice;
+            const optionExplanations = parseOptionExplanations(q.option_explanations_json);
 
             return (
               <div key={q.id} className="bg-slate-800/60 rounded-3xl p-6 sm:p-8 border border-slate-700/60 space-y-5 shadow-xl">
                 
                 {/* Meta header */}
                 <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center flex-wrap gap-2">
                     <span className="px-3 py-1 rounded-xl bg-indigo-500/20 text-indigo-300 font-mono text-xs font-bold border border-indigo-500/30">
                       Câu {idx + 1} (Part {q.part})
                     </span>
-                    <span className="px-2.5 py-1 rounded-xl bg-slate-700 text-slate-300 text-xs font-medium">
-                      {q.grammar_topic}
-                    </span>
+
+                    {/* Module 17: Interactive Clickable Grammar Topic Badge */}
+                    <button
+                      onClick={() => setActiveGrammarTopic(q.grammar_topic)}
+                      className="px-2.5 py-1 rounded-xl bg-amber-400/10 hover:bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-semibold flex items-center space-x-1 transition-colors"
+                      title="Bấm để xem thẻ Ôn Nhanh Ngữ Pháp"
+                    >
+                      <BookOpen className="w-3.5 h-3.5" />
+                      <span>{q.grammar_topic}</span>
+                    </button>
+
                     {q.topic_tag && (
                       <span className="px-2.5 py-1 rounded-xl bg-purple-500/20 text-purple-300 text-xs font-medium border border-purple-500/30">
                         {q.topic_tag}
@@ -219,9 +249,8 @@ export const PracticePage: React.FC = () => {
                   </button>
                 </div>
 
-
                 {/* Question Text */}
-                <h3 className="text-base sm:text-lg font-bold text-white leading-relaxed">
+                <h3 className="text-base sm:text-lg font-bold text-white leading-relaxed select-text">
                   {q.question_text}
                 </h3>
 
@@ -259,9 +288,9 @@ export const PracticePage: React.FC = () => {
                   })}
                 </div>
 
-                {/* Explanation Card after answer */}
+                {/* Module 18: Explanation & Translation Card after answer */}
                 {isAnswered && (
-                  <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-700 space-y-2 text-xs sm:text-sm animate-fade-in">
+                  <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-700 space-y-3 text-xs sm:text-sm animate-fade-in">
                     <div className="flex items-center gap-2">
                       <span className="font-bold text-emerald-400">Đáp án chính xác:</span>
                       <span className="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">
@@ -269,10 +298,36 @@ export const PracticePage: React.FC = () => {
                       </span>
                     </div>
 
+                    {/* Module 18.3: Option-Specific Explanation for User's Choice */}
+                    {userChoice && optionExplanations[userChoice] && (
+                      <div className="p-3 bg-indigo-950/40 border border-indigo-500/30 rounded-xl space-y-1">
+                        <span className="font-bold text-indigo-300 block">
+                          Giải thích cho lựa chọn ({userChoice}) của bạn:
+                        </span>
+                        <p className="text-slate-200 leading-relaxed">
+                          {optionExplanations[userChoice]}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Overall Explanation */}
                     {q.explanation && (
-                      <p className="text-slate-300 leading-relaxed pt-1">
-                        <span className="font-bold text-indigo-300">Giải thích chi tiết:</span> {q.explanation}
+                      <p className="text-slate-300 leading-relaxed">
+                        <span className="font-bold text-amber-300">Giải thích chung:</span> {q.explanation}
                       </p>
+                    )}
+
+                    {/* Module 18.2: Natural Vietnamese Sentence Translation */}
+                    {q.translated_sentence && (
+                      <div className="p-3 bg-slate-950/80 border border-slate-800 rounded-xl space-y-1">
+                        <div className="flex items-center space-x-1.5 text-xs font-semibold text-emerald-400">
+                          <Languages className="w-4 h-4" />
+                          <span>Bản dịch tiếng Việt hoàn chỉnh:</span>
+                        </div>
+                        <p className="text-slate-200 italic leading-relaxed">
+                          "{q.translated_sentence}"
+                        </p>
+                      </div>
                     )}
                   </div>
                 )}

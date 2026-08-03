@@ -28,6 +28,8 @@ class Question(Base):
     options_json = Column(Text, nullable=False)  # JSON array string
     correct_answer = Column(String, nullable=True)
     explanation = Column(Text, nullable=True)
+    option_explanations_json = Column(Text, nullable=True)  # JSON object string: {"A": "...", "B": "...", "C": "...", "D": "..."}
+    translated_sentence = Column(Text, nullable=True)  # Full Vietnamese sentence translation with answer filled in
     grammar_topic = Column(String, index=True, nullable=True)
     topic_tag = Column(String, index=True, nullable=True)
     is_generated = Column(Boolean, default=False)
@@ -52,6 +54,8 @@ class Vocabulary(Base):
     synonyms = Column(Text, nullable=True)  # JSON array string or comma separated
     antonyms = Column(Text, nullable=True)  # JSON array string or comma separated
     frequency_count = Column(Integer, default=1)
+    source_type = Column(String, default="extracted")  # extracted / looked_up / suggested
+    parent_word = Column(String, nullable=True)  # Parent word if suggested by Module 16
 
     __table_args__ = (
         UniqueConstraint('word', 'source_document_id', name='_word_doc_uc'),
@@ -92,4 +96,15 @@ class AICache(Base):
     input_hash = Column(String, unique=True, index=True, nullable=False)
     prompt_type = Column(String, nullable=False)
     response_json = Column(Text, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class GrammarReference(Base):
+    __tablename__ = "grammar_reference"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    topic_name = Column(String, unique=True, index=True, nullable=False)
+    formula = Column(Text, nullable=False)
+    key_rules_json = Column(Text, nullable=False)  # JSON array string of rules
+    example_sentences_json = Column(Text, nullable=False)  # JSON array string of example sentences
     created_at = Column(DateTime, default=datetime.utcnow)
