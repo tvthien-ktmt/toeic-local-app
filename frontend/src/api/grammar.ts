@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export interface GrammarReference {
   id: number;
-  topic_name: str;
+  topic_name: string;
   formula: string;
   key_rules: string[];
   example_sentences: string[];

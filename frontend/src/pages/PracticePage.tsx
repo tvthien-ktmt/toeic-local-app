@@ -5,9 +5,14 @@ import type { QuestionItem } from '../api/questions';
 import { GrammarQuickRefModal } from '../components/GrammarQuickRefModal';
 import { TextHighlightPopup } from '../components/TextHighlightPopup';
 import { PracticeTimer } from '../components/PracticeTimer';
+import { AIStudyRecommendationCard } from '../components/AIStudyRecommendationCard';
+import { useStudySessionTracker } from '../hooks/useStudySessionTracker';
 import axios from 'axios';
 
 export const PracticePage: React.FC = () => {
+  // Track study session duration for all practice modes
+  useStudySessionTracker('practice');
+
   const [questions, setQuestions] = useState<QuestionItem[]>([]);
   const [grammarTopics, setGrammarTopics] = useState<{ topic: string; count: number }[]>([]);
   const [topicTags, setTopicTags] = useState<{ tag: string; count: number }[]>([]);
@@ -338,6 +343,14 @@ export const PracticePage: React.FC = () => {
               </span>
             </div>
           </div>
+
+          {/* AI Personalized Recommendation Card */}
+          <AIStudyRecommendationCard
+            scoreCorrect={score.correct}
+            scoreTotal={score.total}
+            weakGrammarTopics={Array.from(new Set(questions.filter(q => userAnswers[q.id] && q.correct_answer && userAnswers[q.id].toUpperCase() !== q.correct_answer.toUpperCase()).map(q => q.grammar_topic || 'general grammar')))}
+            weakParts={Array.from(new Set(questions.filter(q => userAnswers[q.id] && q.correct_answer && userAnswers[q.id].toUpperCase() !== q.correct_answer.toUpperCase()).map(q => q.part || 5)))}
+          />
         </div>
       )}
 

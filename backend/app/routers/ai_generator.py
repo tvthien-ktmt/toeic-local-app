@@ -1,6 +1,7 @@
 import json
 import difflib
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, List
+from pydantic import BaseModel
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from ..db import get_db
@@ -91,3 +92,59 @@ def generate_similar_question_endpoint(
         raise HTTPException(status_code=404, detail="Không tìm thấy câu hỏi gốc")
 
     return generate_similar_question_logic(orig_q, db)
+
+
+class StudyRecommendationRequest(BaseModel):
+    score_correct: int
+    score_total: int
+    weak_grammar_topics: List[str] = []
+    weak_parts: List[int] = []
+
+
+@router.post("/study-recommendations")
+def generate_study_recommendations(req: StudyRecommendationRequest, db: Session = Depends(get_db)):
+    """
+    Generates personalized AI study advice after exam completion based on user score & weak points.
+    Discloses overall evaluation, weak grammar topics to review, and recommended Flashcard categories.
+    """
+    prompt_type = "study_recommendations"
+    acc = round((req.score_correct / max(1, req.score_total)) * 100, 1)
+
+    weak_g_str = ", ".join(req.weak_grammar_topics) if req.weak_grammar_topics else "không có chủ điểm đặc biệt yếu"
+    weak_p_str = ", ".join([f"Part {p}" for p in req.weak_parts]) if req.weak_parts else "không có Part nào quá yếu"
+
+    prompt_text = f"""Bạn là cố vấn chiến lược luyện thi TOEIC đỉnh cao.
+Một học viên vừa hoàn thành bài thi với kết quả:
+- Điểm số: {req.score_correct}/{req.score_total} câu ({acc}% chính xác).
+- Các chủ điểm ngữ pháp làm sai nhiều nhất: {weak_g_str}.
+- Các Part làm chưa tốt: {weak_p_str}.
+
+Hãy đưa ra LỜI KHUYÊN CHIẾN LƯỢC ÔN LUYỆN DÀNH RIÊNG CHO HỌC VIÊN NÀY.
+Trả về JSON object duy nhất:
+{{
+  "overall_evaluation": "1-2 câu đánh giá tổng quan phong độ và ước tính khoảng điểm TOEIC hiện tại",
+  "target_action_plan": [
+    "Hành động cụ thể 1",
+    "Hành động cụ thể 2"
+  ],
+  "grammar_to_review": ["danh sách các chủ điểm ngữ pháp cụ thể cần ôn lại ngay trên thẻ Ôn Nhanh"],
+  "recommended_vocab_focus": ["chủ đề từ vựng thương mại cần ôn tập thêm trên Flashcard"]
+}}
+CHỈ trả JSON object."""
+
+    content_chunk = f"advice::{req.score_correct}::{req.score_total}::{weak_g_str}::{weak_p_str}"
+
+    try:
+        data = query_gemini_with_cache(db, prompt_type, prompt_text, content_chunk)
+    except Exception:
+        data = {
+            "overall_evaluation": f"Bạn đạt {req.score_correct}/{req.score_total} câu ({acc}%). Phong độ khá tốt nhưng còn một số điểm cần củng cố.",
+            "target_action_plan": [
+                f"Tập trung ôn lại các chủ điểm ngữ pháp: {weak_g_str}.",
+                "Dành thêm 15 phút mỗi ngày làm Flashcard từ vựng theo album chủ đề."
+            ],
+            "grammar_to_review": req.weak_grammar_topics or ["subject-verb agreement", "verb tense"],
+            "recommended_vocab_focus": ["văn phòng & công sở", "tài chính & ngân sách"]
+        }
+
+    return data

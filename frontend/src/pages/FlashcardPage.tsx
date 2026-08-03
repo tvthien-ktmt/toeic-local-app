@@ -6,8 +6,12 @@ import {
 import { fetchVocabulary, fetchTopicAlbums } from '../api/vocabulary';
 import type { VocabularyItem, TopicAlbum } from '../api/vocabulary';
 import { speakText } from '../utils/tts';
+import { useStudySessionTracker } from '../hooks/useStudySessionTracker';
 
 export const FlashcardPage: React.FC = () => {
+  // Track study session duration when practicing flashcards
+  useStudySessionTracker('flashcard');
+
   const [vocabList, setVocabList] = useState<VocabularyItem[]>([]);
   const [topicAlbums, setTopicAlbums] = useState<TopicAlbum[]>([]);
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
