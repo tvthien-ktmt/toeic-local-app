@@ -115,34 +115,78 @@ def fallback_extract_vocab(part_text: str) -> List[Dict[str, Any]]:
     return vocab_list
 
 def fallback_extract_part5(part_text: str) -> List[Dict[str, Any]]:
+    """
+    [MODE: MOCK_FALLBACK] Trích xuất câu hỏi Part 5 bằng regex khi KHÔNG có API key.
+    Chiến lược an toàn: tách câu hỏi theo số thứ tự (\n\d{3}\.) TRƯỚC,
+    rồi mới tìm marker (A)/(B)/(C)/(D) BÊN TRONG mỗi block riêng biệt.
+    Không bao giờ tìm xuyên block khác → tránh bug gộp câu.
+    """
+    print("[MODE: MOCK_FALLBACK] fallback_extract_part5 đang chạy — chỉ dùng khi không có API key.")
     questions = []
-    pattern = r'(\d{3})\.\s*(.*?)(?=\(A\)|A\.)(?:\(A\)|A\.)\s*(.*?)\s*(?:\(B\)|B\.)\s*(.*?)\s*(?:\(C\)|C\.)\s*(.*?)\s*(?:\(D\)|D\.)\s*(.*?)(?=\n\d{3}\.|\Z)'
-    matches = re.findall(pattern, part_text, re.DOTALL)
-    
-    if not matches:
-        blocks = re.split(r'\n(?=\d{3}\.)', part_text)
-        for b in blocks:
-            b = b.strip()
-            if not b or not re.match(r'^\d{3}\.', b):
-                continue
-            lines = [l.strip() for l in b.split('\n') if l.strip()]
-            q_text = lines[0]
-            opts = ["A. by", "B. on", "C. at", "D. for"]
-            questions.append({
-                "question_text": q_text,
-                "options": opts,
-                "correct_answer": "A",
-                "grammar_topic": "preposition",
-                "explanation": "Điền giới từ thích hợp."
-            })
-        return questions
 
-    for q_num, q_body, opt_a, opt_b, opt_c, opt_d in matches:
-        q_text = f"{q_num}. {q_body.strip()}"
-        opts = [f"A. {opt_a.strip()}", f"B. {opt_b.strip()}", f"C. {opt_c.strip()}", f"D. {opt_d.strip()}"]
-        
+    # Bước 1: Tách text thành các block theo số thứ tự câu hỏi (101., 102., ...)
+    blocks = re.split(r'\n(?=\d{3}\.)', part_text)
+
+    for block in blocks:
+        block = block.strip()
+        if not block:
+            continue
+
+        # Kiểm tra block bắt đầu bằng số câu hỏi 3 chữ số
+        q_num_match = re.match(r'^(\d{3})\.\s*', block)
+        if not q_num_match:
+            continue
+
+        q_num = q_num_match.group(1)
+        block_body = block[q_num_match.end():]  # Phần sau số câu hỏi
+
+        # Bước 2: Tìm marker (B), (C), (D) trong block này
+        # Dùng (B) làm mốc chính vì (A) hay bị OCR mất
+        opt_b_match = re.search(r'\(B\)|\bB\.\s', block_body)
+        opt_c_match = re.search(r'\(C\)|\bC\.\s', block_body)
+        opt_d_match = re.search(r'\(D\)|\bD\.\s', block_body)
+
+        if opt_b_match and opt_c_match and opt_d_match:
+            # Tìm (A) — nếu không có, coi phần giữa câu hỏi và (B) là đáp án A
+            opt_a_match = re.search(r'\(A\)|\bA\.\s', block_body)
+
+            if opt_a_match and opt_a_match.start() < opt_b_match.start():
+                q_text_raw = block_body[:opt_a_match.start()].strip()
+                opt_a_text = block_body[opt_a_match.end():opt_b_match.start()].strip()
+            else:
+                # (A) bị mất — tìm ranh giới bằng cách lấy từ cuối cùng trước (B)
+                pre_b = block_body[:opt_b_match.start()].strip()
+                # Tách câu hỏi và đáp án A: dòng cuối cùng trước (B) là đáp án A
+                pre_b_lines = [l.strip() for l in pre_b.split('\n') if l.strip()]
+                if len(pre_b_lines) >= 2:
+                    q_text_raw = ' '.join(pre_b_lines[:-1])
+                    opt_a_text = pre_b_lines[-1]
+                else:
+                    q_text_raw = pre_b
+                    opt_a_text = "(không rõ)"
+
+            opt_b_text = block_body[opt_b_match.end():opt_c_match.start()].strip()
+            opt_c_text = block_body[opt_c_match.end():opt_d_match.start()].strip()
+            opt_d_text = block_body[opt_d_match.end():].strip()
+            # Loại bỏ dấu xuống dòng thừa trong đáp án
+            opt_d_text = opt_d_text.split('\n')[0].strip()
+
+            opts = [
+                f"A. {opt_a_text}",
+                f"B. {opt_b_text}",
+                f"C. {opt_c_text}",
+                f"D. {opt_d_text}"
+            ]
+        else:
+            # Không tìm đủ marker B/C/D → lấy toàn bộ block làm câu hỏi, đáp án placeholder
+            q_text_raw = block_body.split('\n')[0].strip() if block_body else block
+            opts = ["A. (không rõ)", "B. (không rõ)", "C. (không rõ)", "D. (không rõ)"]
+
+        q_text = f"{q_num}. {q_text_raw}"
+
+        # Nhận dạng chủ đề ngữ pháp cơ bản
         topic = "word form"
-        q_lower = q_body.lower()
+        q_lower = q_text_raw.lower()
         if any(w in q_lower for w in ["by", "on", "at", "for", "in", "to", "during", "since", "until"]):
             topic = "preposition"
         elif any(w in q_lower for w in ["because", "although", "while", "after", "before"]):
@@ -151,10 +195,11 @@ def fallback_extract_part5(part_text: str) -> List[Dict[str, Any]]:
         questions.append({
             "question_text": q_text,
             "options": opts,
-            "correct_answer": "A",
+            "correct_answer": None,
             "grammar_topic": topic,
-            "explanation": f"Giải thích ngữ pháp chi tiết cho câu #{q_num} về chủ điểm {topic}."
+            "explanation": f"[MOCK] Câu #{q_num} — cần Gemini AI để giải thích chính xác."
         })
+
     return questions
 
 
@@ -245,27 +290,9 @@ Nội dung:
                             extracted_questions_count += 1
 
                     except Exception as e:
-                        safe_print(f"Lỗi extract Part 5 câu hỏi từ Gemini API ({e}). Đang dùng fallback trích xuất...")
-                        fallback_qs = fallback_extract_part5(sub_text)
-                        for q in fallback_qs:
-                            opts = q.get("options", [])
-                            opts_str = json.dumps(opts, ensure_ascii=False) if isinstance(opts, list) else "[]"
-                            new_q = Question(
-                                document_id=doc.id,
-                                part=5,
-                                question_text=q.get("question_text", "Part 5 Question"),
-                                options_json=opts_str,
-                                correct_answer=q.get("correct_answer", "A"),
-                                explanation=q.get("explanation", "Giải thích ngữ pháp."),
-                                option_explanations_json="{}",
-                                translated_sentence=q.get("question_text", ""),
-                                grammar_topic=q.get("grammar_topic", "preposition"),
-                                topic_tag="Part 5 Grammar",
-                                is_generated=False
-                            )
-                            db.add(new_q)
-                            db.commit()
-                            extracted_questions_count += 1
+                        safe_print(f"[EXTRACTION_FAILED] Part 5 subchunk {sub_idx + 1}/{len(text_subchunks)}: Gemini API lỗi ({e}). Chunk này sẽ KHÔNG được thay thế bằng regex rác — đánh dấu extraction_failed.")
+                        # KHÔNG dùng fallback regex khi có API key — đánh dấu lỗi rõ ràng
+                        # để người dùng biết cần retry khi hết rate limit
 
                 elif part_num in [6, 7]:
                     prompt_type = f"extract_question_part{part_num}"
@@ -295,15 +322,10 @@ Nội dung:
 {sub_text}"""
 
                     try:
-                        raw_data = None
                         if api_key:
-                            try:
-                                raw_data = query_gemini_with_cache(db, prompt_type, prompt_text, sub_text)
-                            except Exception as api_err:
-                                safe_print(f"Lỗi Gemini API Part {part_num} ({api_err}). Đang dùng fallback...")
-                                raw_data = None
-                        
-                        if not raw_data:
+                            raw_data = query_gemini_with_cache(db, prompt_type, prompt_text, sub_text)
+                        else:
+                            print(f"[MODE: MOCK_FALLBACK] Part {part_num} — không có API key, dùng fallback regex.")
                             raw_data = {
                                 "passage_type": "email",
                                 "passage_topic_tag": f"Part {part_num} Business Topic",
@@ -352,7 +374,7 @@ Nội dung:
                                 db.commit()
                                 extracted_questions_count += 1
                     except Exception as e:
-                        safe_print(f"Lỗi extract Part {part_num} câu hỏi: {e}")
+                        safe_print(f"[EXTRACTION_FAILED] Part {part_num} subchunk {sub_idx + 1}/{len(text_subchunks)}: Gemini API lỗi ({e}). Chunk này sẽ KHÔNG được thay thế bằng regex rác.")
 
             # 2. EXTRACT VOCABULARY
             vocab_prompt_type = f"extract_vocab_part{part_num}"
@@ -375,15 +397,14 @@ Nội dung:
 {sub_text}"""
 
             try:
-                vocab_data = None
                 if api_key:
                     try:
                         vocab_data = query_gemini_with_cache(db, vocab_prompt_type, vocab_prompt_text, sub_text)
                     except Exception as api_v_err:
-                        safe_print(f"Lỗi Gemini API Vocab ({api_v_err}). Đang dùng fallback...")
-                        vocab_data = None
-                
-                if not vocab_data:
+                        safe_print(f"[EXTRACTION_FAILED] Vocab Part {part_num} subchunk {sub_idx + 1}: Gemini API lỗi ({api_v_err}). Bỏ qua vocab chunk này.")
+                        continue  # Bỏ qua vocab chunk này, KHÔNG dùng fallback
+                else:
+                    print(f"[MODE: MOCK_FALLBACK] Vocab Part {part_num} — không có API key, dùng fallback.")
                     vocab_data = fallback_extract_vocab(sub_text)
 
                 v_list = vocab_data if isinstance(vocab_data, list) else vocab_data.get("vocabulary", [])
