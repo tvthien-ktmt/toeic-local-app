@@ -48,9 +48,9 @@ export const AIStudyRecommendationCard: React.FC<AIStudyRecommendationCardProps>
 
   if (loading) {
     return (
-      <div className="p-6 rounded-3xl bg-slate-900 border border-amber-500/30 space-y-3 text-center">
-        <Loader2 className="w-8 h-8 animate-spin mx-auto text-amber-400" />
-        <p className="text-slate-300 font-medium text-sm">
+      <div className="p-6 rounded-3xl bg-theme-surface border border-theme space-y-3 text-center">
+        <Loader2 className="w-8 h-8 animate-spin mx-auto text-theme-accent" />
+        <p className="text-theme-secondary font-medium text-sm">
           Gemini AI đang phân tích điểm yếu và tổng hợp lời khuyên ôn luyện dành riêng cho bạn...
         </p>
       </div>
@@ -60,7 +60,7 @@ export const AIStudyRecommendationCard: React.FC<AIStudyRecommendationCardProps>
   if (!data) return null;
 
   return (
-    <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950/80 to-purple-950/60 border border-amber-500/40 shadow-2xl space-y-6 animate-in fade-in duration-300">
+    <div className="p-6 sm:p-8 rounded-3xl bg-theme-surface border border-theme shadow-2xl space-y-6 animate-in fade-in duration-300">
       {/* Module 17 Modal */}
       <GrammarQuickRefModal
         topicName={selectedGrammarTopic}
@@ -68,31 +68,31 @@ export const AIStudyRecommendationCard: React.FC<AIStudyRecommendationCardProps>
       />
 
       {/* Header */}
-      <div className="flex items-center space-x-2 text-amber-400 font-extrabold text-lg sm:text-xl">
+      <div className="flex items-center space-x-2 text-theme-accent font-extrabold text-lg sm:text-xl">
         <Sparkles className="w-6 h-6" />
         <h2>LỜI KHUYÊN CHIẾN LƯỢC TỪ CỐ VẤN AI (PERSONALIZED STUDY PLAN)</h2>
       </div>
 
       {/* Overall Evaluation */}
-      <div className="p-4 bg-slate-950/70 border border-amber-500/20 rounded-2xl space-y-1">
-        <div className="flex items-center space-x-2 text-xs font-bold text-amber-300 uppercase tracking-wider">
-          <Award className="w-4 h-4 text-amber-400" />
+      <div className="p-4 bg-theme-surface-2 border border-theme rounded-2xl space-y-1">
+        <div className="flex items-center space-x-2 text-xs font-bold text-theme-accent uppercase tracking-wider">
+          <Award className="w-4 h-4" />
           <span>Đánh giá phong độ & Khoảng điểm ước tính</span>
         </div>
-        <p className="text-slate-200 text-sm font-medium leading-relaxed">
+        <p className="text-theme-primary text-sm font-medium leading-relaxed">
           {data.overall_evaluation}
         </p>
       </div>
 
       {/* Target Action Plan */}
       <div className="space-y-2">
-        <div className="flex items-center space-x-2 text-xs font-bold text-indigo-300 uppercase tracking-wider">
+        <div className="flex items-center space-x-2 text-xs font-bold text-theme-accent uppercase tracking-wider">
           <Target className="w-4 h-4" />
           <span>Kế hoạch hành động cụ thể</span>
         </div>
         <ul className="space-y-2">
           {data.target_action_plan.map((action, idx) => (
-            <li key={idx} className="flex items-start space-x-2 text-sm text-slate-300 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+            <li key={idx} className="flex items-start space-x-2 text-sm text-theme-primary bg-theme-surface-2 p-3 rounded-xl border border-theme">
               <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
               <span>{action}</span>
             </li>
@@ -103,7 +103,7 @@ export const AIStudyRecommendationCard: React.FC<AIStudyRecommendationCardProps>
       {/* Recommended Grammar Topics to Review (Clickable Module 17 Badges) */}
       {data.grammar_to_review && data.grammar_to_review.length > 0 && (
         <div className="space-y-2">
-          <div className="flex items-center space-x-2 text-xs font-bold text-amber-400 uppercase tracking-wider">
+          <div className="flex items-center space-x-2 text-xs font-bold text-theme-accent uppercase tracking-wider">
             <BookOpen className="w-4 h-4" />
             <span>Chủ điểm ngữ pháp cần ôn lại khẩn cấp (Bấm để mở Thẻ Ôn Nhanh)</span>
           </div>
@@ -112,7 +112,7 @@ export const AIStudyRecommendationCard: React.FC<AIStudyRecommendationCardProps>
               <button
                 key={idx}
                 onClick={() => setSelectedGrammarTopic(gTopic)}
-                className="px-3 py-1.5 rounded-xl bg-amber-400/10 hover:bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-bold transition flex items-center space-x-1.5"
+                className="px-3 py-1.5 rounded-xl bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-bold transition flex items-center space-x-1.5"
               >
                 <BookOpen className="w-3.5 h-3.5" />
                 <span>{gTopic}</span>
@@ -125,7 +125,7 @@ export const AIStudyRecommendationCard: React.FC<AIStudyRecommendationCardProps>
       {/* Recommended Vocab Albums */}
       {data.recommended_vocab_focus && data.recommended_vocab_focus.length > 0 && (
         <div className="space-y-2">
-          <div className="flex items-center space-x-2 text-xs font-bold text-purple-300 uppercase tracking-wider">
+          <div className="flex items-center space-x-2 text-xs font-bold text-theme-secondary uppercase tracking-wider">
             <Layers className="w-4 h-4" />
             <span>Album từ vựng thương mại khuyến nghị làm Flashcard</span>
           </div>
@@ -133,7 +133,7 @@ export const AIStudyRecommendationCard: React.FC<AIStudyRecommendationCardProps>
             {data.recommended_vocab_focus.map((vCat, idx) => (
               <span
                 key={idx}
-                className="px-3 py-1.5 rounded-xl bg-purple-500/20 text-purple-300 border border-purple-500/30 text-xs font-semibold capitalize"
+                className="px-3 py-1.5 rounded-xl bg-theme-surface-2 text-theme-primary border border-theme text-xs font-semibold capitalize"
               >
                 {vCat}
               </span>

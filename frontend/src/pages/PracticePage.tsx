@@ -167,27 +167,27 @@ export const PracticePage: React.FC = () => {
       />
       
       {/* Header Banner & Mode Switcher */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950/60 to-purple-950/40 p-8 border border-indigo-500/20 shadow-2xl">
+      <div className="relative overflow-hidden rounded-3xl bg-theme-surface p-8 border border-theme shadow-2xl">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div className="space-y-3">
             <div className="flex items-center space-x-2">
-              <span className="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs font-semibold">
+              <span className="px-3 py-1 rounded-full bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-semibold">
                 Module 19 — Time Budgeting & Full Mock Test 75 Phút
               </span>
             </div>
-            <h1 className="text-3xl font-extrabold text-white">Luyện Tập & Thi Thử TOEIC</h1>
-            <p className="text-slate-300 text-sm max-w-xl">
+            <h1 className="text-3xl font-extrabold text-theme-primary">Luyện Tập & Thi Thử TOEIC</h1>
+            <p className="text-theme-secondary text-sm max-w-xl">
               Tự luyện tập theo Part hoặc chọn chế độ Thi Thử Đầy Đủ 75 Phút với đồng hồ đếm ngược áp lực thi thật!
             </p>
 
             {/* Mode Switcher */}
-            <div className="inline-flex p-1 bg-slate-950/80 rounded-2xl border border-slate-800 space-x-1 pt-1">
+            <div className="inline-flex p-1 bg-theme-surface-2 rounded-2xl border border-theme space-x-1 pt-1">
               <button
                 onClick={() => setPracticeMode('part_practice')}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 ${
                   practiceMode === 'part_practice'
-                    ? 'bg-indigo-600 text-white shadow-lg'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-theme-accent text-white shadow-lg'
+                    : 'text-theme-secondary hover:text-theme-primary'
                 }`}
               >
                 <BookOpen className="w-4 h-4" />
@@ -199,7 +199,7 @@ export const PracticePage: React.FC = () => {
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 ${
                   practiceMode === 'full_mock'
                     ? 'bg-amber-500 text-slate-950 font-extrabold shadow-lg'
-                    : 'text-slate-400 hover:text-slate-200'
+                    : 'text-theme-secondary hover:text-theme-primary'
                 }`}
               >
                 <Clock className="w-4 h-4" />
@@ -209,7 +209,7 @@ export const PracticePage: React.FC = () => {
           </div>
 
           {/* Right Timer or Score Display */}
-          <div className="bg-slate-800/80 rounded-2xl p-4 border border-slate-700/80 text-center shrink-0 min-w-[180px] shadow-lg space-y-2">
+          <div className="bg-theme-surface-2 rounded-2xl p-4 border border-theme text-center shrink-0 min-w-[180px] shadow-lg space-y-2">
             {practiceMode === 'full_mock' ? (
               <>
                 <span className="text-xs text-amber-400 font-bold block uppercase tracking-wider">Đồng hồ Thi Thử</span>
@@ -228,8 +228,8 @@ export const PracticePage: React.FC = () => {
             ) : (
               <>
                 <Award className="w-6 h-6 mx-auto text-amber-400 mb-1" />
-                <span className="text-xs text-slate-400 block font-medium">Điểm số luyện tập</span>
-                <span className="text-2xl font-extrabold text-white">
+                <span className="text-xs text-theme-secondary block font-medium">Điểm số luyện tập</span>
+                <span className="text-2xl font-extrabold text-theme-primary">
                   {score.correct} / {score.total}
                 </span>
                 {score.total > 0 && (
@@ -245,25 +245,25 @@ export const PracticePage: React.FC = () => {
 
       {/* Part Practice Filters */}
       {practiceMode === 'part_practice' && (
-        <div className="bg-slate-800/60 rounded-3xl p-6 border border-slate-700/60 shadow-xl space-y-4">
+        <div className="bg-theme-surface rounded-3xl p-6 border border-theme shadow-xl space-y-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-white font-bold text-sm">
-              <Filter className="w-4 h-4 text-indigo-400" />
+            <div className="flex items-center gap-2 text-theme-primary font-bold text-sm">
+              <Filter className="w-4 h-4 text-theme-accent" />
               <span>Bộ Lọc Bài Luyện</span>
             </div>
             {/* Target Speed Recommendation Disclaimer */}
-            <div className="text-xs text-slate-400 hidden sm:block">
+            <div className="text-xs text-theme-secondary hidden sm:block">
               ⏱️ Mục tiêu tốc độ: Part 5 (20s/câu) • Part 6 (37s/câu) • Part 7 (60s/câu)
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label className="text-xs text-slate-400 font-semibold mb-1.5 block">Phần thi (Part)</label>
+              <label className="text-xs text-theme-secondary font-semibold mb-1.5 block">Phần thi (Part)</label>
               <select
                 value={selectedPart || ''}
                 onChange={(e) => setSelectedPart(e.target.value ? Number(e.target.value) : undefined)}
-                className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs font-medium text-slate-200 focus:border-indigo-500 focus:outline-none"
+                className="w-full bg-theme-surface-2 border border-theme rounded-xl px-3 py-2 text-xs font-medium text-theme-primary focus:border-theme-accent focus:outline-none"
               >
                 <option value="">Tất cả các Part (5, 6, 7)</option>
                 <option value="5">Part 5 — Điền câu ngắn (Mục tiêu 10-11 phút)</option>
@@ -273,11 +273,11 @@ export const PracticePage: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-xs text-slate-400 font-semibold mb-1.5 block">Chủ điểm ngữ pháp (Part 5)</label>
+              <label className="text-xs text-theme-secondary font-semibold mb-1.5 block">Chủ điểm ngữ pháp (Part 5)</label>
               <select
                 value={selectedGrammar}
                 onChange={(e) => setSelectedGrammar(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs font-medium text-slate-200 focus:border-indigo-500 focus:outline-none"
+                className="w-full bg-theme-surface-2 border border-theme rounded-xl px-3 py-2 text-xs font-medium text-theme-primary focus:border-theme-accent focus:outline-none"
               >
                 <option value="">Tất cả chủ điểm ngữ pháp</option>
                 {grammarTopics.map((g, idx) => (
@@ -287,11 +287,11 @@ export const PracticePage: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-xs text-slate-400 font-semibold mb-1.5 block">Chủ đề văn bản (Part 6/7)</label>
+              <label className="text-xs text-theme-secondary font-semibold mb-1.5 block">Chủ đề văn bản (Part 6/7)</label>
               <select
                 value={selectedTopicTag}
                 onChange={(e) => setSelectedTopicTag(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs font-medium text-slate-200 focus:border-indigo-500 focus:outline-none"
+                className="w-full bg-theme-surface-2 border border-theme rounded-xl px-3 py-2 text-xs font-medium text-theme-primary focus:border-theme-accent focus:outline-none"
               >
                 <option value="">Tất cả chủ đề văn bản</option>
                 {topicTags.map((t, idx) => (
@@ -305,38 +305,38 @@ export const PracticePage: React.FC = () => {
 
       {/* Full Mock Test Report Banner after submission */}
       {practiceMode === 'full_mock' && isMockSubmitted && (
-        <div className="bg-slate-900 border border-amber-500/30 rounded-3xl p-6 sm:p-8 space-y-4 shadow-2xl animate-in fade-in">
+        <div className="bg-theme-surface border border-amber-500/30 rounded-3xl p-6 sm:p-8 space-y-4 shadow-2xl animate-in fade-in">
           <div className="flex items-center space-x-2 text-amber-400 font-bold text-lg">
             <Award className="w-6 h-6" />
             <h2>BÁO CÁO KẾT QUẢ THI THỬ THỜI GIAN THẬT (FULL MOCK TEST)</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 pt-2">
-            <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl text-center">
-              <span className="text-xs text-slate-400 block font-medium">Tổng điểm thi thử</span>
+            <div className="p-4 bg-theme-surface-2 border border-theme rounded-2xl text-center">
+              <span className="text-xs text-theme-secondary block font-medium">Tổng điểm thi thử</span>
               <span className="text-3xl font-extrabold text-amber-400">{score.correct} / {score.total}</span>
               <span className="text-xs font-bold text-emerald-400 block mt-1">
                 ({score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0}% Đúng)
               </span>
             </div>
 
-            <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl text-center">
-              <span className="text-xs text-slate-400 block font-medium">Part 5 (Mục tiêu 10m)</span>
-              <span className="text-lg font-bold text-slate-200">
+            <div className="p-4 bg-theme-surface-2 border border-theme rounded-2xl text-center">
+              <span className="text-xs text-theme-secondary block font-medium">Part 5 (Mục tiêu 10m)</span>
+              <span className="text-lg font-bold text-theme-primary">
                 {questions.filter(q => q.part === 5 && userAnswers[q.id] && q.correct_answer && userAnswers[q.id].toUpperCase() === q.correct_answer.toUpperCase()).length} / {questions.filter(q => q.part === 5).length} câu
               </span>
             </div>
 
-            <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl text-center">
-              <span className="text-xs text-slate-400 block font-medium">Part 6 (Mục tiêu 10m)</span>
-              <span className="text-lg font-bold text-slate-200">
+            <div className="p-4 bg-theme-surface-2 border border-theme rounded-2xl text-center">
+              <span className="text-xs text-theme-secondary block font-medium">Part 6 (Mục tiêu 10m)</span>
+              <span className="text-lg font-bold text-theme-primary">
                 {questions.filter(q => q.part === 6 && userAnswers[q.id] && q.correct_answer && userAnswers[q.id].toUpperCase() === q.correct_answer.toUpperCase()).length} / {questions.filter(q => q.part === 6).length} câu
               </span>
             </div>
 
-            <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl text-center">
-              <span className="text-xs text-slate-400 block font-medium">Part 7 (Mục tiêu 54m)</span>
-              <span className="text-lg font-bold text-slate-200">
+            <div className="p-4 bg-theme-surface-2 border border-theme rounded-2xl text-center">
+              <span className="text-xs text-theme-secondary block font-medium">Part 7 (Mục tiêu 54m)</span>
+              <span className="text-lg font-bold text-theme-primary">
                 {questions.filter(q => q.part === 7 && userAnswers[q.id] && q.correct_answer && userAnswers[q.id].toUpperCase() === q.correct_answer.toUpperCase()).length} / {questions.filter(q => q.part === 7).length} câu
               </span>
             </div>
@@ -354,15 +354,15 @@ export const PracticePage: React.FC = () => {
 
       {/* Question List / Quiz Engine */}
       {isLoading ? (
-        <div className="py-20 text-center space-y-2 text-slate-400">
-          <RefreshCw className="w-8 h-8 animate-spin mx-auto text-indigo-400" />
+        <div className="py-20 text-center space-y-2 text-theme-secondary">
+          <RefreshCw className="w-8 h-8 animate-spin mx-auto text-theme-accent" />
           <p className="text-sm font-medium">Đang tải câu hỏi luyện tập...</p>
         </div>
       ) : questions.length === 0 ? (
-        <div className="p-16 text-center rounded-3xl bg-slate-800/30 border border-dashed border-slate-700/60 space-y-3">
-          <HelpCircle className="w-12 h-12 mx-auto text-slate-600" />
-          <p className="text-slate-300 font-medium text-base">Chưa có câu hỏi nào khớp bộ lọc này</p>
-          <p className="text-xs text-slate-500">Hãy upload tài liệu đề thi PDF ở trang "Tài liệu & Upload" và nhấn "Trích xuất AI"!</p>
+        <div className="p-16 text-center rounded-3xl bg-theme-surface border border-dashed border-theme space-y-3">
+          <HelpCircle className="w-12 h-12 mx-auto text-theme-secondary" />
+          <p className="text-theme-primary font-medium text-base">Chưa có câu hỏi nào khớp bộ lọc này</p>
+          <p className="text-xs text-theme-secondary">Hãy upload tài liệu đề thi PDF ở trang "Tài liệu & Upload" và nhấn "Trích xuất AI"!</p>
         </div>
       ) : (
         <div className="space-y-6">
@@ -375,12 +375,12 @@ export const PracticePage: React.FC = () => {
             const showFeedback = practiceMode === 'part_practice' ? isAnswered : (practiceMode === 'full_mock' && isMockSubmitted);
 
             return (
-              <div key={q.id} className="bg-slate-800/60 rounded-3xl p-6 sm:p-8 border border-slate-700/60 space-y-5 shadow-xl">
+              <div key={q.id} className="bg-theme-surface rounded-3xl p-6 sm:p-8 border border-theme space-y-5 shadow-xl">
                 
                 {/* Meta header */}
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center flex-wrap gap-2">
-                    <span className="px-3 py-1 rounded-xl bg-indigo-500/20 text-indigo-300 font-mono text-xs font-bold border border-indigo-500/30">
+                    <span className="px-3 py-1 rounded-xl bg-theme-accent/20 text-theme-accent font-mono text-xs font-bold border border-theme-accent/30">
                       Câu {idx + 1} (Part {q.part})
                     </span>
 
@@ -405,7 +405,7 @@ export const PracticePage: React.FC = () => {
                     <button
                       onClick={() => handleGenerateSimilar(q.id)}
                       disabled={generatingId === q.id}
-                      className="px-3 py-1.5 rounded-xl bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-300 border border-indigo-500/40 text-xs font-semibold transition flex items-center gap-1.5"
+                      className="px-3 py-1.5 rounded-xl bg-theme-accent/20 hover:bg-theme-accent/30 text-theme-accent border border-theme-accent/40 text-xs font-semibold transition flex items-center gap-1.5"
                     >
                       {generatingId === q.id ? (
                         <RefreshCw className="w-3.5 h-3.5 animate-spin" />
@@ -418,7 +418,7 @@ export const PracticePage: React.FC = () => {
                 </div>
 
                 {/* Question Text */}
-                <h3 className="text-base sm:text-lg font-bold text-white leading-relaxed select-text">
+                <h3 className="text-base sm:text-lg font-bold text-theme-primary leading-relaxed select-text">
                   {q.question_text}
                 </h3>
 
@@ -429,18 +429,18 @@ export const PracticePage: React.FC = () => {
                     const isSelected = userChoice === letter;
                     const isCorrect = q.correct_answer && letter.toUpperCase() === q.correct_answer.toUpperCase();
 
-                    let optionStyle = "bg-slate-900/60 hover:bg-slate-900 border-slate-700/80 text-slate-200";
+                    let optionStyle = "bg-theme-surface-2 hover:bg-theme-surface border-theme text-theme-primary";
 
                     if (showFeedback) {
                       if (isCorrect) {
-                        optionStyle = "bg-emerald-500/20 border-emerald-500/60 text-emerald-200 font-bold shadow-lg shadow-emerald-500/10";
+                        optionStyle = "bg-emerald-500/20 border-emerald-500/60 text-emerald-300 font-bold shadow-lg";
                       } else if (isSelected) {
-                        optionStyle = "bg-red-500/20 border-red-500/60 text-red-200 font-bold";
+                        optionStyle = "bg-red-500/20 border-red-500/60 text-red-300 font-bold";
                       } else {
-                        optionStyle = "bg-slate-900/30 border-slate-800 text-slate-500 opacity-60";
+                        optionStyle = "bg-theme-surface-2 border-theme text-theme-secondary opacity-60";
                       }
                     } else if (isSelected) {
-                      optionStyle = "bg-indigo-600/30 border-indigo-500 text-indigo-200 font-bold";
+                      optionStyle = "bg-theme-accent/30 border-theme-accent text-theme-accent font-bold";
                     }
 
                     return (
@@ -453,7 +453,7 @@ export const PracticePage: React.FC = () => {
                         <span>{opt}</span>
                         {showFeedback && isCorrect && <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />}
                         {showFeedback && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-red-400 shrink-0" />}
-                        {!showFeedback && isSelected && <Check className="w-5 h-5 text-indigo-400 shrink-0" />}
+                        {!showFeedback && isSelected && <Check className="w-5 h-5 text-theme-accent shrink-0" />}
                       </button>
                     );
                   })}
@@ -461,7 +461,7 @@ export const PracticePage: React.FC = () => {
 
                 {/* Explanation & Translation Card after answer */}
                 {showFeedback && (
-                  <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-700 space-y-3 text-xs sm:text-sm animate-fade-in">
+                  <div className="p-5 rounded-2xl bg-theme-surface-2 border border-theme space-y-3 text-xs sm:text-sm animate-fade-in">
                     <div className="flex items-center gap-2">
                       <span className="font-bold text-emerald-400">Đáp án chính xác:</span>
                       <span className="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">
@@ -471,11 +471,11 @@ export const PracticePage: React.FC = () => {
 
                     {/* Option-Specific Explanation for User's Choice */}
                     {userChoice && optionExplanations[userChoice] && (
-                      <div className="p-3 bg-indigo-950/40 border border-indigo-500/30 rounded-xl space-y-1">
-                        <span className="font-bold text-indigo-300 block">
+                      <div className="p-3 bg-theme-surface border border-theme rounded-xl space-y-1">
+                        <span className="font-bold text-theme-accent block">
                           Giải thích cho lựa chọn ({userChoice}) của bạn:
                         </span>
-                        <p className="text-slate-200 leading-relaxed">
+                        <p className="text-theme-primary leading-relaxed">
                           {optionExplanations[userChoice]}
                         </p>
                       </div>
@@ -483,19 +483,19 @@ export const PracticePage: React.FC = () => {
 
                     {/* Overall Explanation */}
                     {q.explanation && (
-                      <p className="text-slate-300 leading-relaxed">
-                        <span className="font-bold text-amber-300">Giải thích chung:</span> {q.explanation}
+                      <p className="text-theme-primary leading-relaxed">
+                        <span className="font-bold text-amber-400">Giải thích chung:</span> {q.explanation}
                       </p>
                     )}
 
                     {/* Natural Sentence Translation */}
                     {q.translated_sentence && (
-                      <div className="p-3 bg-slate-950/80 border border-slate-800 rounded-xl space-y-1">
+                      <div className="p-3 bg-theme-surface border border-theme rounded-xl space-y-1">
                         <div className="flex items-center space-x-1.5 text-xs font-semibold text-emerald-400">
                           <Languages className="w-4 h-4" />
                           <span>Bản dịch tiếng Việt hoàn chỉnh:</span>
                         </div>
-                        <p className="text-slate-200 italic leading-relaxed">
+                        <p className="text-theme-primary italic leading-relaxed">
                           "{q.translated_sentence}"
                         </p>
                       </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BookOpen, FileText, Sparkles, BrainCircuit, BarChart3 } from 'lucide-react';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 interface NavbarProps {
   activeTab: 'upload' | 'practice' | 'flashcards' | 'dashboard';
@@ -10,7 +11,7 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selectedDocId, onBackToDocs }) => {
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-slate-900/80 border-b border-slate-800/80 transition-all">
+    <header className="sticky top-0 z-50 backdrop-blur-xl bg-theme-surface/90 border-b border-theme transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
@@ -24,25 +25,25 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-indigo-200">
+                <span className="font-bold text-lg text-theme-primary">
                   TOEIC AI Master
                 </span>
-                <span className="px-2 py-0.5 text-[10px] font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded-full">
+                <span className="px-2 py-0.5 text-[10px] font-semibold bg-theme-accent/20 text-theme-accent border border-theme-accent/30 rounded-full">
                   Local MVP
                 </span>
               </div>
-              <p className="text-xs text-slate-400 font-medium">Hệ thống học TOEIC tối ưu Token AI</p>
+              <p className="text-xs text-theme-secondary font-medium">Hệ thống học TOEIC tối ưu Token AI</p>
             </div>
           </div>
 
           {/* Navigation Items */}
-          <nav className="flex items-center gap-1 bg-slate-800/50 p-1 rounded-xl border border-slate-700/50">
+          <nav className="flex items-center gap-1 bg-theme-surface-2 p-1 rounded-xl border border-theme">
             <button
               onClick={() => { onBackToDocs(); setActiveTab('upload'); }}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
                 activeTab === 'upload' && !selectedDocId
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-700/50'
+                  ? 'bg-theme-accent text-white shadow-md'
+                  : 'text-theme-secondary hover:text-theme-primary'
               }`}
             >
               <FileText className="w-4 h-4" />
@@ -51,10 +52,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
 
             <button
               onClick={() => { onBackToDocs(); setActiveTab('practice'); }}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
                 activeTab === 'practice'
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-700/50'
+                  ? 'bg-theme-accent text-white shadow-md'
+                  : 'text-theme-secondary hover:text-theme-primary'
               }`}
             >
               <BookOpen className="w-4 h-4" />
@@ -63,10 +64,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
 
             <button
               onClick={() => { onBackToDocs(); setActiveTab('flashcards'); }}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
                 activeTab === 'flashcards'
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-700/50'
+                  ? 'bg-theme-accent text-white shadow-md'
+                  : 'text-theme-secondary hover:text-theme-primary'
               }`}
             >
               <Sparkles className="w-4 h-4" />
@@ -75,10 +76,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
 
             <button
               onClick={() => { onBackToDocs(); setActiveTab('dashboard'); }}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
                 activeTab === 'dashboard'
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-700/50'
+                  ? 'bg-theme-accent text-white shadow-md'
+                  : 'text-theme-secondary hover:text-theme-primary'
               }`}
             >
               <BarChart3 className="w-4 h-4 text-emerald-400" />
@@ -86,10 +87,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
             </button>
           </nav>
 
-          {/* Status info */}
-          <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Local Engine Active (FastAPI + SQLite)
+          {/* Theme Switcher & Status Info */}
+          <div className="flex items-center space-x-3">
+            <ThemeSwitcher />
+
+            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              Local Engine Active
+            </div>
           </div>
 
         </div>

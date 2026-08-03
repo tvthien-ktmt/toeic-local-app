@@ -105,39 +105,38 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
     <div className="max-w-6xl mx-auto px-4 py-8 space-y-10">
       
       {/* Header Banner */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950/60 to-purple-950/40 p-8 border border-indigo-500/20 shadow-2xl">
-        <div className="absolute top-0 right-0 -mt-8 -mr-8 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="relative overflow-hidden rounded-3xl bg-theme-surface p-8 border border-theme shadow-2xl">
         <div className="relative z-10 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-theme-accent/10 border border-theme-accent/30 text-theme-accent text-xs font-semibold">
             <Zap className="w-3.5 h-3.5" /> MarkItDown & Local 2-Column OCR Engine
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-theme-primary tracking-tight">
             Upload PDF & Chuyển Đổi Sang Markdown
           </h1>
-          <p className="text-slate-300 max-w-2xl text-sm sm:text-base leading-relaxed">
-            Hỗ trợ cả PDF text thuần và <span className="text-purple-300 font-semibold">PDF Scan/Ảnh 2 cột (Local OCR 0 Token AI)</span>. Xử lý bất đồng bộ ở nền không gây treo giật máy!
+          <p className="text-theme-secondary max-w-2xl text-sm sm:text-base leading-relaxed">
+            Hỗ trợ cả PDF text thuần và <span className="text-theme-accent font-semibold">PDF Scan/Ảnh 2 cột (Local OCR 0 Token AI)</span>. Xử lý bất đồng bộ ở nền không gây treo giật máy!
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-800/40 border border-slate-700/50">
-              <ShieldCheck className="w-5 h-5 text-indigo-400 shrink-0" />
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-theme-surface-2 border border-theme">
+              <ShieldCheck className="w-5 h-5 text-theme-accent shrink-0" />
               <div>
-                <p className="text-xs font-semibold text-slate-200">Local OCR 0 Token AI</p>
-                <p className="text-[11px] text-slate-400">PyMuPDF + Tesseract 2 Cột</p>
+                <p className="text-xs font-semibold text-theme-primary">Local OCR 0 Token AI</p>
+                <p className="text-[11px] text-theme-secondary">PyMuPDF + Tesseract 2 Cột</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-800/40 border border-slate-700/50">
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-theme-surface-2 border border-theme">
               <Zap className="w-5 h-5 text-amber-400 shrink-0" />
               <div>
-                <p className="text-xs font-semibold text-slate-200">Async Background Worker</p>
-                <p className="text-[11px] text-slate-400">Không freeze UI khi xử lý</p>
+                <p className="text-xs font-semibold text-theme-primary">Async Background Worker</p>
+                <p className="text-[11px] text-theme-secondary">Không freeze UI khi xử lý</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-800/40 border border-slate-700/50">
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-theme-surface-2 border border-theme">
               <FileCode className="w-5 h-5 text-purple-400 shrink-0" />
               <div>
-                <p className="text-xs font-semibold text-slate-200">Clean Markdown Output</p>
-                <p className="text-[11px] text-slate-400">Tách đúng thứ tự Q101 &rarr; Q108</p>
+                <p className="text-xs font-semibold text-theme-primary">Clean Markdown Output</p>
+                <p className="text-[11px] text-theme-secondary">Tách đúng thứ tự Q101 &rarr; Q108</p>
               </div>
             </div>
           </div>
@@ -178,23 +177,23 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
       )}
 
       {/* Upload Zone & Config */}
-      <div className="bg-slate-800/60 rounded-3xl p-6 sm:p-8 border border-slate-700/60 shadow-xl space-y-6">
+      <div className="bg-theme-surface rounded-3xl p-6 sm:p-8 border border-theme shadow-xl space-y-6">
         
         {/* Document Type Selector */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-700/50">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-theme">
           <div>
-            <h2 className="text-lg font-bold text-white">1. Chọn loại tài liệu TOEIC</h2>
-            <p className="text-xs text-slate-400">Định hình cấu trúc dữ liệu cho bước trích xuất AI tiếp theo</p>
+            <h2 className="text-lg font-bold text-theme-primary">1. Chọn loại tài liệu TOEIC</h2>
+            <p className="text-xs text-theme-secondary">Định hình cấu trúc dữ liệu cho bước trích xuất AI tiếp theo</p>
           </div>
 
-          <div className="flex items-center p-1 bg-slate-900 rounded-xl border border-slate-700/60 self-start sm:self-auto">
+          <div className="flex items-center p-1 bg-theme-surface-2 rounded-xl border border-theme self-start sm:self-auto">
             <button
               type="button"
               onClick={() => setDocType('RC_EXAM')}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
                 docType === 'RC_EXAM'
-                  ? 'bg-indigo-600 text-white shadow-md'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-theme-accent text-white shadow-md'
+                  : 'text-theme-secondary hover:text-theme-primary'
               }`}
             >
               <FileText className="w-4 h-4" />
@@ -206,8 +205,8 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
               onClick={() => setDocType('LC_TRANSCRIPT')}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
                 docType === 'LC_TRANSCRIPT'
-                  ? 'bg-indigo-600 text-white shadow-md'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-theme-accent text-white shadow-md'
+                  : 'text-theme-secondary hover:text-theme-primary'
               }`}
             >
               <Headphones className="w-4 h-4" />
@@ -223,8 +222,8 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
           onDrop={handleDrop}
           className={`relative border-2 border-dashed rounded-2xl p-10 text-center transition-all duration-300 cursor-pointer ${
             isDragging
-              ? 'border-indigo-400 bg-indigo-500/10 scale-[1.01]'
-              : 'border-slate-600/80 bg-slate-900/40 hover:border-slate-500 hover:bg-slate-900/70'
+              ? 'border-theme-accent bg-theme-accent/10 scale-[1.01]'
+              : 'border-theme bg-theme-surface-2 hover:border-theme-accent'
           }`}
         >
           <input
@@ -236,7 +235,7 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
           />
 
           <div className="space-y-4">
-            <div className="w-16 h-16 mx-auto rounded-2xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shadow-inner">
+            <div className="w-16 h-16 mx-auto rounded-2xl bg-theme-accent/20 border border-theme-accent/30 flex items-center justify-center text-theme-accent shadow-inner">
               {isUploading ? (
                 <RefreshCw className="w-8 h-8 animate-spin" />
               ) : (
@@ -245,10 +244,10 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
             </div>
 
             <div>
-              <p className="text-base font-bold text-white">
+              <p className="text-base font-bold text-theme-primary">
                 {isUploading ? 'Đang gửi file sang tiến trình xử lý nền...' : 'Kéo thả file PDF đề thi vào đây, hoặc click để chọn file'}
               </p>
-              <p className="text-xs text-slate-400 mt-1">
+              <p className="text-xs text-theme-secondary mt-1">
                 Hỗ trợ cả PDF Scan/Ảnh 2 cột. Hệ thống xử lý không gây giật lag máy!
               </p>
             </div>
@@ -260,16 +259,16 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-extrabold text-white flex items-center gap-2">
-              <FileText className="w-5 h-5 text-indigo-400" />
+            <h2 className="text-xl font-extrabold text-theme-primary flex items-center gap-2">
+              <FileText className="w-5 h-5 text-theme-accent" />
               Danh sách tài liệu đã chuyển đổi ({documents.length})
             </h2>
-            <p className="text-xs text-slate-400">Các file PDF đã convert sang Markdown sẵn sàng xem và luyện tập</p>
+            <p className="text-xs text-theme-secondary">Các file PDF đã convert sang Markdown sẵn sàng xem và luyện tập</p>
           </div>
 
           <button
             onClick={() => loadDocs(true)}
-            className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition"
+            className="p-2 rounded-lg bg-theme-surface-2 hover:bg-theme-surface text-theme-primary border border-theme transition"
             title="Tải lại danh sách"
           >
             <RefreshCw className={`w-4 h-4 ${isLoadingList ? 'animate-spin' : ''}`} />
@@ -277,15 +276,15 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
         </div>
 
         {isLoadingList ? (
-          <div className="py-12 text-center text-slate-400 space-y-2">
-            <RefreshCw className="w-6 h-6 animate-spin mx-auto text-indigo-400" />
+          <div className="py-12 text-center text-theme-secondary space-y-2">
+            <RefreshCw className="w-6 h-6 animate-spin mx-auto text-theme-accent" />
             <p className="text-sm">Đang tải danh sách tài liệu...</p>
           </div>
         ) : documents.length === 0 ? (
-          <div className="p-12 text-center rounded-2xl bg-slate-800/30 border border-dashed border-slate-700/60 space-y-3">
-            <FileText className="w-10 h-10 mx-auto text-slate-500" />
-            <p className="text-slate-300 font-medium text-sm">Chưa có tài liệu nào trong hệ thống</p>
-            <p className="text-xs text-slate-500">Hãy upload file PDF đầu tiên của bạn ở trên để bắt đầu!</p>
+          <div className="p-12 text-center rounded-2xl bg-theme-surface-2 border border-dashed border-theme space-y-3">
+            <FileText className="w-10 h-10 mx-auto text-theme-secondary" />
+            <p className="text-theme-primary font-medium text-sm">Chưa có tài liệu nào trong hệ thống</p>
+            <p className="text-xs text-theme-secondary">Hãy upload file PDF đầu tiên của bạn ở trên để bắt đầu!</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -293,23 +292,19 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
               <div
                 key={doc.id}
                 onClick={() => onSelectDocument(doc.id)}
-                className="group relative bg-slate-800/80 hover:bg-slate-800 rounded-2xl p-5 border border-slate-700/60 hover:border-indigo-500/50 shadow-lg hover:shadow-indigo-500/10 transition-all duration-200 cursor-pointer flex flex-col justify-between"
+                className="group relative bg-theme-surface hover:bg-theme-surface-2 rounded-2xl p-5 border border-theme hover:border-theme-accent shadow-lg transition-all duration-200 cursor-pointer flex flex-col justify-between"
               >
                 <div className="space-y-3">
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <div className={`p-2.5 rounded-xl border ${
-                        doc.doc_type === 'RC_EXAM' 
-                          ? 'bg-indigo-500/10 border-indigo-500/30 text-indigo-400'
-                          : 'bg-purple-500/10 border-purple-500/30 text-purple-400'
-                      }`}>
+                      <div className="p-2.5 rounded-xl border bg-theme-accent/10 border-theme-accent/30 text-theme-accent">
                         {doc.doc_type === 'RC_EXAM' ? <FileText className="w-5 h-5" /> : <Headphones className="w-5 h-5" />}
                       </div>
                       <div className="overflow-hidden">
-                        <h3 className="font-bold text-white group-hover:text-indigo-300 transition truncate text-sm">
+                        <h3 className="font-bold text-theme-primary group-hover:text-theme-accent transition truncate text-sm">
                           {doc.filename}
                         </h3>
-                        <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
+                        <span className="text-[10px] font-semibold text-theme-secondary uppercase tracking-wider">
                           {doc.doc_type === 'RC_EXAM' ? 'Reading Exam (Part 5-7)' : 'Listening Transcript (Part 1-4)'}
                         </span>
                       </div>
@@ -317,23 +312,23 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
 
                     <button
                       onClick={(e) => handleDelete(e, doc.id)}
-                      className="p-1.5 rounded-lg text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition opacity-0 group-hover:opacity-100"
+                      className="p-1.5 rounded-lg text-theme-secondary hover:text-red-400 hover:bg-red-500/10 transition opacity-0 group-hover:opacity-100"
                       title="Xóa tài liệu"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
 
-                  <div className="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-slate-700/40">
+                  <div className="flex items-center justify-between text-xs text-theme-secondary pt-2 border-t border-theme">
                     <span className="inline-flex items-center gap-1 font-mono text-[11px]">
-                      <FileCode className="w-3.5 h-3.5 text-indigo-400" />
+                      <FileCode className="w-3.5 h-3.5 text-theme-accent" />
                       {(doc.markdown_length / 1024).toFixed(1)} KB ({doc.markdown_length.toLocaleString()} chars)
                     </span>
                     <span>{new Date(doc.uploaded_at).toLocaleDateString('vi-VN')}</span>
                   </div>
                 </div>
 
-                <div className="mt-4 pt-3 flex items-center justify-between border-t border-slate-700/30 text-xs">
+                <div className="mt-4 pt-3 flex items-center justify-between border-t border-theme text-xs">
                   {doc.status === 'processing' ? (
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20 text-[11px] font-medium animate-pulse">
                       <Loader2 className="w-3 h-3 animate-spin text-amber-400" />
@@ -346,7 +341,7 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
                     </span>
                   )}
 
-                  <span className="inline-flex items-center gap-1 text-indigo-400 font-semibold group-hover:translate-x-1 transition-transform">
+                  <span className="inline-flex items-center gap-1 text-theme-accent font-semibold group-hover:translate-x-1 transition-transform">
                     <Eye className="w-3.5 h-3.5" /> Xem chi tiết &rarr;
                   </span>
                 </div>

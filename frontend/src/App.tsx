@@ -23,7 +23,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-theme-base text-theme-primary flex flex-col font-sans transition-colors duration-200">
       {/* Navbar */}
       <Navbar
         activeTab={activeTab}
@@ -50,9 +50,9 @@ export function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800/80 bg-slate-950/60 py-6">
-        <div className="max-w-7xl mx-auto px-4 text-center text-xs text-slate-400">
-          TOEIC Local Study Web App &bull; Built with FastAPI, SQLite, Microsoft MarkItDown & React Vite
+      <footer className="border-t border-theme bg-theme-surface py-6 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 text-center text-xs text-theme-secondary">
+          TOEIC Local Study Web App &bull; Built with FastAPI, SQLite, Local PyMuPDF/Tesseract & React Vite
         </div>
       </footer>
     </div>
