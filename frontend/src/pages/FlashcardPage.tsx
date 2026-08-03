@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-// @ts-ignore
-import * as ReactWindow from 'react-window';
-const List = (ReactWindow as any).FixedSizeList || (ReactWindow as any).default?.FixedSizeList || ReactWindow;
+import { FixedSizeList as List } from 'react-window';
 import { 
   Sparkles, Volume2, Search, Filter, RotateCw, XCircle, 
   BookOpen, Keyboard, Layers, FolderHeart
@@ -426,7 +424,7 @@ export const FlashcardPage: React.FC = () => {
             Tất Cả Từ Vựng Trích Xuất ({vocabList.length})
           </h2>
 
-          {vocabList.length > 100 && List ? (
+          {vocabList.length > 100 ? (
             <List
               height={650}
               itemCount={vocabList.length}
