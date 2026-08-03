@@ -6,11 +6,18 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from ..db import get_db
 from ..models import Question, Vocabulary
-from ..services.gemini_service import query_gemini_with_cache
+from ..services.gemini_service import query_gemini_with_cache, get_gemini_api_key
 
 router = APIRouter(prefix="/api/generate", tags=["generator"])
 
 def generate_similar_question_logic(orig_q: Question, db: Session) -> Dict[str, Any]:
+    api_key = get_gemini_api_key()
+    if not api_key:
+        raise HTTPException(
+            status_code=400,
+            detail="Cần GEMINI_API_KEY trong file .env để sử dụng tính năng sinh câu hỏi AI."
+        )
+
     prompt_type = "generate_similar_question"
     prompt_text = f"""Dựa trên câu hỏi TOEIC gốc sau đây (giữ nguyên chủ điểm ngữ pháp '{orig_q.grammar_topic}' và cấu trúc), hãy tạo ra 1 câu hỏi mới.
 
@@ -35,32 +42,27 @@ CHỈ trả JSON."""
     try:
         data = query_gemini_with_cache(db, prompt_type, prompt_text, content_chunk)
     except Exception as e:
-        # Fallback high-quality grammar generator for offline tests
-        if orig_q.grammar_topic == "preposition" or "by" in orig_q.question_text.lower():
-            data = {
-                "question_text": "Ms. Green decided to submit the proposal _____ the board meeting starts.",
-                "options": ["A. before", "B. while", "C. until", "D. after"],
-                "correct_answer": "A",
-                "explanation": "Liên từ/giới từ chỉ thời gian 'before' (trước khi) phù hợp nhất với nghĩa của câu. Các phương án 'while', 'until', 'after' đều là liên từ đứng trước mệnh đề hợp lệ về ngữ pháp nhưng khác nghĩa."
-            }
-        else:
-            data = {
-                "question_text": "The management team expressed confidence _____ the new project director.",
-                "options": ["A. in", "B. on", "C. to", "D. at"],
-                "correct_answer": "A",
-                "explanation": "Cụm danh từ 'confidence in someone' (lòng tin vào ai) là cấu trúc cố định trong TOEIC."
-            }
+        raise HTTPException(
+            status_code=503,
+            detail=f"Gemini API tạm thời lỗi hoặc quá hạn rate limit. Vui lòng thử lại sau. ({e})"
+        )
 
-    opts = data.get("options", ["A. before", "B. during", "C. until", "D. after"])
+    opts = data.get("options", [])
+    if not opts or not isinstance(opts, list) or len(opts) < 4:
+        raise HTTPException(
+            status_code=500,
+            detail="Gemini API trả về cấu trúc câu hỏi không hợp lệ."
+        )
+
     opts_str = json.dumps(opts, ensure_ascii=False)
 
     gen_q = Question(
         document_id=orig_q.document_id,
         part=orig_q.part,
-        question_text=data.get("question_text", "Generated Question"),
+        question_text=data.get("question_text", orig_q.question_text),
         options_json=opts_str,
         correct_answer=data.get("correct_answer", "A"),
-        explanation=data.get("explanation"),
+        explanation=data.get("explanation", ""),
         grammar_topic=orig_q.grammar_topic,
         topic_tag=orig_q.topic_tag,
         is_generated=True,
@@ -107,6 +109,13 @@ def generate_study_recommendations(req: StudyRecommendationRequest, db: Session 
     Generates personalized AI study advice after exam completion based on user score & weak points.
     Discloses overall evaluation, weak grammar topics to review, and recommended Flashcard categories.
     """
+    api_key = get_gemini_api_key()
+    if not api_key:
+        raise HTTPException(
+            status_code=400,
+            detail="Cần GEMINI_API_KEY trong file .env để tạo gợi ý học tập AI."
+        )
+
     prompt_type = "study_recommendations"
     acc = round((req.score_correct / max(1, req.score_total)) * 100, 1)
 
@@ -136,15 +145,10 @@ CHỈ trả JSON object."""
 
     try:
         data = query_gemini_with_cache(db, prompt_type, prompt_text, content_chunk)
-    except Exception:
-        data = {
-            "overall_evaluation": f"Bạn đạt {req.score_correct}/{req.score_total} câu ({acc}%). Phong độ khá tốt nhưng còn một số điểm cần củng cố.",
-            "target_action_plan": [
-                f"Tập trung ôn lại các chủ điểm ngữ pháp: {weak_g_str}.",
-                "Dành thêm 15 phút mỗi ngày làm Flashcard từ vựng theo album chủ đề."
-            ],
-            "grammar_to_review": req.weak_grammar_topics or ["subject-verb agreement", "verb tense"],
-            "recommended_vocab_focus": ["văn phòng & công sở", "tài chính & ngân sách"]
-        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=503,
+            detail=f"Gemini API tạm thời lỗi hoặc quá hạn rate limit. Vui lòng thử lại sau. ({e})"
+        )
 
     return data
