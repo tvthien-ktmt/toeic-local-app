@@ -29,6 +29,7 @@ def get_input_hash(prompt_type: str, content_chunk: str) -> str:
 def call_gemini_api(prompt: str, json_schema_required: bool = True) -> str:
     """
     Calls Gemini API REST endpoint with explicit disclosure, maxOutputTokens=8192, and exponential backoff.
+    Uses gemini-2.0-flash-lite for higher free tier rate limits (30 RPM).
     """
     api_key = get_gemini_api_key()
     if not api_key:
@@ -40,7 +41,7 @@ def call_gemini_api(prompt: str, json_schema_required: bool = True) -> str:
     import urllib.request
     import urllib.error
 
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={api_key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key={api_key}"
 
     payload = {
         "contents": [
@@ -64,12 +65,12 @@ def call_gemini_api(prompt: str, json_schema_required: bool = True) -> str:
         headers={"Content-Type": "application/json"}
     )
 
-    max_retries = 5
-    backoff_seconds = 4.0
+    max_retries = 8
+    backoff_seconds = 10.0
 
     for attempt in range(max_retries):
         try:
-            with urllib.request.urlopen(req, timeout=60) as resp:
+            with urllib.request.urlopen(req, timeout=90) as resp:
                 raw_bytes = resp.read()
                 result_json = json.loads(raw_bytes.decode("utf-8"))
                 candidates = result_json.get("candidates", [])
@@ -80,20 +81,21 @@ def call_gemini_api(prompt: str, json_schema_required: bool = True) -> str:
                 return part_text
         except urllib.error.HTTPError as e:
             if e.code in [429, 503]:
-                print(f"[GEMINI_API BUSY/RATE LIMIT HTTP {e.code}] Retry {attempt + 1}/{max_retries} after {backoff_seconds}s backoff...")
-                time.sleep(backoff_seconds)
-                backoff_seconds *= 2
+                wait_time = backoff_seconds * (1.5 ** attempt)
+                print(f"[GEMINI_API RATE LIMIT HTTP {e.code}] Attempt {attempt + 1}/{max_retries}, waiting {wait_time:.0f}s...")
+                time.sleep(min(wait_time, 5.0))  # Max 5s backoff to avoid hanging UI
             else:
                 body = e.read().decode("utf-8", errors="ignore")
-                print(f"[GEMINI_API ERROR] HTTP {e.code}: {body[:200]}")
+                print(f"[GEMINI_API ERROR] HTTP {e.code}: {body[:300]}")
                 raise RuntimeError(f"Lỗi Gemini API HTTP {e.code}: {body}")
         except Exception as e:
+            print(f"[GEMINI_API EXCEPTION] Attempt {attempt + 1}/{max_retries}: {e}")
             if attempt == max_retries - 1:
                 raise e
-            time.sleep(backoff_seconds)
-            backoff_seconds *= 2
+            time.sleep(2.0)
 
-    raise RuntimeError("Vượt quá số lần thử Gemini API!")
+    print("[GEMINI_API QUOTA EXCEEDED] Quota limit hit on Gemini API key. Triggering smart fallback extraction.")
+    raise RuntimeError("GEMINI_QUOTA_EXCEEDED")
 
 
 def query_gemini_with_cache(

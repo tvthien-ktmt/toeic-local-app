@@ -179,7 +179,7 @@ def process_document_extraction(db: Session, doc_id: int) -> Dict[str, Any]:
         part_text = chunk["content"]
         
         # Split text into sub-chunks if text is very long, ensuring ZERO text truncation!
-        text_subchunks = split_large_text_chunk(part_text, max_chars=4500)
+        text_subchunks = split_large_text_chunk(part_text, max_chars=2200)
 
         for sub_idx, sub_text in enumerate(text_subchunks):
             # Throttle requests slightly to respect Gemini Free Tier 15 RPM limits
@@ -219,7 +219,7 @@ Nội dung:
                         else:
                             raw_data = fallback_extract_part5(sub_text)
                         
-                        q_list = raw_data if isinstance(raw_data, list) else raw_data.get("questions", [])
+                        q_list = raw_data if isinstance(raw_data, list) else (raw_data.get("questions", []) if isinstance(raw_data, dict) else [])
                         for q in q_list:
                             g_topic = q.get("grammar_topic") or "unclassified"
                             opts = q.get("options", [])
@@ -241,10 +241,31 @@ Nội dung:
                                 is_generated=False
                             )
                             db.add(new_q)
+                            db.commit()
                             extracted_questions_count += 1
 
                     except Exception as e:
-                        safe_print(f"Lỗi extract Part 5 câu hỏi: {e}")
+                        safe_print(f"Lỗi extract Part 5 câu hỏi từ Gemini API ({e}). Đang dùng fallback trích xuất...")
+                        fallback_qs = fallback_extract_part5(sub_text)
+                        for q in fallback_qs:
+                            opts = q.get("options", [])
+                            opts_str = json.dumps(opts, ensure_ascii=False) if isinstance(opts, list) else "[]"
+                            new_q = Question(
+                                document_id=doc.id,
+                                part=5,
+                                question_text=q.get("question_text", "Part 5 Question"),
+                                options_json=opts_str,
+                                correct_answer=q.get("correct_answer", "A"),
+                                explanation=q.get("explanation", "Giải thích ngữ pháp."),
+                                option_explanations_json="{}",
+                                translated_sentence=q.get("question_text", ""),
+                                grammar_topic=q.get("grammar_topic", "preposition"),
+                                topic_tag="Part 5 Grammar",
+                                is_generated=False
+                            )
+                            db.add(new_q)
+                            db.commit()
+                            extracted_questions_count += 1
 
                 elif part_num in [6, 7]:
                     prompt_type = f"extract_question_part{part_num}"
@@ -274,38 +295,62 @@ Nội dung:
 {sub_text}"""
 
                     try:
+                        raw_data = None
                         if api_key:
-                            raw_data = query_gemini_with_cache(db, prompt_type, prompt_text, sub_text)
-                        else:
+                            try:
+                                raw_data = query_gemini_with_cache(db, prompt_type, prompt_text, sub_text)
+                            except Exception as api_err:
+                                safe_print(f"Lỗi Gemini API Part {part_num} ({api_err}). Đang dùng fallback...")
+                                raw_data = None
+                        
+                        if not raw_data:
                             raw_data = {
                                 "passage_type": "email",
                                 "passage_topic_tag": f"Part {part_num} Business Topic",
                                 "questions": fallback_extract_part5(sub_text)
                             }
 
-                        topic_tag = raw_data.get("passage_topic_tag", f"Part {part_num} Passage")
-                        q_list = raw_data.get("questions", [])
-                        for q in q_list:
-                            opts = q.get("options", [])
-                            opts_str = json.dumps(opts, ensure_ascii=False) if isinstance(opts, list) else "[]"
-                            opt_exps = q.get("option_explanations", {})
-                            opt_exps_str = json.dumps(opt_exps, ensure_ascii=False) if isinstance(opt_exps, dict) else "{}"
+                        # Robust handling of raw_data structure (list of passages vs single passage dict vs list of questions)
+                        passages_list = []
+                        if isinstance(raw_data, list):
+                            for item in raw_data:
+                                if isinstance(item, dict) and "questions" in item:
+                                    passages_list.append(item)
+                                elif isinstance(item, dict) and ("question_text" in item or "options" in item):
+                                    passages_list.append({"passage_topic_tag": f"Part {part_num} Passage", "questions": [item]})
+                        elif isinstance(raw_data, dict):
+                            if "questions" in raw_data:
+                                passages_list.append(raw_data)
+                            elif "question_text" in raw_data or "options" in raw_data:
+                                passages_list.append({"passage_topic_tag": f"Part {part_num} Passage", "questions": [raw_data]})
 
-                            new_q = Question(
-                                document_id=doc.id,
-                                part=part_num,
-                                question_text=q.get("question_text", "Reading Question"),
-                                options_json=opts_str,
-                                correct_answer=q.get("correct_answer"),
-                                explanation=q.get("explanation"),
-                                option_explanations_json=opt_exps_str,
-                                translated_sentence=q.get("translated_sentence"),
-                                grammar_topic="reading comprehension",
-                                topic_tag=topic_tag,
-                                is_generated=False
-                            )
-                            db.add(new_q)
-                            extracted_questions_count += 1
+                        for pass_obj in passages_list:
+                            topic_tag = pass_obj.get("passage_topic_tag", f"Part {part_num} Passage")
+                            q_list = pass_obj.get("questions", [])
+                            for q in q_list:
+                                if not isinstance(q, dict):
+                                    continue
+                                opts = q.get("options", [])
+                                opts_str = json.dumps(opts, ensure_ascii=False) if isinstance(opts, list) else "[]"
+                                opt_exps = q.get("option_explanations", {})
+                                opt_exps_str = json.dumps(opt_exps, ensure_ascii=False) if isinstance(opt_exps, dict) else "{}"
+
+                                new_q = Question(
+                                    document_id=doc.id,
+                                    part=part_num,
+                                    question_text=q.get("question_text", "Reading Question"),
+                                    options_json=opts_str,
+                                    correct_answer=q.get("correct_answer"),
+                                    explanation=q.get("explanation"),
+                                    option_explanations_json=opt_exps_str,
+                                    translated_sentence=q.get("translated_sentence"),
+                                    grammar_topic="reading comprehension",
+                                    topic_tag=topic_tag,
+                                    is_generated=False
+                                )
+                                db.add(new_q)
+                                db.commit()
+                                extracted_questions_count += 1
                     except Exception as e:
                         safe_print(f"Lỗi extract Part {part_num} câu hỏi: {e}")
 
@@ -330,9 +375,15 @@ Nội dung:
 {sub_text}"""
 
             try:
+                vocab_data = None
                 if api_key:
-                    vocab_data = query_gemini_with_cache(db, vocab_prompt_type, vocab_prompt_text, sub_text)
-                else:
+                    try:
+                        vocab_data = query_gemini_with_cache(db, vocab_prompt_type, vocab_prompt_text, sub_text)
+                    except Exception as api_v_err:
+                        safe_print(f"Lỗi Gemini API Vocab ({api_v_err}). Đang dùng fallback...")
+                        vocab_data = None
+                
+                if not vocab_data:
                     vocab_data = fallback_extract_vocab(sub_text)
 
                 v_list = vocab_data if isinstance(vocab_data, list) else vocab_data.get("vocabulary", [])

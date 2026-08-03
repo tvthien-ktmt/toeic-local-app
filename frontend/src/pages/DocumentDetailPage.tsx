@@ -17,6 +17,7 @@ import { TextHighlightPopup } from '../components/TextHighlightPopup';
 import { PracticeTimer } from '../components/PracticeTimer';
 import { AIStudyRecommendationCard } from '../components/AIStudyRecommendationCard';
 import { useStudySessionTracker } from '../hooks/useStudySessionTracker';
+import { useTheme } from '../context/ThemeContext';
 
 interface DocumentDetailPageProps {
   docId: number;
@@ -26,6 +27,7 @@ interface DocumentDetailPageProps {
 export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, onBack }) => {
   // Track study session automatically when reading document
   useStudySessionTracker('reading');
+  const { theme } = useTheme();
 
   const [doc, setDoc] = useState<DocumentDetail | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -109,18 +111,9 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
     setShowAnswers(prev => ({ ...prev, [qId]: !prev[qId] }));
   };
 
-  const getOptionLetter = (optStr: string): string => {
-    const clean = optStr.trim();
-    if (clean.startsWith('A') || clean.startsWith('(A)')) return 'A';
-    if (clean.startsWith('B') || clean.startsWith('(B)')) return 'B';
-    if (clean.startsWith('C') || clean.startsWith('(C)')) return 'C';
-    if (clean.startsWith('D') || clean.startsWith('(D)')) return 'D';
-    return clean.charAt(0);
-  };
-
-  const handleSelectOption = (qId: number, letter: string) => {
+  const handleSelectOption = (qId: number, optionLetter: string) => {
     if (isExamSubmitted) return;
-    setUserAnswers(prev => ({ ...prev, [qId]: letter }));
+    setUserAnswers(prev => ({ ...prev, [qId]: optionLetter }));
   };
 
   const handleSubmitExam = () => {
@@ -131,18 +124,15 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
     const weakPartMap: Record<number, number> = {};
 
     questions.forEach(q => {
-      const uChoice = userAnswers[q.id];
-      const isCorrect = uChoice && q.correct_answer && uChoice.toUpperCase() === q.correct_answer.toUpperCase();
-      
+      const userChoice = userAnswers[q.id];
+      const isCorrect = q.correct_answer && userChoice && userChoice.toUpperCase() === q.correct_answer.toUpperCase();
+
       if (isCorrect) {
         correctCount += 1;
       } else {
-        if (q.grammar_topic) {
-          weakGrammarMap[q.grammar_topic] = (weakGrammarMap[q.grammar_topic] || 0) + 1;
-        }
-        if (q.part) {
-          weakPartMap[q.part] = (weakPartMap[q.part] || 0) + 1;
-        }
+        const topic = q.grammar_topic || 'general grammar';
+        weakGrammarMap[topic] = (weakGrammarMap[topic] || 0) + 1;
+        weakPartMap[q.part] = (weakPartMap[q.part] || 0) + 1;
       }
     });
 
@@ -158,13 +148,22 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
     setWeakParts(Object.keys(weakPartMap).map(Number));
   };
 
+  const getOptionLetter = (optStr: string): string => {
+    const clean = optStr.trim();
+    if (clean.startsWith('A') || clean.startsWith('(A)')) return 'A';
+    if (clean.startsWith('B') || clean.startsWith('(B)')) return 'B';
+    if (clean.startsWith('C') || clean.startsWith('(C)')) return 'C';
+    if (clean.startsWith('D') || clean.startsWith('(D)')) return 'D';
+    return clean.charAt(0);
+  };
+
   if (isLoading) {
     return (
       <div className="max-w-5xl mx-auto px-4 py-20 text-center space-y-4">
-        <div className="w-12 h-12 mx-auto rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 animate-spin">
+        <div className="w-12 h-12 mx-auto rounded-xl bg-theme-accent/20 border border-theme-accent/30 flex items-center justify-center text-theme-accent animate-spin">
           <FileText className="w-6 h-6" />
         </div>
-        <p className="text-slate-300 font-medium">Đang tải nội dung Markdown...</p>
+        <p className="text-theme-secondary font-medium">Đang tải nội dung Markdown...</p>
       </div>
     );
   }
@@ -172,10 +171,12 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
   if (errorMsg && !doc) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-12 text-center space-y-4">
-        <p className="text-red-400 font-semibold">{errorMsg}</p>
+        <div className="p-4 rounded-xl alert-error text-center font-semibold">
+          {errorMsg}
+        </div>
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-sm"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-theme-surface-2 hover:bg-theme-surface text-theme-primary border border-theme text-sm"
         >
           <ArrowLeft className="w-4 h-4" /> Quay lại danh sách
         </button>
@@ -203,7 +204,7 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition text-sm font-semibold w-fit"
+          className="inline-flex items-center gap-2 text-theme-secondary hover:text-theme-primary transition text-sm font-semibold w-fit"
         >
           <ArrowLeft className="w-4 h-4" /> Quay lại danh sách tài liệu
         </button>
@@ -213,7 +214,7 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
             <button
               onClick={handleTriggerExtraction}
               disabled={isExtracting}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs sm:text-sm font-bold shadow-lg transition disabled:opacity-50"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-theme-accent text-white text-xs sm:text-sm font-bold shadow-lg transition hover:opacity-90 disabled:opacity-50"
             >
               {isExtracting ? (
                 <RefreshCw className="w-4 h-4 animate-spin" />
@@ -223,14 +224,14 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
               <span>{isExtracting ? 'Đang trích xuất AI...' : 'Trích Xuất AI (Tự Động 0 Token Waste)'}</span>
             </button>
           ) : (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 text-xs font-semibold">
-              <CheckCircle2 className="w-4 h-4" /> Đã trích xuất {questions.length} câu hỏi
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl alert-success text-xs font-semibold">
+              <CheckCircle2 className="w-4 h-4 alert-success-icon" /> Đã trích xuất {questions.length} câu hỏi
             </span>
           )}
 
           <button
             onClick={handleCopyMarkdown}
-            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition"
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-theme-surface-2 hover:bg-theme-surface text-theme-primary border border-theme text-xs font-semibold transition"
           >
             {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
             <span>{copied ? 'Đã sao chép' : 'Sao chép Markdown'}</span>
@@ -239,29 +240,27 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
       </div>
 
       {/* Banner info */}
-      <div className="bg-slate-800/60 rounded-3xl p-6 border border-slate-700/60 space-y-4 shadow-xl">
+      <div className="bg-theme-surface rounded-3xl p-6 border border-theme space-y-4 shadow-xl">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${
-                doc?.doc_type === 'RC_EXAM' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : 'bg-purple-500/20 text-purple-300 border border-purple-500/30'
-              }`}>
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-theme-accent/20 text-theme-accent border border-theme-accent/30">
                 {doc?.doc_type === 'RC_EXAM' ? 'Reading Test (Part 5, 6, 7)' : 'Listening Transcript'}
               </span>
-              <span className="text-slate-400 text-xs font-mono">
+              <span className="text-theme-secondary text-xs font-mono">
                 {doc?.markdown_content.length.toLocaleString()} ký tự (~{tokenEstimate.toLocaleString()} tokens)
               </span>
             </div>
-            <h1 className="text-2xl font-extrabold text-white">{doc?.filename}</h1>
+            <h1 className="text-2xl font-extrabold text-theme-primary">{doc?.filename}</h1>
           </div>
         </div>
 
         {/* Tab Selection */}
-        <div className="flex items-center gap-2 border-b border-slate-700/80 pb-2">
+        <div className="flex items-center gap-2 border-b border-theme pb-2 flex-wrap">
           <button
             onClick={() => setActiveTab('preview')}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${
-              activeTab === 'preview' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-400 hover:text-slate-200'
+              activeTab === 'preview' ? 'bg-theme-accent text-white shadow-lg' : 'bg-theme-surface-2 text-theme-secondary hover:text-theme-primary border border-theme'
             }`}
           >
             <Eye className="w-4 h-4" /> Xem Bài Đọc & Đề Thi
@@ -270,7 +269,7 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
           <button
             onClick={() => setActiveTab('questions')}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${
-              activeTab === 'questions' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-400 hover:text-slate-200'
+              activeTab === 'questions' ? 'bg-theme-accent text-white shadow-lg' : 'bg-theme-surface-2 text-theme-secondary hover:text-theme-primary border border-theme'
             }`}
           >
             <HelpCircle className="w-4 h-4" /> Làm Bài Thi ({questions.length})
@@ -279,7 +278,7 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
           <button
             onClick={() => setActiveTab('vocab')}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${
-              activeTab === 'vocab' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-400 hover:text-slate-200'
+              activeTab === 'vocab' ? 'bg-theme-accent text-white shadow-lg' : 'bg-theme-surface-2 text-theme-secondary hover:text-theme-primary border border-theme'
             }`}
           >
             <BookOpen className="w-4 h-4" /> Từ Vựng Trích Xuất ({vocabList.length})
@@ -288,11 +287,11 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
       </div>
 
       {/* Main Content Area */}
-      <div className="bg-slate-900/80 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl">
+      <div className="bg-theme-surface rounded-3xl p-6 sm:p-8 border border-theme shadow-2xl">
         
         {/* PREVIEW TAB */}
         {activeTab === 'preview' && (
-          <div className="prose prose-invert max-w-none prose-slate prose-headings:text-indigo-300 prose-a:text-indigo-400 select-text">
+          <div className={`prose max-w-none select-text ${theme === 'light' ? 'prose-neutral' : 'prose-invert'} prose-headings:text-theme-accent prose-a:text-theme-accent`}>
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
               {doc?.markdown_content || ''}
             </ReactMarkdown>
@@ -304,22 +303,22 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
           <div className="space-y-6">
             
             {/* Exam Mode Selector Banner */}
-            <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-4">
+            <div className="p-6 rounded-2xl bg-theme-surface-2 border border-theme space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <h3 className="text-base font-bold text-white flex items-center gap-2">
+                  <h3 className="text-base font-bold text-theme-primary flex items-center gap-2">
                     <Award className="w-5 h-5 text-amber-400" />
                     Chọn Chế Độ Thi Đề Thi Này
                   </h3>
-                  <p className="text-xs text-slate-400">Chọn làm tự do không giới hạn thời gian hoặc thi 75 phút áp lực thi thật</p>
+                  <p className="text-xs text-theme-secondary">Chọn làm tự do không giới hạn thời gian hoặc thi 75 phút áp lực thi thật</p>
                 </div>
 
                 {/* Exam Mode Toggle */}
-                <div className="inline-flex p-1 bg-slate-900 rounded-xl border border-slate-700 space-x-1 shrink-0">
+                <div className="inline-flex p-1 bg-theme-surface rounded-xl border border-theme space-x-1 shrink-0">
                   <button
                     onClick={() => { setExamMode('free'); setIsExamSubmitted(false); }}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                      examMode === 'free' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-400 hover:text-slate-200'
+                      examMode === 'free' ? 'bg-theme-accent text-white shadow-lg' : 'text-theme-secondary hover:text-theme-primary'
                     }`}
                   >
                     Thi Tự Do (Tự tính giờ)
@@ -328,7 +327,7 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
                   <button
                     onClick={() => { setExamMode('timed_75'); setIsExamSubmitted(false); }}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                      examMode === 'timed_75' ? 'bg-amber-500 text-slate-950 font-extrabold shadow-lg' : 'text-slate-400 hover:text-slate-200'
+                      examMode === 'timed_75' ? 'bg-amber-500 text-slate-950 font-extrabold shadow-lg' : 'text-theme-secondary hover:text-theme-primary'
                     }`}
                   >
                     Thi 75 Phút (Có đếm ngược)
@@ -337,14 +336,14 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
               </div>
 
               {/* Timer or Score Bar */}
-              <div className="flex items-center justify-between pt-2 border-t border-slate-800">
+              <div className="flex items-center justify-between pt-2 border-t border-theme">
                 {examMode === 'timed_75' ? (
                   <div className="flex items-center space-x-3">
                     <span className="text-xs font-bold text-amber-400">Thời Gian Đếm Ngược:</span>
                     <PracticeTimer targetMinutes={75} onTimeUp={handleSubmitExam} isPaused={isExamSubmitted} />
                   </div>
                 ) : (
-                  <span className="text-xs text-slate-400 font-medium">Chế độ thi tự do — Chọn đáp án và bấm Nộp bài thi bất kỳ lúc nào</span>
+                  <span className="text-xs text-theme-secondary font-medium">Chế độ thi tự do — Chọn đáp án và bấm Nộp bài thi bất kỳ lúc nào</span>
                 )}
 
                 {!isExamSubmitted ? (
@@ -374,30 +373,30 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
             )}
 
             {/* Question Filter Header */}
-            <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-              <span className="text-xs text-slate-400 font-semibold">Danh sách {filteredQuestions.length} câu hỏi</span>
+            <div className="flex items-center justify-between pb-2 border-b border-theme">
+              <span className="text-xs text-theme-secondary font-semibold">Danh sách {filteredQuestions.length} câu hỏi</span>
               <div className="flex gap-1.5">
                 <button
                   onClick={() => setSelectedPartFilter(null)}
-                  className={`px-3 py-1 rounded-lg text-xs font-semibold ${selectedPartFilter === null ? 'bg-indigo-600 text-white' : 'text-slate-400'}`}
+                  className={`px-3 py-1 rounded-lg text-xs font-semibold ${selectedPartFilter === null ? 'bg-theme-accent text-white' : 'bg-theme-surface-2 text-theme-secondary hover:text-theme-primary border border-theme'}`}
                 >
                   Tất cả
                 </button>
                 <button
                   onClick={() => setSelectedPartFilter(5)}
-                  className={`px-3 py-1 rounded-lg text-xs font-semibold ${selectedPartFilter === 5 ? 'bg-indigo-600 text-white' : 'text-slate-400'}`}
+                  className={`px-3 py-1 rounded-lg text-xs font-semibold ${selectedPartFilter === 5 ? 'bg-theme-accent text-white' : 'bg-theme-surface-2 text-theme-secondary hover:text-theme-primary border border-theme'}`}
                 >
                   Part 5
                 </button>
                 <button
                   onClick={() => setSelectedPartFilter(6)}
-                  className={`px-3 py-1 rounded-lg text-xs font-semibold ${selectedPartFilter === 6 ? 'bg-indigo-600 text-white' : 'text-slate-400'}`}
+                  className={`px-3 py-1 rounded-lg text-xs font-semibold ${selectedPartFilter === 6 ? 'bg-theme-accent text-white' : 'bg-theme-surface-2 text-theme-secondary hover:text-theme-primary border border-theme'}`}
                 >
                   Part 6
                 </button>
                 <button
                   onClick={() => setSelectedPartFilter(7)}
-                  className={`px-3 py-1 rounded-lg text-xs font-semibold ${selectedPartFilter === 7 ? 'bg-indigo-600 text-white' : 'text-slate-400'}`}
+                  className={`px-3 py-1 rounded-lg text-xs font-semibold ${selectedPartFilter === 7 ? 'bg-theme-accent text-white' : 'bg-theme-surface-2 text-theme-secondary hover:text-theme-primary border border-theme'}`}
                 >
                   Part 7
                 </button>
@@ -416,10 +415,10 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
               const showDetail = isExamSubmitted || showAnswers[q.id];
 
               return (
-                <div key={q.id} className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700/60 space-y-4 hover:border-slate-600 transition">
+                <div key={q.id} className="bg-theme-surface-2 rounded-2xl p-6 border border-theme space-y-4 shadow-sm hover:border-theme-accent transition">
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex items-center flex-wrap gap-2">
-                      <span className="px-2.5 py-1 rounded-lg bg-indigo-500/20 text-indigo-300 font-mono text-xs font-bold border border-indigo-500/30">
+                      <span className="px-2.5 py-1 rounded-lg bg-theme-accent/20 text-theme-accent font-mono text-xs font-bold border border-theme-accent/30">
                         Câu {idx + 1} (Part {q.part})
                       </span>
 
@@ -435,13 +434,13 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
 
                     <button
                       onClick={() => toggleShowAnswer(q.id)}
-                      className="px-3 py-1.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-semibold transition"
+                      className="px-3 py-1.5 rounded-xl bg-theme-surface hover:bg-theme-surface-2 text-theme-primary text-xs font-semibold border border-theme transition"
                     >
                       {showDetail ? 'Ẩn đáp án' : 'Xem giải thích'}
                     </button>
                   </div>
 
-                  <h4 className="text-base font-bold text-white leading-relaxed select-text">
+                  <h4 className="text-base font-bold text-theme-primary leading-relaxed select-text">
                     {q.question_text}
                   </h4>
 
@@ -452,18 +451,18 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
                       const isSelected = uChoice === letter;
                       const isOptCorrect = q.correct_answer && letter.toUpperCase() === q.correct_answer.toUpperCase();
 
-                      let optStyle = "bg-slate-900/60 border-slate-700/60 text-slate-300 hover:bg-slate-900";
+                      let optStyle = "bg-theme-surface border-theme text-theme-primary hover:bg-theme-surface-2";
 
                       if (showDetail) {
                         if (isOptCorrect) {
-                          optStyle = "bg-emerald-500/20 border-emerald-500/50 text-emerald-200 font-bold shadow-lg";
+                          optStyle = "bg-emerald-500/20 border-emerald-500/50 text-emerald-300 font-bold shadow-lg";
                         } else if (isSelected) {
-                          optStyle = "bg-red-500/20 border-red-500/50 text-red-200 font-bold";
+                          optStyle = "bg-red-500/20 border-red-500/50 text-red-300 font-bold";
                         } else {
-                          optStyle = "bg-slate-900/30 border-slate-800 text-slate-500 opacity-60";
+                          optStyle = "bg-theme-surface border-theme text-theme-secondary opacity-60";
                         }
                       } else if (isSelected) {
-                        optStyle = "bg-indigo-600/30 border-indigo-500 text-indigo-200 font-bold";
+                        optStyle = "bg-theme-accent/20 border-theme-accent text-theme-accent font-bold";
                       }
 
                       return (
@@ -476,7 +475,7 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
                           <span>{opt}</span>
                           {showDetail && isOptCorrect && <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />}
                           {showDetail && isSelected && !isOptCorrect && <XCircle className="w-4 h-4 text-red-400 shrink-0" />}
-                          {!showDetail && isSelected && <Check className="w-4 h-4 text-indigo-400 shrink-0" />}
+                          {!showDetail && isSelected && <Check className="w-4 h-4 text-theme-accent shrink-0" />}
                         </button>
                       );
                     })}
@@ -484,7 +483,7 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
 
                   {/* Detailed Explanations */}
                   {showDetail && (
-                    <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-700 space-y-3 text-xs animate-fade-in">
+                    <div className="p-4 rounded-xl bg-theme-surface border border-theme space-y-3 text-xs animate-fade-in">
                       <div className="flex items-center gap-2">
                         <span className="font-bold text-emerald-400">Đáp án chính xác:</span>
                         <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">
@@ -495,12 +494,12 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
                       {/* Option specific explanations */}
                       {Object.keys(optExps).length > 0 && (
                         <div className="space-y-1.5 pt-1">
-                          <span className="font-bold text-indigo-300 block">Giải thích chi tiết các lựa chọn:</span>
+                          <span className="font-bold text-theme-accent block">Giải thích chi tiết các lựa chọn:</span>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {Object.entries(optExps).map(([letter, expText]) => (
-                              <div key={letter} className="p-2 bg-slate-950/60 border border-slate-800 rounded-lg">
+                              <div key={letter} className="p-2 bg-theme-surface-2 border border-theme rounded-lg">
                                 <span className="font-bold text-amber-400 font-mono mr-1">({letter}):</span>
-                                <span className="text-slate-300">{expText}</span>
+                                <span className="text-theme-primary">{expText}</span>
                               </div>
                             ))}
                           </div>
@@ -508,15 +507,15 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
                       )}
 
                       {q.explanation && (
-                        <p className="text-slate-300 leading-relaxed pt-1">
+                        <p className="text-theme-primary leading-relaxed pt-1">
                           <span className="font-bold text-amber-300">Giải thích chung:</span> {q.explanation}
                         </p>
                       )}
 
                       {q.translated_sentence && (
-                        <div className="p-3 bg-slate-950/80 border border-slate-800 rounded-xl space-y-1">
+                        <div className="p-3 bg-theme-surface-2 border border-theme rounded-xl space-y-1">
                           <span className="font-bold text-emerald-400 block">Bản dịch tiếng Việt hoàn chỉnh:</span>
-                          <p className="text-slate-200 italic leading-relaxed">"{q.translated_sentence}"</p>
+                          <p className="text-theme-primary italic leading-relaxed">"{q.translated_sentence}"</p>
                         </div>
                       )}
                     </div>
@@ -531,23 +530,23 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
         {/* VOCAB TAB */}
         {activeTab === 'vocab' && (
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-white flex items-center gap-2">
-              <BookOpen className="w-5 h-5 text-indigo-400" />
+            <h3 className="text-lg font-bold text-theme-primary flex items-center gap-2">
+              <BookOpen className="w-5 h-5 text-theme-accent" />
               Danh sách từ vựng trích xuất ({vocabList.length})
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {vocabList.map((v) => (
-                <div key={v.id} className="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/60 space-y-2">
+                <div key={v.id} className="p-4 rounded-2xl bg-theme-surface-2 border border-theme space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-base font-extrabold text-white">{v.word}</span>
-                    <button onClick={() => speakText(v.word)} className="p-1 text-slate-400 hover:text-indigo-400 transition">
+                    <span className="text-base font-extrabold text-theme-accent">{v.word}</span>
+                    <button onClick={() => speakText(v.word)} className="p-1 text-theme-secondary hover:text-theme-accent transition">
                       <Volume2 className="w-4 h-4" />
                     </button>
                   </div>
-                  <p className="text-xs text-slate-400 font-mono">{v.ipa} • {v.part_of_speech}</p>
-                  <p className="text-sm font-semibold text-emerald-300">{v.meaning_vi}</p>
+                  <p className="text-xs text-theme-secondary font-mono">{v.ipa} • {v.part_of_speech}</p>
+                  <p className="text-sm font-semibold text-emerald-400">{v.meaning_vi}</p>
                   {v.example_sentence && (
-                    <p className="text-xs text-slate-300 italic border-l-2 border-slate-700 pl-2">"{v.example_sentence}"</p>
+                    <p className="text-xs text-theme-primary italic border-l-2 border-theme-accent pl-2">"{v.example_sentence}"</p>
                   )}
                 </div>
               ))}

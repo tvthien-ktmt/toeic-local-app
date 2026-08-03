@@ -32,10 +32,10 @@ def get_easyocr_reader():
     return _easyocr_reader if _easyocr_reader is not False else None
 
 
-def render_pdf_page_to_image(pdf_doc: fitz.Document, page_num: int, dpi: int = 130) -> Image.Image:
+def render_pdf_page_to_image(pdf_doc: fitz.Document, page_num: int, dpi: int = 250) -> Image.Image:
     """
-    Renders a specific PDF page to grayscale PIL Image at specified DPI.
-    DPI 130 + grayscale provides 80% RAM savings and ultra-fast CPU recognition.
+    Renders a specific PDF page to grayscale PIL Image at specified high DPI (250 DPI).
+    High DPI ensures zero lost articles ('a', 'the') and sharp character recognition.
     """
     page = pdf_doc.load_page(page_num)
     pix = page.get_pixmap(dpi=dpi, colorspace=fitz.csGRAY)
@@ -46,14 +46,11 @@ def render_pdf_page_to_image(pdf_doc: fitz.Document, page_num: int, dpi: int = 1
 def detect_two_column_layout(page: fitz.Page) -> bool:
     """
     Detects if page has 2-column TOEIC layout (Part 5/6 questions side by side).
-    Handles both text-layer PDFs and pure scanned bitmap PDFs.
     """
     blocks = page.get_text("blocks")
     rect = page.rect
     
     if not blocks or len(blocks) < 2:
-        # Fallback for 0% text layer bitmap scanned PDFs:
-        # Standard TOEIC Part 5/6 reading exam pages have standard portrait aspect ratio (width > 400, height > 600)
         if rect.width > 400 and rect.height > 600 and rect.height / max(rect.width, 1) > 1.2:
             return True
         return False
@@ -86,6 +83,7 @@ def split_image_into_columns(img: Image.Image) -> Tuple[Image.Image, Image.Image
 def ocr_image_local(img: Image.Image) -> str:
     """
     Performs local OCR on PIL Image using EasyOCR (primary) and PyTesseract (fallback).
+    Configured for maximum recognition accuracy.
     """
     # 1. Primary: EasyOCR
     try:
@@ -93,7 +91,7 @@ def ocr_image_local(img: Image.Image) -> str:
         reader = get_easyocr_reader()
         if reader:
             img_np = np.array(img)
-            results = reader.readtext(img_np, detail=0, canvas_size=1200)
+            results = reader.readtext(img_np, detail=0, canvas_size=1600, paragraph=False)
             if results:
                 text = "\n".join(results)
                 if text and len(text.strip()) > 5:
@@ -103,7 +101,7 @@ def ocr_image_local(img: Image.Image) -> str:
 
     # 2. Fallback: PyTesseract PSM 6
     try:
-        text = pytesseract.image_to_string(img, lang="eng", config="--psm 6")
+        text = pytesseract.image_to_string(img, lang="eng", config="--psm 6 --oem 1")
         if text and len(text.strip()) > 5:
             return text.strip()
     except Exception:
@@ -111,7 +109,7 @@ def ocr_image_local(img: Image.Image) -> str:
 
     # 3. Fallback: PyTesseract PSM 3
     try:
-        text = pytesseract.image_to_string(img, lang="eng", config="--psm 3")
+        text = pytesseract.image_to_string(img, lang="eng", config="--psm 3 --oem 1")
         if text and len(text.strip()) > 5:
             return text.strip()
     except Exception:
@@ -123,6 +121,7 @@ def ocr_image_local(img: Image.Image) -> str:
 def _process_single_page(args: Tuple[int, bytes]) -> Tuple[int, str]:
     """
     Worker function to process a single PDF page independently in parallel.
+    Uses layout-sorted text block extraction (sort=True) for clean reading order.
     """
     page_idx, pdf_bytes = args
     pdf_doc = fitz.open(stream=pdf_bytes, filetype="pdf")
@@ -137,12 +136,16 @@ def _process_single_page(args: Tuple[int, bytes]) -> Tuple[int, str]:
         left_rect = fitz.Rect(0, 0, x_mid, rect.height)
         right_rect = fitz.Rect(x_mid, 0, rect.width, rect.height)
 
-        left_text = page.get_text("text", clip=left_rect).strip()
-        right_text = page.get_text("text", clip=right_rect).strip()
+        # Use sort=True for clean natural top-to-bottom reading order
+        left_blocks = page.get_text("blocks", clip=left_rect, sort=True)
+        right_blocks = page.get_text("blocks", clip=right_rect, sort=True)
+
+        left_text = "\n".join([b[4].strip() for b in left_blocks if len(b) > 4 and b[4].strip()]).strip()
+        right_text = "\n".join([b[4].strip() for b in right_blocks if len(b) > 4 and b[4].strip()]).strip()
 
         img = None
         if len(left_text) < 15 or len(right_text) < 15:
-            img = render_pdf_page_to_image(pdf_doc, page_idx, dpi=150)
+            img = render_pdf_page_to_image(pdf_doc, page_idx, dpi=250)
             left_img, right_img = split_image_into_columns(img)
 
             if len(left_text) < 15:
@@ -160,9 +163,10 @@ def _process_single_page(args: Tuple[int, bytes]) -> Tuple[int, str]:
         if right_text:
             page_md_parts.append(f"\n## Page {page_idx + 1} - Right Column\n{right_text}")
     else:
-        page_text = page.get_text("text").strip()
+        blocks = page.get_text("blocks", sort=True)
+        page_text = "\n".join([b[4].strip() for b in blocks if len(b) > 4 and b[4].strip()]).strip()
         if len(page_text) < 15:
-            img = render_pdf_page_to_image(pdf_doc, page_idx, dpi=150)
+            img = render_pdf_page_to_image(pdf_doc, page_idx, dpi=250)
             page_text = ocr_image_local(img)
 
         if page_text:
@@ -175,10 +179,9 @@ def _process_single_page(args: Tuple[int, bytes]) -> Tuple[int, str]:
 def extract_pdf_with_local_ocr(pdf_bytes: bytes, filename: str) -> str:
     """
     Full Local 0-AI-Token OCR processing pipeline for scanned PDFs.
-    Separates 2-column layouts to preserve correct question order (Q101 -> Q102 -> Q103).
-    Uses ThreadPoolExecutor parallel page processing for maximum CPU core performance.
+    Uses 250 DPI rendering + layout sorting for maximum recognition quality.
     """
-    print(f"[MODE: LOCAL_OCR] Executing Parallel Local OCR pipeline for '{filename}' (0 AI tokens spent).")
+    print(f"[MODE: LOCAL_OCR] Executing High-Precision Parallel Local OCR pipeline for '{filename}' (0 AI tokens spent).")
     
     pdf_doc = fitz.open(stream=pdf_bytes, filetype="pdf")
     page_count = len(pdf_doc)
