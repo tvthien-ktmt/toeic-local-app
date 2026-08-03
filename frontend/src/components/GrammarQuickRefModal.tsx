@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchGrammarReference, GrammarReference } from '../api/grammar';
+import { fetchGrammarReference, type GrammarReference } from '../api/grammar';
 import { BookOpen, CheckCircle, Lightbulb, X, Sparkles, Loader2 } from 'lucide-react';
 
 interface GrammarQuickRefModalProps {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { lookupVocabularyWord, suggestRelatedVocabulary, VocabularyLookupResult, SuggestedVocabResult } from '../api/vocabulary';
+import { lookupVocabularyWord, suggestRelatedVocabulary, type VocabularyLookupResult, type SuggestedVocabResult } from '../api/vocabulary';
 import axios from 'axios';
-import { Search, Plus, Check, Sparkles, X, Volume2, Loader2, BookMarked } from 'lucide-react';
+import { Plus, Check, Sparkles, X, Volume2, Loader2, BookMarked } from 'lucide-react';
 
 interface TextHighlightPopupProps {
   documentId?: number;
@@ -9,7 +9,6 @@ interface TextHighlightPopupProps {
 
 export const TextHighlightPopup: React.FC<TextHighlightPopupProps> = ({ documentId }) => {
   const [selectedWord, setSelectedWord] = useState<string>('');
-  const [contextSentence, setContextSentence] = useState<string>('');
   const [popupPos, setPopupPos] = useState<{ top: number; left: number } | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<VocabularyLookupResult | null>(null);
@@ -43,7 +42,6 @@ export const TextHighlightPopup: React.FC<TextHighlightPopupProps> = ({ document
         const parentText = anchorNode?.parentElement?.textContent || text;
 
         setSelectedWord(text);
-        setContextSentence(parentText);
         setPopupPos({
           top: Math.max(10, rect.top + window.scrollY - 10),
           left: Math.min(window.innerWidth - 340, Math.max(10, rect.left + window.scrollX))

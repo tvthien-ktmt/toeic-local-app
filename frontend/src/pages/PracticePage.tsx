@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { HelpCircle, CheckCircle2, XCircle, RefreshCw, Filter, Award, Sparkles, BookOpen, Languages, Clock, Play, FileText, Check } from 'lucide-react';
+import { HelpCircle, CheckCircle2, XCircle, RefreshCw, Filter, Award, Sparkles, BookOpen, Languages, Clock, Check } from 'lucide-react';
 import { fetchQuestions, fetchTopicsSummary, generateSimilarQuestion } from '../api/questions';
 import type { QuestionItem } from '../api/questions';
 import { GrammarQuickRefModal } from '../components/GrammarQuickRefModal';
@@ -30,7 +30,6 @@ export const PracticePage: React.FC = () => {
   const [practiceMode, setPracticeMode] = useState<'part_practice' | 'full_mock'>('part_practice');
   const [isMockSubmitted, setIsMockSubmitted] = useState<boolean>(false);
   const [mockStartTime, setMockStartTime] = useState<number>(0);
-  const [mockEndTime, setMockEndTime] = useState<number>(0);
 
   // Question Start Time Tracker
   const questionStartTimeRef = useRef<Record<number, number>>({});
@@ -117,7 +116,6 @@ export const PracticePage: React.FC = () => {
 
   const handleFinishMockTest = () => {
     const end = Date.now();
-    setMockEndTime(end);
     setIsMockSubmitted(true);
 
     // Calculate final scores

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { 
-  ArrowLeft, Copy, Check, FileText, Headphones, Code, Eye, Hash, Clock, Sparkles, 
-  BrainCircuit, Volume2, HelpCircle, BookOpen, CheckCircle2, AlertTriangle, RefreshCw, Award, XCircle
+  ArrowLeft, Copy, Check, FileText, Eye, 
+  BrainCircuit, Volume2, HelpCircle, BookOpen, CheckCircle2, RefreshCw, Award, XCircle
 } from 'lucide-react';
 import { fetchDocumentById } from '../api/documents';
 import type { DocumentDetail } from '../api/documents';
@@ -17,7 +17,6 @@ import { TextHighlightPopup } from '../components/TextHighlightPopup';
 import { PracticeTimer } from '../components/PracticeTimer';
 import { AIStudyRecommendationCard } from '../components/AIStudyRecommendationCard';
 import { useStudySessionTracker } from '../hooks/useStudySessionTracker';
-import axios from 'axios';
 
 interface DocumentDetailPageProps {
   docId: number;
@@ -35,7 +34,6 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
   
   const [copied, setCopied] = useState(false);
   const [isExtracting, setIsExtracting] = useState(false);
-  const [extractSuccess, setExtractSuccess] = useState<string | null>(null);
 
   // Module 17: Selected Grammar Topic for Quick Ref Modal
   const [activeGrammarTopic, setActiveGrammarTopic] = useState<string | null>(null);
@@ -89,10 +87,8 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
     if (!doc) return;
     setIsExtracting(true);
     setErrorMsg(null);
-    setExtractSuccess(null);
     try {
-      const result = await triggerExtraction(doc.id);
-      setExtractSuccess(`Đã trích xuất thành công ${result.questions_count} câu hỏi và ${result.vocabulary_count} từ vựng TOEIC!`);
+      await triggerExtraction(doc.id);
       await loadDetail();
       setActiveTab('questions');
     } catch (err: any) {
@@ -411,8 +407,6 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
             {/* Question items */}
             {filteredQuestions.map((q, idx) => {
               const uChoice = userAnswers[q.id];
-              const isAnswered = !!uChoice;
-              const isCorrect = q.correct_answer && uChoice && uChoice.toUpperCase() === q.correct_answer.toUpperCase();
 
               let optExps: Record<string, string> = {};
               if (q.option_explanations_json) {

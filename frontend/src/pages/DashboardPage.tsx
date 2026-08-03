@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BarChart3, CheckCircle2, BookOpen, Target, Award, Flame, RefreshCw, AlertCircle, Layers, Clock, Zap, Activity } from 'lucide-react';
+import { BarChart3, CheckCircle2, BookOpen, Target, RefreshCw, AlertCircle, Layers, Clock, Zap, Activity } from 'lucide-react';
 import axios from 'axios';
 
 interface DashboardStats {
@@ -89,7 +89,7 @@ export const DashboardPage: React.FC = () => {
     );
   }
 
-  const { summary, part_stats, topic_progress, grammar_stats, daily_history } = stats;
+  const { summary, part_stats, topic_progress, grammar_stats } = stats;
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 space-y-8">
