@@ -18,9 +18,17 @@ load_dotenv(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path
 logger = logging.getLogger("gemini_service")
 logging.basicConfig(level=logging.INFO)
 
+def get_gemini_api_keys() -> List[str]:
+    keys = []
+    k1 = os.getenv("GEMINI_API_KEY", "").strip()
+    k2 = os.getenv("GEMINI_API_KEY_2", "").strip()
+    if k1: keys.append(k1)
+    if k2 and k2 != k1: keys.append(k2)
+    return keys
+
 def get_gemini_api_key() -> str:
-    key = os.getenv("GEMINI_API_KEY", "").strip()
-    return key
+    keys = get_gemini_api_keys()
+    return keys[0] if keys else ""
 
 def get_input_hash(prompt_type: str, content_chunk: str) -> str:
     raw = f"{prompt_type}::{content_chunk}"
@@ -28,20 +36,16 @@ def get_input_hash(prompt_type: str, content_chunk: str) -> str:
 
 def call_gemini_api(prompt: str, json_schema_required: bool = True) -> str:
     """
-    Calls Gemini API REST endpoint with explicit disclosure, maxOutputTokens=8192, and exponential backoff.
+    Calls Gemini API REST endpoint with explicit disclosure, maxOutputTokens=8192, multi-key rotation, and exponential backoff.
     Uses gemini-2.0-flash-lite for higher free tier rate limits (30 RPM).
     """
-    api_key = get_gemini_api_key()
-    if not api_key:
+    keys = get_gemini_api_keys()
+    if not keys:
         print("[MODE: FALLBACK_MOCK] Reason: GEMINI_API_KEY is missing or empty in environment / .env!")
         raise ValueError("Chưa cấu hình GEMINI_API_KEY trong file .env!")
 
-    print(f"[MODE: GEMINI_API] Executing live request to Gemini API (Key: {api_key[:6]}***)...")
-
     import urllib.request
     import urllib.error
-
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key={api_key}"
 
     payload = {
         "contents": [
@@ -57,46 +61,49 @@ def call_gemini_api(prompt: str, json_schema_required: bool = True) -> str:
             "responseMimeType": "application/json" if json_schema_required else "text/plain"
         }
     }
-
     data = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(
-        url,
-        data=data,
-        headers={"Content-Type": "application/json"}
-    )
 
-    max_retries = 3
-    backoff_seconds = 4.0
+    # Try available keys in sequence
+    for key_idx, api_key in enumerate(keys):
+        print(f"[MODE: GEMINI_API] Executing live request to Gemini API (Key #{key_idx + 1}: {api_key[:6]}***)...")
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key={api_key}"
+        req = urllib.request.Request(
+            url,
+            data=data,
+            headers={"Content-Type": "application/json"}
+        )
 
-    for attempt in range(max_retries):
-        try:
-            with urllib.request.urlopen(req, timeout=45) as resp:
-                raw_bytes = resp.read()
-                result_json = json.loads(raw_bytes.decode("utf-8"))
-                candidates = result_json.get("candidates", [])
-                if not candidates:
-                    raise ValueError("Gemini API không trả về candidate nào.")
-                part_text = candidates[0]["content"]["parts"][0]["text"]
-                print(f"[GEMINI_API SUCCESS] Received {len(part_text)} chars from API.")
-                return part_text
-        except urllib.error.HTTPError as err:
-            if err.code in (429, 503):
-                print(f"[GEMINI_API RATE LIMIT HTTP {err.code}] Attempt {attempt + 1}/{max_retries}, waiting {backoff_seconds:.0f}s...")
-                time.sleep(backoff_seconds)
-                backoff_seconds *= 1.5
-            else:
-                print(f"[GEMINI_API HTTP ERROR] HTTP {err.code}: {err.reason}")
-                raise err
-        except Exception as ex:
-            print(f"[GEMINI_API ERROR] {ex}")
-            if attempt < max_retries - 1:
-                time.sleep(backoff_seconds)
-                backoff_seconds *= 1.5
-            else:
-                raise ex
+        max_retries = 2
+        backoff_seconds = 2.0
 
-    print("[GEMINI_API QUOTA EXCEEDED] Quota limit hit on Gemini API key. Triggering smart fallback extraction.")
-    raise ValueError("GEMINI_QUOTA_EXCEEDED: Đã chạm hạn ngạch API Gemini Free Tier. Tự động chuyển sang luồng xử lý dự phòng.")
+        for attempt in range(max_retries):
+            try:
+                with urllib.request.urlopen(req, timeout=45) as resp:
+                    raw_bytes = resp.read()
+                    result_json = json.loads(raw_bytes.decode("utf-8"))
+                    candidates = result_json.get("candidates", [])
+                    if not candidates:
+                        raise ValueError("Gemini API không trả về candidate nào.")
+                    part_text = candidates[0]["content"]["parts"][0]["text"]
+                    print(f"[GEMINI_API SUCCESS] Key #{key_idx + 1} received {len(part_text)} chars from API.")
+                    return part_text
+            except urllib.error.HTTPError as err:
+                if err.code in (429, 503):
+                    print(f"[GEMINI_API RATE LIMIT HTTP {err.code}] Key #{key_idx + 1} Attempt {attempt + 1}/{max_retries}, switching/waiting...")
+                    time.sleep(backoff_seconds)
+                    backoff_seconds *= 1.5
+                else:
+                    print(f"[GEMINI_API HTTP ERROR] Key #{key_idx + 1} HTTP {err.code}: {err.reason}")
+                    break
+            except Exception as ex:
+                print(f"[GEMINI_API ERROR] Key #{key_idx + 1}: {ex}")
+                if attempt < max_retries - 1:
+                    time.sleep(backoff_seconds)
+                else:
+                    break
+
+    print("[GEMINI_API QUOTA EXCEEDED] Quota limit hit on all Gemini API keys. Triggering smart fallback extraction.")
+    raise ValueError("GEMINI_QUOTA_EXCEEDED: Đã chạm hạn ngạch API Gemini Free Tier trên toàn bộ Key. Tự động chuyển sang luồng xử lý dự phòng.")
 
 
 def query_gemini_with_cache(
