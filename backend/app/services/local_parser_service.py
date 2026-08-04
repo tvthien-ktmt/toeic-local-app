@@ -9,13 +9,14 @@ from typing import List, Dict, Any, Tuple, Optional
 def parse_part5_locally(part5_text: str) -> Tuple[List[Dict[str, Any]], List[str]]:
     """
     Parses Part 5 text using local regex (0 AI tokens).
+    Supports question numbers with 1 to 3 digits (1..30 or 101..130).
     Uses (B)/(C)/(D) markers as anchor points to handle cases where (A) is dropped by OCR.
     
     Returns:
         parsed_questions: List of successfully parsed question dicts.
         failed_blocks: List of raw question blocks that failed local regex parsing (to send to Gemini).
     """
-    pattern = r'(?:^|\n)\s*(\d{3})\.\s*(.*?)(?=\n\s*\d{3}\.|\Z)'
+    pattern = r'(?:^|\n)\s*(\d{1,3})\.\s*(.*?)(?=\n\s*\d{1,3}\.|\Z)'
     matches = list(re.finditer(pattern, part5_text, re.DOTALL))
     
     parsed_questions = []

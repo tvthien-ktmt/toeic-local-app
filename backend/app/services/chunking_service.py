@@ -35,8 +35,8 @@ def chunk_markdown_document(markdown_text: str, doc_type: str) -> List[Dict[str,
                 if part_text:
                     chunks.append({"part": part_num, "content": part_text})
         else:
-            # Fallback strategy: Regex search for question numbers 101..130 -> Part 5, 131..146 -> Part 6, 147..200 -> Part 7
-            q101 = re.search(r'\b101\.', markdown_text)
+            # Fallback strategy: Regex search for question numbers 101..130 (or 1..30) -> Part 5, 131..146 -> Part 6, 147..200 -> Part 7
+            q101 = re.search(r'\b(101|1)\.', markdown_text)
             q131 = re.search(r'\b131\.', markdown_text)
             q147 = re.search(r'\b147\.', markdown_text)
 
