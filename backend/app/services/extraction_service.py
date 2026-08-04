@@ -117,91 +117,48 @@ def fallback_extract_vocab(part_text: str) -> List[Dict[str, Any]]:
 
 def fallback_extract_part5(part_text: str) -> List[Dict[str, Any]]:
     """
-    [MODE: MOCK_FALLBACK] Trích xuất câu hỏi Part 5 bằng regex khi KHÔNG có API key.
-    Chiến lược an toàn: tách câu hỏi theo số thứ tự (\n\d{3}\.) TRƯỚC,
-    rồi mới tìm marker (A)/(B)/(C)/(D) BÊN TRONG mỗi block riêng biệt.
-    Không bao giờ tìm xuyên block khác → tránh bug gộp câu.
+    [MODE: MOCK_FALLBACK] Trích xuất câu hỏi Part 5 bằng regex khi KHÔNG có API key hoặc Gemini API gặp 429.
+    Runs local_parser_service to parse remaining blocks cleanly.
     """
-    print("[MODE: MOCK_FALLBACK] fallback_extract_part5 đang chạy — chỉ dùng khi không có API key.")
-    questions = []
-
-    # Bước 1: Tách text thành các block theo số thứ tự câu hỏi (101., 102., ...)
-    blocks = re.split(r'\n(?=\d{3}\.)', part_text)
-
-    for block in blocks:
-        block = block.strip()
-        if not block:
-            continue
-
-        # Kiểm tra block bắt đầu bằng số câu hỏi 3 chữ số
-        q_num_match = re.match(r'^(\d{3})\.\s*', block)
-        if not q_num_match:
-            continue
-
-        q_num = q_num_match.group(1)
-        block_body = block[q_num_match.end():]  # Phần sau số câu hỏi
-
-        # Bước 2: Tìm marker (B), (C), (D) trong block này
-        # Dùng (B) làm mốc chính vì (A) hay bị OCR mất
-        opt_b_match = re.search(r'\(B\)|\bB\.\s', block_body)
-        opt_c_match = re.search(r'\(C\)|\bC\.\s', block_body)
-        opt_d_match = re.search(r'\(D\)|\bD\.\s', block_body)
-
-        if opt_b_match and opt_c_match and opt_d_match:
-            # Tìm (A) — nếu không có, coi phần giữa câu hỏi và (B) là đáp án A
-            opt_a_match = re.search(r'\(A\)|\bA\.\s', block_body)
-
-            if opt_a_match and opt_a_match.start() < opt_b_match.start():
-                q_text_raw = block_body[:opt_a_match.start()].strip()
-                opt_a_text = block_body[opt_a_match.end():opt_b_match.start()].strip()
-            else:
-                # (A) bị mất — tìm ranh giới bằng cách lấy từ cuối cùng trước (B)
-                pre_b = block_body[:opt_b_match.start()].strip()
-                # Tách câu hỏi và đáp án A: dòng cuối cùng trước (B) là đáp án A
-                pre_b_lines = [l.strip() for l in pre_b.split('\n') if l.strip()]
-                if len(pre_b_lines) >= 2:
-                    q_text_raw = ' '.join(pre_b_lines[:-1])
-                    opt_a_text = pre_b_lines[-1]
-                else:
-                    q_text_raw = pre_b
-                    opt_a_text = "(không rõ)"
-
-            opt_b_text = block_body[opt_b_match.end():opt_c_match.start()].strip()
-            opt_c_text = block_body[opt_c_match.end():opt_d_match.start()].strip()
-            opt_d_text = block_body[opt_d_match.end():].strip()
-            # Loại bỏ dấu xuống dòng thừa trong đáp án
-            opt_d_text = opt_d_text.split('\n')[0].strip()
-
-            opts = [
-                f"A. {opt_a_text}",
-                f"B. {opt_b_text}",
-                f"C. {opt_c_text}",
-                f"D. {opt_d_text}"
-            ]
+    print("[MODE: MOCK_FALLBACK] fallback_extract_part5 đang chạy — trích xuất câu hỏi Part 5 bằng regex cục bộ.")
+    parsed, failed = parse_part5_locally(part_text, start_q=101, end_q=130)
+    
+    # For any blocks in failed list, create fallback question items so no question is lost
+    for fb in failed:
+        num_m = re.search(r'^\s*(\d{1,3})[\.\_\:]*\s*', fb)
+        q_num = num_m.group(1) if num_m else "101"
+        q_body = fb[num_m.end():] if num_m else fb
+        
+        # Split options loosely
+        words = q_body.split()
+        if len(words) >= 4:
+            opt_a = words[-4]
+            opt_b = words[-3]
+            opt_c = words[-2]
+            opt_d = words[-1]
+            q_txt = " ".join(words[:-4])
         else:
-            # Không tìm đủ marker B/C/D → lấy toàn bộ block làm câu hỏi, đáp án placeholder
-            q_text_raw = block_body.split('\n')[0].strip() if block_body else block
-            opts = ["A. (không rõ)", "B. (không rõ)", "C. (không rõ)", "D. (không rõ)"]
+            opt_a = opt_b = opt_c = opt_d = "(không rõ)"
+            q_txt = q_body
 
-        q_text = f"{q_num}. {q_text_raw}"
-
-        # Nhận dạng chủ đề ngữ pháp cơ bản
-        topic = "word form"
-        q_lower = q_text_raw.lower()
-        if any(w in q_lower for w in ["by", "on", "at", "for", "in", "to", "during", "since", "until"]):
-            topic = "preposition"
-        elif any(w in q_lower for w in ["because", "although", "while", "after", "before"]):
-            topic = "conjunction"
-
-        questions.append({
-            "question_text": q_text,
-            "options": opts,
+        parsed.append({
+            "question_num": int(q_num),
+            "question_text": f"{q_num}. {q_txt}",
+            "options": [f"A. {opt_a}", f"B. {opt_b}", f"C. {opt_c}", f"D. {opt_d}"],
             "correct_answer": None,
-            "grammar_topic": topic,
-            "explanation": f"[MOCK] Câu #{q_num} — cần Gemini AI để giải thích chính xác."
+            "grammar_topic": "Từ loại (Word Form)",
+            "explanation": f"[LOCAL REGEX FALLBACK] Câu #{q_num} — Đã trích xuất bằng regex dự phòng.",
+            "option_explanations": {
+                "A": f"Phương án A: {opt_a}",
+                "B": f"Phương án B: {opt_b}",
+                "C": f"Phương án C: {opt_c}",
+                "D": f"Phương án D: {opt_d}"
+            },
+            "translated_sentence": f"{q_num}. {q_txt}",
+            "is_ai_verified": False
         })
 
-    return questions
+    return parsed
 
 
 def process_document_extraction(db: Session, doc_id: int) -> Dict[str, Any]:
@@ -237,7 +194,7 @@ def process_document_extraction(db: Session, doc_id: int) -> Dict[str, Any]:
             if doc.doc_type == "RC_EXAM":
                 if part_num == 5:
                     # LAYER 1: Parse Part 5 locally using regex (0 AI tokens)
-                    parsed_qs, failed_blocks = parse_part5_locally(sub_text)
+                    parsed_qs, failed_blocks = parse_part5_locally(sub_text, start_q=101, end_q=130)
                     safe_print(f"[LOCAL REGEX PARSER] Part 5 Subchunk {sub_idx + 1}/{len(text_subchunks)}: Parsed {len(parsed_qs)} questions locally (0 AI tokens). Failed blocks needing AI: {len(failed_blocks)}")
 
                     for q in parsed_qs:
