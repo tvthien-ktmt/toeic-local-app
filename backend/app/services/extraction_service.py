@@ -193,11 +193,52 @@ def process_document_extraction(db: Session, doc_id: int) -> Dict[str, Any]:
 
             if doc.doc_type == "RC_EXAM":
                 if part_num == 5:
-                    # LAYER 1: Parse Part 5 locally using regex (0 AI tokens)
-                    parsed_qs, failed_blocks = parse_part5_locally(sub_text, start_q=101, end_q=130)
-                    safe_print(f"[LOCAL REGEX PARSER] Part 5 Subchunk {sub_idx + 1}/{len(text_subchunks)}: Parsed {len(parsed_qs)} questions locally (0 AI tokens). Failed blocks needing AI: {len(failed_blocks)}")
+                    q_list = []
+                    if api_key:
+                        safe_print(f"[AI EXTRACTION] Part 5 (Subchunk {sub_idx + 1}/{len(text_subchunks)}): Sending to Gemini AI for direct extraction & 100% full enrichment...")
+                        prompt_type = "extract_question_part5_full"
+                        prompt_text = f"""Bạn nhận được văn bản đề thi TOEIC Part 5 (gồm các câu hỏi từ 101 tới 130).
+Nhiệm vụ: Trích xuất TẤT CẢ các câu hỏi thành một JSON array hoàn chỉnh.
+LƯU Ý QUAN TRỌNG:
+1. Đọc và tách chính xác từng câu hỏi (101, 102, ..., 130). Điền dấu chỗ trống _____ vào vị trí bị thiếu từ.
+2. Tách chính xác 4 phương án A, B, C, D cho MỖI câu hỏi.
+3. Xác định đáp án đúng correct_answer ("A", "B", "C", hoặc "D").
+4. Phân loại grammar_topic chuẩn TOEIC (ví dụ: 'Giới từ (Preposition)', 'Liên từ (Conjunction)', 'Đại từ (Pronoun)', 'Từ loại (Word Form)', 'Mệnh đề quan hệ (Relative Clause)', 'Thì động từ (Verb Tense)', 'Thể bị động (Passive Voice)').
+5. Sinh giải thích option_explanations cho từng lựa chọn A, B, C, D và bản dịch tiếng Việt tự nhiên translated_sentence.
 
-                    for q in parsed_qs:
+Mỗi phần tử trong JSON array có dạng:
+{{
+  "question_num": 101,
+  "question_text": "101. Mr. Ellis needs a ticket for a new flight because _____ was canceled.",
+  "options": ["A. him", "B. he", "C. his", "D. himself"],
+  "correct_answer": "B",
+  "grammar_topic": "Đại từ (Pronoun)",
+  "explanation": "Cần một đại từ nhân xưng đóng vai trò chủ ngữ cho mệnh đề 'was canceled', nên chọn 'he'.",
+  "option_explanations": {{
+    "A": "him: Đại từ tân ngữ, không thể làm chủ ngữ.",
+    "B": "he: Đại từ nhân xưng chủ ngữ (chính xác).",
+    "C": "his: Tính từ sở hữu/đại từ sở hữu.",
+    "D": "himself: Đại từ phản thân."
+  }},
+  "translated_sentence": "Ông Ellis cần một vé cho chuyến bay mới vì chuyến bay của ông ấy đã bị hủy."
+}}
+
+CHỈ trả về JSON array duy nhất, không kèm văn bản giải thích ngoài.
+Nội dung đề thi:
+{sub_text}"""
+                        try:
+                            raw_ai_qs = query_gemini_with_cache(db, prompt_type, prompt_text, sub_text)
+                            q_list = raw_ai_qs if isinstance(raw_ai_qs, list) else (raw_ai_qs.get("questions", []) if isinstance(raw_ai_qs, dict) else [])
+                        except Exception as e:
+                            safe_print(f"[EXTRACTION_FALLBACK] Gemini API lỗi ({e}), chuyển sang fallback local parser.")
+                            q_list = fallback_extract_part5(sub_text)
+                    else:
+                        safe_print("[EXTRACTION_FALLBACK] No API Key, running fallback local parser on Part 5...")
+                        q_list = fallback_extract_part5(sub_text)
+
+                    for q in q_list:
+                        if not isinstance(q, dict): continue
+                        g_topic = q.get("grammar_topic") or "Từ loại (Word Form)"
                         opts = q.get("options", [])
                         opts_str = json.dumps(opts, ensure_ascii=False) if isinstance(opts, list) else "[]"
                         opt_exps = q.get("option_explanations", {})
@@ -212,133 +253,13 @@ def process_document_extraction(db: Session, doc_id: int) -> Dict[str, Any]:
                             explanation=q.get("explanation"),
                             option_explanations_json=opt_exps_str,
                             translated_sentence=q.get("translated_sentence"),
-                            grammar_topic=q.get("grammar_topic", "word form"),
+                            grammar_topic=g_topic,
                             topic_tag="Part 5 Grammar",
                             is_generated=False
                         )
                         db.add(new_q)
                         extracted_questions_count += 1
                     db.commit()
-
-                    # LAYER 2: If any blocks failed local regex parsing, send ONLY those to Gemini AI (or fallback parser)
-                    if failed_blocks:
-                        failed_text = "\n\n".join(failed_blocks)
-                        q_list = []
-                        if api_key:
-                            safe_print(f"[AI EXTRACTION] Part 5 Subchunk {sub_idx + 1}: Sending {len(failed_blocks)} failed question blocks ({len(failed_text)} chars) to Gemini...")
-                            prompt_type = "extract_question_part5"
-                            prompt_text = f"""Bạn nhận được một số câu hỏi Part 5 TOEIC chưa tách được bằng regex.
-Trích xuất TẤT CẢ các câu hỏi này thành JSON array.
-Mỗi phần tử gồm:
-{{
-  "question_text": "...",
-  "options": ["A. ...","B. ...","C. ...","D. ..."],
-  "correct_answer": "A" | "B" | "C" | "D" | null,
-  "grammar_topic": "tên chủ điểm ngữ pháp",
-  "explanation": "giải thích ngắn gọn",
-  "option_explanations": {{
-    "A": "Giải thích A",
-    "B": "Giải thích B",
-    "C": "Giải thích C",
-    "D": "Giải thích D"
-  }},
-  "translated_sentence": "Bản dịch tiếng Việt hoàn chỉnh"
-}}
-CHỈ trả về JSON array.
-Nội dung:
-{failed_text}"""
-                            try:
-                                raw_ai_qs = query_gemini_with_cache(db, prompt_type, prompt_text, failed_text)
-                                q_list = raw_ai_qs if isinstance(raw_ai_qs, list) else (raw_ai_qs.get("questions", []) if isinstance(raw_ai_qs, dict) else [])
-                            except Exception as e:
-                                safe_print(f"[EXTRACTION_FALLBACK] Gemini API lỗi ({e}), chuyển sang fallback local parser.")
-                                q_list = fallback_extract_part5(failed_text)
-                        else:
-                            safe_print(f"[EXTRACTION_FALLBACK] No API Key, running fallback local parser on {len(failed_blocks)} failed blocks...")
-                            q_list = fallback_extract_part5(failed_text)
-
-                        for q in q_list:
-                            if not isinstance(q, dict): continue
-                            g_topic = q.get("grammar_topic") or "unclassified"
-                            opts = q.get("options", [])
-                            opts_str = json.dumps(opts, ensure_ascii=False) if isinstance(opts, list) else "[]"
-                            opt_exps = q.get("option_explanations", {})
-                            opt_exps_str = json.dumps(opt_exps, ensure_ascii=False) if isinstance(opt_exps, dict) else "{}"
-
-                            new_q = Question(
-                                document_id=doc.id,
-                                part=5,
-                                question_text=q.get("question_text", "Untitled Question"),
-                                options_json=opts_str,
-                                correct_answer=q.get("correct_answer"),
-                                explanation=q.get("explanation"),
-                                option_explanations_json=opt_exps_str,
-                                translated_sentence=q.get("translated_sentence"),
-                                grammar_topic=g_topic,
-                                topic_tag="Part 5 Grammar",
-                                is_generated=False
-                            )
-                            db.add(new_q)
-                            extracted_questions_count += 1
-                        db.commit()
-
-                    # B.1.3: Mandatory Gemini AI Enrichment Pass for Part 5 questions
-                    all_p5_qs = db.query(Question).filter(Question.document_id == doc.id, Question.part == 5).all()
-                    if all_p5_qs and api_key:
-                        qs_summary = "\n\n".join([
-                            f"Question #{q.id} (No. {q.question_text[:5]}): {q.question_text}\nOptions: {q.options_json}"
-                            for q in all_p5_qs
-                        ])
-                        safe_print(f"[AI ENRICHMENT] Part 5: Sending {len(all_p5_qs)} questions to Gemini AI for real grammar_topic, explanations, and Vietnamese translation...")
-                        enrich_prompt_type = "enrich_part5_questions"
-                        enrich_prompt_text = f"""Bạn nhận được danh sách các câu hỏi Part 5 TOEIC.
-Hãy phân loại CHÍNH XÁC grammar_topic, sinh giải thích option_explanations cho từng đáp án A, B, C, D, và dịch translated_sentence sang tiếng Việt hoàn chỉnh cho MỖI câu hỏi.
-
-Trả về JSON array các object tương ứng theo thứ tự câu:
-[
-  {{
-    "id": <ID câu hỏi trong input>,
-    "grammar_topic": "tên chủ điểm ngữ pháp chuẩn TOEIC (ví dụ: 'đại từ', 'từ loại', 'giới từ', 'liên từ', 'thể bị động', 'mệnh đề quan hệ', 'thì động từ', 'mệnh đề trạng ngữ', 'so sánh')",
-    "correct_answer": "A" | "B" | "C" | "D",
-    "explanation": "giải thích ngắn gọn vì sao đáp án đúng",
-    "option_explanations": {{
-      "A": "Giải thích ngữ pháp cụ thể cho phương án A",
-      "B": "Giải thích ngữ pháp cụ thể cho phương án B",
-      "C": "Giải thích ngữ pháp cụ thể cho phương án C",
-      "D": "Giải thích ngữ pháp cụ thể cho phương án D"
-    }},
-    "translated_sentence": "Bản dịch tiếng Việt hoàn chỉnh và tự nhiên của câu khi đã điền đáp án đúng vào chỗ trống"
-  }}
-]
-CHỈ trả về JSON array.
-Nội dung câu hỏi:
-{qs_summary}"""
-                        try:
-                            enriched_data = query_gemini_with_cache(db, enrich_prompt_type, enrich_prompt_text, qs_summary)
-                            enrich_list = enriched_data if isinstance(enriched_data, list) else (enriched_data.get("questions", []) if isinstance(enriched_data, dict) else [])
-                            
-                            enrich_map = {}
-                            for item in enrich_list:
-                                if isinstance(item, dict) and item.get("id"):
-                                    enrich_map[item["id"]] = item
-
-                            for db_q in all_p5_qs:
-                                item = enrich_map.get(db_q.id)
-                                if item:
-                                    if item.get("grammar_topic"):
-                                        db_q.grammar_topic = item["grammar_topic"]
-                                    if item.get("correct_answer"):
-                                        db_q.correct_answer = item["correct_answer"]
-                                    if item.get("explanation"):
-                                        db_q.explanation = item["explanation"]
-                                    if item.get("option_explanations"):
-                                        db_q.option_explanations_json = json.dumps(item["option_explanations"], ensure_ascii=False)
-                                    if item.get("translated_sentence"):
-                                        db_q.translated_sentence = item["translated_sentence"]
-                            db.commit()
-                            safe_print(f"[AI ENRICHMENT] Part 5: Successfully enriched {len(enrich_map)} questions with real topics and translations!")
-                        except Exception as ee:
-                            safe_print(f"[AI ENRICHMENT NOTE] Gemini AI enrichment skipped/failed: {ee}")
 
                     # Extract Vocabulary for Part 5
                     if api_key:
