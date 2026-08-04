@@ -263,12 +263,14 @@ def process_document_extraction(db: Session, doc_id: int) -> Dict[str, Any]:
                         extracted_questions_count += 1
                     db.commit()
 
-                    # LAYER 2: If any blocks failed local regex parsing, send ONLY those to Gemini AI
-                    if failed_blocks and api_key:
+                    # LAYER 2: If any blocks failed local regex parsing, send ONLY those to Gemini AI (or fallback parser)
+                    if failed_blocks:
                         failed_text = "\n\n".join(failed_blocks)
-                        safe_print(f"[AI EXTRACTION] Part 5 Subchunk {sub_idx + 1}: Sending {len(failed_blocks)} failed question blocks ({len(failed_text)} chars) to Gemini...")
-                        prompt_type = "extract_question_part5"
-                        prompt_text = f"""Bạn nhận được một số câu hỏi Part 5 TOEIC chưa tách được bằng regex.
+                        q_list = []
+                        if api_key:
+                            safe_print(f"[AI EXTRACTION] Part 5 Subchunk {sub_idx + 1}: Sending {len(failed_blocks)} failed question blocks ({len(failed_text)} chars) to Gemini...")
+                            prompt_type = "extract_question_part5"
+                            prompt_text = f"""Bạn nhận được một số câu hỏi Part 5 TOEIC chưa tách được bằng regex.
 Trích xuất TẤT CẢ các câu hỏi này thành JSON array.
 Mỗi phần tử gồm:
 {{
@@ -288,35 +290,40 @@ Mỗi phần tử gồm:
 CHỈ trả về JSON array.
 Nội dung:
 {failed_text}"""
-                        try:
-                            raw_ai_qs = query_gemini_with_cache(db, prompt_type, prompt_text, failed_text)
-                            q_list = raw_ai_qs if isinstance(raw_ai_qs, list) else (raw_ai_qs.get("questions", []) if isinstance(raw_ai_qs, dict) else [])
-                            for q in q_list:
-                                if not isinstance(q, dict): continue
-                                g_topic = q.get("grammar_topic") or "unclassified"
-                                opts = q.get("options", [])
-                                opts_str = json.dumps(opts, ensure_ascii=False) if isinstance(opts, list) else "[]"
-                                opt_exps = q.get("option_explanations", {})
-                                opt_exps_str = json.dumps(opt_exps, ensure_ascii=False) if isinstance(opt_exps, dict) else "{}"
+                            try:
+                                raw_ai_qs = query_gemini_with_cache(db, prompt_type, prompt_text, failed_text)
+                                q_list = raw_ai_qs if isinstance(raw_ai_qs, list) else (raw_ai_qs.get("questions", []) if isinstance(raw_ai_qs, dict) else [])
+                            except Exception as e:
+                                safe_print(f"[EXTRACTION_FALLBACK] Gemini API lỗi ({e}), chuyển sang fallback local parser.")
+                                q_list = fallback_extract_part5(failed_text)
+                        else:
+                            safe_print(f"[EXTRACTION_FALLBACK] No API Key, running fallback local parser on {len(failed_blocks)} failed blocks...")
+                            q_list = fallback_extract_part5(failed_text)
 
-                                new_q = Question(
-                                    document_id=doc.id,
-                                    part=5,
-                                    question_text=q.get("question_text", "Untitled Question"),
-                                    options_json=opts_str,
-                                    correct_answer=q.get("correct_answer"),
-                                    explanation=q.get("explanation"),
-                                    option_explanations_json=opt_exps_str,
-                                    translated_sentence=q.get("translated_sentence"),
-                                    grammar_topic=g_topic,
-                                    topic_tag="Part 5 Grammar",
-                                    is_generated=False
-                                )
-                                db.add(new_q)
-                                extracted_questions_count += 1
-                            db.commit()
-                        except Exception as e:
-                            safe_print(f"[EXTRACTION_FAILED] Part 5 AI failed blocks subchunk {sub_idx + 1}: Gemini API lỗi ({e}).")
+                        for q in q_list:
+                            if not isinstance(q, dict): continue
+                            g_topic = q.get("grammar_topic") or "unclassified"
+                            opts = q.get("options", [])
+                            opts_str = json.dumps(opts, ensure_ascii=False) if isinstance(opts, list) else "[]"
+                            opt_exps = q.get("option_explanations", {})
+                            opt_exps_str = json.dumps(opt_exps, ensure_ascii=False) if isinstance(opt_exps, dict) else "{}"
+
+                            new_q = Question(
+                                document_id=doc.id,
+                                part=5,
+                                question_text=q.get("question_text", "Untitled Question"),
+                                options_json=opts_str,
+                                correct_answer=q.get("correct_answer"),
+                                explanation=q.get("explanation"),
+                                option_explanations_json=opt_exps_str,
+                                translated_sentence=q.get("translated_sentence"),
+                                grammar_topic=g_topic,
+                                topic_tag="Part 5 Grammar",
+                                is_generated=False
+                            )
+                            db.add(new_q)
+                            extracted_questions_count += 1
+                        db.commit()
 
                     # Extract Vocabulary for Part 5
                     if api_key:
