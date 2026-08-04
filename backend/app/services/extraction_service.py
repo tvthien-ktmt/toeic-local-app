@@ -4,6 +4,7 @@ import json
 import re
 from datetime import datetime
 from typing import Dict, Any, List
+from .local_parser_service import parse_part5_locally
 
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
@@ -235,137 +236,166 @@ def process_document_extraction(db: Session, doc_id: int) -> Dict[str, Any]:
 
             if doc.doc_type == "RC_EXAM":
                 if part_num == 5:
-                    prompt_type = "extract_part5_combined"
-                    prompt_text = f"""Bạn nhận được nội dung Markdown của Part 5 trong đề thi TOEIC.
-Nhiệm vụ: Trích xuất TẤT CẢ các câu hỏi VÀ các từ vựng thương mại quan trọng thành 1 JSON object duy nhất.
+                    # LAYER 1: Parse Part 5 locally using regex (0 AI tokens)
+                    parsed_qs, failed_blocks = parse_part5_locally(sub_text)
+                    safe_print(f"[LOCAL REGEX PARSER] Part 5 Subchunk {sub_idx + 1}/{len(text_subchunks)}: Parsed {len(parsed_qs)} questions locally (0 AI tokens). Failed blocks needing AI: {len(failed_blocks)}")
 
-Cấu trúc JSON yêu cầu:
+                    for q in parsed_qs:
+                        opts = q.get("options", [])
+                        opts_str = json.dumps(opts, ensure_ascii=False) if isinstance(opts, list) else "[]"
+                        opt_exps = q.get("option_explanations", {})
+                        opt_exps_str = json.dumps(opt_exps, ensure_ascii=False) if isinstance(opt_exps, dict) else "{}"
+
+                        new_q = Question(
+                            document_id=doc.id,
+                            part=5,
+                            question_text=q.get("question_text", "Untitled Question"),
+                            options_json=opts_str,
+                            correct_answer=q.get("correct_answer"),
+                            explanation=q.get("explanation"),
+                            option_explanations_json=opt_exps_str,
+                            translated_sentence=q.get("translated_sentence"),
+                            grammar_topic=q.get("grammar_topic", "word form"),
+                            topic_tag="Part 5 Grammar",
+                            is_generated=False
+                        )
+                        db.add(new_q)
+                        extracted_questions_count += 1
+                    db.commit()
+
+                    # LAYER 2: If any blocks failed local regex parsing, send ONLY those to Gemini AI
+                    if failed_blocks and api_key:
+                        failed_text = "\n\n".join(failed_blocks)
+                        safe_print(f"[AI EXTRACTION] Part 5 Subchunk {sub_idx + 1}: Sending {len(failed_blocks)} failed question blocks ({len(failed_text)} chars) to Gemini...")
+                        prompt_type = "extract_question_part5"
+                        prompt_text = f"""Bạn nhận được một số câu hỏi Part 5 TOEIC chưa tách được bằng regex.
+Trích xuất TẤT CẢ các câu hỏi này thành JSON array.
+Mỗi phần tử gồm:
 {{
-  "questions": [
-    {{
-      "question_text": "...",
-      "options": ["A. ...","B. ...","C. ...","D. ..."],
-      "correct_answer": "A" | "B" | "C" | "D" | null,
-      "grammar_topic": "tên chủ điểm ngữ pháp cụ thể (vd: subject-verb agreement, relative clause, verb tense, preposition, word form)",
-      "explanation": "giải thích ngắn gọn vì sao đáp án đúng",
-      "option_explanations": {{
-        "A": "Giải thích vì sao lựa chọn A đúng hoặc sai cụ thể theo ngữ pháp/ngữ nghĩa",
-        "B": "Giải thích vì sao lựa chọn B đúng hoặc sai cụ thể",
-        "C": "Giải thích vì sao lựa chọn C đúng hoặc sai cụ thể",
-        "D": "Giải thích vì sao lựa chọn D đúng hoặc sai cụ thể"
-      }},
-      "translated_sentence": "Bản dịch tiếng Việt hoàn chỉnh và tự nhiên của câu khi đã điền đáp án đúng vào chỗ trống"
-    }}
-  ],
-  "vocabulary": [
-    {{
-      "word": "từ tiếng Anh nguyên mẫu",
-      "ipa": "phiên âm IPA chuẩn",
-      "part_of_speech": "n/v/adj/adv/phrase",
-      "meaning_vi": "nghĩa tiếng Việt ngắn gọn chính xác theo ngữ cảnh câu trong đề TOEIC",
-      "synonyms": ["1-3 từ đồng nghĩa tiếng Anh"],
-      "antonyms": ["1-2 từ trái nghĩa tiếng Anh"],
-      "topic_category": "chọn ĐÚNG 1 trong các chủ đề: 'từ loại', 'thì động từ', 'thể bị động', 'mệnh đề quan hệ', 'giới từ & liên từ', 'so sánh', 'đại từ', 'mệnh đề trạng ngữ', 'đặt hàng & dịch vụ', 'cảm ơn & xin lỗi', 'sự kiện & lễ kỷ niệm', 'mua sắm & giảm giá', 'đề xuất & kiến nghị', 'dịch vụ khách hàng', 'tài chính & ngân sách', 'bất động sản', 'tuyển dụng & nhân sự', 'du lịch & đi lại', 'văn phòng & công sở', 'giao thông & di chuyển', 'nhà hàng & ăn uống', 'y tế & sức khỏe', 'công nghệ & thiết bị', 'hội nghị & sự kiện', 'khác / chưa phân loại'",
-      "example_sentence": "câu ví dụ trích từ bài"
-    }}
-  ]
+  "question_text": "...",
+  "options": ["A. ...","B. ...","C. ...","D. ..."],
+  "correct_answer": "A" | "B" | "C" | "D" | null,
+  "grammar_topic": "tên chủ điểm ngữ pháp",
+  "explanation": "giải thích ngắn gọn",
+  "option_explanations": {{
+    "A": "Giải thích A",
+    "B": "Giải thích B",
+    "C": "Giải thích C",
+    "D": "Giải thích D"
+  }},
+  "translated_sentence": "Bản dịch tiếng Việt hoàn chỉnh"
 }}
-CHỈ trả về JSON object, không thêm text nào khác.
+CHỈ trả về JSON array.
+Nội dung:
+{failed_text}"""
+                        try:
+                            raw_ai_qs = query_gemini_with_cache(db, prompt_type, prompt_text, failed_text)
+                            q_list = raw_ai_qs if isinstance(raw_ai_qs, list) else (raw_ai_qs.get("questions", []) if isinstance(raw_ai_qs, dict) else [])
+                            for q in q_list:
+                                if not isinstance(q, dict): continue
+                                g_topic = q.get("grammar_topic") or "unclassified"
+                                opts = q.get("options", [])
+                                opts_str = json.dumps(opts, ensure_ascii=False) if isinstance(opts, list) else "[]"
+                                opt_exps = q.get("option_explanations", {})
+                                opt_exps_str = json.dumps(opt_exps, ensure_ascii=False) if isinstance(opt_exps, dict) else "{}"
+
+                                new_q = Question(
+                                    document_id=doc.id,
+                                    part=5,
+                                    question_text=q.get("question_text", "Untitled Question"),
+                                    options_json=opts_str,
+                                    correct_answer=q.get("correct_answer"),
+                                    explanation=q.get("explanation"),
+                                    option_explanations_json=opt_exps_str,
+                                    translated_sentence=q.get("translated_sentence"),
+                                    grammar_topic=g_topic,
+                                    topic_tag="Part 5 Grammar",
+                                    is_generated=False
+                                )
+                                db.add(new_q)
+                                extracted_questions_count += 1
+                            db.commit()
+                        except Exception as e:
+                            safe_print(f"[EXTRACTION_FAILED] Part 5 AI failed blocks subchunk {sub_idx + 1}: Gemini API lỗi ({e}).")
+
+                    # Extract Vocabulary for Part 5
+                    if api_key:
+                        vocab_prompt_type = "extract_vocab_part5"
+                        vocab_prompt_text = f"""Từ đoạn Markdown đề TOEIC sau, hãy trích xuất các từ vựng CÓ GIÁ TRỊ HỌC.
+Trả về JSON array các từ vựng:
+[
+  {{
+    "word": "từ tiếng Anh nguyên mẫu",
+    "ipa": "phiên âm IPA",
+    "part_of_speech": "n/v/adj/adv/phrase",
+    "meaning_vi": "nghĩa tiếng Việt chính xác theo ngữ cảnh",
+    "synonyms": ["từ đồng nghĩa"],
+    "antonyms": ["từ trái nghĩa"],
+    "topic_category": "chọn 1 trong các chủ đề TOEIC",
+    "example_sentence": "câu ví dụ"
+  }}
+]
+CHỈ trả về JSON array.
 Nội dung:
 {sub_text}"""
-                    
-                    try:
-                        if api_key:
-                            raw_data = query_gemini_with_cache(db, prompt_type, prompt_text, sub_text)
+                        try:
+                            vocab_data = query_gemini_with_cache(db, vocab_prompt_type, vocab_prompt_text, sub_text)
+                        except Exception as ve:
+                            safe_print(f"[EXTRACTION_NOTE] Vocab Part 5 API limit, using fallback vocab.")
+                            vocab_data = fallback_extract_vocab(sub_text)
+                    else:
+                        vocab_data = fallback_extract_vocab(sub_text)
+
+                    v_list = vocab_data if isinstance(vocab_data, list) else (vocab_data.get("vocabulary", []) if isinstance(vocab_data, dict) else [])
+                    for item in v_list:
+                        if not isinstance(item, dict): continue
+                        word_clean = item.get("word", "").strip().lower()
+                        if not word_clean: continue
+
+                        syn_list = item.get("synonyms", [])
+                        ant_list = item.get("antonyms", [])
+                        syn_str = json.dumps(syn_list, ensure_ascii=False) if isinstance(syn_list, list) else "[]"
+                        ant_str = json.dumps(ant_list, ensure_ascii=False) if isinstance(ant_list, list) else "[]"
+
+                        existing_v = db.query(Vocabulary).filter(
+                            Vocabulary.word == word_clean,
+                            Vocabulary.source_document_id == doc.id
+                        ).first()
+
+                        if existing_v:
+                            existing_v.frequency_count += 1
+                            if syn_str != "[]" and existing_v.synonyms == "[]":
+                                existing_v.synonyms = syn_str
+                            if ant_str != "[]" and existing_v.antonyms == "[]":
+                                existing_v.antonyms = ant_str
                         else:
-                            raw_data = {
-                                "questions": fallback_extract_part5(sub_text),
-                                "vocabulary": fallback_extract_vocab(sub_text)
-                            }
-                        
-                        # Process extracted questions
-                        q_list = raw_data.get("questions", []) if isinstance(raw_data, dict) else (raw_data if isinstance(raw_data, list) else [])
-                        for q in q_list:
-                            if not isinstance(q, dict):
-                                continue
-                            g_topic = q.get("grammar_topic") or "unclassified"
-                            opts = q.get("options", [])
-                            opts_str = json.dumps(opts, ensure_ascii=False) if isinstance(opts, list) else "[]"
-                            opt_exps = q.get("option_explanations", {})
-                            opt_exps_str = json.dumps(opt_exps, ensure_ascii=False) if isinstance(opt_exps, dict) else "{}"
-
-                            new_q = Question(
-                                document_id=doc.id,
-                                part=5,
-                                question_text=q.get("question_text", "Untitled Question"),
-                                options_json=opts_str,
-                                correct_answer=q.get("correct_answer"),
-                                explanation=q.get("explanation"),
-                                option_explanations_json=opt_exps_str,
-                                translated_sentence=q.get("translated_sentence"),
-                                grammar_topic=g_topic,
-                                topic_tag="Part 5 Grammar",
-                                is_generated=False
+                            new_v = Vocabulary(
+                                word=word_clean,
+                                ipa=item.get("ipa", f"/{word_clean}/"),
+                                part_of_speech=item.get("part_of_speech", "n"),
+                                meaning_vi=item.get("meaning_vi", "nghĩa tiếng Việt"),
+                                synonyms=syn_str,
+                                antonyms=ant_str,
+                                topic_category=item.get("topic_category", "khác / chưa phân loại"),
+                                example_sentence=item.get("example_sentence", ""),
+                                source_document_id=doc.id,
+                                appears_in_part=f"Part {part_num}",
+                                frequency_count=1
                             )
-                            db.add(new_q)
-                            extracted_questions_count += 1
+                            db.add(new_v)
+                            db.flush()
 
-                        # Process extracted vocabulary
-                        v_list = raw_data.get("vocabulary", []) if isinstance(raw_data, dict) else []
-                        for item in v_list:
-                            if not isinstance(item, dict):
-                                continue
-                            word_clean = item.get("word", "").strip().lower()
-                            if not word_clean:
-                                continue
-
-                            syn_list = item.get("synonyms", [])
-                            ant_list = item.get("antonyms", [])
-                            syn_str = json.dumps(syn_list, ensure_ascii=False) if isinstance(syn_list, list) else "[]"
-                            ant_str = json.dumps(ant_list, ensure_ascii=False) if isinstance(ant_list, list) else "[]"
-
-                            existing_v = db.query(Vocabulary).filter(
-                                Vocabulary.word == word_clean,
-                                Vocabulary.source_document_id == doc.id
-                            ).first()
-
-                            if existing_v:
-                                existing_v.frequency_count += 1
-                                if syn_str != "[]" and existing_v.synonyms == "[]":
-                                    existing_v.synonyms = syn_str
-                                if ant_str != "[]" and existing_v.antonyms == "[]":
-                                    existing_v.antonyms = ant_str
-                            else:
-                                new_v = Vocabulary(
-                                    word=word_clean,
-                                    ipa=item.get("ipa", f"/{word_clean}/"),
-                                    part_of_speech=item.get("part_of_speech", "n"),
-                                    meaning_vi=item.get("meaning_vi", "nghĩa tiếng Việt"),
-                                    synonyms=syn_str,
-                                    antonyms=ant_str,
-                                    topic_category=item.get("topic_category", "khác / chưa phân loại"),
-                                    example_sentence=item.get("example_sentence", ""),
-                                    source_document_id=doc.id,
-                                    appears_in_part=f"Part {part_num}",
-                                    frequency_count=1
+                            existing_fc = db.query(Flashcard).filter(Flashcard.vocabulary_id == new_v.id).first()
+                            if not existing_fc:
+                                new_fc = Flashcard(
+                                    vocabulary_id=new_v.id,
+                                    srs_level=0,
+                                    ease_factor=2.5,
+                                    next_review_at=datetime.utcnow()
                                 )
-                                db.add(new_v)
-                                db.flush()
-
-                                existing_fc = db.query(Flashcard).filter(Flashcard.vocabulary_id == new_v.id).first()
-                                if not existing_fc:
-                                    new_fc = Flashcard(
-                                        vocabulary_id=new_v.id,
-                                        srs_level=0,
-                                        ease_factor=2.5,
-                                        next_review_at=datetime.utcnow()
-                                    )
-                                    db.add(new_fc)
-                                extracted_vocab_count += 1
-                        db.commit()
-
-                    except Exception as e:
-                        safe_print(f"[EXTRACTION_FAILED] Part 5 subchunk {sub_idx + 1}/{len(text_subchunks)}: Gemini API lỗi ({e}). Chunk này sẽ KHÔNG được thay thế bằng regex rác — đánh dấu extraction_failed.")
+                                db.add(new_fc)
+                            extracted_vocab_count += 1
+                    db.commit()
 
                 elif part_num in [6, 7]:
                     prompt_type = f"extract_part{part_num}_combined"
