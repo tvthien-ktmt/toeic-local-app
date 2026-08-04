@@ -123,23 +123,44 @@ def fallback_extract_part5(part_text: str) -> List[Dict[str, Any]]:
     print("[MODE: MOCK_FALLBACK] fallback_extract_part5 đang chạy — trích xuất câu hỏi Part 5 bằng regex cục bộ.")
     parsed, failed = parse_part5_locally(part_text, start_q=101, end_q=130)
     
-    # For any blocks in failed list, create fallback question items so no question is lost
+    # For any blocks in failed list, create fallback question items stripping OCR header/footer garbage
     for fb in failed:
         num_m = re.search(r'^\s*(\d{1,3})[\.\_\:]*\s*', fb)
         q_num = num_m.group(1) if num_m else "101"
         q_body = fb[num_m.end():] if num_m else fb
-        
-        # Split options loosely
-        words = q_body.split()
-        if len(words) >= 4:
-            opt_a = words[-4]
-            opt_b = words[-3]
-            opt_c = words[-2]
+
+        # Strip OCR page headers, markdown headings, directions
+        q_body = re.sub(r'#+\s*.*', '', q_body)
+        q_body = re.sub(r'(?i)Page\s+\d+.*', '', q_body)
+        q_body = re.sub(r'(?i)READING TEST.*', '', q_body)
+        q_body = re.sub(r'(?i)PART\s+5.*', '', q_body)
+        q_body = re.sub(r'(?i)TEST\s+\d+.*', '', q_body)
+        q_body = re.sub(r'(?i)Directions:.*', '', q_body)
+
+        # Clean option marker remnants
+        q_body_clean = re.sub(r'\([A-D]\)|[A-D][\.\)]|\([A-D]', ' ', q_body)
+        q_body_clean = re.sub(r'\s+', ' ', q_body_clean).strip()
+
+        words = [w.strip(".,;:_()-") for w in q_body_clean.split() if w.strip(".,;:_()-")]
+
+        if len(words) >= 5:
             opt_d = words[-1]
+            opt_c = words[-2]
+            opt_b = words[-3]
+            opt_a = words[-4]
             q_txt = " ".join(words[:-4])
+        elif len(words) >= 4:
+            opt_d = words[-1]
+            opt_c = words[-2]
+            opt_b = words[-3]
+            opt_a = words[-4]
+            q_txt = " ".join(words)
         else:
-            opt_a = opt_b = opt_c = opt_d = "(không rõ)"
-            q_txt = q_body
+            opt_a = opt_b = opt_c = opt_d = "(chưa rõ)"
+            q_txt = q_body_clean
+
+        if not q_txt.endswith('.'):
+            q_txt += " _____"
 
         parsed.append({
             "question_num": int(q_num),
