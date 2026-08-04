@@ -325,6 +325,64 @@ Nội dung:
                             extracted_questions_count += 1
                         db.commit()
 
+                    # B.1.3: Mandatory Gemini AI Enrichment Pass for Part 5 questions
+                    all_p5_qs = db.query(Question).filter(Question.document_id == doc.id, Question.part == 5).all()
+                    if all_p5_qs and api_key:
+                        qs_summary = "\n\n".join([
+                            f"Question #{q.id} (No. {q.question_text[:5]}): {q.question_text}\nOptions: {q.options_json}"
+                            for q in all_p5_qs
+                        ])
+                        safe_print(f"[AI ENRICHMENT] Part 5: Sending {len(all_p5_qs)} questions to Gemini AI for real grammar_topic, explanations, and Vietnamese translation...")
+                        enrich_prompt_type = "enrich_part5_questions"
+                        enrich_prompt_text = f"""Bạn nhận được danh sách các câu hỏi Part 5 TOEIC.
+Hãy phân loại CHÍNH XÁC grammar_topic, sinh giải thích option_explanations cho từng đáp án A, B, C, D, và dịch translated_sentence sang tiếng Việt hoàn chỉnh cho MỖI câu hỏi.
+
+Trả về JSON array các object tương ứng theo thứ tự câu:
+[
+  {{
+    "id": <ID câu hỏi trong input>,
+    "grammar_topic": "tên chủ điểm ngữ pháp chuẩn TOEIC (ví dụ: 'đại từ', 'từ loại', 'giới từ', 'liên từ', 'thể bị động', 'mệnh đề quan hệ', 'thì động từ', 'mệnh đề trạng ngữ', 'so sánh')",
+    "correct_answer": "A" | "B" | "C" | "D",
+    "explanation": "giải thích ngắn gọn vì sao đáp án đúng",
+    "option_explanations": {{
+      "A": "Giải thích ngữ pháp cụ thể cho phương án A",
+      "B": "Giải thích ngữ pháp cụ thể cho phương án B",
+      "C": "Giải thích ngữ pháp cụ thể cho phương án C",
+      "D": "Giải thích ngữ pháp cụ thể cho phương án D"
+    }},
+    "translated_sentence": "Bản dịch tiếng Việt hoàn chỉnh và tự nhiên của câu khi đã điền đáp án đúng vào chỗ trống"
+  }}
+]
+CHỈ trả về JSON array.
+Nội dung câu hỏi:
+{qs_summary}"""
+                        try:
+                            enriched_data = query_gemini_with_cache(db, enrich_prompt_type, enrich_prompt_text, qs_summary)
+                            enrich_list = enriched_data if isinstance(enriched_data, list) else (enriched_data.get("questions", []) if isinstance(enriched_data, dict) else [])
+                            
+                            enrich_map = {}
+                            for item in enrich_list:
+                                if isinstance(item, dict) and item.get("id"):
+                                    enrich_map[item["id"]] = item
+
+                            for db_q in all_p5_qs:
+                                item = enrich_map.get(db_q.id)
+                                if item:
+                                    if item.get("grammar_topic"):
+                                        db_q.grammar_topic = item["grammar_topic"]
+                                    if item.get("correct_answer"):
+                                        db_q.correct_answer = item["correct_answer"]
+                                    if item.get("explanation"):
+                                        db_q.explanation = item["explanation"]
+                                    if item.get("option_explanations"):
+                                        db_q.option_explanations_json = json.dumps(item["option_explanations"], ensure_ascii=False)
+                                    if item.get("translated_sentence"):
+                                        db_q.translated_sentence = item["translated_sentence"]
+                            db.commit()
+                            safe_print(f"[AI ENRICHMENT] Part 5: Successfully enriched {len(enrich_map)} questions with real topics and translations!")
+                        except Exception as ee:
+                            safe_print(f"[AI ENRICHMENT NOTE] Gemini AI enrichment skipped/failed: {ee}")
+
                     # Extract Vocabulary for Part 5
                     if api_key:
                         vocab_prompt_type = "extract_vocab_part5"
