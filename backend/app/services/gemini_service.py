@@ -4,7 +4,7 @@ import json
 import hashlib
 import time
 import logging
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
 from dotenv import load_dotenv
 from sqlalchemy.orm import Session
 from ..models import AICache
