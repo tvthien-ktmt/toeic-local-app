@@ -20,10 +20,17 @@ logging.basicConfig(level=logging.INFO)
 
 def get_gemini_api_keys() -> List[str]:
     keys = []
-    k1 = os.getenv("GEMINI_API_KEY", "").strip()
-    k2 = os.getenv("GEMINI_API_KEY_2", "").strip()
-    if k1: keys.append(k1)
-    if k2 and k2 != k1: keys.append(k2)
+    # Primary key
+    k_main = os.getenv("GEMINI_API_KEY", "").strip()
+    if k_main:
+        keys.append(k_main)
+    
+    # Secondary keys (GEMINI_API_KEY_2, GEMINI_API_KEY_3, ...)
+    for idx in range(2, 11):
+        k_sub = os.getenv(f"GEMINI_API_KEY_{idx}", "").strip()
+        if k_sub and k_sub not in keys:
+            keys.append(k_sub)
+            
     return keys
 
 def get_gemini_api_key() -> str:
