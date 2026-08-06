@@ -103,6 +103,89 @@ class StudyRecommendationRequest(BaseModel):
     weak_parts: List[int] = []
 
 
+class QuestionExplanationRequest(BaseModel):
+    question_id: Optional[int] = None
+    question_text: str
+    options: List[str]
+    correct_answer: str
+    user_answer: Optional[str] = None
+    grammar_topic: Optional[str] = None
+
+
+@router.post("/explain-question")
+def generate_question_explanation(req: QuestionExplanationRequest, db: Session = Depends(get_db)):
+    """
+    Generates AI detailed explanation & grammar knowledge recall for any question (correct or incorrect).
+    """
+    # 1. Try fetching existing Question from DB if question_id provided
+    db_q = None
+    if req.question_id:
+        db_q = db.query(Question).filter(Question.id == req.question_id).first()
+
+    api_key = get_gemini_api_key()
+    
+    # Standard prompt for Gemini
+    prompt_type = "explain_question"
+    user_ans_str = req.user_answer if req.user_answer else "Không chọn"
+    g_topic = req.grammar_topic or (db_q.grammar_topic if db_q else "Ngữ pháp / Đọc hiểu TOEIC")
+    
+    opts_str = "\n".join(req.options) if req.options else "A. Phương án A\nB. Phương án B\nC. Phương án C\nD. Phương án D"
+    
+    prompt_text = f"""Bạn là một chuyên gia huấn luyện TOEIC RC hàng đầu. Hãy phân tích chi tiết câu hỏi TOEIC sau đây và cung cấp phần GIẢI THÍCH + NHẮC LẠI KIẾN THỨC CỐT LÕI.
+
+Câu hỏi: {req.question_text}
+Các phương án:
+{opts_str}
+
+Đáp án đúng: ({req.correct_answer})
+Học viên đã chọn: ({user_ans_str})
+Chủ điểm ngữ pháp: {g_topic}
+
+Hãy đưa ra giải thích chuyên sâu.
+Trả về JSON object duy nhất với cấu trúc:
+{{
+  "detailed_explanation": "Phân tích vì sao đáp án ({req.correct_answer}) là đúng và tại sao từng phương án còn lại chưa đúng.",
+  "grammar_recall": "Nhắc lại kiến thức/quy tắc ngữ pháp cốt lõi liên quan (ví dụ: Vị trí của trạng từ, Cấu trúc câu điều kiện, Mệnh đề quan hệ rút gọn, v.v.). Trình bày rõ ràng, dễ nhớ.",
+  "exam_tip": "Mẹo suy luận nhanh khi gặp dạng bài này trong đề thi (1-2 câu ngắn gọn).",
+  "sentence_translation": "Bản dịch tiếng Việt hoàn chỉnh và chuẩn nghĩa của câu.",
+  "key_vocabulary": [
+    {{"word": "Từ/Cụm từ 1", "meaning": "Nghĩa tiếng Việt"}},
+    {{"word": "Từ/Cụm từ 2", "meaning": "Nghĩa tiếng Việt"}}
+  ]
+}}
+CHỈ trả JSON object duy nhất, không thêm bớt markdown."""
+
+    content_chunk = f"explain::{req.question_id}::{req.correct_answer}::{user_ans_str}::{hash(req.question_text)}"
+
+    if api_key:
+        try:
+            data = query_gemini_with_cache(db, prompt_type, prompt_text, content_chunk)
+            if isinstance(data, dict) and "detailed_explanation" in data:
+                return {
+                    "status": "success",
+                    "source": "gemini_ai",
+                    "explanation": data
+                }
+        except Exception as e:
+            print(f"[AI EXPLAIN] Gemini call failed/rate limited: {e}")
+
+    # Fallback response using DB question data or fallback template
+    fallback_exp = db_q.explanation if (db_q and db_q.explanation) else f"Đáp án đúng là ({req.correct_answer})."
+    fallback_trans = db_q.translated_sentence if (db_q and db_q.translated_sentence) else ""
+
+    return {
+        "status": "success",
+        "source": "fallback",
+        "explanation": {
+            "detailed_explanation": f"{fallback_exp} Phương án ({req.correct_answer}) chính xác về cả cấu trúc lẫn ngữ cảnh trong câu.",
+            "grammar_recall": f"Chủ điểm ngữ pháp: {g_topic}. Hãy lưu ý cấu trúc từ loại và ngữ cảnh ngữ pháp của dạng câu hỏi này.",
+            "exam_tip": f"Nhìn nhanh vị trí cần điền trong câu và loại trừ các đáp án sai ngữ pháp trước.",
+            "sentence_translation": fallback_trans or req.question_text,
+            "key_vocabulary": []
+        }
+    }
+
+
 @router.post("/study-recommendations")
 def generate_study_recommendations(req: StudyRecommendationRequest, db: Session = Depends(get_db)):
     """
@@ -152,3 +235,4 @@ CHỈ trả JSON object."""
         )
 
     return data
+

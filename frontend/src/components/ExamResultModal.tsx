@@ -38,11 +38,45 @@ interface ExamResultModalProps {
 
 export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClose, onRetake }) => {
   const [filterPart, setFilterPart] = useState<'ALL' | 'PART5' | 'PART6' | 'PART7' | 'INCORRECT'>('ALL');
+  
+  // AI Explanation Modal State
+  const [selectedAiQuestion, setSelectedAiQuestion] = useState<DetailedQuestionResult | null>(null);
+  const [aiLoading, setAiLoading] = useState<boolean>(false);
+  const [aiExplanationData, setAiExplanationData] = useState<any | null>(null);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins} phút ${secs} giây`;
+  };
+
+  const handleFetchAiExplanation = async (q: DetailedQuestionResult) => {
+    setSelectedAiQuestion(q);
+    setAiLoading(true);
+    setAiExplanationData(null);
+
+    try {
+      const res = await fetch('http://localhost:8000/api/generate/explain-question', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          question_id: q.id,
+          question_text: q.question_text,
+          options: q.options,
+          correct_answer: q.correct_answer,
+          user_answer: q.user_answer,
+          grammar_topic: q.grammar_topic
+        })
+      });
+      const data = await res.json();
+      if (data.status === 'success') {
+        setAiExplanationData(data.explanation);
+      }
+    } catch (err) {
+      console.error('Error fetching AI explanation:', err);
+    } finally {
+      setAiLoading(false);
+    }
   };
 
   // Filter detailed questions
@@ -56,7 +90,7 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-md p-4 sm:p-6 flex items-center justify-center animate-fade-in">
-      <div className="bg-theme-surface border border-theme rounded-2xl max-w-5xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+      <div className="bg-theme-surface border border-theme rounded-2xl max-w-5xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden relative">
         
         {/* Modal Header */}
         <div className="p-6 bg-gradient-to-r from-slate-900 via-indigo-950 to-purple-950 border-b border-theme text-white flex items-center justify-between">
@@ -70,9 +104,9 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
           </div>
           <button
             onClick={onClose}
-            className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-semibold text-white transition-colors"
+            className="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-semibold text-white transition-colors"
           >
-            Đóng
+            Xem Chi Tiết Bài Làm ➔
           </button>
         </div>
 
@@ -173,7 +207,7 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
         {/* Detailed Question Review Filters */}
         <div className="px-6 py-3 bg-theme-surface border-b border-theme flex items-center justify-between flex-wrap gap-2">
           <div className="flex items-center gap-2 text-xs font-bold text-theme-primary">
-            <Eye className="w-4 h-4 text-theme-accent" /> Xem Khóa Giải Thích Chi Tiết 100 Câu
+            <Eye className="w-4 h-4 text-theme-accent" /> Đáp Án & Khóa Giải Thích 100 Câu Hỏi
           </div>
           
           <div className="flex items-center gap-1.5 overflow-x-auto">
@@ -187,7 +221,7 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
                     : 'bg-theme-surface-2 text-theme-secondary hover:text-theme-primary border border-theme'
                 }`}
               >
-                {p === 'ALL' && 'Tất Cả'}
+                {p === 'ALL' && 'Tất Cả (100 Câu)'}
                 {p === 'PART5' && 'Part 5'}
                 {p === 'PART6' && 'Part 6'}
                 {p === 'PART7' && 'Part 7'}
@@ -230,6 +264,15 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
                       <XCircle className="w-3.5 h-3.5" /> Sai (Bạn chọn: {q.user_answer || 'Bỏ trống'})
                     </span>
                   )}
+
+                  {/* AI Explanation & Grammar Recall Button (Available for BOTH Correct & Incorrect Questions!) */}
+                  <button
+                    onClick={() => handleFetchAiExplanation(q)}
+                    className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-gradient-to-r from-amber-500/20 to-purple-500/20 hover:from-amber-500/30 hover:to-purple-500/30 text-amber-300 border border-amber-500/30 text-xs font-bold shadow-sm transition-all"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin" />
+                    <span>AI Giải Thích & Nhắc Lại Kiến Thức</span>
+                  </button>
                 </div>
               </div>
 
@@ -278,6 +321,89 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
             </div>
           ))}
         </div>
+
+        {/* AI Explanation Sub-Modal */}
+        {selectedAiQuestion && (
+          <div className="fixed inset-0 z-60 bg-black/80 backdrop-blur-md p-4 flex items-center justify-center animate-fade-in">
+            <div className="bg-theme-surface border border-amber-500/40 rounded-2xl max-w-2xl w-full p-6 space-y-5 shadow-2xl relative max-h-[85vh] overflow-y-auto">
+              
+              <div className="flex items-center justify-between border-b border-theme pb-3">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-amber-400 animate-bounce" />
+                  <h3 className="font-bold text-base text-theme-primary">
+                    AI Giải Thích & Nhắc Lại Kiến Thức (Câu #{selectedAiQuestion.id})
+                  </h3>
+                </div>
+                <button
+                  onClick={() => setSelectedAiQuestion(null)}
+                  className="px-2.5 py-1 rounded-lg bg-theme-surface-2 hover:bg-theme-surface-3 text-xs font-bold text-theme-secondary hover:text-theme-primary"
+                >
+                  ✕ Đóng
+                </button>
+              </div>
+
+              {aiLoading ? (
+                <div className="py-12 text-center space-y-3">
+                  <Sparkles className="w-8 h-8 text-amber-400 animate-spin mx-auto" />
+                  <p className="text-sm font-semibold text-theme-secondary">AI đang phân tích câu hỏi & tổng hợp quy tắc ngữ pháp...</p>
+                </div>
+              ) : aiExplanationData ? (
+                <div className="space-y-4 text-xs">
+                  
+                  {/* Detailed Explanation */}
+                  <div className="p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/30 space-y-1.5">
+                    <h4 className="font-bold text-indigo-300 flex items-center gap-1.5">
+                      🧠 Phân Tích Chi Tiết AI
+                    </h4>
+                    <p className="text-theme-primary leading-relaxed whitespace-pre-wrap">
+                      {aiExplanationData.detailed_explanation}
+                    </p>
+                  </div>
+
+                  {/* Grammar Knowledge Recall */}
+                  <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/30 space-y-1.5">
+                    <h4 className="font-bold text-purple-300 flex items-center gap-1.5">
+                      📚 Nhắc Lại Kiến Thức & Quy Tắc Ngữ Pháp
+                    </h4>
+                    <p className="text-theme-primary leading-relaxed whitespace-pre-wrap">
+                      {aiExplanationData.grammar_recall}
+                    </p>
+                  </div>
+
+                  {/* Exam Tip */}
+                  {aiExplanationData.exam_tip && (
+                    <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 space-y-1.5">
+                      <h4 className="font-bold text-amber-300 flex items-center gap-1.5">
+                        💡 Mẹo Làm Bài Nhanh
+                      </h4>
+                      <p className="text-theme-primary leading-relaxed">
+                        {aiExplanationData.exam_tip}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Translation */}
+                  {aiExplanationData.sentence_translation && (
+                    <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 space-y-1.5">
+                      <h4 className="font-bold text-emerald-300 flex items-center gap-1.5">
+                        📝 Bản Dịch Tiếng Việt Chuẩn Nghĩa
+                      </h4>
+                      <p className="text-theme-primary leading-relaxed">
+                        {aiExplanationData.sentence_translation}
+                      </p>
+                    </div>
+                  )}
+
+                </div>
+              ) : (
+                <div className="py-8 text-center text-xs text-rose-400">
+                  Không thể nạp phần giải thích AI. Vui lòng thử lại.
+                </div>
+              )}
+
+            </div>
+          </div>
+        )}
 
       </div>
     </div>
