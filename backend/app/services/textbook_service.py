@@ -45,7 +45,7 @@ Q_NUM_PATTERN = re.compile(
     r'[\.:]\s*'                    # period or colon
 )
 
-# Option pattern — handles (A)/(B)/(C)/(D) and A./B./C./D. formats
+# Option pattern — handles (A)/(B)/(C)/(D) and A./B./C./D. formats (multi-line)
 OPT_PATTERN = re.compile(
     r'(?:^|\n)\s*'
     r'(?:\*{1,2})?'                # optional bold
@@ -53,6 +53,41 @@ OPT_PATTERN = re.compile(
     r'(?:\*{1,2})?'                # optional bold end
     r'\s*(.+?)(?=\n|$)'
 )
+
+# Inline option pattern — handles all 4 options on same line:
+# "(A) attracted (B) entered (C) awarded (D) promoted"
+INLINE_OPT_PATTERN = re.compile(
+    r'\(([A-D])\)\s*(.+?)(?=\s*\([A-D]\)|$)',
+    re.IGNORECASE
+)
+
+
+def _extract_options(q_body: str) -> Dict[str, str]:
+    """Extract A/B/C/D options from question body, handling both multi-line and inline formats."""
+    opt_by_letter: Dict[str, str] = {}
+
+    # Try inline format first: "(A) text (B) text (C) text (D) text" on same line
+    # This handles ETS 2021 style: "131. (A) attracted (B) entered (C) awarded (D) promoted"
+    for line in q_body.splitlines():
+        inline_matches = list(INLINE_OPT_PATTERN.finditer(line))
+        if len(inline_matches) >= 2:  # at least 2 options on same line
+            for m in inline_matches:
+                letter = m.group(1).upper()
+                text_val = re.sub(r'\*{1,2}', '', m.group(2)).strip()
+                if letter in ('A', 'B', 'C', 'D') and letter not in opt_by_letter and text_val:
+                    opt_by_letter[letter] = text_val
+            if len(opt_by_letter) >= 4:
+                break
+
+    # If inline didn't get enough, try multi-line OPT_PATTERN
+    if len(opt_by_letter) < 2:
+        for om in OPT_PATTERN.finditer(q_body):
+            letter = om.group(1).upper()
+            text_val = re.sub(r'\*{1,2}$', '', om.group(2)).strip()
+            if letter not in opt_by_letter and letter in ('A', 'B', 'C', 'D') and text_val:
+                opt_by_letter[letter] = text_val
+
+    return opt_by_letter
 
 
 def parse_answer_file(ans_path: Optional[str]) -> Dict[int, Dict[int, str]]:
@@ -146,53 +181,131 @@ def split_text_into_tests_by_q_reset(text: str) -> List[Tuple[int, str]]:
     return test_blocks
 
 
+# Passage header pattern: "Questions 131-134 refer to the following notice."
+PASSAGE_HEADER_PATTERN = re.compile(
+    r'Questions?\s+(\d+)[\s\-–]+(?:to\s+)?(\d+)\s+refer\s+to\s+the\s+following\b',
+    re.IGNORECASE
+)
+
+
+def _build_passage_map(test_content: str) -> Dict[int, str]:
+    """
+    Pre-scans test content for passage blocks like:
+      "Questions 131-134 refer to the following notice."
+      [PASSAGE TEXT]
+      ### 131.   <-- first question of the group
+    Returns a dict mapping each question number to its passage text.
+    """
+    passage_map: Dict[int, str] = {}
+    header_matches = list(PASSAGE_HEADER_PATTERN.finditer(test_content))
+    q_occurrences = list(Q_NUM_PATTERN.finditer(test_content))
+
+    for h in header_matches:
+        try:
+            q_start = int(h.group(1))
+            q_end = int(h.group(2))
+        except (IndexError, ValueError):
+            continue
+
+        # Passage text = text from end of header line to the first question-number marker
+        # that belongs to this group (>= q_start)
+        header_end = h.end()
+        # Skip to end of the header line
+        newline_pos = test_content.find('\n', header_end)
+        passage_body_start = newline_pos + 1 if newline_pos >= 0 else header_end
+
+        # Find the first Q_NUM match that is >= q_start appearing after the header
+        passage_body_end = None
+        for qm in q_occurrences:
+            if qm.start() <= header_end:
+                continue
+            qn = int(qm.group(1))
+            if q_start <= qn <= q_end:
+                passage_body_end = qm.start()
+                break
+
+        if passage_body_end is None or passage_body_end <= passage_body_start:
+            continue
+
+        raw_passage = test_content[passage_body_start:passage_body_end].strip()
+        # Clean markdown headings and bold markers from passage
+        raw_passage = re.sub(r'^#+\s*', '', raw_passage, flags=re.MULTILINE)
+        raw_passage = re.sub(r'\*{1,2}', '', raw_passage)
+        raw_passage = raw_passage.strip()
+
+        if raw_passage:
+            for qn in range(q_start, q_end + 1):
+                passage_map[qn] = raw_passage
+
+    return passage_map
+
+
 def extract_questions_from_test_text(test_content: str, answer_map: Dict[int, str]) -> List[Dict[str, Any]]:
     """
     Extracts individual questions (101..200) from markdown text.
     Uses robust regex that handles **bold** question numbers, markdown headings, etc.
     Classifies into Part 5 (101-130), Part 6 (131-146), Part 7 (147-200).
+
+    Key improvements:
+    - Pre-scans passage blocks ("Questions X-Y refer to...") and attaches
+      reading passage text to every question in that group.
+    - Part 6 questions appear TWICE in the MD: first as inline blank markers
+      inside the passage (no options), then again with actual A/B/C/D options
+      listed after the passage. We skip the marker occurrence (no options) and
+      use the options-bearing occurrence.
     """
     questions = []
     seen_q_nums = set()
-    
+    # Track Part 6 questions that appeared only as inline markers (no options listing)
+    # If no options-bearing occurrence is found, we create a stub with passage context
+    inline_p6_markers: Dict[int, bool] = {}
+
+    # Pre-build passage map: {q_num -> passage_text}
+    passage_map = _build_passage_map(test_content)
+
     # Find all question positions
     q_matches = list(Q_NUM_PATTERN.finditer(test_content))
-    
+
     for i, m in enumerate(q_matches):
         q_num = int(m.group(1))
-        
-        # Skip duplicates (same question number appearing twice in same test)
-        if q_num in seen_q_nums:
-            continue
-        seen_q_nums.add(q_num)
-        
+
         # Only process TOEIC RC questions 101-200
         if q_num < 101 or q_num > 200:
             continue
-        
+
         # Get question body: from end of this match to start of next question match
         body_start = m.end()
         body_end = q_matches[i + 1].start() if i + 1 < len(q_matches) else len(test_content)
         q_body = test_content[body_start:body_end].strip()
-        
+
         # Limit body to reasonable length (prevent runaway into next test's content)
         if len(q_body) > 3000:
             q_body = q_body[:3000]
-        
-        # Extract options
-        opts = []
-        opt_matches = list(OPT_PATTERN.finditer(q_body))
-        
-        # Group by letter to avoid duplicates
-        opt_by_letter = {}
-        for om in opt_matches:
-            letter = om.group(1).upper()
-            text_val = om.group(2).strip()
-            # Clean trailing markdown / bold
-            text_val = re.sub(r'\*{1,2}$', '', text_val).strip()
-            if letter not in opt_by_letter and letter in ('A', 'B', 'C', 'D'):
-                opt_by_letter[letter] = text_val
-        
+
+        # Extract options from body using helper that handles both multi-line and inline formats
+        opt_by_letter = _extract_options(q_body)
+
+        has_options = len(opt_by_letter) >= 2
+
+        # For Part 6 (131-146): if no options found this is an inline blank marker
+        # embedded in the passage (ETS 2020 style: "### 131." inside passage text).
+        # Track it but skip - we prefer the options-bearing occurrence that appears
+        # AFTER the passage. If no options occurrence exists, we'll add a stub later.
+        if 131 <= q_num <= 146 and not has_options:
+            # Positional marker only — no options attached
+            # Register in inline_p6_markers so we can create stubs if needed
+            if q_num not in seen_q_nums and q_num not in inline_p6_markers:
+                inline_p6_markers[q_num] = True
+            continue
+
+        # Skip true duplicates (already processed with options)
+        if q_num in seen_q_nums:
+            continue
+        seen_q_nums.add(q_num)
+        # Remove from inline markers since we found an options-bearing occurrence
+        inline_p6_markers.pop(q_num, None)
+
+        # Build options list
         if len(opt_by_letter) >= 4:
             opts = [
                 f"A. {opt_by_letter.get('A', '')}",
@@ -201,27 +314,34 @@ def extract_questions_from_test_text(test_content: str, answer_map: Dict[int, st
                 f"D. {opt_by_letter.get('D', '')}"
             ]
         elif len(opt_by_letter) >= 2:
-            # Partial options — still include what we have
             opts = [f"{k}. {v}" for k, v in sorted(opt_by_letter.items())]
             while len(opts) < 4:
-                missing_letter = ['A', 'B', 'C', 'D'][len(opts)]
-                opts.append(f"{missing_letter}. —")
+                opts.append(f"{['A','B','C','D'][len(opts)]}. —")
         else:
             opts = ["A. —", "B. —", "C. —", "D. —"]
-        
-        # Extract question text (everything before the first option)
-        q_txt = q_body
-        if opt_matches:
-            q_txt = q_body[:opt_matches[0].start()].strip()
-        
-        # Clean markdown formatting from question text
-        q_txt = re.sub(r'\*{1,2}', '', q_txt)
-        q_txt = q_txt.strip()
-        
-        # Limit question text length
-        if len(q_txt) > 2000:
-            q_txt = q_txt[:2000] + "..."
-        
+
+        # Extract question stem text (everything before first option)
+        # Try multi-line pattern first, then inline pattern for same-line options
+        _stem_match = OPT_PATTERN.search(q_body) or INLINE_OPT_PATTERN.search(q_body)
+        q_stem = q_body[:_stem_match.start()].strip() if _stem_match else q_body
+        q_stem = re.sub(r'\*{1,2}', '', q_stem).strip()
+        if len(q_stem) > 2000:
+            q_stem = q_stem[:2000] + "..."
+
+        # Attach passage text for Part 6 & Part 7
+        passage = passage_map.get(q_num, "")
+        if passage:
+            if q_stem:
+                full_text = f"{passage}\n\n{q_stem}"
+            else:
+                full_text = passage
+        else:
+            full_text = q_stem
+
+        # Limit total question text length
+        if len(full_text) > 4000:
+            full_text = full_text[:4000] + "..."
+
         # Part determination
         if 101 <= q_num <= 130:
             part = 5
@@ -238,16 +358,39 @@ def extract_questions_from_test_text(test_content: str, answer_map: Dict[int, st
         questions.append({
             "q_num": q_num,
             "part": part,
-            "question_text": f"{q_num}. {q_txt}" if q_txt else f"{q_num}.",
+            "question_text": f"{q_num}. {full_text}" if full_text else f"{q_num}.",
             "options_json": json.dumps(opts, ensure_ascii=False),
             "correct_answer": corr_ans,
             "explanation": f"Đáp án đúng là ({corr_ans})." if corr_ans else "Chưa có đáp án.",
-            "option_explanations_json": json.dumps({
-                "A": "—", "B": "—", "C": "—", "D": "—"
-            }, ensure_ascii=False),
+            "option_explanations_json": json.dumps(
+                {"A": "—", "B": "—", "C": "—", "D": "—"}, ensure_ascii=False
+            ),
             "translated_sentence": "",
             "grammar_topic": g_topic,
             "topic_tag": f"Part {part}"
+        })
+
+    # Create stub questions for Part 6 inline markers that had no options listing
+    # (these appear in some textbooks where options were not digitized properly)
+    for q_num in sorted(inline_p6_markers.keys()):
+        if q_num in seen_q_nums:
+            continue  # was already added with options in the main loop
+        passage = passage_map.get(q_num, "")
+        corr_ans = answer_map.get(q_num, "")
+        full_text = passage if passage else f"[Câu hỏi điền từ - Xem đoạn văn]"
+        questions.append({
+            "q_num": q_num,
+            "part": 6,
+            "question_text": f"{q_num}. {full_text}" if full_text else f"{q_num}.",
+            "options_json": json.dumps(["A. —", "B. —", "C. —", "D. —"], ensure_ascii=False),
+            "correct_answer": corr_ans,
+            "explanation": f"Đáp án đúng là ({corr_ans})." if corr_ans else "Chưa có đáp án (câu điền từ).",
+            "option_explanations_json": json.dumps(
+                {"A": "—", "B": "—", "C": "—", "D": "—"}, ensure_ascii=False
+            ),
+            "translated_sentence": "",
+            "grammar_topic": "Part 6 Text Completion",
+            "topic_tag": "Part 6"
         })
 
     return questions
@@ -387,9 +530,9 @@ def scan_and_seed_textbooks(db: Session) -> Dict[str, Any]:
                     q_count = db.query(Question).filter(
                         Question.document_id == existing_doc.id
                     ).count()
-                    
-                    if q_count >= 80:
-                        # Already has enough questions — just update metadata
+
+                    if q_count >= 100:
+                        # Already has full 100 questions — just update metadata
                         existing_doc.is_builtin = True
                         existing_doc.category = category
                         existing_doc.series = series_name
@@ -399,7 +542,9 @@ def scan_and_seed_textbooks(db: Session) -> Dict[str, Any]:
                         skipped_count += 1
                         continue
                     else:
-                        # Delete old questions and re-extract
+                        # Has < 100 questions — delete old questions and re-extract
+                        # (catches tests missing passages or with inline markers skipped)
+                        print(f"[TEXTBOOK SERVICE] ♻️  Re-extracting {filename} (had only {q_count} qs)")
                         db.query(Question).filter(
                             Question.document_id == existing_doc.id
                         ).delete()
@@ -411,7 +556,7 @@ def scan_and_seed_textbooks(db: Session) -> Dict[str, Any]:
                         existing_doc.content_hash = content_hash
                         existing_doc.status = "extracted"
                         db.commit()
-                        
+
                         # Re-extract questions
                         qs_data = extract_questions_from_test_text(block, t_ans_map)
                         for q in qs_data:
