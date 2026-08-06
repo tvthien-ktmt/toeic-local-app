@@ -171,21 +171,24 @@ export const TextbookCatalogView: React.FC<TextbookCatalogViewProps> = ({ onStar
                   </span>
                 </div>
 
-                {cat.series.map(ser => {
-                  const filteredTests = ser.tests.filter(t => 
-                    t.filename.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                    ser.series_title.toLowerCase().includes(searchQuery.toLowerCase())
-                  );
+                {cat.series
+                  .filter(ser => !ser.series_title.toLowerCase().includes('đáp án') && !ser.series_title.toLowerCase().includes('dáp án'))
+                  .map(ser => {
+                    const cleanSeriesTitle = ser.series_title.replace(/\s*\(\d+\)/g, '').replace(/đáp án/gi, '').trim();
+                    const filteredTests = ser.tests.filter(t => 
+                      t.filename.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                      cleanSeriesTitle.toLowerCase().includes(searchQuery.toLowerCase())
+                    );
 
-                  if (filteredTests.length === 0) return null;
+                    if (filteredTests.length === 0) return null;
 
-                  return (
-                    <div key={ser.series_title} className="bg-theme-surface rounded-2xl border border-theme p-5 sm:p-6 space-y-4">
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-base font-bold text-theme-primary flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-theme-accent" />
-                          {ser.series_title}
-                        </h3>
+                    return (
+                      <div key={ser.series_title} className="bg-theme-surface rounded-2xl border border-theme p-5 sm:p-6 space-y-4">
+                        <div className="flex items-center justify-between">
+                          <h3 className="text-base font-bold text-theme-primary flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-theme-accent" />
+                            {cleanSeriesTitle}
+                          </h3>
                         <span className="text-xs text-theme-secondary font-medium">
                           {filteredTests.length} Đề RC (100 câu/đề)
                         </span>

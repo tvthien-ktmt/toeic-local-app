@@ -25,76 +25,76 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-bold text-lg text-theme-primary">
+                <span className="font-bold text-lg text-theme-primary whitespace-nowrap">
                   TOEIC AI Master
                 </span>
-                <span className="px-2 py-0.5 text-[10px] font-semibold bg-theme-accent/20 text-theme-accent border border-theme-accent/30 rounded-full">
+                <span className="px-2 py-0.5 text-[10px] font-semibold bg-theme-accent/20 text-theme-accent border border-theme-accent/30 rounded-full whitespace-nowrap">
                   Local App
                 </span>
               </div>
-              <p className="text-xs text-theme-secondary font-medium">Luyện thi TOEIC RC Đề Cố Định & AI</p>
+              <p className="text-xs text-theme-secondary font-medium whitespace-nowrap">Luyện thi TOEIC RC Đề Cố Định & AI</p>
             </div>
           </div>
 
           {/* Navigation Items */}
-          <nav className="flex items-center gap-1 bg-theme-surface-2 p-1 rounded-xl border border-theme">
+          <nav className="flex items-center gap-1 bg-theme-surface-2 p-1 rounded-xl border border-theme overflow-x-auto max-w-full flex-nowrap shrink-0">
             <button
               onClick={() => { onBackToDocs(); setActiveTab('textbooks'); }}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 ${
                 activeTab === 'textbooks' && !selectedDocId
                   ? 'bg-theme-accent text-white shadow-md'
                   : 'text-theme-secondary hover:text-theme-primary'
               }`}
             >
-              <GraduationCap className="w-4 h-4 text-amber-400" />
+              <GraduationCap className="w-4 h-4 text-amber-400 shrink-0" />
               <span>Kho Đề Cố Định</span>
             </button>
 
             <button
               onClick={() => { onBackToDocs(); setActiveTab('upload'); }}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 ${
                 activeTab === 'upload' && !selectedDocId
                   ? 'bg-theme-accent text-white shadow-md'
                   : 'text-theme-secondary hover:text-theme-primary'
               }`}
             >
-              <FileText className="w-4 h-4" />
+              <FileText className="w-4 h-4 shrink-0" />
               <span>Đề Thi Cá Nhân</span>
             </button>
 
             <button
               onClick={() => { onBackToDocs(); setActiveTab('practice'); }}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 ${
                 activeTab === 'practice'
                   ? 'bg-theme-accent text-white shadow-md'
                   : 'text-theme-secondary hover:text-theme-primary'
               }`}
             >
-              <BookOpen className="w-4 h-4" />
+              <BookOpen className="w-4 h-4 shrink-0" />
               <span>Luyện Tập</span>
             </button>
 
             <button
               onClick={() => { onBackToDocs(); setActiveTab('flashcards'); }}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 ${
                 activeTab === 'flashcards'
                   ? 'bg-theme-accent text-white shadow-md'
                   : 'text-theme-secondary hover:text-theme-primary'
               }`}
             >
-              <Sparkles className="w-4 h-4 text-purple-400" />
+              <Sparkles className="w-4 h-4 text-purple-400 shrink-0" />
               <span>Flashcards</span>
             </button>
 
             <button
               onClick={() => { onBackToDocs(); setActiveTab('dashboard'); }}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 ${
                 activeTab === 'dashboard'
                   ? 'bg-theme-accent text-white shadow-md'
                   : 'text-theme-secondary hover:text-theme-primary'
               }`}
             >
-              <BarChart3 className="w-4 h-4 text-emerald-400" />
+              <BarChart3 className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>Dashboard</span>
             </button>
           </nav>

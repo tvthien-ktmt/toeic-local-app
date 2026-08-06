@@ -169,11 +169,13 @@ def scan_and_seed_textbooks(db: Session) -> Dict[str, Any]:
 
     for root, dirs, files in os.walk(TEXTBOOK_ROOT_DIR):
         for f in files:
-            if f.endswith(".md") and not "Đáp_án" in f and not "Đáp án" in f:
+            f_lower = f.lower()
+            if f.endswith(".md") and not any(k in f_lower for k in ["đáp án", "đáp_án", "dáp án", "dáp_án"]):
                 md_path = os.path.join(root, f)
                 ans_path = None
                 for f2 in files:
-                    if f2.endswith(".md") and ("Đáp_án" in f2 or "Đáp án" in f2):
+                    f2_lower = f2.lower()
+                    if f2.endswith(".md") and any(k in f2_lower for k in ["đáp án", "đáp_án", "dáp án", "dáp_án"]):
                         ans_path = os.path.join(root, f2)
                         break
 
@@ -181,6 +183,9 @@ def scan_and_seed_textbooks(db: Session) -> Dict[str, Any]:
                 parts = rel.split(os.sep)
                 category = parts[0] if len(parts) > 1 else "ETS"
                 series_name = os.path.splitext(f)[0]
+                
+                # Clean series_name (e.g. "ETS 2023 RC (2)" -> "ETS 2023 RC")
+                series_name = re.sub(r'\s*\(\d+\)', '', series_name).strip()
 
                 # Parse answer keys
                 ans_by_test = parse_answer_file(ans_path)
