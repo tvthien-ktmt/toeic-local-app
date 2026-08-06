@@ -1,10 +1,10 @@
 import React from 'react';
-import { BookOpen, FileText, Sparkles, BrainCircuit, BarChart3 } from 'lucide-react';
+import { BookOpen, FileText, Sparkles, BrainCircuit, BarChart3, GraduationCap } from 'lucide-react';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 interface NavbarProps {
-  activeTab: 'upload' | 'practice' | 'flashcards' | 'dashboard';
-  setActiveTab: (tab: 'upload' | 'practice' | 'flashcards' | 'dashboard') => void;
+  activeTab: 'textbooks' | 'upload' | 'practice' | 'flashcards' | 'dashboard';
+  setActiveTab: (tab: 'textbooks' | 'upload' | 'practice' | 'flashcards' | 'dashboard') => void;
   selectedDocId: number | null;
   onBackToDocs: () => void;
 }
@@ -17,7 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
           
           {/* Logo & Brand */}
           <div 
-            onClick={() => { onBackToDocs(); setActiveTab('upload'); }}
+            onClick={() => { onBackToDocs(); setActiveTab('textbooks'); }}
             className="flex items-center gap-3 cursor-pointer group"
           >
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-500 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform duration-200">
@@ -29,15 +29,27 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
                   TOEIC AI Master
                 </span>
                 <span className="px-2 py-0.5 text-[10px] font-semibold bg-theme-accent/20 text-theme-accent border border-theme-accent/30 rounded-full">
-                  Local MVP
+                  Local App
                 </span>
               </div>
-              <p className="text-xs text-theme-secondary font-medium">Hệ thống học TOEIC tối ưu Token AI</p>
+              <p className="text-xs text-theme-secondary font-medium">Luyện thi TOEIC RC Đề Cố Định & AI</p>
             </div>
           </div>
 
           {/* Navigation Items */}
           <nav className="flex items-center gap-1 bg-theme-surface-2 p-1 rounded-xl border border-theme">
+            <button
+              onClick={() => { onBackToDocs(); setActiveTab('textbooks'); }}
+              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
+                activeTab === 'textbooks' && !selectedDocId
+                  ? 'bg-theme-accent text-white shadow-md'
+                  : 'text-theme-secondary hover:text-theme-primary'
+              }`}
+            >
+              <GraduationCap className="w-4 h-4 text-amber-400" />
+              <span>Kho Đề Cố Định</span>
+            </button>
+
             <button
               onClick={() => { onBackToDocs(); setActiveTab('upload'); }}
               className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
@@ -47,7 +59,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
               }`}
             >
               <FileText className="w-4 h-4" />
-              <span>Tài liệu</span>
+              <span>Đề Thi Cá Nhân</span>
             </button>
 
             <button
@@ -59,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
               }`}
             >
               <BookOpen className="w-4 h-4" />
-              <span>Luyện tập</span>
+              <span>Luyện Tập</span>
             </button>
 
             <button
@@ -70,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
                   : 'text-theme-secondary hover:text-theme-primary'
               }`}
             >
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-4 h-4 text-purple-400" />
               <span>Flashcards</span>
             </button>
 

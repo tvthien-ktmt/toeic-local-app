@@ -13,6 +13,12 @@ class Document(Base):
     markdown_content = Column(Text, nullable=False)
     status = Column(String, default="uploaded")  # uploaded / converted / extracted
     uploaded_at = Column(DateTime, default=datetime.utcnow)
+    
+    # Built-in textbook attributes
+    is_builtin = Column(Boolean, default=False, index=True)
+    category = Column(String, nullable=True, index=True)  # ETS / HACKER / YBM / XANH CAM
+    series = Column(String, nullable=True, index=True)    # e.g. "ETS 2024 RC", "YBM Vol 1"
+    test_number = Column(Integer, nullable=True, index=True) # 1..10
 
     questions = relationship("Question", back_populates="document", cascade="all, delete-orphan")
     vocabularies = relationship("Vocabulary", back_populates="document", cascade="all, delete-orphan")
@@ -90,6 +96,26 @@ class PracticeAttempt(Base):
     part = Column(Integer, nullable=True)
     session_id = Column(String, nullable=True)
     attempted_at = Column(DateTime, default=datetime.utcnow)
+
+
+class ExamAttempt(Base):
+    __tablename__ = "exam_attempts"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    document_id = Column(Integer, ForeignKey("documents.id"), nullable=False)
+    exam_title = Column(String, nullable=False)
+    mode = Column(String, nullable=False)  # full_exam (75m) / practice (unlimited)
+    raw_score = Column(Integer, nullable=False)  # e.g. 85 / 100
+    total_questions = Column(Integer, default=100)
+    toeic_score = Column(Integer, nullable=False)  # Scaled score out of 495 (e.g. 425)
+    time_spent_seconds = Column(Integer, default=0)
+    part5_correct = Column(Integer, default=0)
+    part6_correct = Column(Integer, default=0)
+    part7_correct = Column(Integer, default=0)
+    answers_json = Column(Text, nullable=False)  # JSON string of user answers {question_id: selected_option}
+    completed_at = Column(DateTime, default=datetime.utcnow)
+
+    document = relationship("Document")
 
 
 class AICache(Base):

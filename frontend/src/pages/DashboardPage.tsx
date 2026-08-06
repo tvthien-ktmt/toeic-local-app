@@ -38,8 +38,24 @@ interface DashboardStats {
   }>;
 }
 
+interface ExamHistoryItem {
+  id: number;
+  document_id: number;
+  exam_title: string;
+  mode: string;
+  raw_score: number;
+  total_questions: number;
+  toeic_score: number;
+  time_spent_seconds: number;
+  part5_correct: number;
+  part6_correct: number;
+  part7_correct: number;
+  completed_at: string;
+}
+
 export const DashboardPage: React.FC = () => {
   const [stats, setStats] = useState<DashboardStats | null>(null);
+  const [examHistory, setExamHistory] = useState<ExamHistoryItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
@@ -47,8 +63,14 @@ export const DashboardPage: React.FC = () => {
     setIsLoading(true);
     setErrorMsg(null);
     try {
-      const res = await axios.get('/api/dashboard/stats');
-      setStats(res.data);
+      const [statsRes, historyRes] = await Promise.all([
+        axios.get('/api/dashboard/stats'),
+        axios.get('/api/textbooks/history')
+      ]);
+      setStats(statsRes.data);
+      if (historyRes.data.status === 'success') {
+        setExamHistory(historyRes.data.history);
+      }
     } catch (err: any) {
       console.error(err);
       setErrorMsg('Không thể kết nối đến server để lấy số liệu thống kê.');
@@ -315,6 +337,56 @@ export const DashboardPage: React.FC = () => {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Built-in Exam History Section */}
+      <div className="bg-theme-surface rounded-3xl p-6 border border-theme shadow-xl space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2 text-theme-primary font-bold text-base">
+            <Activity className="w-5 h-5 text-indigo-400" />
+            <h2>Lịch Sử Thi & Điểm Đề Cố Định (TOEIC RC 75 Phút)</h2>
+          </div>
+          <span className="text-xs font-semibold text-theme-secondary">
+            {examHistory.length} Lượt thi đã hoàn thành
+          </span>
+        </div>
+
+        {examHistory.length === 0 ? (
+          <div className="text-center py-8 bg-theme-surface-2 rounded-2xl border border-theme text-xs text-theme-secondary">
+            Bạn chưa hoàn thành lượt thi đề cố định nào. Hãy chọn 1 đề trong <strong className="text-theme-primary">Kho Đề Cố Định</strong> để thử sức!
+          </div>
+        ) : (
+          <div className="space-y-3 max-h-96 overflow-y-auto pr-1">
+            {examHistory.map(att => (
+              <div key={att.id} className="p-4 bg-theme-surface-2 border border-theme rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 text-[10px] font-bold uppercase bg-indigo-500/20 text-indigo-300 rounded border border-indigo-500/30">
+                      {att.mode === 'full_exam' ? 'Thi Thật 75m' : 'Luyện Tập'}
+                    </span>
+                    <h4 className="text-sm font-bold text-theme-primary">
+                      {att.exam_title.replace(/^\[.*?\]\s*/, '')}
+                    </h4>
+                  </div>
+                  <p className="text-xs text-theme-secondary">
+                    Hoàn thành lúc: {new Date(att.completed_at).toLocaleString('vi-VN')} &bull; Thời gian: {Math.floor(att.time_spent_seconds / 60)} phút {att.time_spent_seconds % 60}s
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
+                  <div className="text-right">
+                    <div className="text-lg font-black text-emerald-400">
+                      {att.toeic_score} <span className="text-xs text-theme-secondary font-normal">/ 495 RC</span>
+                    </div>
+                    <div className="text-[11px] text-theme-secondary">
+                      Đúng {att.raw_score}/{att.total_questions} câu (P5: {att.part5_correct}/30, P6: {att.part6_correct}/16, P7: {att.part7_correct}/54)
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
     </div>
