@@ -6,7 +6,12 @@ from typing import List, Dict, Any, Optional, Tuple
 from sqlalchemy.orm import Session
 from ..models import Document, Question, Vocabulary
 
-TEXTBOOK_ROOT_DIR = r"d:\TOIEC Web\textbook"
+# Calculate dynamic root path to 'textbook' directory relative to repository root
+_CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+_PROJECT_ROOT = os.path.abspath(os.path.join(_CURRENT_DIR, "..", "..", ".."))
+_DEFAULT_TEXTBOOK_DIR = os.path.join(_PROJECT_ROOT, "textbook")
+
+TEXTBOOK_ROOT_DIR = os.environ.get("TEXTBOOK_ROOT_DIR", _DEFAULT_TEXTBOOK_DIR)
 
 # Official ETS TOEIC RC Score Conversion Table (Raw score 0-100 -> Scaled score 5-495)
 TOEIC_RC_SCORE_TABLE = {
@@ -302,8 +307,9 @@ def scan_and_seed_textbooks(db: Session) -> Dict[str, Any]:
     """
     ensure_db_schema(db)
     if not os.path.exists(TEXTBOOK_ROOT_DIR):
-        print(f"[TEXTBOOK SERVICE] Directory not found: {TEXTBOOK_ROOT_DIR}")
-        return {"status": "error", "message": "Textbook directory missing"}
+        err_msg = f"[TEXTBOOK SERVICE] Directory not found: {TEXTBOOK_ROOT_DIR}. Please set TEXTBOOK_ROOT_DIR env var or place 'textbook' directory in project root."
+        print(err_msg)
+        raise FileNotFoundError(err_msg)
 
     seeded_count = 0
     skipped_count = 0
