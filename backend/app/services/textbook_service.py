@@ -2,7 +2,7 @@ import os
 import re
 import json
 import hashlib
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Tuple
 from sqlalchemy.orm import Session
 from ..models import Document, Question, Vocabulary
 
@@ -28,9 +28,35 @@ def calculate_toeic_rc_score(raw_correct_count: int) -> int:
     return TOEIC_RC_SCORE_TABLE.get(raw_correct_count, 5)
 
 
+# =====================================================================
+# QUESTION NUMBER REGEX — handles all known MD formats:
+#   "101. text"  |  "**101.** text"  |  "### 101. text"  |  "**101**. text"
+# =====================================================================
+Q_NUM_PATTERN = re.compile(
+    r'(?:^|\n)\s*(?:#{1,4}\s*)?'   # optional markdown heading
+    r'(?:\*{1,2})?'                # optional bold start
+    r'(1[0-9]{2}|200)'             # question number 100-200
+    r'(?:\*{1,2})?'                # optional bold end
+    r'[\.:]\s*'                    # period or colon
+)
+
+# Option pattern — handles (A)/(B)/(C)/(D) and A./B./C./D. formats
+OPT_PATTERN = re.compile(
+    r'(?:^|\n)\s*'
+    r'(?:\*{1,2})?'                # optional bold
+    r'[\(]?([A-Da-d])[\).]'        # letter with paren or period
+    r'(?:\*{1,2})?'                # optional bold end
+    r'\s*(.+?)(?=\n|$)'
+)
+
+
 def parse_answer_file(ans_path: Optional[str]) -> Dict[int, Dict[int, str]]:
     """
     Parses answer key file. Returns dict: {test_num: {q_num: "A"|"B"|"C"|"D"}}
+    Handles formats:
+      - "101. A" / "101: (A)" / "101. (B)"
+      - "| 101 | (A) |" (markdown table)
+      - "**101** A" (bold)
     """
     if not ans_path or not os.path.exists(ans_path):
         return {}
@@ -39,6 +65,7 @@ def parse_answer_file(ans_path: Optional[str]) -> Dict[int, Dict[int, str]]:
         with open(ans_path, "r", encoding="utf-8", errors="ignore") as f:
             text = f.read()
 
+        # Split by test headings — handles "## Test 1", "## TEST 01", etc.
         test_blocks = re.split(r'(?i)\n(?=##?\s*Test\s*\d+)', text)
         answers_by_test = {}
 
@@ -48,7 +75,12 @@ def parse_answer_file(ans_path: Optional[str]) -> Dict[int, Dict[int, str]]:
                 continue
             test_num = int(m.group(1))
 
-            q_ans_matches = re.findall(r'\b(1[0-9]{2}|200)[\.\:]\s*\(?([A-Da-d])\)?', block)
+            # Comprehensive regex that matches all known answer formats:
+            # "101. (A)", "101: A", "|101|(A)|", "| 101 | (A) |", "**101** A"
+            q_ans_matches = re.findall(
+                r'(?:^|\n|\|)\s*\*{0,2}(1[0-9]{2}|200)\*{0,2}\s*[\.\:\|]\s*\(?([A-Da-d])\)?',
+                block
+            )
             q_map = {}
             for q_num_str, ans_char in q_ans_matches:
                 q_map[int(q_num_str)] = ans_char.upper()
@@ -62,47 +94,129 @@ def parse_answer_file(ans_path: Optional[str]) -> Dict[int, Dict[int, str]]:
         return {}
 
 
+def split_text_into_tests_by_q_reset(text: str) -> List[Tuple[int, str]]:
+    """
+    Splits a full MD file into individual test blocks by detecting when
+    question numbering resets back to 101 (or near it).
+    
+    Returns list of (char_position_of_first_question, block_text) pairs.
+    """
+    # Find all question number positions
+    q_positions = []
+    for m in Q_NUM_PATTERN.finditer(text):
+        q_num = int(m.group(1))
+        q_positions.append((m.start(), q_num))
+    
+    if not q_positions:
+        return []
+    
+    # Detect test boundaries: when question number drops significantly
+    test_start_positions = [0]  # First test starts at beginning of file
+    prev_q = 0
+    for i, (pos, q_num) in enumerate(q_positions):
+        if q_num <= prev_q and q_num <= 110 and prev_q >= 130:
+            # Found a reset — new test starts here
+            # Find a good split point: look backwards for a heading before this question
+            split_pos = pos
+            # Look back up to 500 chars for a heading line
+            search_start = max(0, pos - 500)
+            chunk_before = text[search_start:pos]
+            heading_m = list(re.finditer(r'\n(#+\s+.*)', chunk_before))
+            if heading_m:
+                last_heading = heading_m[-1]
+                split_pos = search_start + last_heading.start()
+            
+            test_start_positions.append(split_pos)
+        prev_q = q_num
+    
+    # Create test blocks
+    test_blocks = []
+    for i in range(len(test_start_positions)):
+        start = test_start_positions[i]
+        end = test_start_positions[i + 1] if i + 1 < len(test_start_positions) else len(text)
+        block = text[start:end].strip()
+        if block:
+            test_blocks.append((start, block))
+    
+    return test_blocks
+
+
 def extract_questions_from_test_text(test_content: str, answer_map: Dict[int, str]) -> List[Dict[str, Any]]:
     """
     Extracts individual questions (101..200) from markdown text.
+    Uses robust regex that handles **bold** question numbers, markdown headings, etc.
     Classifies into Part 5 (101-130), Part 6 (131-146), Part 7 (147-200).
     """
     questions = []
+    seen_q_nums = set()
     
-    # Split text into question blocks based on line starting with question number e.g. "101." or "131."
-    # Matches patterns like "\n101. " or "\n### 101. "
-    q_blocks = re.split(r'(?m)^\s*(?:###?\s*)?(1[0-9]{2}|200)[\.\:]\s*', test_content)
+    # Find all question positions
+    q_matches = list(Q_NUM_PATTERN.finditer(test_content))
     
-    # q_blocks[0] is header/intro text before Q101
-    for idx in range(1, len(q_blocks), 2):
-        q_num = int(q_blocks[idx])
-        q_body = q_blocks[idx + 1] if idx + 1 < len(q_blocks) else ""
+    for i, m in enumerate(q_matches):
+        q_num = int(m.group(1))
         
-        # Stop body at next header or major section if present
-        q_body_clean = q_body.strip()
+        # Skip duplicates (same question number appearing twice in same test)
+        if q_num in seen_q_nums:
+            continue
+        seen_q_nums.add(q_num)
         
-        # Extract options (A), (B), (C), (D) or A. B. C. D.
-        # Find options text
+        # Only process TOEIC RC questions 101-200
+        if q_num < 101 or q_num > 200:
+            continue
+        
+        # Get question body: from end of this match to start of next question match
+        body_start = m.end()
+        body_end = q_matches[i + 1].start() if i + 1 < len(q_matches) else len(test_content)
+        q_body = test_content[body_start:body_end].strip()
+        
+        # Limit body to reasonable length (prevent runaway into next test's content)
+        if len(q_body) > 3000:
+            q_body = q_body[:3000]
+        
+        # Extract options
         opts = []
-        opt_matches = re.findall(r'(?:\([A-D]\)|[A-D]\.)\s*([^\n]+)', q_body_clean)
-        if len(opt_matches) >= 4:
-            opts = [f"A. {opt_matches[0].strip()}", f"B. {opt_matches[1].strip()}", f"C. {opt_matches[2].strip()}", f"D. {opt_matches[3].strip()}"]
+        opt_matches = list(OPT_PATTERN.finditer(q_body))
+        
+        # Group by letter to avoid duplicates
+        opt_by_letter = {}
+        for om in opt_matches:
+            letter = om.group(1).upper()
+            text_val = om.group(2).strip()
+            # Clean trailing markdown / bold
+            text_val = re.sub(r'\*{1,2}$', '', text_val).strip()
+            if letter not in opt_by_letter and letter in ('A', 'B', 'C', 'D'):
+                opt_by_letter[letter] = text_val
+        
+        if len(opt_by_letter) >= 4:
+            opts = [
+                f"A. {opt_by_letter.get('A', '')}",
+                f"B. {opt_by_letter.get('B', '')}",
+                f"C. {opt_by_letter.get('C', '')}",
+                f"D. {opt_by_letter.get('D', '')}"
+            ]
+        elif len(opt_by_letter) >= 2:
+            # Partial options — still include what we have
+            opts = [f"{k}. {v}" for k, v in sorted(opt_by_letter.items())]
+            while len(opts) < 4:
+                missing_letter = ['A', 'B', 'C', 'D'][len(opts)]
+                opts.append(f"{missing_letter}. —")
         else:
-            # Fallback regex for inline options
-            lines = [l.strip() for l in q_body_clean.split("\n") if l.strip()]
-            opt_lines = [l for l in lines if re.match(r'^[\(]?[A-D][\.\)]', l)]
-            if len(opt_lines) >= 4:
-                opts = opt_lines[:4]
-            else:
-                opts = ["A. Phương án A", "B. Phương án B", "C. Phương án C", "D. Phương án D"]
-
-        # Clean question text (take text before first option)
-        first_opt_m = re.search(r'(?:\([A-D]\)|[A-D]\.)', q_body_clean)
-        if first_opt_m:
-            q_txt = q_body_clean[:first_opt_m.start()].strip()
-        else:
-            q_txt = q_body_clean.split("\n")[0].strip()
-
+            opts = ["A. —", "B. —", "C. —", "D. —"]
+        
+        # Extract question text (everything before the first option)
+        q_txt = q_body
+        if opt_matches:
+            q_txt = q_body[:opt_matches[0].start()].strip()
+        
+        # Clean markdown formatting from question text
+        q_txt = re.sub(r'\*{1,2}', '', q_txt)
+        q_txt = q_txt.strip()
+        
+        # Limit question text length
+        if len(q_txt) > 2000:
+            q_txt = q_txt[:2000] + "..."
+        
         # Part determination
         if 101 <= q_num <= 130:
             part = 5
@@ -114,22 +228,19 @@ def extract_questions_from_test_text(test_content: str, answer_map: Dict[int, st
             part = 7
             g_topic = "Part 7 Reading Comprehension"
 
-        corr_ans = answer_map.get(q_num, "A")
+        corr_ans = answer_map.get(q_num, "")
 
         questions.append({
             "q_num": q_num,
             "part": part,
-            "question_text": f"{q_num}. {q_txt}",
+            "question_text": f"{q_num}. {q_txt}" if q_txt else f"{q_num}.",
             "options_json": json.dumps(opts, ensure_ascii=False),
             "correct_answer": corr_ans,
-            "explanation": f"Đáp án đúng là ({corr_ans}). [MOCK EXPLANATION] Câu #{q_num} thuộc Part {part}.",
+            "explanation": f"Đáp án đúng là ({corr_ans})." if corr_ans else "Chưa có đáp án.",
             "option_explanations_json": json.dumps({
-                "A": "Phương án A",
-                "B": "Phương án B",
-                "C": "Phương án C",
-                "D": "Phương án D"
+                "A": "—", "B": "—", "C": "—", "D": "—"
             }, ensure_ascii=False),
-            "translated_sentence": f"{q_num}. {q_txt}",
+            "translated_sentence": "",
             "grammar_topic": g_topic,
             "topic_tag": f"Part {part}"
         })
@@ -154,10 +265,40 @@ def ensure_db_schema(db: Session):
             db.rollback()
 
 
+def _get_series_name(filename_no_ext: str) -> str:
+    """Clean series name: remove (2), normalize variations, trailing whitespace, etc."""
+    name = re.sub(r'\s*\(\d+\)', '', filename_no_ext).strip()
+    # Normalize known variations
+    name = re.sub(r'(?i)^ETS\s+TOEIC\s+Reading\s+(\d{4})', r'ETS \1 RC', name)
+    return name
+
+
+def _find_answer_file(directory: str, files: List[str]) -> Optional[str]:
+    """Find the answer key file in a directory."""
+    ans_keywords = ["đáp án", "đáp_án", "dáp án", "dáp_án"]
+    for f2 in files:
+        f2_lower = f2.lower()
+        if f2.endswith(".md") and any(k in f2_lower for k in ans_keywords):
+            return os.path.join(directory, f2)
+    return None
+
+
+def _is_answer_file(filename: str) -> bool:
+    """Check if a filename is an answer key file."""
+    f_lower = filename.lower()
+    return any(k in f_lower for k in ["đáp án", "đáp_án", "dáp án", "dáp_án"])
+
+
 def scan_and_seed_textbooks(db: Session) -> Dict[str, Any]:
     r"""
     Scans d:\TOIEC Web\textbook and seeds built-in exam documents + questions into SQLite DB.
-    Guarantees built-in tests are ready on startup.
+    
+    Strategy: 
+    1. For each non-answer MD file, read the full text
+    2. Split into individual tests by detecting question-number resets (Q101 appears again)
+    3. Extract 100 questions per test (Q101-Q200)
+    4. Match answer keys from companion answer file
+    5. Seed into DB with deduplication
     """
     ensure_db_schema(db)
     if not os.path.exists(TEXTBOOK_ROOT_DIR):
@@ -165,113 +306,168 @@ def scan_and_seed_textbooks(db: Session) -> Dict[str, Any]:
         return {"status": "error", "message": "Textbook directory missing"}
 
     seeded_count = 0
-    updated_count = 0
+    skipped_count = 0
 
     for root, dirs, files in os.walk(TEXTBOOK_ROOT_DIR):
         for f in files:
-            f_lower = f.lower()
-            if f.endswith(".md") and not any(k in f_lower for k in ["đáp án", "đáp_án", "dáp án", "dáp_án"]):
-                md_path = os.path.join(root, f)
-                ans_path = None
-                for f2 in files:
-                    f2_lower = f2.lower()
-                    if f2.endswith(".md") and any(k in f2_lower for k in ["đáp án", "đáp_án", "dáp án", "dáp_án"]):
-                        ans_path = os.path.join(root, f2)
-                        break
+            if not f.endswith(".md") or _is_answer_file(f):
+                continue
+            
+            md_path = os.path.join(root, f)
+            ans_path = _find_answer_file(root, files)
+            
+            rel = os.path.relpath(md_path, TEXTBOOK_ROOT_DIR)
+            parts = rel.split(os.sep)
+            category = parts[0] if len(parts) > 1 else "OTHER"
+            series_name = _get_series_name(os.path.splitext(f)[0])
 
-                rel = os.path.relpath(md_path, TEXTBOOK_ROOT_DIR)
-                parts = rel.split(os.sep)
-                category = parts[0] if len(parts) > 1 else "ETS"
-                series_name = os.path.splitext(f)[0]
+            # Parse answer keys
+            ans_by_test = parse_answer_file(ans_path)
+
+            # Read MD file
+            try:
+                with open(md_path, "r", encoding="utf-8", errors="ignore") as file:
+                    text = file.read()
+            except Exception as ex:
+                print(f"[TEXTBOOK SERVICE] Error reading {md_path}: {ex}")
+                continue
+
+            # Split into tests by question-number reset
+            test_blocks = split_text_into_tests_by_q_reset(text)
+            
+            if not test_blocks:
+                print(f"[TEXTBOOK SERVICE] ⚠️ No questions found in: {rel}")
+                continue
+
+            print(f"[TEXTBOOK SERVICE] 📚 {rel}: {len(test_blocks)} tests detected")
+
+            for t_idx, (_, block) in enumerate(test_blocks, 1):
+                # Try to determine test number from heading in the block
+                test_num = t_idx  # default: sequential
+                # Only look at heading lines (starting with #) to avoid matching question numbers
+                heading_lines = re.findall(r'^(#+\s*.*)', block[:1000], re.MULTILINE)
+                for hl in heading_lines:
+                    hm = re.search(r'(?i)(?:TEST|test)\s*0*(\d+)', hl)
+                    if hm:
+                        parsed_num = int(hm.group(1))
+                        if 1 <= parsed_num <= 20:  # Valid test number range
+                            test_num = parsed_num
+                            break
                 
-                # Clean series_name (e.g. "ETS 2023 RC (2)" -> "ETS 2023 RC")
-                series_name = re.sub(r'\s*\(\d+\)', '', series_name).strip()
+                # Match answer key for this test
+                t_ans_map = ans_by_test.get(test_num, {})
+                
+                # If no answer key found by test_num, try t_idx
+                if not t_ans_map and t_idx in ans_by_test:
+                    t_ans_map = ans_by_test[t_idx]
 
-                # Parse answer keys
-                ans_by_test = parse_answer_file(ans_path)
+                filename = f"[{category}] {series_name} - Test {test_num:02d}"
+                content_hash = hashlib.sha256(
+                    f"{filename}::{block[:1000]}".encode("utf-8")
+                ).hexdigest()
 
-                # Read MD file
-                try:
-                    with open(md_path, "r", encoding="utf-8", errors="ignore") as file:
-                        text = file.read()
-                except Exception as ex:
-                    print(f"[TEXTBOOK SERVICE] Error reading {md_path}: {ex}")
-                    continue
+                # Check if document already exists (by hash or filename)
+                existing_doc = db.query(Document).filter(
+                    Document.content_hash == content_hash
+                ).first()
+                if not existing_doc:
+                    existing_doc = db.query(Document).filter(
+                        Document.filename == filename,
+                        Document.is_builtin == True
+                    ).first()
 
-                # Split into tests
-                test_splits = re.split(r'(?i)\n(?=#+\s*(?:RC\s*기출\s*|RC\s*|READING\s*)?TEST\s*0*\d+)', text)
-                if len(test_splits) <= 1:
-                    test_splits = [text]
-
-                for t_idx, block in enumerate(test_splits, 1):
-                    block_strip = block.strip()
-                    if not block_strip:
-                        continue
-
-                    m = re.search(r'(?i)#+\s*(?:RC\s*기출\s*|RC\s*|READING\s*)?TEST\s*0*(\d+)', block_strip)
-                    test_num = int(m.group(1)) if m else t_idx
-
-                    filename = f"[{category}] {series_name} - Test {test_num:02d}"
-                    content_hash = hashlib.sha256(f"{filename}::{block_strip[:500]}".encode("utf-8")).hexdigest()
-
-                    # Check if document already exists
-                    existing_doc = db.query(Document).filter(Document.content_hash == content_hash).first()
-                    if not existing_doc:
-                        existing_doc = db.query(Document).filter(Document.filename == filename).first()
-
-                    if existing_doc:
-                        # Ensure fields are up to date
+                if existing_doc:
+                    # Check if questions already extracted properly
+                    q_count = db.query(Question).filter(
+                        Question.document_id == existing_doc.id
+                    ).count()
+                    
+                    if q_count >= 80:
+                        # Already has enough questions — just update metadata
                         existing_doc.is_builtin = True
                         existing_doc.category = category
                         existing_doc.series = series_name
                         existing_doc.test_number = test_num
                         existing_doc.status = "extracted"
                         db.commit()
-                        updated_count += 1
+                        skipped_count += 1
+                        continue
+                    else:
+                        # Delete old questions and re-extract
+                        db.query(Question).filter(
+                            Question.document_id == existing_doc.id
+                        ).delete()
+                        existing_doc.is_builtin = True
+                        existing_doc.category = category
+                        existing_doc.series = series_name
+                        existing_doc.test_number = test_num
+                        existing_doc.markdown_content = block
+                        existing_doc.content_hash = content_hash
+                        existing_doc.status = "extracted"
+                        db.commit()
+                        
+                        # Re-extract questions
+                        qs_data = extract_questions_from_test_text(block, t_ans_map)
+                        for q in qs_data:
+                            new_q = Question(
+                                document_id=existing_doc.id,
+                                part=q["part"],
+                                question_text=q["question_text"],
+                                options_json=q["options_json"],
+                                correct_answer=q["correct_answer"],
+                                explanation=q["explanation"],
+                                option_explanations_json=q["option_explanations_json"],
+                                translated_sentence=q["translated_sentence"],
+                                grammar_topic=q["grammar_topic"],
+                                topic_tag=q["topic_tag"],
+                                is_generated=False
+                            )
+                            db.add(new_q)
+                        db.commit()
+                        seeded_count += 1
                         continue
 
-                    # Create new built-in Document
-                    new_doc = Document(
-                        filename=filename,
-                        doc_type="RC_EXAM",
-                        content_hash=content_hash,
-                        markdown_content=block_strip,
-                        status="extracted",
-                        is_builtin=True,
-                        category=category,
-                        series=series_name,
-                        test_number=test_num
+                # Create new built-in Document
+                new_doc = Document(
+                    filename=filename,
+                    doc_type="RC_EXAM",
+                    content_hash=content_hash,
+                    markdown_content=block,
+                    status="extracted",
+                    is_builtin=True,
+                    category=category,
+                    series=series_name,
+                    test_number=test_num
+                )
+                db.add(new_doc)
+                db.commit()
+                db.refresh(new_doc)
+
+                # Extract questions for this test
+                qs_data = extract_questions_from_test_text(block, t_ans_map)
+
+                for q in qs_data:
+                    new_q = Question(
+                        document_id=new_doc.id,
+                        part=q["part"],
+                        question_text=q["question_text"],
+                        options_json=q["options_json"],
+                        correct_answer=q["correct_answer"],
+                        explanation=q["explanation"],
+                        option_explanations_json=q["option_explanations_json"],
+                        translated_sentence=q["translated_sentence"],
+                        grammar_topic=q["grammar_topic"],
+                        topic_tag=q["topic_tag"],
+                        is_generated=False
                     )
-                    db.add(new_doc)
-                    db.commit()
-                    db.refresh(new_doc)
+                    db.add(new_q)
+                
+                db.commit()
+                seeded_count += 1
 
-                    # Extract questions for this test
-                    t_ans_map = ans_by_test.get(test_num, {})
-                    qs_data = extract_questions_from_test_text(block_strip, t_ans_map)
-
-                    for q in qs_data:
-                        new_q = Question(
-                            document_id=new_doc.id,
-                            part=q["part"],
-                            question_text=q["question_text"],
-                            options_json=q["options_json"],
-                            correct_answer=q["correct_answer"],
-                            explanation=q["explanation"],
-                            option_explanations_json=q["option_explanations_json"],
-                            translated_sentence=q["translated_sentence"],
-                            grammar_topic=q["grammar_topic"],
-                            topic_tag=q["topic_tag"],
-                            is_generated=False
-                        )
-                        db.add(new_q)
-                    
-                    db.commit()
-                    seeded_count += 1
-
-    print(f"[TEXTBOOK SERVICE] Completed scan: {seeded_count} new tests seeded, {updated_count} tests updated.")
+    print(f"[TEXTBOOK SERVICE] Completed scan: {seeded_count} tests seeded/updated, {skipped_count} skipped (already OK).")
     return {
         "status": "success",
         "seeded_count": seeded_count,
-        "updated_count": updated_count
+        "skipped_count": skipped_count
     }
