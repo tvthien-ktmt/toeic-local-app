@@ -21,9 +21,16 @@ class ExamSubmitRequest(BaseModel):
 
 @router.post("/init")
 def init_builtin_textbooks(db: Session = Depends(get_db)):
-    r"""Triggers scan and seed of d:\TOIEC Web\textbook directory."""
-    res = scan_and_seed_textbooks(db)
-    return res
+    r"""Triggers scan and seed of textbook directory."""
+    try:
+        res = scan_and_seed_textbooks(db)
+        if res.get("status") == "error":
+            raise HTTPException(status_code=500, detail=res.get("message", "Seed failed"))
+        return res
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Textbook seeding error: {str(e)}")
 
 
 @router.get("/catalog")
@@ -34,10 +41,14 @@ def get_textbook_catalog(db: Session = Depends(get_db)):
     """
     ensure_db_schema(db)
     
-    # Auto seed if empty
+    # Auto seed if empty or no questions exist
     builtin_count = db.query(Document).filter(Document.is_builtin == True).count()
-    if builtin_count == 0:
-        scan_and_seed_textbooks(db)
+    total_q_count = db.query(Question).count()
+    if builtin_count == 0 or total_q_count == 0:
+        try:
+            scan_and_seed_textbooks(db)
+        except Exception as e:
+            print(f"[TEXTBOOK CATALOG] Auto-seed warning: {e}")
 
     docs = db.query(Document).filter(Document.is_builtin == True).order_by(Document.category, Document.series, Document.test_number).all()
 
@@ -73,7 +84,8 @@ def get_textbook_catalog(db: Session = Depends(get_db)):
             "id": d.id,
             "filename": d.filename,
             "test_number": d.test_number or 1,
-            "question_count": q_count if q_count > 0 else 100,
+            "question_count": q_count,
+            "is_seeded": q_count > 0,
             "highest_score": highest_score,
             "highest_raw": highest_raw,
             "attempt_count": attempt_count,
