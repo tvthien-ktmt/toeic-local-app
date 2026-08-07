@@ -144,6 +144,8 @@ def get_exam_questions(doc_id: int, db: Session = Depends(get_db)):
 
         try:
             opt_exps = json.loads(q.option_explanations_json) if q.option_explanations_json else {}
+            if isinstance(opt_exps, dict) and not any(v and str(v).strip() not in ('—', '-') for v in opt_exps.values()):
+                opt_exps = {}
         except Exception:
             opt_exps = {}
 
@@ -160,7 +162,8 @@ def get_exam_questions(doc_id: int, db: Session = Depends(get_db)):
             "explanation": q.explanation,
             "option_explanations": opt_exps,
             "translated_sentence": q.translated_sentence,
-            "grammar_topic": q.grammar_topic or f"Part {q.part}"
+            "grammar_topic": q.grammar_topic or f"Part {q.part}",
+            "common_trap": q.common_trap
         })
 
     return {
@@ -240,7 +243,8 @@ def submit_exam(req: ExamSubmitRequest, db: Session = Depends(get_db)):
             "explanation": q.explanation,
             "option_explanations": opt_exps,
             "translated_sentence": q.translated_sentence,
-            "grammar_topic": q.grammar_topic
+            "grammar_topic": q.grammar_topic,
+            "common_trap": q.common_trap
         })
 
     total_qs = len(qs)
@@ -310,4 +314,97 @@ def get_exam_history(db: Session = Depends(get_db)):
         "status": "success",
         "attempts_count": len(history),
         "history": history
+    }
+
+
+@router.get("/history/{doc_id}")
+def get_doc_exam_history(doc_id: int, db: Session = Depends(get_db)):
+    """Returns all exam attempts for a specific document, newest first."""
+    attempts = db.query(ExamAttempt).filter(
+        ExamAttempt.document_id == doc_id
+    ).order_by(ExamAttempt.completed_at.desc()).all()
+
+    history = []
+    for a in attempts:
+        history.append({
+            "id": a.id,
+            "mode": a.mode,
+            "raw_score": a.raw_score,
+            "total_questions": a.total_questions,
+            "toeic_score": a.toeic_score,
+            "time_spent_seconds": a.time_spent_seconds,
+            "part5_correct": a.part5_correct,
+            "part6_correct": a.part6_correct,
+            "part7_correct": a.part7_correct,
+            "completed_at": a.completed_at.isoformat()
+        })
+
+    return {
+        "status": "success",
+        "document_id": doc_id,
+        "attempts_count": len(history),
+        "history": history
+    }
+
+
+@router.get("/weakness-report")
+def get_weakness_report(db: Session = Depends(get_db)):
+    """
+    Aggregates grammar topics from all exam attempts to identify weak spots.
+    Returns top weak grammar_topics based on missed questions across all exams.
+    """
+    # Get all exam attempts that have detailed results stored (via question-level joins)
+    # Since we store answers_json per attempt, we need to cross-reference with questions
+    attempts = db.query(ExamAttempt).order_by(ExamAttempt.completed_at.desc()).limit(50).all()
+
+    topic_stats: dict = {}  # {grammar_topic: {correct: int, wrong: int, skipped: int}}
+
+    for attempt in attempts:
+        try:
+            answers = json.loads(attempt.answers_json) if attempt.answers_json else {}
+        except Exception:
+            continue
+
+        # Get questions for this attempt's document
+        qs = db.query(Question).filter(Question.document_id == attempt.document_id).all()
+        for q in qs:
+            topic = q.grammar_topic or f"Part {q.part}"
+            user_ans = answers.get(str(q.id), "").strip().upper()
+            corr_ans = (q.correct_answer or "").strip().upper()
+
+            if topic not in topic_stats:
+                topic_stats[topic] = {"correct": 0, "wrong": 0, "skipped": 0, "total": 0}
+
+            topic_stats[topic]["total"] += 1
+            if not corr_ans:
+                pass  # No answer key
+            elif not user_ans:
+                topic_stats[topic]["skipped"] += 1
+            elif user_ans == corr_ans:
+                topic_stats[topic]["correct"] += 1
+            else:
+                topic_stats[topic]["wrong"] += 1
+
+    # Sort by wrong+skipped descending
+    weakness_list = []
+    for topic, stats in topic_stats.items():
+        total_graded = stats["correct"] + stats["wrong"] + stats["skipped"]
+        if total_graded == 0:
+            continue
+        error_rate = round((stats["wrong"] + stats["skipped"]) / total_graded * 100, 1)
+        weakness_list.append({
+            "grammar_topic": topic,
+            "total_questions": total_graded,
+            "correct": stats["correct"],
+            "wrong": stats["wrong"],
+            "skipped": stats["skipped"],
+            "error_rate": error_rate
+        })
+
+    weakness_list.sort(key=lambda x: x["error_rate"] * x["total_questions"], reverse=True)
+
+    return {
+        "status": "success",
+        "topics_analyzed": len(weakness_list),
+        "weakest_topics": weakness_list[:15]  # Top 15 weakest
     }

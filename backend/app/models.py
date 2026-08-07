@@ -37,6 +37,7 @@ class Question(Base):
     option_explanations_json = Column(Text, nullable=True)  # JSON object string: {"A": "...", "B": "...", "C": "...", "D": "..."}
     translated_sentence = Column(Text, nullable=True)  # Full Vietnamese sentence translation with answer filled in
     grammar_topic = Column(String, index=True, nullable=True)
+    common_trap = Column(Text, nullable=True)  # Why a specific wrong option is commonly chosen (competitive differentiator)
     topic_tag = Column(String, index=True, nullable=True)
     is_generated = Column(Boolean, default=False)
     source_question_id = Column(Integer, ForeignKey("questions.id"), nullable=True)
