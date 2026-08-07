@@ -8,23 +8,10 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
 
 ## 📊 THỐNG KÊ TỔNG QUAN
 
-- **Tổng số đề chưa đủ 100 câu**: `20` đề
+- **Tổng số đề chưa đủ 100 câu**: `12` đề
 - **Phân loại**: Chi tiết danh sách bên dưới được chia theo từng bộ sách (Series).
 
 ---
-
-## 📚 [ETS] ETS 2023 RC
-
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
-| :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 03** | **92/100** | 30 | 13 | 49 | `❌ Khuyết 8 câu từ file nguồn OCR` |
-| **Test 04** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
-| **Test 05** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
-| **Test 06** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
-| **Test 07** | **96/100** | 30 | 12 | 54 | `❌ Khuyết 4 câu từ file nguồn OCR` |
-| **Test 08** | **96/100** | 30 | 12 | 54 | `❌ Khuyết 4 câu từ file nguồn OCR` |
-| **Test 09** | **92/100** | 30 | 8 | 54 | `❌ Khuyết 8 câu từ file nguồn OCR` |
-| **Test 10** | **92/100** | 30 | 8 | 54 | `❌ Khuyết 8 câu từ file nguồn OCR` |
 
 ## 📚 [ETS] ETS 2024 RC
 
@@ -71,75 +58,6 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
 ---
 
 ## 🔍 CHI TIẾT GREP XÁC MINH TỪNG CÂU THIẾU
-
-### 📂 [ETS] ETS 2023 RC
-
-#### 🔹 Test 03 (`[ETS] ETS 2023 RC - Test 03`)
-- **Tổng số câu hiện tại**: `92/100` (Part 5: 30, Part 6: 13, Part 7: 49)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 134**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 196**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 197**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 198**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 199**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 200**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 04 (`[ETS] ETS 2023 RC - Test 04`)
-- **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 05 (`[ETS] ETS 2023 RC - Test 05`)
-- **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 06 (`[ETS] ETS 2023 RC - Test 06`)
-- **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 07 (`[ETS] ETS 2023 RC - Test 07`)
-- **Tổng số câu hiện tại**: `96/100` (Part 5: 30, Part 6: 12, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 143**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 144**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 08 (`[ETS] ETS 2023 RC - Test 08`)
-- **Tổng số câu hiện tại**: `96/100` (Part 5: 30, Part 6: 12, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 143**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 144**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 09 (`[ETS] ETS 2023 RC - Test 09`)
-- **Tổng số câu hiện tại**: `92/100` (Part 5: 30, Part 6: 8, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 139**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 140**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 141**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 143**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 144**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 10 (`[ETS] ETS 2023 RC - Test 10`)
-- **Tổng số câu hiện tại**: `92/100` (Part 5: 30, Part 6: 8, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 139**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 140**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 141**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 143**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 144**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [ETS] ETS 2024 RC
 
