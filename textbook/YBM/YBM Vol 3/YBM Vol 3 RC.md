@@ -1,5 +1,7 @@
 # TEST 01
 
+# TEST 01
+
 # READING TEST
 
 In the Reading test, you will read a variety of texts and answer several different types of reading comprehension questions. The entire Reading test will last 75 minutes. There are three parts, and directions are given for each part. You are encouraged to answer as many questions as possible within the time allowed.
@@ -78,7 +80,7 @@ _Directions: A word or phrase is missing in each of the sentences below. Four an
      (C) educate
      (D) inform
 
-112. ------- draws readers to the Willard Daily News is our commitment to fair and honest reporting.
+112. -------  draws readers to the Willard Daily News is our commitment to fair and honest reporting.
      (A) Something
      (B) What
      (C) Whom
@@ -90,7 +92,7 @@ _Directions: A word or phrase is missing in each of the sentences below. Four an
      (C) very
      (D) beyond
 
-114. ------- the construction permit application took longer than the contractor had anticipated.
+114. -------  the construction permit application took longer than the contractor had anticipated.
      (A) Prepare
      (B) Preparing
      (C) Preparation
@@ -108,7 +110,7 @@ _Directions: A word or phrase is missing in each of the sentences below. Four an
      (C) except
      (D) unlike
 
-117. ------- upgraded with the latest hardware, our data centers offer safe, reliable data storage.
+117. -------  upgraded with the latest hardware, our data centers offer safe, reliable data storage.
      (A) Frequent
      (B) Frequenting
      (C) Frequency
@@ -162,7 +164,7 @@ _Directions: A word or phrase is missing in each of the sentences below. Four an
      (C) proficiency
      (D) compliance
 
-126. ------- joining Keller Fox Ltd., Ms. Jang was the vice president of sales at Cortiss Hotels.
+126. -------  joining Keller Fox Ltd., Ms. Jang was the vice president of sales at Cortiss Hotels.
      (A) Prior to
      (B) Compared to
      (C) Ever since
@@ -795,7 +797,7 @@ Also, I noticed that Greg hasn't met his first deadline. Do you know why? I thou
      (A) April 8
      (B) April 15
      (C) April 22
-     (D) May 6
+     (D) May
 
 180. In the e-mail, what is suggested about the event that is being planned?
      (A) It had to be rescheduled.
@@ -926,7 +928,9 @@ Ed
 | Item description | Seller      | Web page link          | Quantity             | Approx. Total Price\* |
 | ---------------- | ----------- | ---------------------- | -------------------- | --------------------- |
 | Desk chair       | Mallorin    | www.mallorin.com/4024  | 1                    | $235.00               |
-| Art print        | Nicole Phan | Not available          | 1                    | $175.00               |
+| Art print        | Nicole Phan | Not available          | 1                    | $
+
+175.00               |
 | Armchair         | Bohn Homes  | www.bohmhomes.com/3421 | 2                    | $210.00               |
 | End table        | Bohn Homes  | www.bohmhomes.com/0257 | 1                    | $65.00                |
 | Coat rack        | Bohn Homes  | www.bohmhomes.com/6369 | 1                    | $40.00                |
@@ -1127,7 +1131,7 @@ GWI Insulation
      (A) Exclusion 1
      (B) Exclusion 2
      (C) Exclusion 3
-     (D) Exclusion 4
+     (D) Exclusion
 
 200. In the e-mail, the word "learn" in paragraph 1, line 1, is closest in meaning to
      (A) master
@@ -1135,6 +1139,7 @@ GWI Insulation
      (C) memorize
      (D) experience
 
+# TEST 02
 
 # TEST 02
 
@@ -1210,7 +1215,7 @@ GWI Insulation
      (C) directing
      (D) direction
 
-113. ------- the Boyce Eagles have reached the final round of the Wicks Cup several times, they have not yet managed to win it.
+113. -------  the Boyce Eagles have reached the final round of the Wicks Cup several times, they have not yet managed to win it.
      (A) While
      (B) Even
      (C) Whenever
@@ -1234,7 +1239,7 @@ GWI Insulation
      (C) will place
      (D) is being placed
 
-117. ------- the latest market report, the cosmetics industry will continue to expand thanks to growth in income levels.
+117. -------  the latest market report, the cosmetics industry will continue to expand thanks to growth in income levels.
      (A) Except for
      (B) Through
      (C) In addition to
@@ -1924,7 +1929,9 @@ Ms. Abbot, as well as top runners-up Jedda Ryan, Hayden Noe, Megan Danner, and K
 
 #### Thornwood Monthly City Council Meeting
 
-Room 105, Thornwood Community Center  
+Room
+
+105, Thornwood Community Center  
 Tuesday, February 10, 7 P.M.
 
 **Attendance:** 10 out of 12 council members  
@@ -2137,9 +2144,13 @@ http://www.weatherfordpro.com
 | :---------- | :------------------------------ | :------: | :------ |
 | H2420       | Trail Master Backpack – Navy    |    1     | $59.99  |
 | R4371       | Onivin Trekking Shoes – Size 10 |    1     | $89.99  |
-|             |                                 | Subtotal | $149.98 |
+|             |                                 | Subtotal | $
+
+149.98 |
 |             |                                 |  Taxes   | $10.50  |
-|             |                                 |  Total   | $160.48 |
+|             |                                 |  Total   | $
+
+160.48 |
 
 **Did you know?** Weatherford Pro passes on 5% of each pre-tax sale to the Withrow Society! Click “Complete My Order” to help us donate $7.50 right now.
 
@@ -2274,6 +2285,7 @@ You must mark your answers on the separate answer sheet. Do not write your answe
 
 **Directions:** A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence. Then mark the letter (A), (B), (C), or (D) on your answer sheet.
 
+# TEST 03
 
 # TEST 03
 
@@ -3006,7 +3018,7 @@ Call 555-0180 for more information, or follow us on social media to see photos o
      (A) October 19
      (B) October 26
      (C) November 2
-     (D) November 9
+     (D) November
 
 180. What will Ms. Flynn most likely do?
      (A) Arrive early on the day of the performance
@@ -3320,6 +3332,7 @@ You must mark your answers on the separate answer sheet. Do not write your answe
 
 Directions: A word or phrase is missing in each of the sentences below. Four answer choices are given behind each sentence. Select the best answer to complete the sentence. Then mark the letter (A), (B), (C), or (D) on your answer sheet.
 
+# TEST 04
 
 # TEST 04
 
@@ -3335,7 +3348,7 @@ Directions: A word or phrase is missing in each of the sentences below. Four ans
      (C) denied
      (D) denial
 
-103. ------ a minimal additional charge, our design professionals can produce eye-catching illustrations you can add to your promotional pieces.
+103. -------  a minimal additional charge, our design professionals can produce eye-catching illustrations you can add to your promotional pieces.
      (A) For
      (B) As
      (C) With
@@ -3431,7 +3444,7 @@ Directions: A word or phrase is missing in each of the sentences below. Four ans
      (C) volunteers
      (D) volunteering
 
-119. ------ its materials' delicacy and high value, access to the rare books collection is limited to library staff only.
+119. -------  its materials' delicacy and high value, access to the rare books collection is limited to library staff only.
      (A) Because of
      (B) Along with
      (C) In spite of
@@ -3461,7 +3474,7 @@ Directions: A word or phrase is missing in each of the sentences below. Four ans
      (C) obligate
      (D) expedite
 
-124. ------ construction of the condominiums is complete, they may be exhibited to prospective buyers.
+124. -------  construction of the condominiums is complete, they may be exhibited to prospective buyers.
      (A) Now that
      (B) Throughout
      (C) Whatever
@@ -3800,7 +3813,9 @@ Exhibitors will not be allowed to dismantle their exhibits or begin packing befo
 
 (September 13)—With the opening of a Cainlen Superstore just two weeks away, the Bakert Merchants Association (BMA) has begun an initiative that encourages consumers to support local businesses. At least thirty stores have hung "Buy from Bakert" signs in their front windows.
 
-Like other Cainlen locations across the nation, the new Bakert store stretches over 180,000 square feet of land and will sell groceries, clothing, and electronics and boast a garden supply center and a photo developing lab. The massiveness of its floor plan meant that its construction was subject to public review regarding potential harm to plants and wildlife near its site on Todd Road.
+Like other Cainlen locations across the nation, the new Bakert store stretches over
+
+180,000 square feet of land and will sell groceries, clothing, and electronics and boast a garden supply center and a photo developing lab. The massiveness of its floor plan meant that its construction was subject to public review regarding potential harm to plants and wildlife near its site on Todd Road.
 
 At that time, the BMA almost succeeded in blocking the development by pressing the city council to consider its effects in another area—that of local commerce. The BMA argued that Cainlen would put smaller retailers out of business and thus weaken the community in the long term.
 
@@ -4273,7 +4288,7 @@ Travis
      (A) Step 2
      (B) Step 3
      (C) Step 5
-     (D) Step 6
+     (D) Step
 
 193. According to the first e-mail, what does Telges Hotel have?
      (A) A clothes-washing service
@@ -4378,6 +4393,7 @@ Department of Planning and Development Services
 
 Stop! This is the end of the test. If you finish before time is called, you may go back to Parts 5, 6, and 7 and check your work.
 
+# TEST 05
 
 # TEST 05
 
@@ -5454,6 +5470,7 @@ Questions 196-200 refer to the following application form, e-mail, and attachmen
 
 Stop! This is the end of the test. If you finish before time is called, you may go back to Parts 5, 6, and 7 and check your work.
 
+# TEST 06
 
 # TEST 06
 
@@ -5505,7 +5522,7 @@ Stop! This is the end of the test. If you finish before time is called, you may 
      (C) remain
      (D) produce
 
-109. ------- learning to play the guitar, practice with a durable model like the Franmawr-5.
+109. -------  learning to play the guitar, practice with a durable model like the Franmawr-5.
      (A) Whether
      (B) Since
      (C) From
@@ -5654,9 +5671,17 @@ Dear Mr. Chen,
 
 Please know that we at Brundy Storage appreciate your business and loyalty.
 
-Recently, rental rates have increased due to greater -------$^{131.}$ for storage space in this area. Based on these market conditions, the new monthly rent for Space 1032 -------$^{132.}$ $208 starting on Sunday, March 1.
+Recently, rental rates have increased due to greater -------$^{
 
-This -------$^{133.}$ represents less than a 2% increase in your rental rate. -------$^{134.}$ Your new rate is still lower than the current rate for first-time customers renting a storage unit the same size as yours.
+131.}$ for storage space in this area. Based on these market conditions, the new monthly rent for Space 1032 -------$^{
+
+132.}$ $208 starting on Sunday, March 1.
+
+This -------$^{
+
+133.}$ represents less than a 2% increase in your rental rate. -------$^{
+
+134.}$ Your new rate is still lower than the current rate for first-time customers renting a storage unit the same size as yours.
 
 Again, we are grateful for your business as a longtime customer of Brundy Storage.
 
@@ -5688,7 +5713,15 @@ The Management at Brundy Storage
 
 ### Questions 135-138 refer to the following Web page.
 
-Petralla Publishing is a leading publisher of instructional books -------$^{135.}$ to readers who enjoy hands-on arts and crafts hobbies. Supporting fresh talent and ideas is a key part of our business. -------$^{136.}$, we actively seek book proposals from people who would to like to make a useful addition to the body of writing in our field. -------$^{137.}$. For many of our authors, writing a book was only a -------$^{138.}$ dream, something they had hoped to do someday. With our encouragement and guidance, they went on to create a beautiful new work for publication. Please click [here](link) to see our submission guidelines.
+Petralla Publishing is a leading publisher of instructional books -------$^{
+
+135.}$ to readers who enjoy hands-on arts and crafts hobbies. Supporting fresh talent and ideas is a key part of our business. -------$^{
+
+136.}$, we actively seek book proposals from people who would to like to make a useful addition to the body of writing in our field. -------$^{
+
+137.}$. For many of our authors, writing a book was only a -------$^{
+
+138.}$ dream, something they had hoped to do someday. With our encouragement and guidance, they went on to create a beautiful new work for publication. Please click [here](link) to see our submission guidelines.
 
 135. (A) caters
      (B) catering
@@ -5714,7 +5747,15 @@ Petralla Publishing is a leading publisher of instructional books -------$^{135.
 
 ### Questions 139-142 refer to the following article.
 
-DORTLUND (19 March)—The 25th annual Dortlund Folk Music Festival drew a record crowd of over 6,000 people last Saturday and Sunday. According to organizers, this impressive -------$^{139.}$ can be credited to the new features of this year's event. -------$^{140.}$. For the first time ever, the performance lineup included not only popular folk groups but also Cuban mambo bands, Polish dance ensembles, and -------$^{141.}$ jazz soloists. There were also chances for attendees to take part in hands-on workshops -------$^{142.}$ to show them techniques for playing various traditional instruments. Organizers say both of these popular changes will be carried over to next year's festival.
+DORTLUND (19 March)—The 25th annual Dortlund Folk Music Festival drew a record crowd of over 6,000 people last Saturday and Sunday. According to organizers, this impressive -------$^{
+
+139.}$ can be credited to the new features of this year's event. -------$^{
+
+140.}$. For the first time ever, the performance lineup included not only popular folk groups but also Cuban mambo bands, Polish dance ensembles, and -------$^{
+
+141.}$ jazz soloists. There were also chances for attendees to take part in hands-on workshops -------$^{
+
+142.}$ to show them techniques for playing various traditional instruments. Organizers say both of these popular changes will be carried over to next year's festival.
 
 139. (A) prize
      (B) funding
@@ -5742,7 +5783,15 @@ DORTLUND (19 March)—The 25th annual Dortlund Folk Music Festival drew a record
 
 The HGA's annual Household Goods Trade Show in Dallas Texas — Why you should attend
 
-For more than 60 years, the Household Goods Association (HGA) -------$^{143.}$ the industry's largest trade show featuring household goods from the world's leading manufacturers. Purchasing managers for retail stores attend every year to meet with wholesale suppliers and seize opportunities to form business partnerships. Are you looking for original merchandise to distinguish your business from competitors and gain a market advantage? -------$^{144.}$ walk the trade floor and explore the displays. You are certain to -------$^{145.}$ innovative new household products. -------$^{146.}$. By attending the HGA trade show, you are assured of staying up to date on the latest trends in household goods.
+For more than 60 years, the Household Goods Association (HGA) -------$^{
+
+143.}$ the industry's largest trade show featuring household goods from the world's leading manufacturers. Purchasing managers for retail stores attend every year to meet with wholesale suppliers and seize opportunities to form business partnerships. Are you looking for original merchandise to distinguish your business from competitors and gain a market advantage? -------$^{
+
+144.}$ walk the trade floor and explore the displays. You are certain to -------$^{
+
+145.}$ innovative new household products. -------$^{
+
+146.}$. By attending the HGA trade show, you are assured of staying up to date on the latest trends in household goods.
 
 143. (A) has hosted
      (B) was hosted
@@ -6461,184 +6510,245 @@ Hi, Allison. I just researched a competitor's Web site and found something inter
 
 Stop! This is the end of the test. If you finish before time is called, you may go back to Parts 5, 6, and 7 and check your work.
 
+# TEST 07
 
 # TEST 07
 
-**101.** At the end of each group tour, participants will receive a souvenir photo that is ------- to keep.
+**
+
+101.** At the end of each group tour, participants will receive a souvenir photo that is ------- to keep.
 (A) they
 (B) them
 (C) theirs
 (D) themselves
 
-**102.** The key to success in running an ethnic food restaurant is -------.
+**
+
+102.** The key to success in running an ethnic food restaurant is -------.
 (A) authenticity
 (B) authentic
 (C) authenticate
 (D) authentically
 
-**103.** The city's landscape architects are working to ------- how more trees can be included in the Spencer Canal project.
+**
+
+103.** The city's landscape architects are working to ------- how more trees can be included in the Spencer Canal project.
 (A) reflect
 (B) encourage
 (C) strengthen
 (D) determine
 
-**104.** A printed catalog with descriptions and images of our products can be mailed to customers ------- request.
+**
+
+104.** A printed catalog with descriptions and images of our products can be mailed to customers ------- request.
 (A) after
 (B) on
 (C) for
 (D) along
 
-**105.** Schandrax Ltd.'s mining machinery is designed to perform ------- even under the harshest conditions.
+**
+
+105.** Schandrax Ltd.'s mining machinery is designed to perform ------- even under the harshest conditions.
 (A) successively
 (B) reliably
 (C) spaciously
 (D) thoughtfully
 
-**106.** It is recommended that novice hikers walk at a relaxed ------- and avoid going too fast, especially on steep trails.
+**
+
+106.** It is recommended that novice hikers walk at a relaxed ------- and avoid going too fast, especially on steep trails.
 (A) level
 (B) stretch
 (C) approach
 (D) pace
 
-**107.** Your home's heating system should be checked every six months to ensure that it is operating as ------- as possible.
+**
+
+107.** Your home's heating system should be checked every six months to ensure that it is operating as ------- as possible.
 (A) efficiency
 (B) efficient
 (C) efficiently
 (D) more efficient
 
-**108.** There are plans to build a new R&D center in East Hills City, but its exact location is ------- to be decided.
+**
+
+108.** There are plans to build a new R&D center in East Hills City, but its exact location is ------- to be decided.
 (A) enough
 (B) once
 (C) yet
 (D) later
 
-**109.** The Xtelia X10 mobile phone is so durable that it will not ------- any damage even if it is dropped onto a hard surface.
+**
+
+109.** The Xtelia X10 mobile phone is so durable that it will not ------- any damage even if it is dropped onto a hard surface.
 (A) terminate
 (B) sustain
 (C) diminish
 (D) commit
 
-**110.** Lahxmitech Ltd. develops ------- personal and business Web sites at affordable prices.
+**
+
+110.** Lahxmitech Ltd. develops ------- personal and business Web sites at affordable prices.
 (A) impressive
 (B) impress
 (C) impressively
 (D) impression
 
-**111.** Fairview City's new recycling containers are free to residents and available ------- supplies last.
+**
+
+111.** Fairview City's new recycling containers are free to residents and available ------- supplies last.
 (A) toward
 (B) during
 (C) while
 (D) within
 
-**112.** The company's vision and objectives are summarized briefly ------- its mission statement.
+**
+
+112.** The company's vision and objectives are summarized briefly ------- its mission statement.
 (A) of
 (B) to
 (C) in
 (D) about
 
-**113.** The VT-5 exercise bike is ------- for small apartments because it occupies very little space.
+**
+
+113.** The VT-5 exercise bike is ------- for small apartments because it occupies very little space.
 (A) ideal
 (B) deliberate
 (C) convincing
 (D) capable
 
-**114.** Renarc Co.'s model building kits feature ------- labeled pieces that can be assembled with minimum effort.
+**
+
+114.** Renarc Co.'s model building kits feature ------- labeled pieces that can be assembled with minimum effort.
 (A) extremely
 (B) remotely
 (C) promptly
 (D) explicitly
 
-**115.** The winner of the photo contest, Mark Murdo, says he finds ------- in empty desert scenery.
+**
+
+115.** The winner of the photo contest, Mark Murdo, says he finds ------- in empty desert scenery.
 (A) inspired
 (B) to inspire
 (C) inspirational
 (D) inspiration
 
-**116.** Thanks to new educational applications, mobile phones can ------- as learning tools in the classroom.
+**
+
+116.** Thanks to new educational applications, mobile phones can ------- as learning tools in the classroom.
 (A) be used
 (B) be using
 (C) have used
 (D) use
 
-**117.** Greenveld Park does not allow any vehicle traffic on its scenic road ------- its own tour buses that run on bio-fuels.
+**
+
+117.** Greenveld Park does not allow any vehicle traffic on its scenic road ------- its own tour buses that run on bio-fuels.
 (A) throughout
 (B) except for
 (C) regardless of
 (D) out of
 
-**118.** A highly ------- interior designer, Alfonso Grieco provides design solutions for a wide variety of clients.
+**
+
+118.** A highly ------- interior designer, Alfonso Grieco provides design solutions for a wide variety of clients.
 (A) accomplishing
 (B) accomplished
 (C) accomplishes
 (D) accomplishment
 
-**119.** The Mangim Career Fair is open to ------- who is seeking a new job, without regard to current employment status.
+**
+
+119.** The Mangim Career Fair is open to ------- who is seeking a new job, without regard to current employment status.
 (A) every
 (B) all
 (C) those
 (D) anyone
 
-**120.** Recent research has found that social media posts have a limited ------- on people's buying decisions.
+**
+
+120.** Recent research has found that social media posts have a limited ------- on people's buying decisions.
 (A) value
 (B) function
 (C) association
 (D) impact
 
-**121.** Jenebec Catering Co. allows clients to ------- their meal options to suit their exact tastes.
+**
+
+121.** Jenebec Catering Co. allows clients to ------- their meal options to suit their exact tastes.
 (A) fasten
 (B) monitor
 (C) customize
 (D) patronize
 
-**122.** Candidates will be asked for the names of three people who can provide ------- professional references for them.
+**
+
+122.** Candidates will be asked for the names of three people who can provide ------- professional references for them.
 (A) positives
 (B) positivity
 (C) positively
 (D) positive
 
-**123.** Members of the marketing team are contributing articles to online news outlets to attract ------- for our brand.
+**
+
+123.** Members of the marketing team are contributing articles to online news outlets to attract ------- for our brand.
 (A) publicity
 (B) publically
 (C) publicizes
 (D) public
 
-**124.** Ms. Booth plans to transfer to an overseas office ------- her replacement is properly trained.
+**
+
+124.** Ms. Booth plans to transfer to an overseas office ------- her replacement is properly trained.
 (A) beginning from
 (B) as soon as
 (C) no earlier
 (D) up to
 
-**125.** When salespeople exceed their quarterly sales goals, the company rewards them ------- in the form of bonuses.
+**
+
+125.** When salespeople exceed their quarterly sales goals, the company rewards them ------- in the form of bonuses.
 (A) financial
 (B) financially
 (C) finances
 (D) financed
 
-**126.** If the package had been lost in transit, the shipping company ------- to compensate for the loss.
+**
+
+126.** If the package had been lost in transit, the shipping company ------- to compensate for the loss.
 (A) would have been offered
 (B) will have offered
 (C) had been offered
 (D) would have offered
 
-**127.** ------- you are traveling for leisure or business, it is important to choose a hotel with a convenient location.
+**
+
+127.** ------- you are traveling for leisure or business, it is important to choose a hotel with a convenient location.
 (A) Notwithstanding
 (B) Either
 (C) Whether
 (D) No matter
 
-**128.** Unfortunately, the ------- wording of the contract led to there being multiple interpretations of its meaning.
+**
+
+128.** Unfortunately, the ------- wording of the contract led to there being multiple interpretations of its meaning.
 (A) ambiguous
 (B) forceful
 (C) widespread
 (D) skeptical
 
-**129.** FNR Metals has earned ample recognition, including ------- the first local manufacturer to receive an "eco-friendly factory" certification.
+**
+
+129.** FNR Metals has earned ample recognition, including ------- the first local manufacturer to receive an "eco-friendly factory" certification.
 (A) that is
 (B) to be
 (C) being
 (D) is to be
 
-**130.** Alarax Graphics can print all types of signs, in ------- shape and size may be required.
+**
+
+130.** Alarax Graphics can print all types of signs, in ------- shape and size may be required.
 (A) whatever
 (B) particular
 (C) contrast
@@ -6659,27 +6769,43 @@ Date: November 30
 
 **UPDATE for e-commerce businesses — a solution for making return shipping labels**
 
-The ongoing rise in online sales transactions means that e-commerce businesses may also need to handle more requests from customers who wish to return **131.** ------- merchandise that they purchased recently. Including a return label with each outbound package makes the process of sending items back **132.** ------- for the customer. A return label is a sticker stating the address of the company **133.** ------- the goods were purchased. **134.** -------. Saffler Shipping's label solution software makes elegant and functional return shipping labels. To try it out and create a sample label in just minutes, click here. You can then choose whether or not to purchase the software for your business.
+The ongoing rise in online sales transactions means that e-commerce businesses may also need to handle more requests from customers who wish to return **
 
-**131.**
+131.** ------- merchandise that they purchased recently. Including a return label with each outbound package makes the process of sending items back **
+
+132.** ------- for the customer. A return label is a sticker stating the address of the company **
+
+133.** ------- the goods were purchased. **
+
+134.** -------. Saffler Shipping's label solution software makes elegant and functional return shipping labels. To try it out and create a sample label in just minutes, click here. You can then choose whether or not to purchase the software for your business.
+
+**
+
+131.**
 (A) canceled  
 (B) unwanted  
 (C) unintended  
 (D) expired
 
-**132.**
+**
+
+132.**
 (A) ease  
 (B) easily  
 (C) easier  
 (D) eased
 
-**133.**
+**
+
+133.**
 (A) where  
 (B) whose  
 (C) that  
 (D) which
 
-**134.**
+**
+
+134.**
 (A) It also has a barcode for tracking the package that is being returned.  
 (B) You may exchange merchandise that you are not completely satisfied with.  
 (C) For better results, we recommend that customers ship it at a later date.  
@@ -6691,33 +6817,49 @@ The ongoing rise in online sales transactions means that e-commerce businesses m
 
 **Longmont Real Estate, Inc. — virtual home tours**
 
-Thanks to today's digital technology, homebuyers can now take virtual tours of homes and look at properties **135.** ------- leaving their own residence. By providing such tours for most of our properties, Longmont Real Estate is at the forefront of this industry revolution.
+Thanks to today's digital technology, homebuyers can now take virtual tours of homes and look at properties **
 
-**136.** -------. The tours **137.** ------- using a camera that provides three-dimensional images of all the spaces in each home. These images allow the viewer to "move" around the home digitally in the same manner they would in person.
+135.** ------- leaving their own residence. By providing such tours for most of our properties, Longmont Real Estate is at the forefront of this industry revolution.
 
-Once virtual tours have been uploaded to our site, our clients can use a computer or mobile device to review a virtual tour from **138.** ------- anywhere. The technology is guaranteed to save prospective homebuyers hours of travel time and tens of dollars in gas.
+**
+
+136.** -------. The tours **
+
+137.** ------- using a camera that provides three-dimensional images of all the spaces in each home. These images allow the viewer to "move" around the home digitally in the same manner they would in person.
+
+Once virtual tours have been uploaded to our site, our clients can use a computer or mobile device to review a virtual tour from **
+
+138.** ------- anywhere. The technology is guaranteed to save prospective homebuyers hours of travel time and tens of dollars in gas.
 
 To view our current properties for sale that offer virtual tours, click here.
 
-**135.**
+**
+
+135.**
 (A) until  
 (B) inside  
 (C) without  
 (D) behind
 
-**136.**
+**
+
+136.**
 (A) Home prices are increasing in some regions but staying steady in others.  
 (B) Surveyed shoppers also indicated that they prefer to visit homes in person.  
 (C) All of our virtual tours include photos and interactive videos of each property.  
 (D) If you have questions about this residence, one of our experts can help you.
 
-**137.**
+**
+
+137.**
 (A) were being created  
 (B) are created  
 (C) would have been created  
 (D) will be created
 
-**138.**
+**
+
+138.**
 (A) even  
 (B) not  
 (C) hardly  
@@ -6729,31 +6871,47 @@ To view our current properties for sale that offer virtual tours, click here.
 
 **Explore Florham City's nature trails—with upgraded amenities!**
 
-The Florham Parks and Recreation Department is proud to announce that its six-month trail improvement project has been completed in time for summer. **139.** -------. We thank you for your patience during the construction process.
+The Florham Parks and Recreation Department is proud to announce that its six-month trail improvement project has been completed in time for summer. **
 
-The upgrades include a new boardwalk that extends across Florham Park's pond, **140.** ------- providing access to wetland areas. **141.** -------, the well-traveled Blue Trail, a favorite for both local residents and out-of-town visitors, has been widened to accommodate more hikers. Many more small improvements have been made to other trails as well.
+139.** -------. We thank you for your patience during the construction process.
 
-From challenging climbs up steep hillsides to leisurely walks along flat meadows, the improved nature trails offer hikes for people of all **142.** -------. Interactive trail maps can be found by visiting www.florham-trails.org.
+The upgrades include a new boardwalk that extends across Florham Park's pond, **
 
-**139.**
+140.** ------- providing access to wetland areas. **
+
+141.** -------, the well-traveled Blue Trail, a favorite for both local residents and out-of-town visitors, has been widened to accommodate more hikers. Many more small improvements have been made to other trails as well.
+
+From challenging climbs up steep hillsides to leisurely walks along flat meadows, the improved nature trails offer hikes for people of all **
+
+142.** -------. Interactive trail maps can be found by visiting www.florham-trails.org.
+
+**
+
+139.**
 (A) The park department's staff works closely with volunteers.  
 (B) Organized hiking clubs are becoming more and more popular.  
 (C) Our entire network of trails is now once again open to visitors.  
 (D) The city's park system has a long and interesting history.
 
-**140.**
+**
+
+140.**
 (A) safe  
 (B) safety  
 (C) safest  
 (D) safely
 
-**141.**
+**
+
+141.**
 (A) Still  
 (B) Instead  
 (C) For example  
 (D) In addition
 
-**142.**
+**
+
+142.**
 (A) abilities  
 (B) holidays  
 (C) landscapes  
@@ -6765,27 +6923,43 @@ From challenging climbs up steep hillsides to leisurely walks along flat meadows
 
 **Locally Grown Food — A Quick Overview**
 
-There is no specific definition for locally grown food. However, it is generally understood to be food that is grown relatively close to its **143.** ------- of sale. Purchasing locally grown food can help regional economies **144.** ------- more money goes directly to the food growers. Local farmers almost never require the services of an outside distributor to get their products to market. **145.** -------. During much of the year, locally grown food **146.** ------- at farmers' markets and outdoor farm stands. Produce items are sold only when they are in season, so they are fresh and full of flavor. This means that buying locally grown food also has advantages for individual consumers.
+There is no specific definition for locally grown food. However, it is generally understood to be food that is grown relatively close to its **
 
-**143.**
+143.** ------- of sale. Purchasing locally grown food can help regional economies **
+
+144.** ------- more money goes directly to the food growers. Local farmers almost never require the services of an outside distributor to get their products to market. **
+
+145.** -------. During much of the year, locally grown food **
+
+146.** ------- at farmers' markets and outdoor farm stands. Produce items are sold only when they are in season, so they are fresh and full of flavor. This means that buying locally grown food also has advantages for individual consumers.
+
+**
+
+143.**
 (A) date  
 (B) point  
 (C) volume  
 (D) manner
 
-**144.**
+**
+
+144.**
 (A) in that  
 (B) based on  
 (C) owing to  
 (D) in case
 
-**145.**
+**
+
+145.**
 (A) Moreover, farmers may give gardening tips to visitors.  
 (B) In fact, eating a lot of processed foods may be less healthy.  
 (C) Therefore, the food transportation industry continues to grow.  
 (D) Thus, their earnings are more likely to stay within the region.
 
-**146.**
+**
+
+146.**
 (A) available  
 (B) is available  
 (C) had been available  
@@ -6826,13 +7000,17 @@ There is no specific definition for locally grown food. However, it is generally
 > Use PIN number 334 05081 to log in and complete the survey.  
 > \*Inquire at the customer service counter for more details on the prize drawing
 
-**147.** What is NOT suggested about Ayali Supermarket?  
+**
+
+147.** What is NOT suggested about Ayali Supermarket?  
 (A) Its baked goods are made on the premises.  
 (B) It issues loyalty cards to some shoppers.  
 (C) It has more than one store location.  
 (D) Its customers can process their own purchases.
 
-**148.** How are customers instructed to participate in a survey?  
+**
+
+148.** How are customers instructed to participate in a survey?  
 (A) By obtaining a form at a service counter  
 (B) By supplying a current phone number  
 (C) By accessing a designated Web site  
@@ -6851,13 +7029,17 @@ Dennward Co. offers outstanding service. Owing to our recent expansion, I had to
 
 ↪ **Company response:** Thanks, Mr. Andersen! Customer satisfaction has always been of utmost importance to Dennward Co. We were the first company in our region to employ ACPS (Advanced Client Processing System), an order management program that has won awards from the Business Software Developers Association. This cutting-edge solution enables us to track and sort orders faster and more accurately, giving us an on-time delivery rate of 99.6%.
 
-**149.** What kind of business most likely is Dennward Co.?  
+**
+
+149.** What kind of business most likely is Dennward Co.?  
 (A) A food delivery service  
 (B) A manufacturer of paper products  
 (C) A building maintenance company  
 (D) A supplier of work apparel
 
-**150.** What is indicated about ACPS?  
+**
+
+150.** What is indicated about ACPS?  
 (A) It has achieved industry recognition.  
 (B) It was tailored to suit Mr. Andersen's needs.  
 (C) It has been released in several versions.  
@@ -6882,13 +7064,17 @@ Are you sure? They're coming in tomorrow.
 **Brad Iqbal** [10:44 A.M.]  
 Oh, I see. I guess there's no choice but to work in the heat.
 
-**151.** Who most likely is Mr. Iqbal?  
+**
+
+151.** Who most likely is Mr. Iqbal?  
 (A) An air conditioning repair person  
 (B) An office furniture installer  
 (C) A computer technician  
 (D) A building superintendent
 
-**152.** At 10:43 A.M., what most likely does Ms. Dee mean when she writes, "They're coming in tomorrow"?  
+**
+
+152.** At 10:43 A.M., what most likely does Ms. Dee mean when she writes, "They're coming in tomorrow"?  
 (A) She does not yet have some information.  
 (B) She will not be available to provide assistance.  
 (C) Mr. Iqbal should hurry to complete a task.  
@@ -6914,13 +7100,17 @@ Please reply to this e-mail by Monday (August 4) to let us know how you would li
 Thank you for your understanding,  
 All of us at Greenbrandt Books
 
-**153.** Why most likely was the e-mail written?  
+**
+
+153.** Why most likely was the e-mail written?  
 (A) To give information about a new discount program  
 (B) To notify Ms. Baylor about a problem with her order  
 (C) To provide an explanation for a price increase  
 (D) To clarify guidelines for purchasing collectible books
 
-**154.** What most likely will happen if Ms. Baylor does not respond to the e-mail by Monday?  
+**
+
+154.** What most likely will happen if Ms. Baylor does not respond to the e-mail by Monday?  
 (A) She will not earn a bonus credit.  
 (B) She will be given a substitute item.  
 (C) She will receive a full refund.  
@@ -6934,19 +7124,25 @@ All of us at Greenbrandt Books
 
 **For Immediate Release (June 22)**—The Storeymoore Theater Company (STC) concluded its last season with a successful run of its highly-praised stage comedy _The Big Family Reunion_. The production, which brought in the biggest crowds in the company's history, included post-performance panel discussions on the play's topic—the joyful aspects of family gatherings. These lively conversations led the STC's public relations director, Gloria Chatham, to come up with the idea of developing an audio podcast in which the company's crew members talk about the creative processes in theater. — [1] —. The first episode, titled "Why Design Matters," was posted on June 19. It features an engaging conversation between Hal Brady, the costume designer for _The Big Family Reunion_, and Michelle Lindley, the play's stage designer. — [2] —. The second episode will go up on June 26 and will include a conversation with the play's director. — [3] —. Chatham plans to continue posting 30-minute episodes each week, or perhaps twice a week. — [4] —. The public can listen to the podcast for free by visiting www.stc-theater.org/podcast.
 
-**155.** What is indicated about _The Big Family Reunion_?  
+**
+
+155.** What is indicated about _The Big Family Reunion_?  
 (A) Its cast included Gloria Chatham.  
 (B) It had two different directors.  
 (C) It set an attendance record.  
 (D) It had high production costs.
 
-**156.** What is stated about the STC's podcast?  
+**
+
+156.** What is stated about the STC's podcast?  
 (A) It was inspired by panel discussions.  
 (B) It will be funded by audience donations.  
 (C) It requires listeners to have a paid subscription.  
 (D) It was developed especially for journalists.
 
-**157.** In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?  
+**
+
+157.** In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?  
 _"She noted, however, that it can take a few days to produce just one half-hour program."_  
 (A) [1]  
 (B) [2]  
@@ -6970,19 +7166,25 @@ In recent months, many of our subscribers have suggested that we publish a list 
 
 **Olouwaa Solutions**—This decade-old specialty agency has offices in Nigeria, Ghana, and Kenya. Unlike many other agencies, it focuses mainly on helping client companies develop and introduce new brands. Recently, it was tasked with ensuring a successful launch for BCC Industries' line of packaged snacks. The agency is also known for having partnered with Prospectar Tech to develop Infomatt-Plus, a software program that enables businesses to create online customer surveys in service of improving their brand image.
 
-**158.** Who most likely is Ms. Ikande?  
+**
+
+158.** Who most likely is Ms. Ikande?  
 (A) The owner of an advertising agency  
 (B) The manager of a bookstore  
 (C) A software developer  
 (D) A business reporter
 
-**159.** What do the listed advertising agencies have in common?  
+**
+
+159.** What do the listed advertising agencies have in common?  
 (A) They have offices in more than one country.  
 (B) They have been in business for over five years.  
 (C) They work with clients in the food industry.  
 (D) They are headquartered in the same city.
 
-**160.** What is Infomatt-Plus most likely used to do?  
+**
+
+160.** What is Infomatt-Plus most likely used to do?  
 (A) Track public mentions of brands  
 (B) Collect customer feedback  
 (C) Analyze market research data  
@@ -7000,19 +7202,25 @@ The Dunmawr Building stretches across nearly an entire city block and combines c
 
 Available for occupancy starting July 1. Apply before June 5 and Rohnart Properties will waive its customary $50 fee to process new applications.
 
-**161.** What is the information mainly about?  
+**
+
+161.** What is the information mainly about?  
 (A) An opening ceremony  
 (B) City neighborhoods  
 (C) Residential vacancies  
 (D) A business opportunity
 
-**162.** What is indicated about the Dunmawr Building?  
+**
+
+162.** What is indicated about the Dunmawr Building?  
 (A) It has entrances on two streets.  
 (B) It has outdoor recreation facilities.  
 (C) It was previously a factory.  
 (D) It is in a historic district.
 
-**163.** What is suggested about Rohnart Properties?  
+**
+
+163.** What is suggested about Rohnart Properties?  
 (A) It usually charges a fee to rental applicants.  
 (B) It specializes in commercial properties.  
 (C) It offers short-term leases to renters.  
@@ -7043,25 +7251,33 @@ Sincerely,
 David Ahmed  
 Editorial Director, Maynard University Nutrition Newsletter
 
-**164.** What is the main purpose of the e-mail?  
+**
+
+164.** What is the main purpose of the e-mail?  
 (A) To give an update on a newsletter's new editorial policies  
 (B) To compare health recommendations made by various experts  
 (C) To outline the benefits of a subscription-based publication  
 (D) To propose a collaboration on a series of articles
 
-**165.** What most likely is true about the newsletter?  
+**
+
+165.** What most likely is true about the newsletter?  
 (A) It is no longer sold in a print edition.  
 (B) It does not have advertisements.  
 (C) It is aimed primarily at scientists.  
 (D) It is associated with a television show.
 
-**166.** What is suggested about Ms. Lee?  
+**
+
+166.** What is suggested about Ms. Lee?  
 (A) She graduated from Maynard University.  
 (B) She teaches an online cooking class.  
 (C) She used to work with Mr. Ahmed.  
 (D) She attempted to cancel a free service.
 
-**167.** In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?  
+**
+
+167.** In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?  
 _"The newsletter is always written in simple language, not full of complex medical terminology."_  
 (A) [1]  
 (B) [2]  
@@ -7088,25 +7304,33 @@ _"The newsletter is always written in simple language, not full of complex medic
 **Dale Kang [9:41 A.M.]** Remember too that you can pause the video with the remote control unit. You may want to try it out a few times. The buttons can be tricky.  
 **Amir Nazari [9:42 A.M.]** Good idea—thanks.
 
-**168.** What most likely is the topic of the team's presentation?  
+**
+
+168.** What most likely is the topic of the team's presentation?  
 (A) Revisions to the design of a logo  
 (B) Present and future sales forecasts  
 (C) An overview of competing brands  
 (D) How to describe a product's features
 
-**169.** What is suggested about Mr. Nazari?  
+**
+
+169.** What is suggested about Mr. Nazari?  
 (A) He has not seen a promotional film yet.  
 (B) He gives workshops on presentation strategies.  
 (C) He hired all the graphic designers on the work team.  
 (D) He incorporated Ms. Ghosn's content into a presentation.
 
-**170.** At 9:40 A.M., what does Mr. Nazari most likely mean when he writes, "As always"?  
+**
+
+170.** At 9:40 A.M., what does Mr. Nazari most likely mean when he writes, "As always"?  
 (A) The team regularly has to make changes on short notice.  
 (B) A colleague gives dependable troubleshooting advice.  
 (C) A problem occurs repeatedly on a computer.  
 (D) He often assists with converting the format of videos.
 
-**171.** What does Mr. Kang suggest Mr. Nazari do?  
+**
+
+171.** What does Mr. Kang suggest Mr. Nazari do?  
 (A) Memorize an introduction  
 (B) Brainstorm potential audience questions  
 (C) Schedule a break between sections  
@@ -7124,25 +7348,33 @@ The museum's exhibits and historical timelines cover a variety of aspects of dai
 
 The museum is located at 1100 Ridge Road, just outside the small town of Hazlett View. It is open seven days a week, from 8 A.M. to 5 P.M. Admission is $8 for adults and $5 for students. Visitors should set aside three or more hours to view all of the museum's objects in a leisurely manner. The museum also offers a membership program that allows access to a range of special events. For more information on the museum, visit www.keeler-mus.org.
 
-**172.** What is NOT mentioned about the museum's collection?  
+**
+
+172.** What is NOT mentioned about the museum's collection?  
 (A) It features interactive exhibits.  
 (B) It is housed in multiple buildings.  
 (C) It displays sections of Mr. Keeler's former business.  
 (D) It includes objects donated by past visitors.
 
-**173.** The word "cover" in paragraph 2, line 2 is closest in meaning to  
+**
+
+173.** The word "cover" in paragraph 2, line 2 is closest in meaning to  
 (A) fill in for  
 (B) relate to  
 (C) enclose  
 (D) guarantee
 
-**174.** What is implied about Mr. Keeler?  
+**
+
+174.** What is implied about Mr. Keeler?  
 (A) He also operates a local jewelry store.  
 (B) He purchased a farm from Ms. Halstead.  
 (C) He grew up near the site of his museum.  
 (D) He has taken up gardening as a hobby.
 
-**175.** What does the writer of the article recommend doing?  
+**
+
+175.** What does the writer of the article recommend doing?  
 (A) Allowing several hours to look around a facility  
 (B) Buying single tickets through a Web site  
 (C) Enrolling in a new membership program  
@@ -7170,31 +7402,41 @@ We are certain we can offer you a better experience than the most recent one you
 Thank you again,  
 Lisa Trapani, www.alerro-bistro.com
 
-**176.** What does Mr. Browski imply about the food at Alerro's Bistro?  
+**
+
+176.** What does Mr. Browski imply about the food at Alerro's Bistro?  
 (A) It is served in large portions.  
 (B) It is prepared in a simple way.  
 (C) Its prices are surprisingly low.  
 (D) It does not match the dining room's décor.
 
-**177.** What most likely is true about Mr. Browski?  
+**
+
+177.** What most likely is true about Mr. Browski?  
 (A) He has eaten at Alerro's Bistro previously.  
 (B) He is an employee of a local health food store.  
 (C) He posts pictures with each of his online reviews.  
 (D) He went to Alerro's Bistro on a weekday.
 
-**178.** In the response, the word "tight" in paragraph 1, line 3, is closest in meaning to  
+**
+
+178.** In the response, the word "tight" in paragraph 1, line 3, is closest in meaning to  
 (A) strict  
 (B) lacking  
 (C) closely packed  
 (D) strongly fixed
 
-**179.** Which amount was most likely removed from Mr. Browski's bill?  
+**
+
+179.** Which amount was most likely removed from Mr. Browski's bill?  
 (A) $7.00  
 (B) $8.00  
 (C) $9.00  
 (D) $13.00
 
-**180.** What does Ms. Trapani suggest that she will do if Mr. Browski responds?  
+**
+
+180.** What does Ms. Trapani suggest that she will do if Mr. Browski responds?  
 (A) Refund the full cost of his meal  
 (B) Share his complaints with a business owner  
 (C) Send him an electronic coupon  
@@ -7228,31 +7470,41 @@ Also, please keep me posted on how you are coming along with developing your tra
 Thanks,  
 Eric
 
-**181.** What most likely is NOT true about Brightlane Publishing?  
+**
+
+181.** What most likely is NOT true about Brightlane Publishing?  
 (A) It published a work by a first-time author.  
 (B) It imposes a separate charge for delivery.  
 (C) It offers digital editions for some titles.  
 (D) It was founded by a magazine editor.
 
-**182.** What is suggested about _Start a Hotel Business_?  
+**
+
+182.** What is suggested about _Start a Hotel Business_?  
 (A) It cannot be shipped to some regions.  
 (B) It is the first book of its type for the publisher.  
 (C) It is recommended by experts in the tourism industry.  
 (D) It took longer to write than the other new titles.
 
-**183.** In the Web page, the word "holds" in paragraph 4 line 1, is closest in meaning to  
+**
+
+183.** In the Web page, the word "holds" in paragraph 4 line 1, is closest in meaning to  
 (A) contains  
 (B) secures  
 (C) adheres to  
 (D) suspends
 
-**184.** Which book did Mr. Liu most likely purchase recently?  
+**
+
+184.** Which book did Mr. Liu most likely purchase recently?  
 (A) _Write Better Product Descriptions_  
 (B) _Start a Hotel Business_  
 (C) _Boost Your E-Commerce Sales_  
 (D) _Selling via Social Media_
 
-**185.** What does Mr. Liu ask Ms. Tremont to do?  
+**
+
+185.** What does Mr. Liu ask Ms. Tremont to do?  
 (A) Provide him with a progress report on a project  
 (B) Find a replacement leader for a training session  
 (C) Proofread the content of a staff presentation  
@@ -7294,31 +7546,41 @@ Complete the fields below and press "submit" to register for reminders.
 
 You will receive a reminder text message one day before your pick-up day each week. Recycling Helper is available to advise you on which container to use.
 
-**186.** What is mentioned about the GIC?  
+**
+
+186.** What is mentioned about the GIC?  
 (A) It is expanding its information technology department.  
 (B) It operates its own recycling facility.  
 (C) It manufactures recycling containers.  
 (D) It is located next to the SCTF.
 
-**187.** What is most likely true about Stenley City?  
+**
+
+187.** What is most likely true about Stenley City?  
 (A) Many of its residential properties include outdoor land.  
 (B) Its non-recyclable waste is transported overseas.  
 (C) It does not pick up some recyclables in November.  
 (D) It asks citizens to dispose of glass separately from metal.
 
-**188.** What is stated about Ms. Woo?  
+**
+
+188.** What is stated about Ms. Woo?  
 (A) She is a member of a financial committee.  
 (B) She is currently a resident of Stenley City.  
 (C) She illustrated how to use a mobile app on April 28.  
 (D) She used to work in Mr. Conley's office.
 
-**189.** When most likely will Ms. Guarini receive a reminder message?  
+**
+
+189.** When most likely will Ms. Guarini receive a reminder message?  
 (A) On May 4  
 (B) On May 5  
 (C) On May 6  
 (D) On May 7
 
-**190.** What container will Ms. Guarini need to use for the waste she inquired about?  
+**
+
+190.** What container will Ms. Guarini need to use for the waste she inquired about?  
 (A) A blue bin  
 (B) A red bin  
 (C) A green bin  
@@ -7372,31 +7634,41 @@ Please e-mail me if you have any questions as well.
 Regards,  
 James Marlin, Photo Editor
 
-**191.** What does the announcement indicate about _Barbados Life_ magazine?  
+**
+
+191.** What does the announcement indicate about _Barbados Life_ magazine?  
 (A) It comes out every other month.  
 (B) It has readers outside of Barbados.  
 (C) It has photo contests for each issue.  
 (D) It sponsors Barbadian festivals.
 
-**192.** In the announcement, the word "run" in paragraph 3, line 3, is closest in meaning to  
+**
+
+192.** In the announcement, the word "run" in paragraph 3, line 3, is closest in meaning to  
 (A) edit  
 (B) oversee  
 (C) evaluate  
 (D) print
 
-**193.** What most likely is NOT true about Ida Serrano?  
+**
+
+193.** What most likely is NOT true about Ida Serrano?  
 (A) She submitted 10 or fewer images.  
 (B) Her income does not come from photography.  
 (C) Her entry was received after February 15.  
 (D) She is a current resident of Barbados.
 
-**194.** What is suggested about one of Ms. Serrano's photos?  
+**
+
+194.** What is suggested about one of Ms. Serrano's photos?  
 (A) It will be featured on a T-shirt design.  
 (B) It was taken during a tour of a garden.  
 (C) It was entered in two different categories.  
 (D) It will be recognized with a cash award.
 
-**195.** What does Mr. Marlin ask Ms. Serrano to do?  
+**
+
+195.** What does Mr. Marlin ask Ms. Serrano to do?  
 (A) Give permission for her name to be published  
 (B) Collect customer feedback  
 (C) Direct future inquiries to another department  
@@ -7434,31 +7706,41 @@ www.birleyhotel.com/home
 
 _\*The Birley Hotel welcomes group events. A large conference room, with a projector and speaker system, is available for rental. The hotel also features charging stations for electric bikes and cars, which are free to guests and $15 for non-guests._
 
-**196.** What most likely is true about the Birley Hotel?  
+**
+
+196.** What most likely is true about the Birley Hotel?  
 (A) It has recently increased its occupancy rates.  
 (B) It is decorated with vintage furniture.  
 (C) It offered a discounted stay to a columnist.  
 (D) It sells food-related products made by its owner.
 
-**197.** Which section of the Web site did Ms. Hu show Ms. Cozzi?  
+**
+
+197.** Which section of the Web site did Ms. Hu show Ms. Cozzi?  
 (A) Relax  
 (B) Stay  
 (C) Eat  
 (D) Discover
 
-**198.** What is implied about Mr. Kuzo?  
+**
+
+198.** What is implied about Mr. Kuzo?  
 (A) He was referred by Ms. Hu to a columnist.  
 (B) He hosted a meal at one of Mr. Crosby's cafés.  
 (C) He spoke to Ms. Cozzi during a sightseeing trip.  
 (D) He designed a brochure for the Birley Hotel.
 
-**199.** What is indicated about Henley County?  
+**
+
+199.** What is indicated about Henley County?  
 (A) It receives more tourists than Dahlman County.  
 (B) It was settled before Dahlman County.  
 (C) Its visitors can take boat tours.  
 (D) Its parks were expanded recently.
 
-**200.** What does the hotel offer guests at no charge?  
+**
+
+200.** What does the hotel offer guests at no charge?  
 (A) Use of audiovisual equipment  
 (B) Workshops on plant care techniques  
 (C) Charging facilities for electric vehicles  
@@ -7474,6 +7756,7 @@ You must mark your answers on the separate answer sheet. Do not write your answe
 
 **Directions:** A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence. Then mark the letter (A), (B), (C), or (D) on your answer sheet.
 
+# TEST 08
 
 # TEST 08
 
@@ -7579,7 +7862,7 @@ You must mark your answers on the separate answer sheet. Do not write your answe
      (C) shortly
      (D) supposedly
 
-118. ------- her session drew almost 30 people, Ms. Sato endeavored to speak individually with each at least once.
+118. -------  her session drew almost 30 people, Ms. Sato endeavored to speak individually with each at least once.
      (A) Nevertheless
      (B) Although
      (C) Prior to
@@ -7621,7 +7904,7 @@ You must mark your answers on the separate answer sheet. Do not write your answe
      (C) envision
      (D) strive
 
-125. ------- Zinte Apparel decides not to have us run its marketing campaign, this quarter is still on track to be one of our most successful ever.
+125. -------  Zinte Apparel decides not to have us run its marketing campaign, this quarter is still on track to be one of our most successful ever.
      (A) Upon
      (B) As soon as
      (C) In order that
@@ -7820,9 +8103,15 @@ Please review your order before completing it.
 
 | Product                                      | Quantity | Unit Price | Total       |
 | -------------------------------------------- | -------- | ---------- | ----------- |
-| Medium-strength trash bags (box of 200)      | 5        | $25.00     | $125.00     |
+| Medium-strength trash bags (box of 200)      | 5        | $25.00     | $
+
+125.00     |
 | 13-watt fluorescent light bulbs (box of 12)  | 1        | $4.20      | $4.20       |
-| 12-volt cordless drill                       | 1        | $129.00    | $129.00     |
+| 12-volt cordless drill                       | 1        | $
+
+129.00    | $
+
+129.00     |
 | Chemical-resistant rubber gloves (box of 10) | 2        | $10.40     | $20.80      |
 |                                              |          | Shipping   | $24.99      |
 |                                              |          | **Total**  | **$303.99** |
@@ -8569,6 +8858,7 @@ You must mark your answers on the separate answer sheet. Do not write your answe
 
 Directions: A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence. Then mark the letter (A), (B), (C), or (D) on your answer sheet.
 
+# TEST 09
 
 # TEST 09
 
@@ -8590,7 +8880,7 @@ Directions: A word or phrase is missing in each of the sentences below. Four ans
      (C) before
      (D) from
 
-104. ------- more graduates would apply for its specialist positions, Colep Farms agreed to host field trips for university agricultural classes.
+104. -------  more graduates would apply for its specialist positions, Colep Farms agreed to host field trips for university agricultural classes.
      (A) If
      (B) Even
      (C) So that
@@ -8662,7 +8952,7 @@ Directions: A word or phrase is missing in each of the sentences below. Four ans
      (C) reimbursements
      (D) reimbursed
 
-116. ------- our longstanding relationship with Garston Tech, it is no surprise that it will play an important part in developing our new apps.
+116. -------  our longstanding relationship with Garston Tech, it is no surprise that it will play an important part in developing our new apps.
      (A) Given
      (B) Notwithstanding
      (C) Beyond
@@ -8704,7 +8994,7 @@ Directions: A word or phrase is missing in each of the sentences below. Four ans
      (C) expectation
      (D) outcome
 
-123. ------- among the reasons Franklin Bookstore purchased this software was its effectiveness at keeping data secure.
+123. -------  among the reasons Franklin Bookstore purchased this software was its effectiveness at keeping data secure.
      (A) Primary
      (B) Informative
      (C) Productive
@@ -9653,9 +9943,13 @@ Council member Foster and Edmund Cummings, Mayor Cummings's son, gave speeches h
 
 ## READING TEST
 
-### 109. _
+###
+
+109. _
 The project leader is responsible for
-### 115. Travel
+###
+
+115. Travel
 will only be processed upon
 the members of the team of any updates to
 return from a trip and are contingent on
@@ -9669,10 +9963,14 @@ recruiting
 reimbursements
 crediting
 (D) reimbursed
-### 110. _
+###
+
+110. _
 Yarroll Bank provides loans to
 small
-### 116. _
+###
+
+116. _
 our
 longstanding relationship with
 business owners at attractive interest rates
@@ -9687,13 +9985,17 @@ unprecedented
 customary
 Notwithstanding
 (C) Beyond
-### 111. _
+###
+
+111. _
 Once the air conditioning units
 one
 In place of
 employee on each floor should be
 assigned to monitor their use
-### 117. . Bunod Hotel patrons are encouraged to
+###
+
+117. . Bunod Hotel patrons are encouraged to
 installed
 call the front desk
 require
@@ -9705,14 +10007,18 @@ service
 (D) are installed
 (B) whether
 (C) anytime
-### 112.
+###
+
+112.
 The laboratory may have been
 as
 though
 contaminated with a hazardous chemical
 substance and has
 been sterilized
-### 118. Clinical trials have shown that the drug can
+###
+
+118. Clinical trials have shown that the drug can
 treat symptoms that have proven
 (A) since
 other medications.
@@ -9722,12 +10028,16 @@ resistant
 (D) enough
 (B) resisting
 (C) resistibly
-### 113. _
+###
+
+113. _
 The panel's moderator was praised for
 resistible
 maneuvering the discussion through
 some difficult topics_
-### 119. Although it was not popular during her
+###
+
+119. Although it was not popular during her
 skills
 lifetime, Ms. Chang's unique style of design
 skilled
@@ -9737,7 +10047,9 @@ generations of architects.
 skillfully
 invested
 conferred
-### 114. Sales representatives at Bigor
+###
+
+114. Sales representatives at Bigor
 dominated
 Communications earn a flat commission
 exerted
@@ -9750,8 +10062,12 @@ GO ON TO THE NEXT PAGE
 TEST 10
 277
 they
-### 120. In general, customers struggle with making
-### 126. _
+###
+
+120. In general, customers struggle with making
+###
+
+126. _
 If the prototype for our newest V2 coffee
 decisions when
 too many options to
@@ -9769,10 +10085,14 @@ offering
 (D) offer
 (C) would have decided
 (D) would have been decided
-### 121. Sorgan latex
+###
+
+121. Sorgan latex
 should be used only
 a coat of Sorgan-brand primer has
-### 127. _
+###
+
+127. _
 Wait times at Skyspear Airlines' service
 been applied to the bare surface.
 counters have been cut in half
@@ -9786,11 +10106,15 @@ over
 (D) in case
 (C) while
 thanks to
-### 122. Specialty Health and Cosmetics Mart
+###
+
+122. Specialty Health and Cosmetics Mart
 presents a
 satisfying
 of wellness
-### 128. Some conference participants were
+###
+
+128. Some conference participants were
 products in a small; well-organized space_
 displeased that organizers scheduled the
 array
@@ -9803,13 +10127,17 @@ outcome
 (B) 
 simultaneously
 (C) intentionally
-### 123. _
+###
+
+123. _
 among the reasons Franklin
 adversely
 Bookstore purchased this software was its
 effectiveness at
 keeping data secure.
-### 129. _
+###
+
+129. _
 The photographers whose pictures are
 Primary
 used on the
@@ -9822,7 +10150,9 @@ contributions
 Selective
 nor
 (B) rather
-### 124. _
+###
+
+124. _
 Ms. Nakano is
 the hardest-working
 (C) except
@@ -9830,14 +10160,18 @@ executive at Shibata Engineering:
 (D) although
 (A) reputation
 reputable
-### 130. The next task assigned to the interim
+###
+
+130. The next task assigned to the interim
 reputing
 accountant is to
 the system by which
 reputedly
 research projects are funded:
 grant
-### 125. _
+###
+
+125. _
 The popularity of the outdoor summer
 (B) overhaul
 exhibition "Rock Art" has led the parks
@@ -9871,28 +10205,42 @@ retire. While Karen could probably do the job if needed, Trevor is
 my
 recommendation. Karen's grasp of engineering may be
 but she doesn't always
-### 131.
+###
+
+131.
 communicate clearly;
 communication is very important in managing: In contrast,
 his decent engineering know-how with outstanding interpersonal skills: In my
-### 132. _
+###
+
+132. _
 opinion, he
 an
 excellent project team leader:
-### 133. _
+###
+
+133. _
 Please let me know if you need any more information t0 make your decision, or if you would Iike
 to discuss my recommendation in person: 7134 :;
 Theresa
-### 131. (A) superior
-### 133. (A) is
+###
+
+131. (A) superior
+###
+
+133. (A) is
 urgent
 (B) would be
 maximum
 has been
 eager
 would have been
-### 132. (A) prioritizes
-### 134. (A) And thank you again for this exciting
+###
+
+132. (A) prioritizes
+###
+
+134. (A) And thank you again for this exciting
 amplifies
 opportunity:
 assesses
@@ -9920,21 +10268,31 @@ a program called "Share the Music" .
 The program has been made possible by a grant from the Okafor Foundation, an organization
 dedicated to increasing access to music
 Share the Music is mainly intended for people
-### 135. _
+###
+
+135. _
 with mobility issues, but it will be open to all members of the public.
 The concerts will be viewable for free through a page on the symphony's Web site,
 WWW.
 melapinsymphonycom; 7136,
 take place:
 visitors may be required to create and
-### 137. _
+###
+
+137. _
 in through a member account in order to access the page.
 Symphony members and officials are pleased to be collaborating with the Okafor Foundation
 Daiki Sano, its director; said, "The opportunity to share our music with more people is
-### 138. _
+###
+
+138. _
 We are very grateful:
-### 135. (A) Its other activities include music camps
-### 137. . (A) Namely
+###
+
+135. (A) Its other activities include music camps
+###
+
+137. . (A) Namely
 for children with disabilities
 However
 (B) The funding will even enable the
@@ -9943,7 +10301,9 @@ concerts to be streamed over
 (D) Instead
 Internet
 (C) Later; wheelchair spaces were also
-### 138. (A) honored
+###
+
+138. (A) honored
 added to Melapin Symphony Hall,
 (B) to honor
 (D) Before now; no patrons were permitted
@@ -9951,7 +10311,9 @@ added to Melapin Symphony Hall,
 backstage
 performances:
 (D) honoring
-### 136.
+###
+
+136.
 meanwhile
 unless
 as
@@ -9971,10 +10333,14 @@ Dear Ms. Singh,
 recently received your letter in which you described the poor condition of the pavement on
 your street and the flat tyre you suffered
 the uneven paving slabs. As you pointed out in
-### 139.
+###
+
+139.
 your letter; the roads and pavements in your neighbourhood have been in desperate need of
 for quite some time.
-### 140. _
+###
+
+140. _
 Beginning on 18
 work crews will remove and reinstall all paving slabs on Bowfield Street
 and several other streets in the area. They will also fix the potholes in the roads that many
@@ -9985,21 +10351,31 @@ Please accept my apologies for the incident with your car:
 am confident that the planned work
 will prevent any similar
 from occurring in the future_
-### 142. _
+###
+
+142. _
 Sincerely;
 Mike Duke
 Councillor
-### 139. (A) by
-### 141. (A) reside
+###
+
+139. (A) by
+###
+
+141. (A) reside
 (B) following
 (B) residing
 during
 (C) residents
 due t0
 (D) residential
-### 140. (A)
+###
+
+140. (A)
 am proud to announce that the work is
-### 142. (A) inaccuracies
+###
+
+142. (A) inaccuracies
 finally complete
 misunderstandings
 (B) Unfortunately; street repairs are not
@@ -10024,31 +10400,45 @@ WWW.
 diamondsewing com
 Diamond Sewing has been helping the people of Lawrence look
 in their clothes for over
-### 143.
+###
+
+143.
 10 years. Whether it is because your size has changed or a new purchase doesn't quite fit right;,
 our
 sewing specialists are always ready to make the alterations You need.
-### 144.
+###
+
+144.
 We 745, specialize in wedding gowns, tuxedoes, and other formalwear: Hundreds of brides
 and grooms have walked down the aisle in clothing altered by Diamond Sewing
 Do you have clothing that is frayed, worn or ripped? We also provide expert-
 servicesl
-### 146. _
+###
+
+146. _
 see uS for a free consultation before you throw away that beloved
 of jeans or vintage
 jacket; We are open
 Monday through Friday, 9 A.M: to 5 P.M , and 9 AM: to 12 P.M: on
 Saturdays
-### 143. (A) stuns
-### 145. (A) ideally
+###
+
+143. (A) stuns
+###
+
+145. (A) ideally
 (B) stunned
 (B) recently
 (C) stunning
 exceedingly
 (D) stunningly
 particularly
-### 144. (A) A well-fitting suit is essential for today's
-### 146. (A) mending
+###
+
+144. (A) A well-fitting suit is essential for today's
+###
+
+146. (A) mending
 business professional.
 (B) 
 manufacturing
@@ -10085,8 +10475,12 @@ asks you to do this, claiming they have lost or
 forgotten their card, tell them to wait outside while
 you alert the front desk Thank you:
 ~Hounsler Fitness Center Management
-### 147. . Where would the notice most likely
-### 148. _
+###
+
+147. . Where would the notice most likely
+###
+
+148. _
 What are readers of the notice asked to
 appear?
 do?
@@ -10133,8 +10527,12 @@ it on my door? Id rather not risk either of us
 forgetting:
 Alex White; 3.18 PM
 Sure, IIl do that: Thanks again, Bratislava.
-### 149. What is probably true about Ms. Kovac?
-### 150. _
+###
+
+149. What is probably true about Ms. Kovac?
+###
+
+150. _
 At 3.17 P.M:, what does Ms. Kovac mean
 (A) She used up some supplies_
 when she writes, "that's a bit too far off"?
@@ -10180,9 +10578,13 @@ have about this study:
 Participant name:
 Signature:
 Date:
-### 151. _
+###
+
+151. _
 What will participants do for the study?
-### 153. What must the participants agree to do?
+###
+
+153. What must the participants agree to do?
 (A) Try out a product
 Speak honestly about their opinions
 (B) Compare two designs
@@ -10192,7 +10594,9 @@ confidential
 (D) Watch some video clips
 (C) Disclose their participation in
 previous studies
-### 152.
+###
+
+152.
 According to the form; what will happen
 (D) Retain a copy of the form for a period of
 after the study?
@@ -10244,8 +10648,12 @@ concerns that You mention. And please let me know if you have any further questi
 Best;
 Cody McNair
 Information Technology
-### 154. What is most likely true about Ms. Nelson?
-### 155. What does Mr: McNair give Ms. Nelson
+###
+
+154. What is most likely true about Ms. Nelson?
+###
+
+155. What does Mr: McNair give Ms. Nelson
 (A) She is not authorized to access part of
 permission to do?
 network;
@@ -10288,9 +10696,13 @@ Please be present and seated by 10.45.
 CONTACT: Rex Welch, Blizzard Media Relations Manager
 rex_
 welch@blizzard-hockey com
-### 156. _
+###
+
+156. _
 What will be announced at the press
-### 157. _
+###
+
+157. _
 What is suggested about the press
 conference?
 conference?
@@ -10310,7 +10722,9 @@ TEST 10
 Questions 158-160 refer to the following letter:
 December
 Dixonette Hotel
-### 152. 0 Sunset Street
+###
+
+152. 0 Sunset Street
 Vancouver; BC V54 IR9
 Dear sir or
 madain,
@@ -10346,8 +10760,12 @@ need.
 that you have some kind of policy in place for this.
 Sincerely,
 Jiavis Quinn
-### 158. What is the main purpose of the letter?
-### 160. In which of the positions marked [1], [2], [3],
+###
+
+158. What is the main purpose of the letter?
+###
+
+160. In which of the positions marked [1], [2], [3],
 (A) To suggest an additional service
 and [4] does the following sentence best
 (B) To complain about a facility
@@ -10356,7 +10774,9 @@ To convey praise for a worker
 "This could have caused me to miss my
 (D) To ask about the details of a policy
 flight:
-### 159. What did Mr: Scott most likely do on
+###
+
+159. What did Mr: Scott most likely do on
 (A) [1]
 December 4
 (B) [2]
@@ -10403,8 +10823,12 @@ To apply for the position; visit www rotunnos com/iobs and follow the
 instructions to upload your resume. In order to qualify for an interview,
 candidates must achieve a certain score in a basic computer proficiency test
 that requires about 20 minutes to take:
-### 161. What is NOT stated about Rotunno's, Inc.?
-### 163. What are job candidates required to do?
+###
+
+161. What is NOT stated about Rotunno's, Inc.?
+###
+
+163. What are job candidates required to do?
 (A) Its products
 made from mostly
 (A) Promise to protect confidential
@@ -10417,7 +10841,9 @@ group_
 (C) It regularly posts multiple job openings.
 Demonstrate technical skills
 (D) It employs over 1,100 people
-### 162. What is mentioned as
+###
+
+162. What is mentioned as
 duty of the
 advertised position?
 (A) Acquiring new business clients
@@ -10464,8 +10890,12 @@ if you are inquiring on behalf of an organization
 that serves the public good, ask about our special rates for nonprofits
 290
 would
-### 164. What is NOT listed as a service that Harris
-### 166. What is implied about Harris & Kwon
+###
+
+164. What is NOT listed as a service that Harris
+###
+
+166. What is implied about Harris & Kwon
 & Kwon Group provides?
 Group?
 (A) Lending of specialized equipment
@@ -10481,11 +10911,15 @@ certain field
 business
 work benefits society:
 (D) It recenlly increased its number of
-### 165. What is mentioned as a characteristic of
+###
+
+165. What is mentioned as a characteristic of
 employees_
 Harris & Kwon Group's employees?
 (A) Substantial career experience
-### 167. . According to the advertisement; what can
+###
+
+167. . According to the advertisement; what can
 (B) A completely bilingual upbringing
 Harris & Kwon Group do for its new
 (C) Serious academic study of a subject
@@ -10544,9 +10978,13 @@ Guy
 you
 Guy:
 and
-### 168. At 11.28 A.M:,
+###
+
+168. At 11.28 A.M:,
 what does Mr: Wallace
-### 170. At 11.31 A.M , what does Mr: Chen mean
+###
+
+170. At 11.31 A.M , what does Mr: Chen mean
 report finding?
 when he writes
 "It's in the company
@@ -10560,7 +10998,9 @@ out some information.
 post
 (B) He is explaining why he is not allowed
 to assist Mr. Wallace with a task.
-### 169. What is suggested about Mr: Wallace?
+###
+
+169. What is suggested about Mr: Wallace?
 (C) He is emphasizing the importance of a
 (A) He is temporarily handling
 work responsibility:
@@ -10570,7 +11010,9 @@ colleague's duties_
 outdated.
 (C) He recently returned from a leave of
 absence_
-### 171. What does Mr. Wallace thank Mr. Grant
+###
+
+171. What does Mr. Wallace thank Mr. Grant
 (D) He was not previously aware of an
 for?
 internal Web site
@@ -10684,8 +11126,12 @@ along
 Raley:
 being
 Raley
-### 172. What is NOT suggested about the Vine
-### 174. Which establishment is outside f the Vine
+###
+
+172. What is NOT suggested about the Vine
+###
+
+174. Which establishment is outside f the Vine
 Heights district?
 Heights district?
 It is a
@@ -10698,9 +11144,13 @@ Laundry Breeze
 (C) It has newly-built housing:
 (D) Tampico Burrito
 (D) It is served by mobile food facilities.
-### 175.
+###
+
+175.
 In which of the positions marked [1], [2], [3],
-### 173. What is indicated about Triollo Grill?
+###
+
+173. What is indicated about Triollo Grill?
 and [4] does the following sentence best
 (A) It had recently changed ownership
 belong?
@@ -10800,8 +11250,12 @@ day
 day
 class;
 they
-### 176. How can students get a discount?
-### 179. What does Mr: Park want Ms. Lopez to
+###
+
+176. How can students get a discount?
+###
+
+179. What does Mr: Park want Ms. Lopez to
 (A) By recommending the institute to
 do?
 friends
@@ -10813,8 +11267,12 @@ Increase her working hours
 deadline
 (D) Request supplies for the next term
 (D) By enrolling in more than one class
-### 180. What information does Pablo need
-### 177. . What is true about the autumn classes?
+###
+
+180. What information does Pablo need
+###
+
+177. . What is true about the autumn classes?
 regarding a dinner?
 (A) Two are suitable for students with a
 (A) Whether attendees have food
@@ -10828,7 +11286,9 @@ each week:
 (D) Whether a guest will be brought
 (D) One has shorter single-day sessions
 than all of the others
-### 178. Which class does Ms. Lopez most likely
+###
+
+178. Which class does Ms. Lopez most likely
 teach?
 Room Life Drawing
 Pottery
@@ -10889,9 +11349,13 @@ Tve
 buy
 yet
 has
-### 181. _
+###
+
+181. _
 What does Mr: Nguyen indicate that he is
-### 184. Whose suggestion was NOT adopted in
+###
+
+184. Whose suggestion was NOT adopted in
 concerned about?
 the updated version of EyeChat?
 (A) The security of his financial information
@@ -10904,8 +11368,12 @@ activity
 (C) The increasing cost of a chat service
 (D) Ms. Castillo's
 The difficulty of deleting a mobile app
-### 185. What is mentioned about Platformula?
-### 182.
+###
+
+185. What is mentioned about Platformula?
+###
+
+182.
 What is mentioned as a competitor of
 (A) It was founded three years ago.
 EyeChat?
@@ -10916,7 +11384,9 @@ Spangler
 (D) It outsourced some development work:
 Mooth
 Titus
-### 183. _
+###
+
+183. _
 What is implied about Mr: Frazier?
 (A) Part of his review refers to the desktop
 version of EyeChat:
@@ -11014,8 +11484,12 @@ can
 schedule a viewing
 Regards,
 Darlene
-### 186. What is suggested about Ms. Barker?
-### 189. Who most likely is Ms. Bullard?
+###
+
+186. What is suggested about Ms. Barker?
+###
+
+189. Who most likely is Ms. Bullard?
 (A) She is Mr: Wests current supervisor:
 (A) Mr: Ramdani's business partner
 (B) She has more work experience than
@@ -11025,11 +11499,15 @@ Mr: West:
 (C) She wrote a description of an ofiice
 (D) Mr: Ramdani's administrative assistant
 (D) Sheigitvg an assignment at a meeting:
-### 190. _
+###
+
+190. _
 What can be concluded about the Gilbardo
 gave
 Street office?
-### 187.
+###
+
+187.
 What is mentioned in the first draft but NOT
 (A) It has more than 1,500 square feet of
 in the published description of the space?
@@ -11043,7 +11521,9 @@ The security system
 (C) 
 (D) Exposure to some light
 (D) It costs less than $28,000 per year:
-### 188. _
+###
+
+188. _
 What would a tenant in the Mowery
 Building most likely need to pay extra for?
 (A) Usage of water infrastructure
@@ -11140,8 +11620,12 @@ information desk how your party can get free
 admission ifyou would like to return to see it then:
 We apologize for the inconvenience:
 Corlingdale History Museum staff
-### 191. According to the brochure, what is the
-### 194. _
+###
+
+191. According to the brochure, what is the
+###
+
+194. _
 On what floor of Corlingdale History
 subject of a major exhibit?
 Museum is the notice most likely posted?
@@ -11153,8 +11637,12 @@ The second floor
 The third floor
 (D) Local wildlife
 The fourth floor
-### 192. What is probably true about Mr: Somchai's
-### 195. _
+###
+
+192. What is probably true about Mr: Somchai's
+###
+
+195. _
 In the notice, the word "party" in paragraph
 group?
 line 4, is closest in meaning to
@@ -11171,7 +11659,9 @@ time off
 English.
 (D) It will receive a personal
 guided tour:
-### 193. _
+###
+
+193. _
 What does Ms. Gordan recommend to
 Mr: Somchai?
 (A) Making a reservation for a performance
@@ -11301,8 +11791,12 @@ and
 Coleman
 Street
 impact on Shalkon:
-### 196. What does the Web page state about
-### 199. What is most likely true about the finished
+###
+
+196. What does the Web page state about
+###
+
+199. What is most likely true about the finished
 Ms. Foster?
 sign?
 She is not a native of Shalkon:
@@ -11315,8 +11809,12 @@ It features a city symbol.
 Its
 background is green.
 degree is in_
-### 200. . What did Ms. Foster speak about on
-### 197. _
+###
+
+200. . What did Ms. Foster speak about on
+###
+
+197. _
 When did Mr; Cortez and Ms Foster most
 September 28 ?
 likely meet?
@@ -11330,7 +11828,9 @@ On a Friday morning
 (D) On a Friday afternoon
 conservation
 (D) The unique characteristics of a
-### 198. _
+###
+
+198. _
 In the e-mail, the word "passed" in
 neighborhood
 paragraph 1, line 1, is closest in meaning to
@@ -11662,6 +12162,7 @@ Voca
 ISBN 978-89-17-23817-L
 ITOEIC
 ITOEIC
+
 101. Mr. Li's book has suggestions for negotiating a merger.
 (A) use
 (B) user
@@ -11710,3 +12211,1979 @@ ITOEIC
 (C) considerable
 (D) consider
 
+# TEST 10
+
+101. The caterers have been instructed to serve
+additional ------- of the dessert upon
+request only.
+(A) guests
+(B) menus
+(C) recipes
+(D) portions
+
+102. Mr. Hayes has been using tax software to
+prepare ------- income tax report for years.
+(A) he
+(B) him
+(C) his own
+(D) himself
+
+103. All entries must be signed and submitted
+on or ------- February 11 to be considered.
+(A) within
+(B) until
+(C) before
+(D) from
+דדרח
+
+105. One way that grocery chains are addressing the environmental problems ------- with delivery services is by using reusable packaging. (A) associated (B) associate (C) associating (D) associations
+
+106. The construction noise from the building
+
+107. next door was so loud that we could ------ hear our coworkers speak. (A) still (B) hardly (C) finally (D) ever The enthusiastic ------- of the band's new album by audiences has been a surprise to critics. (A) receipt (B) received
+
+104. -------  more graduates would apply for its
+specialist positions, Colep Farms agreed to
+host field trips for university agricultural
+(C) recipient
+(D) reception
+classes.
+(A) If
+(B) Even
+(C) So that
+(D) As soon as
+
+108. Several candidates interviewed for the
+receptionist position,------- of whom
+impressed the hiring committee.
+(A) none
+(B) nobody
+(C) those
+(D) both
+
+109.
+the
+The
+ members
+ project leader
+ of the
+ is
+ team
+ responsible
+ of any updates
+ for ----
+ ורודו to the plan.
+
+115. Travel------ will only be processed upon
+return from a trip and are contingent on
+managerial approval.
+(A) coordinating
+(B) notifying
+(C) recruiting
+(D) crediting
+
+110. Yarroll Bank provides loans to ------- small
+
+116.
+business owners at attractive interest rates.
+(A) relative
+(B) aspiring
+(C) unprecedented
+(D) customary
+(A) reimbursing
+(B) reimbursement
+(C) reimbursements
+(D) reimbursed
+-------our longstanding relationship with
+Garston Tech, it is no surprise that it will
+play an important part in developing our
+new apps.
+(A) Given
+
+111. Once the air conditioning units -------, one
+employee on each floor should be
+assigned to monitor their use.
+(A) were installed
+(B) installed
+(C) install
+(D) are installed
+
+112. The laboratory may have been
+contaminated with a hazardous chemical
+substance and has- been sterilized.
+(A) since
+(B) so
+(C) yet
+(D) enough
+
+113. The panel's moderator was praised for
+----- maneuvering the discussion through
+some difficult topics.
+(A) skills
+(B) skilled
+(C) skillful
+(D) skillfully
+
+114. Sales representatives at Bigor
+Communications earn a flat commission
+---- $100 for each cable package sold.
+(A) about
+(B) of
+(C) over
+(D) toward
+(B) Notwithstanding
+(C) Beyond
+(D) In place of
+
+117. Bunod Hotel patrons are encouraged to
+call the front desk ------- they require
+service.
+(A) that
+(B) whether
+(C) anytime
+(D) as though
+
+118. Clinical trials have shown that the drug can
+treat symptoms that have proven------ to
+other medications.
+(A) resistant
+(B) resisting
+(C) resistibly
+(D) resistible
+
+119. Although it was not popular during her
+lifetime, Ms. Chang's unique style of design
+------- considerable influence over later
+generations of architects.
+(A) invested
+(B) conferred
+(C) dominated
+(D) exerted
+רררר
+GO ON TO THE NEXT PAGE
+TEST 10 277
+TEST 10
+
+120. In general, customers struggle with making
+decisions when----- too many options to
+choose from.
+(A) offers
+(B) offered
+(C) offering
+(D) offer
+
+121. Sorgan latex paint should be used only
+.--- a coat of Sorgan-brand primer has
+been applied to the bare surface.
+(A) as much as
+(B) after
+(C) over
+(D) in case
+
+122. Specialty Health and Cosmetics Mart
+presents a satisfying------- of wellness
+products in a small, well-organized space.
+ררדרדה) (A) array (B) substitute (C) expectation (D) outcome
+
+123. -------  among the reasons Franklin Bookstore purchased this software was its effectiveness at keeping data secure. (A) Primary (B) Informative (C) Productive (D) Selective
+
+126. If the prototype for our newest V2 coffee maker had received high marks from product testers, Techmart ------- to enter into a long-term contract with us. (A) decided (B) can decide (C) would have decided (D) would have been decided
+
+127. Wait times at Skyspear Airlines’ service counters have been cut in half -------the self-check-in kiosks it recently introduced. (A) wherever (B) together with (C) while (D) thanks to
+
+128. Some conference participants were displeased that organizers scheduled the only two workshops on statistics to take place -------. (A) identically (B) simultaneously (C) intentionally (D) adversely
+
+129. The photographers whose pictures are used on the blog are not named, ------- do they receive compensation for their contributions. (A) nor (B) rather
+
+124. Ms. Nakano is ------- the hardest-working (C) except executive at Shibata Engineering. (A) reputation (B) reputable (C) reputing (D) reputedly
+
+125. The popularity of the outdoor summer
+exhibition "Rock Art" has led the parks
+department to look into whether it can be
+made ------
+(A) feasible
+(B) mandatory
+(C) permanent
+(D) abundant
+
+130.
+(D) although
+The next task assigned to the interim.
+accountant is to ------- the system by which
+research projects are funded.
+(A) grant
+(B) overhaul
+(C) deduct
+(D) experiment
+278
+PART 6
+Directions: Read the texts that follow. A word, phrase, or sentence is missing in parts of each text.
+Four answer choices for each question are given below the text. Select the best answer to complete
+the text. Then mark the letter (A), (B), (C), or (D) on your answer sheet.
+Questions 131-134 refer to the following e-mail.
+From: Theresa Yates
+To: Irma Sims
+Subject: Gryell Toys Project Team
+Date: September 2
+Hi Irma,
+As you requested, I thought about which of the senior engineers should replace me as head of
+the Gryell Toys team when I retire. While Karen could probably do the job if needed, Trevor is
+my recommendation. Karen's grasp of engineering may be but she doesn't always
+communicate clearly, and communication is very important in managing. In contrast,
+Trevor 132 his decent engineering know-how with outstanding interpersonal skils. In my
+opinion, he 133 an excellent project team leader.
+Please let me know if you need any more information to make your decision, or if you would like
+to discuss my recommendation in person.
+
+134.
+- Theresa
+
+131. (A) superior
+(B) urgent
+(C) maximum
+(D) eager
+
+132. (A) prioritizes
+(B) amplifies
+(C) assesses
+(D) designates
+
+133. (A) is
+(B) would be
+(C) has been
+(D) would have been
+
+134. (A) And thank you again for this exciting
+opportunity.
+(B) I have no particular preference, so choose
+whichever you like.
+(C) I will be in-office all week, wrapping up my
+assignments.
+(D) There are only a few more minor points to
+cover.
+GO ON TO THE NEXT PAGE
+TEST 10
+TEST 10 279
+Questions 135-138 refer to the following press release.
+Melapin Symphony
+Media Relations Office
+Beginning in May, the Melapin Symphony will play and livestream a monthly special concert in
+a program called "Share the Music".
+The program has been made possible by a grant from the Okafor Foundation, an organization
+dedicated to increasing access to music Share the Music is mainly intended for people
+with mobility issues, but it will be open to all members of the public.
+The concerts will be viewable for free through a page on the symphony's Web site, www.
+melapinsymphony.com, 136 they take place. 137 visitors may be required to create and
+log in through a member account in order to access the page.
+Symphony members and officials are pleased to be collaborating with the Okafor Foundation.
+Daiki Sano, its director, said, "The opportunity to share our music with more people is-
+
+138.
+We are very grateful."
+
+135. (A) Its other activities include music camps
+for children with disabilities.
+(B) The funding will even enable the
+concerts to be streamed over the
+Internet.
+(C) Later, wheelchair spaces were also
+added to Melapin Symphony Hall.
+(D) Before now, no patrons were permitted
+backstage during performances.
+
+136. (A) meanwhile
+(B) unless
+(C) as
+(D) then
+
+137. (A) Namely
+(B) However
+(C) Likewise
+(D) Instead
+
+138. (A) honored
+(B) to honor
+.(C) an honor
+(D) honoring
+280
+Questions 139-142 refer to the following letter.
+11 May
+Shaheena Singh
+83 Bowfield Street
+Benningham, UK
+BN4 7DA
+Dear Ms. Singh,
+I recently received your letter in which you described the poor condition of the pavement on
+your street and the flat tyre you suffered the uneven paving slabs. As you pointed out in
+
+139.
+your letter, the roads and pavements in your neighbourhood have been in desperate need of
+repair for quite some time.
+
+140.
+Beginning on 18 May, work crews will remove and reinstall all paving slabs on Bowfield Street
+and several other streets in the area. They will also fix the potholes in the roads that many
+motorists complained about at the community meeting in March. I hope this will come as good
+in the area. news to you and your fellow constituents in
+Please accept my apologies for the incident with your car. I am confident that the planned work
+will prevent any similar 4 from occurring in the future.
+Sincerely,
+Mike Duke
+City Councillor
+
+139. (A) by
+(B) following
+(C) during
+(D) due to
+
+140. (A) I am proud to announce that the work is
+finally complete.
+(B) Unfortunately, street repairs are not
+within our budget this year.
+(C) Please know that I am committed to
+rectifying the situation.
+(D) We will consider your proposal and
+attempt to find a solution.
+
+141. (A) reside
+(B) residing
+(C) residents
+(D) residential
+
+142. (A) inaccuracies
+(B) misunderstandings
+(C) cancelations
+(D) accidents
+GO ON TO THE NEXT PAGE
+TEST 10 281
+Questions 143-146 refer to the following advertisement.
+Diamond Sewing
+308 Third Street, Lawrence, 555-0184
+www.diamondsewing.com
+Diamond Sewing has been helping the people of Lawrence look
+
+143.in their clothes for over
+10 years. Whether it is because your size has changed or a new purchase doesn't quite fit right,
+our sewing specialists are always ready to make the alterations you need.a. 144
+We 145 specialize in wedding gowns, tuxedoes, and other formalwear. Hundreds of brides
+and grooms have walked down the aisle in clothing altered by Diamond Sewing.
+Do you have clothing that is frayed, worn or ripped? We also provide expert -146 services!
+Come see us for a free consultation before you throw away that beloved pair of jeans or vintage
+jacket. We are open Monday through Friday, 9 A.M. to 5 P.M., and 9 A.M. to 12 P.M. on
+Saturdays.
+
+143. (A) stuns
+(B) stunned
+(C) stunning
+(D) stunningly
+
+144. (A) A well-fitting suit is essential for today's
+business professional.
+(B) Orders can even be placed entirely
+online through our Web site.
+(C) Simply choose from among our
+collection of design templates.
+(D) We can shorten pants, put darts in
+shirts, and much more.
+
+145. (A) ideally
+(B) recently
+(C) exceedingly
+(D) particularly
+
+146. (A) mending
+(B) manufacturing
+(C) laundering
+(D) styling
+282
+PART 7
+Directions: In this part you will read a selection of texts, such as magazine and newspaper articles,
+e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the
+best answer for each question and mark the letter (A), (B), (C), or (D) on your answer sheet.
+Questions 147-148 refer to the following notice.
+NOTICE
+We believe the monitor on this stationary bicycle
+was shattered by a person who used it while also
+holding hand weights. We cannot be sure, because
+our security cameras only show that the person
+who likely did it was a non-member that followed a
+member into our center. Please do not allow other
+people to enter the building with you. If someone
+asks you to do this, claiming they have lost or
+forgotten their card, tell them to wait outside while
+you alert the front desk. Thank you.
+-Hounsler Fitness Center Management
+
+147. Where would the notice most likely
+appear?
+(A) On some damaged machinery
+(B) Outside of a building entrance
+(C) Next to some training weights
+(D) Behind a reception area
+
+148. What are readers of the notice asked to
+do?
+(A) Avoid blocking security cameras
+(B) Use one type of equipment at a time
+(C) Report the loss of their cards
+immediately
+(D) Refrain from letting others into a facility
+TEST 10
+GO ON TO THE NEXT PAGE
+TEST 10 283
+Questions 149-150 refer to the following text-message chain.
+Alex White, 3:09 P.M.
+Bratislava, I'm sorry to bother you on your day off, but I have a quick question.
+We're almost out of gloves. Didn't you order some last week?
+Bratislava Kovac, 3:11 P.M.
+Oh yes, they came in yesterday, but I didn't have the chance to unpack them.
+They're in a box on my desk.
+Alex White, 3:13 P.M.
+Yes, I see them. Thanks! We had a couple of extra walk-in patients today, so
+we've gone through gloves faster than expected.
+Bratislava Kovac, 3:14 P.M.
+Got it. I'm going to need a record of how many you take and who they're for,
+though.
+Alex White, 3:16 P.M.
+Oh, can I just tell you on Monday? I'm already back at Reception.
+Bratislava Kovac, 3:17 P.M.
+Sorry, but that's a bit too far off. Could you just write it on a sticky note and
+put it on my door? I'd rather not risk either of us forgetting.
+Alex White, 3:18 P.M.
+Sure, I'll do that. Thanks again, Bratislava.
+
+149. What is probably true about Ms. Kovac?
+(A) She used up some supplies.
+(B) She does not have a private office.
+(C) She has gone out on an errand.
+(D) She is not currently on duty.
+
+150. At 3:17 P.M., what does Ms. Kovac mean
+when she writes, "that's a bit too far off'?
+(A) She is arguing that a figure has been
+miscalculated.
+(B) She is criticizing a modification to a
+document.
+(C) She is refusing to seek out a location.
+(D) She is opposing a suggestion to delay
+a task.
+284
+Questions 151-153 refer to the following consent form.
+Ticard, Inc.
+Market Research Participation Consent Form
+Thank you for agreeing to participate in this study of men aged 18 to 34. You will be
+shown two versions of a television advertisement for a facial razor and asked for
+your opinions on each. The entire process will take approximately 30 minutes.
+Please read the items below and write your initials in the adjacent boxes to indicate
+your agreement to each.
+• I consent to the audio recording of my responses during the study and
+the use of these recordings, with my identifying information removed,
+internally by Ticard.
+• I understand that I may stop my participation in the study at any time
+by informing the researchers of my wish to do so.
+• Afterward, I will not speak about or create any physical or digital
+materials about the contents of this study.
+• I have asked the researchers any questions I have about this study.
+Participant name:
+Date:
+Signature:
+Π
+
+151. What will participants do for the study?
+(A) Try out a product
+(B) Compare two designs
+(C) Describe their habits
+(D) Watch some video clips
+
+152. According to the form, what will happen
+after the study?
+(A) The data will be anonymized.
+(B) Some recordings will be destroyed.
+(C) A follow-up questionnaire will be sent
+out.
+(D) The researchers will answer
+participants' questions.
+
+153. What must the participants agree to do?
+(A) Speak honestly about their opinions
+(B) Keep information about the study
+confidential
+(C) Disclose their participation in any
+previous studies
+(D) Retain a copy of the form for a period of
+time
+TEST 10
+GO ON TO THE NEXT PAGE
+TEST 10 285
+Questions 154-155 refer to the following e-mail.
+From: Cody McNair
+To: Samantha Nelson
+Subject: Re: Slow Internet speeds
+Date: March 29
+*E-Mail*
+Hi Samantha,
+I'm sorry to hear that you're experiencing slow Internet speeds with the companyprovided laptop you received last week. We believe you when you claim that the
+problem is not your home Internet service. You're not the first person to report slow
+connections on a company laptop, and as we've looked into the matter, it's become
+clear that the issue is the virtual private network (VPN) we use. The VPN provides a
+secure connection to our network from other locations, so it is important and cannot
+be removed. We're currently looking into other VPNs that may have less of an issue
+with speed. You will of course be informed if we decide to switch providers.
+Unfortunately, giving this explanation is all that we can do for you at this time. Feel
+free to forward this e-mail to your supervisor in reference to the productivity
+concerns that you mention. And please let me know if you have any further questions.
+Best,
+Cody McNair
+Information Technology
+
+154. What is most likely true about Ms. Nelson?
+(A) She is not authorized to access part of
+a network.
+(B) She asked to have some equipment
+replaced.
+(C) She did not read an instruction manual.
+(D) She is currently working remotely.
+
+155. What does Mr. McNair give Ms. Nelson
+permission to do?
+(A) Uninstall a program from a laptop
+(B) Share his message with another person
+(C) Contact him at home if an issue
+reoccurs
+(D) Use an alternative to an approved
+provider
+286
+Questions 156-157 refer to the following announcement.
+Blizzard Hockey
+Press Conference
+Blizzard management is excited to offer you the opportunity to
+meet the person tasked with leading the team to victory in their
+new home. Dolores Ikeda, owner of the Blizzard, is hosting a
+press conference to introduce the team's new general manager.
+The press conference will consist of a speech by Ms. Ikeda, a
+speech by the new general manager, a question-and-answer
+session, and a photo opportunity.
+WHERE:
+WHEN:
+Shallard Arena Press Room (1st floor, near North
+Entrance)
+Space will be limited, so bring press credentials
+to ensure entry.
+Wednesday, June 8, at 11 A.M.
+Please be present and seated by 10:45.
+CONTACT: Rex Welch, Blizzard Media Relations Manager
+rex.welch@blizzard-hockey.com
+
+156. What will be announced at the press
+conference?
+(A) The relocation of a hockey team
+(B) The appointment of a sports executive
+(C) A contract with a professional athlete
+(D) Plans for building a new playing space
+
+157. What is suggested about the press
+conference?
+(A) Priority admission will be given to
+journalists.
+(B) There will be a chance to tour a facility.
+(C) Mr. Welch will speak after Ms. Ikeda.
+(D) Promotional gifts will be handed out.
+TEST 10
+GO ON TO THE NEXT PAGE
+TEST 10 287
+Questions 158-160 refer to the following letter.
+December 7
+Dixonette Hotel
+1520 Sunset Street
+Vancouver, BC V54 1R9
+Dear sir or madam,
+I stayed at your hotel during my visit to Vancouver on December 2-4, and I would like to share with you a memorable experience that I had. - [1] -
+On the last day of my stay, I was about to drive my rental car to the airport
+when I found that its battery had died. I contacted the rental car company, but
+their representative said that they would not be able to send assistance for two
+hours. - [2] -. Fortunately, I had this conversation on my mobile phone in
+the lobby, and Delray Scott, a member of your front desk staff, overheard it. Не
+offered to jump-start my rental car using his own vehicle and cables. - [3] -. 1 gratefully accepted, and his cheerful and efficient work allowed me to arrive at
+the airport on time.
+While I was satisfied with many aspects of your establishment, it was this act
+of kindness that I found most impressive. Mr. Scott deserves to be rewarded for
+being willing to use his valuable supplementary abilities to help out a guest in
+need.-[4] -. I hope that you have some kind of policy in place for this.
+Sincerely,
+Travis Quinn
+
+158. What is the main purpose of the letter?
+(A) To suggest an additional service
+(B) To complain about a facility
+(C) To convey praise for a worker
+(D) To ask about the details of a policy
+
+159. What did Mr. Scott most likely do on
+December 4 ?
+
+160. In which of the positions marked [1], [2], [3],
+and [4] does the following sentence best
+belong?
+"This could have caused me to miss my
+flight."
+(A) [1]
+(B) [2]
+(A) Left his assigned work station for a short (C) [3]
+time (D) [4]
+(B) Charged a mobile device in a private
+area
+288
+(C) Asked a guest to move a parked vehicle
+(D) Looked up some information on an
+airport Web site
+Questions 161-163 refer to the following job posting.
+Job title: Route Salesperson (part-time) Company name: Rotunno's, Inc.
+Job location: Stockton area, California Job posted: 10 days ago
+Details: Rotunno's is a family-owned food manufacturer specializing in
+snacks aimed at health-conscious consumers. All of our products are
+made from at least 80% natural ingredients. We are committed to making
+our business a healthy and enjoyable place to work for our more than 1,100
+employees. Last year, Rotunno's, Inc. was presented with a "Workplace Wellbeing" award from the Stockton Business Association (SBA).
+The route salesperson is responsible for delivering Rotunno's products to
+grocery stores in a specific area. Other essential duties include conducting
+inventory checks and monitoring the stocking of store shelves with the
+company's products. Strong communication skills are a must, as regular
+interaction with store managers is necessary to provide the most suitable mix
+of Rotunno's products.
+The successful candidate will drive a 22-foot delivery truck over the assigned
+route. While on duty, the employee will also use a tablet computer to input
+inventory data. The assigned work hours are from 4 P.M. to 10 P.M., Thursday
+to Sunday (24 hours per week).
+To apply for the position, visit www.rotunnos.com/jobs and follow the
+instructions to upload your résumé. In order to qualify for an interview,
+candidates must achieve a certain score in a basic computer proficiency test
+that requires about 20 minutes to take.
+
+161. What is NOT stated about Rotunno's, Inc.?
+(A) Its products are made from mostly
+natural ingredients.
+(B) It has been recognized by a business
+group.
+(C) It regularly posts multiple job openings.
+(D) It employs over 1,100 people.
+
+162. What is mentioned as a duty of the
+advertised position?
+(A) Acquiring new business clients
+(B) Setting up displays at trade shows
+(C) Entering data into a portable device
+(D) Providing updates to the holder's
+supervisor
+
+163. What are job candidates required to do?
+(A) Promise to protect confidential
+information
+(B) Submit copies of professional licenses
+(C) Perform well in a phone interview
+(D) Demonstrate technical skills
+est 1
+GO ON TO THE NEXT PAGE
+TEST 10 289
+Questions 164-167 refer to the following advertisement.
+Harris & Kwon Group
+Harris & Kwon Group provides high-quality language services in English and
+Korean for reasonable prices. Located in the heart of Seoul, we have assisted
+domestic, overseas, and international companies of all sizes in bridging gaps in
+communication.
+Our services include translation of printed and digital materials, transcription of
+video and audio clips, and interpretation for in-person meetings and large events.
+We also rent out audio systems that can ensure the smooth transmission of
+interpretations to up to 300 participants.
+Automated translation and interpretation software still regularly makes errors
+that can cause serious confusion, while the expertise of professional translators/
+interpreters is unreliable, even among those with a degree in the field. That is why
+Harris & Kwon Group only employs language specialists who grew up using both
+English and Korean with native fluency. We guarantee that our output will not just
+be error-free, but also capture and sensitively convey cultural nuances.
+Visit our Web site, www.hkgroup.co.kr, to learn more about our process and read
+testimonials from satisfied clients. If you would then like to discuss hiring Harris
+& Kwon Group for a project, use the convenient form in the "Contact"
+section. We are happy to provide a reliable quote for the cost of our
+services up front. Also, if you are inquiring on behalf of an organization
+that serves the public good, ask about our special rates for nonprofits.
+290
+
+164. What is NOT listed as a service that Harris
+& Kwon Group provides?
+(A) Lending of specialized equipment
+(B) Conversion of the language of a text
+(C) Making a written copy of audio
+materials
+(D) Advising on cultural differences in
+business
+
+165. What is mentioned as a characteristic of
+Harris & Kwon Group's employees?
+(A) Substantial career experience
+(B) A completely bilingual upbringing
+(C) Serious academic study of a subject
+(D) Extensive training on a technology
+
+166. What is implied about Harris & Kwon
+Group?
+(A) It has branches in more than one
+country.
+(B) It specializes in serving companies in a
+certain field.
+(C) It gives a discount to clients whose
+work benefits society.
+(D) It recently increased its number of
+employees.
+
+167. According to the advertisement, what can
+Harris & Kwon Group do for its new
+customers?
+(A) Supply a price estimate in advance
+(B) Research the terminology of their
+industry
+(C) Provide personal references from
+executives
+(D) Create a customized work process
+TEST 10
+GO ON TO THE NEXT PAGE
+TEST 10 291
+Questions 168-171 refer to the following online chat discussion.
+Guy Wallacе, 11:24 A.M. Hi, everyone. I'm sorry to bother you, but I was wondering where to get images to
+post on our Web site. I need some for the latest post I'm putting on our blog.
+Jerry Grant, 11:25 A.м. Sorry, I don't know.
+in information for that site?
+Sania Najjar, 11:26 A.M. I think Mark used Photofield to download stock photos. Didn't he give you the logGuy Wallace, 11:26 A.M. Let me check.
+Guy Wallace, 11:28 A.M. Ah, yes, I see it! Thank you, Sania.
+Peter Chen, 11:29 A.M. How are you finding it filling in for Mark, Guy?
+GuyWallace, 11:30 A.M. It's tough. There have been a lot of experiences like this, where the information
+needed to do his work isn't available or isn't labeled clearly.
+Peter Chen, 11:31 A.M. | had the same issues when I took over Robin's position last year. We really should
+be documenting our job processes more clearly. It's in the company handbook,
+after all.
+Guy Wallace, 11:32 A.M. Oh, really? I had no idea.
+Peter Chen, 11:33 A:м.
+Jerry Grant, 11:34 A.M.
+Most employees aren't aware of it. I'm going to speak to Amy about encouraging
+everyone to set aside time to create documentation.
+That's a great idea. And please don't feel hesitant to ask us questions, Guy. It's
+better than guessing and making a mistake.
+Guy Wallace, 11:35 A.M. Thank you. I appreciate that.
+292
+A
+
+168. At 11:28 A.M., what does Mr. Wallace
+report finding?
+(A) A file of digital images
+(B) A draft of an online article
+(C) A user name and password
+(D) A comment under a blog post
+
+169. What is suggested about Mr. Wallace?
+(A) He is temporarily handling a
+colleague's duties.
+(B) He is a newly hired employee.
+(C) He recently returned from a leave of
+absence.
+(D) He was not previously aware of an
+internal Web site.
+
+170. At 11:31 A.M., what does Mr. Chen mean
+when he writes, "It's in the company
+handbook, after all"?
+(A) He is instructing Mr. Wallace to seek
+out some information.
+(B) He is explaining why he is not allowed
+to assist Mr. Wallace with a task.
+(C) He is emphasizing the importance of a
+work responsibility.
+(D) He is suggesting that a company policy
+is outdated.
+
+171. What does Mr. Wallace thank Mr. Grant
+for?
+(A) Confirming the accuracy of some
+directions
+(B) Sharing the location of some
+documentation
+(C) Forgiving him for misunderstanding an
+assignment
+(D) Reassuring him about potentially
+causing inconvenience
+TEST 10
+GO ON TO THE NEXT PAGE
+TEST 10 293
+Questions 172-175 refer to the following newsletter article.
+District News Tribune October 22
+Three businesses in the Vine Heights district-Barksdale
+Bakery, Triollo Grill, and Raley's Laundromat-have
+closed recently. Barksdale Bakery, a regional chain that also
+has a location in Balboa Shopping Mall, closed its Vine
+Heights location on October 9. Company spokesperson
+Brenda Chiu said it "had become difficult to compete" in
+the area, as a number of neighborhood coffee shops have
+been expanding their offerings of baked goods. - [1] –
+Triollo Grill, a Mexican-Japanese fusion restaurant, has
+been closed for two weeks, and a "space available" sign
+now hangs on its door. The popular eatery had been
+operating at 56 Dew Street. - [2] -. Its owner, Antonio
+Cruz, said he will reopen his establishment in a larger space
+near Alvin Park.
+Raley's Laundromat closed last week. It offered customers
+self-service, coin-operated laundry machines, along with
+laundry soap vending machines. "With all the recent
+development, the neighborhood is changing," said owner
+Dolores Raley. "The new apartment buildings, such as the
+Deltonne, are equipped with in-unit washers and dryers.
+So demand for our services is decreasing." She added
+that, as part of a trend, several local laundromats are being
+converted into restaurants. — [3] -.
+Ms. Raley moved her business to 17 Butler Avenue, where
+she has also started to offer commercial laundry services.
+- [4] -. Only one self-service laundry establishment,
+Laundry Breeze, still exists in the Vine Heights district.
+The district is also left with only one eatery, Tampico
+Burrito, that serves Mexican food, white a food truck, Ivy's
+Quick Bites, offers its only Japanese food..
+294
+
+172. What is NOT suggested about the Vine
+Heights district?
+(A) It is a competitive market for bakeries.
+(B) It now has several coin-operated
+laundry services.
+(C) It has newly-built housing.
+(D) It is served by mobile food facilities.
+
+173. What is indicated about Triollo Grill?
+(A) It had recently changed ownership.
+(B) It was famous for its coffee drinks.
+(C) It has not gone completely out of
+business.
+(D) It was a district's first fusion restaurant.
+
+174. Which establishment is outside of the Vine
+Heights district?
+(A) Balboa Shopping Mall
+(B) Deltonne
+(C) Laundry Breeze
+(D) Tampico Burrito
+
+175. In which of the positions marked [1], [2], [3],
+and [4] does the following sentence best
+belong?
+"Indeed, an Italian bistro will soon move
+into her facility's empty space."
+(A) [1]
+(B) [2]
+(C) [3]
+(D) [4]
+GO ON TO THE NEXT PAGE
+TEST 10 295
+Questions 176-180 refer to the following information and e-mail.
+Autumn Classes at the Artesia Institute
+Classes begin the week of September 25. Each class will meet on the same day each
+week for eight sessions. Class fees include all necessary materials. Students are charged 80% of the class fee for second/third/fourth classes within the autumn term.
+296
+Class/Price Description Day/Time of Sessions
+Room Life
+Drawing
+($285)
+Recommended for intermediate
+artists, this class will have a different
+live model each week.
+Tuesdays/6:30 P.M.-7:30 р.м. Wednesdays/7:00 P.M.-8:00 P.м. Thursdays/6:30 P.м.-7:30 P.м.
+Pottery
+($300)
+Watercolor
+Painting ($260)
+Screen Printing
+($280)
+Students will learn wheel-throwing
+techniques to make bowls, vases,
+and more. All levels welcome.
+Intended for beginners, this class
+teaches basic watercolor techniques
+with a focus on landscape painting.
+Learn the steps of screen printing to
+make your own T-shirts. Designed
+for beginners, this class has never
+been offered before.
+Mondays/6:30 P.M.-8:30 Р.м. Thursdays/6:30 P.м.-8:30 Р.м.
+Mondays/6:00 P.M.-7:00 Р.м.
+Wednesdays/6:00 P.м.-7:00 Р.м.
+Thursdays/7:00 P..-8:00 р.м.
+Tuesdays/6:30 P.M.-8:00 P.м.
+To register for classes, or for more detailed information, visit www.artesiainst.com/
+autumn. The registration deadline is September 12. Early registration is highly
+recommended.
+To:
+From:
+Date:
+Subject:
+Dear Cynthia,
+Cynthia Lopez <c.lopez@artesiainst.com>
+Tae-Woo Park <t.park@artesiainst.com>
+November 22
+Feedback survey
+I have finished compiling the answers from the feedback survey we distributed to
+students on the last day of class. We had overwhelmingly positive reviews for your
+class, and all of the students stated that they would recommend it to others. Because
+of the popularity of your teaching, I don't think two classes per term is enough. If
+possible, I'd like you to teach an additional class for the winter term, a matter we can
+discuss further at the staff dinner this Friday. It will be somewhere within walking
+distance to the institute, and it's tentatively scheduled for 7 P.M. Pablo is making the
+arrangements, so please let him know if you will attend alone or with your spouse.
+Thanks for your hard work!
+Tae-Woo
+A
+
+176. How can students get a discount?
+(A) By recommending the institute to
+friends
+(B) By paying the full fee in advance
+(C) By meeting an early registration
+deadline
+(D) By enrolling in more than one class
+
+177. What is true about the autumn classes?
+(A) Two are suitable for students with a
+moderate level of ability.
+(B) Two are being held for the first time.
+(C) One is taught by a different instructor
+each week.
+(D) One has shorter single-day sessions
+than all of the others.
+
+178. Which class does Ms. Lopez most likely
+teach?
+(A) Room Life Drawing
+(B) Pottery
+(C) Watercolor Painting
+(D) Screen Printing
+
+179. What does Mr. Park want Ms. Lopez to
+
+180.
+do?
+(A) Train a newly hired instructor
+(B) Review some survey results
+(C) Increase her working hours
+(D) Request supplies for the next term
+What information does Pablo need
+regarding a dinner?
+(A) Whether attendees have food
+allergies
+(B) Which time is most convenient
+(C) Which restaurant is preferred
+(D) Whether a guest will be brought
+GO ON TO THE NEXT PAGE
+TEST 10 297
+Questions 181-185 refer to the following mobile device screenshot and online article.
+298
+EyeChat
+Mobile Version 3.0 Top User Reviews
+Kerry Lucas ★★★★★ (4.5 stars)
+Eyechat is great for keeping in touch with family and friends from anywhere. I've
+tried several of the video chat apps available on Allivanta, and this is the best
+one. I just wish that it would let you customize or hide the menu-its color hurts
+my eyes.
+Dominick Frazier**✩(4 stars)
+I'm glad that Eyechat is offering "invisible" status again, but the range of
+emoticons is still really limited. It should allow other companies to make
+emoticons for its platform, like Spangler does.
+Chien Nguyen★☆☆✰☆☆(1 star)
+It doesn't let you use Mooth to add money to your account, even though that's
+much safer than handing over your credit card information. I will be uninstalling.
+Yolanda Castillo ★★★★ (4 stars)
+Please let users stop this app from starting automatically! My Titus phone
+doesn't have great battery life, and EyeChat makes it run out even more quickly.
+Otherwise, I have no complaints. Reliable video and sound quality.
+Platformula Releases EyeChat Version 3.1 for Mobile
+By Adriana Russell, April 8, 10:35 А.м.
+Earlier this week, Platformula launched the newest version of video chat app EyeChat
+for mobile devices. Version 3.1 features a simplified menu that can be hidden to
+allow more space for video. It also supports greater integration, allowing users to
+charge their account through Mooth and import contacts from StarMail. The update
+notice from Platformula even boasts that Eyechat now allows users to buy emoticons
+from third-party developers, though these do not seem to exist yet. In addition, one
+popular feature from the desktop version of EyeChat, screen-sharing, has finally been
+made available in the mobile version.
+Platformula bought EyeChat's developer from its founder, Gus Danielson, three
+years ago. The first update that the company spearheaded, 2.0, was met with strong
+criticism from users. Several of the preexisting features that were removed from that
+version, such as the ability to set the user status to "invisible", were restored in 3.0.
+Online reviews of version 3.1 have been positive so far. Platformula is expected to
+update the mobile version of EyeChat Business next.
+
+181. What does Mr. Nguyen indicate that he is
+concerned about?
+(A) The security of his financial information
+(B) The unhealthfulness of an online
+activity
+(C) The increasing cost of a chat service
+(D) The difficulty of deleting a mobile app
+
+182. What is mentioned as a competitor of
+EyeChat?
+(A) Allivanta
+(B) Spangler
+(C) Mooth
+(D) Titus
+
+183. What is implied about Mr. Frazier?
+(A) Part of his review refers to the desktop
+version of EyeChat.
+(B) He has experience with version 2.0 of
+EyeChat.
+(C) His work is the primary reason that he
+uses EyeChat.
+(D) He paid to download EyeChat.
+
+184. Whose suggestion was NOT adopted in
+the updated version of EyeChat?
+(A) Ms. Lucas's
+(B) Mr. Frazier's
+(C) Mr. Ngyuen's
+(D) Ms. Castillo's
+
+185. What is mentioned about Platformula?
+(A) It was founded three years ago.
+(B) It used to be headed by Mr. Danielson.
+(C) It is not the original creator of EyeChat.
+(D) It outsourced some development work.
+GO ON TO THE NEXT PAGE
+TEST 10 299
+Questions 186-190 refer to the following e-mails and property listing.
+From:
+To:
+Subject:
+Date:
+Hi Susan,
+Eduardo West
+Susan Barker
+Listing
+January 16
+After the meeting the other day, you mentioned that you'd be willing to look
+over the description I wrote for my Mowery Building listing. Here it is:
+Professional office space available in Mowery Building. Corner location with
+open central area plus three rooms (one with sink), two single-stall bathrooms,
+and storage closet. Equipped with dedicated heating and cooling system, stainresistant carpeting. Elevator access. Receives natural light throughout the day!
+Then I'll add our usual paragraph about the Mowery Building. What do you
+think? I'd appreciate any advice you can give as a senior agent.
+Thanks,
+Eduardo
+300www.property-finder.com/commercial/9320
+416 Floyd Avenue (Mowery Building), 2nd Floor
+Photos
+Floor Plan
+Map
+Hewlisk
+Size: 1,512 f2 Floor: 2np Term: 3 years Rate: $27,972/year ($18.50/f²/year)
+A
+Description: Professional office space available in handsome Mowery Building. Excellent
+corner location that receives natural light throughout the day. Generous open central
+area plus two offices/conference rooms and one kitchen/break room, two single-stall bathrooms, and secure storage closet. Equipped with dedicated, energy-efficient heating
+and cooling system. Convenient elevator access.
+Location: The Mowery Building is located in the busy Paredes Complex on Highway 320,
+three miles north of downtown Hewlisk. It was built just five years ago and offers ample
+surface parking. The lease rate includes fees for building maintenance and lobby security personnel, but not utilities.
+Contact: Eduardo West, Rabney Realty
+From: Darlene Bullard
+To: Amir Ramdani
+Subject:
+Date:
+Hi Amir.
+Potential office space
+January 19
+I know that you liked the Gilbardo Street office that I showed you on Monday,
+but I've just learned about a new space that might be an even better fit for
+your business. It's a second-floor corner space in the Mowery Building that
+gets a lot of light. It's larger than the Gilbardo Street office, but the price per
+square foot is the same. The Gilbardo Street office is a little closer to
+downtown, but since the Mowery Building is right next to the highway, there
+won't be a big difference in convenience. And the Mowery office has a
+shorter lease term, so if you don't like it, you won't have to stay there long.
+I really think you should take a look at this new space. Let me know if you're
+interested, and I can schedule a viewing.
+Regards,
+Darlene 스
+
+186. What is suggested about Ms. Barker?
+(A) She is Mr. West's current supervisor.
+(B) She has more work experience than
+Mr. West.
+(C) She wrote a description of an office
+building.
+(D) She gave an assignment at a meeting.
+
+187. What is mentioned in the first draft but NOT
+in the published description of the space?
+(A) A third enclosed space
+(B) The type of flooring
+(C) The security system
+(D) Exposure to some light
+
+188. What would a tenant in the Mowery
+Building most likely need to pay extra for?
+(A) Usage of water infrastructure
+(B) Repairs to a temperature control
+system
+(C) Access to an outdoor parking area
+(D) Security services at the building
+entrance
+
+189. Who most likely is Ms. Bullard?
+(A) Mr. Ramdani's business partner
+(B) Mr. Ramdani's legal advisor
+(C) Mr. Ramdani's real estate agent
+(D) Mr. Ramdani's administrative assistant
+
+190. What can be concluded about the Gilbardo
+Street office?
+(A) It has more than 1,500 square feet of
+space.
+(B) It is more than 3 miles from central
+Hewlisk.
+(C) It requires a lease term of over 5 years.
+(D) It costs less than $28,000 per year.
+GO ON TO THE NEXT PAGE
+TEST 10 301
+302Questions 191-195 refer to the following brochure, e-mail, and notice.
+Major Exhibitions
+Corlingdale History Museum
+Wood, Steel, and Concrete
+Find out the fascinating stories behind
+Corlingdale buildings ranging from small
+houses and storefronts to factories and
+skyscrapers.
+50 Years of Fur
+Created for the recent fiftieth anniversary
+of the Corlingdale Zoo, this exhibition
+traces the history of the facility and its
+amazing creatures.
+Notes
+Ms. Collins's Library
+This look into the life of Deanna Collins,
+Corlingdale native and writer of the Kiera
+Smith series, is sure to delight her fanseven the ones who have grown up.
+Over the Mountains
+You may not have heard of Nicolas
+Vicario, but you'll never forget his name
+once you see his beautiful paintings of
+the nearby Trueheart Mountains.
+• We welcome groups, but please make a reservation 24 hours in advance if you plan to bring more than eight people. This can be done with our online reservation system at www.corlingdalehistory.com.
+• Guided tours are only available in English, but self-guided audio tours are available in
+several other languages.
+From:
+To:
+E-Mail message
+<verag@corlingdalehistory.com>
+<chiranjeevi.somchai@ben-mail.net>
+Subject: RE: A visit today?
+Date: July 15
+Dear Mr. Somchai,
+Thank you for letting us know about your visit this afternoon. While we do usually
+require groups like yours to give us at least one day's notice before arrival, we will
+luckily be able to accommodate you this time.
+Since you mentioned the Over the Mountains exhibition that is normally located on our
+third floor, I have to warn you it is currently on loan to the Meehan Museum in the
+United Kingdom. There is related merchandise available in our first-floor gift shop, but if
+the exhibition is the main attraction for your group, you should consider rescheduling
+your visit for August, when it will be on display here again.
+If you decide to come anyway, we will look forward to seeing you this afternoon.
+Best,
+Vera Gordan
+Operations Manager
+Corlingdale History Museum
+Sorry!
+The exhibition normally housed in this space is
+currently on loan to London's Meehan Museum.
+It is scheduled to reopen here on August 1. Ask
+our information desk how your party can get free
+admission if you would like to return to see it then.
+We apologize for the inconvenience.
+- Corlingdale History Museum staff
+
+191. According to the brochure, what is the
+subject of a major exhibit?
+(A) Textile manufacturing
+(B) A children's book author
+(C) Paintings of a city
+(D) Local wildlife
+
+192. What is probably true about Mr. Somchai's
+group?
+(A) It consists of more than eight
+individuals.
+(B) Some of its members are relatives of
+an artist.
+(C) Some of its members do not speak
+English.
+(D) It will receive a personal guided tour.
+
+193. What does Ms. Gordan recommend to
+Mr. Somchai?
+(A) Making a reservation for a performance
+(B) Buying some limited-edition goods
+(C) Contacting an overseas organization
+(D) Touring the museum on a later date
+
+194. On what floor of Corlingdale History
+Museum is the notice most likely posted?
+(A) The first floor
+(B) The second floor
+(C) The third floor
+(D) The fourth floor
+
+195. In the notice, the word "party" in paragraph
+1, line 4, is closest in meaning to
+(A) celebration
+(B) collection of people
+(C) participation
+(D) time off
+TEST 10
+GO ON TO THE NEXT PAGE
+TEST 10 303
+Questions 196-200 refer to the following Web page, e-mail, and article.
+http://www.shalkon.gov/council/foster
+Arlene Foster
+Representative of District 4 (district map)
+Though in her first term with the city council, Arlene has spent her entire career
+in public service. She was raised and attended university in Zantry. After
+graduating with a degree in political science, she first worked at a nonprofit
+organization based in Venkins that promotes the building of affordable housing.
+She then moved to Shalkon to become part of former council member Mitchell
+Blair's staff. In her time in that role, she assisted with projects such as the SETIP
+package of tax incentives for making environmentally-friendly improvements to
+residential and commercial properties.
+Since joining the council, Arlene has focused on improving traffic congestion
+issues across Shalkon, including by planning the widening of Young Avenue. She
+is dedicated to maintaining open lines of communication with her constituents
+and reserves Tuesday mornings and Thursday afternoons exclusively for meetings
+with the public.
+304Committees: Transportation Contact Information
+Budget Review
+From: Oliver Cortez
+To: Arlene Foster
+Subiect: RE: FWD: Webster Road sign
+Date: September 2
+Dear Councilmember,
+Director Buchanan passed your inquiry on to me, as my team handles road signs in the
+city.
+To answer your main question-yes, there would be limitations on the design of the
+sign. It must be either the style of general traffic signs (green with white lettering) or
+the style of Shalkon city informational signs (light gold with white lettering and the city
+logo). Also, note that the latter option is only available for signs that stand on one side
+of the road.
+I'd be happy to meet with you this week to discuss these options in more detail. I'm
+free on Thursday afternoon and Friday morning. Which would you prefer?
+Sincerely,
+Oliver Cortez
+Shalkon Department of Transportation
+A
+City Names Stretch of Webster
+Road after Cummings
+(September 29)-A section of Webster
+Road between Coleman Street and Young
+Avenue has been co-named in honor of
+Frances Cummings, Shalkon's first female
+mayor.
+Shalkon city council member Arlene Foster,
+who proposed the tribute, gathered with
+members of the late Mayor Cummings's
+family and others near the intersection
+of Webster Road and Coleman Street
+yesterday fora small unveiling ceremony.
+The crowd cheered as a tarp was pulled off
+a new sign bridge that spans Webster Road
+and proclaims the subsequent half-mile of
+road to be "Frances Cummings Way". This
+section of road was chosen because of its
+proximity to Talmage Park, which Mayor
+Cummings famously revitalized during her
+tenure in office.
+Council member Foster and Edmund
+Cummings, Mayor Cummings's son, gave
+speeches highlighting the mayor's positive
+impact on Shalkon.
+
+196. What does the Web page state about (Ms. Foster? (A) She is not a native of Shalkon. (B) She has been elected multiple times. (C) She owns property on Young Avenue. (D) She does not work in the field her
+degree is in.
+
+197. When did Mr. Cortez and Ms. Foster most
+likely meet?
+(A) On a Thursday morning
+(B) On a Thursday afternoon
+(C) On a Friday morning
+(D) On a Friday afternoon
+
+198. In the e-mail, the word "passed" in
+paragraph 1, line 1, is closest in meaning to
+(A) relayed
+(B) enacted
+(C) declined
+(D) surpassed
+
+199. What is most likely true about the finished
+sign?
+(A) It features a city symbol.
+(B) It is visible from the entrance to a park.
+(C) It is located outside of a city's limits.
+(D) Its background is green.
+
+200. What did Ms. Foster speak about on
+September 28?
+(A) The future of a scientific endeavor
+(B) The accomplishments of a local
+politician
+(C) The importance of environmental
+conservation
+(D) The unique characteristics of a
+neighborhood
+Stop! This is the end of the test. If you finish before time is called, you may go
+back to Parts 5, 6, and 7 and check your work.
+TEST 10
+TEST 10 305
+ANSWER SHEET
+수험번호
+응시일자 20 년 월 일
+TEST 01 (Part 5~7)
+YBM 실전토익 RC 1000
+명
+성
+영자
+한자
+한글
+TEST 02 (Part 5~7)
+101 121141161 181 101 0000121141 161 181
+102122142162182182 102122 0142 0 162 1820
+10312330000 143 163 183 103@123143163183
+104124144164184 104124144164 184
+105125145165185 105125145165 185
+106126146166186 106126 146166 186
+107127147167187 107 0 0 127 0 147 167187
+108128148168188 108 128 148 168188 00
+109129149 169189 109129 149169189
+110130150170190 110130 0 0 150 170 190
+111131151171191 111131 151 171 19100
+112132 152172192 112 132 152 0 0 0 172 1920
+113133 000153 @ 173193 113 133 153 173 193
+114 13400 154 17400 194 114 134 154 174 194 @
+Π 115 135 155 175 195 115 135 155 175 195
+116 60 136 156 176 196 116 136 156 176 @ 196
+117 137 157 177 197 117137 6 157 177 @ 6 197
+118 138 158 178 198 118 138 158 178 198
+119 139 159 179 199 119 139 159 179 199
+120 140 160 180 200 120 C 140 160 180 200
+Π
+ANSWEIER SHEEТ
+수험번호
+응시일자 : 20 년 월 일
+YBM 실전토익 RC 1000
+한글 성
+한자
+명 영자
+TEST 03 (Part 5~7) TEST 04 (Part 5~7)
+101
+102
+e
+@
+121 d 141 a G 161 b 181 6 101
+0 122
+d
+142 a ن ט 162 e b C 182 C 102
+103 123 D d 143 b 163 a b 183 a 103
+104 124 0 d 144 D © 164 6 © 184 104
+P
+P
+P
+P
+121
+122
+123
+124
+@
+D G
+P
+@
+141 161
+142 162
+143
+144
+P
+e
+163
+164
+105 125 d 145 165 0
+d
+185 a 105 9 125 145
+106 126 d 146 e D 166 e 186 eb 106
+0
+126 146
+107 127 d 147
+108 128 @ 148
+e
+@
+167 a 187 107 127147
+165
+166
+167
+6
+P
+P
+P
+O
+D
+181
+182
+183
+184
+P
+P
+©
+a
+P
+P e
+185
+168 188 e 108128148
+109 129 149 @ @ 169 d 189 109129 149
+110 130 150 170 190 110130 150 170
+111 131151 171
+ae 191 111 131
+168
+ 0 169
+151171191
+186
+187
+188 D
+189
+190
+P
+P
+P
+O
+P
+112 132 152 172 192
+113 1330000 153 173 193 113 1331531736
+114 134 154 17474 @ © @ 194
+135155 175 @ 195
+116136156 176 196
+1171371571770 197
+118 138 158178 198 118
+119
+139159
+@
+179 199 119 139
+120 140 160 18000 200 000 120 140
+114134 154 174
+115 @ @ @ @ 135 0 0 @ @ 155 @ © @ 175 6
+117137 116136156L 138 158
+159
+194
+112 132152172192
+193
+195 0 ©
+157
+رو LLL
+7777
+96
+6
+198
+Ω
+ANSWER SHEET
+수험번호
+응시일자 : 20 년 월 일
+YBM 실전토익 RC 1000
+80
+한글
+한자
+영자
+K
+TEST 05 (Part 5~7)
+101
+0
+121
+102
+0
+122
+e
+P
+141
+142
+103 123 143
+104 124 144
+105 125
+P
+145
+P
+P
+D
+P
+0
+161
+162
+@
+P
+181
+182
+163 183
+164 184 6
+165 185
+106 0000126
+146 166
+107 1271470 167
+P
+P
+186
+187
+108 128148168 188
+109 000129 @149
+16900 189
+0
+D
+0
+O e
+0
+110
+190
+111
+171191
+112
+113
+114
+115
+116
+117
+118
+119
+120 0 140 160 | 180 @
+130150 1700000
+131 151
+00132 152 00 172 @ @ @|192 0000
+000
+09
+133 153173193
+134154174
+@135155 0175
+1940
+0 0 0 195
+136156176196
+137157177 0197000
+1980
+138158 0178990 79
+139 159@ 180 200@ @
+112
+113
+114
+115
+116
+117
+118
+131
+32
+149
+151 0 171
+152
+N
+191
+172192
+0000 133 © 1530173 @ 193
+134 00 1541740© © 0194
+135155175
+136 00 156
+00©0|137|@ 0 © @| 157 |
+58
+138
+119 000139
+120 0000 14016
+TEST 06 (Part 5~7)
+101 121 141 161 181
+102
+103
+P
+e
+122 142 162 182
+123 143 163 000 183
+104 124 144 164 184
+105 125 145 165185
+106 126 146 166 186
+107 6 127 147 0000 167 187
+108 128 148 168 188
+109 129 169 189
+110130 150 170 190
+111
+Π
+ANSWER SHEET
+YBM 실전토익 RC 1000
+수험번호
+응시일자 : 20 월 일
+성
+명
+한글
+한자
+영자
+101
+102
+0
+000
+121 141
+122 142
+TEST 07 (Parrt 5~7)
+161
+162
+TEST 08 (Part 5~7)
+0
+103 123 143 163
+104 124 144 164
+P
+P
+P
+181 101 121 141 600161 181
+182 102
+C
+122 142 162 182
+183 103 123 143 ©
+D
+163 183
+184 104 124 144 164184
+105 125145 165 185 105 125 145 165 185
+106 126146 166 186 106 126 146© © 166 186
+107 127147 167 187 107 127 147 167 187
+108 1281480
+168 188 108
+109 00129@1490 169
+189 @
+A
+190 110
+1110 131
+112 13200 152 172
+0128 148 168@188@
+109129 149P
+11001300 1500000
+111
+112
+131
+169 @
+170
+189
+190
+151171191
+132@152@ 172
+130150
+170
+1511710000 191
+192
+113 133 0153 173 00@ 193
+114
+☐115
+116
+117
+118
+119
+120
+134000 154 0 174 0 194
+13501550175195
+00 156 176 000@196
+157177
+0000
+0 192
+113 133153 173 193 19
+114 134 154 174 194
+115
+120
+000
+116
+117
+0G
+118
+119
+135155175 195
+136 156176 196
+137 @ @ 157 177
+138 158178
+139 159179
+140 0 0 00160 180
+ANSWER SHEET
+수험번호
+YBM 실전토익 RC 1000
+성
+한글
+한자
+명 영자
+0
+응시일지일자 : 20
+101
+102
+103 000
+104
+105
+106
+107
+년 월 일
+TEST 09 (Part 5~7)
+TEST 10 (Part 5~7)
+P
+0
+00
+P
+121
+122
+123 60
+0
+P
+e
+D
+108
+109
+000
+0000
+P
+0000
+124
+141
+142
+143
+144
+161
+162
+e
+0
+181
+182
+163 183
+O
+P
+e
+Ο
+101
+@ P
+121
+102 6
+P
+122
+@
+6 P
+141
+6 C 142
+e
+@
+Ο G 161 181
+162
+e
+182
+103
+e
+D O 123 D O 143
+P
+163 183
+125
+126
+127
+0000
+0
+@
+145
+146
+147
+@
+D
+P
+000
+164 184 104 6
+D
+124 e d 144 164 184
+165 185 @
+105 125 C d 145 G 165 0 185
+166 186 106 126 d 146 166 186
+167 187 107 127 147 167
+128 148 168 188 108
+128 148 16858 © 188
+129 149 169 189 109
+129 149 169
+187
+189
+110 130150 170 190 110 0130
+130150
+1700 190
+111 131
+112 132
+151
+152
+171
+113 133153
+0000
+172
+173
+0000
+0
+191
+111 131 151© @ 171 0 @ @ @ 191
+192
+0000
+112 132 152 172 192
+193
+113 33 153 173 19
+114 134 154 174 194 114134 174
+115 135 155175
+195 115135
+116 136 156 176 196
+116 36
+117 137 157
+177 60 197 117 137
+118
+119
+120
+38
+140
+158 178 198
+118 158
+1790 199
+119139
+90 180@ @| 200
+0000
+120140
+180
+ANSWER SHEET
+YBM 실전토익 RC 1000
+수험번
+하
+응시일지 : 20 년 월 일
+성
+영
+한글
+한자
+영자
+TEST 09 (Part 5~7)
+101 1216 141 161 181 101 121
+102
+103
+122
+e
+123
+@ 142
+@
+162 182 102 122
+143 163 183 103 123
+TEST 10 (Part 5~7)
+181
+182
+183
+104 124144 164 0 184 104 124
+105 125145 165 6000 185 105 125
+0000
+0
+141161
+142 162
+143 163
+144 164 © @| 184
+0000
+0
+145165185
+106 126 146 6 166 186 106 126 146166186
+107 127147 167 187 107 127 147
+108 d 128 148 168 0 188 108 128
+109 129 600 149 169 189 109
+110
+111
+112
+130
+131
+132
+6 150 170 190
+e
+115
+113
+114
+116
+ 134© © ©
+135
+136
+151
+152
+154
+155
+150
+ 6 175
+176
+G
+@ 171 e 191 111 131
+C 172 000 192
+0000133 @ 153 @ @ @ @ 173 0 193 113 133
+6 174194 174 114 134
+195 115 135
+196 116 136
+117 137 @ @| 157 @ © © @|177| 197 117
+0000
+137
+118 118
+119 119
+120 140 180 200 140
+187 ®
+110@ 130 0 0@ 150 0 170 @ 1900
+112132152@172192
+120
+151171191
+153173 193
+154174
+ 155 175000
+156176
+194
+195
+177 197 157177
+138 158178
+139 159179
+160© 0 180 @
+0
+167
+@148 168 @ 188
+129149169189
+ETS & YBM 토익교재 로드맵
+레벨 점수대 ETS TOEIC 시리즈
+450점 로의 단기공
+입문 550
+550점
+YBM TOEIC 시리즈
+ENGLISH ENGLISH ENGLISH ENGLISH Baste
+10 ILio YBM SYBM 2 550점 토의 단기공략 TOEIC 공식입 공식입문서 토익 토익 초급 1.C RC Θ
+RC 650점
+큰
+큰
+YBM
+இ토익
+750점 공식 토의 단기공략 공식
+종합서 종합서 850점
+실전서
+TOEICTOEC
+토익 점 토익 정기시험 기출 기출문제집
+LORC
+YBM토익
+YBM
+의
+700
+Bumg Jur
+TOEIC
+Θ YB YBM
+இ10x
+토의 정 토익 정기시험 기출문 기출문제집 1
+10 1000 เจงจ
+토의 정 토익 정기시험 기출문 기출문제집 2 기
+COOL 10
+YBM 실전토익 RC1000
+TOEIC TOEIC Test 공식문제집
+FOERC
+의 전 회 정기
+예상 토익 정기시험 삼 예상문제 예상문제 YBM 실전토익 RC1000
+어휘
+파트별
+전략서
+토익기출 어휘
+파트별
+TOEIC
+PART PART
+실전
+저랴
+정가 15,000원
+고난도
+97788917 2381174
+ISBN 978-89-17-23817-4
+13740

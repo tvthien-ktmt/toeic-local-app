@@ -1,5 +1,7 @@
 # TEST 01
 
+# TEST 01
+
 ## READING TEST
 
 In the Reading test, you will read a variety of texts and answer several different types of reading comprehension questions. The entire Reading test will last 75 minutes. There are three parts, and directions are given for each part. You are encouraged to answer as many questions as possible within the time allowed.
@@ -64,7 +66,7 @@ You must mark your answers on the separate answer sheet. Do not write your answe
      (C) directly
      (D) direction
 
-110. ------- the expansion to the Phoenix Building be approved, construction will begin at the beginning of March.
+110. -------  the expansion to the Phoenix Building be approved, construction will begin at the beginning of March.
      (A) Should
      (B) Since
      (C) Did
@@ -124,7 +126,7 @@ You must mark your answers on the separate answer sheet. Do not write your answe
      (C) public
      (D) publicized
 
-120. ------- its positive effect on the environment, the recycling program will generate extra income for the city.
+120. -------  its positive effect on the environment, the recycling program will generate extra income for the city.
      (A) Besides
      (B) Among
      (C) Instead
@@ -322,7 +324,9 @@ Dawsonville in Motion, a nonprofit organization dedicated to promoting healthy l
 | Dowler-405 carpet steam cleaner rental | Two-day rental | $95.00      |
 | Equipment rental deposit               |                | $50.00      |
 | Concentrated carpet shampoo (12 oz.)   | Purchase       | $15.95      |
-|                                        | **Total**      | **$160.95** |
+|                                        | **Total**      | **$
+
+160.95** |
 
 Rental period valid until 5 P.M. on March 6. The deposit will be paid back once the device is returned.
 
@@ -706,7 +710,9 @@ The council plans to launch a public awareness campaign on April 3 to inform res
 | Room Type: Deluxe                                            | Number of Adults: 2, Number of Children: 0 | $700.00       |
 | Check in: July 19 / Check out: July 23                       |                                            |               |
 | **Dining: Villa Complex**                                    |                                            |               |
-| All-Day Meal Pass, 2 Adults: July 20-22                      | Breakfast Meal Pass, 2 Adults: July 23     | $185.00       |
+| All-Day Meal Pass, 2 Adults: July 20-22                      | Breakfast Meal Pass, 2 Adults: July 23     | $
+
+185.00       |
 | **Activity 1: Meridian Limited**                             |                                            |               |
 | Private Boat Tour of Meridian Cove: July 21                  | Deposit of $100 received on May 3          | $390.00       |
 | **Activity 2: Orchid Enterprises**                           |                                            |               |
@@ -749,7 +755,9 @@ Majestic Travel
 183. How much would Ms. Rizal lose if she cancels the boat tour by May 31?
      (A) $390.00
      (B) $290.00
-     (C) $100.00
+     (C) $
+
+100.00
      (D) $50.00
 
 184. Which business is partnered with Majestic Travel?
@@ -1005,6 +1013,7 @@ CEO, Fischlin Services
 
 ---
 
+# TEST 02
 
 # TEST 02
 
@@ -1020,7 +1029,7 @@ CEO, Fischlin Services
      (C) theirs
      (D) their
 
-103. ------- Ms. Lester nor her partner could find the updated contact details for the client.
+103. -------  Ms. Lester nor her partner could find the updated contact details for the client.
      (A) Both
      (B) Not
      (C) Neither
@@ -1198,7 +1207,13 @@ Questions 131-134 refer to the following notice.
 
 **NOTICE TO EMPLOYEES**
 
-131. -----. This is required for the upcoming painting work on August 1. 132. -----, the work crew only has the weekend to complete the task, we want to do as much advance preparation as possible. Anything left on the wall after 5 P.M. on Friday will be 133. ----- abandoned. In that case, the cleaning staff will have to dispose of these items. To avoid this unnecessary 134. -----, please be responsible for your own belongings. Please direct all questions to your immediate supervisor.
+131. -------  This is required for the upcoming painting work on August 1.
+
+132. -------  the work crew only has the weekend to complete the task, we want to do as much advance preparation as possible. Anything left on the wall after 5 P.M. on Friday will be
+
+133. -------  abandoned. In that case, the cleaning staff will have to dispose of these items. To avoid this unnecessary
+
+134. -------  please be responsible for your own belongings. Please direct all questions to your immediate supervisor.
 
 132. (A) Staff members can vote on their favorite colors.
      (B) All signs and posters should be removed from the hallways.
@@ -1225,9 +1240,17 @@ Questions 135-138 refer to the following Web page.
 `www.bellinghamshelter.org/about_us`  
 **Bellingham Animal Shelter**
 
-We have been in 135. ----- for about two years, providing veterinarian care, adoption services, and emergency housing for abandoned and unwanted pets. In addition to monetary donations, we need pet food, blankets, cleaning products, and pet toys. 136. ----- donations are tax deductible, as we are a registered charity.
+We have been in
 
-Even if you do not have items or money to donate, you can make a difference at the shelter. We need help with cleaning cages, exercising the pets, and providing obedience training. 137. ----- To find out more about volunteering at the shelter, 138. ----- us at 555-0176.
+135. -------  for about two years, providing veterinarian care, adoption services, and emergency housing for abandoned and unwanted pets. In addition to monetary donations, we need pet food, blankets, cleaning products, and pet toys.
+
+136. -------  donations are tax deductible, as we are a registered charity.
+
+Even if you do not have items or money to donate, you can make a difference at the shelter. We need help with cleaning cages, exercising the pets, and providing obedience training.
+
+137. -------  To find out more about volunteering at the shelter,
+
+138. -------  us at 555-0176.
 
 135. (A) operation
      (B) attraction
@@ -1258,7 +1281,15 @@ Subject: Unit 208
 
 Dear Ms. Jankowski,
 
-Thank you for giving written notice about your plans 139. ----- your lease agreement on January 31. 140. ----- I have attached information about the process. We visit your apartment for a final inspection, you should have all of your personal belongings removed from the property. Be sure to leave 141. ----- time to thoroughly clean the apartment. It should be in the same condition in which you received it, with all surfaces dusted, carpets vacuumed, and countertops scrubbed. 142. -----
+Thank you for giving written notice about your plans
+
+139. -------  your lease agreement on January 31.
+
+140. -------  I have attached information about the process. We visit your apartment for a final inspection, you should have all of your personal belongings removed from the property. Be sure to leave
+
+141. -------  time to thoroughly clean the apartment. It should be in the same condition in which you received it, with all surfaces dusted, carpets vacuumed, and countertops scrubbed.
+
+142. ------- 
 
 Should you have any questions, please feel free to e-mail me at any time.
 
@@ -1295,7 +1326,15 @@ White Plains, NY 10601
 
 To Whom It May Concern:
 
-I recently visited your store to purchase a wetsuit and some other surfing gear. I was assisted by Ken in the Water Sports department, and I was impressed with his patience and 143. ----- behavior. He took the time to ask me about my preferences and intended usage. Taking these 144. ----- into consideration, he recommended a few products. I can't tell you how much I 145. ----- this personal attention. At most stores of your size, it is impossible to find someone to answer questions. 146. ----- I will definitely recommend Wilson Sporting Goods to my friends and family.
+I recently visited your store to purchase a wetsuit and some other surfing gear. I was assisted by Ken in the Water Sports department, and I was impressed with his patience and
+
+143. -------  behavior. He took the time to ask me about my preferences and intended usage. Taking these
+
+144. -------  into consideration, he recommended a few products. I can't tell you how much I
+
+145. -------  this personal attention. At most stores of your size, it is impossible to find someone to answer questions.
+
+146. -------  I will definitely recommend Wilson Sporting Goods to my friends and family.
 
 Warmest regards,
 
@@ -1992,6 +2031,7 @@ Robert Hernandez
 
 ---
 
+# TEST 03
 
 # TEST 03
 
@@ -2009,7 +2049,7 @@ Robert Hernandez
 - (C) and
 - (D) or
 
-103. ------- about payments and account balances should be directed to our billing department.
+103. -------  about payments and account balances should be directed to our billing department.
 
 - (A) To inquire
 - (B) Inquired
@@ -2220,7 +2260,15 @@ Questions 131-134 refer to the following e-mail.
 
 Dear Mr. Bartlett,
 
-Thank you again for calling this morning to discuss our packaging solutions. Learning about Sweet Tree Catering's needs was very interesting. As promised, I ------- 131. ------- on the information to our design team. They responded that creating suitable packaging would not be ------- 132. -------. In fact, they could probably have samples ready for you in as little as one week. ------- 133. -------. If you are interested, the next step is to set up an in-person meeting ------- 134. ------- which you would describe your requirements in greater detail directly to the Design Team. Please call me or reply to this e-mail to confirm that that is what you would like to do.
+Thank you again for calling this morning to discuss our packaging solutions. Learning about Sweet Tree Catering's needs was very interesting. As promised, I -------
+
+131. -------  on the information to our design team. They responded that creating suitable packaging would not be -------
+
+132. -------  In fact, they could probably have samples ready for you in as little as one week. -------
+
+133. -------  If you are interested, the next step is to set up an in-person meeting -------
+
+134. -------  which you would describe your requirements in greater detail directly to the Design Team. Please call me or reply to this e-mail to confirm that that is what you would like to do.
 
 Sincerely,
 
@@ -2259,7 +2307,17 @@ Crites Packaging
 
 Questions 135-138 refer to the following article.
 
-CHICAGO (March 19)—Popular singer Kurt Glaize revealed this morning that the second single from his current album will be a remake of Stan Weber's classic "Sighs of Glass." ------- 135. ------- Mr. Weber rose to fame upon releasing the ------- 136. ------- version of the song thirty years ago. It has been remade several times since then, in musical genres as diverse as jazz and rock. None of these ------- 137. ------- suit Mr. Glaize, however. The young singer describes his single as "actually pretty similar" to ------- 137. ------- [Note: typo in source] Mr. Weber's, ------- 138. ------- his love for traditional ballads. "It's already such a beautiful song," he explained. "All I did was update it a little bit for modern audiences."
+CHICAGO (March 19)—Popular singer Kurt Glaize revealed this morning that the second single from his current album will be a remake of Stan Weber's classic "Sighs of Glass." -------
+
+135. -------  Mr. Weber rose to fame upon releasing the -------
+
+136. -------  version of the song thirty years ago. It has been remade several times since then, in musical genres as diverse as jazz and rock. None of these -------
+
+137. -------  suit Mr. Glaize, however. The young singer describes his single as "actually pretty similar" to -------
+
+137. -------  [Note: typo in source] Mr. Weber's, -------
+
+138. -------  his love for traditional ballads. "It's already such a beautiful song," he explained. "All I did was update it a little bit for modern audiences."
 
 135.
 
@@ -2295,7 +2353,15 @@ Questions 139-142 refer to the following notice.
 
 **NOTICE TO CUSTOMERS**
 
-As you all know, the property surrounding Bracht Storage is fully fenced, and all areas ------- 139. ------- continuously by a video surveillance system. Our meticulous cleaning practices also deter harmful pests. However, our commitment to ------- 140. ------- no longer stops there. As an extra precaution, Bracht now requires storage unit contents to be insured. ------- 141. ------- The policy provides partial compensation for items damaged by fire, floods and other unexpected occurrences. For more comprehensive coverage, customers may opt ------- 142. ------- a policy from a specialized insurance carrier. A consultant can help determine which option is suitable for you.
+As you all know, the property surrounding Bracht Storage is fully fenced, and all areas -------
+
+139. -------  continuously by a video surveillance system. Our meticulous cleaning practices also deter harmful pests. However, our commitment to -------
+
+140. -------  no longer stops there. As an extra precaution, Bracht now requires storage unit contents to be insured. -------
+
+141. -------  The policy provides partial compensation for items damaged by fire, floods and other unexpected occurrences. For more comprehensive coverage, customers may opt -------
+
+142. -------  a policy from a specialized insurance carrier. A consultant can help determine which option is suitable for you.
 
 139.
 
@@ -2335,7 +2401,15 @@ Questions 143-146 refer to the following memo.
 **Date:** December 5  
 **Attachment:** Proposals
 
-This year, several of the events on which we usually spend the library's "Programs" budget have not taken place as expected. ------- 143. -------, our author readings scheduled for February were cancelled because of the heavy snowfall. This has left us with a sizable amount of money that must be spent on programs by the end of the year. In the attachment, I have listed a few ideas for how to do this. Please ------- 144. ------- them before Friday's meeting. We will discuss which one would best support the aim of ------- 145. ------- the library's usefulness to the community. ------- 146. ------- With your valuable input, I feel certain we will be able to take full advantage of this situation.
+This year, several of the events on which we usually spend the library's "Programs" budget have not taken place as expected. -------
+
+143. -------  our author readings scheduled for February were cancelled because of the heavy snowfall. This has left us with a sizable amount of money that must be spent on programs by the end of the year. In the attachment, I have listed a few ideas for how to do this. Please -------
+
+144. -------  them before Friday's meeting. We will discuss which one would best support the aim of -------
+
+145. -------  the library's usefulness to the community. -------
+
+146. -------  With your valuable input, I feel certain we will be able to take full advantage of this situation.
 
 143.
 
@@ -2937,7 +3011,9 @@ Albright Fonner Bank
 
 **Anniversary Celebration during January**
 
-Albright Fonner Bank turns three years old this month. In honour of this milestone, we are offering special promotions that benefit both new and returning customers. Throughout January, customers at any of our branches who open a checking account with a deposit of at least $1,000 in it will earn a bonus deposit of $200.
+Albright Fonner Bank turns three years old this month. In honour of this milestone, we are offering special promotions that benefit both new and returning customers. Throughout January, customers at any of our branches who open a checking account with a deposit of at least $1,000 in it will earn a bonus deposit of $
+
+200.
 
 Furthermore, all savings account holders have been entered into a lottery for a brand-new Arcuri N-680 sedan. The winner will be announced at a customer appreciation party held in front of our Auckland branch on Saturday, 25 January. Starting at 1 P.M. and continuing until the prize ceremony at 5 P.M., games and refreshments will be available to all Albright Fonner customers and their families. We hope you will join us to celebrate three years of successful growth, and to build relationships for our community's future.
 
@@ -3145,6 +3221,7 @@ You must mark your answers on the separate answer sheet. Do not write your answe
 
 **Directions:** A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence. Then mark the letter (A), (B), (C), or (D) on your answer sheet.
 
+# TEST 04
 
 # TEST 04
 
@@ -3589,10 +3666,16 @@ www.mcdorwellsupplies.com | 1-800-555-0100
 
 | Item Description                        | Quantity | Price Per Unit | Total   |
 | --------------------------------------- | -------- | -------------- | ------- |
-| 18-inch wire hangers (pack of 500)      | 5        | $21.99         | $109.95 |
+| 18-inch wire hangers (pack of 500)      | 5        | $21.99         | $
+
+109.95 |
 | Cardboard shoulder guards (pack of 500) | 3        | $28.49         | $85.47  |
-| Liquid stain remover (5L)               | 4        | $29.99         | $119.96 |
-| All-in-one detergent (20L)              | 3        | $189.99        | $569.97 |
+| Liquid stain remover (5L)               | 4        | $29.99         | $
+
+119.96 |
+| All-in-one detergent (20L)              | 3        | $
+
+189.99        | $569.97 |
 
 Thank you for your purchase. To help us better serve you, please take a moment to complete a brief customer service questionnaire at www.mcdorwellsupplies.com/survey. Your feedback is important to us.
 
@@ -3995,31 +4078,41 @@ The stadium, which will be named once city officials sell its naming rights to g
 
 ---
 
-**186. What is true about the Namara Building?**  
+**
+
+186. What is true about the Namara Building?**  
 (A) It will be torn down.  
 (B) It is next to Tennyson Mall.  
 (C) It has been sold by Mr. Kaul.  
 (D) It is closed on Sundays.
 
-**187. What is indicated about Colba Footwear?**  
+**
+
+187. What is indicated about Colba Footwear?**  
 (A) It is the oldest shoe store in Bell City.  
 (B) Some of its sales are made online.  
 (C) Its staff needs more training.  
 (D) Its first store was in Edendale.
 
-**188. In the online review, the word “impressive” in paragraph 1, line 1, is closest in meaning to**  
+**
+
+188. In the online review, the word “impressive” in paragraph 1, line 1, is closest in meaning to**  
 (A) imminent  
 (B) talented  
 (C) meaningful  
 (D) extensive
 
-**189. What is mentioned about the stadium?**  
+**
+
+189. What is mentioned about the stadium?**  
 (A) It will replace a conference complex.  
 (B) It is intended to be used for various events.  
 (C) It will be named by the city’s voters.  
 (D) Its construction was delayed by weather conditions.
 
-**190. What is Ms. Lindelauf pleased about?**  
+**
+
+190. What is Ms. Lindelauf pleased about?**  
 (A) Designing a sturdy rooftop  
 (B) Using environmentally friendly materials  
 (C) Complementing nearby structures  
@@ -4083,31 +4176,41 @@ Bethany Hayward
 
 ---
 
-**191. According to the advertisement, what must visitors do to take a sword-fighting lesson?**  
+**
+
+191. According to the advertisement, what must visitors do to take a sword-fighting lesson?**  
 (A) Put on safety gear  
 (B) Pay an extra fee  
 (C) Register in advance  
 (D) Sign a consent form
 
-**192. What is implied about Aberporth Castle?**  
+**
+
+192. What is implied about Aberporth Castle?**  
 (A) Its main gate is being remodeled.  
 (B) It has a retail establishment.  
 (C) It is always busy in April.  
 (D) Its tour guides wear costumes.
 
-**193. What does Mr. Whitby imply about the group from the Willaun Institute?**  
+**
+
+193. What does Mr. Whitby imply about the group from the Willaun Institute?**  
 (A) Some of its members are under 13 years of age.  
 (B) Its members will pose for a photograph.  
 (C) It will arrive too late for a special meal.  
 (D) There will be more than 20 people in it.
 
-**194. In the second e-mail, the word “share” in paragraph 1, line 2, is closest in meaning to**  
+**
+
+194. In the second e-mail, the word “share” in paragraph 1, line 2, is closest in meaning to**  
 (A) express  
 (B) sponsor  
 (C) distribute  
 (D) divide
 
-**195. Who led the activity that Ms. Hayward enjoyed most?**  
+**
+
+195. Who led the activity that Ms. Hayward enjoyed most?**  
 (A) Mr. Pinard  
 (B) Ms. Johnston  
 (C) Ms. Clayton  
@@ -4157,36 +4260,47 @@ I had a great time at the Pensler House Runway Competition at the Wylona Center 
 
 ---
 
-**196. What do the instructions indicate that designers are required to do?**  
+**
+
+196. What do the instructions indicate that designers are required to do?**  
 (A) Select their favorite outfit  
 (B) Make a list of fabrics  
 (C) Deliver items in person  
 (D) Prove their eligibility
 
-**197. What is suggested about Ms. Sanchez?**  
+**
+
+197. What is suggested about Ms. Sanchez?**  
 (A) She e-mailed some questions to Mr. Jensen.  
 (B) Her description was over 100 words.  
 (C) Her drawings were seen by Ms. Massey.  
 (D) She recruited a model for the runway show.
 
-**198. According to Mr. Jensen, what will happen on March 6?**  
+**
+
+198. According to Mr. Jensen, what will happen on March 6?**  
 (A) A clothing fitting session  
 (B) A tour of a design studio  
 (C) A hair and makeup lesson  
 (D) A practice runway walk
 
-**199. What is implied about the Almeta Building?**  
+**
+
+199. What is implied about the Almeta Building?**  
 (A) It is the headquarters of Pensler House.  
 (B) It will display ten outfits in March.  
 (C) It is Ms. Byrum’s workplace.  
 (D) It was the site of the runway show.
 
-**200. In the forum post, the phrase “pass up” in paragraph 1, line 6, is closest in meaning to**  
+**
+
+200. In the forum post, the phrase “pass up” in paragraph 1, line 6, is closest in meaning to**  
 (A) transfer  
 (B) miss  
 (C) cease  
 (D) overtake
 
+# TEST 05
 
 # TEST 05
 
@@ -4292,13 +4406,13 @@ I had a great time at the Pensler House Runway Competition at the Wylona Center 
      (C) preferable
      (D) preferably
 
-118. ------- safer than other cutting machines on the market, it's no wonder that the Y-881 is a top-selling product.
+118. -------  safer than other cutting machines on the market, it's no wonder that the Y-881 is a top-selling product.
      (A) Demonstration
      (B) Demonstrate
      (C) Demonstrably
      (D) Demonstrable
 
-119. ------- Rochester Boulevard has been expanded, traffic jams are rarely seen in the area.
+119. -------  Rochester Boulevard has been expanded, traffic jams are rarely seen in the area.
      (A) Whenever
      (B) Only if
      (C) Once
@@ -4310,13 +4424,13 @@ I had a great time at the Pensler House Runway Competition at the Wylona Center 
      (C) nearby
      (D) opposite
 
-121. ------- wishes to upgrade a standard class ticket to first class may do so at the station or on board.
+121. -------  wishes to upgrade a standard class ticket to first class may do so at the station or on board.
      (A) Anything
      (B) Every
      (C) Whoever
      (D) Those
 
-122. ------- made from plated copper are becoming more popular in the fashion world these days.
+122. -------  made from plated copper are becoming more popular in the fashion world these days.
      (A) Accessorized
      (B) Accessorizes
      (C) Accessorize
@@ -4480,7 +4594,9 @@ Maya Fischer
 
 ## New Members Welcome at Glendale Support
 
-Glendale Support is currently seeking new members. ------- [143] However, attendance at all meetings is not required. Our organization ------- [144] community members to work together toward improving public sites in Glendale. This ------- [145] approach can maximize our impact on schools, libraries, parks, and more. To become a part of our group, please attend our next meeting, which will be held on June 18 at 7 P.M. at the Filbert Center, room 104. You can also e-mail our Membership Director, Kyle Thompson, at k.thompson@glendalesupport.org. To read more about projects ------- [146] our group has carried out in the past, please visit our Web site at www.glendalesupport.org.
+Glendale Support is currently seeking new members. ------- [143] However, attendance at all meetings is not required. Our organization ------- [144] community members to work together toward improving public sites in Glendale. This ------- [145] approach can maximize our impact on schools, libraries, parks, and more. To become a part of our group, please attend our next meeting, which will be held on June 18 at 7 P.M. at the Filbert Center, room
+
+104. You can also e-mail our Membership Director, Kyle Thompson, at k.thompson@glendalesupport.org. To read more about projects ------- [146] our group has carried out in the past, please visit our Web site at www.glendalesupport.org.
 
 143.  (A) Each project receives public as well as private funding.
       (B) Your membership fee can be waived in some cases.
@@ -5186,6 +5302,7 @@ Please note that the purchase must exceed five dollars, and no change will be gi
      (C) Lankdon's
      (D) Charking's
 
+# TEST 06
 
 # TEST 06
 
@@ -5231,7 +5348,7 @@ Please note that the purchase must exceed five dollars, and no change will be gi
      (C) employs
      (D) employing
 
-108. ------ this summer's unusual weather, it is no surprise that ice cream sales fell.
+108. -------  this summer's unusual weather, it is no surprise that ice cream sales fell.
      (A) Into
      (B) Until
      (C) Given
@@ -5321,7 +5438,7 @@ Please note that the purchase must exceed five dollars, and no change will be gi
      (C) have allowed
      (D) will be allowed
 
-123. ------ you find our mobile app satisfactory, please tap on the button below to leave a five-star review.
+123. -------  you find our mobile app satisfactory, please tap on the button below to leave a five-star review.
      (A) If
      (B) Either
      (C) Regardless
@@ -5351,7 +5468,7 @@ Please note that the purchase must exceed five dollars, and no change will be gi
      (C) about
      (D) once
 
-128. ------ to package a new food product depends heavily on the item's brand image and target customer.
+128. -------  to package a new food product depends heavily on the item's brand image and target customer.
      (A) Which
      (B) How
      (C) Nothing
@@ -5863,8 +5980,16 @@ Thank you for shopping at Aledon Shoes Huckley. We will construct the items belo
 
 | Model # | Information                                             | Quantity | Price Per Unit | Total   |
 | ------- | ------------------------------------------------------- | -------- | -------------- | ------- |
-| 5439    | Premium Leather Dress Shoes; black with black stitching | 1        | $121.00        | $121.00 |
-| 8167    | Canvas Sneakers; navy with white soles                  | 1        | $108.00        | $108.00 |
+| 5439    | Premium Leather Dress Shoes; black with black stitching | 1        | $
+
+121.00        | $
+
+121.00 |
+| 8167    | Canvas Sneakers; navy with white soles                  | 1        | $
+
+108.00        | $
+
+108.00 |
 | 3402    | Shoe Cleaner Set                                        | 1        | 0.00           | $0.00   |
 
 Discount: -$0.00  
@@ -6172,6 +6297,7 @@ Executive Director, Underbrink Tours
      (C) Whether to change the order of an itinerary
      (D) Why the number of customers is decreasing
 
+# TEST 07
 
 # TEST 07
 
@@ -6187,7 +6313,7 @@ Executive Director, Underbrink Tours
      (C) their
      (D) themselves
 
-103. ------- resembling sculptures from previous eras, Mr. Florence's artwork depicts everyday scenes.
+103. -------  resembling sculptures from previous eras, Mr. Florence's artwork depicts everyday scenes.
      (A) Closer
      (B) Close
      (C) Closely
@@ -6223,7 +6349,7 @@ Executive Director, Underbrink Tours
      (C) arrangement
      (D) source
 
-109. ------- the merger is authorized by the board members, an official valuation of the company must be made.
+109. -------  the merger is authorized by the board members, an official valuation of the company must be made.
      (A) Before
      (B) Despite
      (C) Nor
@@ -7032,31 +7158,41 @@ Regards,
 
 Rosemary Reid
 
-**186. Why was the letter sent?**
+**
+
+186. Why was the letter sent?**
 (A) To request customer feedback
 (B) To announce a business relocation
 (C) To describe service improvements
 (D) To promote a new model of car
 
-**187. What is indicated about Gomes Car Rentals?**
+**
+
+187. What is indicated about Gomes Car Rentals?**
 (A) It has further discounts on its Web site.
 (B) It has stores in multiple locations.
 (C) It has been sold to Rapidrive.
 (D) It has an on-site movie screen.
 
-**188. Whom did Ms. Reid most likely speak with on July 5?**
+**
+
+188. Whom did Ms. Reid most likely speak with on July 5?**
 (A) Helen Patterson
 (B) Greg Perkins
 (C) Billy Carroll
 (D) Yasmin Gallas
 
-**189. Which package did Ms. Reid most likely pay for?**
+**
+
+189. Which package did Ms. Reid most likely pay for?**
 (A) The Road Tripper
 (B) The Solo
 (C) The Weekender
 (D) The Explorer
 
-**190. What problem does Ms. Reid mention in her e-mail?**
+**
+
+190. What problem does Ms. Reid mention in her e-mail?**
 (A) A member of staff was rude to her.
 (B) The interior of the car was unclean.
 (C) Her vehicle was hard to drive.
@@ -7106,31 +7242,41 @@ Thanks again,
 
 Bradley Welsh
 
-**191. What are Sharpline Stationery Company's employees encouraged to do?**
+**
+
+191. What are Sharpline Stationery Company's employees encouraged to do?**
 (A) Make a payment
 (B) Specify dietary requirements
 (C) Invite family members
 (D) Suggest retreat events
 
-**192. In the memo, the word "recall" in paragraph 1, line 4, is closest in meaning to**
+**
+
+192. In the memo, the word "recall" in paragraph 1, line 4, is closest in meaning to**
 (A) bring
 (B) find
 (C) order
 (D) remember
 
-**193. Who most likely took Ms. Daggard's place at the retreat?**
+**
+
+193. Who most likely took Ms. Daggard's place at the retreat?**
 (A) Robert Polson
 (B) Bradley Welsh
 (C) Michael Oxley
 (D) Natalie Porter
 
-**194. Which event did Mr. Welsh most likely miss?**
+**
+
+194. Which event did Mr. Welsh most likely miss?**
 (A) Obstacle Course
 (B) Water Polo Tournament
 (C) General Knowledge Quiz
 (D) Orienteering
 
-**195. What can be inferred about Mr. Welsh?**
+**
+
+195. What can be inferred about Mr. Welsh?**
 (A) He used to be a professional athlete.
 (B) He is a manager at Sharpline.
 (C) He is a qualified doctor.
@@ -7183,4863 +7329,4249 @@ Greta Sanchez
 Customer Relations  
 The Prestige Hotel
 
-**196. What is indicated about the hotel rooms listed on the Web page?**
+**
+
+196. What is indicated about the hotel rooms listed on the Web page?**
 (A) Some are offered at a discounted price.
 (B) They are all located on the same level.
 (C) Rooms on the first floor are more expensive.
 (D) Some do not have access to concierge services.
 
-**197. Which of the following features did Ms. Aldridge NOT personally use?**
+**
+
+197. Which of the following features did Ms. Aldridge NOT personally use?**
 (A) The concierge
 (B) The swimming pool
 (C) The gym
 (D) The roof terrace
 
-**198. In the review, the word "offered" in paragraph 1, line 4, is closest in meaning to**
+**
+
+198. In the review, the word "offered" in paragraph 1, line 4, is closest in meaning to**
 (A) provided
 (B) discounted
 (C) volunteered
 (D) passed
 
-**199. In what type of room did Ms. Aldridge most likely stay?**
+**
+
+199. In what type of room did Ms. Aldridge most likely stay?**
 (A) Standard
 (B) Standard En Suite
 (C) Premier
 (D) Deluxe
 
-**200. What does Ms. Sanchez indicate about the machinery on site?**
+**
+
+200. What does Ms. Sanchez indicate about the machinery on site?**
 (A) It has now been removed.
 (B) It has been relocated to the gym.
 (C) It will be insulated to make it quieter.
 (D) A staff member has been employed to fix it.
 
-
 # TEST 08
 
-## READING TEST
+101. Several local food makers offer-------own
+products to employees at reduced prices.
+(A) themselves
+(B) they
+(C) them
+(D) their
 
-### 109.
-To minimize any negative impact on tourism,
-### 115.
-Although relatively few surveyed residents
-the
-of the famous statue will require
-commute t0 work by bike, recreational
-careful timing:
-bicycle use iIS
-relocale
-impatient
-(B) relocales
-widespread
-relocation
-talented
-relocated
-empty
-### 110.
-Ms. Migliacio asked that corrections t0 online
-### 116.
-Managers must submit revised deadline
-aricles be made
-noticing errors
-schedules
-their projects face delays
-accidentally
-behind
-chiefly
-when
-promptly
-over
-highly
-whereas
-### 111. _
-All of our products undergo
-inspections
-### 117. .
-The traffic sign was
-visible from the
-at our manufacturing tacility to ensure
-road until lhe branches of a nearby tree
-meet high quality standards
-obscured iL
-strict
-clearest
-bent
-clearer
-aware
-clearly
-vacant
-cleared
-### 112. _
-Dr: Itaru Matsuda's studies have proven the
-### 118. _
-Deenad Import-Export Ltd. operates a
-effects of the new medication on
-modern warehouse with floor space
-patients_
-27,000 square meters
-advantageously
-finishing
-advantageous
-obtaining
-advantage
-developing
-advantages
-covering
-### 113. _
-You are provided
-license t0 use Crombee
-### 119.
-Clothing sales revenues are
-even
-until the end of
-month under the
-though the store's home goods remain
-this agreement:
-popular;
-conditions
-declining
-penalties
-declines
-approaches
-declined
-phrases
-decline
-### 114.
-A company that is
-for its corporate
-### 120.
-The executive committee is proud to
+102. Fawley Academy's------ on absences
+caused by medical issues are explained in
+the student handbook.
+(A) solutions
+(B) classrooms
+(C) instructors
+(D) guidelines
+
+103. Check that the lid of the container is ----
+sealed to prevent its contents from leaking.
+(A) firm
+(B) firmly
+(C) firming
+(D) firmness
+
+104. It is ------- that the accuracy of measuring
+instruments be tested yearly.
+(A) active
+(B) initial
+(C) vital
+(D) fluent
+
+105. The new law will not affect homeowners
+
+106.
+whose property has been ------- at less than
+$80,000 in value.
+(A) assess
+(B) assessed
+(C) assessor
+(D) assessment
+Taxi service should---- be used when there
+is cheaper alternative transportation available
+during your business travel.
+(A) overly
+(B) too
+(C) never
+(D) ever
+
+107. This technique is meant to be ------- in
+treating muscle-related soreness.
+(A) employment
+(B) employed
+(C) employs
+(D) employing
+
+108. -------  this summer's unusual weather, it is no
+surprise that ice cream sales fell.
+(A) Into
+(B) Until
+(C) Given
+(D) Amid
+
+109. To minimize any negative impact on tourism,
+the----- of the famous statue will require
+careful timing.
+(A) relocate
+(B) relocates
+(C) relocation
+(D) relocated
+
+110. Ms. Migliacio asked that corrections to online
+articles be made ------- upon noticing errors.
+(A) accidentally
+(B) chiefly
+(C) promptly
+(D) highly
+
+111. All of our products undergo------- inspections
+at our manufacturing facility to ensure they
+meet high quality standards.
+(A) strict
+(B) bent
+(C) aware
+(D) vacant
+
+112. Dr. Itaru Matsuda's studies have proven the
+------ effects of the new medication on
+patients.
+(A) advantageously
+(B) advantageous
+(C) advantage
+(D) advantages
+
+113. You are provided a license to use Crombee
+until the end of next month under the ------ of
+this agreement.
+(A) conditions
+(B) penalties
+(C) approaches
+(D) phrases
+
+114. A company that is------- for its corporate
 values will have greater success in attracting
-announce that
-Will soon resume
-qualified job candidates
+qualified job candidates.
+(A) respecting
+(B) respects
+(C) respect
+(D) respected
+
+115. Although relatively few surveyed residents
+commute to work by bike, recreational
+bicycle use is----.
+(A) impatient
+(B) widespread
+(C) talented
+(D) empty
+
+116. Managers must submit revised deadline
+schedules------- their projects face delays.
+(A) behind
+(B) when
+(C) over
+(D) whereas
+
+117. The traffic sign was ------ visible from the
+road until the branches of a nearby tree
+obscured it.
+(A) clearest
+(B) clearer
+(C) clearly
+(D) cleared
+
+118. Deenad Import-Export Ltd. operates a
+modern warehouse with floor space -------
+27,000 square meters.
+(A) finishing
+(B) obtaining
+(C) developing
+(D) covering
+
+119. Clothing sales revenues are ------- even
+though the store's home goods remain
+popular.
+
+120.
+(A) declining
+(B) declines
+(C) declined
+(D) decline
+The executive committee is proud to
+announce that------- will soon resume
 negotiations with Pruneda Holdings.
-respecting
-we
-respects
-respect
-our
-respected
-ourselves
-Bonzen English - TOEIC
-GO ONTo IHE NEXT PACE
-TEST 8
-223
-upon
-Ihey
-nexl
-### 121.
-Human Resources reports that staff in a
-### 126.
-The IT team
-that all database systems
-majority of departments are
-absent
-be upgraded monthly:
-during weeks that include national holidays
-expires
-persisted
-believes
-persisting
-recalls
-persistent
-advises
-persistently
-### 127. .
-Quality control officials found defects in a
-### 122. _
-Tours of select apartments
-now thal
-Phung'
-Apparel item just
-over the
-construction on the complex has been
-course of
-weeklong visit:
-completed:
-yet
-are
-allowing
-ior
-to allow
-aboul
-have allowed
-once
-will be allowed
-### 128.
-to package
-new food product
-### 123. _
-you find our mobile app satisfactory;
-depends heavily on the item's brand image
-please tap on the button below to leave
-and target customer:
-Iive-star revlew:
-Which
-How
-Either
-Nothing
-Regardless
-Whatever
-So that
-### 129. _
-Patient records
-with
-Confidenlial"' in
-### 124.
-The Karvex-K's advanced features are
-red ink are subject to stronger protection
-wilh what
-professional photographers expect
-measures_
-from
-digital camera_
-stamping
-incapable
-stamped
-excited
-that stamp
-thankful
-are stamped
-consistent
-### 130.
-The Snell Herald s career advice column
-### 125. _
-Shoppers are encouraged to look around our
-enables readers t0 seize opportunities they
-store $ entire showroom floor
-they
-may
-alwork:
-decide not t0 purchase anything
-come across
-even if
-take apart
-in case
-go through
-now tnat
-back up
-such as
+(A) we
+(B) us
+(C) our
+(D) ourselves
+Benzen English -TOEIC GO ON TO THE NEXT PAGE
+TEST 8 223
 224
 
-## PART 6
-Directions: Read the texts thal follow: A word, phrase,
-or sentence is missing in parts of each text;
-Four answer choices for each
-question are given below the text: Select the best answer to complete Ihe
-text: Then mark the lelter (A), (B) (C), or (D_
-your answer sheet.
-Questions 131-134 refer t0 the following
-~mail;
-From: Harold Bjorneby <hbjorneby@oue-mail.com>
-To: Reba Shelton <r shelton@tpead.com>
+121. Human Resources reports that staff in a
+majority of departments are ------- absent
+during weeks that include national holidays.
+(A) persisted
+(B) persisting
+(C) persistent
+(D) persistently
+
+122. Tours of select apartments------- now that
+construction on the complex has been
+completed.
+
+123.
+(A) are allowing
+(B) to allow
+(C) have allowed
+(D) will be allowed
+------you find our mobile app satisfactory,
+please tap on the button below to leave a
+five-star review.
+(A) If
+(B) Either
+(C) Regardless
+(D) So that
+
+124. The Karvex-K's advanced features are
+with what professional photographers expect
+from a digital camera.
+(A) incapable
+(B) excited
+(C) thankful
+(D) consistent
+
+125. Shoppers are encouraged to look around our
+store's entire showroom floor ------- they
+decide not to purchase anything.
+(A) even if
+(B) in case
+(C) now that
+(D) such as
+
+126. The IT team ------- that all database systems
+be upgraded monthly.
+(A) expires
+(B) believes
+(C) recalls
+(D) advises
+
+127. Quality control officials found defects in a
+Phung's Apparel item just-------over the
+course of a weeklong visit.
+(A) yet
+(B) for
+(C) about
+(D) once
+
+128. -------  to package a new food product
+depends heavily on the item's brand image
+and target customer.
+(A) Which
+(B) How
+(C) Nothing
+(D) Whatever
+
+129. Patient records------ with "Confidential" in
+red ink are subject to stronger protection
+measures.
+(A) stamping
+(B) stamped
+(C) that stamp
+(D) are stamped
+
+130. The Snell Herald's career advice column
+enables readers to seize opportunities they
+may ------- at work.
+(A) come across
+(B) take apart
+(C) go through
+(D) back up
+PART 6
+Directions: Read the texts that follow. A word, phrase, or sentence is missing in parts of each text.
+Four answer choices for each question are given below the text. Select the best answer to complete the
+text. Then mark the letter (A), (B), (C), or (D) on your answer sheet.
+Questions 131-134 refer to the following e-mail.
+From: Harold Bjorneby <h.bjorneby@oue-mail.com>
+To: Reba Shelton <r.shelton@tpead.com>
 Subject: Response
 Date: March 18
-Dear Ms. Shelton_
-Thank you for your application to rent my two-bedroom property located at 349 Forest Way:
-agree
-that you are a
-match for the 7131.
-As you authorized_
-will proceed immediately with your
-credit check:
-cannot promise that your wish to move in before the end of the month can be
-"132
-accommodated , Please understand Ihat my main priority is t0 confirm that you will be
-satisfactory
-tenant:
-to take as much time as necessary to do that:  134,
-In the meantime
-please feel free
-### 133. _
+Dear Ms. Shelton,
+Thank you for your application to rent my two-bedroom property located at 349 Forest Way. I agree
+that you are a good match for the
+
+131. As you authorized, I willproceed immediately with your
+credit check.-132 I cannot promise that your wish to move in before the end of the month can be
+accommodated. Please understand that my main priority is to confirm that you will be a satisfactory
+tenant. I 133-to take as much time as necessary to do that. In the meantime, please feel free
+
+134.
 to e-mail me with any questions you may have.
-Sincerely;
+Sincerely,
 Harold Bjorneby
-### 131.
-(A) unit
-### 134. (A) The allached report explains the reasons
-post
-for this refusal;
-major
-(B) 
-Your e-mail did not clarify where to pay
-vehicle
-these lees
-(C) 
-will contact you again once Ihe process iS
-### 132. _
-(A) Still
-complele
-(D) We require the contract to be signed in
+
+131. (A) unit
+(B) post
+(C) major
+(D) vehicle
+
+132. (A) Still
 (B) Therefore
-Furthermore
-person:
-Luckily
-### 133.
-had
+(C) Furthermore
+(D) Luckily
+
+133. (A) had
 (B) have
-will have had
-have had
-Bonzen English- TOEIC
+(C) will have had
+(D) have had
+
+134. (A) The attached report explains the reasons
+for this refusal.
+(B) Your e-mail did not clarify where to pay
+these fees.
+(C) I will contact you again once the process is
+complete.
+(D) We require the contract to be signed in
+person.
+Benzen English-TOEIC
 GO ON TO THE NEXT PAGE
-TEST 8
-225
-good
-Questions 135-138 refer to the following memo
-From: Human Resources
-To: AII Staff
-Subject: Re: Survey
-Last year; some of you refused to fill out Oakhan Corporation's yearly employee satisfaction survey
-due to worries that expressing 735,
-would have
-negative effect on your careers. Wilhout candid
-feedback, however; we cannot make necessary improvements to our current systems
-736,
-we
-have decided to conduct the survey anonymously (his year: Your individual answers 7137.
-only by
-Ramagos Surveys It is a company that specializes in compiling sets of completed forms to create
-comprehensive report, which is the only document that Oakhan management will receive.
-738.
-Please visit wwwramagossurveys com/2937 between February 19 and 25 t0 participate
-### 135. _
-displeases
-### 138. _
-(A) Last year; its findings were mostly positive
-displeasing
-(B) We hope that this puts your concerns to
-displeased
-rest:
-displeasure
-(C) It may take time t0 give thoughtful
-answers
-### 136. _
-Namely
-(D) Finally, organize the data collected into
-Accordingly
-graphs_
-Additionally
-Formerly
-### 137. .
-(A) 
-seen
-see
-will be seen
-have been seen
+TEST 8 225
 226
+Questions 135-138 refer to the following memo.
+From: Human Resources
+To: All Staff
+Subject: Re: Survey
+Last year, some of you refused to fill out Oakhan Corporation's yearly employee satisfaction survey
+due to worries that expressing 135 would have a negative effect on your careers. Without candid
+feedback, however, we cannot make necessary improvements to our current systems. We
+
+136.
+have decided to conduct the survey anonymously this year. Your individual answers ---- 157 only by
+Ramagos Surveys. It is a company that specializes in compiling sets of completed forms to create a
+comprehensive report, which is the only document that Oakhan management will receive.
+
+138.
+Please visit www.ramagossurveys.com/2937 between February 19 and 25 to participate.
+
+135. (A) displeases
+(B) displeasing
+(C) displeased
+(D) displeasure
+
+136. (A) Namely
+(B) Accordingly
+(C) Additionally
+(D) Formerly
+
+137. (A) seen
+(B) see
+(C) will be seen
+(D) have been seen
+
+138. (A) Last year, its findings were mostly positive.
+(B) We hope that this puts your concerns to
+rest.
+(C) It may take time to give thoughtful
+answers.
+(D) Finally, organize the data collected into
+graphs.
 Questions 139-142 refer to the following e-mail.
-To: <rabrantes@nov-mail.com>
-From; <membership@underwoodhome com>
+To: <r.abrantes@nov-mail.com>
+From: <membership@underwoodhome.com>
 Subject: Membership confirmation
 Date: July 25
-Dear Ms. Abrantes
-Welcome t0 the Underwood Home Forums_
-You will now be able t0 discuss home improvement
-issues and
-projects with people all around the
-To begin commenting, simply find
-forum that
-interests you: This should not be difficult considering the wide variely of-139. available:
-For an optimal using experience
-there is one step you may want to take first:  4T.. Our
-### 140. _
-longtime posters have created numerous shorthand terms (hat are incomprehensible to outsiders.
-That is why we recommend
-74z, the customized dictionary accessible via the
-Under Speak" icon
-on our home page before getting started.
-Good luckl
-Sincerely;
-The Undenwood Home Forums Team
-### 139. _
-estimates
-(A) The terms of use agreement forbids the
-replacements
-replication of our content:
-venues
-(B) While using the site , you may encounter
-topics
-unfamiliar expressions.
-(C) Although debate is encouraged
-we ask
-that you remain polite.
-### 140. .
-for instance
-(D) We do not verify claims made in member
-likewise
-profiles or posts
-though
-in fact
-### 142.
-reviewing
-review
-reviewers
-that review
-Benzon English - TOEIC
-GO ON To THE NEXT PAGE
-TFST 8
-227
-world.
-### 141.
-Questions 143-146 refer to Ihe following article
-Coffee Machines in the Office
-Resnell Company Newsletter
-The coffee fans among us are now enjoying
-new benefil of
-being
-Resnell employee_
-Earlier this
-month; the coffee
-in each pantry of the building was replaced with a state-of-the-art machine_
-743"-
-The new machines, Hulford Brewing Systems, produce single cups in a variety of flavors.
-Their appearance -744 , with nearly universal delight: Several employees say the cafe mocha is the
-best coffee they have tasted: 745,
-trips to the pantry have become more frequent for members of
-many departments
-Regardless,
-company administration says there are currently no plans to limit
-746" of the machines. They urge all employees to try
-cup:
-### 143.
-(A) Pantries will be off-limits while they
-### 145. _
-Nevertheless
-are installed
-Consequently
-(B) 
-reusable cups must be washed
-Conversely
-regularly:
-Previously
-Interested employees should speak
-to their managers_
-### 146.
-transportation
-The move is meant as
-reward for
-development
-great first quarter:
-ranking
-usage
-### 144.
-was greeted
-will be greeting
-have greeted
-is greeting
-228
-pot
-The
+Dear Ms. Abrantes,
+Welcome to the Underwood Home Forums. You will now be able to discuss home improvement
+issues and projects with people all around the world. To begin commenting, simply find a forum that
+interests you. This should not be difficult considering the wide variety of available.
 
-## PART 7
-Directions: In this
-you will read a selection of texts
-such as magazine and newspaper articles_
-~mails_
-instant messages. Each text or set of texts is followed by several questions. Select (he
-best answer for each question and mark Ihe lelter (A), (B), (C) or (D) on your answer sheet
+139.
+For an optimal using experience,
+
+140.', there is one step you may want to take first.
+
+141. Our
+longtime posters have created numerous shorthand terms that are incomprehensible to outsiders.
+That is why we recommendthe customized dictionary accessible via the "UnderSpeak" icon
+
+142.
+on our home page before getting started.
+Good luck!
+Sincerely,
+The Underwood Home Forums Team
+
+139. (A) estimates
+(B) replacements
+(C) venues
+(D) topics
+
+140. (A) for instance
+(B) likewise
+(C) though
+(D) in fact
+
+141. (A) The terms of use agreement forbids the
+replication of our content.
+(B) While using the site, you may encounter
+unfamiliar expressions. (C) Although debate is encouraged, we ask
+that you remain polite.
+(D) We do not verify claims made in member
+profiles or posts.
+
+142. (A) reviewing
+(B) a review
+(C) reviewers
+(D) that review
+Bonzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 8 227
+228
+Questions 143-146 refer to the following article.
+Coffee Machines in the Office Resnell Company Newsletter
+The coffee fans among us are now enjoying a new benefit of being a Resnell employee. Earlier this
+month, the coffee pot in each pantry of the building was replaced with a state-of-the-art machine.
+The new machines, Hulford Brewing Systems, produce single cups in a variety of flavors.
+
+143.
+Their appearancewith nearly universal delight. Several employees say the café mocha is the
+
+144.
+best coffee they have tasted. 145 trips to the pantry have become more frequent for members of
+many departments. Regardless, company administration says there are currently no plans to limit
+-- of the machines. They urge all employees to try a cup.
+
+146.
+143. (A) Pantries will be off-limits while they
+are installed.
+
+145. (A) Nevertheless
+(B) Consequently
+(B) The reusable cups must be washed
+regularly.
+(C) Conversely
+(C) Interested employees should speak
+to their managers.
+
+144.
+(D) The move is meant as a reward for
+a great first quarter.
+(A) was greeted
+(B) will be greeting
+(C) have greeted
+(D) is greeting
+(D) Previously
+
+146. (A) transportation
+(B) development
+(C) ranking
+(D) usage
+PART 7
+Directions: In this part you will read a selection of texts, such as magazine and newspaper articles,
+e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the
+best answer for each question and mark the letter (A), (B), (C), or (D) on your answer sheet.
 Questions 147-148 refer to the following note.
-Word from the Publisher
-This week, Drager s takes a break from current affairs to honor some of
-the
-groundbreaking scientists of the
-decades_
-More than 50 pages
+A Word from the Publisher
+This week, Drager's takes a break from current affairs to honor some of
+the groundbreaking scientists of the past decades. More than 50 pages
 of articles explain these great figures' achievements in a variety of fields,
-and consider their effects on the world today We were also fortunate
+and consider their effects on the world today. We were also fortunate
 enough to speak directly with several of them about their experiences; a
-complete list is available on page four: So, without further comment; we
-invite you t0 begin
-enjoying this unique issue of Drager$ Weekly:
-### 147. .
-Where would the note most likely appear?
-### 148. _
-What can be found on the page mentioned?
-In a science journal
+complete list is available on page four. So, without further comment, we
+invite you to begin enjoying this unique issue of Drager's Weekly.
+
+147. Where would the note most likely appear?
+(A) In a science journal
+(B) In a laboratory newsletter
+(C) In a book of collected writings
+(D) In a news magazine
+
+148. What can be found on the page mentioned?
 (A) A photograph of a ceremony
-laboratory newsletter
-A republished article
-In a book of collected writings
-The names of some interviewees
-news
-magazine
-The results ol a reader poll
-Benzen Englisn - TOEIC
-GO ONTo THE NEXT Page
-TEST 8
-229
-part
-and
-past
-Questions 149-150 refer to the following advertisement:
-THE K270 SPEAKER BYPRAUSS
+(B) A republished article
+(C) The names of some interviewees
+(D) The results of a reader poll
+Benzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 8 229
+
+230
+Questions 149-150 refer to the following advertisement.
+THE K270 SPEAKER BY PRAUSS
+
+149.
 What backyard barbecue or pool party would be complete without
-music? Despite being just ten inches in length; the portable K270
-produces crystal-clear sound wherever it is placed.
-A tough aluminum
+music? Despite being just ten inches in length, the portable K270
+produces crystal-clear sound wherever it is placed. A tough aluminum
 shell allows it to withstand sunlight and other hazards of summer
-events, while any of the shell's available brilliant shades add
-touch
-of fun: What's more; the K270 is compatible with a variety of devices
-and has wireless
-connectivity with a range of up to 30 feet Want to
-try it out? Visit any Prauss Electronics store nationwide today:
-### 149.
+events, while any of the shell's available brilliant shades add a touch
+of fun. What's more, the K270 is compatible with a variety of devices
+and has wireless connectivity with a range of up to 30 feet. Want to
+try it out? Visit any Prauss Electronics store nationwide today.
 For whom is the advertisement most likely
-### 150.
-What is stated about the K270 Speaker?
 intended?
-It is
 (A) People who enjoy spending time
-It is sold online
 outdoors
-It is brightly colored_
 (B) People who are seeking discount
-It comes with
-carrying case
 electronics
 (C) People who listen to music while driving
 (D) People who play music professionally
-230
-large.
-Questions 151-152 refer to the following text-message chain:
-Valeria Kwon [10.24 A.M:A]
-Don; where are you?
-Don Trousdale [10.25 AM:]
-Im at one of the houses on the east
-the development:
-had t0 fix a loose door
-handle for
-tenant: Why?
-Valeria Kwon [10.25 AM:]
-The potential homebuyer; Ms. Ponti, just
+
+150. What is stated about the K270 Speaker?
+(A) It is large.
+(B) It is sold online.
+(C) It is brightly colored.
+(D) It comes with a carrying case.
+Questions 151-152 refer to the following text-message chain.
+Valeria Kwon [10:24 A.M.]
+Don, where are you?
+Don Trousdale [10:25 А.M.]
+I'm at one of the houses on the east end of
+the development. I had to fix a loose door
+handle for a tenant. Why?
+Valeria Kwon [10:25 A.M.]
+The potential homebuyer, Ms. Ponti, just
 arrived here at the office.
-Don Trousdale
-[10.26 AM:]
-Well, it's going to take me at least
-half hour
-back there_
-Valeria Kwon [10.27 AM:]
+Don Trousdale [10:26 A.M.]
+Well, it's going to take me at least a half hour
+to get back there.
+Valeria Kwon [10:27 A.M.]
 OK. It seems like Ms. Ponti is on a tight
-schedule, SO maybe
-could start showing her
-around the model home myself.
-have the
-keys
-Don Trousdale [10.28 AM:]
-Go right ahead: IIl catch up.
-### 151.
-Who most likely is Mr; Trousdale?
-### 152.
-At 10.28 AM
-what does Mr: Trousdale most
+schedule, so maybe I could start showing her
+around the model home myself. I have the
+keys.
+Don Trousdale [10:28 A.M.]
+Go right ahead. I'llcatch up.
+
+151. Who most likely is Mr. Trousdale?
+(A) A property manager
+(B) An administrative assistant
+(C) A potential buyer
+(D) An interior designer
+
+152. At 10:28 A.M., what does Mr. Trousdale most
 likely mean when he writes, "Go right
-A property manager
-An administrative assistant
-ahead"
-A potential buyer
-He is happy to lend out
-vehicle
-An interior designer
-A street may be inaccessible
-Ms. Kwon should lead
-house tour;
-He will return some
-keys to Ms. Kwon
-later:
-Benzen Englioh - TOEIC
-GO OMTO THE NEXT PAGE
-TEST 8
-231
-end .
-get =
-Questions 153-154 refer t0 the following excerpt from
-manual.
+ahead"?
+(A) He is happy to lend out a vehicle.
+(B) A street may be inaccessible.
+(C) Ms. Kwon should lead a house tour.
+(D) He will return some keys to Ms. Kwon
+later.
+Benzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 8 231
+232
+Questions 153-154 refer to the following excerpt from a manual.
 Working at the Counter
 In order to provide excellent service to customers, counter clerks at all Maire
 Laundry locations should adhere to the following basic procedures.
-Greet customers in a friendly manner;
-Receive the customer's items, clarifying which are to be laundered
-which
+Greet customers in a friendly manner.
+Receive the customer's items, clarifying which are to be laundered and which
 are to be dry cleaned, and whether special services such as stain removal
-are required:
+are required.
 Enter all information gathered into the electronic ticketing system.
 Show the resulting price to the customer and obtain full payment.
-Print the ticket: Detach the part marked "Customer to retain this portion of
-ticket" and give it to the customer: Explain that they will need to show it
+Print the ticket. Detach the part marked "Customer to retain this portion of
+ticket" and give it to the customer. Explain that they will need to show it
 when retrieving their items, and point out the "Ready by" date.
-End the interaction pleasantly:
-Attach tickets to the customer'$ items and place them into the appropriate
-bins. (See the next section for sorting instructions)
-### 153.
-What is indicated about Maire Laundry?
-### 154. _
-Whal are clerks instructed t0 do before
-(A) It serves commercial enterprises_
+End the interaction pleasantly.
+Attach tickets to the customer's items and place them into the appropriate
+bins. (See the next section for sorting instructions.)
+
+153. What is indicated about Maire Laundry?
+(A) It serves commercial enterprises.
+(B) It is a chain business.
+(C) It has self-service machines.
+(D) It sends out electronic notifications.
+
+154. What are clerks instructed to do before
 accepting payment?
-It is
-chain business
-Print
-claim licket
-It has self-service machines
-Sort clothing into bins
-It sends out electronic notificalions
-Eslimale
-completion dale
-Ask about special requests
-232
-and
-Questions 155-157 refer to the following advertisement:
+(A) Print a claim ticket
+(B) Sort clothing into bins
+(C) Estimate a completion date
+(D) Ask about special requests
+Questions 155-157 refer to the following advertisement.
 Busbyton Mall has grown! Check out our new additions!
-Busbyton Mall now boasts more than 55 shops and ample parkingl Shoppers are sure to
-find just what they are looking for here.
-You can also browse :
-leisurely pace t0 discover
-new
-produets
-For a time-out from
-shopping; stop by one of our 17 on-site restaurants, or
-take in the sensational music
-performances held frequently On our first-floor stage:
-But that $ not all. Busbyton Mall is:
-Historic: Built nearly IO0 years ag0,
-OuI beautiful main
-building has been pholographed
-for numerous design
-publications_
-and later struetures have been carefully conceived to
-complement it
-Kid-friendly: Our indoor playground offers free, safe fun for younger visitors
-Also
-available are The Wenman Store, which sells items related to Wenman'$ classic cartoons;
-and our video game arcade, located on the second floor:
-Already a fan? Become a Busbyton VIP! For a small annual fee
-will gain access t0
-exclusive diseounts and be invited t0 unwind in our VIP lounge: Visit an Information Desk
+Busbyton Mall now boasts more than 55 shops and ample parking! Shoppers are sure to
+find just what they are looking for here. You can also browse at a leisurely pace to discover
+new products. For a time-out from shopping, stop by one of our 17 on-site restaurants, or
+take in the sensational music performances held frequently on our first-floor stage.
+But that's not all. Busbyton Mall is:
+Historic: Built nearly 100 years ago, our beautiful main building has been photographed
+for numerous design publications, and later structures have been carefully conceived to
+complement it.
+Kid-friendly: Our indoor playground offers free, safe fun for younger visitors. Also
+available are The Wenman Store, which sells items related to Wenman's classic cartoons,
+and our video game arcade, located on the second floor.
+Already a fan? Become a Busbyton VIP! For a small annual fee, you will gain access to
+exclusive discounts and be invited to unwind in our VIP lounge. Visit an Information Desk
 for details.
 Busbyton Mall: Shopping made fun for all!
-### 155. _
-What is indicated about Busbyton Mall?
-### 157.
-What
-visitors who hold special
-memberships allowed to do?
-It recently expanded,
-(B) It produces
-monthly publication_
-Enter prize drawings
-(C) It has more than two floors
-Use a relaxation room
+
+155. What is indicated about Busbyton Mall?
+(A) It recently expanded.
+(B) It produces a monthly publication.
+(C) It has more than two floors.
 (D) It has changed ownership.
-Accumulate rewards points
-Park in the closest area
-### 156. _
-What is NOT mentioned as a fealure of
+
+156. What is NOT mentioned as a feature of
 Busbyton Mall?
 (A) Easy access to public transportation
-(B) Aplay facility for children
+(B) A play facility for children
 (C) Charming architecture
-(D) 
-concert venue
-Benzen English - TOEIC
-Go ONTo THE NEXT PAGE
-TEST 8
-233
-YOu
-are
+(D) A concert venue
+
+157. What are visitors who hold special
+memberships allowed to do?
+(A) Enter prize drawings
+(B) Use a relaxation room
+(C) Accumulate rewards points
+(D) Park in the closest area
+Benzen English-TOEIC
+GO ON TO THE NEXT PAGE
+TEST 8 233
+234
 Questions 158-160 refer to the following e-mail.
-EMail message
-To:
-Joo
-j@wic-mail.com>
-<customerservice@fieldhughes
-cOm>
+E-Mail message
+To: Lacy Joo <lacy.j@wic-mail.com>
+From: <customerservice@fieldhughes.com>
 Subject: Box plan
-Date: August
+Date: August 1
 Dear Ms. Joo,
-Thank you for signing up for
-threc-month
-Burst of Glamour" box plan from Field
-Hughes
-[IJ
-Your
-package of trendy cosmetics, fashion items, and more will
-soon be
-shipped
-out,
-As you requested, you
-receive
-text message alert on the day it is
-to be delivered to your address.
-[2]
-Also, note that each box contains
-card
-describing the contents inside: Please examine it
+Thank you for signing up for a three-month "Burst of Glamour" box plan from Field
+Hughes. - [1] -. Your first package of trendy cosmetics, fashion items, and more will
+soon be shipped out. As you requested, you will receive a text message alert on the day it is
+to be delivered to your address. -[2]-
+Also, note that each box contains a card describing the contents inside. Please examine it
 closely beforehand to avoid any potential problems with allergy-inducing products.
-[3]
-For those of you who especially like
-particular item, the card also
-information on where to purchase more ofit:
-Finally, we hope you will take
-moment (0
-suggest other potential customers to Field
-Hughes. Those who refer three or more friends t0 us will be sent
-free "Burst of Charm"
-premium monthly box:
-[4]
-Referral forms can be found on our Web site at WWW,
-fieldhughes com/referrals.
+-[3]-. For those of you who especially like a particular item, the card also supplies
+information on where to purchase more of it.
+Finally, we hope you will take a moment to suggest other potential customers to Field
+Hughes. Those who refer three or more friends to us will be sent a free "Burst of Charm"
+premium monthly box. - [4] -. Referral forms can be found on our Web site at www.
+fieldhughes.com/referrals.
 Sincerely,
 The Field Hughes Team
-### 158.
-What is one purpose of the e mail?
-### 160. _
-In which of the positions marked [1], [2], [3],
-To respond t0 an inquiry
-and [4] does the following sentence best
-(B) To confirm
-subscription
-belong?
-To alert Ms. Joo t0
-shipping delay
-"The ingredients of all cosmetics and edible
-To recommend a new product
-goods are listed in full:
-### 159.
-What is Ms. Joo instructed t0 read carefully?
-(B) [2]
-A Web page
-(C) [3]
+
+158. What is one purpose of the e-mail?
+(A) To respond to an inquiry
+(B) To confirm a subscription
+(C) To alert Ms. Joo to a shipping delay
+(D) To recommend a new product
+
+159. What is Ms. Joo instructed to read carefully?
+(A) AWeb page
 (B) A product label
-(D) 
-A text message
-(D) 
-package insert
-234
-Lacy
-<lacy .
-From:
-first
-will
-supplies
-Questions 161-163 refer to the following e-mail
-"E-Mail "
-From:
-Lane Riley; Human Resources
-To:
-Vides Design Managers
-Date:
-November 3
-Subject:
-Plans
-Dear managers,
-As Vides continues to expand,
-our need (or a
-supply of new employees
-especially graphic clesigners
-has grown. With this in mind, we've decided to
-begin
-summer
-internship program for university sludents.
-This will allow Us to
-make early contact with talented personnel and educate Ihem about our syslems.
-Ideally,
-WC
-will begin recruiting applicants Ihrough the Bostwick University
-Career Center early next year: We chose to focus On this university first simply
-because
-number of our slaff are alumni of it; it does not mean thal we won"(
-partner with other institutions in the future:
-We'Il start with one inlern
-department: Vd like each of you to start
-thinking
-about what qualities you would find valuable in an intern and
-vour
-depariment can offer t0 him or her in return
-Please send me a rough outline of
-your thoughts on hoth areas in the next few weeks. For reference; what you write
-will become the basis for the listings used t0 advertise the internships.
-Zane
-### 161. Why was the e-mail written?
-### 163. _
-What are readers of the e-mail asked t0
-To recruit speakers for a seminar series
-consider?
-To announce an internship program
-The mutual benelils of a possible
-To describe the purpose of
-new branch
-relationship
-office
-The qualities of successful leaders
-To correct misunderstandings about
-The basis for
-customer complaint
-process
-The best channel through which to
-advertise
-position
-### 162. ,
-What is indicated about Bostwick University?
-(A) It has an excellent Graphic Design
-Department:
-(B) 
-leads professional development
-courses in the summer:
-(C) Vides Design is collaborating with it on a
-public art project:
-(D) Several Vides Design employees
-gradualed from it.
-Benzeon Englieh - TOEIC
-GO OW /0 THE
-PAGE
-TEST 8
-235
-regular
-per
-what
-Riley
-hiring
-NEXT
-Questions 164-167 refer t0 the following form;
-Welcome to the One-Day Workshop with Sophia Hongl
-Now that you have checked in; please take
-seat and prepare to begin learning:
-From 10 AM. to 12.30 PM, Ms Hong will share the story of her
-to becoming
-successful author; in a conversational format in which questions are encouraged:
-From 1.30 PM: until the workshop ends at 4.30 P.M, she will supply personalized
-advice to all five of our workshop's participants; based on the
-proposal that
-each of you submitted prior to attending: In addition to the one-hour lunch period,
-ten-minute breaks will take place at 11:15 AM and 3 PM. In order not to
-disturb our patrons, we ask that you take breaks in the lobby near the
-circulation desk This area has benches and lounge chairs for your
-comfort and convenience:
-Participants who provide post-workshop feedback in the box below
-will be
-their choice of the gifts listed.
-Detach here
-Comments:
-Gift:
-spiral notebook
-canvas
-bookbag
-### 164.
-What is the workshop most likely about?
-### 166. _
-What informalion is NOT included on the
-How to give effective presentations
-form?
-Starting a carpentry business
-The schedule for rest times
-How to succeed as
-writer
-The number of parlicipants
-Various ways t0 make handicrafts
-The location of the workshop
-The topic of the morning discussion
-### 165.
-Whal were participants required t0 do before
-the workshop?
-### 167. _
-What is indicated about participants who give
-Gather in the lobby of a building
-feedback?
-Submit questions for Ms. Hong
-They can receive
-cloth sack:
-Purchase
-set of note-taking tools
-They probably disliked the workshop
-Prepare ideas for
-potential project
-They must send in a form by post:
-They may register for
-fulure event:
-236
-path
-story
-given
-Questions 168-171 reler to the following online chat discussion:
-Andre Jones, 9:02 A.M
-everyone.
-just got word that Mr: Boliek will be attending Our meeting this morning
-please be prepared:
-Bharat Laghari, 9:02 A.M.
-OK
-thanks for the heads-Up. TIl let Chisato know when she arrives with the snacks:
-Carole Hauser; 9:03 A.M_
-FI check that the conference rOom is set up. And should
-revise the agenda to allow time
-for Mr: Boliek t0 speak?
-Andre Jones; 9:04AM_
-No. that
-all right; Carole
-Aclually: hie wants us t0 act as if he wasn'
-there_
-But it s been
-time since Someone at the vice-president level
-has Sat in OH) our weekly
-meeting; so Fd
-like t0 ensure that, at
-mninimum_
-we don"
-Mke
-bad impression_
-Yvette Curley; %:05 A.M_
-In that case, could we possibly move my presentation On the buying habits of our target
-consumers t0 next week? [ ve been really busy with the product launch_
-Andre Jones; 9:05 A.M:
-Ithink that would
-the meeting too short. Did you make an electronic slideshow; at
-least?
-Yvette Curley; 9:06 A.M
-Yes, but it
-be better:
-Andre Jones; %:07 A.M_
-Hmm. _
-please
-mail the file t0 me and then conie to my oflice t0 talk il over: Carole
-let you know what we decide.
-### 168.
-What is indicated about Mr: Boliek?
-### 170.
-What field do the writers most likely work in?
-He is a high-ranking executive
-Law
-(B) He called Mr: Jones directly:
-Medicine
-He has an announcement t0 make;
-Accounting
-He has returned from
-long business
-Marketing
-trip.
-### 171.
-At 9.06 AM;
-whal does Ms;
-Curley most
-### 169.
-What is Ms. Hauser most Iikely responsible
-likely mean
-she writes
-could be
-for doing?
-beller'
-Oblaining refreshments
-Mr. Jones may be disappointed by
-Making
-timetable
-research finding:
-Preparing electronic equipment
-(B) She is dissalisfied wilh the current state
-Reserving
-conference room
-of some work.
-She wants t0 use visual aids t0 explain
-some dala
-Mr. Jones should consider cancelling
-meeling:
-GO OwTO THE NEXT PAGE
-Benzen English - TOEIC
-TEST 8
-237
-Hey.
-long
-make
-could
-when
-Questions 172-175 refer to the following article.
-Attuso Food Truck Festival to Expand
-by Abigail Davies
-ATTUSO (August 31)
-the remarkable
-success ol
-the inaugural Attuso Food Truck Festival in May; the city ol
-Attuso has revealed plans t0 add
-second
-to next
-event, while the vcnue remains the same
-The   first
-Attuso
-Food
-Truck
-Festival
-WS
-organized
-attract
-visitors to Montar Park; which the
-had finishec
-constructing
-in   January
-CII
-More
-lhal
-20
-trucks
-served
-variety of foods
-(0 : estimated
-crowd of I,0OO
-while musicians and
-arts-and-cralts
-lents
-provicled
-entertainment.
-The   change
-Was
-announced
-press
-release
-posted
-yesterday
-thefestival s Web sile
-WWWatluso-ftf.com.
-City officials
-wrote that the
-extr
-will have
-impact
-on the second celebration of the festival by giving
-more visitOrs
-chance to atlend.
-[2]
-Drake   Ryu,
-owner
-of   Kimchi Curry,
-OnC
-the
-most
-popular trucks
-participate in this year
-festival; voiced
-excilemen about the
-news:
-~We"Il definitely
-next
-year $ festival,
-he said:
-[3]
-~The first onc introduced
-QuT
-food to
-lot of new people, and
-sounds like it'$ only
-going t0 get better:
-The city also hopes
-to  widen the range
-of entertainment
-options   offered.
-Businesses
-and
-organizations
-will
-sought to sponsor additional activities tents.
-and there will
-be more
-opportunities for musical performances by groups
-and individuals
-[41
-The press release promises that
-application
-forms
-are
-coming
-Soon   and encourages those
-interested t0 check the Web site regularly:
-238
-Citing
-day
-year $
-cily
-people.
-day
-large
-### 172. ,
-What is implied about Ihe festival?
-### 174.
-The word "introduced" in paragraph 4, line 4,
-Ms; Davies has taken part in it.
-is closest in meaning t0
-Mr: Ryu is
-of its organizers_
-instituted
-It has been held twice before_
-assigned
-(D) It takes place in
-public park:
-presented
-generated
-### 173. _
-Whal is
-suggested about
-Web site?
-(A) It does not yet contain necessary
-### 175.
-In which of the positions marked [1], [2], [3],
+(C) A text message
+(D) A package insert
+
+160. In which of the positions marked [1], [2], [3],
 and [4] does the following sentence best
-documents
-(B) It is not maintained by the city of Attuso
 belong?
-It was designed for out-of-town visitors
-They also predict that it will make the event
-(D) It will give live updates during Ihe next
-more attractive t0 trucks Irom outside of the
-festival:
-Attuso area;
+"The ingredients of all cosmetics and edible
+goods are listed in full."
+(A) [1]
 (B) [2]
 (C) [3]
 (D) [4]
-Bonzon English - TOEIC
-GO ONTo THE NEXT PAGE
-TEST 8
-239
-one
-Questions 176-180 refer to the following e-mail and receipt
+Questions 161-163 refer to the following e-mail.
+*E-Mail
+From: Zane Riley, Human Resources
+To: Vides Design Managers
+Date: November 3
+Subject: Plans
+Dear managers,
+As Vides continues to expand, our need for a regular supply of new employees
+-especially graphic designers-has grown. With this in mind, we've decided to
+begin a summer internship program for university students. This will allow us to
+make early contact with talented personnel and educate them about our systems.
+Ideally, we will begin recruiting applicants through the Bostwick University
+Career Center early next year. We chose to focus on this university first simply
+because a number of our staff are alumni of it; it does not mean that we won't
+partner with other institutions in the future.
+We'll start with one intern per department. I'd like each of you to start thinking
+about what qualities you would find valuable in an intern and what your
+department can offer to him or her in return. Please send me a rough outline of
+your thoughts on both areas in the next few weeks. For reference, what you write
+will become the basis for the listings used to advertise the internships.
+- Zane Riley
+
+161. Why was the e-mail written?
+(A) To recruit speakers for a seminar series
+(B) To announce an internship program
+
+163. What are readers of the e-mail asked to
+consider?
+(C) To describe the purpose of a new branch
+office
+(A) The mutual benefits of a possible
+relationship
+(D) To correct misunderstandings about a
+hiring process
+(B) The qualities of successful leaders
+(C) The basis for a customer complaint
+(D) The best channel through which to
+advertise a position
+
+162. What is indicated about Bostwick University?
+(A) It has an excellent Graphic Design
+Department.
+(B) It leads professional development
+courses in the summer.
+(C) Vides Design is collaborating with it on a
+public art project.
+(D) Several Vides Design employees
+graduated from it.
+Benzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 8 235
+236
+Questions 164-167 refer to the following form.
+Welcome to the One-Day Workshop with Sophia Hong!
+Now that you have checked in, please take a seat and prepare to begin learning.
+From 10 A.M. to 12:30 P.M., Ms. Hong will share the story of her path to becoming a
+successful author, in a conversational format in which questions are encouraged.
+From 1:30 P.M. until the workshop ends at 4:30 P.M., she will supply personalized
+advice to all five of our workshop's participants, based on the story proposal that
+each of you submitted prior to attending. In addition to the one-hour lunch period,
+ten-minute breaks will take place at 11:15 A.M. and 3 P.M. In order not to
+disturb our patrons, we ask that you take breaks in the lobby near the
+circulation desk. This area has benches and lounge chairs for your
+comfort and convenience.
+Participants who provide post-workshop feedback in the box below
+will be given their choice of the gifts listed.
+Comments:
+Gift: spiral notebook
+Detach here
+canvas bookbag
+
+164. What is the workshop most likely about?
+(A) How to give effective presentations
+(B) Starting a carpentry business
+(C) How to succeed as a writer
+(D) Various ways to make handicrafts
+
+165. What were participants required to do before
+the workshop?
+(A) Gather in the lobby of a building
+(B) Submit questions for Ms. Hong
+(C) Purchase a set of note-taking tools
+(D) Prepare ideas for a potential project
+
+166. What information is NOT included on the
+form?
+(A) The schedule for rest times
+(B) The number of participants
+(C) The location of the workshop
+(D) The topic of the morning discussion
+
+167. What is indicated about participants who give
+feedback?
+(A) They can receive a cloth sack.
+(B) They probably disliked the workshop.
+(C) They must send in a form by post.
+(D) They may register for a future event.
+Questions 168-171 refer to the following online chat discussion.
+Andre Jones, 9:02 A.M.
+Hey, everyone. I just got word that Mr. Boliek will be attending our meeting this morning,
+so please be prepared.
+Bharat Laghari, 9:02 А.м.
+OK, thanks for the heads-up. I'll let Chisato know when she arrives with the snacks.
+Carole Hauser, 9:03 A.м.
+I'll check that the conference room is set up. And should I revise the agenda to allow time
+for Mr. Boliek to speak?
+Andre Jones, 9:04 A.м.
+No, that's all right, Carole. Actually, he wants us to act as if he wasn't there. But it's been a
+long time since someone at the vice-president level has sat in on our weekly meeting, so I'd
+like to ensure that, at a minimum, we don't make a bad impression.
+Yvette Curley, 9:05 A.м.
+In that case, could we possibly move my presentation on the buying habits of our target
+consumers to next week? I've been really busy with the product launch....
+Andre Jones, 9:05 A.м.
+I think that would make the meeting too short. Did you make an electronic slideshow, at
+least?
+Yvette Curley, 9:06 A.м.
+Yes, but it could be better.
+Andre Jones, 9:07 А.м.
+Hmm... please e-mail the file to me and then come to my office to talk it over. Carole, I'II
+let you know what we decide. A
+
+168. What is indicated about Mr. Boliek?
+(A) He is a high-ranking executive.
+(B) He called Mr. Jones directly.
+(C) He has an announcement to make.
+(D) He has returned from a long business
+trip.
+
+169. What is Ms. Hauser most likely responsible
+for doing?
+(A) Obtaining refreshments
+(B) Making a timetable
+(C) Preparing electronic equipment
+(D) Reserving a conference room
+
+170. What field do the writers most likely work in?
+(A) Law
+(B) Medicine
+(C) Accounting
+(D) Marketing
+
+171. At 9:06 A.M., what does Ms. Curley most
+likely mean when she writes, "it could bе
+better"?
+(A) Mr. Jones may be disappointed by a
+research finding.
+(B) She is dissatisfied with the current state
+of some work.
+(C) She wants to use visual aids to explain
+some data.
+(D) Mr. Jones should consider cancelling a
+meeting.
+Benzen English -TOEIC
+est 8GO ON TO THE NEXT PAGE
+TEST 8 237
+238
+Questions 172-175 refer to the following article.
+Attuso Food Truck Festival to Expand by Abigail Davies
+ATTUSO (August 31)-Citing the remarkable success of
+the inaugural Attuso Food Truck Festival in May, the city of
+Attuso has revealed plans to add a second day to next year's
+event, while the venue remains the same.
+The first Attuso Food Truck Festival was organized to
+attract visitors to Montar Park, which the city had finished
+constructing in January. -[1]-. More than 20 trucks
+served a variety of foods to an estimated crowd of 1,000
+people, while musicians and arts-and-crafts tents provided
+entertainment.
+The change was announced in a press release posted
+yesterday on the festival's Web site, www.attuso-ftf.com.
+City officials wrote that the extra day will have a large
+impact on the second celebration of the festival by giving
+more visitors a chance to attend. -[2]-
+Drake Ryu, owner of Kimchi Curry, one of the most
+popular trucks to participate in this year's festival, voiced
+excitement about the news. "We'll definitely be at next
+year's festival," he said. -[3]-. "The first one introduced
+our food to a lot of new people, and it sounds like it's only
+going to get better."
+The city also hopes to widen the range of entertainment
+options offered. Businesses and organizations will be
+sought to sponsor additional activities tents, and there will
+be more opportunities for musical performances by groups
+and individuals. -[4]-. The press release promises that
+application forms are coming soon and encourages those
+interested to check the Web site regularly.
+
+172. What is implied about the festival?
+
+174.
+(A) Ms. Davies has taken part in it.
+(B) Mr. Ryu is one of its organizers.
+(C) It has been held twice before.
+(D) It takes place in a public park.
+
+173. What is suggested about a Web site?
+(A) It does not yet contain necessary
+documents.
+(B) It is not maintained by the city of Attuso.
+(C) It was designed for out-of-town visitors.
+(D) It will give live updates during the next
+festival.
+The word "introduced" in paragraph 4, line 4,
+is closest in meaning to
+(A) instituted
+(B) assigned
+(C) presented
+(D) generated
+
+175. In which of the positions marked [1], [2], [3],
+and [4] does the following sentence best
+belong?
+"They also predict that it will make the event
+more attractive to trucks from outside of the
+Attuso area."
+(A) [1]
+(B) [2]
+(C) [3]
+(D) [4]
+Bonzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 8 239
+240
+Questions 176-180 refer to the following e-mail and receipt.
 E-Mail message
-From:
-<promotions@aledonshoes com>
-To:
-Grant Hudec
-Date:
-January 29
-Subject:
-Aledon Shoes Huckley
-Dear Mr. Hudec ,
-We are pleased
-to announce that, after two years of rapid growth online
-Aledon Shoes is
-launching its first offling location. Aledon Shoes Huckley_
+From: <promotions@aledonshoes.com>
+To: Grant Hudec
+Date: January 29
+Subject: Aledon Shoes Huckley
+Dear Mr. Hudec,
+We are pleased to announce that, after two years of rapid growth online,
+Aledon Shoes is launching its first offline location. Aledon Shoes Huckley,
 located on fashionable Tarpey Street, will open its doors this Saturday. As
-a loyal customer in thc
-Huckley region, we wanted you to be among the
-first to know about this
-exciting development.
-Come by
-On1
-opening
-weekend
-to collect a free Shoe Cleaner Set with any purchasel
-But even if you can t visit US S0
-WC
-encourage you t0 stop in later
-between 10
-(A) M_
-and 7 PM.
-Tuesdays through Sundays_
-An authority on
-foolwear dlesign will always be 0n hand t0 give YOu an in-person
-consultation. And
-as a proud member of the Huckley City Chamber of
-Commerce, we'Il ofler a
-standing 10% discount to holders of Huckley
-Commerce Preferred Customer Cards_
-We hope
-to sce YOu
-soon
+a loyal customer in the Huckley region, we wanted you to be among the
+first to know about this exciting development. Come by on opening
+weekend to collect a free Shoe Cleaner Set with any purchase!
+But even if you can't visit us so soon, we encourage you to stop in later
+between 10 A.M. and 7 P.M., Tuesdays through Sundays. An authority on
+footwear design will always be on hand to give you an in-person
+consultation. And, as a proud member of the Huckley City Chamber of
+Commerce, we'll offer a standing 10% discount to holders of Huckley City
+Commerce Preferred Customer Cards.
+We hope to see you soon.
 Sincerely,
 Alisa Shipp
 CEO, Aledon Shoes
-Order Receipe
+Order Receipt
 Aledon Shoes Huckley
 907 Tarpey Street
 Customer name: Grant Hudec
-Date: February
-Customer # 000325
-Salesclerk: Jiliian Stafford
-Thank vou for shopping
-at Aledon Shoes Huckley: We will construct the items
-below
-using the specifications listed and the
-measurements we have
-taken: You may pick Up your order on or after
-Monday, February 11.
-Model
-Information
-Quantity
-Price Per Unit
-Total
-5439
-Premium Leather Dress Shoes;
-5121.00
-$121.00
+Customer #: 000325
+Date: February 3
+Salesclerk: Jillian Stafford
+Thank you for shopping at Aledon Shoes Huckley. We will construct the items
+below using the specifications listed and the sizing measurements we have
+taken. You may pick up your order on or after Monday, February 11.
+Model # Information Quantity Price Per Unit Total
+5439 Premium Leather Dress Shoes;
 black with black stitching
-8167
-Canvas Sneakers; navy with
-5108.00
-5108.00
+1 $
+
+121.00 $
+
+121.00
+8167 Canvas Sneakers; navy with
 white soles
-3402
-Shoe Cleaner Set
-0.00
-S0.00
-Discount
-S0.00
-Total Amount Due
-5229.00
-Amount Received
-5229.00
-Balance Due
-So.00
-Payment
-Credit Card
-Cash
-Other
-240
-soon,
-City
-sizing
-type:
-### 176. _
-What is mainly being advertised in the
-### 179.
-Whal iS
-indicated about the purchased
-items?
-A seasonal sale
-Ms. Stafford gift-wrapped tnem:
-A line of merchandise
-They are in an extra-narrow width:
-A customer loyally card
-They are made of the same material.
-(D) A grand opening
-Mr Hudec did not receive Ihem on
-February 3-
-### 177. According t0 the e-mail, what is available to
-Aledon Shoes Huckley customers?
-### 180. _
-What is implied about Mr: Hudec?
-(A) Advice from
-specialist
-He shopped during
-sales promotion.
-(B) Footwear repair
-He carries a local commerce card:
-(C) A 3D foot-scanning device
-He used t0 reside on Tarpey Street:
-(D) A variety of matching accessories
-He
-for his purchases with cash.
-### 178. _
-What is NOT mentioned aboul Aledon Shoes
-Huckley?
-(A) It is closed one
-per week:
-(B) It sells custom-made shoes_
-(C) It operates
-home
-delivery service
-(D) It grew out of an Internet business.
-Benzen Eaglish - TOEIC
-Go OnTo THE NEXT PAGE
-TEST 8
-241
+1 $
+
+108.00 $
+
+108.00
+3402 Shoe Cleaner Set 1 0.00 $0.00
+Discount -$0.00
+Total Amount Due $229.00
+Amount Received -$229.00
+Balance Due $0.00
+Payment type: ✗ Credit Card Cash Other
+
+176. What is mainly being advertised in the
 e-mail?
-paid
-day
+(A) A seasonal sale
+(B) A line of merchandise
+(C) A customer loyalty card
+(D) A grand opening
+
+177. According to the e-mail, what is available to
+Aledon Shoes Huckley customers?
+(A) Advice from a specialist
+(B) Footwear repair
+(C) A 3D foot-scanning device
+(D) A variety of matching accessories
+
+178. What is NOT mentioned about Aledon Shoes
+Huckley?
+(A) It is closed one day per week.
+(B) It sells custom-made shoes.
+(C) It operates a home delivery service.
+(D) It grew out of an Internet business.
+
+179. What is indicated about the purchased
+items?
+(A) Ms. Stafford gift-wrapped them.
+(B) They are in an extra-narrow width.
+(C) They are made of the same material.
+(D) Mr. Hudec did not receive them on
+February 3.
+
+180. What is implied about Mr. Hudec?
+(A) He shopped during a sales promotion.
+(B) He carries a local commerce card.
+(C) He used to reside on Tarpey Street.
+(D) He paid for his purchases with cash.
+Benzen English-TOEIC
+GO ON TO THE NEXT PAGE
+TEST 8 241
+242
 Questions 181-185 refer to the following Web page and e-mail.
-http Vfwww pursifull com/businesses
-Home
-For businesses
-For jobseekers
-Contact
+http://www.pursifull.com/businesses
+Home For businesses For jobseekers Contact
 Pursifull
 Labour When You Need It
 Pursifull is proud to provide labour hire services to warehouses and factories throughout
-southeastern Canada: Under this system, our employees (called "insourced employees'
-work on your site and under your direction for as long as necessary: Many of them have
-worked for us for years; and our thorough reference-checking system ensures that new
-insourced employees already have experience in your industry as well: All are kept
-up-to-date on occupational safety and health regulations:
-Should you decide to engage our services,
-consultant will come to your work site and
-discuss with you the duties that insourced employees must perform After selecting
+southeastern Canada. Under this system, our employees (called "insourced employees")
+work on your site and under your direction for as long as necessary. Many of them have
+worked for us for years, and our thorough reference-checking system ensures that new
+insourced employees already have experience in your industry as well. All are kept
+up-to-date on occupational safety and health regulations.
+Should you decide to engage our services, a consultant will come to your work site and
+discuss with you the duties that insourced employees must perform. After selecting
 suitable employees who are already on our payroll, we will recruit additional workers to
-fill any remaining gaps via job postings on our "For jobseekers'
-page: Qualified
-candidates then undergo our efficient hiring
-education procedures. The entire
-process can take as little as
-week, depending on the number of workers needed:
-Ready to become one of Pursifull's many satisfied clients? Click "Contact" above
-From:
-Tonya Rossinan
-Io:
-Kiyoshi Blaine
-Date:
-25 October
-Subject:
-Request
-Deat Kiyoshi,
-Hello
-from Lona Warehousing
-As
-promised,
-WC T0
-requesting another group of
-insourced workers from Pursifull.
-hope it s all right t0 contaet you like this instead ol
-going through the company Web site.
-thought it might be quieker t0 g0 direetly to the
-consuMtant Wio
-[allaged our fitst agTCenen
-This time .
-we need extra warehouse staff t0 handle the large volume of stock that will he
-coming :dl going' during Uhe holiday shepping season_
-Please find Iiv slock asSociales
-who can work in our Toronto Warehouse from mic-Novemher to the end of December:
-The specifications of these positions are the same as before.
-me know what further
-dletails or ation
-Il need.
-Tluanks.
-Tonya Rossman
-Hutaan Resourees Deparuemt. LOa Warehousing
-242
-and
-aeain
-Lel
-you"
-### 181. _
-What is NOT indicated about insourced
-### 184.
-What is implied about Mr: Blaine?
-employees?
-He will train some stock associates
-(A) 
-They are given safety education.
-He was Iransferred t0 the Toronto branch
-They have relevant work experience
-of Pursifull:
-They have provided job references_
-(C) He will need over
-week to fulfill a
-They are sent all over the country:
-request
-(D) He has been inside a Lona Warehousing
-### 182.
-In the Web page, the word "direction" in
-facility:
-paragraph
-line 3, is closest in meaning to
-### 185. _
-What reason does Ms. Rossman give for her
-(A) route
-evidence
-request?
-oversight
-Anticipalion of an annual busy period
-recovery
-Difficulty with staffing
-new warehouse
-The malfunctioning of some machines
-### 183. According to lhe Web page
-what can be
-The deparlure of some employees
-found on Pursifulls Web site?
-Job advertisements
-Learning resources
-Resumes posted by jobseekers
-A list of current clients
-9enzen Englich - TOEIC
-GO ON TO THE NEXT PAGE
-TEST 8
-243
-Questions 186-190 refer t0 the following Web page, e-mail, and article.
-http Ilwwauengineeringconference coaulseminars/2204
-Australia Civil Engineering Conference
-Seminar Schedule
-Friday, 19 June
-Click on underlined titles for further information_
-9A.M.
-10.20A.M.
-Energy-Eflicient Railways'
-Sang-Woo Jeong, South
-Room 102
-1O:40 A.M:
-12 RM.
-Materials
-Durability"
-Elsa Koenig, Germany
-Wing C,
-### 105.
-### 130. PM:
-2.50 PM.
-"Ethics in Civil
-Engineering" (Additional fee: AUS30)
-Jirou Shields
-Australia
-Wing €, Room 103
-3.10 PM:
-4.30 PM:
-"Improving Water Supply Systems'
-Sylvia Watson, Canada
-C,Room 102
-E-Mail message
-From:
-Nigel Rollins
-To:
-Wendy Vincent
-Date:
-19 June
-Subject:
-Question
-Hi Wendy,
-Tm at the Australia Civil Engineering Conference.
-aS yOu know; and [ m
-writing to
-get your opinion On
-proposal. Right now; [m silting in
-semnat about high-
-performance concrete and Other new construction Materials.
-think We might want t0
-ineorporate some of them into the Storvick Bridge project They could solve the
-problem we re having with the land On the Gouldley side of the river: When the
-scminar ends. Fd like to
-the speaker t0 aCl aS & COHSUltant for the bridge
-committee. What do you think?
-Please get back to ne SOon, because
-dlon
-have mueh time left for thal kind of
-nelworking: My train departs early this evening.
+fill any remaining gaps via job postings on our "For jobseekers" page. Qualified
+candidates then undergo our efficient hiring and education procedures. The entire
+process can take as little as a week, depending on the number of workers needed.
+Ready to become one of Pursifull's many satisfied clients? Click "Contact" above.
+From: Tonya Rossman
+To: Kiyoshi Blaine
+Date: 25 October
+Subject: Request
+Dear Kiyoshi,
+Hello again from Lona Warehousing! As promised, we're requesting another group of
+insourced workers from Pursifull. I hope it's all right to contact you like this instead of
+going through the company Web site. I thought it might be quicker to go directly to the
+consultant who managed our first agreement.
+This time, we need extra warehouse staff to handle the large volume of stock that will be
+coming and going during the holiday shopping season. Please find five stock associates
+who can work in our Toronto warehouse from mid-November to the end of December.
+The specifications of these positions are the same as before. Let me know what further
+details or action you'll need.
 Thanks.
-Nigel
-244
-for
-Korea
-Wing
-and
-Room
-Wing
-ask
-Storvick Bridge Opens to the Public
-SYDNEY (22 April)
-Cricket fans now have more ways t0 get t0 the
-Wendell
-final that will take place next month. Storvick Bridge,
-which opened t0 pedestrian and bicycle traflic with
-small ceremony
-yesterday: conneets West Cricket Ground with the Cressell neighborhood
-across thc Gilmour River:
-The bridge
-beautifully-patterned railings enhance visitors' views of the
-river; whilc
-25-metre segment at its midpoint can rotate 9 degrees to
-give a clear way for tall ships t0 pass through Loeal residents and
-enterprises also appreciate that it links two major eyeling
-Storvick Bridge represents
-great improvement t0 the region $
-infrastructure_
-will benefit its economy long alter the Wendell
-iS ovCr:
-### 186. _
-On the Web page, what is suggested about
-### 189.
-What is probably true about West Cricket
-"Improving Water Supply Systems'
-Ground?
-(A) It takes place in the same room as
-It is located in Gouldley:
-another seminar;
-(B) It was built recently:
-(B) There is an extra fee t0 register for it:
-It always hosts the Wendell
-The speaker is from Australia_
-(D) It is near
-conference complex:
-It was originally scheduled for
-different
-day:
-### 190.
-What is indicated about Storvick Bridge?
-(A) It has two lanes for automobiles_
-### 187. _
-Whose seminar was Mr: Rollins attending
-(B) Its railings are decorated wilh model
-when he wrote Ihe e-mail?
-ships.
-Mr; Jeong'$
-It was named for a popular cricket player:
-Ms. Koenig's
-Its center section is movable:
-Mr; Shields s
-Ms. Watson 5
-### 188. _
-What does Mr: Rollins mention he intends to
-do in the evening?
-Conduct
-seminar
-Leave
-conference
-Speak t0 an event coordinator
-Go to
-nelworking dinner
-Benzen English - TOEIC
+Tonya Rossman
+Human Resources Department, Lona Warehousing
+
+181. What is NOT indicated about insourced
+employees?
+(A) They are given safety education.
+(B) They have relevant work experience.
+(C) They have provided job references.
+(D) They are sent all over the country.
+
+182. In the Web page, the word "direction" in
+paragraph 1, line 3, is closest in meaning to
+(A) route
+(B) evidence
+(C) oversight
+(D) recovery
+
+183. According to the Web page, what can be
+found on Pursifull's Web site?
+(A) Job advertisements
+(B) Learning resources
+(C) Résumés posted by jobseekers
+(D) A list of current clients
+
+184. What is implied about Mr. Blaine?
+(A) He will train some stock associates.
+(B) He was transferred to the Toronto branch
+of Pursifull.
+(C) He will need over a week to fulfill a
+request.
+(D) He has been inside a Lona Warehousing
+facility.
+
+185. What reason does Ms. Rossman give for her
+request?
+(A) Anticipation of an annual busy period
+(B) Difficulty with staffing a new warehouse
+(C) The malfunctioning of some machines
+(D) The departure of some employees
+Benzen English -TOEIC
 GO ON TO THE NEXT PAGE
-TEST 8
-245
-Cup
-paths.
-Cup
-and
-Cup:
-Questions 191-195 refer to the following e-mail, notification message, and article
-EMail message
-To: Linda Hooper <lhooper@kelevac com>
+TEST 8 243
+
+244
+Questions 186-190 refer to the following Web page, e-mail, and article.
+http://www.auengineeringconference.co.au/seminars/2204
+Australia Civil Engineering Conference
+Seminar Schedule for Friday, 19 June
+Click on underlined titles for further information.
+9 A.M. -10:20 A.M. "Energy-Efficient Railways"
+Sang-Woo Jeong, South Korea
+Wing C, Room 102
+10:40 A.M. - 12 Р.M. "Materials and Durability"
+Elsa Koenig, Germany
+Wing C, Room 105
+1:30 Р.м. -2:50 P.M. "Ethics in Civil Engineering" (Additional fee: AU$30)
+Jirou Shields, Australia
+Wing C, Room 103
+3:10 P.м. - 4:30 P.M. "Improving Water Supply Systems”
+Sylvia Watson, Canada
+Wing C, Room 102
+E-Mail message
+From: Nigel Rollins
+To: Wendy Vincent
+Date: 19 June
+Subject: Question
+Hi Wendy,
+I'm at the Australia Civil Engineering Conference, as you know, and I'm writing to
+get your opinion on a proposal. Right now, I'm sitting in a seminar about highperformance concrete and other new construction materials. I think we might want to
+incorporate some of them into the Storvick Bridge project. They could solve the
+problem we're having with the land on the Gouldley side of the river. When the
+seminar ends, I'd like to ask the speaker to act as a consultant for the bridge
+committee. What do you think?
+Please get back to me soon, because I don't have much time left for that kind of
+networking. My train departs early this evening.
+Thanks,
+Nigel
+Storvick Bridge Opens to the Public
+SYDNEY (22 April)-Cricket fans now have more ways to get to the
+Wendell Cup final that will take place next month. Storvick Bridge,
+which opened to pedestrian and bicycle traffic with a small ceremony
+yesterday, connects West Cricket Ground with the Cressell neighborhood
+across the Gilmour River.
+The bridge's beautifully-patterned railings enhance visitors' views of the
+river, while a 25-metre segment at its midpoint can rotate 90 degrees to
+give a clear way for tall ships to pass through. Local residents and
+enterprises also appreciate that it links two major cycling paths.
+Storvick Bridge represents a great improvement to the region's
+infrastructure, and will benefit its economy long after the Wendell Cup
+is over.
+
+186. On the Web page, what is suggested about
+"Improving Water Supply Systems"?
+(A) It takes place in the same room as
+another seminar.
+(B) There is an extra fee to register for it.
+(C) The speaker is from Australia.
+(D) It was originally scheduled for a different
+day.
+
+187. Whose seminar was Mr. Rollins attending
+when he wrote the e-mail?
+(A) Mr. Jeong's
+(B) Ms. Koenig's
+(C) Mr. Shields's
+(D) Ms. Watson's
+
+188. What does Mr. Rollins mention he intends to
+do in the evening?
+(A) Conduct a seminar
+(B) Leave a conference
+(C) Speak to an event coordinator
+(D) Go to a networking dinner
+
+189. What is probably true about West Cricket
+Ground?
+(A) It is located in Gouldley.
+(B) It was built recently.
+(C) It always hosts the Wendell Cup.
+(D) It is near a conference complex.
+
+190. What is indicated about Storvick Bridge?
+(A) It has two lanes for automobiles.
+(B) Its railings are decorated with model
+ships.
+(C) It was named for a popular cricket player.
+(D) Its center section is movable.
+Benzen English-TOEIC
+GO ON TO THE NEXT PAGE
+TEST 8 245
+
+246
+Questions 191-195 refer to the following e-mail, notification message, and article.
+E-Mail message
+To: Linda Hooper <lhooper@kelevac.com>
 From: Ivan Metcalf <imetcalf@kelevac-hr.com>
 Date: August 23
-Subjeet: Re: Incentive program
-Dear Ms. Hooper;
-We have received your inquiry concerning Kelevac
-new incentive program that gives
-time off' for employees who partieipale in volunteer projects. The information YOu
-requested will be made available t0 the Ormeslield branch at an all-staff information
-session on September 3. Coordinator Ezra Gaffiey will lead the presentation and address
-your questions afterward on that
+Subject: Re: Incentive program
+Dear Ms. Hooper,
+We have received your inquiry concerning Kelevac's new incentive program that gives
+paid time off for employees who participate in volunteer projects. The information you
+requested will be made available to the Ormesfield branch at an all-staff information
+session on September 3. Coordinator Ezra Gaffney will lead the presentation and address
+your questions afterward on that day.
 Thank you for your interest in this initiative.
-Regards
+Regards,
 Ivan Metcalf
 Human Resources Coordinator
-Your Time-Ofif Request Has Been Approved
+Your Time-Off Request Has Been Approved
 Name: Linda Hooper
-Department: Finance
 Start Date: October 13
-Time: 1 PM;
 End Date: October 13
-5 PM.
 Total Hours: 4
+Department: Finance
+Time: 1 P.M.
+Time: 5 P.M.
 Type of Time Off: Volunteer Time Off
-Comments:
-will use the time to help with an event that United Ormesfield is
-holding on that day:
-have not previously used any Volunteer Time Off.
-Reviewed by: Olivia Clark
+Comments: I will use the time to help with an event that United Ormesfield is
+holding on that day. I have not previously used any Volunteer Time Off.
 Date: October 11
-Approved: Yes @
-No
-Comments: Please give notice at least five days in advance next time.
-Also,
-remember that you must print out the "Volunteer Service Confirmation Form'
-have it signed by a member of the organization you are assisting; and submit it
-to me
-Remaining Volunteer Time Off for this year: 36 hours.
-CAUOLUEAFAOUOUAAFAOU AUOPAUAUALADAOUUOLIUAUUDAUUAIUAUALUDUAUOAU UTILUDUBUAUAUUTAUOUAUUDUAUAUO UUAUOUAUAADAeO
-246
-paid
-day -
-Time:
-Kelevac Gives Back t0 the Community
-ORMESFIELD (October 30)
-Ormesfield is nOw reaping
-the benefits ol'
-new policy recently adopted by Kelevac.
-The pharmaceuticals giant; which is based in Thielberg;
-decided in August t0 allow its
-one week of
-leave
-to engage in volunteer work:
-of the 200 employees
+Reviewed by: Olivia Clark
+Approved: Yes No
+Comments: Please give notice at least five days in advance next time. Also,
+remember that you must print out the "Volunteer Service Confirmation Form",
+have it signed by a member of the organization you are assisting, and submit it
+to me. Remaining Volunteer Time Off for this year: 36 hours.
+Kelevac Gives Back to the Community
+ORMESFIELD (October 30) -Ormesfield is now reaping
+the benefits of a new policy recently adopted by Kelevac.
+The pharmaceuticals giant, which is based in Thielberg,
+decided in August to allow its staff one week of paid leave
+to engage in volunteer work. Many of the 200 employees
 working at its Ormesfield branch are taking advantage of
-the opportunity:
-According
-Chris  Jimenez ,
-official
-the   branch;
+the opportunity.
+According to Chris Jimenez, an official at the branch,
 Kelevac employees have volunteered for Ormesfield Beach
-elean-up efforts and helped United Ormesfield put On an
-auction
-earlier
-this
-month
-rise
-money
-for
-community food bank_
+clean-up efforts and helped United Ormesfield put on an
+auction earlier this month to raise money for its
+community food bank.
 Tristan Liu, a quality assurance assistant, has signed up for
-program   providing tutoring for   strugg
-students
-Ormesfield
-schools
-just
-completed
-thie
-orientation
-process; and
-can
-wait t0 get started;
-he said.
-Mr: Jimenez predicts
-that the  number of
-volunteers will
-continue t0 grow as
-employees hear about their coworkers"
+a program providing tutoring for struggling students at
+Ormesfield schools. "I just completed the orientation
+process, and I can't wait to get started," he said.
+Mr. Jimenez predicts that the number of volunteers will
+continue to grow as employees hear about their coworkers'
 rewarding experiences.
-### 191. _
-What is the purpose of the e-mail?
-### 194.
-What does the article indicate about
-To report on the success of an initiative
-Kelevac?
+
+191. What is the purpose of the e-mail?
+(A) To report on the success of an initiative
 (B) To thank Ms. Hooper for signing up for a
-Its headquarters are in Ormesfield.
 program
-Its slaff are eligible for
-week of vacation
+
+194. What does the article indicate about
+Kelevac?
+(A) Its headquarters are in Ormesfield.
 (C) To urge Ms. Hooper to wait for some
-leave.
 information
-It acquired another company in August:
+(B) Its staff are eligible for a week of vacation
+leave.
 (D) To suggest volunteering to give a
-It is in a heallhcare-related industry:
 presentation
-### 195. _
-What is probably true about Mr; Liu?
-### 192.
-In Ihe notification message
-Ihe word
-He replied t0 an e-mail from Mr: Metcalf:
-holding" in paragraph
-line 2,is closest in
-He altended
-meeting led by Mr:
-meaning t0
-Gaffney:
-presiding over
-(C) He is
-member of Mr: Jimenez' s
-remaining true
-department
-grasping
-(D) He finished high school in Ormesfield_
-enduring
-### 193.
-What did Ms . Hooper most likely do
+(C) It acquired another company in August.
+(D) It is in a healthcare-related industry.
+
+195. What is probably true about Mr. Liu?
+
+192. In the notification message, the word
+"holding" in paragraph 1, line 2, is closest in
+meaning to
+(A) presiding over
+(B) remaining true
+(C) grasping
+(D) enduring
+
+193. What did Ms. Hooper most likely do during
 her time off?
-Cleaned up a local beach
-Organized shelves in
-food bank
-Joined an orientation session
-Assisted with
-fundraiser
-Benzen Erglish - TOEIC
-GO OTo THE NEXT PAGE
-TEST 8
-247
-staff =
-patid
-Many
-ling
-during
-Questions 196-200 refer to the following Web page, form, and e-mail:
-hltp Ilww underbrinktours comfours-by-ihemelcity-lour-b
-Attractions
-Tours by
-Tours by
-Home
-FAQ
+(A) Cleaned up a local beach
+(B) Organized shelves in a food bank
+(C) Joined an orientation session
+(D) Assisted with a fundraiser
+(A) He replied to an e-mail from Mr. Metcalf.
+(B) He attended ameeting led by Mr.
+Gaffney.
+(C) He is a member of Mr. Jimenez's
+department.
+(D) He finished high school in Ormesfield.
+Benzen English -TOEIC GO ON TO THE NEXT PAGE
+TEST 8 247
+248
+Questions 196-200 refer to the following Web page, form, and e-mail.
+http://www.underbrinktours.com/tours-by-theme/city-tour-b (►
+Home Attractions
 Overview
+Tours by
 Theme
+Tours by
 Length
+A
+FAQ
 City Tour B
-As one of our twO-day general city tours, City Tour B affords
-comprehensive
-introduetion (0 Underbrink in
-relatively short time. It olfers all the same activities aS
-Tour A
-but requires participants to arrange their own accommodations They are
-picked up and dropped off at Lowis Station, which is near many major hotels:
-City Tour B starts with
-walk through Underbrink's historical Bristaw neighborhood.
-An afternoon visit t0 Schimming Hill, the home of Beth
-will delight fans of her
-novels, while giving plenty to see t0 non-lans as well. In the
-evening; participants will
-cruise down the Staylen River: The seeond day boasts
-trip t0 the Denato Art Museum
-and
-bus ride through nearby Staylen Valley: Each of these activities is led by a
-different specialist
-leaving the tour director free t0 assist tOur participants as
-necessary: Throughout the tour; various lunch and dinner options are provided.
-The price of this tour varies
-depending
-on the season: Cliek here to see information on
+As one of our two-day general city tours, City Tour B affords a comprehensive
+introduction to Underbrink in a relatively short time. It offers all the same activities as
+City Tour A, but requires participants to arrange their own accommodations. They are
+picked up and dropped off at Lowis Station, which is near many major hotels.
+City Tour B starts with a walk through Underbrink's historical Bristaw neighborhood.
+An afternoon visit to Schimming Hill, the home of Beth Estepp, will delight fans of her
+novels, while giving plenty to see to non-fans as well. In the evening, participants will
+cruise down the Staylen River. The second day boasts a trip to the Denato Art Museum
+and a bus ride through nearby Staylen Valley. Each of these activities is led by a
+different specialist guide, leaving the tour director free to assist tour participants as
+necessary. Throughout the tour, various lunch and dinner options are provided.
+The price of this tour varies depending on the season. Click here to see information on
 pricing and availability.
 Underbrink Tours Customer Satisfaction Survey
-Tour:
-Tour A
+Tour: City Tour A
 Name: Asa Sloman
-Poor
-Fair
-Good
-Excellent
+Poor Fair Good Excellent
 Accommodations
 Activities
-Guides
-Meals
-Transportation
+Guides X
+Meals X
+Transportation X
 Comments:
-Ihad some trouble with the heaviness of the food. In particular; the lunch we had in Bristaw
-made me feel s0 unwell that
-had to rest in the hotel instead of going to Schimming Hill. But
-all of the activities that | did participate in were very
-enjoyable:
-think it's great that you have
-specialist guides Each one really knew a lot about their subject:
-certainly plan to
-recommend Underbrink Tours to friends_
-248
-City `
-Estepp;
-guide,
-City
-#E-mail*
+I had some trouble with the heaviness of the food. In particular, the lunch we had in Bristaw
+made me feel so unwell that I had to rest in the hotel instead of going to Schimming Hill. But
+all of the activities that I did participate in were very enjoyable. I think it's great that you have
+specialist guides. Each one really knew a lot about their subject. I certainly plan to
+recommend Underbrink Tours to friends.
 From:
-Lance Nchobo <lchobo@ underbrinktours com>
 To:
-AII tour
-Date:
-April27
-Subjeel:
-Survey results
+*E-mail*
+Lance Ntchobo <l.ntchobo@underbrinktours.com>
+All tour guides
+Date: April 27
+Subject: Survey results
 Hi everyone,
-The eustomer survcy forms we ve been
-collecting have now given uS
-good sense of
-customers' opinions about our offerings. First, Fm happy t0 tell yQu all that you re
-consistently praised for yOUr deep understanding of the attractions On OUT tours. Well
-donel
-That said, there have been some comments about your explanations
-lacking excitement
-and humor: [m hoping we can all meet in OUr offices on Monday, May 9 at 4 RM:
-to talk
-about ways t0 resolve this issue. Please respond t0 this
-mail t0 confirm your attendance_
-Sincerely;
+The customer survey forms we've been collecting have now given us a good sense of
+customers' opinions about our offerings. First, I'm happy to tell you all that you're
+consistently praised for your deep understanding of the attractions on our tours. Well
+done!
+That said, there have been some comments about your explanations lacking excitement
+and humor. I'm hoping we can all meet in our offices on Monday, May 9, at 4 P.M. to talk
+about ways to resolve this issue. Please respond to this e-mail to confirm your attendance.
+Sincerely,
 Lance Ntchobo
-Executive Direetor; Underbrink Tours
-### 196. _
-What is indicated about City Tour B?
-### 199.
-In the e-mail, the word "sense
-in paragrapn
-It begins with
-tour of Lowis Station;
-Iine 1, is closest in meaning t0
-It does not include lodging:
-capacity
-It is longer than City Tour A
-logic
-It is not administered in every season:
-doubt
-idea
-### 197. _
-Which activity was Mr: Sloman unable to
+Executive Director, Underbrink Tours
+
+196. What is indicated about City Tour В?
+(A) It begins with a tour of Lowis Station.
+(B) It does not include lodging.
+(C) It is longer than City Tour A.
+(D) It is not administered in every season.
+
+197. Which activity was Mr. Sloman unable to
 participate in?
-### 200. _
-What does Mr Nlchobo want t0 discuss at
-An outdoor walking tour
-meeting?
-An evening river cruise
-How to make tours more entertaining
-A visil t0
-famous house
-Who can give
-tour of
-new attraction
-An art museum outing
-Whether t0 change the order of an
+(A) An outdoor walking tour
+(B) An evening river cruise
+(C) A visit to a famous house
+(D) An art museum outing
+
+198. What is suggested about Mr. Sloman?
+(A) He has made plans to meet friends in
+Underbrink.
+(B) His opinion of the guides is mostly shared by
+others.
+(C) His survey form was submitted on April 26.
+(D) He had a special meal option during his tour.
+
+199. In the e-mail, the word "sense" in paragraph 1,
+line 1, is closest in meaning to
+(A) capacity
+(B) logic
+(C) doubt
+(D) idea
+
+200. What does Mr. Ntchobo want to discuss at
+a meeting?
+(A) How to make tours more entertaining
+(B) Who can give a tour of a new attraction
+(C) Whether to change the order of an
 itinerary
-### 198. _
-What is suggested about Mr: Sloman?
-Why the number of customers is
-He has made plans t0 meet friends in
+(D) Why the number of customers is
 decreasing
-Underbrink
-His opinion of the guides is mostly shared by
-olhers
-(C) His survey form was submitted on April 26
-He had a special meal option during his tour:
-Stopl This is the end of the test: If you finish before time is called, you may go
-back to Parts 5, 6,and
-and check your
-Benzen English . TOEIC
-TEST 8
-249
-guides
-work.
-T E $ T  9
+Stop! This is the end of the test. If you finish before time is called, you may go
+back to Parts 5, 6, and 7 and check your work.
+Benzen English - TOEIC
+TEST 8 249
+RC
+TEST 9
+252
 READING TEST
-In the Reading test; YOU will read
-variety of texts and answer several different lypes of reading
+In the Reading test, you will read a variety of texts and answer several different types of reading
 comprehension questions. The entire Reading test will last 75 minutes. There are three parts, and
-directions are given for each part: You are encouraged t0 answer as many questions as possible within
-the time allowed
-You must mark your answers on the separate answer sheet: Do not write your answers in your test
-book:
-
-## PART 5
-Directions:
-word or phrase is missing in each of (he sentences below: Four answer choices are
-given below each sentence. Select the best answer t0 complete the sentence. Then mark the lelter
-(A) (B) (C), or (D) on your answer sheet:
-
+directions are given for each part. You are encouraged to answer as many questions as possible within
+the time allowed.
+You must mark your answers on the separate answer sheet. Do not write your answers in your test
+book.
+PART 5
+Directions: A word or phrase is missing in each of the sentences below. Four answer choices are
+given below each sentence. Select the best answer to complete the sentence. Then mark the letter
+(A), (B), (C), or (D) on your answer sheet.
 
 # TEST 09
 
-## READING TEST
+101. Invited guests must confirm their intention to
+attend the banquet ------- the end of the
+week.
+(A) behind
+(B) by
+(C) on
+(D) across
 
+102. Applicants will be asked to provide proof of
+accounting certification at the first
+
+105. The audience gave an enthusiastic round of
+applause when the musicians stepped -----
+the stage.
+(A) onto
+(B) until
+(C) with
+(D) as
+
+106. Hikers should bring ------- they need with
+them, as there are no shops along the trail.
+interview.
+(A) they
+(B) them
+(C) their
+(D) themselves
+
+107.
+103. -------  resembling sculptures from previous
+eras, Mr. Florence's artwork depicts everyday
+scenes.
+(A) Closer
+(B) Close
+(C) Closely
+(D) Closest
+
+108.
+104. Mr. Parza will take part in a contract-------in
+Singapore to finalize the details of the
+acquisition.
+(A) negotiate
+(B) negotiation
+(C) negotiates
+(D) negotiator
+(A) wherever
+(B) this
+(C) everything
+(D) then
+Upon examination, Ms. Seo discovered that
+the figures her department ------- last week
+were incorrect.
+(A) has calculated
+(B) calculates
+(C) will calculate
+(D) calculated
+Partnering with Apor Footwear could be a
+profitable------ for Pasadena Department
+Store thanks to the retailer's excellent
+reputation.
+(A) atmosphere
+(B) content
+(C) arrangement
+(D) source
+
+109. -------  the merger is authorized by the board
+members, an official valuation of the
+company must be made.
+(A) Before
+(B) Despite
+(C) Nor
+(D) How
+
+110. Fairnay Manufacturing------- standards set
+by the National Health and Safety
+Association regarding exposure to chemicals.
+(A) insisted
+(B) conducted
+(C) adopted
+(D) underwent
+
+111. The increase in mobile phone usage brought
+------ the need for stricter laws against
+texting while driving.
+(A) among
+(B) toward
+(C) down
+(D) about
+
+112. Visitors to Bellucci Orchard can become
+active ------- in the harvest process by
+registering for a VIP tour.
+(A) participants
+(B) participate
+(C) participatory
+(D) participation
+
+113. The resort offers a daily pass and a season
+ticket, ------- of which can be used to access
+the ski lift.
+(A) either
+(B) it
+(C) those
+(D) what
+
+114. The company's CEO reacted ------- to the
+news that stockholders had called for a lastminute meeting.
+(A) predictable
+(B) predictably
+(C) predicts
+(D) prediction
+
+115. An extensive construction project on
+Highway 17 has------- the exit ramps to
+improve motorist safety.
+(A) broad
+(B) broaden
+(C) broadly
+(D) broadened
+
+116. The community basketball tournament is
+------- supported by city government funds,
+
+117.
+118.
+
+119.
+120.
+with local businesses making up the
+remainder.
+(A) partially
+(B) approximately
+(C) overly
+(D) briefly
+Only employees with ------- sales of $30,000
+for domestic and international goods will be
+eligible for promotions.
+(A) combines
+(B) combined
+(C) to have combined
+(D) to combine
+The upcoming city council meeting is
+intended for residents wish to voice
+concerns about the proposed commercial
+district expansion.
+(A) several
+(B) others
+(C) but
+(D) who
+Although the costs of the top-selling hybrid
+vehicles differ------, the gas mileage results
+are nearly the same.
+(A) signify
+(B) significant
+(C) significantly
+(D) signifying
+Many passengers choose to travel solely with
+a carry-on bag ------- than pay the required
+fee for checked luggage.
+(A) whenever
+(B) rather
+(C) better
+(D) regardless
+Benzen English -TOEIC GO ON TO THE NEXT PAGE
+TEST 9 253
+254
+
+121. Driven by demand for ways to share
+information quickly, a number of new social
+media sites------- in the past year alone
+(A) to emerge
+(B) are emerged
+(C) have emerged
+(D) will emerge
+
+122. An online education platform, Eleshade
+allows users to take technology courses from
+the- of their own home.
+(A) appreciation
+(B) decoration
+(C) layout
+(D) comfort
+
+123. Management chose to ------- the office picnic
+due to a forecast of adverse weather.
+(A) call off
+(B) fill out
+(C) back up
+(D) hand in
+
+124. The San Marino Ballet Company will perform
+at Welburn Theater, and troupe members will
+sign autographs ----
+(A) somewhat
+(B) afterward
+(C) alike
+(D) otherwise
+
+125. Attendees of the International Unity Summit
+come from------- cultural backgrounds and
+speak a variety of languages.
+(A) ongoing
+(B) conscious
+(C) adjustable
+(D) diverse
+
+126. The report demonstrated that rush hour traffic
+downtown and the average congestion on
+
+127.
+Nicall Bridge are roughly-------.
+(A) compares
+(B) comparable
+(C) comparing
+(D) comparison
+Each club official must remain in office------
+to the expiration date of his or her term of
+office until a successor can be found.
+(A) prospective
+(B) subsequent
+(C) likely
+(D) eager
+
+128. When she concludes her assignment
+overseas on June 30, Ms. Adrian ------
+one hundred production facilities.
+(A) wouid inspect
+(B) will be inspected
+(C) is inspecting
+(D) will have inspected
+over
+
+129. Items that do not meet customers'
+expectations may be returned for a refund or
+exchanged for merchandise of---- value.
+(A) competent
+(B) receptive
+(C) initial
+(D) equivalent
+
+130. University administration asked the
+committee to analyze the ------- of the change
+for faculty and students.
+(A) implications
+(B) alliances
+(C) aptitudes
+(D) supplements
+PART 6
+Directions: Read the texts that follow. A word, phrase, or sentence is missing in parts of each text.
+Four answer choices for each question are given below the text. Select the best answer to complete the
+text. Then mark the letter (A), (B), (C), or (D) on your answer sheet.
+Questions 131-134 refer to the following notice.
+NOTICE OF CONSTRUCTION
+Routine maintenance work on the rail lines nes 13 for October 3 to 7 on Line 3 of the Metropolitan
+Subway System. 132 이어 who is traveling during the project should check the updated schedules
+posted online and throughout the stations, as there will be some delays and interruptions. No trains
+will be running between Sunnyvale Station and CampbellStation. There will be a replacement bus
+service operating regularly. aa If you need any assistance or have concerns about the work,
+
+133.
+please speak to a staff member. We will try to minimize the inconvenience we can.
+
+134.
+131. (A) is planned
+(B) was being planned
+(C) to plan
+(D) has been planning
+
+132. (A) Other
+(B) One another
+(C) Those
+(D) Anyone
+
+133. (A) We appreciate the patience you showed
+during the project.
+
+134.
+(B) Passengers may use it by presenting a
+valid train ticket.
+(C) The subway system transports commuters
+daily.
+(D) The route depends on your driver's license
+category.
+(A) so that
+(B) as much as
+(C) aside from
+(D) whether
+TestBenzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 9 255
+256
 Questions 135-138 refer to the following memo.
-To: All Newhall Inc; Employees
-Marvin Montano
-Branch Manager
+To: All Newhall Inc. Employees
+From: Marvin Montano, Branch Manager
 Date: April 14
 Re: Brian Whitaker
-Brian Whitaker will be retiring from the position of director on the last day of this monlh: In spite of
-this, you will still see him around the office regularly; as he will work for the company part-time in an
-role. This will involve providing financial advice as well as
-recommending
-existing
-735_
-736,
-contracts_
-By using 737. expertise even after retirement; the company can ersure prolitability going
-forward. Allhough Mr Whitaker will continue working for uS
-we want t0 acknowledge the
-contributions he has made in
-formal celebration: 7
-We hope t0 see you there_
-38_
-### 135. _
-adequate
-### 138. _
-(A) We couldn't have reached our goals
-estimated
-wilhout the staff:
-advisory
-(B) A reception will be held at 4 P.m. on April
-equal
+Brian Whitaker will be retiring from the position of director on the last day of this month. In spite of
+this, you will still see him around the office regularly, as he will work for the company part-time in an
+
+135. role.This will involve providing financial advice as well as recommending
+
+136. to existing
+contracts. By using 7- expertise even after retirement, the company can ensure profitability going
+
+137.
+forward. Although Mr. Whitaker will continue working for us, we want to acknowledge the
+contributions he has made in a formal celebration.--. We hope to see you there.
+
+138.
+135. (A) adequate
+(B) estimated
+(C) advisory
+(D) equal
+
+136. (A) revised
+(B) revisable
+(C) revisions
+(D) revises
+
+137. (A) his
+(B) their
+(C) our
+(D) your
+
+138. (A) We couldn't have reached our goals
+without the staff.
+(B) A reception will be held at 4 P.M. on April
 30.
-Several new clients have enrolled with us
-### 136. _
-revised
-He developed policies to improve
-revisable
-efficiency:
-revisions
-revises
-### 137. .
-his
-their
-our
-your
-256
-From;
-Questions 139-142 refer t0 Ihe following advertisement:
-Get your tickets to see Silvana Russol
-The Ramke Gallery is pleased t0 host
-talk by painter Silvana Russo on June 2 at 7
-### 139.
-Ms_
-Russo does not often make public appearances, but
-the event she will talk about her 740,
-from a hotel housekeeper t0
-world-renowned artist,
-career
-that has resulted in decades of
-successful art installations. Following the talk, she will respond to questions from the audience:
-Audience members who prefer handing in their questions in advance 141, them by e-mail t0 info@
-ramkegallery com no later than May 30. To get your ticket lo see this 7142,
-artist in person, call the
+(C) Several new clients have enrolled with us.
+(D) He developed policies to improve
+efficiency.
+Questions 139-142 refer to the following advertisement.
+Get your tickets to see Silvana Russo!
+The Ramke Gallery is pleased to host a talk by painter Silvana Russo on June 2 at 7 P.M.
+
+130. Ms.
+Russo does not often make public appearances, but during the event she will talk about her
+
+140.
+from a hotel housekeeper to a world-renowned artist, a career path that has resulted in decades of
+successful art installations. Following the talk, she will respond to questions from the audience.
+Audience members who prefer handing in their questions in advance them by e-mail to info@
+
+141.
+ramkegallery.com no later than May 30. To get your ticket to see thisartist in person, call the
+
+142.
 Ramke Gallery at 555-0144.
-(A) This is a rare opportunity for art lovers
-### 140. _
-(A) involvement
-Each one is signed by the arlist herself
-absence
+
+139. (A) This is a rare opportunity for art lovers.
+
+140. (A) involvement
+(B) Each one is signed by the artist herself. (B) absence
 (C) These paintings are valued in the
-journey
-thousands:
-release
+thousands.
 (D) Regular lectures help to inform the
 public.
-### 141. _
-(A) 
-submit
-be submitted
-must submit
-had submilted
-### 142.
-rejected
-originated
-undiscovered
-talented
-Benzen Englieh - TOEIC
-GO ONTO THE NEXT PAGE
-TEST 9
-257
-P.M-
-during
-path
-### 139.
-wil
-Questions 143-146 refer to the following e-mail;
+(C) journey
+(D) release
+
+141. (A) will submit
+(B) be submitted
+(C) must submit
+(D) had submitted
+
+142. (A) rejected
+(B) originated
+(C) undiscovered
+(D) talented
+TEST 9Benzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 9 257
+258
+Questions 143-146 refer to the following e-mail.
 To: Venita Yang <vyang@crestonco.com>
 From: Sebastian Nadeau <snadeau@crestonco.com>
 Date: February 20
 Subject: Staff meeting
 Dear Venita,
-noticed that you were not able to attend the weekly staff meeting:
-The meeting was mainly
-743.
-centered on plans tO have a new logo designed,
-as ours is
-similar t0 that of Terilyn
-744 ,
-Enterprises. We want t0 set ourselves
-from our competitors with a new logo. Our in-house
-### 145.
-graphics team will 746,
-with designers from BC Art in order to produce
-number of samples_
+I noticed that you were not able to attend the weekly staff meeting. 143- The meeting was mainly
+centered on plans to have a new logo designed, as ours is4similar to that of Terilyn
+
+144.
+Enterprises. We want to set ourselvesfrom our competitors with a new logo. Our in-house
+
+145.
+graphics team will --with designers from BC Art in order to produce a number of samples.
+
+146.
 Employees will have the opportunity to share their opinions on the samples at a later time.
 Sebastian
-### 143. (A) Even SO, attendance is mandatory for
-### 144.
-strikingly
-everyone:
-strike
-(B) It has been rescheduled for
-Friday at
-struck
-PM:
-striking
-(C) Therefore
-wanted t0 give you an
-update.
-### 145. _
-beyond
-(D) Your presentation was extremely
-against
-informative;
-upon
-apart
-### 146. _
-identify
-collaborate
-uphold
-coincide
-258
 
-## PART 7
-Directions: In this part you will read
-selection of texts, such as magazine
-newspaper articles
+143. (A) Even so, attendance is mandatory for
+everyone.
+
+144. (A) strikingly
+(B) strike
+(B) It has been rescheduled for Friday at
+4 P.M.
+(C) struck
+(D) striking
+(C) Therefore, I wanted to give you an
+update.
+(D) Your presentation was extremely
+informative.
+
+145. (A) beyond
+(B) against
+(C) upon
+(D) apart
+
+146. (A) identify
+(B) collaborate
+(C) uphold
+(D) coincide
+PART 7
+Directions: In this part you will read a selection of texts, such as magazine and newspaper articles,
 e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the
-best answer for each question and mark the lelter (A), (B); (C), or (D) on your answer sheet
-Questions 147-148 refer to the following advertisement:
-Do you have
-high-school diploma
-consider yourself to be
-great team player?
-If this sounds like you; why not to work at Sandhill & Co? We are the leading law
-firm in Wisconsin, representing
-client base of over 50 large corporations: We
-consider our expert legal team to be the finest in the country:
-As our business has experienced continued success for
-sustained period, we are
-looking to expand our team further: As such,
-position is available at the reception
-desk of our newly opened Milwaukee office: Your responsibilities will include
-greeting walk-in clients, answering the phone; corresponding with clients via e-mail
-and mail, and assisting our legal professionals
-To apply for this position; please send an up-to-date resume and cover letter to our
-human resources manager; Andy Stewart,at astewart@sandhillcom by March 31
-Shortlisted applicants will be contacted by telephone by April 1o.
-### 147. .
-What position is being advertised?
-### 148. What
-interested individuals encouraged
-PR assislant
-to do?
-Lawyer
-Send an e-mail
+best answer for each question and mark the letter (A), (B),(C), or (D) on your answer sheet.
+Questions 147-148 refer to the following advertisement.
+Do you have a high-school diploma and consider yourself to be a great team player?
+If this sounds like you, why not to work at Sandhill & Co.? We are the leading law
+firm in Wisconsin, representing a client base of over 50 large corporations. We
+consider our expert legal team to be the finest in the country.
+As our business has experienced continued success for a sustained period, we are
+looking to expand our team further. As such, a position is available at the reception
+desk of our newly opened Milwaukee office. Your responsibilities will include
+greeting walk-in clients, answering the phone, corresponding with clients via e-mail
+and mail, and assisting our legal professionals.
+To apply for this position, please send an up-to-date résumé and cover letter to our
+human resources manager, Andy Stewart, at astewart@sandhill.com by March 31.
+Shortlisted applicants will be contacted by telephone by April 10.
+러
+모
+
+147. What position is being advertised?
+(A) PR assistant
+(B) Lawyer
 (C) Receptionist
-Complete an online form
-HR manager
-Visit the business
-Make
-phone call
-Bonzon English - TOEIC
-GO ONT0 THE NEXI PAGE
-TEST 9
-259
-and
-and
-are
-Questions 149-150 refer t0 the following memo_
+(D) HR manager
+
+148. What are interested individuals encouraged
+to do?
+(A) Send an e-mail
+(B) Complete an online form
+(C) Visit the business
+(D) Make a phone call
+Benzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 9 259
+260
+Questions 149-150 refer to the following memo.
 MEMO
 From: Sue Paulsen, Personnel Manager
 To: Remley Bank Employees
 Date: March 2
 Re: Stanley Cooper's Retirement Party
 To all employees,
-As you know, Mr: Cooper's retirement party was
-to take place this
-Friday evening at the Diamond Ballroom downtown;
-Unfortunately,
-have had to cancel this reservation and make
-new onC
-elsewhere; as the
-guest list has grown too large Therefore,
-the event will now be held in the
+As you know, Mr. Cooper's retirement party was due to take place this
+Friday evening at the Diamond Ballroom downtown. Unfortunately, I
+have had to cancel this reservation and make a new one elsewhere, as the
+guest list has grown too large. Therefore, the event will now be held in the
 banquet hall of the Marigold Hotel. Frank Grimey has spoken directly
-with the hotel manager; and he promises that the food served at the party
-will be of the finest quality The music will be provided by local band The
-Funky Flutes_
-Frank will visit each of you at your desks 0n
-Wednesday to
-obtain your menu preferences_
-As many of you know, Mr:
-has been
-the head of the sales team for over thirty years, so let' $ make sure we
-make
-Friday an evening to remember!
-Thanks
+with the hotel manager, and he promises that the food served at the party
+will be of the finest quality. The music will be provided by local band The
+Funky Flutes. Frank will visit each of you at your desks on Wednesday to
+obtain your menu preferences. As many of you know, Mr. Cooper has been
+the head of the sales team for over thirty years, so let's make sure we
+make Friday an evening to remember!
+Thanks.
 Sue Paulsen
-### 149.
-Why was the memo
-### 150.
-What is Frank Grimey planning to do on
-To inform staff of alterations t0
-Wednesday?
+
+149. Why was the memo sent?
+(A) To inform staff of alterations to
 arrangements
-Contact
-catering manager
-(B) To encourage employees t0 bring
-Practice
-musical
-performance
-refreshments t0 an event
-Attend
-sales
-meeting
+(B) To encourage employees to bring
+refreshments to an event
 (C) To announce that an event has been
-Speak to staff about dinner options
 canceled
-(D) To request suggeslions for event
+(D) To request suggestions for event
 entertainment
-260
-due
-Cooper
-sent?
-Questions 151-152 refer to the following invitation:
+
+150. What is Frank Grimey planning to do on
+Wednesday?
+(A) Contact a catering manager
+(B) Practice a musical performance
+(C) Attend a sales meeting
+(D) Speak to staff about dinner options
+Questions 151-152 refer to the following invitation.
 Conference Hall C, Twittledon Convention Center
-Thursday; November 28, 8:00 P.M_
-The Tivittledon town council would like to invite all residents to attend an
-awards ceremony at the Twvittledon Convention Center this
-Thursday:
+Thursday, November 28, 8:00 Р.м.
+The Twittledon town council would like to invite all residents to attend an
+awards ceremony at the Twittledon Convention Center this coming Thursday.
 This event is to mark the achievements of our young volunteers, whose hard
-has included
-trash
-OuI" streets and
-providing
-service to the
-elderly Twittledon mayor'
-Gribbons will present the awards_
-On
-Thursday, anyone who comes to the evening will receive:
-complimentary soft drink
-copy ol the most recent tOwn council newsletter
-booklet
-containing discount vouchers for
-number ol local businesses
-Tickets are expected to sell out fast. To reserve your place, please
-Buckwheat at
-buckwheat(@twittledontc net .
-### 151. .
-What is the main purpose of the event?
-### 152.
-What is NOT indicated about the event?
+work has included clearing trash from our streets and providing a catering
+service to the elderly. Twittledon mayor Tony Gribbons will present the awards.
+On Thursday, anyone who comes to the evening will receive:
+A complimentary soft drink
+A copy of the most recent town council newsletter
+A booklet containing discount vouchers for a number of local businesses
+Tickets are expected to sell out fast. To reserve your place, please e-mail Jo
+Buckwheat at j.buckwheat@twittledontc.net.
+
+151. What is the main purpose of the event?
 (A) To mark the opening of a catering
-(A) Elderly residents may enter free of
 company
-charge
-To outline
-new trash collection policy
-It will be attended by the town mayor:
-To discuss planning permission for local
-Tickets can be reserved by e-mail.
+(B) To outline a new trash collection policy
+(C) To discuss planning permission for local
 businesses
-Drinks will be provided
 (D) To celebrate the achievements of
 volunteers
-Benzen English - TOEIC
-GO ONTo THE NEXT PAGE
-TEST 9
-261
-coming
-elearing
-from
-catering
-work
-Tony
-mail
-Questions 153-154 refer to the following text message chain:
-PETER REDMOND
-2.52 Pm:
-Hi; Susan
-didn
-see you at this morning's training
-workshop. All staff had to attend. Did you forget about
-it? Don't worry; you can make it up next month:
-SUSAN BARKLEY
-2,54 P.M
-Hi, Peter;
-was 0 my way to the meeting this
-morning; but
-got stuck in a traffic jam: There was an
-accident involving two trucks, so | couldnt make it in
-on time_
-PETER REDMOND
-3;02 PM:
-Oh; | heard about that on the news. That's a valid
-excuse. Shall
-book you in for the training workshop
-September?
-SUSAN BARKLEY
-3.06 PM,
-Ive checked the dates of that one, and it seems
-am
-attending a trade fair on the day of the workshops.
-How about | attend one in October?
-PETER REDMOND
-3.21 PM:
-Sure thing: IIl contact Robert in HR and get him to
-make the necessary arrangements.
-SUSAN BARKLEY
-3.33 PM,
-Thanks, Peter: Could you fax across the minutes from
-this mornings meeting?
-PETER REDMOND
-3.38 PM:
-You'Il have to ask Caroline for those:
-believe she was
-in charge of taking them this morning:
+
+152. What is NOT indicated about the event?
+(A) Elderly residents may enter free of
+charge.
+(B) It will be attended by the town mayor.
+(C) Tickets can be reserved by e-mail.
+(D) Drinks will be provided.
+TEST 9Benzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 9 261
 262
-### 153. _
-What is indicated about Ms
-Barkley?
-### 154.
-At 3.21 PM;=
-what does Mr. Redmond mean
-She is currently attending
-trade fair;
-when he writes
-Sure Ihing'
-She led
-workshop in the morning
-He believes Ihat the HR manager is in
-She was late for work;
-his office
-She was in a car accident;
-He is accepting Ms. Barkley's request for
-document;
-(C) He is certain thal
-trade fair will produce
-many sales;
-(D) He is agreeing that Ms_
-Barkley can
-allend an October workshop_
-Benzen English - TOEIC
-GO OvTO THE NEXT PAGE
-TEST 9
-263
-Questions 155-157 refer t0 the following article:
-The
-Stanberg
-Muscum
-for
-Arts
-Crafts   this
-weck
-announced
-has
-taken
-QUI
-comrcl
-mmprove
-[acilities
-for all patrons
-M-
-Ms_
-Jessie Kalzen; :
-representalive ol" the   museum; told reporters that this
-WaS
-made possible through a grant from local business
-tycoon Charlie [amilton:
-[21
-The substantial sun
-of  money
-donated
-will
-fund the  building
-new
-muSCUM
-in which
-the
-museum
-plans to house its
-collection of arts and erafts from the Renaissance
-era:
-[31
-Ms;
-Kalzen also noled that the investment came at the
-perfect time for the Stanberg Museum. Speculation
-been
-mounting
-that
-the
-muscUM
-Wals
-experiencing
-financial difficulties
-with its twenty employees fearing
-it would not be viable for it t0 continuc
-operating if the
-situation
-wasn t  reclified.
-[4]
-Now
-both
-local
-residents and tourists Will be
-enjoy the stunning
-works on
-display for many years to come.
-### 155. _
-What is the main topic of the article?
-### 157. . In which of the positions marked [1], [2] [3],
-The life of a famous artist
-[4] does the following sentence best
-The expansion of a museum
-belong?
-A town hall meeting
-Some of these pieces have been held in
-The art of the Renaissance era
-storage for several months due t0 a lack of
-space_
-### 156. _
-What is suggested about the Stanberg
-Museum?
-(A) [1]
-(B) [2]
-(A) It currently employs over one hundred
-(C) [3]
-staff members.
-(D) [4]
-(B) It is changing its name t0 the Charlie
-Hamillon Museum;
-(C) Its exhibits have been moved lo a
-different building:
-(D) It was recently assumed to be near (he
-point of bankruptcy:
+Questions 153-154 refer to the following text message chain.
+PETER REDMOND 2:52 P.M.
+Hi, Susan. I didn't see you at this morning's training workshop. All staff had to attend. Did you forget about
+it? Don't worry, you can make it up next month.
+SUSAN BARKLEY 2:54 P.M.
+Hi, Peter. I was on my way to the meeting this
+morning, but I got stuck in a traffic jam. There was an
+accident involving two trucks, so I couldn't make it in
+on time.
+PETER REDMOND 3:02 P.M.
+Oh, I heard about that on the news. That's a valid
+excuse. Shall I book you in for the training workshop
+in September?
+SUSAN BARKLEY 3:06 P.M.
+I've checked the dates of that one, and it seems I am
+attending a trade fair on the day of the workshops.
+How about I attend one in October?
+PETER REDMOND 3:21 P.M.
+Sure thing. I'llcontact Robert in HR and get him to
+make the necessary arrangements.
+SUSAN BARKLEY 3:33 P.M.
+Thanks, Peter. Could you fax across the minutes from
+this morning's meeting?
+PETER REDMOND 3:38 P.M.
+You'll have to ask Caroline for those. I believe she was
+in charge of taking them this morning.
+
+153. What is indicated about Ms. Barkley?
+(A) She is currently attending a trade fair.
+(B) She led a workshop in the morning.
+(C) She was late for work.
+(D) She was in a car accident.
+
+154. At 3:21 P.M., what does Mr. Redmond mean
+when he writes, "Sure thing"?
+(A) He believes that the HR manager is in
+his office.
+(B) He is accepting Ms. Barkley's request for
+a document.
+(C) He is certain that a trade fair will produce
+many sales.
+(D) He is agreeing that Ms. Barkley can
+attend an October workshop.
+Bonzen English -TOEIC
+TEST 9GO ON TO THE NEXT PAGE
+TEST 9 263
 264
-wing;
-had
-free
-and
-Questions 158-160 refer t0 the following memo,
-To: Robert Walsh
-Trevor Partridge, Annie Taylor
+Questions 155-157 refer to the following article.
+The Stanberg Museum for Arts & Crafts this week
+announced it has taken out a contract to improve
+facilities for all patrons. -[1]-. Ms. Jessie Katzen, a
+representative of the museum, told reporters that this
+was made possible through a grant from local business
+tycoon Charlie Hamilton. -[2]-. The substantial sum
+of money donated will fund the building of a new
+museum wing, in which the museum plans to house its
+collection of arts and crafts from the Renaissance era.
+-[3]-.
+Ms. Katzen also noted that the investment came at the
+perfect time for the Stanberg Museum. Speculation had
+been mounting that the museum was experiencing
+financial difficulties, with its twenty employees fearing
+it would not be viable for it to continue operating if the
+situation wasn't rectified. -[4]-. Now both local
+residents and tourists will be free to enjoy the stunning
+works on display for many years to come.
+
+155. What is the main topic of the article?
+(A) The life of a famous artist
+(B) The expansion of a museum
+(C) A town hall meeting
+(D) The art of the Renaissance era
+
+156. What is suggested about the Stanberg
+Museum?
+
+157. In which of the positions marked [1], [2], [3],
+and [4] does the following sentence best
+belong?
+"Some of these pieces have been held in
+storage for several months due to a lack of
+space."
+(A) [1]
+(B) [2] (A) It currently employs over one hundred
+staff members. (C) [3]
+(D) [4] (B) It is changing its name to the Charlie
+Hamilton Museum.
+(C) Its exhibits have been moved to a
+different building.
+(D) It was recently assumed to be near the
+point of bankruptcy.
+Questions 158-160 refer to the following memo.
+To: Robert Walsh, Trevor Partridge, Annie Taylor
 From: Kerry Grahams, Training Officer
 Date: August 3
 Re: Mandatory Training
-For all of us at Remical Lid.
-it is vital that we constantly improve and updlate our facilities in
-order t0 remain at the cutting edge of field innovations. Yesterday; we received
-delivery of a
-volume of lab equipment. This includes new measuring beakers
-test tubes. and
-microscopes.
-There is also
-new
-high-powered heating device. Once this equipment is
-installed, You will be able to use it to conduct your experiments However; before being able t0
-use this
-expensive piece of machinery, all staff will need to undergo mandatory training as is
-stated in your employee handbook_
-Training will be conducted on Friday In the meantime,
-please familiarize yourselves with the agenda for
-thatt
-have attached: As you can see,
-we are due t0 start at 9.00 A.M. Please ensure you arrive promptly at this time:
+For all of us at Remical Ltd., it is vital that we constantly improve and update our facilities in
+order to remain at the cutting edge of field innovations. Yesterday, we received a delivery of a
+large volume of lab equipment. This includes new measuring beakers, test tubes, and
+microscopes. There is also a new high-powered heating device. Once this equipment is
+installed, you will be able to use it to conduct your experiments. However, before being able to
+use this expensive piece of machinery, all staff will need to undergo mandatory training as is
+stated in your employee handbook. Training will be conducted on Friday. In the meantime,
+please familiarize yourselves with the agenda for Friday that I have attached. As you can see,
+we are due to start at 9:00 A.M. Please ensure you arrive promptly at this time.
 Our safety inspector Bill Kenright has also issued us some new safety apparel to use within the
-lab These luminous yellow outfits are important; as they have been tested and found to be
-heatprool. You can choose from small, medium; or large sizes of salety gear: Please let me
-know your preference by e-mail, and
-will bring the items on Friday.
+lab. These luminous yellow outfits are important, as they have been tested and found to be
+heatproof. You can choose from small, medium, or large sizes of safety gear. Please let me
+know your preference by e-mail, and I will bring the items on Friday.
 Regards,
 Kerry Grahams
-### 158.
-Who is the memo most likely intended for?
-### 160.
-What is NOT indicated about the safety
-Scientists
-apparel?
-Delivery drivers
-It is available in a range of sizes;
-Safety inspectors
-It is brightly colored:
-Training officers
-It is heat resistant:
-will be paid for by employees.
-### 159.
-What has Ms. Grahams included wilh the
+
+158. Who is the memo most likely intended for?
+(A) Scientists
+(B) Delivery drivers
+(C) Safety inspectors
+(D) Training officers
+
+159. What has Ms. Grahams included with the
 memo?
-An invoice
-A training schedule
-New equipment
-An employee handbook
-Benzen Englich - TOEIC
-GO ONTO THE NEXT PAGE
-TEST 9
-265
-large
-Friday
-Questions 161-163 refer t0 the following article_
-Novemher
-(onesville)
-After much
-Lopez, who is now CEO of the company. At
-speculation surrounding the future of the plot
-press conference yesterday. Pablo Lopez
-of land that is the current site of the
-gave (urther details on the development
-Jonesville Automotive factory, property
-project: According to Mr
-five-story
-developer Righthome Ltd. today purchased
-condlominium
-building named Melwood
-the land for a fee estimated t0 be at around
-Grove will be construcled_
-In addition; &
-S20 million_
-Upon purchasing the land,
-communal swimming
-and gyM
-Righthome immediately submitted
-facilities will be built on the site for all
-blueprints to the city
-planning department
-residetts t0 use
-Mr: Lopez also confirmed
-in order t0 receive permission to build [00
-that each apartment
-be provided with
-luxury condos On the site. These
-properties
-complimentary high-speed Internet access:
-will be
-targeted at the many young
-He finished the conference by
-outlining
-the
-professionals moving to Jonesville to work
-timescale of the project, which he hopes will
-in the thriving legal sector here.
-completed within eighteen months. This
-latest development is just one of many in
-Righthome Ltd.
-was founded
-by Miguel
-recent years that have
-yieldled the dramatie
-twenty years :g0.
-After
-retiring, he
-rejuvenation of the Jonesville town center:
-trained as his successor his son, Pablo
+(A) An invoice
+(B) A training schedule
+(C) New equipment
+(D) An employee handbook
+
+160. What is NOT indicated about the safety
+apparel?
+(A) It is available in a range of sizes.
+(B) It is brightly colored.
+(C) It is heat resistant.
+(D) It will be paid for by employees.
+Benzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 9 265
+
 266
-Lopez ,
-pool
-will
-Lopez
-### 161. ,_
-What is the article mainly aboul?
-### 163.
-What is NOT indicated about Melwood
+Questions 161-163 refer to the following article.
+November 1 (Jonesville) -After much
+speculation surrounding the future of the plot
+of land that is the current site of the
+Jonesville Automotive factory, property
+developer Righthome Ltd. today purchased
+the land for a fee estimated to be at around
+$20 million. Upon purchasing the land,
+Righthome immediately submitted
+blueprints to the city's planning department
+in order to receive permission to build 100
+luxury condos on the site. These properties
+will be targeted at the many young
+professionals moving to Jonesville to work
+in the thriving legal sector here.
+Righthome Ltd. was founded by Miguel
+Lopez twenty years ago. After retiring, he
+trained as his successor his son, Pablo
+Lopez, who is now CEO of the company. At
+a press conference yesterday, Pablo Lopez
+gave further details on the development
+project. According to Mr. Lopez, a five-story
+condominium building named Melwood
+Grove will be constructed. In addition, a
+communal swimming pool and gym
+facilities will be built on the site for all
+residents to use. Mr. Lopez also confirmed
+that each apartment will be provided with
+complimentary high-speed Internet access.
+He finished the conference by outlining the
+timescale of the project, which he hopes will
+be completed within eighteen months. This
+latest development is just one of many in
+recent years that have yielded the dramatic
+rejuvenation of the Jonesville town center.
+
+161. What is the article mainly about?
+(A) The construction of a car factory
+(B) The founding of a law firm
+(C) The opening of a gym
+(D) The building of some new structure
+
+162. Who most likely is Pablo Lopez?
+(A) A lawyer
+(B) A town planner
+(C) A property developer
+(D) An Internet salesman
+
+163. What is NOT indicated about Melwood
 Grove?
-The construction of
-car factory
-The founding of a law firm
-contains leisure facilities_
-The opening of a gym
-IL will require keycard access
-The building of some new structure
-will be targeted at young professionals_
-will have free Internet access
-### 162. _
-Who most likely is Pablo Lopez?
-A lawyer
-A town planner
-property developer
-An Internet salesman
-Eenzsn English- TOFIC
-Go ONTo THE NEXT PAGE
-TEST 9
-267
-Questions 164-167 refer to the following online chat discussion
-DALE WINSOR
-4:12 P.M:
-Good afternoon; Wayne: I've just been on
-conference call with our directors_
-They are really upset about the lack of progress on building our warehouse.
-WAYNE HENNESY
-4:14 PM:
-Did they say why exactly
-are unhappy?
-thought the timeframe for
-completion was fairly flexible
-DALE WINSOR
-421 P.m:
-It was, but they have since set a deadline of June
-Otherwise,
-we won t be
-able to store enough clothes,
-and it will take longer to deliver our clothes to
-customers_
-WAYNE HENNESY
-429 PM:
-Wait a minute. IIl add Beth: ..
-(BETH TOADIE JOINED THE GROUP CHAT)
-4.30 PM:
-WAYNE HENNESY
-434 PM:
-Hi, Beth.
-think we're going to have to source
-new construction company for
-the warehouse project The current one is struggling to meet the deadline:
-BETH TOADIE
-4*40 PM:
-That's
-pain in the neck: It took
-long time to agree on the contract with the
-current firm. Were the directors firmly set on changing constructors?
-DALE WINSOR
-4*46 PM:
-Im afraid s0,
-tried to explain that the changes to the deadline were
-unreasonable; but they wouldn't change their minds_
-BETH TOADIE
-4+50 PM:
-see. Well; I"Il have to tell them my opinion on the matter at the meeting next
-week:
-DALE WINSOR
-4457 PM:
-Good luck If anyone can convince them; it's youl
+(A) It contains leisure facilities.
+(B) It will require keycard access.
+(C) It will be targeted at young professionals.
+(D) It will have free Internet access.
+Bonzen English-TOEIC
+GO ON TO THE NEXT PAGE
+TEST 9 267
 268
-they
-### 164.
-What is the main topic of the discussion?
-### 166. _
-What can be inferred about Ms
-Toadie?
-The arrangements for
-meeting
-She is involved in clothing design.
-The appointing of a director
-She conducted
-conference call earlier
-The construction of
-warehouse
-today:
-The manufacturing of some clothing
-She is the manager of
-construction
-firm_
-### 165.
-What is one issue the directors are
-(D) She is meeting with some directors next
+Questions 164-167 refer to the following online chat discussion.
+☑
+DALE WINSOR 4:12 P.M.
+Good afternoon, Wayne. I've just been on a conference call with our directors.
+They are really upset about the lack of progress on building our warehouse.
+WAYNE HENNESY 4:14 P.M.
+Did they say why exactly they are unhappy? I thought the timeframe for
+completion was fairly flexible.
+DALE WINSOR 4:21 P.M.
+It was, but they have since set a deadline of June 1. Otherwise, we won't be
+able to store enough clothes, and it will take longer to deliver our clothes to
+customers.
+WAYNE HENNESY 4:29 P.M.
+Wait a minute. I'll add Beth...
+(BETH TOADIE JOINED THE GROUP CHAT)
+WAYNE HENNESY
+4:30 P.M.
+4:34 P.M.
+Hi, Beth. I think we're going to have to source a new construction company for
+the warehouse project. The current one is struggling to meet the deadline.
+BETH TOADIE 4:40 P.M.
+That's a pain in the neck. It took a long time to agree on the contract
+current firm. Were the directors firmly set on changing constructors?
+t with the
+DALE WINSOR 4:46 P.M.
+I'm afraid so. I tried to explain that the changes to the deadline were
+unreasonable, but they wouldn't change their minds.
+BETH TOADIE 4:50 P.M.
+I see. Well, I'll have to tell them my opinion on the matter at the meeting next
+week.
+DALE WINSOR
+Good luck. If anyone can convince them, it's you!
+4:57 P.M.
+
+164. What is the main topic of the discussion?
+(A) The arrangements for a meeting
+(B) The appointing of a director
+(C) The construction of a warehouse
+(D) The manufacturing of some clothing
+
+165. What is one issue the directors are
 concerned about?
-week:
-Terms of
-contract may be changed_
-(B) Delivery times may be increased
-### 167. .
-At 440 P.M , what does Ms. Toadie mean
-Building materials may become more
-when she wriles_
-Thal's
-pain in lhe neck'
-expensive_
-She would prefer to take a break:
+(A) Terms of a contract may be changed.
+(B) Delivery times may be increased.
+(C) Building materials may become more
+expensive.
 (D) Planning permission may not be granted.
-She believes
-construclion site is too far
-away:
-She thinks
-change will be inconvenient;
-She is concerned about
-budget limit:
-Benzen English - TOEIC
-GO ON TO THE NEXT PaGE
-TEST 9
-269
-Questions 168-171 refer to the following Web page
-Our Packages
-CEO Profile
-Customer Testimonials
-Destinations
+
+166. What can be inferred about Ms. Toadie?
+(A) She is involved in clothing design.
+(B) She conducted a conference call earlier
+today.
+(C) She is the manager of a construction
+firm.
+(D) She is meeting with some directors next
+week.
+
+167. At 4:40 P.M., what does Ms. Toadie mean
+when she writes, "That's a pain in the neck"?
+(A) She would prefer to take a break.
+(B) She believes a construction site is too far
+away.
+(C) She thinks a change will be inconvenient.
+(D) She is concerned about a budget limit.
+Benzen English-TOEIC
+leGO ON TO THE NEXT PAGE
+TEST 9 269
+270
+Questions 168-171 refer to the following Web page.
+Our Packages CEO Profile Customer Testimonials Destinations
 We at Touchstar have 25 years of experience helping all of our clients to fulfill their dreams. We
-are well known throughout the local community for providing tour packages of supreme quality;
-and our customers often go on to recommend us t0 friends  ~[1J-. Under the direction of our
+are well known throughout the local community for providing tour packages of supreme quality,
+and our customers often go on to recommend us to friends. -[1]-. Under the direction of our
 CEO, Bob Anderson, we are confident that our staff will be able to assist you in finding something
-to suit you; whether you are a group of young friends or
-senior couple
-When making your choice,
-we recommend taking plenty of time to reflect on what you want
-from your summer: Individuals with
-young families
-find some of our more adventurous
-packages unsuitable: Likewise, those in search of an adrenaline-packed summer may have a
-disappointing experience with one of our family packages
-We have dedicated experts available
-24 hours
-day to answer any queries that you may have before booking_
-[2-
-This summer; we are pleased t0 announce
-range of different options. Our Caribbean Dreamliner
+to suit you, whether you are a group of young friends or a senior couple.
+When making your choice, we recommend taking plenty of time to reflect on what you want
+from your summer. Individuals with very young families may find some of our more adventurous
+packages unsuitable. Likewise, those in search of an adrenaline-packed summer may have a
+disappointing experience with one of our family packages. We have dedicated experts available
+24 hours a day to answer any queries that you may have before booking. -[2]-.
+This summer, we are pleased to announce a range of different options. Our Caribbean Dreamliner
 package allows you to visit several islands over the course of a week, and engage in a number of
 leisure activities. This package is often popular with older travelers who enjoy whale-watching and
-bird-spotting:
-[3] = . Conversely; our Tropical Rush package allows thrill seekers to take part in a
-number of extreme hobbies, including skydiving and bungee jumping: Our Mini Adventurer deal is
-best suited for young families; and it includes accommodation at a 5-star resort complete with a
-private swimming pool: Expert guides will be present on all packages to ensure the smooth
-running of activities_
-~[4] -
-### 168.
-What kind of company most likely is
-### 170.
-What is NOT indicated about Touchstar?
+bird-spotting. -[3]-. Conversely, our Tropical Rush package allows thrill seekers to take part in a
+number of extreme hobbies, including skydiving and bungee jumping. Our Mini Adventurer deal is
+best suited for young families, and it includes accommodation at a 5-star resort complete with a
+private swimming pool. Expert guides will be present on all packages to ensure the smooth
+running of activities. -[4]-.
+
+168. What kind of company most likely is
 Touchstar?
-(A) It has been in business for over Iwo
-A tour company
-decades_
-A family law firm
-(B) It offers some exciling activilies_
-An accountancy firm
-It has received favorable media reviews:
-A newspaper office
-It caters t0 clients from
-range of age
-groups.
-### 169.
-What does Ihe Web page suggest that
+(A) A tour company
+(B) A family law firm
+(C) An accountancy firm
+(D) A newspaper office
+
+169. What does the Web page suggest that
 customers do?
-### 171. _
-In which of the positions marked [1], (2], [3],
-Consider their goals carefully
-and
-does the following sentence best
-Read testimonials from customers
+(A) Consider their goals carefully
+(B) Read testimonials from customers
+
+170. What is NOT indicated about Touchstar?
+(A) It has been in business for over two
+decades.
+(B) It offers some exciting activities.
+(C) It has received favorable media reviews.
+(D) It caters to clients from a range of age
+groups.
+
+171. In which of the positions marked [1], [2], [3],
+and [4] does the following sentence best
 belong?
-Request an experienced employee
-They are slanding by to take your call:.
-Confirm
-payment by phone
-[1]
-[2]
-270
-very
-may
-Questions 172-175 refer to the following schedule_
+(C) Request an experienced employee "They are standing by to take your call." (D) Confirm a payment by phone
+(A) [1]
+(B) [2]
+(C) [3]
+(D) [4]
+Questions 172-175 refer to the following schedule.
 The Baltimore Herald
 Induction Schedule
-Loeation: Herald Offices Training Suite
-Level B
+Location: Herald Offices Training Suite - Level B
 Date: Monday, March 19
-Why? It is vital that you quickly become familiar with the various departments %f our
-newspaper company: and the work that they do
-before commencing your role: This induction
-package has been designed as the most cfficient way t0
-provide You with this experience.
-Agenda: The schedule for the
-has been designed by executive director Dennis Furman and
-has been included below. If you have any questions about the agenda, please call Mr: Furman at
+Why? It is vital that you quickly become familiar with the various departments of our
+newspaper company, and the work that they do, before commencing your role. This induction
+package has been designed as the most efficient way to provide you with this experience.
+Agenda: The schedule for the day has been designed by executive director Dennis Furman and
+has been included below. If you have any questions about the agenda, please call Mr. Furman at
 extension 3299.
-Fime
-Activity
-Additional Details
-Location
-Staff members will be introduced t0 the
+Location Time Activity Additional Details
+9:00-10:00 Meet and Greet Staff members will be introduced to the
+executive director in person.
 Breezdale
-9.00
-10.00
-Meet and Greet
-exccutive director in person.
 Conference Room
-An introduction t0 the formatting styles
-10.00 -12.00
-Writing Style
+10:00-12:00 Writing Style
+An introduction to the formatting styles
 and techniques commonly employed by
-Seminar Room
-OUT newspaper:
-A discussion over our legal obligation on
-Yammin Media
-1;00 -
-3.00
-Legislation
-isSues such aS
-confidentiality Tea and
-Suitc
-coffee served
-Instruction in using
-variety of
-3.00-
-4:00
-Systems and
-software, including our word-processing;
-The Levy Suite
-Control
-database. and spreadsheet packages_
-Brian Cranficld will give
-talk on how
-t0 ensure Iat the
-reputation of the
-Seminar Room
-4.00
-5.00
-Field Integrity
-newspaper
-the ethics of the field are
-maintained when interviewing subjeets_
-### 172.
-What is the main purpose of the March 19
-### 174.
-When will some beverages be available?
-Between 9.00 and 10.00
-To advertise vacant positions
-Between 10.00 and 12.00
-To gather information t0 be used in a
-Belween 1.00 and 3.00
-story
-Between 3.00
-4.00
-To provide training to new employees
-To collect statistics on newspaper
-### 175. _
-What will event attendlees most likely do at
-circulation
-(A) M:
-Listen t0
-lecture by Brian Cranfield
-### 173. _
-Where will staff participate in activilies related
-Discuss legal obligations
-computing?
-Meet Dennis Furman
-The Levy Suite
-Practice writing an article
-Breezdale Conference Room
+our newspaper.
 Seminar Room C
-The Yammin Media Suite
-Cenzen English - TOEIC
-GO ONTO THE NEXT PAGE
-TEST 9
-271
-day
-ad
+1:00-3:00 Legislation
+A discussion over our legal obligation on
+issues such as confidentiality. Tea and
+coffee served.
+Yammin Media
+Suite
+3:00-4:00 Systems and Control
+4:00-5:00 Field Integrity
+Instruction in using a variety of
+software, including our word-processing,
+database, and spreadsheet packages.
+Brian Cranfield will give a talk on how
+to ensure that the reputation of the
+newspaper and the ethics of the field are
+maintained when interviewing subjects.
+The Levy Suite
+Seminar Room C
+
+172. What is the main purpose of the March 19
 event?
-and
-Questions 176-180 refer to the following article and letter:
-Huffleton Food Market a
-Huge Hit
-Huffleton; IL (July 15)
-Huffleton opened the doors of its long-awaited food market
-last week:
-The first-ever session of the market; which organizers now hope t0 run on
-the last weekend of every month; was deemed
-huge suecess, attracting over 10,000
-visitOrS t0 the town on # gloriously sunny
-Types of food sold by vendors
-included German sausage, French cheese, British fish and chips_
-and Turkish
-kebabs. The market was
-of an initiative by the town mayor to attract higher
-volumes of tourists t0 the area: To promole the event,
-Iocal film star was recruited
-to distribute complimentary hamburgers to patrons_
-In addition t0 the market;, several food-related events were also held. The most
-popular of these was the cooking demonstration by Japanese chef Akemi Suki. Mr:
+(A) To advertise vacant positions
+(B) To gather information to be used in a
+story
+(C) To provide training to new employees
+(D) To collect statistics on newspaper
+circulation
+
+173. Where will staff participate in activities related
+to computing?
+(A) The Levy Suite
+(B) Breezdale Conference Room
+(C) Seminar Room C
+(D) The Yammin Media Suite
+
+174. When will some beverages be available?
+(A) Between 9:00 and 10:00
+(B) Between 10:00 and 12:00
+(C) Between 1:00 and 3:00
+(D) Between 3:00 and 4:00
+
+175. What will event attendees most likely do at
+9 A.M.?
+(A) Listen to a lecture by Brian Cranfield
+(B) Discuss legal obligations
+(C) Meet Dennis Furman
+(D) Practice writing an article
+Benzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 9 271
+272
+Questions 176-180 refer to the following article and letter.
+Huffleton Food Market a Huge Hit
+Huffleton, IL (July 15)-Huffleton opened the doors of its long-awaited food market
+last week. The first-ever session of the market, which organizers now hope to run on
+the last weekend of every month, was deemed a huge success, attracting over 10,000
+visitors to the town on a gloriously sunny day. Types of food sold by vendors
+included German sausage, French cheese, British fish and chips, and Turkish
+kebabs. The market was part of an initiative by the town mayor to attract higher
+volumes of tourists to the area. To promote the event, a local film star was recruited
+to distribute complimentary hamburgers to patrons.
+In addition to the market, several food-related events were also held. The most
+popular of these was the cooking demonstration by Japanese chef Akemi Suki. Mr.
 Suki delighted crowds by displaying his expert slicing techniques before cooking
-of fish in oil t0 produce mesmerizing, brightly colored flames. Another
-popular event was the
-cooking contest: Competition categories included making the
-best sOup, chicken dish, sandwich; and cake, with prizes awarded t0 the
-winning
-chef in each category:
-Mr: Akemi Suki
+pieces of fish in oil to produce mesmerizing, brightly colored flames. Another
+popular event was the cooking contest. Competition categories included making the
+best soup, chicken dish, sandwich, and cake, with prizes awarded to the winning
+chef in each category.
+Mr. Akemi Suki
 86 Horston Avenue
 Huffleton, IL 60415
-Mr: Suki,
-Firstly,
-would like to state how much
-enjoyed my time at the Huffleton Food
-Market, which
-attended
-weekend.
-family and
-enjoyed
-lots of
-amalzing fooxl
-WC
-Can
-believe we were served
-hamburgers by the famous Dale
-Springfieldl
-The reason
-amn writing is hat
-AI
-currently in the process of opening
-Japanese
-restaurant in the downtown area of Huffleton and would vety much like it il you
-would join our tCm:
-[Il provide some further details about my company.
-We just opened last year, and we
-serve
-range of Asian cuisine inspired by flavor
-(rom all over the continent:
-We already have recruited chef Sally
-Bergstrom to produce Our desserts
-You mnay
-remember she won
-related competition atthe recent food market. If yOu were to
-come on
-board,
-am confident rhat this venture would be extremely successful for all
-ol US.
-feel that we have much to talk about:
-would appreciate it if you could give me
-call
-On
-560-2219-8282 as soon as you are able.
+Dear Mr. Suki,
+Firstly, I would like to state how much I enjoyed my time at the Huffleton Food
+Market, which I attended last weekend. My family and I enjoyed eating lots of
+amazing food-we still can't believe we were served hamburgers by the famous Dale Springfield!
+The reason I am writing is that I am currently in the process of opening a Japanese
+restaurant in the downtown area of Huffleton and would very much like it if you
+would join our team.
+I'll provide some further details about my company. We just opened last year, and we
+serve a range of Asian cuisine inspired by flavor profiles from all over the continent.
+We already have recruited chef Sally Bergstrom to produce our desserts. You may
+remember she won a related competition at the recent food market. If you were to
+come on board, I am confident that this venture would be extremely successful for all
+of us.
+I feel that we have much to talk about. I would appreciate it if you could give me a call
+on 560-2219-8282 as soon as you are able.
 All the best,
 Adele Walsh
 Far Eastern Restaurant
-272
-day.
-paltt
-picces
-Deat
-last "
-My
-eating
-scill
-profiles
-### 176.
-What is indicated about the Huffleton Food
-### 179.
-did Ms. Walsh get in contact with Mr:
+
+176. What is indicated about the Huffleton Food
 Market?
-Suki?
-(A) 
-It was attended by the mayor:
-To make a complaint
-(B) 
-It was open t0 town residents only:
-To offer him a job
+(A) It was attended by the mayor.
+(B) It was open to town residents only.
 (C) It had never been held before.
-To ask his advice on
-menu
-(D) It was postponed due t0 bad weather:
-To invite him t0 dinner
-### 177. . In the article
-the word "run" in paragraph
-### 180. _
-Which competition did Ms. Bergstrom most
-line 2
-is closest in meaning to
+(D) It was postponed due to bad weather.
+
+177. In the article, the word "run" in paragraph 1,
+line 2, is closest in meaning to
+(A) sprint
+(B) flow
+(C) compete
+(D) operate
+
+178. What is indicated about Mr. Springfield?
+(A) He is a film star.
+(B) He is the town mayor.
+(C) He is a renowned chef.
+(D) He was born in Germany.
+
+179. Why did Ms. Walsh get in contact with Mr.
+Suki?
+(A) To make a complaint
+(B) To offer him a job
+(C) To ask his advice on a menu
+(D) To invite him to dinner
+
+180. Which competition did Ms. Bergstrom most
 likely win?
-sprint
-Best ice cream
-flow
-Best soup
-compete
-Best chicken dish
-operate
-Best cake
-### 178.
-What is indicated about Mr: Springfield?
-He is a film star:
-He is the town mayor:
-He is
-renowned chef:
-He was born in Germany:
-Bonzen English - TOEIC
-GO ON TO THE NEXT PAGE
-TEST 9
-273
-Why'
-Questions 181-185 refer t0 the
-following e-mail and receipt:
-To:
-inquiries@homecomfort net
-From:
-cmcree@hnmailcom
-Date:
-September
-349 PM_
-Subject:
-Recent Purchase
-Attachment:
-0 invoice
-Dear Sir Or Madam,
-Last week_
-ordered
-new kitchen unit from Home Comfort'$ furnishing department
-waS
-ecstatic with the prompt installation of the unit. The
-team visIted my house for tWO
-dlays this week and completed the installation on schedule. Nevertheless;
-noticed one picce
-(#9422) has
-scratch across its surlace, which is obviously unacceptable. The item $
-style meets my expectations, and
-would therefore like an identical replacement installed at
-your earliest convenience. Please find my receipt attached to this
-mail. My account number
+(A) Best ice cream
+(B) Best soup
+(C) Best chicken dish
+(D) Best cake
+Bonzen English -TOEIC
+TEST 9GO ON TO THE NEXT PAGE
+TEST 9 273
+274
+Questions 181-185 refer to the following e-mail and receipt.
+To: inquiries@homecomfort.net
+From: cmcree@hnmail.com
+Date: September 2, 3:49 P.M.
+Subject: Recent Purchase
+Attachment: invoice
+Dear Sir or Madam,
+Last week, I ordered a new kitchen unit from Home Comfort's furnishing department. I was
+ecstatic with the prompt installation of the unit. The fittings team visited my house for two
+days this week and completed the installation on schedule. Nevertheless, I noticed one piece
+(#9422) has a large scratch across its surface, which is obviously unacceptable. The item's
+style meets my expectations, and I would therefore like an identical replacement installed at
+your earliest convenience. Please find my receipt attached to this e-mail. My account number
 is AG5929.
-Jusl t0 note
-am going On vacation in (WO weeks_
-would really like this issue resolved by
-then. Nobody would be at home to let in the installation team alter this period_
-would
-prefer it to be taken care of prior t0 my travels_
-Thanks in advance for your assistance.
+Just to note, I am going on vacation in two weeks, so I would really like this issue resolved by
+then. Nobody would be at home to let in the installation team after this period, so I would
+prefer it to be taken care of prior to my travels. Thanks in advance for your assistance.
 Sincerely,
 Charlie McRee
-RECEIPT
 Home Comfort
-Order Date: August 25
 18 Greenfield Park
+Seattle, WA 98107
+United States
+RECEIPT
+Order Date: August 25
 Order No: 92919
-Seattle; WA 98107
 Installation Date(s): August 29-30
-United States
-Client
-and Delivery Address
-Name:
-Charlie McRee
+Client Billing and Delivery Address
+Name: Charlie McRee
+Address: 302 Black Forest Avenue
 Account No: AG5929
-Address:
-302 Black Forest Avenue
-Telephone: 501-533-6669
-City;
-Portland
-County/State:
-OR 97230
-Country:
-United States
+Telephone: 501-533-6999
+City: Portland
+County/State: OR 97230
+Country: United States
 Items Purchased
-#3218 Marble Kitchen Counter
-S800
-#7032 (24 Pack) Granite Floor Tiles
-S400
-#9422 Metallic Kitchen Sink
-S350
-#1305 Quickburn Gas Stove
-s900
+#3218 Marble Kitchen Counter $800
+#7032 (24 Pack) Granite Floor Tiles $400
+#9422 Metallic Kitchen Sink $350
+#1305 Quickburn Gas Stove $900
 Subtotal: $2,450
 Installation Fee: $300
 Total: $2,750
-Thank you for
-Comfort!
-274
-filtings
-large
-Billing=
-Hone
-choosing
-### 181. ,
-What is Ihe purpose of the e-mail?
-### 184.
-What item purchased by Mr McRee is
-To report a change of address
-specifically referred t0 in the
-To demand
-refund
-Marble Kitchen Counter
-To provide some directions
-Granite Floor Tiles
-To request
-replacement item
-Metallic Kitchen Sink
-Quickburn Gas Stove
-### 182. _
-What does Mr: McRee say pleased him?
-### 185. _
-How much extra did Mr: McRee pay t0 have
-(A) The quality of Ihe items
-The speed of the installation
+Thank you for choosing Home Comfort!
+
+181. What is the purpose of the e-mail?
+(A) To report a change of address
+(B) To demand a refund
+(C) To provide some directions
+(D) To request a replacement item
+
+182. What does Mr. McRee say pleased him?
+
+183.
+(A) The quality of the items
+(B) The speed of the installation
+(C) The friendliness of the sales staff
+(D) The ease of using a Web site
+In the e-mail, the phrase "meets" in
+paragraph 1, line 5, is closest in meaning to
+(A) gathers
+(B) introduces
+(C) agrees
+(D) satisfies
+
+184. What item purchased by Mr. McRee is
+specifically referred to in the e-mail?
+(A) Marble Kitchen Counter
+(B) Granite Floor Tiles
+(C) Metallic Kitchen Sink
+(D) Quickburn Gas Stove
+
+185. How much extra did Mr. McRee pay to have
 some items installed?
-The friendliness ol Ihe sales staff
-S300
-The ease of using a Web site
-S350
-S900
-### 183.
-In Ihe e-mail
-the phrase "meets" in
-52,750
-paragraph
-line 5
-is closest in meaning t0
-gathers
-introduces
-agrees
-satisfies
-Bonzen English - TOEIC
-GO ONTO THE NEXT PAGE
-TEST 9
-275
-e-mail?
-Questions
-### 190. refer to Ihe following e-mail, Web page, and article.
-#E-Mail*
-To:
-Paul Romfield
-From:
-Tracy Blackheart
+(A) $300
+(B) $350
+(C) $900
+(D) $2,750
+Benzen English-TOEIC
+GO ON TO THE NEXT PAGE
+TEST 9 275
+276
+Questions 186-190 refer to the following e-mail, Web page, and article.
+*E-Mail*
+To: Paul Romfield
+From: Tracy Blackheart
 Date:
+Subject: Business trip
 April 23
-Subject:
-Business trip
 Hi Paul,
-Fve been told
-you re going t0 the product launch with me in Indianapolis next 'Tuesday:
-[mjust
-looking at flights from here in Denver and remembered that
-flown there just
-last month If you could suggest an airline, TIl g0 ahead and make the
-booking right away:
-With regard t0 our presentation
-we'Il be speaking in front of 5(0 people
-As such i" $
-important We get there OH time
-don L think we should use the French (irm_
-can
-remember the name, but
-have read unfavorable reviews about them in the last year due to
-their mechanical problems
-think
-also read about Turkish airline CloudSurfer going out
-of business I m happy t0 consider any Olher option.
-You should also know that reporters have becn invited t0 interview US when we arrive:
-Opera Media Group has declined the offer; but
-beclieve
-Magacore Incorporated will send
-somebody: Our CEO has instructed uS to decline interviews with Redfern Press and
-Business Insider; as
-have already been critical towards our new producl
-Please let me know about the
-flights at your earliest convenience.
-http Iwwwskysearcher comfresults/c0302555
-Rapidflv Deluxe: Overall rating
-4.5/5_
-Recently recognized for its outstanding
+I've been told that you're going to the product launch with me in Indianapolis next Tuesday.
+I'm just looking at flights from here in Denver and remembered that you'd flown there just
+last month. If you could suggest an airline, I'Il go ahead and make the booking right away.
+With regard to our presentation, we'll be speaking in front of 500 people. As such, it's
+important we get there on time. I don't think we should use the French firm. I can't
+remember the name, but I have read unfavorable reviews about them in the last year due to
+their mechanical problems. I think I also read about Turkish airline CloudSurfer going out
+of business. I'm happy to consider any other option.
+You should also know that reporters have been invited to interview us when we arrive.
+Opera Media Group has declined the offer, but I believe Magacore Incorporated will send
+somebody. Our CEO has instructed us to decline interviews with Redfern Press and
+Business Insider, as they have already been critical towards our new product.
+Please let me know about the flights at your earliest convenience.
+Tracy
+http://www.skysearcher.com/results/e0302555
+Rapidfly Deluxe: Overall rating - 4.5/5. Recently recognized for its outstanding
 customer service in the Aviation Honors ceremony, German firm Rapidfly has
-now
-established itself as
-major player in the travel sector: Despite this,
-bookings have declined s0 far this year; perhaps in part due to the
-discontinuing of food service on flights_
-GoldenWings: Overall
-2/5_
-flight operator from the south of France
-has experienced
-downturn in ticket sales in the
-vear
-customers
-are unconvinced by Robert Pier's statement that the company has turned
-corner; and flights continue to be undersubscribed.
-SilverJet: Overall rating
-3/5_
-bid to boost dwindling sales figures
-Swedish company SilverJet
-recently announced
-discounted range of
+now established itself as a major player in the travel sector. Despite this,
+bookings have declined so far this year, perhaps in part due to the
+discontinuing of food service on flights.
+GoldenWings: Overall rating - 2/5. The flight operator from the south of France
+has experienced a downturn in ticket sales in the last year. Many customers
+are unconvinced by Robert Pier's statement that the company has turned a
+corner, and flights continue to be undersubscribed.
+SilverJet: Overall rating - 3/5. In a bid to boost dwindling sales figures,
+Swedish company SilverJet has recently announced a discounted range of
 flights. This offer extends to its Early Bird flight-the only flight to arrive into
 Indianapolis from Denver each day before lunchtime.
-276
-### 186. -1
-that
-you d
-they
-Tracy
-The
-rating
-Iast
-Many
-has
-Directors Ily in for Technospark product launch
+A
+Directors fly in for Technospark product launch
 By Beverly Shimmer
-This morning
-met with Technospark directors Paul Romlield and Tracy
-Blackheart shortly after their (light from Denver touched down in Indianapolis
-10.30 A.M. Mr: Romfield elaimed he was
-extremely excited" to be
-unveiling
-the new moclel of notebook computer at this alternoon
-product launch and
-predieted that it would quickly become
-market leader;
-Fior the full interview with Mr: Romfield.
-ineluding exclusive pictures of the
-forthcoming produet, please turn t0 page 5_
-### 186. _
-What is the purpose of the
-### 189. _
-Which airline did Mr. Romfield most likely
-recommend t0 Ms. Blackhearl?
-To extend an invitation
-(B) To discuss
-schedule change
-GoldenWings
-To seek
-colleague's advice
-Rapidfly
-To suggest revising
-presentation
-SilverJet
-CloudSurfer
-### 187. .
-What is indicated about GoldenWings?
-### 190.
-What media outlet does Ms. Shimmer most
-It has gone bankrupt
+This morning, I met with Technospark directors Paul Romfield and Tracy
+Blackheart shortly after their flight from Denver touched down in Indianapolis
+10:30 A.м. Mr. Romfield claimed he was "extremely excited" to be unveiling
+the new model of notebook computer at this afternoon's product launch and
+predicted that it would quickly become a market leader.
+at
+For the full interview with Mr. Romfield, including exclusive pictures of the
+forthcoming product, please turn to page 5.
+
+186. What is the purpose of the e-mail?
+(A) To extend an invitation
+(B) To discuss a schedule change
+(C) To seek a colleague's advice
+(D) To suggest revisinga presentation
+
+187. What is indicated about GoldenWings?
+(A) It has gone bankrupt.
 (B) Its planes have experienced mechanical
-likely work for?
-issues
-Redfern Press
+issues.
 (C) It has recently won an award.
-Opera Media Group
-(D) It is launching
-new product next week:
-Business Insider
-Magacore Incorporated
-### 188. _
-What do all the companies on the Web page
+(D) It is launching a new product next week.
+
+188. What do all the companies on the Web page
 have in common?
 (A) They have all experienced decreased
-ticket sales:
-(B) They originate from the same country:
-Ahot meal is served on each flight.
-They have all been awarded the same
-rating:
-Penzen English - TOEIC
-GO ONTO
-NEXT PAGE
-TEST 9
-277
-e-mail?
-ThE
-Questions 191-195 refer t0 the following notice_
-~mail, and survey:
-For the attention of;
+ticket sales
+(B) They originate from the same country.
+(C) A hot meal is served on each flight.
+(D) They have all been awarded the same
+rating.
+
+189. Which airline did Mr. Romfield most likely
+recommend to Ms. Blackheart?
+(A) GoldenWings
+(B) Rapidfly
+(C) SilverJet
+(D) CloudSurfer
+
+190. What media outlet does Ms. Shimmer most
+likely work for?
+(A) Redfern Press
+(B) Opera Media Group
+(C) Business Insider
+(D) Magacore Incorporated
+Benzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 9 277
+278
+Questions 191-195 refer to the following notice, e-mail, and survey.
+For the attention of:
 ALL LUXURHOME EMPLOYEES
-This is
-reminder that all employees are to attend mandatory
-0n March 9. The
-management team Wants to ensure that everybody is aware of our new sales policy
-it comes t0
-property: Unfortunately. we have been unable to book Cincinnati
-Convention Center this year We also inquired about
-the boardroomat the
-Crystal Hotel, but this was
-booked for our preferred
-As such,
-we have
-provisionally booked
-room at thc Clark Technical Institute: However, this will be
-altered to the conference suite at Cincinnati University il we need to move the
-training
-to a wcekend:
-Mie
-training
-will include advice on
-closing deals provided by business expert Paula
-Flores;
-Ryan Bertrand will be on hamnd to lend his expertise in the area ol contract
-negotiation,and Terry Felz will give
-lecture On the neW
-property regulations. Last
-but not least, Eileen Rashford will provide advice on delivering successful presentations:
-We hope you
-the day; and that the information serves YOu well in your career with
-Luxurhomc;
+This is a reminder that all employees are to attend mandatory training on March 19. The
+management team wants to ensure that everybody is aware of our new sales policy when
+it comes to letting property. Unfortunately, we have been unable to book Cincinnati
+Convention Center this year. We also inquired about renting the boardroom at the
+Crystal Hotel, but this was fully booked for our preferred date. As such, we have
+provisionally booked a room at the Clark Technical Institute. However, this will be
+altered to the conference suite at Cincinnati University if we need to move the training
+to a weekend.
+The training day will include advice on closing deals provided by business expert Paula
+Flores. Ryan Bertrand will be on hand to lend his expertise in the area of contract
+negotiation, and Terry Felz will give a lecture on the new city property regulations. Last
+but not least, Eileen Rashford will provide advice on delivering successful presentations.
+We hope you enjoy the day, and that the information serves you well in your career with
+Luxurhome.
 E-Mail message
-'To:
-Hendersey <whendersey@luxurhome net>
-Fivom: Susan 'Leperlin <s zeperlindluxurhome.net >
-Subject: 'Haining Day
+To: Wayne Hendersey <w.hendersey@luxurhome.net>
+From: Susan Zeperlin <s.zeperlin@luxurhome.net>
+Subject: Training Day
 Date: April 5
-Attachment: 0 Questionnaire
-Dea"
-Firstly; Td like to thank you
-the rest of the management team for organizing the
-recent company training
-The
-kers were all very knowledgeable, and
-thought the facilities on hand at Cincinnati University were first class_
-Please find
+Attachment: Questionnaire
+Dear Wayne,
+Firstly, I'd like to thank you and the rest of the management team for organizing the
+recent company training day. The speakers were all very knowledgeable, and I
+thought the facilities on hand at Cincinnati University were first class. Please find
 attached my completed questionnaire.
-In light of how much
-enjoyed the
-Td like t0 meet with yOu al some point next
-week As
-new employee
-am nOW extremely exciled aboul my lulure career with
+In light of how much I enjoyed the day, I'd like to meet with you at some point next
+week. As a new employee, I am now extremely excited about my future career with
 Luxurhome and would like the opportunity to discuss career strategies with you. If
-VOl
-find time in yotr busy schedule to accommodate me,
-would greatly
+you could find time in your busy schedule to accommodate me, I would greatly
 appreciate it.
-Regards;
+Regards,
 Susan Zeperlin
 Junior Sales Associate
-278
-tramning
-when
-letting'
-renting
-fully
-date.
-day
-cily-
-cnjoy
-Wayne
-Wayne,
-and
-day:
-spea
-day
-could
+會
 Luxurhome
 Strongly
-Somewhat
-Somewhat
-Strongly
 agree
+Somewhat
 agree
+Somewhat
 disagree
-disagree
+Strongly disagree
 The training day has prepared
 me well for my future career
-The training day was well
-organized
-The venue
-was
-easily
+X
+The training day was well organized
+The venue was easily
 accessible
-speakers were
-knowledgeable_
-Additional Feedback: Fanlastic day: However;
-should
-oul that
-got lost
-the venue, as the directions on Ihe Web site were incorrect: As such,
-only arrived in time for the second lecture;
-thought Paula Flores provicled
-invaluable information_
-was
-little dlisappointed to find out that Terry Felz was
-sick and couldn't make it, but thought Amelia
-delivered
-very competent
-lecture using Mr: Felz's notes.
+The speakers were
+knowledgeable
+x
+X
+Additional Feedback: Fantastic day. However, I should point out that I got lost
+finding the venue, as the directions on the Web site were incorrect. As such, I
+only arrived in time for the second lecture; I thought Paula Flores provided
+invaluable information. I was a little disappointed to find out that Terry Felz was
+sick and couldn't make it, but thought Amelia Song delivered a very competent
+lecture using Mr. Felz's notes.
 Susan Zeperlin
-### 191. _
-What is the purpose of the notice?
-### 194.
-What is suggested about Ms. Zeperlin?
-To seek speakers for
-training workshop
-She is a managing director:
-To provide an update on an event
-(B) She was late to the training day:
-To describe
-new company policy
-She would Iike to become
-university
-To announce a change of schedule
-lecturer:
-(D) She felt the training day was poorly
-### 192.
+
+191. What is the purpose of the notice?
+
+192.
+(A) To seek speakers for a training workshop
+(B) To provide an update on an event
+(C) To describe a new company policy
+(D) To announce a change of schedule
 On what day of the week was the training
-organized_
 day most likely held?
-### 195.
+(A) Monday
+(B) Wednesday
+(C) Thursday
+(D) Saturday
+
+193. In the e-mail, the word "accommodate" in
+paragraph 2, line 4, is closest in meaning to
+(A) house
+(B) contain
+(C) assist
+
+194. What is suggested about Ms. Zeperlin?
+
+195.
+(A) She is a managing director.
+(B) She was late to the training day.
+(C) She would like to become a university
+lecturer.
+(D) She felt the training day was poorly
+organized.
 On which subject did Amelia Song most likely
-Monday
 lecture?
-Wednesday
-Thursday
-Contract negotiation
-Salurday
-Giving presentations
-Closing the deal
-### 193. In the e-mail
-the word
-accommodate
-Property regulations
-paragraph 2, line 4, is closest in meaning t0
-house
-contain
-assist
-adapt
-Benzen Englich - TOEIC
-GO ONTO IHE NEXT PAGE
-TEST 9
-279
-The
-point
-finding
-Song
+(A) Contract negotiation
+(B) Giving presentations
+(C) Closing the deal
+(D) Property regulations
+(D) adapt
+Benzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 9 279
+280
 Questions 196-200 refer to the following notice, Web page, and receipt.
 Technology Convention
-In March, the city of Boise will welcome thousands of visitors to the annual
-technology
-convention that takes place in the city
-Last year'
-event Was
-success, with
-over
-3,000 visitors attending seminars;
-and lectures spread over the duration of the seven day
-convention.
-We are hoping to
-this attendance record this time around,
-1,500
-advance tiekets sold already. This year'
-event will be held in the Stephenson Hall as
-USUal, ad
-events will
-be spread over tWO weeks this time around.
-Many attendees fall in love with our city
-choose t0 spend an exrended period of
-time here; taking in the riverside vicw ad beautiful
-surrounding countryside  Wirh this
-in mind, we are delighted to announce local firm Galaxy Cars as our official rental
-for the event; Special discounts will be available t0 those attending the conference; and
-vehicles will be delivered directly to your hotel for your convenience: The Galaxy Cars
-Web site can be found at WWW_
-galaxycars.
-coma
-Prices for this year' =
-convention are set as the following:
-Gold Pass
-Attendance at all talks, seminars and workshops: S85
-Silver Pass
-Attendance at evening events only: $40
-Bronze Pass
-Online access to Web broadeast: S15
-To book your place; please
-our dedicated hotline a1
-208-555-0143. We will be
-eagerly awaiting your call and hope to see yOu in person at the convention.
-htp Ilwww galaxycars com
+In March, the city of Boise will welcome thousands of visitors to the annual technology
+convention that takes place in the city. Last year's event was a huge success, with over
+3,000 visitors attending seminars, and lectures spread over the duration of the seven day
+convention. We are hoping to beat this attendance record this time around, with 1,500
+advance tickets sold already. This year's event will be held in the Stephenson Hall as
+usual, and events will be spread over two weeks this time around.
+Many attendees fall in love with our city and choose to spend an extended period of
+time here, taking in the riverside view and beautiful surrounding countryside. With this
+in mind, we are delighted to announce local firm Galaxy Cars as our official rental firm
+for the event. Special discounts will be available to those attending the conference, and
+vehicles will be delivered directly to your hotel for your convenience. The Galaxy Cars
+Web site can be found at www.galaxycars.com.
+Prices for this year's convention are set as the following:
+Gold Pass - Attendance at all talks, seminars and workshops: $85
+Silver Pass - Attendance at evening events only: $40
+Bronze Pass - Online access to Web broadcast: $15
+To book your place, please call our dedicated hotline at 208-555-0143. We will be
+eagerly awaiting your call and hope to see you in person at the convention.
+http://www.galaxycars.com
 Special Offer: Boise Technology Convention
-We at Galaxy Cars
-seek to embrace technological advancements in the motor
-industry, and we strive t0 provide Our Customers with the best customer service as
-well as thelatest gadgets in our rental cars_
-This is why we are delighted to support
-this year' $
-technology convention.
-To celebrate this important event; we have decided to offer
-reward scheme for
-attendees of=
-convention. Reserving a vehicle in advance will entitle yOu to receive
-special dliscount on your rental price_
-Please quote the code "SAVERDEAL'
-atthe
-time of hooking: The following offers are currently available:
-Bookings made before September 25: 20% dliscount
+We at Galaxy Cars always seek to embrace technological advancements in the motor
+industry, and we strive to provide our customers with the best customer service as
+well as the latest gadgets in our rental cars. This is why we are delighted to support
+this year's technology convention.
+To celebrate this important event, we have decided to offer a reward scheme for
+attendees of the convention. Reserving a vehicle in advance will entitle you to receive
+a special discount on your rental price. Please quote the code "SAVERDEAL" at the
+time of booking. The following offers are currently available:
+Bookings made before September 25: 20% discount
 Bookings made between September 25 and September 30: 15% discount
-Bookings made between October
-and October 7: [0% dliscount
-Bookings made after October &: 5% discoum
-'17
-280
-huge
-beat
-with
-and
-firm
-call
-always
-the
+Bookings made between October 1 and October 7: 10% discount
+Bookings made after October 8: 5% discount
 Receipt Printed: September 29
 Guest: Terrence Burnette
-Address: 49 Beachy Lane; Chicago IL, 60605
+Address: 49 Beachy Lane, Chicago IL, 60605
 Guest Pass Level: Silver
 Vehicle booked (Y/N): Yes
 Vehicle make and model: Advance Speedway T400 Deluxe
-Reward program member: 2388 MAH
-Grand Total: $169.95
-Vehicle Return Date: October
+Reward program member: 2388 МАH
+Grand Total: $
+
+169.95
+Vehicle Return Date: October 7
 Date of Booking: September 23
 Bank card: XXXXXXXXXXXX5939
 Card expiry: October 15
 Passes may be picked up from the official reception desk prior to
-the event starting:
-### 196. What is implied about this year's technology
-### 199.
-What is Irue about Mr: Burnette?
+the event starting.
+
+196. What is implied about this year's technology
 convention?
-He is unable to attend lhis year'$ event:
-It IS
-being held at
-new venue in Boise.
+(A) It is being held at a new venue in Boise.
+
+199. What is true about Mr. Burnette?
+(A) He is unable to attend this year's event.
+(B) Its tickets have already sold out completely.
 (B) He recently accepted a job at Galaxy
-Its tickets have already sold out completely:
-Cars_
-Complimentary airport transportation is
+Cars.
+(C) Complimentary airport transportation is
+included.
 (C) He will be allowed to attend only the
-included:
-evening events;
+evening events.
 (D) It will be held for longer than last year's
-(D) He is
-guest speaker at the technology
-event:
-convention:
-### 197. .
-What is suggested about Galaxy Cars?
-### 200.
-How much of a discount will Mr: Burnette
+event.
+(D) He is a guest speaker at the technology
+convention.
+
+197. What is suggested about Galaxy Cars?
+(A) It will operate a display booth at the
+convention.
+
+200. How much of a discount will Mr. Burnette
 receive on car rental?
-(A) It will operate
-display booth at the
-convention:
-5%
-(B) It equips its vehicles
-advanced devices;
-10%
-It is celebrating being in business for one
-15%
-year:
-20%
-(D) 
-It will offer
-shultle service at Ihe convention:
-### 198. _
-What must guests do in order t0 receive
+(A) 5%
+(B) It equips its vehicles with advanced devices. (B) 10%
+(C) It is celebrating being in business for one
+year.
+(C) 15%
+(D) 20%
+(D) It will offer a shuttle service at the convention.
+
+198. What must guests do in order to receive
 discounted car rental?
-Sign in to an online account
-Display
-guest pass
-Book
-hotel room with
-particular company
-Quote
-reference code
-Stopl This is the
-of the test: If you finish before time is called, you may go
-back to Parts 5
-and
-and check your work:
-Benzen English - TOEIC
-TEST 9
-281
-with
-end
-T E $ T
-10
+(A) Sign in to an online account
+(B) Display a guest pass
+(C) Book a hotel room with a particular company
+(D) Quote a reference code
+Stop! This is the end of the test. If you finish before time is called, you may go
+back to Parts 5, 6, and 7 and check your work.
+Benzen English-TOEIC
+lesTEST 9 281
+RC
+TES T 10
+284
 READING TEST
-In the Reading test, you will read
-variety of texts and answer several different types of reading
-comprehension questions_
-The entire Reading test will last 75 minutes
-There are three parts, and
-directions are given for each part: You are encouraged to answer as many questions as possible within
-the time allowed:
-You must mark your answers on the separate answer sheet: Do not write your answers in your test
+In the Reading test, you will read a variety of texts and answer several different types of reading
+comprehension questions. The entire Reading test will last 75 minutes. There are three parts, and
+directions are given for each part. You are encouraged to answer as many questions as possible within
+the time allowed.
+You must mark your answers on the separate answer sheet. Do not write your answers in your test
 book.
-
-## PART 5
-Directions: A word or phrase is missing in each of the sentences below: Four answer choices are
-given below each sentence. Select the best answer to complete the sentence. Then mark the lelter
-(A) (B) (C), or (D) on your answer sheet:
-
+PART 5
+Directions: A word or phrase is missing in each of the sentences below. Four answer choices are
+given below each sentence. Select the best answer to complete the sentence. Then mark the letter
+(A), (B), (C), or (D) on your answer sheet.
 
 # TEST 10
 
-## READING TEST
+101. The passenger was asked to place
+luggage in the overhead compartments after
+boarding the plane.
+(A) her
+(B) she
+(C) hers
+(D) herself
 
+102. -------  the initial prototype and the final model
+of the keyboard featured customizable media
+
+103.
+keys.
+(A) None
+(B) Either
+(C) Both
+(D) That
+Executives at the Cedal Corporation ----
+negotiations for the acquisition of Nevix
+Industries two months ago.
+(A) begins
+(B) began
+(C) beginning
+(D) will begin
+
+104. Our associates searched the file cabinet for
+nearly an hour and finally found the missing
+receipts -----some travel documents.
+(A) at
+(B) onto
+(C) during
+(D) among
+
+105. The fund for maintaining the community's
+public parks will run out------- if the city
+council does not make it a top priority.
+(A) entire
+(B) entirety
+(C) entireness
+(D) entirely
+
+106. -------  hotels charge a fee for cancellation
+within 24 hours of check-in, but the Renora
+Inn does not.
+(A) Other
+(B) Each
+(C) Which
+(D) Another
+
+107. A legitimate ----of residency in the city can
+be proven via a valid apartment rental lease.
+(A) is claiming
+(B) claimed
+(C) claim
+(D) claims
+
+108. Please--- the sources for all of the
+statistics included in your report.
+(A) base
+(B) direct
+(C) fulfill
+(D) cite
+
+109. The candidate had already won a majority by
+a large margin, but election officials counted
+the rest of the votes -------.
+(A) otherwise
+(B) ever
+(C) nonetheless
+(D) rather
+
+110. Even when the drone unexpectedly
+encountered a storm, its operator remained
+in ------- and kept the machine on course.
+(A) control
+(B) shape
+(C) force
+(D) order
+
+111. Many construction firms delegate portions of
+their work to ------- who can complete the job
+more cost-effectively.
+(A) contractually
+(B) contractors
+(C) contractual
+(D) contracts
+
+112. The branch manager called for an
+emergency meeting to tell staff ------ the
+change in government policy.
+(A) for
+(B) through
+(C) behind
+(D) about
+
+113. Fortunately, the inventory taken by the aid
+organization found that the shelter had-----
+levels of reserve supplies.
+
+114.
+(A) willing
+(B) acceptable
+(C) skillful
+(D) rapid
+Owing to strong competition in the industry,
+the new smartphone designed by Vamiant
+Electronics must be marketed -
+(A) consecutively
+(B) recently
+(C) strictly
+(D) aggressively
+
+115. The natural history museum's VIP members
+are ------- to enter the workshop and see the
+curators in action.
+(A) permitted
+(B) permitting
+(C) permits
+(D) permit
+
+116. Roonelot Manufacturing installed solar
+panels on its rooftops ------- it could generate
+some of its own energy on site.
+(A) such as
+(B) regardless of
+(C) no matter what
+(D) so that
+
+117. Due to the prestigious nature of the award,
+even Ms. Donnelly's most------ colleagues
+traveled to watch her accept it.
+(A) distances
+(B) distance
+(C) distant
+(D) distantly
+
+118. The owner of Hedley Tower may ------- the
+building if it does not pass the upcoming
+safety inspection.
+(A) demolish
+(B) demolishing
+(C) demolished
+(D) demolishes
+
+119. Despite the IT director ------- warning the
+company president of issues with the e-mail
+system, he did not allocate funds to fix it.
+(A) repetition
+(B) repetitive
+(C) repeatedly
+(D) repeating
+
+120. By signing a sponsorship agreement with a
+highly respected athlete, Ferdan Sports was
+able to - its status.
+(A) divide
+(B) recruit
+(C) attach
+(D) elevate
+Benzen English -TOEIC
+TestGO ON TO THE NEXT PAGE
+TEST 10 285
+286
+
+121. Most analysts agree that all three of the
+suggested tax measures offer------
+alternatives to the system that is currently in
+place.
+(A) preferences
+(B) preferring
+(C) preferable
+(D) prefer
+
+122. The client complained that our technicians
+left------- scratches on the glass in the
+process of transporting it.
+(A) vital
+(B) visible
+(C) reduced
+(D) accessible
+
+123. -------  for the economic summit must have a
+professional certificate and be native
+speakers of the target language.
+(A) Interpreting
+(B) Interpretation
+(C) Interprets
+(D) Interpreters
+
+124. When opportunities for promotion at the
+university are insufficient, the rate of faculty
+------- rises significantly.
+(A) dissatisfying
+(B) dissatisfaction
+(C) dissatisfies
+(D) dissatisfy
+
+125. Members of Parliament are expected to pass
+proposed ------- to conserve the natural
+habitat of a rare bird species in the southwest
+region.
+(A) regulations
+(B) transactions
+(C) affiliations
+(D) admissions
+
+126. If the grant for the project is not renewed by
+the Kogara Science Foundation, the lab's
+research will have to stop -------
+(A) lately
+(B) altogether
+(C) almost
+(D) much
+
+127. Employees at the Soracune Corporation
+were encouraged ------- their cubicles to
+create a pleasant work environment.
+
+128.
+(A) being personalized
+(B) to personalize
+(C) personalized
+(D) personalizing
+In order to ensure that the participants are
+treated fairly by the judging panel, their
+identities are--- until a winner has been
+selected.
+(A) defined
+(B) concealed
+(C) verified
+(D) prohibited
+
+129. More than half of older adults still have a
+landline phone in their home, ----- younger
+consumers depend solely on mobile
+technology.
+(A) whereas
+(B) instead of
+(C) before
+(D) so as to
+
+130. Although Gassett Pharmaceuticals has
+experienced a great deal of success in the
+past few years, its revenues are predicted to
+------- in the foreseeable future.
+(A) criticize
+(B) revolve
+(C) shrink
+(D) deduct
+PART 6
+Directions: Read the texts that follow. A word, phrase, or sentence is missing in parts of each text.
+Four answer choices for each question are given below the text. Select the best answer to complete the
+text. Then mark the letter (A), (B), (C), or (D) on your answer sheet.
+Questions 131-134 refer to the following letter.
+January 22
+Dear Mr. Cardoso,
+I am pleased to offer you the position of senior financial analyst at Stanton Advisors. The members
+of the hiring committee-for a qualified candidate, and you most certainly surpassed our
+
+131.
+expectations. The investment portfolios you showed us were well-balanced and expertly developed.
+132 We also received a glowing recommendation from 133 former employer. I have enclosed
+the standard employment contract.signing it, please look it over carefully and let me know if
+
+134.
+you have any questions.
+Sincerely,
+Harold Carney
+
+131. (A) will have searched
+(B) had been searching
+(C) were searched
+(D) are searching
+
+132. (A) The earning potential of the position is
+very attractive to job seekers.
+(B) Similarly, we follow a strict ethics code to
+avoid potential issues.
+(C) Please submit a copy of your résumé for
+our review.
+(D) Furthermore, you have a deep
+understanding of market conditions.
+
+133. (A) their
+(B) our
+(C) its
+(D) your
+
+134. (A) Prior to
+(B) Except for
+(C) Because of
+(D) Such as
+Benzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 10 287
+288
+Questions 135-138 refer to the following letter.
+Scott Graham
+859 Walwyn Road
+HALIFAX
+HX1 5TW
+Dear Mr. Graham,
+Thank you forjoining the Sinclair Airlines Frequent Flyer Program. Through excellent customer
+service and the support of our loyal customers, our business-to become one of the top fifteen
+
+135.
+airlines in the world.
+Although most airlines offer a rewards program these days,have the benefits we provide. We
+
+136.
+have a wide network of partners from hotels to car rental companies. These-have set their own
+earning levels. You can boost your points by supporting these businesses or rely solely on your
+points from flights. 138 Please see the enclosed brochure for further details.
+Sincerely,
+The Sinclair Airlines Team
+
+135. (A) has grown
+(B) grown
+
+136.
+(C) to grow
+(D) growing
+(A) those
+(B) neither
+(C) which
+(D) few
+
+137. (A) subscribers
+(B) affiliates
+(C) passengers
+(D) attendants
+
+138. (A) In fact, most of our members choose to do
+so.
+(B) Therefore, comfort and convenience are
+our top priorities.
+(C) Either way, you'll be enjoying a free flight in
+no time.
+(D) As a result, our safety record is the best in
+the industry.
+Questions 139-142 refer to the following information.
+Anaheim Sharpening Steel: How to Use
+In one hand, hold the handle of the steelin a vertical position. In the other hand, hold the knife
+
+139.
+with the tip of the blade pointing upward. Place the blade against the steel with the widest part of the
+blade in contact with the base.light pressure as you move the blade up the steel along the
+cutting edge, maintaining an angle of twenty degrees.
+
+141. -------  Alternate sides for each stroke to
+ensure even sharpening. Test the blade's sharpness approximately fifteen strokes on each
+side. Regular sharpening is recommended to enhance the performance of your knives.
+
+139. (A) tightening
+(B) tightly
+(C) tighten
+(D) tightness
+
+140. (A) Relieve
+(B) Force
+(C) Withstand
+(D) Apply
+
+141. (A) Sharp knives contribute to faster food
+preparation.
+(B) This will maximize the effectiveness of the
+tool.
+(C) A user manual is included with each item.
+(D) If it is not hot enough, the process will not
+work.
+
+142. (A) through
+(B) into
+(C) after
+(D) since
+Benzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 10 289
+290
 Questions 143-146 refer to the following e-mail.
 To: Undisclosed Recipients
-Goldstein Dental Clinic
+From: Goldstein Dental Clinic
 Date: February
-Subject: Big newsl
-Dear Goldstein Dental Clinic Patients
-Goldstein Dental Clinic is proud t0 announce that our new Web site has been launched. Now
-patients -143.
-Iheir appointments online_
-Simply click here and fill out the text boxes. It only
-### 144.
-takes
-moment, and you'Il enjoy the convenience of having your patient information
-available.
-### 145.
-The
-of our booking process frees Up our reception staff t0 provide better quality service at the
-### 146.
-clinic. However; those of you who prefer t0 make appointments by phone will still be able t0 do so_
-Sincerely;
+Subject: Big news!
+Dear Goldstein Dental Clinic Patients,
+Goldstein Dental Clinic is proud to announce that our new Web site has been launched. Now
+patients n
+
+143. their appointments online. ---
+
+144. Simply click here and fillout the text boxes. It only
+takes a moment, and you'll enjoy the convenience of having your patient information-- available.
+
+145.
+The 146 of our booking process frees up our reception staff to provide better quality service at the
+clinic. However, those of you who prefer to make appointments by phone will still be able to do so.
+Sincerely,
 The Goldstein Dental Clinic Staff
-### 143.
-can book
-### 145.
-noliceably
-have booked
-widely
-must book
-primarily
-to book
-readily
-### 144.
-(A) We are sorry if the Web site crash
-### 146.
-continuation
-caused any confusion:
-interval
+
+143. (A) can book
+(B) have booked
+(C) must book
+(D) to book
+
+144. (A) We are sorry if the Web site crash
+caused any confusion.
 (B) A new dentist will be joining our
-automation
-distinguished team next month:
-stability
+distinguished team next month.
 (C) No special computer skills are needed to
-set up your account:
+set up your account.
 (D) Confirmation of your appointment is
 attached to this e-mail.
-290
-From:
 
-## PART 7
-Directions: In this part you will read
-selection of texts, such as magazine and newspaper arlicles_
-e-mails
-inslant messages
-Each text or set of texts
-followed by several questions
-Select the
-best answer for each question and mark the letter (A), (B), (C), or (D)
-on your answer sheet:
-Questions 147-148 refer t0 the following advertisement:
-Hillock Shopping Mall
-Retoil Spaces for Rent
+145. (A) noticeably
+(B) widely
+(C) primarily
+(D) readily
+
+146. (A) continuation
+(B) interval
+(C) automation
+(D) stability
+PART 7
+Directions: In this part you will read a selection of texts, such as magazine and newspaper articles,
+e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the
+best answer for each question and mark the letter (A), (B), (C), or (D) on your answer sheet.
+Questions 147-148 refer to the following advertisement.
+Hillock Shopping Mall - Retail Spaces for Rent
 We have several retail spaces available on the first and second
-floor: Some of the second-floor spaces boast
-magnificent view
-across Arnott River: All of the retail spaces at Hillock
-Shopping
-Mall feature brand-new fixtures and
-fittings, including display
-lighting,
-security systems, and counters. Our shopping center is
+floor. Some of the second-floor spaces boast a magnificent view
+across Arnott River. All of the retail spaces at Hillock Shopping
+Mall feature brand-new fixtures and fittings, including display
+lighting, security systems, and counters. Our shopping center is
 situated in a prime location, right in between two subway stations
-and next to Centro Park Bus Terminal:
-Contact Barry Galloway at bgalloway@starrealtycom to schedule
-an
-evening viewing:
-Available viewing periods: Weekdays,
-PM: to 10 PM, Weekends,
-8 PM: to 11 PM;
-### 147. .
-What is mentioned as an advantage of
-### 148. _
-Why are people encouraged to send an
+and next to Centro Park Bus Terminal.
+Contact Barry Galloway at bgalloway@starrealty.com to schedule
+an evening viewing.
+Available viewing periods: Weekdays, 7 P.M. to 10 P.M., Weekends,
+8 P.M. to 11 P.M.
+(A) It contains a wide variety of affordable
+stores.
+(B) Its business hours are longer than those
+of other malls.
+
+147. What is mentioned as an advantage of
 Hillock Shopping Mall?
+
+148. Why are people encouraged to send an
 e-mail?
-(A) It contains
-wide variety of affordable
-To inquire about the mall"'s opening hours
-stores
-To request to hold an event at Ihe mall
-Its business hours
-longer than those
-To find out information about store
-of other malls:
+(A) To inquire about the mall's opening hours
+(B) To request to hold an event at the mall
+(C) To find out information about store
 discounts
 (C) Some of its retail spaces have multiple
-To arrange to see vacant retail spaces
-floors
-(D) It has convenient access t0 public
-transportation:
-Renzen English - TOEIC
-GO ONTO THE NEXT PAGE
-TEST 10
-291
-and
-are
-Questions 149-150 refer t0 the
-sign:
-To preserve the delicate condition of all paintings and sculptures
-and to avoid spoiling the enjoyment of other visitors.
-please
-behave respectfully and courteously while visiting the gallery:
-Place all food and drink wrappers or containers in
-trash can
-Do not use your flash when
-photos.
-Speak only at a low volume during exhibition tours:
-Do not touch or pick up any exhibits or lighting apparatus:
-We truly appreciate your cooperation: Thank you:
-### 149. What is the purpose of the sign?
-### 150.
-What activity is prohibited?
-To give directions to an art gallery
-Eating food
-To provide guidelines for visitors
-Talking during tours
-To inform visitors about new exhibits
-Taking pholographs
-To remind stalf of job duties
-Handling exhibits
+floors.
+(D) To arrange to see vacant retail spaces
+(D) It has convenient access to public
+transportation.
+Benzen English-TOEIC
+GO ON TO THE NEXT PAGE
+TEST 10 291
 292
-following
-taking
+Questions 149-150 refer to the following sign.
+To preserve the delicate condition of all paintings and sculptures,
+and to avoid spoiling the enjoyment of other visitors, please
+behave respectfully and courteously while visiting the gallery.
+K
+스
+Place all food and drink wrappers or containers in a trash can.
+Do not use your flash when taking photos.
+Speak only at a low volume during exhibition tours.
+Do not touch or pick up any exhibits or lighting apparatus.
+We truly appreciate your cooperation. Thank you.
+
+149. What is the purpose of the sign?
+(A) To give directions to an art gallery
+(B) To provide guidelines for visitors
+(C) To inform visitors about new exhibits
+(D) To remind staff of job duties
+
+150. What activity is prohibited?
+(A) Eating food
+(B) Talking during tours
+(C) Taking photographs
+(D) Handling exhibits
 Questions 151-152 refer to the following e-mail.
 E-Mail message
-From:
-Lynne Kozlowski <Ikozlowski @ filmfestcomz
-To:
-Vernon Hogan <vhogan @ widemail netz
-Subject:
-Film festival
-Datc:
-March 9
+From: Lynne Kozlowski <lkozlowski@filmfest.com>
+To: Vernon Hogan <vhogan@widemail.net>
+Subject: Film festival
+Date: March 9
 Hi, Vernon,
-As
-mentioned t0 you last week
-we have
-begun preparing for the fourth annual
-Oregon Independlent Film Festival, which
-take place on Saturday, May
-ad
-Sunday; May 5. As was the case with previous festivals_
-critics and reviewers from
-various newspapers, magazines, and Web sites will be invited t0 attend
-Please take a look :l OUI
-previous guest lists and
-me thc names of all the film
-eritics who altended past festivals_
-Then,
-will contact them and confirm their
-atlendance this year: The movie theater we are
-this year will reserve seats by
-name 0n the opening night of the event, S0 (he
-proprietor asked me to send a guest list
-as SOOn aS
-possible. Lalter this week, IIl send you the finalized guest list sO that you
-can start preparing formal invitations for the opening night: You should submit these
-to Arnie Loomis for distribution by March 3[_
-Thanks
+As I mentioned to you last week, we have begun preparing for the fourth annual
+Oregon Independent Film Festival, which will take place on Saturday, May 4 and
+Sunday, May 5. As was the case with previous festivals, critics and reviewers from
+various newspapers, magazines, and Web sites will be invited to attend.
+Please take a look at our previous guest lists and e-mail me the names of all the film
+critics who attended past festivals. Then, I will contact them and confirm their
+attendance this year. The movie theater we are using this year will reserve seats by
+name on the opening night of the event, so the proprietor asked me to send a guest list
+as soon as possible. Later this week, I'll send you the finalized guest list so that you
+can start preparing formal invitations for the opening night. You should submit these
+to Arnie Loomis for distribution by March 31.
+Thanks,
 Lynne
-### 151.
-Why did Ms. Kozlowski send the e-mail?
-### 152.
-What does the e-mail suggest Ms. Kozlowski
-has already done t0 prepare for the festival?
-To change the dates of a festival
-To encourage Mr; Hogan t0 attend
+
+151. Why did Ms. Kozlowski send the e-mail?
+(A) To change the dates of a festival
+(B) To encourage Mr. Hogan to attend a
+festival
+
+152. What does the e-mail suggest Ms. Kozlowski
+has already done to prepare for the festival?
 (A) Selected films to show on the opening
-festival
 night
-To explain why the theater is holding
-Sent invitations to special guests
+(C) To explain why the theater is holding a
 festival
-Communicaled with
-theater owner
-To seek assistance with organizing
-Compiled
-list of attending film critics
+(B) Sent invitations to special guests
+(D) To seek assistance with organizing a
 festival
-Bexzon English - TOEIC
-GO ONTo THE NEXT PAGE
-TEST 10  293
-will
-e-mail
-using
-Questions 153-154 refer to the following text-message chain.
-MEGAN DAVIES
-8.47 A.M:
-Andy; are you on your way? Most of our staff
-members have already arrived,
-the
-training class is supposed to begin at 9 sharp.
-ANDY POHLER
-8.53 A.M:
-know: One of my tires blew on my way to the
-office, so | had to call out a mechanic_
-doubt
-VI make it by 9. How do you feel about
-leading the workshop?
-MEGAN DAVIES
-8.56 A.M:
-Its not exactly my specialty: Plus, don't you
-have all of the employee manuals
-other
-handouts?
-ANDY POHLER
-8.57 AM:
-Ah, you're right: Okay; then just give the
-attendees a quick introductory talk; and IIl be
-as fast as
-can:
-Send
-### 153.
-What can be inferred about Mr; Pohler?
-### 154.
-At 8.56 A.M , what does Ms. Davies mean
-He wants to reschedule the workshop.
-when she writes, "Il's not exaclly my
-(B) He offered to give Ms
-Davies a ride t0
-specially'
-work.
-She feels that she requires more training:
-He went to the wrong location.
-She is unable t0 offer Mr: Pohler any
-He had trouble with his vehicle
-advice_
-(C) She is reluctant t0 fill in for Mr; Pohler
-She does nol know how l0 create a
-manual:
+(C) Communicated with a theater owner
+(D) Compiled a list of attending film critics
+Benzen English - TOEIC
+GO ON TO THE NEXT PAGE
+TEST 10 293
+
 294
-and
-and
-there
-Questions 155-157 refer t0 the following notice
+Questions 153-154 refer to the following text-message chain.
+MEGAN DAVIES 8:47 A.M.
+Andy, are you on your way? Most of our staff
+members have already arrived, and the
+training class is supposed to begin at 9 sharp.
+ANDY POHLER 8:53 А.М.
+I know. One of my tires blew on my way to the
+office, so I had to call out a mechanic. I doubt
+I'll make it by 9. How do you feel about
+leading the workshop?
+MEGAN DAVIES 8:56 A.M.
+It's not exactly my specialty. Plus, don't you
+have all of the employee manuals and other
+handouts?
+ANDY POHLER 8:57 A.M.
+Ah, you're right. Okay, then just give the
+attendees a quick introductory talk, and I'll be
+there as fast as I can.
+Send
+
+153. What can be inferred about Mr. Pohler?
+(A) He wants to reschedule the workshop.
+(B) He offered to give Ms. Davies a ride to
+work.
+(C) He went to the wrong location.
+(D) He had trouble with his vehicle.
+
+154. At 8:56 A.M., what does Ms. Davies mean
+when she writes, "It's not exactly my
+specialty"?
+(A) She feels that she requires more training.
+(B) She is unable to offer Mr. Pohler any
+advice.
+(C) She is reluctant to fill in for Mr. Pohler.
+(D) She does not know how to create a
+manual.
+Questions 155-157 refer to the following notice.
 INFOTEC DEVELOPMENT INSTITUTE
 EDUCATIONAL EXCELLENCE
 The Infotec Development Institute has been in operation for over twenty years. With
-a range of courses and seminars,
-we
-provide exceptional opportunities for the
-development skills by those in the legal profession. Thousands of lawyers and
-attorneys have chosen us to help them take the next step in their careers
-~[1] _
-Each of our ten courses runs once a month Although some courses can be accessed
+a range of courses and seminars, we provide exceptional opportunities for the
+development skills by those in the legal profession. Thousands of lawyers anp
+attorneys have chosen us to help them take the next step in their careers. - [1]-
+Each of our ten courses runs once a month. Although some courses can be accessed
 online, others require participants to attend in person in order to take part in
-discussions
-practical activities
-All handouts and training packs will be included
-in the cost of the course:
-[2]
-Until the end of the month; ifyou purchase an Infotec membership, you will receive
-complimentary pack of luxury stationery, as well as be given the e-mail address of
-Infotec personal tutor in order to help you with your learning: Members are also
-eligible to receive generous savings on courses
-participate in.
--[3]
-However; members must now arrange their own transportation to and from the
-airport;
-this service has now been discontinued.
-We hope to see you soon and look forward to
-providing you with the skills to take
-your career to the next level
-[4]
-To book your place, please call 545-555-0125.
-### 155. _
-What is indicated about Ihe educational
-### 156.
-What is NOT mentioned as
-benefit of
+discussions and practical activities. All handouts and training packs will be included
+in the cost of the course. -[2]-.
+Until the end of the month, if you purchase an Infotec membership, you will receive
+a complimentary pack of luxury stationery, as well as be given the e-mail address of
+an Infotec personal tutor in order to help you with your learning. Members are also
+eligible to receive generous savings on courses they participate in. - [3]-
+However, members must now arrange their own transportation to and from the
+airport, as this service has now been discontinued.
+We hope to see you soon and look forward to providing you with the skills to take
+your career to the next level. -[4]-. To book your place, please call 545-555-0125.
+
+155. What is indicated about the educational
 courses?
-Infotec membership?
-can all be accessed remotely
-A staff member's contact details
-Ihrough
-Web sile
-(B) Discounted tuition
-They are targeted at medical
-(C) A free gift
+(A) They can all be accessed remotely
+through a Web site.
+(B) They are targeted at medical
 professionals.
-A complimentary shuttle service
-are delivered several times
-year
-Course materials must be purchased
-### 157. _
-In which of the positions marked [1], [2], [3],
-additionally:
+(C) They are delivered several times a year.
+(D) Course materials must be purchased
+additionally.
+
+156. What is NOT mentioned as a benefit of
+Infotec membership?
+(A) A staff member's contact details
+(B) Discounted tuition fees
+(C) A free gift
+(D) A complimentary shuttle service
+
+157. In which of the positions marked [1], [2], [3],
 and [4] does the following sentence best
 belong?
-These will be provided t0 you upon arrival at
-the institute.
+"These will be provided to you upon arrival at
+the institute."
 (A) [1]
 (B) [2]
 (C) [3]
 (D) [4]
-Penzen English - TOEIC
-Go ONTO THE NEXT PAGE
-TEST 10   295
-and
-they
-They
-fees
-They
-Questions 158-160 refer to the following advertisement
-Eat-Sleep-Play
-Available Soonl
-If you are
-looking for recommendations for restaurants, hotels,
-0r" fun aclivities around (OWI;
-then Eat-Sleep-Play is for you! Starting with our
-isSUe_
-Eat-Sleep-Play"s pages will
-feature in-dlepth artieles and reviews that will be of interest t0 both local residents and the
-soaring number of tourists who come to Hartsville: Each month; we will try t0 bring YOU
-thought-provoking news
-SO yOU Won
-want l0 MSS Oul On
-single issuel
-In addition t0 purchasing Eat-Sleep-
-(rom newsstands and supermarkets, YOu cn
-subseribe t0 ensure that YOu never miss Out, The first monthly issue comes Out On October
-and includes an interview with the owner of
-Zone Laser
-the only business of its
-kind in Hartsville
-An 18-month subscription costs just $75, which gives YOu savings of $36 compared to the
-retail price
-When subscribing by &-mail, provide the promo code ESP[
-in the
-subject line t0 get a free coffee mug with your lirst issue
-Contact US nOW at inquiries @@
-eatsleepplay.com Il you are interested in employment opportunities, visit WWWcatslecpplay:
-com/vacancies
-### 158. _
-What is the main purpose of the
-### 160.
-How can someone receive
-complimentary
-advertisement?
-gift?
-To announce
-company' s expansion
-By visiting a Web site
-To promote a new publication
-By subscribing by
-specific date
-To recommend businesses in Hartsville
-By entering a special code
-To seek new employees for
-business
-By signing up for
-one-year subscription
-### 159.
-What is suggested about Hartsville?
-(A) It is home t0 severa
-laser tag facililies_
-(B) Its restaurant scene is increasingly
-compelitive_
-(C) It has
-convenient public transportation
-system.
-(D) It has been experiencing
-rise in
-tourism;
+Benzen English - TOEIC
+GO ON TO THE NEXT PAGE
+TEST 10 295
 296
-firsl
-Play
-Zap
-Tag:
-regular
-Questions 161-163 refer to the following letter:
-Corolla' $ Bistro
-3009 Glendale Park Road, San Francisco, CA 94118
-Tel: 555-0133
+Questions 158-160 refer to the following advertisement.
+Eat-Sleep-Play - Available Soon!
+If you are looking for recommendations for restaurants, hotels, or fun activities around town,
+then Eat-Sleep-Play is for you! Starting with our first issue, Eat-Sleep-Play's pages will
+feature in-depth articles and reviews that will be of interest to both local residents and the
+soaring number of tourists who come to Hartsville. Each month, we will try to bring you
+thought-provoking news, so you won't want to miss out on a single issue!
+In addition to purchasing Eat-Sleep-Play from newsstands and supermarkets, you can
+subscribe to ensure that you never miss out. The first monthly issue comes out on October
+and includes an interview with the owner of Zap Zone Laser Tag, the only business of its
+kind in Hartsville.
+1
+An 18-month subscription costs just $75, which gives you savings of $36 compared to the
+regular retail price. When subscribing by e-mail, provide the promo code ESP111 in the
+subject line to get a free coffee mug with your first issue. Contact us now at inquiries@
+eatsleepplay.com. If you are interested in employment opportunities, visit www.eatsleepplay.
+com/vacancies.
+
+158. What is the main purpose of the
+advertisement?
+(A) To announce a company's expansion
+(B) To promote a new publication
+(C) To recommend businesses in Hartsville
+(D) To seek new employees for a business
+
+159. What is suggested about Hartsville?
+(A) It is home to several laser tag facilities.
+(B) Its restaurant scene is increasingly
+competitive.
+(C) It has a convenient public transportation
+system.
+(D) It has been experiencing a rise in
+tourism.
+
+160. How can someone receive a complimentary
+gift?
+(A) By visiting a Web site
+(B) By subscribing by a specific date
+(C) By entering a special code
+(D) By signing up for a one-year subscription
+Questions 161-163 refer to the following letter.
 September 4
+Corolla's Bistro
+3009 Glendale Park Road, San Francisco, CA 94118 Tel: 555-0133
 Ms. Aida Yurawat
-237 Hilson Avenue
+237 Hilson Avenue,
 San Francisco, CA 94103
 Dear Ms. Yurawat,
-WaS
-delighted
-Lo receive your letter regarding Your recent visit tO Our restAUTANE
-the
-excellent service provided to you by
-member of our wait staff, Ms. Alice Lee: Ms Lee has
-not been with us
-s0 it is very pleasing for me to hear that she is displaying
-professionalism and attentiveness t0 Our customers:
-particularly enjoyed your description of
-the way she handled the mnix-up with your party
-food order:
-As the owner of
-business_
-highly value the comments that
-receive Irom my diners_
-they help me to make good business decisions in the
-when trying tO mprove Iny
-restaurant. Ms.
-Lee will be personally thanked when
-hold
-staff meeting this Thursday:
-And, t0 thank you for your letter,
-have included
-voucher in the envelope
-When you visit
-my restaurant
-again, YOu can use it t0 receive
-fifty percent off your total bill.
-Again; thanks for bringing my staff member's dedication and professional attitude to my
-attention;
-Kindest
-Aduan Corolla
+I was delighted to receive your letter regarding your recent visit to our restaurant and the
+excellent service provided to you by a member of our wait staff, Ms. Alice Lee. Ms. Lee has
+not been with us long, so it is very pleasing for me to hear that she is displaying such
+professionalism and attentiveness to our customers. I particularly enjoyed your description of
+the way she handled the mix-up with your party's food order.
+As the owner of the business, I highly value the comments that I receive from my diners, as
+they help me to make good business decisions in the future when trying to improve my
+restaurant. Ms. Lee will be personally thanked when I hold a staff meeting this Thursday.
+And, to thank you for your letter, I have included a voucher in the envelope. When you visit
+my restaurant again, you can use it to receive fifty percent off your total bill.
+Again, thanks for bringing my staff member's dedication and professional attitude to my
+attention.
+Kindest regards,
 Adrian Corolla
-### 161. _
-What is the purpose of the letter?
-### 163. _
-What has Mr; Corolla enclosed with the
-(A) To express gratitude to
-customer for
-letter?
+Adrian Corolla
+
+161. What is the purpose of the letter?
+
+163. What has Mr. Corolla enclosed with the
+(A) To express gratitude to a customer for
 providing feedback
-A revised bill
-(B) To address
-customer's complaint about
-partial refund
+letter?
+(A) A revised bill
+(B) To address a customer's complaint about
 unsatisfactory service
-A sample menu
-(C) To approve
-customer'$ request to hold
-discount voucher
-party at a business
-(D) To answer
-question from
-customer
+(B) A partial refund
+(C) To approve a customer's request to hold
+a party at a business
+(C) A sample menu
+(D) A discount voucher
+(D) To answer a question from a customer
 about menu changes
-### 162.
-What can be inferred about Ms: Lee?
-She prepared food for Ms
-Yurawat,
-She will be awarded
-bonus:
-She is the manager of a restaurant;
-She is
-relatively new employee
-GO ONTOTHE NEXT PAGE
-Aanzen English - TOEIC
-TEST 10  297
-and
-such
-long,
-the
-fucures
-regaIds;
-Questions 164-167 refer to the following online chat discussion_
-RACHEL BECKETT
-1:02 A.M_
-Hi, Brad: T ve just arrived at the convention hall to deliver my presentation, but
-don ( have
-everything
-need t0 start iL.
-BRAD NAVAL
-11:07 A.M
-Whal do yOu need? Do you have the presentation slides?
-RACHEL BECKETT
-M:14 A.M_
-Yes
-have
-But
-ddon t have the handouts
-Was
-going to give t0 the audience. Could
-you print some and bring them over for 12.30 RM:?
-BRAD NAVAL
-M:17 A.M_
-Its a bit last minute. Do they not have printing facilities there?
-RACHEL BECKETT
-1:21
-AM
-Fve already checked_
-can ( do il here because their
-is experiencing
-fault.
-are
-waiting for an engineer t0 service it.
-KRAD NAVAL
-1:28 A.M:
-Oh, that s too bad.
-won t be able t0 make jt in time_
-How about we €-mail the handout to
-people insteatd?
-RACHEL BECKETT
-### 133. 1
-(A) M:
-Okay, that'$ probably the best solution: FIl go ahead and do that:
+
+162. What can be inferred about Ms. Lee?
+(A) She prepared food for Ms. Yurawat.
+(B) She will be awarded a bonus.
+(C) She is the manager of a restaurant.
+(D) She is a relatively new employee.
+GO ON TO THE NEXT PAGE
+Benzen English-TOEIC
+TEST 10 297
 298
-those
-printer
-They
-### 164. Why did Ms
-Beckett contact Mr; Naval?
-### 166. _
-What problem does Ms_
-Beckelt mention?
-To tell him she is stuck in Iralfic
-She has forgotten her e-mail password.
-To check the address of a venue
-Some presentation materials conlain
-To request that he deliver some
-errors:
+Questions 164-167 refer to the following online chat discussion.
+X
+RACHEL BECKETT 11:02 A.м.
+Hi, Brad. I've just arrived at the convention hall to deliver my presentation, but I don't have
+everything I need to start it.
+BRAD NAVAL 11:07 A.м.
+What do you need? Do you have the presentation slides?
+RACHEL BECKETT 11:14 A.м.
+Yes, I have those. But I don't have the handouts I was going to give to the audience. Could
+you print some and bring them over for 12:30 Р.м.?
+BRAD NAVAL 11:17 A.м.
+It's a bit last minute. Do they not have printing facilities there?
+RACHEL BECKЕTT 11:21 A.м.
+I've already checked. I can't do it here because their printer is experiencing a fault. They are
+waiting for an engineer to service it.
+BRAD NAVAL 11:28 A.м.
+Oh, that's too bad. I won't be able to make it in time. How about we e-mail the handout to
+people instead?
+RACHEL BECKETT 11:31 A.M.
+Okay, that's probably the best solution. I'll go ahead and do that.
+
+164. Why did Ms. Beckett contact Mr. Naval?
+(A) To tell him she is stuck in traffic
+(B) To check the address of a venue
+(C) To request that he deliver some
 documents
-Some machinery is out of order:
-(D) To request
-computer login code
-(D) Audience members have not arrived yel
-### 165. _
-At 11;17 A.M:
-what does Mr: Naval
-mean
-### 167. _
-What does Mr Naval suggest?
-when he writes; "Il's a bit last minute
-Postponing the event
-(A) He is telling Ms_
-Beckett to hold on a
-Going to a different lecture room
-moment;
-Meeting at the office
-(B) It is too late t0 do as Ms. Beckett asks;
-Sending
-document electronically
-It will be
-quick task t0 carry out
-(D) He is asking Ms
-Beckelt what time it is
-Bewecn English - TOEIC
-GO ONTO THE NEXT PAGE
-TFST 10
-299
-Questions 168-171 refer t0 the following letter:
-Mr: Bryan Hughes
-14 Fairfield Avenue
-Blackpool_
-UK
-BLR 9FH
-Dear Mr:
-Hughes,
-Tam a long-term customer of' Econobuild and
-regularly
-my work
-supplies
-from Your company
-often find the parts
-purchase to be extremely reliable
-to use when
-am
-repairing sink and toilet units. Unfortunately; in this
-instance,
-have several complaints to make_
-[1]
-Firstly, the package
-received from yOur company arrived a
-later than
-scheduled. As somebody who works with strict time deadlines, this caused
-significant problems for my business,
-as
-had t0 reschedule some
-appointments
-[2]
-would, therefore, be grateful if you could refund the
-89.99 charge for express delivery as this service clearly wasn't fulfilled by
-yOui company
-was at least pleased t0 find that the parts were of their usual
-high quality:
-[3]
-Secondly;
-spoke to one of your customer service employees on the phone, who
-me
-through to your complaints department
-tried to explain my issue to
-the member of staff there_
-However;
-found him to be extremely rude and
-unhelpful_
-In addition to this
-he didn't really offer a solution to my problem;
-hence my writing you this letter:
-Lastly; when
-logged in to check my balance on your Web site's member's
-section, I noticed
-had been charged for some items that I did not order on my
-last invoice_
-As such.
-seem to have been overcharged by about €60.
-[4]
-As stated above_
-was
-disappointed to encounter these problems;
-have
-always been pleased with the service provided by YOu in the past: If you would
-to contact me t0 discuss anything Tve mentioned, please call me at 558-
-555-0117
-Yours sincerely
-Paul Gawee
-Gravel Industries
+(D) To request a computer login code
+
+165. At11:17 A.M., what does Mr. Naval mean
+when he writes, "It's a bit last minute"?
+(A) He is telling Ms. Beckett to hold on a
+moment.
+(B) It is too late to do as Ms. Beckett asks.
+(C) It will be a quick task to carry out.
+(D) He is asking Ms. Beckett what time it is.
+
+166. What problem does Ms. Beckett mention?
+(A) She has forgotten her e-mail password.
+(B) Some presentation materials contain
+errors.
+(C) Some machinery is out of order.
+(D) Audience members have not arrived yet.
+
+167. What does Mr. Naval suggest?
+(A) Postponing the event
+(B) Going to a different lecture room
+(C) Meeting at the office
+(D) Sending a document electronically
+Benzen English -TOEIC
+GO ON TO THE NEXT PAGE
+TEST 10 299
 300
-buy
-day
-put
-like
-### 168. _
-What IS
-suggested about Mr Gravel?
-### 170.
-What is indicated about Econobuild?
-He is currently unemployed.
-It offers an online service t0 members.
-He works as
-plumber:
-It has branches in several countries.
-He is late in paying an invoice.
-complaints department is unstaffed.
-He would Iike to apply for
-job at
-It is adverlising for more delivery drivers_
+Questions 168-171 refer to the following letter.
+Mr. Bryan Hughes
+14 Fairfield Avenue
+Blackpool, UK
+BL3 9FН
+Dear Mr. Hughes,
+I am a long-term customer of Econobuild and regularly buy my work supplies
+from your company. I often find the parts I purchase to be extremely reliable
+to use when I am repairing sink and toilet units. Unfortunately, in this
+instance, I have several complaints to make. - [1]-
+Firstly, the package I received from your company arrived a day later than
+scheduled. As somebody who works with strict time deadlines, this caused
+significant problems for my business, as I had to reschedule some
+appointments. - [2] -. I would, therefore, be grateful if you could refund the
+£9.99 charge for express delivery, as this service clearly wasn't fulfilled by
+your company. I was at least pleased to find that the parts were of their usual
+high quality. — [3] -.
+Secondly, I spoke to one of your customer service employees on the phone, who
+put me through to your complaints department. I tried to explain my issue to
+the member of staff there. However, I found him to be extremely rude and
+unhelpful. In addition to this, he didn't really offer a solution to my problem,
+hence my writing you this letter.
+Lastly, when I logged in to check my balance on your Web site's member's
+section, I noticed I had been charged for some items that I did not order on my
+last invoice. As such, I seem to have been overcharged by about £60. — [4] -
+As stated above, I was disappointed to encounter these problems, as I have
+always been pleased with the service provided by you in the past. If you would
+like to contact me to discuss anything I've mentioned, please call me at 558-
+555-0117.
+Yours sincerely,
+Paul Gravel
+Gravel Industries
+
+168. What is suggested about Mr. Gravel?
+(A) He is currently unemployed.
+(B) He works as a plumber.
+(C) He is late in paying an invoice.
+(D) He would like to apply for a job at
 Econobuild.
-### 171.
-In which of the posilions marked [1], [2], [3],
-### 169.
-What issue does Mr; Gravel NOT make
-and [4] does the following sentence best
+
+169. What issue does Mr. Gravel NOT make a
 complaint about?
+
+170. What is indicated about Econobuild?
+(A) It offers an online service to members.
+(B) It has branches in several countries.
+(C) Its complaints department is unstaffed.
+(D) It is advertising for more delivery drivers.
+
+171. In which of the positions marked [1], [2], [3],
+and [4] does the following sentence best
 belong?
-The conduct of a slaff member
-"Td appreciate it if you would see to it that
-The contents of an invoice
-this is amended immediately:'
-The quality of some products
-The time taken t0 deliver some items
-(A) [1)
+"I'd appreciate it if you would see to it that
+this is amended immediately."
+(A) The conduct of a staff member
+(B) The contents of an invoice
+(C) The quality of some products
+(D) The time taken to deliver some items (A) [1]
 (B) [2]
-(C) ([3]
+(C) [3]
 (D) [4]
-Eanzen Erglish - TOEIC
-GO ON To THE NEXT PAGE
-TEST 10
-301
+Benzen English-TOEIC
+GO ON TO THE NEXT PAGE
+TEST 10 301
+302
 Questions 172-175 refer to the following announcement.
-Seventh Annual Munro Mountain Firefly Festival
-June 13
-Park rangers
-getting ready for Munro Mountain$ most famous cultural event: the Firefly
-Festivall This ycar $ event will be held on June 13,
-PM.
-10 RM:,
-we expecr
-conditions for firefly
-Those interested in
-artending the event must be aware of
-the
-following:
-Trail sections closed to the general public
-the festival:
-Stony Bridge Trail: The entire
-starting from the Visitor Center
-Conifer Trail:
-Shelter onward to Douglas Peak
-Manford Trail: The entire trail,
-the Visitor Center
+Seventh Annual Munro Mountain Firefly Festival – June 13
+Park rangers are getting ready for Munro Mountain's most famous cultural event: the Firefly
+Festival! This year's event will be held on June 13, from 4 P.M. to 10 P.M., and we expect
+peak conditions for firefly viewing. Those interested in attending the event must be aware of
+the following:
+Trail sections closed to the general public during the festival:
+Stony Bridge Trail: The entire trail, starting from the Visitor Center
+Conifer Trail: From Rowan Shelter onward to Douglas Peak
+Manford Trail: The entire trail, starting from the Visitor Center
 Eden Trail: From Sherwood Campground onward to Barnes Ridge
 Parking Pass Lottery:
-In order t0 prevent congestion on
-surrounding roads; visitors must obrain
-parking pass
-through our lortery systen Or use
-transportation . Applications for passes will be
-accepted from May
-L0 June
-subject to availability, through our Web site at WWW:
-munromountainpark.
-com/parking There is no fee for entering the lottery this year: The
-results of the lottery will be announced via
-On June 2_
-arc HOn-refundable,
-non
-[ransferable, and
-only for the date of the event.
+In order to prevent congestion on surrounding roads, visitors must obtain a parking pass
+through our lottery system or use public transportation. Applications for passes will be
+accepted from May 1 to June 1, subject to availability, through our Web site at www.
+munromountainpark.com/parking. There is no fee for entering the lottery this year. The
+results of the lottery will be announced via e-mail on June 2. Passes are non-refundable,
+non-transferable, and good only for the date of the event.
 Parking Area and Visitor Center:
-Those permitred ro bring
-vehicle t0 the festival may
-in the main parking lot in front
-of the Visitor Center: The
-building itself will not be open that
-but
-temporary
-booth will be set up On the north side ofthe parking loc:
-park employee will be on hand to
-answer YOur questions and provide pamphlets.
+Those permitted to bring a vehicle to the festival may park in the main parking lot in front
+of the Visitor Center. The building itself will not be open that evening, but a temporary
+booth will be set up on the north side of the parking lot. A park employee will be on hand to
+answer your questions and provide pamphlets.
 Admission:
-Tickets are
-$8.50 for adults and $3.50 for children. They may be obtained from the
-Visitor Centet; the Parks and Recreation olfice at city hall, and the
-In a
-cases, cash or credit cards are
-acceprable forms of payment. Please note that tickets are
-limited t0 four per person
-Visit our Web site for more details.
-302
-from
-and
-pcak
-viewing:
-during
-trail,
-Fron
-Rowan
-starting
-from
-public
-e-mail
-Fasses
-good
-park
-evening,
-priced
-library:
-public
-### 172.
-For whom is the notice mainly intended?
-### 174.
-What is indicated about the Visitor Center?
+Tickets are priced at $8.50 for adults and $3.50 for children. They may be obtained from the
+Visitor Center, the Parks and Recreation office at city hall, and the public library. In all
+cases, cash or credit cards are acceptable forms of payment. Please note that tickets are
+limited to four per person. Visit our Web site for more details.
+
+172. For whom is the notice mainly intended?
 (A) Park employees
-It has several different parking areas
-Event attendees
-It will be closed during the event:
-Parking Iot attendants
-It can provide maps of the park:
-Festival organizers
-It is located next t0
-campground.
-### 173.
-What iS
-NOT suggested about parking
-### 175. _
-What is true about event tickets?
+(B) Event attendees
+(C) Parking lot attendants
+(D) Festival organizers
+
+173. What is NOT suggested about parking
 passes?
-They will be mailed t0 recipients.
-(A) The lottery can be enlered free of
-They can be reserved via
-Web site_
-charge:
-They must be paid for by credit
+(A) The lottery can be entered free of
+charge.
 (B) The passes may only be used on June
-They can be purchased at various
-locations
+13.
 (C) The successful applicants will be notified
-by e-mail:
+by e-mail.
 (D) The passes are only good for specific
-types of vehicles_
-Beilzen
-English - TOEIC
-GO ONTO THE NEXT PAGE
-TEST 10
-303
-card,
-Questions 176-180 refer to the following article and
-mail;
-Design for Life
+types of vehicles.
+
+174. What is indicated about the Visitor Center?
+(A) It has several different parking areas.
+(B) It will be closed during the event.
+(C) It can provide maps of the park.
+(D) It is located next to a campground.
+
+175. What is true about event tickets?
+(A) They will be mailed to recipients.
+(B) They can be reserved via a Web site.
+(C) They must be paid for by credit card.
+(D) They can be purchased at various
+locations.
+Benzen English -TOEIC
+TEST 10GO ON TO THE NEXT PAGE
+TEST 10 303
+304
+Questions 176-180 refer to the following article and e-mail.
+A Design for Life
 By Sam Maxton
-(October 10) Boston
-Caroline Burgess has
-TTm really pleased with how my own
+(October 10) Boston-Caroline Burgess has
 been employed locally as an interior designer
-busincss iS
-going: The work [ did on the
-for nearly two decades.
-Recently; she made
-governor
-manSion
-Was
-great for attracting
-Ihe decision t0 found
-own company mn
-some
-publieity towards my cOmpany [ve had
-Boston;, and already has a large client base in
-lot more inquiries since then
-Burgess is
-the Iocal area
-Interior design has always
-well known for thc attention t0 detail she
-been my
-passion;
-Burgess says
-take
-provides t0 each project. Every aspect is
-amount of pleasure in developing
-personalized, and the customer
-wishes are
-something
-with customers;
+for nearly two decades. Recently, she made
+the decision to found her own company in
+Boston, and already has a large client base in
+the local area. "Interior design has always
+been my passion," Burgess says. "I take a
+great amount of pleasure in developing
+something special with customers, and
+providing them with a living space that they
+are truly happy with." Burgess' work often
+attracts glowing reviews from her clients.
+Recently, she worked on a project with the
+governor of Massachusetts to help renovate
+his family home.
+"I'm really pleased with how my own
+business is going. The work I did on the
+governor's mansion was great for attracting
+some publicity towards my company. I've had
+a lot more inquiries since then." Burgess is
+well known for the attention to detail she
+provides to each project. Every aspect is
+personalized, and the customer's wishes are
 always taken into consideration. The one
-providing them with
-space that
 downside of her role, she claims, is that she
-are truly happy
-With,
-Burgess
-work often
 sometimes has to spend days away from
-attracts
-glowing reviews from her clients.
-home_
-miss my parents and siblings
-Recently. she worked 0n
-project with the
-somelimes
-Bul
-are very
-understanding"
-governor of Massachusetts t0 help renovate
-she says_
-his family home
-E- Mail message
-T6: Caroline Burgess <burgessdesign@speedmail.com >
-From: 'Toby Summit <summiteglobomailcom >
+home. "I miss my parents and siblings
+sometimes. But they are very understanding",
+she says.
+E-Mail message
+To: Caroline Burgess <burgessdesign@speedmail.com>
+From: Toby Summit <tsummit@globomail.com>
 Date: October 20
 Subject: Plans
-Hi Caroline;
-was delighted to receive the design plans from YOu last week in the mail: You always
-did
-{antastic job for Our firm in the past,
-think you have some
-suggestions.
-just have one
-question: Is it okay if we change the color Acheme in the boardroom?
-The colors you have suggested are quite light, and
-think darker colors may he more
-suilable for
-business environment My colleagues and
-feel dark blue paint would be
-mOre
-appropriate for the walls:
-hope You agree: IIl be coming t0 Your city on business
-next Thesday: so TIl
-by YOur officc, as we agreed,
-to discuss the other details of' the
+Hi Caroline,
+I was delighted to receive the design plans from you last week in the mail. You always
+did a fantastic job for our firm in the past. I think you have some great suggestions.
+I just have one question: Is it okay if we change the color scheme in the boardroom?
+The colors you have suggested are quite light, and I think darker colors may be more
+suitable for a business environment. My colleagues and I feel dark blue paint would be
+more appropriate for the walls. I hope you agree. I'll be coming to your city on business
+next Tuesday, so I'll stop by your office, as we agreed, to discuss the other details of the
 project.
-Sincerely;
+Sincerely,
 Toby Summit
-304
-her "
-great
-special
-and
-living
-(hey
-Ihey
-grent
-stop
-### 176. ,
-What is the purpose of the article?
-### 179.
-What does Mr: Summit ask Ms. Burgess to
-To announce
-job opportunity
-change?
+P
+
+176. What is the purpose of the article?
+(A) To announce a job opportunity
 (B) To describe an upcoming design project
-The Iayout of some furniture
-an entrepreneur
-The dimensions of some curtains
-To promote the opening of
-building
-The color scheme of
-room
-The time of
-board meeting
-### 177. .
-does Ms. Burgess say is a
+(C) To profile an entrepreneur
+(D) To promote the opening of a building
+
+177. What does Ms. Burgess say is a
 disadvantage of her job?
-### 180.
-What is indicated about Mr; Summit?
-She has to spend time away from her
-He has never worked with Ms. Burgess
-family:
-before_
+(A) She has to spend time away from her
+family.
+
+179. What does Mr. Summit ask Ms. Burgess to
+change?
+(A) The layout of some furniture
+(B) The dimensions of some curtains
+(C) The color scheme of a room
+(D) The time of a board meeting
+
+180. What is indicated about Mr. Summit?
+(A) He has never worked with Ms. Burgess
+before.
 (B) She finds some clients difficult to work
-He will be traveling to Boston next week:
-He has sent some product samples to
-She has had t0 take
-recent pay cut:
-Ms. Burgess
-(D) She often has t0 work through the night:
-He would like Ms. Burgess to visit his
-workplace
-### 178. _
-What has Mr: Summit asked Ms. Burgess to
+with.
+(B) He will be traveling to Boston next week.
+(C) She has had to take a recent pay cut.
+(D) She often has to work through the night.
+
+178. What has Mr. Summit asked Ms. Burgess to
 design?
-A performance venue
+(A) A performance venue
 (B) A seminar hall
-A personal residence
+(C) A personal residence
 (D) An office space
-Dorizen Erglish - TOEIC
-GO On10 THE NEXT PAGE
-TEST 10
-305
-profile
-What =
-with
-Questions 181-185 refer t0 the following flyer and e-mail,
+(C) He has sent some product samples to
+Ms. Burgess.
+(D) He would like Ms. Burgess to visit his
+workplace.
+Benzen English-TOEIC
+GO ON TO THE NEXT PAGE
+TEST 10 305
+306
+Questions 181-185 refer to the following flyer and e-mail.
 Modern Art Fans:
-The Watson Exhibit is coming to Rockfordl
+The Watson Exhibit is coming to Rockford!
 Syril Watson to display his groundbreaking modern paintings
 Venue: Stephenson Convention Center
-Dates: Monday; September 16 to Wednesday; September 18
-Time: 5.00 PM:
-8.00 PM
-Cost: $25 adults
-Free for children under thirteen
-Ifyou want to reserve tickets ahead of time, vou can do so by calling our ticket office at
-553-555-0195 and selecting option 3 when you hear the automated message: To pay you
-can opt t0 use a credit card over the phone; or send
-money order to our head office.
-unsold tickets will be available for purchase on the day of the exhibits. Unfortunately; we
-are only able to accept cash as payment when tickets are purchased at the door:
-To find out more, contact our information line at 553-555-0132,
-or e-mail Johnny Coleman
-at jcoleman@rockfordarts org:
+Dates: Monday, September 16 to Wednesday, September 18
+Time: 5:00 P.м. -8:00 P.M.
+Cost: $25 adults / Free for children under thirteen
+If you want to reserve tickets ahead of time, you can do so by calling our ticket office at
+553-555-0195 and selecting option 3 when you hear the automated message. To pay, you
+can opt to use a credit card over the phone, or send a money order to our head office. Any
+unsold tickets will be available for purchase on the day of the exhibits. Unfortunately, we
+are only able to accept cash as payment when tickets are purchased at the door.
+To find out more, contact our information line at 553-555-0132, or e-mailJohnny Coleman
+at jcoleman@rockfordarts.org.
 E-Mail message
+Johnny Coleman <jcoleman@rockfordarts.org>
+Rachel Lingford <rlingford@trimail.net>
 To:
-Johnny Coleman <jcoleman@rockfordarts org >
 From:
-Rachel Lingford <rlingford@trimail net >
 Subject:
+Date: September 3
 Syril Watson Show
-Date:
-September 3
-Dear Mr: Coleman;
-was extremely excited to find out that Syril Watson will be bringing his artwork to
-Rockford.
-have followed his career since his very first exhibition
-and
-cannot wait
-to share this opportunity with my family:
-would Iike to buy four tickets for the second evening of the exhibit I'd like to receive
-my tickets well in advance
-but
-don't have access to a credit card right now: Can
-you please clarify the
-mailing address of your head office?
-Thank you;
+Dear Mr. Coleman,
+I was extremely excited to find out that Syril Watson will be bringing his artwork to
+Rockford. I have followed his career since his very first exhibition, and I cannot wait
+to share this opportunity with my family.
+I would like to buy four tickets for the second evening of the exhibit. I'd like to receive
+my tickets well in advance, but I don't have access to a credit card right now. Can
+you please clarify the mailing address of your head office?
+Thank you,
 Rachel Lingford
-306
-Any
-### 181. _
-What was
-NOT mentioned as
-paymnent
-### 184.
-On which day does Ms; Lingford plan to
+
+181. What was NOT mentioned as a payment
 option?
-altend Ihe exhibit?
-By credit card
-Monday
-By money order
-Tuesday
-By personal check
-Wednesday
-In cash
-Thursday
-### 182.
-What is indicaled in the flyer?
-### 185. _
-What is indicated about Ms. Lingford?
-Tickets are
-to sell oul:
-She has previously viewed the exhibit in
-The exhibit will last for 3 days.
-another city:
-The artist will answer questions_
-She spoke to
-sales representative on
-There are no parking facililies available_
+(A) By credit card
+(B) By money order
+(C) By personal check
+(D) In cash
+
+182. What is indicated in the flyer?
+(A) Tickets are likely to sell out.
+(B) The exhibit will last for 3 days.
+(C) The artist will answer questions.
+(D) There are no parking facilities available.
+
+183. In the e-mail, the word "followed" in
+paragraph 1, line 2, is closest in meaning to
+(A) searched
+(B) conformed
+(C) watched
+(D) advanced
+
+184. On which day does Ms. Lingford plan to
+attend the exhibit?
+(A) Monday
+(B) Tuesday
+(C) Wednesday
+(D) Thursday
+
+185. What is indicated about Ms. Lingford?
+(A) She has previously viewed the exhibit in
+another city.
+(B) She spoke to a sales representative on
 the phone.
-She plans to pay for her tickets by mail;
-### 183.
-In the e-mail; the word "followed" in
-She will display some artwork at the
-paragraph
-line 2, is closest in meaning t0
+(C) She plans to pay for her tickets by mail.
+(D) She will display some artwork at the
 exhibition.
-searched
-conformed
-watched
-advanced
-Eenzen Englich - TOEIC
-GO ONTo THE NEXT PACE
-TEST 10
-307
-likely
-Questions 186-190 refer to the following letter; pamphlet, and e-mail.
+Benzen English -TOEIC
+TEST 10GO ON TO THE NEXT PAGE
+TEST 10 307
+308
+Questions 186-190 refer to the following letter, pamphlet, and e-mail.
 Ms. Rosemary Reid
-39 Holebas Laine
+39 Holebas Lane
 Albuquerque, NM 87114
-Dear Ms. Reid;
-As
-customer of Gomes Car Rentals, we thoughc you would bc interested in hcaring
-about the Iatest
-thac we have mnalde (0 our Service.
-Through working closely with
-Yasmin Gallas of car manulacturer Rapiclrive, we have been able to obtain
-new fleet of
-vchicles ar
-discounted price. Qur CEO
-Perkins is determined that these savings be
-passed on t0 our customers. Tothis end, we have devised
-range o packages priced AL different
-levels so thac all drivers will be able to find
-vehicle to suit their particular needs.
-Anybdly
-can take advantage of one of our deals by
-OUr customer service representative
-Billy
-Carroll a 555-0178 or by stopping
-one of our stores at
-Charleston, Albuquerque,
-Princeville: Business clients are advised to
-Helen Patterson, who manages the
-accounts ol these customers,
-555-0179. Adklitionally,
-promotion, all those
-booking by phone
-receive some complimentary cinema tickets t0
-screening o their
-choice
-We look forward to serving You soon_
-Kest Wishes
-Rohert Hargrove
+Dear Ms. Reid,
+As a regular customer of Gomes Car Rentals, we thought you would be interested in hearing
+about the latest upgrades that we have made to our service. Through working closely with
+Yasmin Gallas of car manufacturer Rapidrive, we have been able to obtain a new fleet of
+vehicles at a discounted price. Our CEO Greg Perkins is determined that these savings be
+passed on to our customers. To this end, we have devised a range of packages priced at different
+levels so that all drivers will be able to find a vehicle to suit their particular needs. Anybody
+can take advantage of one of our deals by calling our customer service representative Billy
+Carroll at 555-0178 or by stopping by one of our stores at Charleston, Albuquerque, or
+Princeville. Business clients are advised to speak to Helen Patterson, who manages the
+accounts of these customers, at 555-0179. Additionally, as a special promotion, all those
+booking by phone will receive some complimentary cinema tickets to a screening of their
+choice.
+We look forward to serving you soon.
+Best Wishes,
+Robert Hargrove
 Sales Director, Gomes Car Rentals
 Gomes Car Rentals
-In Associction with Rapidrive
-The Solo
-For clients who need
-vehicle for a single dlay
+In Association with Rapidrive
+The Solo - For clients who need a vehicle for a single day
 Price: $55
-Vehicles available: Rapi Micro,
-Rapi TIOO
-The Weekender - Ideal for customers
-to escape the city for
-few days (2-3 days)
-Price: $45 per
-Vehicles available: Rapi TIOO, Rapi Experience
-The Road
-For those requiring
-vchicle for
-longer trip (10-clay minimum)
-Price: $40 per
+Vehicles available: Rapi Micro, Rapi T100
+The Weekender - Ideal for customers looking to escape the city for a few days (2-3 days)
+Price: $45 per day
+Vehicles available: Rapi T100, Rapi Experience
+The Road Tripper - For those requiring a vehicle for a longer trip (10-day minimum)
+Price: $40 per day
 Vehicles available: Rapi Experience, Rapi Roadster
-The Explorer
-Perfect for those
-looking for a longer-term rental (I-month minimum)
+The Explorer - Perfect for those looking for a longer-term rental (1-month minimum)
 Price: $35 per day
-Vehicles available: Rapi Roadlster; Rapi Deluxe Plus
-308
-regular _
-"peradles
-Greg
-calling
-by =
-speak
-special
-will
-looking
-day
-Tripper
-dlay
+Vehicles available: Rapi Roadster, Rapi Deluxe Plus
 To:
-Robert Haurgrove <rhargrove
-gomescars COI>
-Rosemary Reid <u reid@speedymailnetz
-Date:
-August 3
-Subject:
-Recent Cr rental
-Dear Mr: Hargrove,
-recently rented one of your new vehicles
-and
-thought
-appreciate some feedback
-On1 mY
-experienee.
-thought the Rapidrive vehicle that
-rented handled really nicely, and
-the interior was
-and luxurious.
-feel
-are
-real
-on your last models
-Secondly,
-found your staff t0 be very
-accommodating:
-spoke to
-ol your advisors
-on the phone on July 5
-who was able to book the Road Tripper package for me and
-charge it to my business account. However;
-had to call back after some changes were
-made t0 my business trip, which meant it Was shortened (0 last just three days:
-Your
-advisor was very accommodating and chose
-more suitable package for me
-immediately: Although my experience was largely positive,
-"M
-to receive the
-complimentary cinema tickets that you advertised. Could you look into this for me?
-Regards
-Rosemary Reid
-### 186. Why was Ihe letter
-### 189.
-Which package did Ms. Reid most likely pay
-for?
-To request customer feedback
-To announce
-business relocation
-The Road Tripper
-To describe service improvements
-The Solo
-To promote
-new model of car
-The Weekender
-The Explorer
-### 187. .
-What is indicated about Gomes Car Rentals?
-(A) It has further discounts on its Web site
-### 190.
-What problem does Ms. Reid mention in her
-(B) It has stores in multiple locations.
-e-mail?
-(C) Il has been sold to Rapidrive.
-A member of staff was rude to her;
-(D) It has an on-site movie screen:
-The interior of the car was unclean_
-Her vehicle was hard t0 drive_
-### 188.
-Whom did Ms. Reid most Iikely speak with on
-She has not received a free gift
-July 5?
-Helen Patlerson
-Greg Perkins
-Billy Carroll
-Yasmin Gallas
-Bsrzen English -TOEIC
-GO ON T0 THE NEXI PAGE
-TEST 10
-309
 From:
-you 'd
-uperade
-clean
-(hcy
-Oule
-yet
-sent?
-Questions 191-195 refer to the following memo, schedule
-e-mail;
-Sharpline Stationery Company
-Mlemo
+Date:
+Subject:
+Robert Hargrove <rhargrove@gomescars.com>
+Rosemary Reid <r.reid@speedymail.net>
+August 3
+Recent car rental
+Dear Mr. Hargrove,
+I recently rented one of your new vehicles, and I thought you'd appreciate some feedback
+on my experience. I thought the Rapidrive vehicle that I rented handled really nicely, and
+the interior was clean and luxurious. I feel they are a real upgrade on your last models.
+Secondly, I found your staff to be very accommodating. I spoke to one of your advisors
+on the phone on July 5, who was able to book the Road Tripper package for me and
+charge it to my business account. However, I had to call back after some changes were
+made to my business trip, which meant it was shortened to last just three days. Your
+advisor was very accommodating and chose a more suitable package for me
+immediately. Although my experience was largely positive, I am yet to receive the
+complimentary cinema tickets that you advertised. Could you look into this for me?
+Regards,
+Rosemary Reid
+
+186. Why was the letter sent?
+(A) To request customer feedback
+(B) To announce a business relocation
+(C) To describe service improvements
+(D) To promote a new model of car
+
+187. What is indicated about Gomes Car Rentals?
+(A) It has further discounts on its Web site.
+(B) It has stores in multiple locations.
+(C) It has been sold to Rapidrive.
+(D) It has an on-site movie screen.
+
+188. Whom did Ms. Reid most likely speak with on
+July 5?
+(A) Helen Patterson
+(B) Greg Perkins
+(C) Billy Carroll
+(D) Yasmin Gallas
+
+189. Which package did Ms. Reid most likely pay
+for?
+(A) The Road Tripper
+(B) The Solo
+(C) The Weekender
+(D) The Explorer
+
+190. What problem does Ms. Reid mention in her
+e-mail?
+(A) A member of staff was rude to her.
+(B) The interior of the car was unclean.
+(C) Her vehicle was hard to drive.
+(D) She has not received a free gift.
+Benzen English -TOEIC
+TEST 10GO ON TO THE NEXT PAGE
+TEST 10 309
+310
+Questions 191-195 refer to the following memo, schedule, and e-mail.
+Sharpline Stationery Company - Memo
 To: All Employees
-From: Amy Whitehouse, Human Resources
-Dear 'Team Members
+From: AmyWhitehouse, Human Resources
+Dear Team Members,
 As you are aware, our annual employee retreat has been arranged for next
-weekend. This offers an excellent opportunity for staff members
-different
+weekend. This offers an excellent opportunity for staff members from different
 departments to get to know each other personally while enjoying some fun
-activities in a beautiful
-setting: The retreat will last for tWo days. You may recall
-sent around
-document with some menu choices If anybody requires the
-vegetarian option, please let me know by the end of business today: Team-
-building events are to be led by Sharpline managers Robert Polson will be
-leading
-an obstacle-course fitness cvent, and Natalie
-will host a map-
-reading exploration session. Emily Daggard and Colin Himnaa have
-volunteered t0 host
-quiz for us This is subject t0 change, as Ms. Daggard has
-made us aware that she may have to attend to some urgent business We are
-also still
-looking for another manager t0 lead the water
-session:
-Hopelully; this will he confirmed at our managerial meeting tOmorow:
+activities in a beautiful setting. The retreat will last for two days. You may recall
+I sent around a document with some menu choices. If anybody requires the
+vegetarian option, please let me know by the end of business today. Teambuilding events are to be led by Sharpline managers. Robert Polson will be
+leading an obstacle-course fitness event, and Natalie Porter will host a mapreading exploration session. Emily Daggard and Colin Himaa have
+volunteered to host a quiz for us.This is subject to change, as Ms. Daggard has
+made us aware that she may have to attend to some urgent business. We are
+also still looking for another manager to lead the water polo session.
+Hopefully, this will be confirmed at our managerial meeting tomorrow.
 We hope you enjoy the retreat!
 SHARPLINE STATIONERY COMPANY
 EMPLOYEE RETREAT
-Saturday; April 18
+Saturday, April 18
 Wellington Resort
-Event
-Session Leaders
+Event Session Leaders
+Orienteering Natalie Porter
 Start Time
+8:00 А.М.
 Location
-Orienteering
-Natalie Porter
-8.00 A.M,
 Wellington
 Downs
-Ohstacle
-Rohert Polson
-10.30 A.M,
-Blackforest
+Obstacle
 Course
-Woods
+Robert Polson 10:30 A.M.
 Water Polo
-To be eonfirmed
-2.00 EM.
-Resort Pool
 Tournament
+To be confirmed 2:00 р.м.
+Blackforest
+Woods
+Resort Pool
 General
-Colin Hima: &
-7.30 #'M.
-Diamond
 Knowledge
-Miehael Oxley
-Funetion
 Quiz
+Colin Himaa & 7:30 р.м.
+Michael Oxley
+Diamond
+Function
 Room
-310
-and
-frotn
-Porter
-polo
 E-Mail message
 To:
-Amy Whitehouse <amywhitehouse@sharpline net >
 From:
-Bradley Welsh <bradleywelsh@sharpline net z
-Date:
-April 21
-Subject:
-Company Retreat
-just want to thank you for all the work you put into organizing the company
-retreat:
-really enjoyed the weekend, and
-know lots of other staff members did
-too_
-also really enjoyed hosting the water polo event
-must admit,
-was
-little
-reluctant when you first suggested it at the meeting, as
-had never played the
-sport before
-but
-was surprised by how much
-liked it.
-also just want to
-apologize for having to rush away before the evening event:
-had to take my
-daughter to the hospital because she was feeling unwell. Although
-was
+Amy Whitehouse <amywhitehouse@sharpline.net>
+Bradley Welsh <bradleywelsh@sharpline.net>
+Date: April 21
+Subject: Company Retreat
+Hi Amy,
+I just want to thank you for all the work you put into organizing the company
+retreat. I really enjoyed the weekend, and I know lots of other staff members did
+too. I also really enjoyed hosting the water polo event. I must admit, I was a little
+reluctant when you first suggested it at the meeting, as I had never played the
+sport before, but I was surprised by how much I liked it. I also just want to
+apologize for having to rush away before the evening event. I had to take my
+daughter to the hospital because she was feeling unwell. Although I was
 disappointed not to be able to attend for the entire retreat, this family emergency
-had to take priority:
-hope you understand:
+had to take priority. I hope you understand.
 Thanks again,
 Bradley Welsh
-### 191. What are Sharpline Stationery Company's
-### 194.
-Which event did Mr. Welsh most likely miss?
+
+191. What are Sharpline Stationery Company's
 employees encouraged to do?
-Obstacle Course
-Make
-payment
-Water Polo Tournament
-(B) Specify dielary requirements
-General Knowledge Quiz
-Invite family members
-Orienteering
-Suggest relreat events
-### 195. _
-What can be inferred about Mr: Welsh?
-### 192. _
-In the memo,
-the word "recall" in paragraph
-He used to be
-professional athlete_
-line
-is closest in meaning t0
-He is a manager at Sharpline
-bring
-He is a qualified doctor:
-find
-He has several children:
-order
-remember
-### 193. _
-Who most likely took Ms. Daggard'$ place at
+(A) Make a payment
+(B) Specify dietary requirements
+(C) Invite family members
+(D) Suggest retreat events
+
+192. In the memo, the word "recall" in paragraph
+1, line 4, is closest in meaning to
+(A) bring
+(B) find
+(C) order
+(D) remember
+
+193. Who most likely took Ms. Daggard's place at
 the retreat?
-Robert Polson
-Bradley Welsh
-Michael Oxley
-Natalie Porter
-Benzen English - TOEIC
-GO ON TO THE NEXT PAGE
-TEST 10
-311
-Amy;
-Questions 196-200 refer to the following Web page, review,
-response
-http Ilwwwpresligehotel comlroomrates
-Rates
-Doscrptions
-Reviecws
-Functions
-Contact uS
-2nd Floor
-Standard Room
-S79
-Book Now
-2nd Floor
-Standard En Suite
-S99
-Book Now
-2nd Floor
-Premier ROom
-5H9
-Book Now
-2nd
-Deluxe Room
-5149
-Book Now
-Annex currently mn
-development-
-opening later this
-Included with each room:
-A buffet break fast
-Use of on-site pool and
-Concierge service
-For dcluxe rooms only:
-Use of rooftop terrace and bar
-http Ilwww rateastay net/4920/theprestigehote
-Date posted:
-22
-stayed at the Prestige hotel for two nights when
-was in town on business last week:
-The hotel was extremely luxurious
-Although
-didn't see the gym
-heard other guests
-saying that it contained all the latest equipment and workout machines. Personally;
-really enjoyed using the rooftop terrace, which offered some spectacular views of the
-local countryside, and the pool was the perfect temperature to swim in: The concierge
-was also extremely helpful: However;
-was not satisfied with the quality of the breakfast
-buffet. The food was not of the standard that
-would expect for a hotel of this stature_
-could not find a staff member in order to pass on my complaints
-as the front desk
-was often unmanned during my stay: Furthermore,
-was woken up by some loud
-machinery being used on site during one of the mornings_
-Despite all the other good
-features,
-would be hesitant to
-there again for these reasons
-Tracy Aldridge
+(A) Robert Polson
+
+194. Which event did Mr. Welsh most likely miss?
+(A) Obstacle Course
+(B) Water Polo Tournament
+(C) General Knowledge Quiz
+(D) Orienteering
+
+195. What can be inferred about Mr. Welsh?
+(A) He used to be a professional athlete.
+(B) He is a manager at Sharpline.
+(C) He is a qualified doctor.
+(D) He has several children.
+(B) Bradley Welsh
+(C) Michael Oxley
+(D) Natalie Porter
+Benzen English -TOEIC GO ON TO THE NEXT PAGE
+TEST 10 311
+
 312
-and
-Floor
-year!
-gyin
-May
-stay
-htip Ilwww rateastay net/4920/theprestigehotel-aa01
-Date posted:
-26
+Questions 196-200 refer to the following Web page, review, and response.
+http://www.prestigehotel.com/roomrates
+Rates Descriptions Reviews Functions Contact us
+2nd Floor Standard Room --$79 Book Now►
+2nd Floor - Standard En Suite --$99 - Book Now
+2nd Floor - Premier Room $119 Book Now
+2nd Floor - Deluxe Room --$149 - Book Now
+Annex currently in development-opening later this year!
+Included with each room:
+A buffet breakfast
+Use of on-site pool and gym
+Concierge service
+For deluxe rooms only:
+Use of rooftop terrace and bar
+4 http://www.rateastay.net/4920/theprestigehotel
+Date posted: May 22
+I stayed at the Prestige hotel for two nights when I was in town on business last week.
+The hotel was extremely luxurious. Although I didn't see the gym, I heard other guests
+saying that it contained all the latest equipment and workout machines. Personally,
+I really enjoyed using the rooftop terrace, which offered some spectacular views of the
+local countryside, and the pool was the perfect temperature to swim in. The concierge
+was also extremely helpful. However, I was not satisfied with the quality of the breakfast
+buffet. The food was not of the standard that I would expect for a hotel of this stature.
+I could not find a staff member in order to pass on my complaints, as the front desk
+was often unmanned during my stay. Furthermore, I was woken up by some loud
+machinery being used on site during one of the mornings. Despite all the other good
+features, I would be hesitant to stay there again for these reasons.
+Tracy Aldridge
+http://www.rateastay.net/4920/theprestigehotel-aa01
+Date posted: May 26
 Dear Ms. Aldridge,
-Iwas sorry to hear yOu were not entirely satisfied with your stay at the Prestige: We strive
-t0 ensure all customers have
-pleasant and enjoyable stay and leave happy and well
-rested: Td like to
-apologize for the poor quality of food during your stay
-~we are currently
-having some staffing issues and were lacking
-head chef on the date that you stayed: This
-matter has now been resolved, and
-permanent member of staff has since been
-appointed:
-With
-regard to not being able to find anybody to pass on your complaints to,
-this is most unusual:
-have since
-spoken to the front-desk staff and rest assured, this
-not happen
-Regarding the other issue you mentioned, this was due to renovation
+I was sorry to hear you were not entirely satisfied with your stay at the Prestige. We strive
+to ensure all customers have a pleasant and enjoyable stay and leave happy and wellrested. I'd like to apologize for the poor quality of food during your stay-we are currently
+having some staffing issues and were lacking a head chef on the date that you stayed. This
+matter has now been resolved, and a permanent member of staff has since been
+appointed. With regard to not being able to find anybody to pass on your complaints to,
+this is most unusual. I have since spoken to the front-desk staff and rest assured, this will
+not happen again. Regarding the other issue you mentioned, this was due to renovation
 work that has now been completed, and it has since been returned to the company
-carrying out the project We would like to offer you
-free stay at the Prestige s0 that you
-may experience the world-class service for which we are known: Please contact me at 493-
-555-0122 ifyou
-like to take up this offer:
+carrying out the project. We would like to offer you a free stay at the Prestige so that you
+may experience the world-class service for which we are known. Please contact me at 493-
+555-0122 if you would like to take up this offer.
 Greta Sanchez
 Customer Relations
 The Prestige Hotel
-### 196. _
-What is indicated about the hotel rooms
-### 199.
-In what type of room did Ms: Aldridge most
+
+196. What is indicated about the hotel rooms
 listed on the Web page?
-likely stay?
-Some are offered at a discounted price_
-Standard
-(B) They are all located on the same level:
-Standard En Suite
-Rooms on the first floor are more
-Premier
+(A) Some are offered at a discounted price.
+(B) They are all located on the same level.
+(C) Rooms on the first floor are more
 expensive.
-Deluxe
-(D) Some do not have access t0 concierge
-services
-### 200.
-What does Ms. Sanchez indicate about the
-machinery on site?
-### 197. _
-Which of the following features did Ms_
-It has now been removed:
+(D) Some do not have access to concierge
+services.
+
+197. Which of the following features did Ms.
 Aldridge NOT personally use?
-been relocated t0 the gym:
-The concierge
-It will be insulaled t0 make it quieter;
-The swimming pool
-A staff member has been employed t0
-gym
-fix it
-The roof terrace
-### 198. _
-In the review; the word "offered" in paragraph
-line 4, is closest in meaning to
-provided
-discounted
-volunteered
-passed
-Stopl This is the end of the test: If you finish before time is called, you may go
-back to Parts 5,
-and
-and check your work:
-Benzon English - TOEIC
-TEST 10
-313
-May
-will
-again;
-would
-has
-The '
-TEST 1
+(A) The concierge
+(B) The swimming pool
+(C) The gym
+(D) The roof terrace
+
+198. In the review, the word "offered" in paragraph
+1, line 4, is closest in meaning to
+(A) provided
+(B) discounted
+(C) volunteered
+(D) passed
+
+199. In what type of room did Ms. Aldridge most
+likely stay?
+(A) Standard
+(B) Standard En Suite
+(C) Premier
+(D) Deluxe
+
+200. What does Ms. Sanchez indicate about the
+machinery on site?
+(A) It has now been removed.
+(B) It has been relocated to the gym.
+(C) It will be insulated to make it quieter.
+(D) A staff member has been employed to
+fix it.
+Stop! This is the end of the test. If you finish before time is called, you may go
+back to Parts 5, 6, and 7 and check your work.
+Benzen English -TOEIC
+TEST 10 313
+101-C 121-B 141-A 161-C 181-D
+102-D 122-B 142-B 162-C 182-D
+103-A 123-D 143-D 163-A 183-D
+104-C 124-D 144-A 164-B 184-B
+105-B 125-C 145-C 165-D 185-B
+106-A 126-C 146-C 166-A 186-A
+107-A 127-D 147-D 167-D 187-D
+108-C 128-B 148-C 168-C 188-C
+109-C 129-D 149-D 169-C 189-D
+110-A 130-B 150-C 170-A 190-D
+111-B 131-C 151-A 171-D 191-B
+112-D 132-D 152-C 172-C 192-B
+113-A 133-B 153-D 173-A 193-D
+114-A 134-A 154-B 174-B 194-D
+115-A 135-A 155-D 175-C 195-D
+116-D 136-B 156-B 176- B 196-D
+117-B 137-B 157-C 177-B 197-B
+118-B 138-C 158-B 178-C 198-A
+119-B 139-C 159-A 179-A 199-D
+120-A 140-A 160-A 180-D 200-C
+101-A 121-A 141-D 161-D 181-B
+102-C 122-A 142-A 162-C 182-D
+103-D 123-A 143-A 163-C 183-A
+104-A 124-B 144-D 164-D 184-C
+105-A 125-A 145-C 165-C 185-C
+106-A 126-D 146-C 166-C 186-B
+107-D 127-D 147-D 167-C 187-D
+108-B 128-D 148-B 168-C 188-B
+109-A 129-A 149-B 169-B 189-A
+110-A 130-D 150-C 170-A 190-C
+111-A 131-B 151-A 171-D 191-C
+112-B 132-B 152-B 172-B 192-A
+113-A 133-D 153-C 173-D 193-D
+114-C 134-C 154-B 174-B 194-B
+115-A 135-C 155-C 175-A 195-C
+116-C 136-C 156-B 176-B 196-D
+117-D 137-D 157-A 177-A 197-A
+118-D 138-B 158-D 178-B 198-C
+119-B 139-C 159-A 179-B 199-D
+120-B 140-B 160-A 180-C 200-B
+101-A 121-C 141-D 161-B 181-A
+102-B 122-B 142-D 162-C 182-D
+103-C 123-B 143-B 163-A 183-B
+104-D 124-A 144-D 164-A 184-B
+105-C 125-D 145-C 165-B 185-D
+106-B 126-C 146-C 166-D 186-A
+107-B 127-B 147-C 167-A 187-C
+108-A 128-A 148-B 168-A 188-D
+109-C 129-A 149-C 169-C 189-B
+110-B 130-A 150-A 170-D 190-A
+111-D 131-B 151-B 171-D 191-C
+112-D 132-C 152-C 172-A 192-B
+113-C 133-A 153-D 173-B 193-C
+114-A 134-B 154-B 174-A 194-A
+115-A 135-A 155-D 175-D 195-C
+116-A 136-C 156-D 176-D 196-B
+117-B 137-B 157-D 177-A 197-D
+118-A 138-B 158-C 178-C 198-C
+119-A 139-D 159-D 179-B 199-B
+120-D 140-C 160-C 180-C 200-A
+101-D 121-B 141-C 161-C 181-C
+102-D 122-A 142-C 162-B 182-A
+103-C 123-B 143-D 163-D 183-D
+104-A 124-B 144-D 164-A 184-C
+105-C 125-B 145-B 165-D 185-C
+106-C 126-A 146-A 166-C 186-A
+107-A 127-C 147-A 167-B 187-D
+108-B 128-C 148-D 168-A 188-A
+109-D 129-A 149-A 169-B 189-C
+110-D 130-B 150-C 170-B 190-C
+111-D 131-A 151-D 171-A 191-A
+112-B 132-B 152-B 172-A 192-C
+113-B 133-D 153-A 173-D 193-C
+114-B 134-A 154-D 174-C 194-D
+115-D 135-B 155-D 175-B 195-B
+116-B 136-D 156-D 176-B 196-A
+117-B 137-A 157-D 177-C 197-B
+118-A 138-B 158-C 178-C 198-B
+119-A 139-D 159-A 179-B 199-D
+120-B 140-B 160-B 180-A 200-C
+101-C 121-B 141-A 161-D 181-C
+102-C 122-B 142-D 162-B 182-A
+103-D 123-D 143-C 163-D 183-B
+104-B 124-B 144-D 164-B 184-B
+105-B 125-D 145-A 165-D 185-D
+106-D 126-D 146-A 166-A 186-A
+107-C 127-A 147-D 167-B 187-D
+108-B 128-C 148-A 168-A 188-D
+109-D 129-D 149-C 169-C 189-B
+110-D 130-B 150-D 170-B 190-C
+111-A 131-A 151-A 171-C 191-C
+112-C 132-C 152-A 172-D 192-B
+113-B 133-B 153-C 173-D 193-D
+114-D 134-A 154-A 174-C 194-A
+115-B 135-D 155-C 175-A 195-B
+116-A 136-A 156-B 176-A 196-C
+117-A 137-D 157-A 177-C 197-D
+118-C 138-C 158-C 178-C 198-A
+119-D 139-B 159-B 179-D 199-B
+120-C 140-C 160-B 180-A 200-B
+101-B 121-D 141-C 161-B 181-B
+102-B 122-C 142-B 162-A 182-D
+103-C 123-B 143-D 163- C 183-A
+104-A 124-C 144-A 164-C 184-D
+105-D 125-D 145-B 165-B 185-C
+106-D 126-D 146-B 166-D 186-A
+107-C 127-B 147-B 167-D 187-B
+108-C 128-D 148-D 168-B 188-C
+109-C 129-D 149-C 169-D 189-C
+110-C 130-C 150-A 170-A 190-A
+111-C 131-C 151-A 171-B 191-A
+112-B 132-D 152-D 172-C 192-B
+113-D 133-B 153-B 173-D 193-C
+114-A 134-D 154-A 174-C 194-C
+115-C 135-D 155-D 175-A 195-B
+116-D 136-A 156-B 176-D 196-D
+117-B 137-A 157-C 177-B 197-C
+118-B 138-C 158-B 178-C 198-B
+119-D 139-B 159-A 179-C 199-A
+120-D 140-C 160-A 180-C 200-D
+101-A 121-C 141-A 161-A 181-C
+102-C 122-D 142-C 162-D 182-B
+103-B 123-B 143-C 163- C 183-D
+104-C 124-B 144-C 164-C 184-D
+105-A 125-C 145-A 165-B 185-A
+106-B 126-A 146-C 166-A 186-B
+107-B 127-A 147-B 167-D 187-D
+108-A 128-D 148-B 168-C 188-C
+109-C 129-D 149-D 169-C 189-B
+110-C 130-C 150-B 170-A 190-D
+111-B 131-C 151-A 171-B 191-C
+112-A 132-A 152-C 172-C 192-C
+113-D 133-A 153-A 173-A 193-B
+114-D 134-D 154-B 174-B 194-C
+115-B 135-C 155-B 175-B 195-A
+116-B 136-B 156-D 176-A 196-C
+117-A 137-B 157-D 177-A 197-D
+118-C 138-D 158-A 178-B 198-D
+119-D 139-C 159-C 179-D 199-B
+120-A 140-B 160-D 180-C 200-C
+101-D 121-D 141-B 161-B 181-D
+102-D 122-D 142-A 162-D 182-C
+103-B 123-A 143-D 163-A 183-A
+104-C 124-D 144-A 164-C 184-D
+105-B 125-A 145-B 165-D 185-A
+106-C 126-D 146-D 166-C 186-A
+107-B 127-D 147-D 167-A 187-B
+108-C 128-B 148-C 168-A 188-B
+109-C 129-B 149-A 169-B 189-A
+110-C 130-A 150-C 170-D 190-D
+111-A 131-A 151-A 171-B 191-C
+112-B 132-A 152-C 172-D 192-A
+113-A 133-B 153-B 173-A 193-D
+114-D 134-C 154-D 174-C 194-D
+115-B 135-D 155-A 175-B 195-B
+116-B 136-B 156-A 176-D 196-B
+117-C 137-C 157-B 177-A 197-C
+118-D 138-B 158-B 178-C 198-B
+119-A 139-D 159-D 179-D 199-D
+120-A 140-C 160-C 180-A 200-A
+101-B 121-C 141-C 161-D 181-D
+102-C 122-D 142-D 162-C 182-B
+103-C 123-A 143-C 163-B 183-D
+104-B 124-B 144-A 164-C 184-C
+105-A 125-D 145-D 165-B 185-A
+106-C 126-B 146-B 166-D 186-C
+107-D 127-B 147-C 167-C 187-B
+108-C 128-D 148-A 168-A 188-A
+109-A 129-D 149-A 169-A 189-C
+110-C 130-A 150-D 170-C 190-D
+111-D 131-A 151-D 171-B 191-B
+112-A 132-D 152-A 172-C 192-D
+113-A 133-B 153-C 173-A 193-C
+114-B 134-B 154-D 174-C 194-B
+115-D 135-C 155-B 175-C 195-D
+116-A 136-C 156-D 176-C 196-D
+117-B 137-A 157-C 177-D 197-B
+118-D 138-B 158-A 178-A 198-D
+119-C 139-A 159-B 179-B 199-C
+120-B 140-C 160-D 180-D 200-D
+101-A 121-C 141-B 161-A 181-C
+102-C 122-B 142-C 162-D 182-B
+103-B 123-D 143-A 163-D 183-C
+104-D 124-B 144-C 164-C 184-B
+105-D 125-A 145-D 165-B 185-C
+106-A 126-B 146-C 166-C 186-C
+107-C 127-B 147-D 167-D 187-B
+108-D 128-B 148-D 168-B 188-A
+109-C 129-A 149-B 169-C 189-C
+110-A 130-C 150-D 170-A 190-D
+111-B 131-B 151-D 171-D 191-B
+112-D 132-D 152-C 172-B 192-D
+113-B 133-D 153-D 173-D 193-C
+114-D 134-A 154-C 174-B 194-C
+115-A 135-A 155-C 175-D 195-B
+116-D 136-D 156-D 176-C 196-B
+117-C 137-B 157-B 177-A 197-C
+118-A 138-C 158-B 178-D 198-A
+119-C 139-B 159-D 179-C 199-D
+120-D 140-D 160-C 180-B 200-A
