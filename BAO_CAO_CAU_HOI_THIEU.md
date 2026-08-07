@@ -8,7 +8,7 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
 
 ## 📊 THỐNG KÊ TỔNG QUAN
 
-- **Tổng số đề chưa đủ 100 câu**: `29` đề
+- **Tổng số đề chưa đủ 100 câu**: `28` đề
 - **Phân loại**: Chi tiết danh sách bên dưới được chia theo từng bộ sách (Series).
 
 ---
@@ -40,7 +40,6 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
 
 | Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 01** | **98/100** | 30 | 14 | 54 | `❌ Khuyết 2 câu từ file nguồn OCR` |
 | **Test 03** | **92/100** | 30 | 13 | 49 | `❌ Khuyết 8 câu từ file nguồn OCR` |
 | **Test 04** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
 | **Test 05** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
@@ -175,12 +174,6 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
   - ❌ **Câu 200**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [ETS] ETS 2023 RC
-
-#### 🔹 Test 01 (`[ETS] ETS 2023 RC - Test 01`)
-- **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 14, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 03 (`[ETS] ETS 2023 RC - Test 03`)
 - **Tổng số câu hiện tại**: `92/100` (Part 5: 30, Part 6: 13, Part 7: 49)
