@@ -9436,3 +9436,45 @@ Madera Hotels
 (B) Change a reservation
 (C) Give additional bonus points
 (D) Schedule a business conference
+
+138. (A) Hanson-Roves ensures the privacy of your health information.
+(B) Absences may be caused by a number of factors.
+(C) You should then explain why a physician's note is not available.
+(D) Take note of the duties you were originally assigned.
+
+142. (A) Please sign all the documents.
+(B) I will provide you with a replacement.
+(C) Construction will be completed next year.
+(D) You can download one from our Web site.
+
+163. According to the Web page, what can museum patrons do for an extra fee?
+(A) Watch a video on South America
+(B) Attend an art class
+(C) Explore a new exhibit
+(D) Sponsor an upcoming exhibit
+
+167. What will Ms. Matova probably do with the package?
+(A) Take it to Mr. Koh
+(B) Send it out by express mail
+(C) Leave it at the front desk
+(D) Remove the items from it
+
+146. (A) Just
+(B) Over
+(C) Very
+(D) Also
+
+134. (A) serves
+(B) was serving
+(C) will be served
+(D) served
+
+140. (A) who
+(B) when
+(C) which
+(D) that
+
+141. (A) Accordingly
+(B) However
+(C) Instead
+(D) Consequently
