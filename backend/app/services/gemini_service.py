@@ -72,7 +72,7 @@ def call_gemini_api(prompt: str, json_schema_required: bool = True) -> str:
 
     # Try available keys in sequence
     for key_idx, api_key in enumerate(keys):
-        print(f"[MODE: GEMINI_API] Executing live request to Gemini API (Key #{key_idx + 1}: {api_key[:6]}***)...")
+        print(f"[MODE: GEMINI_API] Executing live request to Gemini API (Key #{key_idx + 1})...")
         url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key={api_key}"
         req = urllib.request.Request(
             url,

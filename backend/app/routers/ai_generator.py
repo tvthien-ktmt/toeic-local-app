@@ -187,19 +187,30 @@ Trả về JSON duy nhất:
 }}
 CHỈ trả JSON thuần túy, không markdown, không giải thích thêm."""
 
-    content_chunk = f"explain_v2::{req.question_id}::{req.correct_answer}::{user_ans_str}::{hash(req.question_text[:100])}"
+    # Use deterministic content_chunk (do NOT use Python built-in hash() which changes on process restart)
+    clean_q_snippet = re.sub(r'\s+', ' ', req.question_text[:100]).strip()
+    content_chunk = f"explain_v2::{req.question_id}::{req.correct_answer}::{user_ans_str}::{clean_q_snippet}"
 
     if api_key:
         try:
             data = query_gemini_with_cache(db, prompt_type, prompt_text, content_chunk)
             if isinstance(data, dict) and "option_explanations" in data:
-                # Save common_trap back to DB for future instant access
-                if db_q and data.get("common_trap") and not db_q.common_trap:
+                # Back-save ALL genuine AI fields into DB Question row so future reads are 0-latency from DB
+                if db_q:
                     try:
-                        db_q.common_trap = data["common_trap"]
+                        if data.get("grammar_topic"):
+                            db_q.grammar_topic = data["grammar_topic"]
+                        if data.get("option_explanations"):
+                            db_q.option_explanations_json = json.dumps(data["option_explanations"], ensure_ascii=False)
+                        if data.get("common_trap"):
+                            db_q.common_trap = data["common_trap"]
+                        if data.get("sentence_translation"):
+                            db_q.translated_sentence = data["sentence_translation"]
+                        if data.get("grammar_recall"):
+                            db_q.explanation = f"Đáp án đúng: ({req.correct_answer}). " + data["grammar_recall"]
                         db.commit()
-                    except Exception:
-                        pass
+                    except Exception as commit_err:
+                        print(f"[AI EXPLAIN v2] Error saving AI data back to DB: {commit_err}")
 
                 return {
                     "status": "success",
