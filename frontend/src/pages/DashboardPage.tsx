@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BarChart3, CheckCircle2, BookOpen, Target, RefreshCw, AlertCircle, Layers, Clock, Zap, Activity } from 'lucide-react';
+import { BarChart3, CheckCircle2, BookOpen, Target, RefreshCw, AlertCircle, Layers, Clock, Zap, Activity, TrendingDown, AlertTriangle } from 'lucide-react';
 import axios from 'axios';
 
 interface DashboardStats {
@@ -53,9 +53,19 @@ interface ExamHistoryItem {
   completed_at: string;
 }
 
+interface WeaknessTopic {
+  grammar_topic: string;
+  total_questions: number;
+  correct: number;
+  wrong: number;
+  skipped: number;
+  error_rate: number;
+}
+
 export const DashboardPage: React.FC = () => {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [examHistory, setExamHistory] = useState<ExamHistoryItem[]>([]);
+  const [weaknessData, setWeaknessData] = useState<WeaknessTopic[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
@@ -63,13 +73,17 @@ export const DashboardPage: React.FC = () => {
     setIsLoading(true);
     setErrorMsg(null);
     try {
-      const [statsRes, historyRes] = await Promise.all([
+      const [statsRes, historyRes, weaknessRes] = await Promise.all([
         axios.get('/api/dashboard/stats'),
-        axios.get('/api/textbooks/history')
+        axios.get('/api/textbooks/history'),
+        axios.get('/api/textbooks/weakness-report')
       ]);
       setStats(statsRes.data);
       if (historyRes.data.status === 'success') {
         setExamHistory(historyRes.data.history);
+      }
+      if (weaknessRes.data.status === 'success') {
+        setWeaknessData(weaknessRes.data.weakest_topics || []);
       }
     } catch (err: any) {
       console.error(err);
@@ -265,6 +279,61 @@ export const DashboardPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+
+      {/* ── WEAKNESS WIDGET: Chủ Điểm Hay Sai Nhất (Cross-exam analytics) ── */}
+      {weaknessData.length > 0 && (
+        <div className="bg-theme-surface rounded-3xl p-6 border border-rose-500/20 shadow-xl space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2 text-theme-primary font-bold text-base">
+              <TrendingDown className="w-5 h-5 text-rose-400" />
+              <h2>Chủ Điểm Hay Sai Nhất — Tích Luỹ Qua Các Lần Thi</h2>
+            </div>
+            <span className="text-xs text-rose-400 bg-rose-500/10 border border-rose-500/20 px-2.5 py-1 rounded-full font-semibold">
+              {weaknessData.filter(w => w.error_rate >= 40).length} chủ điểm cần ôn ngay
+            </span>
+          </div>
+          <p className="text-xs text-theme-secondary">Phân tích tổng hợp từ {examHistory.length} lần thi. Những chủ điểm có tỉ lệ sai cao nhất cần ôn lại trước kỳ thi.</p>
+
+          <div className="space-y-2.5 max-h-72 overflow-y-auto pr-1">
+            {weaknessData.slice(0, 10).map((w, idx) => (
+              <div key={idx} className={`p-3 rounded-xl border flex items-center gap-3 ${
+                w.error_rate >= 60 ? 'bg-rose-500/10 border-rose-500/30' :
+                w.error_rate >= 40 ? 'bg-amber-500/10 border-amber-500/30' :
+                'bg-theme-surface-2 border-theme'
+              }`}>
+                <span className={`w-10 h-10 rounded-xl font-black text-sm flex items-center justify-center shrink-0 ${
+                  w.error_rate >= 60 ? 'bg-rose-500/20 text-rose-400' :
+                  w.error_rate >= 40 ? 'bg-amber-500/20 text-amber-400' :
+                  'bg-emerald-500/20 text-emerald-400'
+                }`}>{Math.round(w.error_rate)}%</span>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-semibold text-theme-primary truncate">{w.grammar_topic}</div>
+                  <div className="text-[10px] text-theme-secondary">
+                    ❌ {w.wrong} sai • ⬜ {w.skipped} bỏ trống • ✓ {w.correct} đúng (/{w.total_questions})
+                  </div>
+                </div>
+                <div className="w-24 h-2 rounded-full bg-theme-surface-3 overflow-hidden shrink-0">
+                  <div
+                    className={`h-full rounded-full ${
+                      w.error_rate >= 60 ? 'bg-rose-500' :
+                      w.error_rate >= 40 ? 'bg-amber-500' :
+                      'bg-emerald-500'
+                    }`}
+                    style={{ width: `${Math.min(100, w.error_rate)}%` }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {weaknessData.length === 0 && examHistory.length === 0 && (
+            <div className="text-center py-6 text-xs text-theme-secondary">
+              Hãy hoàn thành ít nhất 1 lần thi để xem phân tích điểm yếu.
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Accuracy Rate by Part */}
       <div className="bg-theme-surface rounded-3xl p-6 border border-theme shadow-xl space-y-4">

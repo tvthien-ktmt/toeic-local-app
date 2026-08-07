@@ -115,75 +115,135 @@ class QuestionExplanationRequest(BaseModel):
 @router.post("/explain-question")
 def generate_question_explanation(req: QuestionExplanationRequest, db: Session = Depends(get_db)):
     """
-    Generates AI detailed explanation & grammar knowledge recall for any question (correct or incorrect).
+    Generates AI detailed explanation & grammar knowledge recall for any question.
+    Uses DB cache first (0 latency), falls back to live Gemini with upgraded quality prompt.
     """
-    # 1. Try fetching existing Question from DB if question_id provided
+    # Fetch DB question for cached data
     db_q = None
     if req.question_id:
         db_q = db.query(Question).filter(Question.id == req.question_id).first()
 
-    api_key = get_gemini_api_key()
-    
-    # Standard prompt for Gemini
-    prompt_type = "explain_question"
-    user_ans_str = req.user_answer if req.user_answer else "Không chọn"
-    g_topic = req.grammar_topic or (db_q.grammar_topic if db_q else "Ngữ pháp / Đọc hiểu TOEIC")
-    
-    opts_str = "\n".join(req.options) if req.options else "A. Phương án A\nB. Phương án B\nC. Phương án C\nD. Phương án D"
-    
-    prompt_text = f"""Bạn là một chuyên gia huấn luyện TOEIC RC hàng đầu. Hãy phân tích chi tiết câu hỏi TOEIC sau đây và cung cấp phần GIẢI THÍCH + NHẮC LẠI KIẾN THỨC CỐT LÕI.
+    # If DB already has rich option_explanations (and not stub dashes "—") — return immediately (0 latency)
+    if db_q and db_q.option_explanations_json:
+        try:
+            opt_exps = json.loads(db_q.option_explanations_json)
+            has_real_explanations = isinstance(opt_exps, dict) and any(v and str(v).strip() not in ('—', '-') for v in opt_exps.values())
+            if has_real_explanations:
+                return {
+                    "status": "success",
+                    "source": "db_cache",
+                    "explanation": {
+                        "detailed_explanation": db_q.explanation or f"Đáp án đúng là ({req.correct_answer}).",
+                        "grammar_recall": f"Chủ điểm: **{db_q.grammar_topic}**. Xem thẻ 'Ôn Nhanh' trên Dashboard để ôn lại công thức đầy đủ.",
+                        "option_explanations": opt_exps,
+                        "common_trap": db_q.common_trap,
+                        "sentence_translation": db_q.translated_sentence or "",
+                        "exam_tip": None,
+                        "key_vocabulary": []
+                    }
+                }
+        except Exception:
+            pass
 
-Câu hỏi: {req.question_text}
+    api_key = get_gemini_api_key()
+
+    # Upgraded prompt — specific, actionable, competitive quality
+    prompt_type = "explain_question_v2"
+    user_ans_str = req.user_answer if req.user_answer else "Không chọn"
+    g_topic = req.grammar_topic or (db_q.grammar_topic if db_q else "Ngữ pháp TOEIC RC")
+    opts_str = "\n".join(req.options) if req.options else ""
+
+    prompt_text = f"""Bạn là chuyên gia luyện thi TOEIC RC hàng đầu. Phân tích câu hỏi TOEIC sau và trả về JSON CHÍNH XÁC theo cấu trúc yêu cầu.
+
+Câu hỏi: {req.question_text[:600]}
 Các phương án:
 {opts_str}
-
 Đáp án đúng: ({req.correct_answer})
 Học viên đã chọn: ({user_ans_str})
-Chủ điểm ngữ pháp: {g_topic}
+Chủ điểm dự kiến: {g_topic}
 
-Hãy đưa ra giải thích chuyên sâu.
-Trả về JSON object duy nhất với cấu trúc:
+Yêu cầu NGHIÊM NGẶT — mỗi trường phải cụ thể, không được chung chung:
+
+1. grammar_topic: Tên chính xác và đầy đủ của chủ điểm (VD: "Đại từ sở hữu (Possessive Pronoun)" NOT chỉ "Pronoun")
+2. grammar_recall: Nhắc lại công thức/quy tắc cốt lõi của chủ điểm này trong 2-3 câu ngắn gọn (format: "[Quy tắc chính]: ... [Ví dụ nhanh]: ...")
+3. option_explanations: Giải thích RÕ RÀNG vì sao từng option SAI hoặc ĐÚNG — bắt buộc nêu lý do ngữ pháp/nghĩa CỤ THỂ của câu đó, KHÔNG ĐƯỢC nói chung chung "vì sai ngữ pháp"
+4. common_trap: Nếu có 1 option sai mà học viên hay nhầm nhất (thường là option B hoặc option nào gần đúng nhất), giải thích RÕ vì sao học viên hay chọn nhầm option đó — đây là insight quan trọng nhất để tránh sai lần sau. Nếu không có bẫy đặc biệt, trả "".
+5. sentence_translation: Dịch câu hoàn chỉnh (đã điền đáp án đúng) sang tiếng Việt TỰ NHIÊN, đúng ngữ cảnh công việc/thương mại — KHÔNG dịch máy từng từ.
+
+Trả về JSON duy nhất:
 {{
-  "detailed_explanation": "Phân tích vì sao đáp án ({req.correct_answer}) là đúng và tại sao từng phương án còn lại chưa đúng.",
-  "grammar_recall": "Nhắc lại kiến thức/quy tắc ngữ pháp cốt lõi liên quan (ví dụ: Vị trí của trạng từ, Cấu trúc câu điều kiện, Mệnh đề quan hệ rút gọn, v.v.). Trình bày rõ ràng, dễ nhớ.",
-  "exam_tip": "Mẹo suy luận nhanh khi gặp dạng bài này trong đề thi (1-2 câu ngắn gọn).",
-  "sentence_translation": "Bản dịch tiếng Việt hoàn chỉnh và chuẩn nghĩa của câu.",
-  "key_vocabulary": [
-    {{"word": "Từ/Cụm từ 1", "meaning": "Nghĩa tiếng Việt"}},
-    {{"word": "Từ/Cụm từ 2", "meaning": "Nghĩa tiếng Việt"}}
-  ]
+  "grammar_topic": "...",
+  "grammar_recall": "...",
+  "option_explanations": {{
+    "A": "...",
+    "B": "...",
+    "C": "...",
+    "D": "..."
+  }},
+  "common_trap": "...",
+  "sentence_translation": "...",
+  "exam_tip": "Mẹo 1-2 câu để nhận dạng dạng bài này nhanh trong kỳ thi.",
+  "key_vocabulary": []
 }}
-CHỈ trả JSON object duy nhất, không thêm bớt markdown."""
+CHỈ trả JSON thuần túy, không markdown, không giải thích thêm."""
 
-    content_chunk = f"explain::{req.question_id}::{req.correct_answer}::{user_ans_str}::{hash(req.question_text)}"
+    content_chunk = f"explain_v2::{req.question_id}::{req.correct_answer}::{user_ans_str}::{hash(req.question_text[:100])}"
 
     if api_key:
         try:
             data = query_gemini_with_cache(db, prompt_type, prompt_text, content_chunk)
-            if isinstance(data, dict) and "detailed_explanation" in data:
+            if isinstance(data, dict) and "option_explanations" in data:
+                # Save common_trap back to DB for future instant access
+                if db_q and data.get("common_trap") and not db_q.common_trap:
+                    try:
+                        db_q.common_trap = data["common_trap"]
+                        db.commit()
+                    except Exception:
+                        pass
+
                 return {
                     "status": "success",
                     "source": "gemini_ai",
-                    "explanation": data
+                    "explanation": {
+                        "detailed_explanation": f"Đáp án đúng: ({req.correct_answer}). " + (data.get("grammar_recall", "")),
+                        "grammar_recall": data.get("grammar_recall", ""),
+                        "grammar_topic": data.get("grammar_topic", g_topic),
+                        "option_explanations": data.get("option_explanations", {}),
+                        "common_trap": data.get("common_trap", ""),
+                        "sentence_translation": data.get("sentence_translation", ""),
+                        "exam_tip": data.get("exam_tip", ""),
+                        "key_vocabulary": data.get("key_vocabulary", [])
+                    }
                 }
         except Exception as e:
-            print(f"[AI EXPLAIN] Gemini call failed/rate limited: {e}")
+            print(f"[AI EXPLAIN v2] Gemini call failed: {e}")
 
-    # Fallback response using DB question data or fallback template
-    fallback_exp = db_q.explanation if (db_q and db_q.explanation) else f"Đáp án đúng là ({req.correct_answer})."
-    fallback_trans = db_q.translated_sentence if (db_q and db_q.translated_sentence) else ""
+    # If DB lacks enriched AI data, fall back to live Gemini call or clear pending indicator
+    fallback_exp = (db_q.explanation if db_q and db_q.explanation else f"Đáp án đúng là ({req.correct_answer}).")
+    fallback_trans = (db_q.translated_sentence if db_q and db_q.translated_sentence else "")
+    fallback_opt_exps = {}
+    if db_q and db_q.option_explanations_json:
+        try:
+            fallback_opt_exps = json.loads(db_q.option_explanations_json)
+        except Exception:
+            pass
 
     return {
         "status": "success",
-        "source": "fallback",
+        "source": "live_or_pending",
         "explanation": {
-            "detailed_explanation": f"{fallback_exp} Phương án ({req.correct_answer}) chính xác về cả cấu trúc lẫn ngữ cảnh trong câu.",
-            "grammar_recall": f"Chủ điểm ngữ pháp: {g_topic}. Hãy lưu ý cấu trúc từ loại và ngữ cảnh ngữ pháp của dạng câu hỏi này.",
-            "exam_tip": f"Nhìn nhanh vị trí cần điền trong câu và loại trừ các đáp án sai ngữ pháp trước.",
-            "sentence_translation": fallback_trans or req.question_text,
+            "detailed_explanation": fallback_exp,
+            "grammar_recall": f"Chủ điểm: **{g_topic}**. Vui lòng bấm 'AI Giải Thích' để nhận phân tích chi tiết từ Gemini.",
+            "grammar_topic": g_topic,
+            "option_explanations": fallback_opt_exps,
+            "common_trap": db_q.common_trap if (db_q and db_q.common_trap) else None,
+            "sentence_translation": fallback_trans,
+            "exam_tip": "Xác định từ loại và cấu trúc ngữ pháp của câu để chọn phương án đúng nhất.",
             "key_vocabulary": []
         }
     }
+
+
 
 
 @router.post("/study-recommendations")

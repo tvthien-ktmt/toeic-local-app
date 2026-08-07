@@ -33,6 +33,24 @@ def calculate_toeic_rc_score(raw_correct_count: int) -> int:
     return TOEIC_RC_SCORE_TABLE.get(raw_correct_count, 5)
 
 
+def normalize_passage_markdown(text: str) -> str:
+    """
+    Normalizes OCR passage markdown so checkboxes and tables render cleanly in GFM:
+    - '[X]', '[x]', '(X)', '(x)' at start of line/list item -> '- [x]'
+    - '[ ]', '( )' at start of line/list item -> '- [ ]'
+    """
+    if not text:
+        return ""
+    # Normalize checked boxes
+    text = re.sub(r'(?:^|\n)\s*(?:[-*]\s*)?\[[Xx]\]\s*', r'\n- [x] ', text)
+    text = re.sub(r'(?:^|\n)\s*(?:[-*]\s*)?\([Xx]\)\s*', r'\n- [x] ', text)
+    # Normalize unchecked boxes
+    text = re.sub(r'(?:^|\n)\s*(?:[-*]\s*)?\[\s*\]\s*', r'\n- [ ] ', text)
+    text = re.sub(r'(?:^|\n)\s*(?:[-*]\s*)?\(\s*\)\s*', r'\n- [ ] ', text)
+    return text.strip()
+
+
+
 # =====================================================================
 # QUESTION NUMBER REGEX — handles all known MD formats:
 #   "101. text"  |  "**101.** text"  |  "### 101. text"  |  "**101**. text"
