@@ -1433,9 +1433,7 @@ book.
 ## PART 5
 Directions: A word or phrase is missing in each of the sentences below. Four answer choices are
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
-(A), (B), (C), or (D) on your answer sheet.
-
-# TEST 02
+(A), (B), (C), or (D) on your answer sheet.# TEST 02
 
 eet. Do not write your answers in your test
 book.
@@ -2842,8 +2840,11 @@ PARTS
 Directions: A word or phrase is missing in each of the sentences below. Four answer choices are
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
-
-# TEST 03
+174. At 10:20 A.M., what does Mr. Ohtani most likely mean when he writes, "I'll get right on that, Ms. Mays"?
+(A) He will contact the finance department for Ms. Mays.
+(B) He will send feedback on an application to Mr. Sawyer.
+(C) He will review the contents of Ms. Hines's e-mail.
+(D) He will extend a meal invitation to Ms. Bishop.# TEST 03
 
 heet. Do not write your answers in your test
 book.
@@ -4199,8 +4200,10 @@ PARTS
 Directions: A word or phrase is missing in each of the sentences below. Four answer choices are
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
-
-# TEST 04
+139. (A) The house is much larger than I expected.
+(B) Many of my neighbors have already purchased one.
+(C) I'm willing to pay a little more for it if necessary.
+(D) I would like to replace the roof and the siding.# TEST 04
 
 heet. Do not write your answers in your test
 book.
@@ -5553,6 +5556,18 @@ PARTS
 Directions: A word or phrase is missing in each of the sentences below. Four answer choices are
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
+171. At 3:52 P.M., what does Mr. Medrano most likely mean when he writes, "That's true"?
+(A) An alternative space should be rented.
+(B) A new space will be too expensive.
+(C) The property may suit their needs in the future.
+(D) The property needs structural improvements.
+
+181. (A) It will take two days to complete the work.
+(B) The problem has been identified.
+(C) The problem will be fixed this afternoon.
+(D) We have not yet verified that the work is complete.
+
+
 
 # TEST 05
 
@@ -12663,9 +12678,7 @@ book.
 PARTS
 Directions: A word or phrase is missing in each of the sentences below. Four answer choices are
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
-(A), (B), (C), or (D) on your answer sheet.
-
-# TEST 10
+(A), (B), (C), or (D) on your answer sheet.# TEST 10
 
 heet. Do not write your answers in your test
 book.
@@ -14077,3 +14090,14 @@ Analytics.
 (D) Patron
 Stop! This is the end of the test. If you finish before time is called, you may go
 back to Parts 5, 6, and 7 and check your work.
+111. The Smeeville bus system will accept only Rove Fare cards May 1 onward.
+(A) now
+(B) from
+(C) while
+(D) when
+
+131. (A) has closed
+(B) closing
+(C) will close
+(D) was closing
+

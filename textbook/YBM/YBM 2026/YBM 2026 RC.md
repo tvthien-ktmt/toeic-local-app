@@ -9165,10 +9165,7 @@ You must mark your answers on the separate answer sheet. Do not write your answe
 
 ### PART 5
 
-Directions: A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence. Then mark the letter (A), (B), (C), or (D) on your answer sheet.
-
-
-# TEST 09
+Directions: A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence. Then mark the letter (A), (B), (C), or (D) on your answer sheet.# TEST 09
 
 101. ------ personnel are required to undergo a performance evaluation on a yearly basis.
      (A) All
@@ -10266,6 +10263,12 @@ Caleb Rivers
 - (B) He has spent a lot of time at the community center.
 - (C) He has exchanged several e-mails with Ms. Donovan.
 - (D) He has other volunteer commitments.
+140. (A) to be permitted
+(B) that would permit
+(C) will be permitted
+(D) is to permit
+
+
 
 
 # TEST 10

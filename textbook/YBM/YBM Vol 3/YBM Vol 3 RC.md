@@ -9649,10 +9649,7 @@ Council member Foster and Edmund Cummings, Mayor Cummings's son, gave speeches h
     * (A) The future of a scientific endeavor
     * (B) The accomplishments of a local politician
     * (C) The importance of environmental conservation
-    * (D) The unique characteristics of a neighborhood
-
-
-# TEST 10
+    * (D) The unique characteristics of a neighborhood# TEST 10
 
 ## READING TEST
 
@@ -11665,3 +11662,51 @@ Voca
 ISBN 978-89-17-23817-L
 ITOEIC
 ITOEIC
+101. Mr. Li's book has suggestions for negotiating a merger.
+(A) use
+(B) user
+(C) used
+(D) useful
+
+102. The design for the cover of the repair must be finished by 5 P.M.
+(A) service
+(B) manual
+(C) technician
+(D) session
+
+103. Export revenue seven percent over a six-month period.
+(A) decrease
+(B) decreased
+(C) to decrease
+(D) decreasing
+
+104. Evelynn Cosmetics has begun marketing as an environmentally friendly company in order to attract new customers.
+(A) its
+(B) it
+(C) itself
+(D) its own
+
+105. Titex video game consoles use microprocessors imported South Korea.
+(A) from
+(B) about
+(C) except
+(D) among
+
+106. The newly warehouse workers will be required to complete a safety training.
+(A) recruits
+(B) recruiting
+(C) recruitment
+(D) recruited
+
+107. The renewable energy incentive program has caused the number of solar panel installations to
+(A) soar
+(B) spin
+(C) chase
+(D) drain
+
+108. Ms. Frye's report describes how laws regarding drones vary across countries.
+(A) considerably
+(B) consideration
+(C) considerable
+(D) consider
+

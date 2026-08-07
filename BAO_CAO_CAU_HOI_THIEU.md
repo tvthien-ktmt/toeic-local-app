@@ -8,28 +8,10 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
 
 ## 📊 THỐNG KÊ TỔNG QUAN
 
-- **Tổng số đề chưa đủ 100 câu**: `44` đề
+- **Tổng số đề chưa đủ 100 câu**: `30` đề
 - **Phân loại**: Chi tiết danh sách bên dưới được chia theo từng bộ sách (Series).
 
 ---
-
-## 📚 [ETS] ETS 2017 RC
-
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
-| :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 01** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
-| **Test 02** | **98/100** | 30 | 15 | 53 | `❌ Khuyết 2 câu từ file nguồn OCR` |
-| **Test 03** | **98/100** | 30 | 14 | 54 | `❌ Khuyết 2 câu từ file nguồn OCR` |
-| **Test 05** | **97/100** | 30 | 15 | 52 | `❌ Khuyết 3 câu từ file nguồn OCR` |
-
-## 📚 [ETS] ETS 2018 RC
-
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
-| :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 02** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
-| **Test 03** | **98/100** | 30 | 14 | 54 | `❌ Khuyết 2 câu từ file nguồn OCR` |
-| **Test 04** | **97/100** | 30 | 13 | 54 | `❌ Khuyết 3 câu từ file nguồn OCR` |
-| **Test 05** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
 
 ## 📚 [ETS] ETS 2019 RC
 
@@ -46,16 +28,6 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
 | Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
 | :--- | :---: | :---: | :---: | :---: | :--- |
 | **Test 02** | **99/100** | 30 | 16 | 53 | `❌ Khuyết 1 câu từ file nguồn OCR` |
-
-## 📚 [ETS] ETS 2021 RC
-
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
-| :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 01** | **98/100** | 30 | 14 | 54 | `❌ Khuyết 2 câu từ file nguồn OCR` |
-| **Test 02** | **98/100** | 30 | 15 | 53 | `❌ Khuyết 2 câu từ file nguồn OCR` |
-| **Test 03** | **98/100** | 30 | 14 | 54 | `❌ Khuyết 2 câu từ file nguồn OCR` |
-| **Test 04** | **97/100** | 30 | 14 | 53 | `❌ Khuyết 3 câu từ file nguồn OCR` |
-| **Test 05** | **97/100** | 30 | 13 | 54 | `❌ Khuyết 3 câu từ file nguồn OCR` |
 
 ## 📚 [ETS] ETS 2022 RC
 
@@ -91,12 +63,6 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
 | :--- | :---: | :---: | :---: | :---: | :--- |
 | **Test 09** | **0/100** | 0 | 0 | 0 | `❌ Khuyết 100 câu từ file nguồn OCR` |
 
-## 📚 [XANH CAM] Xanh Cam Vol 1
-
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
-| :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 04** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
-
 ## 📚 [YBM] YBM 2026 RC
 
 | Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
@@ -130,57 +96,6 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
 ---
 
 ## 🔍 CHI TIẾT GREP XÁC MINH TỪNG CÂU THIẾU
-
-### 📂 [ETS] ETS 2017 RC
-
-#### 🔹 Test 01 (`[ETS] ETS 2017 RC - Test 01`)
-- **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 02 (`[ETS] ETS 2017 RC - Test 02`)
-- **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 15, Part 7: 53)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 171**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 03 (`[ETS] ETS 2017 RC - Test 03`)
-- **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 14, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 05 (`[ETS] ETS 2017 RC - Test 05`)
-- **Tổng số câu hiện tại**: `97/100` (Part 5: 30, Part 6: 15, Part 7: 52)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 194**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 195**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-### 📂 [ETS] ETS 2018 RC
-
-#### 🔹 Test 02 (`[ETS] ETS 2018 RC - Test 02`)
-- **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 03 (`[ETS] ETS 2018 RC - Test 03`)
-- **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 14, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 04 (`[ETS] ETS 2018 RC - Test 04`)
-- **Tổng số câu hiện tại**: `97/100` (Part 5: 30, Part 6: 13, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 141**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 05 (`[ETS] ETS 2018 RC - Test 05`)
-- **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [ETS] ETS 2019 RC
 
@@ -222,40 +137,6 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
 - **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 16, Part 7: 53)
 - **Kết quả Grep xác minh file nguồn**:
   - ❌ **Câu 174**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-### 📂 [ETS] ETS 2021 RC
-
-#### 🔹 Test 01 (`[ETS] ETS 2021 RC - Test 01`)
-- **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 14, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 137**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 02 (`[ETS] ETS 2021 RC - Test 02`)
-- **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 15, Part 7: 53)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 160**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 03 (`[ETS] ETS 2021 RC - Test 03`)
-- **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 14, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 04 (`[ETS] ETS 2021 RC - Test 04`)
-- **Tổng số câu hiện tại**: `97/100` (Part 5: 30, Part 6: 14, Part 7: 53)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 167**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 05 (`[ETS] ETS 2021 RC - Test 05`)
-- **Tổng số câu hiện tại**: `97/100` (Part 5: 30, Part 6: 13, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 143**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [ETS] ETS 2022 RC
 
@@ -609,13 +490,6 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
   - ❌ **Câu 198**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
   - ❌ **Câu 199**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
   - ❌ **Câu 200**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-### 📂 [XANH CAM] Xanh Cam Vol 1
-
-#### 🔹 Test 04 (`[XANH CAM] Xanh Cam Vol 1 - Test 04`)
-- **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 131**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [YBM] YBM 2026 RC
 

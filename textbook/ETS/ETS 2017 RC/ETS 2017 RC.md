@@ -1,6 +1,4 @@
-# ETS 2017 Reading Comprehension - All Tests
-
-## Test 1
+# ETS 2017 Reading Comprehension - All Tests## Test 1
 
 ### PART 5
 
@@ -965,8 +963,10 @@ Francine Malloy couldn't agree more. "I looked into purchasing Reserva after one
 (D) subscribers
 
 ---
-
-## Test 2
+138. (A) Even so
+(B) It was exciting
+(C) They are a special treat
+(D) This effort has been very rewarding## Test 2
 
 ### PART 5
 
@@ -1943,8 +1943,16 @@ Please drop your survey in one of the collection boxes located throughout the co
 (D) The tips from the speakers were not practical.
 
 ---
+146. (A) I think so
+(B) We planned to have a picnic
+(C) There is a possibility that he will move
+(D) The renovation should be complete by then
 
-## Test 3
+171. In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?
+(A) [1]
+(B) [2]
+(C) [3]
+(D) [4]## Test 3
 
 ### PART 5
 
@@ -2915,6 +2923,17 @@ Janie Park, Membership Manager
 (D) He has requested a change to his schedule.
 
 ---
+138. (A) future
+(B) important
+(C) extra
+(D) fine
+
+142. (A) You can decide how this will be handled.
+(B) It was suggested by several industry experts.
+(C) We have only one more item to confirm.
+(D) The committee will review your proposal.
+
+
 
 ## Test 4
 
@@ -3939,9 +3958,7 @@ Alexa Telkes (Chatham)
 (C) give a refund for
 (D) provide lodging to
 
----
-
-## Test 5
+---## Test 5
 
 ### PART 5
 
@@ -4911,3 +4928,20 @@ Decisions
 (B) To comply with a safety requirement
 (C) To reduce disruption to the neighborhood
 (D) To achieve an aesthetically pleasing design
+146. (A) I hope the conference goes well.
+(B) So, we are well prepared for the opening.
+(C) The new building is nearly complete.
+(D) No one knows exactly why this happened.
+
+194. In the e-mail, the word "appreciates" in paragraph 1, line 5, is closest in meaning to
+(A) escalates
+(B) thanks
+(C) enjoys
+(D) understands
+
+195. What is implied about the March 1 meeting?
+(A) The seating area is expected to be fully occupied.
+(B) Ms. Teague will explain the results of a test.
+(C) It is intended for Norfield residents only.
+(D) The press will interview council members.
+

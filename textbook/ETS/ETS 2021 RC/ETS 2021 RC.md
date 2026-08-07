@@ -1,6 +1,4 @@
-# ETS TOEIC Reading 2021 - All Tests
-
-## Test 1
+# ETS TOEIC Reading 2021 - All Tests## Test 1
 
 ### PART 5
 
@@ -885,8 +883,15 @@ New topics added to the meeting agenda:
 (D) Her experience in supporting local groups
 
 ---
+137. (A) To make your account
+(B) By creating a new profile
+(C) The location will be confirmed
+(D) Your application has not been accepted
 
-## Test 2
+146. (A) We hope you will join us in this project.
+(B) We apologize for the inconvenience.
+(C) The members will be informed of the change.
+(D) We will do our best to support this program.## Test 2
 
 ### PART 5
 
@@ -1797,8 +1802,16 @@ Greenfell Landscaping
 (D) His shop is located on Kempton Road.
 
 ---
+146. (A) We can provide additional training.
+(B) The system has many different functions.
+(C) Are you sure you want to proceed?
+(D) Please apply for the grant as soon as possible.
 
-## Test 3
+160. In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?
+(A) [1]
+(B) [2]
+(C) [3]
+(D) [4]## Test 3
 
 ### PART 5
 
@@ -2702,8 +2715,15 @@ Expected delivery: August 20
 (D) On August 20
 
 ---
+142. (A) Thank you for your cooperation.
+(B) We appreciate your patience.
+(C) We will update the policy on Monday.
+(D) Let us know if you have any questions.
 
-## Test 4
+146. (A) Therefore
+(B) However
+(C) In addition
+(D) As a result## Test 4
 
 ### PART 5
 
@@ -3577,8 +3597,21 @@ Tour Manager, Claregal Tours
 (D) They will receive a discount.
 
 ---
+145. (A) The work will be done in phases and mainly at night.
+(B) Passengers on intra-European flights may face delays.
+(C) A welcoming airport makes a great impression on visitors.
+(D) The renovation process is expected to take 18 months.
 
-## Test 5
+146. (A) every
+(B) many
+(C) entire
+(D) more
+
+167. In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?
+(A) [1]
+(B) [2]
+(C) [3]
+(D) [4]## Test 5
 
 ### PART 5
 
@@ -4497,3 +4530,18 @@ Chun Lai
 (B) On a Wednesday afternoon
 (C) On a Thursday morning
 (D) On a Thursday afternoon
+143. (A) adjusts
+(B) adjuster
+(C) adjustable
+(D) adjustment
+
+145. (A) is to be
+(B) will be
+(C) has been
+(D) would have been
+
+146. (A) We would like to thank all of our customers for their input in this matter.
+(B) We wish to emphasize that, with fewer tenants, we are now downsizing.
+(C) Be aware that the terms and conditions of rental agreements can vary greatly.
+(D) Rest assured that, even at that price, you are still receiving a good value.
+

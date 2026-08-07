@@ -3073,9 +3073,7 @@ This voucher can be used in person at any Keystone Appliances retail location. I
      (C) It cannot be used online.
      (D) Its value must be spent in a single purchase.
 
----
-
-# TEST 04
+---# TEST 04
 
 ## PART 5 • PART 6 • PART 7
 
@@ -4055,6 +4053,12 @@ December 10—At an event yesterday evening in New York, designer Claudia Larmon
      (D) Its seats were comfortable.
 
 ---
+131. (A) is committed
+(B) being committed
+(C) to commit
+(D) committing
+
+
 
 # TEST 05
 

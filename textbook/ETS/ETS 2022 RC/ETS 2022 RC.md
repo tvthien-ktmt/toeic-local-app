@@ -990,10 +990,7 @@ You must mark your answers on the separate answer sheet. Do not write your answe
 (A) A map of the lake  
 (B) A reservation form  
 (C) A list of safety rules  
-(D) A price list
-
-
-# TEST 02
+(D) A price list# TEST 02
 
 101. Ms. Budrow was promoted after ------- group recorded the highest revenue growth for the year.
 (A) her
@@ -1960,6 +1957,37 @@ Award-winning executive chef Michel Vaux, most recently of Kahn's in Bloomington
 # RC TEST 03
 
 ## Part 5
+196. What is a purpose of the first e-mail?
+(A) To inform about an upcoming inspection
+(B) To plan a merger with another practice
+(C) To present a proposal for clinic renovations
+(D) To announce some changes in staffing
+
+197. Who will be working in a shared office space at Gill Family Medicine?
+(A) Pradeep Damani
+(B) Sierra Okojie
+(C) Rhys Newman
+(D) Lorne Bridges
+
+198. What is NOT mentioned about Ms. Velez?
+(A) She has a medical qualification.
+(B) She is a new hire at Gill Family Medicine.
+(C) She will take over the position of a departing employee.
+(D) She will work part-time hours.
+
+199. What does Mr. Bridges indicate about the next staff meeting?
+(A) Its agenda has been revised.
+(B) Its location has been moved.
+(C) It will be attended by additional people.
+(D) It has been postponed by one week.
+
+200. In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?
+(A) [1]
+(B) [2]
+(C) [3]
+(D) [4]
+
+
 
 
 # TEST 03

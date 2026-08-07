@@ -1,6 +1,4 @@
-# ETS TOEIC Reading 2019 - All Tests
-
-## Test 1
+# ETS TOEIC Reading 2019 - All Tests## Test 1
 
 ### PART 5
 
@@ -836,8 +834,21 @@ I am very interested in the position of line cook at the Delphine Street Grill. 
 (B) At Hotel Lenoir
 (C) At Picard Seafood
 (D) At the Delphine Street Grill
+138. (A) A makeup session for the canceled seminars will be held at later dates.
+(B) Requests for a full refund can be made by phone or e-mail.
+(C) Please visit the personnel office if you are interested in attending.
+(D) Rest assured that these fees will be used to enhance your experience.
 
-## Test 2
+142. (A) relocation
+(B) negligence
+(C) congestion
+(D) closure
+
+163. In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?
+(A) [1]
+(B) [2]
+(C) [3]
+(D) [4]## Test 2
 
 ### PART 5
 
@@ -1663,6 +1674,18 @@ NOTE: Tickets for the final game are selling fast, so don't wait until after the
 (B) Katowice
 (C) Cracow
 (D) Wroclaw
+138. (A) Is planning to purchase some new equipment.
+(B) Was considered to be over budget.
+(C) Consistently received high ratings from customers.
+(D) Is expected to be completed before the end of the month.
+
+167. In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?
+(A) [1]
+(B) [2]
+(C) [3]
+(D) [4]
+
+
 
 ## Test 3
 
@@ -2598,9 +2621,7 @@ Raadhika Baral
 (A) Arrive on Tuesday night
 (B) Contact the personnel office
 (C) Reply to the message with the hours they can work
-(D) Go to a different distribution center
-
-## Test 4
+(D) Go to a different distribution center## Test 4
 
 ### PART 5
 
@@ -3523,8 +3544,15 @@ Gingham Hills Farm is proud to host Sonia Benitez' homecoming concert. Among the
 (B) "Dinner by the Riverbank"
 (C) "A Single Morning"
 (D) "Everybody Smiles"
+138. (A) is playing
+(B) played
+(C) will play
+(D) was playing
 
-## Test 5
+146. (A) Just
+(B) Over
+(C) Very
+(D) Also## Test 5
 
 ### PART 5
 
@@ -4391,6 +4419,12 @@ Harry Gilbert
 (B) 39.00
 (C) 45.00
 (D) 52.00
+142. (A) We want to find out what issues matter to you.
+(B) We will soon be launching a music-focused newsletter.
+(C) This new business model will lead to better reporting.
+(D) And good journalism takes money to produce.
+
+
 
 ## Test 6
 
@@ -5291,9 +5325,7 @@ I bought my Baardsen washing machine five months ago for use at my bed and break
 (A) Avoid overloading the washing machine.
 (B) Always use the water-saving setting.
 (C) Always select the extra-rinse feature.
-(D) Ensure that the soap drawer is firmly closed.
-
-## Test 7
+(D) Ensure that the soap drawer is firmly closed.## Test 7
 
 ### PART 5
 
@@ -6271,6 +6303,27 @@ Purchase tickets online at www.sanjosestarlings.com/tickets.
 (B) August 15
 (C) August 19
 (D) August 22
+134. (A) serves
+(B) was serving
+(C) will be served
+(D) served
+
+140. (A) who
+(B) when
+(C) which
+(D) that
+
+141. (A) Accordingly
+(B) However
+(C) Instead
+(D) Consequently
+
+142. (A) This measure will apply to all new employees.
+(B) I hope you understand this change.
+(C) In the meantime, let's try our best.
+(D) The board expects to be informed of the decision.
+
+
 
 ## Test 8
 

@@ -973,9 +973,7 @@ Leo Contreras, Cordova Preservation Society Community Organizer
 (C) Some of them spoke at Helman Square.
 (D) Some of them live in the Eastside cultural district.
 
----
-
-## Test 2
+---## Test 2
 
 ### PART 5
 
@@ -1978,8 +1976,10 @@ In the past few years, many financial institutions have restricted lending to re
 (D) A student at Dunn School of Business
 
 ---
-
-## Test 3
+138. (A) We will notify you immediately.
+(B) We will see you at the airport.
+(C) We hope this change is acceptable to you.
+(D) This information will be shared with your staff.## Test 3
 
 ### PART 5
 
@@ -2995,8 +2995,15 @@ Marcus Paulet, Silen Consultants
 (D) 9982 Croton Avenue
 
 ---
+145. (A) It has a much lower monthly interest rate.
+(B) For security reasons, we recommend destroying it.
+(C) Reward points must now be spent by the end of the year.
+(D) All that will change is your credit card number.
 
-## Test 4
+146. (A) Accordingly
+(B) However
+(C) Instead
+(D) Specifically## Test 4
 
 ### PART 5
 
@@ -4007,8 +4014,20 @@ Registration for this year's tournament is open from 1 March to 1 April, while t
 (D) It received more press coverage than last year's tournament.
 
 ---
+141. (A) You can also provide a physical copy at your front desk.
+(B) Some hotels may not benefit from advertising on VieraGo.
+(C) For most reservations, these would be toiletries and towels.
+(D) Remember, your guests' travel plans depend on you.
 
-## Test 5
+142. (A) supplying
+(B) revising
+(C) monitoring
+(D) saving
+
+146. (A) Therefore
+(B) However
+(C) Instead
+(D) Specifically## Test 5
 
 ### PART 5
 
@@ -5023,3 +5042,8 @@ Signature: Khadim Nakra
 (D) The herbs delivered last week were not fresh.
 
 ---
+138. (A) has reflected
+(B) reflecting
+(C) reflects
+(D) will reflect
+

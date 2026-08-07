@@ -6651,9 +6651,7 @@ Elizabeth
 (C) It opened in October.
 (D) It sells curtains online.
 
----
-
-## TEST 8
+---## TEST 8
 
 ### PART 5
 
@@ -7632,8 +7630,10 @@ DTEC workshops
 (D) The policy about payment advances
 
 ---
-
-## TEST 9
+142. (A) The company has a policy that prohibits this.
+(B) The employee is scheduled to work overtime.
+(C) The department is currently understaffed.
+(D) The budget does not allow for this expense.## TEST 9
 
 ### PART 5
 
@@ -8556,6 +8556,12 @@ The Barret & Company Team
 (D) A medical-supply company
 
 ---
+142. (A) We have included a list of our current suppliers.
+(B) Our team is working on the issue as we speak.
+(C) We are looking for a reliable partner.
+(D) The project is still in its early stages.
+
+
 
 ## TEST 10
 
