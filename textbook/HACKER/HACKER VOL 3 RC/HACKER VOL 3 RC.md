@@ -1,3 +1,5 @@
+# TEST 01
+
 # TEST 1
 
 PART 5
@@ -1113,6 +1115,8 @@ Greenville Public Works Department
 | 53~55개 | 235~240점 | 2~4개 | 5~10점 |
 | 50~52개 | 220~230점 | 0~1개 | 0~5점 |
 
+# TEST 02
+
 # TEST 2
 
 READING TEST
@@ -2178,6 +2182,8 @@ Brett Hanson, the new reservations manager at the Langford Convention Center, st
 | 56~58개 | 235~240점 | 5~7개 | 5~10점 |
 | 53~55개 | 225~230점 | 2~4개 | 5~10점 |
 | 50~52개 | 215~220점 | 0~1개 | 0~5점 |
+
+# TEST 03
 
 # TEST 3
 
@@ -3273,6 +3279,8 @@ Sarah Klein, Owner, Brightstar Gifts
 | 56~58개 | 245~255점 | 5~7개 | 5~10점 |
 | 53~55개 | 235~240점 | 2~4개 | 5~10점 |
 | 50~52개 | 230~230점 | 0~1개 | 0~5점 |
+
+# TEST 04
 
 # TEST 4 READING
 
@@ -4380,6 +4388,8 @@ Marketing Associate, Healthwide Publications
 | 53~55개 | 245~255점 | 2~4개 | 5~10점 |
 | 50~52개 | 230~240점 | 0~1개 | 0~5점 |
 
+# TEST 05
+
 # TEST 5
 
 ## PART 5
@@ -5456,6 +5466,8 @@ Magnum Cruises
 | 56~58개 | 245~255점 | 5~7개 | 5~10점 |
 | 53~55개 | 235~240점 | 2~4개 | 5~10점 |
 | 50~52개 | 220~230점 | 0~1개 | 0~5점 |
+
+# TEST 06
 
 # TEST 6
 
@@ -6570,6 +6582,8 @@ In the last six months, the amount of time that callers have waited in order to 
 | 53~55개 | 225~230점 | 2~4개 | 5~10점 |
 | 50~52개 | 215~220점 | 0~1개 | 0~5점 |
 
+# TEST 07
+
 # TEST 7
 
 ## PART 5
@@ -7576,6 +7590,8 @@ TEST 7은 무사히 잘 마치셨나요? 맞은 개수를 세어본 후 아래�
 | 56~58개 | 245~255점 | 5~7개 | 5~10점 |
 | 53~55개 | 235~240점 | 2~4개 | 5~10점 |
 | 50~52개 | 220~230점 | 0~1개 | 0~5점 |
+
+# TEST 08
 
 # TEST 8
 
@@ -9717,27 +9733,1362 @@ Sandra Williams, Human Resources Manager, Esteban Realty
 
 ---
 
-## TEST 9 점수 환산표
+# TEST 09
 
-| 정답 수 | 리딩 점수 | 정답 수 | 리딩 점수 |
-| :---: | :---: | :---: | :---: |
-| 98~100개 | 480~495점 | 47~49개 | 210~225점 |
-| 95~97개 | 470~475점 | 44~46개 | 195~205점 |
-| 92~94개 | 455~465점 | 41~43개 | 180~190점 |
-| 89~91개 | 440~450점 | 38~40개 | 165~175점 |
-| 86~88개 | 425~435점 | 35~37개 | 150~160점 |
-| 83~85개 | 410~420점 | 32~34개 | 135~145점 |
-| 80~82개 | 395~405점 | 29~31개 | 120~130점 |
-| 77~79개 | 380~390점 | 26~28개 | 105~115점 |
-| 74~76개 | 365~375점 | 23~25개 | 90~100점 |
-| 71~73개 | 350~360점 | 20~22개 | 75~85점 |
-| 68~70개 | 330~345점 | 17~19개 | 60~70점 |
-| 65~67개 | 315~325점 | 14~16개 | 45~55점 |
-| 62~64개 | 295~310점 | 11~13개 | 30~40점 |
-| 59~61개 | 275~290점 | 8~10개 | 15~25점 |
-| 56~58개 | 260~270점 | 5~7개 | 10~15점 |
-| 53~55개 | 245~255점 | 2~4개 | 5~10점 |
-| 50~52개 | 230~240점 | 0~1개 | 0~5점 |
+TEST 9
+PART 5
+PART 6
+PART 7
+점수 환산표
+잠깐! 테스트 전 확인사항
+1. 문제 풀이에 방해가 되는 물건을 모두 치우셨나요?
+2. Answer Sheet, 연필, 지우개를 준비하셨나요?
+3. 시계를 준비하셨나요?
+예다
+예
+예
+모든 준비가 완료되었으면 목표 점수를 떠올린 후 데스트를 시작합니다.
+해커스 토익 실전
+1200 READING
+문제 풀이를 마치는 시간은 지금부터 75분 후인 시 분입니다.
+테스트 시간은 총 75분이며, 시험 종료 전 2~3분은 정답 검토 및 답안지 마킹을 위해 사용합니다.
+READING TEST
+In this section, you must demonstrate your ability to read and comprehend English. You will be given a
+variety of texts and asked to answer questions about these texts. This section is divided into three parts and
+will take 75 minutes to complete.
+Do not mark the answers in your test book. Use the answer sheet that is separately provided.
+PART 5
+Directions: In each question, you will be asked to review a statement that is missing a word or phrase. Four
+answer choices will be provided for each statement. Select the best answer and mark the corresponding
+letter (A), (B), (C), or (D) on the answer sheet.
+
+101. Agricultural products imported from
+overseas are ----- sold at high prices.
+
+102.
+103.
+(A) general
+(B) generally
+(C) generalized
+(D) generality
+Erin Costa ------- head of Biogant's research
+department in Germany and will be moving
+there in the fall.
+(A) name
+(B) named
+(C) will name
+(D) has been named
+The reception will take place at 6 o'clock,
+------- the speaker finishes the lecture on
+time.
+(A) so that
+(B) provided
+(C) as if
+(D) otherwise
+
+104. The owners of Quora Café posted -------
+advertising their new menu around town.
+(A) notices
+(B) measures
+(C) records
+(D) contracts
+
+105. All of the conference attendees ----
+satisfaction about learning so much useful
+information.
+(A) are expressed
+(B) expressed
+(C) expressing
+(D) expresses
+
+106. Elevai Cruise Lines' newest ships feature
+a large ------- of dining and entertainment
+options.
+(A) selected
+(B) selective
+(C) selection
+(D) select
+
+107. According to experts, air pollution could
+worsen unless----- regulations are
+enforced.
+(A) curious
+(B) strict
+(C) equal
+(D) hazardous
+
+108. The book can give you tips on how to care
+for------ plants you have.
+(A) where
+(B) which
+(C) whichever
+(D) whoever
+264 무료 단어암기장 및 단어암기 MP3 HackersIngang.com
+
+109. Piercent Cosmetics is looking for a sales
+------ who will deal with foreign customers.
+(A) character
+(B) associate
+(C) proprietor
+(D) attribute
+
+110. The restaurant ---- offers a 20 percent
+discount in addition to free dessert.
+(A) yet
+(B) quite
+(C) even
+
+115. Mr. Branson-- left to pick up his
+luggage after a representative of Turnbull
+International Airport contacted him.
+(A) firstly
+(B) closely
+(C) instantly
+(D) expertly
+
+116. Prior to developing the unused land,
+Kinsport Property must ------- an agreement
+with the city.
+(A) осcupy
+(D) far
+
+111. The administration's goal is to create an
+atmosphere that is conducive to innovation,
+collaboration.
+
+117.
+(A) either
+(B) despite
+(C) above all
+(D) as well as
+
+112. Hiring managers will review applications for
+several --- in the marketing department.
+(A) documents
+(B) permissions
+(C) openings
+(D) issues
+
+113. The meeting was held on Thursday-------
+
+114.
+Friday to save on costs.
+(A) such as
+(B) due to
+(C) instead of
+(D) regardless of
+The workshop teaches aspiring
+entrepreneurs how to------ various
+essential business functions.
+(A) impress
+(B) convene
+(C) perform
+(D) affect
+(B) reach
+(C) reserve
+(D) alert
+Employees should----- the proposals by
+Friday to get the supervisor's approval.
+(A) resign
+(B) submit
+(C) compel
+(D) command
+
+118. The amount of taxes the town has collected
+has grown------- since it adopted the new
+policies.
+(A) reliable
+(B) reliance
+(C) reliably
+(D) reliability
+
+119. Ms. Orville always tries hard to make her
+clients ------ with her work.
+(A) satisfaction
+(B) satisfied
+(C) satisfying
+(D) satisfy
+
+120. The Phoenix Foundation will give a
+presentation about-- nature on
+Wednesday.
+(A) protect
+(B) protection
+(C) protecting
+(D) protective
+GO ON TO THE NEXTPAGEA
+TEST 9 265
+EST 9| 해커스토익 실전 1200제 READING
+
+121. In his podcast, Money Talk, Sam Park
+provides regular----- on financial markets.
+(A) commenter
+(B) commented
+(C) commentary
+(D) commentator
+
+122. In order to focus on her work, Ms. Heinz
+does not use her cell phone ------- on duty.
+(A) conducting
+(B) while
+(C) scarcely
+(D) after
+
+123. The staff objected to ------ for factory
+automation because it could lead to job
+losses.
+(A) proposals
+(B) proposed
+(C) propose
+(D) proposes
+
+124. Customers may ------- any complaints they
+have to our service desk.
+(A) demand
+(B) accept
+(C) direct
+(D) engage
+
+125. Glenmark Band postponed its------- concert
+after one of its members fell ill.
+(A) instinctive
+(B) former
+(C) eventful
+(D) impending
+
+126. If Mr. Vines had known the delivery usually
+takes more than a week, he ------- his order.
+(A) has been canceled
+(B) has canceled
+(C) would have canceled
+(D) will cancel
+
+127. Ski resorts were open ------- late November
+to mid-April last season.
+(A) into
+(B) when
+(C) from
+(D) within
+
+128. The library's Web site did not mention------
+about its changed operating hours.
+(A) some
+(B) anything
+(C) someone
+(D) both
+
+129. The new employees will be assigned to
+different teams ------- their experience and
+abilities.
+(A) dependable
+(B) depended
+(C) depend
+(D) depending on
+
+130. Mr. Cruise was not able to complete his task
+on time -- he had all day.
+(A) in spite of
+(B) even though
+(C) as soon as
+(D) besides
+266 무료 토익 학습자로 취업정보 제공 Hackers.co.kr
+PART 6
+Directions: In this part, you will be asked to read four English texts. Each text is missing a woword, phrase, or
+sentence. Select the answer choice that correctly completes the text and mark the nding letter (A),
+(B), (C), or (D) on the answer sheet.
+Questions 131-134 refer to the following e-mail.
+To: Raymond Ashburn <ray.ash@insta-flux.com>
+From: Gail Stromboli <stromboli@insta-flux.com>
+Date: November 13
+Subject: Senior Program Analyst
+Dear Raymond,
+You may have heard that Heidi Birt, our senior program analyst, will be leaving Insta-Flux in five
+weeks. I'm in charge of hiring her replacement and would like to ask you for some---. Firstly,
+
+131.
+do you think that any of the programmers here at our Phoenix branch are enough to fill the
+
+132.
+position? If no suitable internal candidate can be found, I must advertise the job. I would
+
+133.
+prefer-- this process, though.
+
+134.
+I'm looking forward to hearing back from you.
+Sincerely,
+Gail Stromboli
+Hiring Manager
+TEST 해커스토익 실전 1200제 READING
+
+131. (А) геeports
+(B) suggestions
+(C) explanations
+(D) assurances
+
+133. (A) I think she would make an excellent
+department head.
+(B) Furthermore, you will be receiving a
+retirement bonus.
+(C) The employment agency was helpful in
+
+132. (A) experience
+(B) experiencing
+(C) experiences
+(D) experienced
+this regard.
+(D) If not, please recommend someone from
+another location.
+
+134. (A) avoiding
+(B) to avoiding
+(C) avoid
+(D) avoided
+GOOO ON TO THE NEXEXT PAGE
+TEST 9 267
+Questions 135-138 refer to the following notice.
+Attention Hotel Guests:
+We recently completed renovations at our facility and are pleased to introduce the hotel's new
+features!
+First, our swimming pool facilities---, and now include a new area for children.
+
+135. 
+
+136.
+Furthermore, our reception desk was redecorated to have a tropical look. You can check out the
+artwork in our public areas------- relax on the new sofas in the lobby.
+
+137.
+When you're feeling hungry, try our newest restaurant! There you can find a variety of popular
+barbecue dishes, ----- a list of beverages. The restaurant is located next to our reception desk.
+
+138.
+135. (A) will be expanded
+(B) are expanding
+(C) have been expanded
+(D) have been expanding
+
+136. (A) Please keep such items out of the
+swimming areas.
+(B) You can request them from staff in the
+lobby.
+(C) The lessons were taught by a
+well-known instructor.
+(D) We also installed new changing rooms
+for your convenience.
+288 무료 단어암기장 및 단어암기 MP3 Hackersingang.com
+
+137. (A) until
+(B) yet
+(C) so
+(D) and
+
+138. (A) along with
+(B) between
+(C) towards
+(D) such as
+Questions 139-142 refer to the following memo.
+To: Ludwig Flooring Employees
+From: Sylvia Kerry, Head'of Human Resources
+Subject: Annual performance review
+Date: June 10
+It is time once again for our annual performance evaluations. Your supervisor will contact you
+to schedule a meeting.
+
+139.
+The evaluations will allow you to discuss your expectations and concerns with your manager. Theey
+also provide the--- to review your strengths and weaknesses. If improvement is needed, you
+
+140.
+will be asked to participate in staff development courses.
+
+141.
+Before the evaluations can begin, you must complete a self-assessment of your performance
+by June 13. Doing this prior to the discussion-- better results in the last evaluation. All
+
+142.
+performance evaluations need to be completed by July 1.
+
+139. (A) shortly
+(B) rarely
+(C) typically
+(D) hopefully
+
+140. (A) rehearsal
+(B) authority
+(C) opportunity
+(D) designation
+
+141. (A) Innovative product development is
+crucial to our success.
+(B) Keep In mind that training will be
+obligatory in these cases.
+(C) An orientation for new employees is
+scheduled for Monday.
+(D) Top sales performers are rewarded with
+a bonus.
+
+142. (A) produced
+(B) to produce
+(C) produces
+(D) will produce
+TEST 9 해커스 토익 실전 1200
+ READ EADING
+GO ON TO THE NEXT PAGE
+TEST 9 269
+Questions 143-146 refer to the following article.
+(June 3)--The bottled water company IcyBrook plans to change its name to Juniper Food & Bev,
+according to recent news-- The decision was made after the company's acquisition of the
+
+143.
+juice company Berry Crush in March.-.
+
+144.
+"We will be selling a wider range of products now. Our original name no longer --represents
+
+145.
+our brand," said CEO Charles Shah. There will be----changes as a result. One of these will be
+
+146.
+a new logo. Details will be announced over the coming weeks.
+
+143. (A) coverage
+(B) covers
+(C) coverable
+(D) cover
+
+144. (A) It took over the business after a year of
+negotiations.
+(B) Therefore, the drink was not popular
+among consumers.
+(C) Another job appointment is set to be
+announced soon.
+(D) All employees are encouraged to take
+part in the contest.
+270 무료 토익 학습자료 취업정보 제공 Hackers.co.kr
+
+145. (A) full
+(B) fullest
+(C) fullness
+(D) fully
+
+146. (A) furiher
+(B) regulatory
+(C) slow
+(D) confidential
+PART 7
+Directions: In this part, you will be asked to read several texts, such as advertisements, articles, instant
+messages, or examples of business correspondence. Each text is followed by several questions. Select the
+best answer and mark the corresponding letter (A), (B), (C), or (D) on your answer sheet.
+Questions 147-148 refer to the following notice.
+Attention Senior Passengers
+Passengers of the Harrisburg Mass Transit System (HMTS) are
+informed that senior passes are available for purchase at any location
+where bus tickets are sold. To get your senior pass, simply complete
+the following steps:
+• Visit any ticketing location and present a valid piece of photo
+identification showing that you are 65 or older.
+• Fill out a registration form, including your current address and
+phone number.
+• Pay a monthly fee of $46 or an annual fee (for 12 full months)
+of just $420.
+Your card will be processed while you wait. After that, simply
+present the card when boarding any HMTS bus. If your card is lost,
+a replacement will cost $5.
+
+147. What is the notice mainly about?
+(A) Locations for the purchase of
+transportation cards
+(B) Regulations for bus operators
+(C) Instructions for getting a transit pass
+(D) Increases in fees for use of a system
+
+148. Why might passengers need to pay a
+$5 fee?
+(A) To extend card validity by a month
+(B) To register for the first time
+(C) To buy a dally pass
+(D) To replace a missing item
+TEST 9 해커스 토의 실전 1200제 READING
+GO ON TO THE NEXT PAGE
+TEST 9 271
+Questions 149-150 refer to the following text-message chain.
+Ellen Greenburg [5:14 P.M.]
+I really like the script for Cromwell Electronics' upcoming
+commercial. Our writers did a superb job.
+Kelsey Chenoweth [5:15 P.M.]
+I agree. There is one thing, though. Marian Ellis wasn't very
+lively during the rehearsal today. Cromwell Electronics isn't
+going to be happy if she sounds like that when we record
+the advertisement next week. Maybe we should consider
+looking for another voice actor. We have enough left in the
+budget to hire someone else.
+Ellen Greenburg [5:18 P.M.]
+I noticed that, too. We need a person who is enthusiastic
+and expressive. Otherwise, the commercial will not capture
+the attention of consumers when it is played over the radio.
+Let's give her one more chance. If she doesn't improve, we
+will search for a replacement.
+
+149. At 5:15 P.M., what does Mr. Chenoweth most
+likely mean when he writes, "There is one
+thing, though"?
+(A) He believes that a writer needs to make
+changes to a script.
+(B) He is concermed about the budget for an
+advertising project.
+(C) He has identified a problem with an
+individual's performance.
+(D) He feels that a commercial's release
+date should be postponed.
+
+150. What is indicated about Cromwell
+Electronics?
+(A) It is expanding its range of electronics.
+(B) It is planning to hire more marketing
+staff.
+(C) It will promote its goods on the radio.
+(D) It has employed Marian Ellis in the past.
+272 무료 단어암기장 및 단어 기 MP3 HackersIngang.com
+Questions 151-152 refer to the following ing Web page.
+www.sierlingstaffingsolutlons.com/staffing_services
+Sterling Staffing Solutions
+Staffing Services
+Sterling Staffing Solutions can help you find the right people to
+fill short-term positions, no matter what industry you are in. Simply
+contact us with a description of your needs, and we will consult
+our database of thousands of jobseeker résumés to find the most
+appropriate employees for you. We will screen qualified people
+and help your company set up interview times for them until you
+make a selectlon. But unlike the majority of our competitors, we
+won't stop there. We will keep in regular contact with you for
+the duration of your new worker's employment to ensure that
+expectations are being met. Your staffing process will be a lot
+easier with Sterllng Staffing Solutions.
+
+151. What is mentioned about Sterling Staffing
+Solutions?
+(A) It helps companies train workers for
+promotion.
+(B) It makes the final decision on employee
+placements.
+(C) It recruits temporary staff members for
+businesses.
+(D) It has numerous offices located
+throughout the nation.
+
+152. What is suggested about Sterling Staffing
+Solutions' business rivals?
+(A) They have a limited pool of jobseekers.
+(B) They do not thoroughly evaluate
+candidates.
+(C) They charge more for their services.
+(D) They do not provide ongoing support.
+TEST 9 해커스 토익 실전 1200제 READING
+GO ON TO THE NEXT PAGE
+TEST 9 273
+Questions 153-154 refer to the following e-mail.
+Π
+To Jonas Bianchi <jbianchí@adomosuits.com>
+From Valeria Lugo <vallugo@vsells.com>
+Subject Greetings
+Date August 10
+Dear Mr. Bianchi,
+I am a longtime follower of your company, and I read your corporate blog updates on social
+media regularly. I really admire how you have built your brand into what it is today. I am an
+entrepreneur who hopes one day to be able to do the same. I was given your e-mail address
+by a mutual acquaintance, Naila Zane, who said you might be able to point me in the right
+direction. If you are willing to visit the blog I use to promote my products and let me know what
+you think of it, I would be very grateful. The address is www.icglyblog.com/V_sells.
+Also, I was wondering if you ever purchased advertising space on social media Web sites to
+grow your customer base, and whether it was worth it if you did.
+Thank you so much for your time, and I hope to hear from you soon.
+Valeria Lugo
+Owner, V Selis
+
+153. What is the purpose of the e-mail?
+(A) To inquire about a post on a blog
+(B) To seek feedback on a Web page
+(C) To apply for a position at a corporation
+(D) To express admiration for a product
+
+154. What most likely is Ms. Lugo considering?
+(A) Launching a new Web site
+(B) Hiring a marketing assistant
+(C) Promoting goods online
+(D) Offering membership discounts
+274 무료 토익 학습자료 취업정보 제공 Hackers.co.kr
+Questions 155-157 refer to the following memo.
+To: All Sales Staff, Battista Department Store
+From: Andreas Nielsen, Store Manager
+Date: October 22
+Dear Sales Staff,
+Based on your feedback during recent staff meetings, management has decided to eliminate the
+requirement to wear a uniform. However, it is still important that we present a professional image to
+our customers. In that regard, sales staff will be required to follow the store's new dress code, which
+is described below. These changes go into effect at the beginning of next month.
+For female staff members, you can wear a black skirt or pair of pants with a white top. Shoes no
+longer have to be high-heeled, but all footwear must be black leather and cannot be open-toed.
+Modest jewelry is permitted. Hairstyles are at the discretion of staff, but unnatural colors are not
+allowed.
+For male employees, you may wear black trousers with a white, collared shirt. Shoes must be black
+leather. Modest jewelry is also acceptable for men. You may select your own hairstyle, and beards
+and moustaches are permitted as long as they are kept tidy.
+Should you require any further information on the store's dress code, speak with the manager of
+your department.
+TEST 9 해커스 토익 실전 1200제 READING
+
+155. What will take place at the start of
+
+156.
+November?
+(A) New uniforms will be distributed to staff.
+(B) A meeting to discuss dress codes will
+be held.
+(C) Managers will hand out lists of new
+regulations.
+(D) A new policy will go into effect.
+What is suggested about Battista
+Department Store's female sales staff?
+(A) They are currently required to wear
+high-heeled shoes.
+(B) They have guidelines regarding styles
+of hair.
+(C) They wear uniforms that are black in
+color.
+(D) They are asked to refrain from wearing
+any jewelry.
+
+157. What is NOT part of the dress code for male
+employees?
+(A) Leather footwear must be worn.
+(B) Facial hair is not allowed.
+(C) Collared shirts are required.
+(D) Jewelry is permitted.
+GO ON TO THE NEXT PAGE
+TEST 9 275
+Questions 158-160 refer to the following article.
+A Play of Shire Theater Company
+By Andrew Craft
+Shire Theater Company, situated in London's
+entertainment district, announced that its
+current play, The West Wind, will not end its
+run in July as originally planned. - [1] -.
+Instead. it will continue for at least one more
+season.- [2] - This comes as great news
+to the theater fans who have been unable
+to buy tickets for the play's sold-out
+performances. - [3] - Written by Julie
+Fielding, The West Wind currently stars Noah
+Wilson.- [4] -. Shire Theater has not
+yet disclosed whether he will continue with
+the production. However, the company has
+confirmed the return of Fiona O'Rourke as
+the female lead. Her acting skills have been
+acclaimed by critics. The theater said it would
+be taking a two-month break to upgrade the set
+and costumes. The next season of the show is
+expected to premiere in September.
+:
+
+158. What is the article mainly about?
+(A) A new play written by a famous author
+(B) An opinion of a theater critic
+(C) A former cast member of a play
+(D) An extension of a production
+
+159. In which of the positions marked [1], [2], [3],
+and [4] does the following sentence best
+belong?
+"Many of them were concerned that they
+would not get a chance to see this play."
+(A) [1]
+
+160. What is indicated about Fiona O'Rourke?
+(A) She will not continue to play the same
+role.
+(B) She has received positive reviews.
+(C) She has not worked with Noah Wilson
+before.
+(D) She will take time off during September.
+(B) [2]
+(C) [3]
+(D) [4]
+276 무료 단어암기장 및 단어암기 MP3 Hackersingang.com
+Questions 161-163 refer to the following notice.
+Boyle Regency Hotel
+Lost and Found Items
+Please read through the following information regarding lost and found items.
+Items found in the hotel lobby, event halls, restrooms, and lounges will be turned in to the main
+reception desk. Go to the desk and speak with the on-duty manager if you lost something in those
+areas.
+Belongings found in our restaurant, café, and buffet dining area will be turned in to the secondary
+reception desk at the hotel's rear entrance on Bates Street. Ask the manager on duty about items
+lost in those areas.
+If you forget something at our gym, spa, or swimming facilities, go to the spa's front desk. One of
+our receptionists will assist you.
+Should you forget something in the room you stayed in, check at the main reception desk. If you
+have already departed, call 555-3009. One of our housekeeping staff will check if your item has
+been turned in.
+Lost items of significant value are stored for 90 days, after which they are auctioned off for local
+charities. Less valuable items are kept for a period of one month and then discarded.
+
+161. For whom is the notice most likely intended?
+(A) Reception desk staff members
+(B) Guests at an accommodation facility
+(C) Managers working at a hotel
+(D) Event organizers booking halls
+
+162. Who should visitors speak to if they lose an
+item in the buffet area?
+(A) The manager at the secondary reception
+desk
+(B) A staff member at the hotel's main
+entrance
+(C) The manager of a restaurant
+(D) A member of staff in housekeeping
+
+163. What happens to some belongings that are
+unclaimed after 90 days?
+(A) They are distributed to employees.
+(B) They are sold for charity groups.
+(C) They are donated to used-goods stores.
+(D) They are sent to a storage facility.
+TEST 9 해커스 토익 실전 1200 READING
+GO ON TO THE NEXT PAGE
+TEST 8 277
+Questions 164-167 refer to the following newsletter article.
+Lundus Incorporated Newsletter
+December Edition
+Lundus Finishes the Year Confidently
+As of November, the stock price of Lundus Incorporated was at an all-time high thanks to the Erco Plaza venture and
+a promising lineup of future projects. "For Erco Plaza," said company CEO Mia Jenkins, "we were able to purchase
+an affordable plot ofland just outside of Johannesburg. And we correctly predicted that there would be high demand
+for a mall there." All the commercial units in the shopping mall sold by the end of Augustthe same month they
+became available.
+"Two employees especially deserving of praise for their roles in the Erco Plaza project are Senior Land Acquisition
+Manager Declan Chetty and Construction Project Manager Aimee Joubert,"Ms. Jenkins pointed out.
+Next on the company's agenda is the redevelopment of Brakpan Glade, an aging housing complexthat will be replaced
+with modern apartment towers. Next year, Lundus Incorporated hopes to acquire a large plot in Redruth Industrial
+Park. If all goes smoothly, it will then build aproduction facility there on behalfof Basin Rock Components.
+
+164. Who most likely is Ms. Jenkins?
+(A) A member of a municipal committee
+(B) The head of a development company
+(C) The founder of an investment firm
+(D) An executive at a design agency
+
+165. In paragraph 1, line 3, the word "predicted"
+is closest in meaning to
+(A) deliberated
+(B) investigated
+(C) forecasted
+(D) accepted
+
+166. What is suggested about Ms. Joubert?
+(A) She participated in the Erco Plaza
+project.
+(B) She received professional training
+in Johannesburg.
+(C) She began running a business
+enterprise in August.
+(D) She followed instructions delivered
+by Mr. Chetty.
+
+167. What is NOT a goal of Lundus
+Incorporated?
+(A) To carry out a project for a client
+(B) To manufacture its own products
+(C) To replace some old structures
+(D) To gain possession of some land
+278 무료 토익 학습자료 취업정보 제공 Hackers.co.kr
+Questions 168-171 refer to the following text-message chain.
+Fatima Shiraz (7:40 P.М.)
+Are you planning to go to the textile fair in Bangkok in May?
+Stefano Alto (7:43 P.M.)
+Yes. I'll probably go for three days.
+Fatima Shiraz (7:43 P.M.)
+Have you booked a flight yet? I thought we could travel together.
+Stefano Alto (7:45 P.M.)
+I'd enjoy that. I booked a ticket on Royal Siam Airlines for May 12 at 8:20 A.M. I just
+got the ticket a few days ago, and there were lots of seats left.
+Fatima Shiraz (7:45 P.M.)
+Great! Let me check some travel Web sites, and I'll let you know if we can go together.
+Fatima Shiraz (7:59 P.M.)
+All set!
+Stefano Alto (8:04 P.M.)
+Fantastic. I'll pick you up at 5:30 A.M. I plan on leaving my vehicle at the long-term
+parking lot at the airport.
+Fatima Shiraz (8:05 P.М.)
+Thanks! Sounds good. Anyway, I need to go now. My team manager wants me to stop
+by his office to talk about Dresden Fashion. They have a problem with the fabric
+shipped them last month.
+we
+TEST 9 커스토익 실전 1200
+
+168. What is mainly discussed?
+READING REA
+
+169.
+(A) Opening a branch
+(B) Touring a production facility
+(C) Attending a trade fair
+(D) Taking a vacation
+At 7:59 P.M., what does Ms. Shiraz mean
+when she writes, "All set"?
+(A) She submitted a three-day leave
+request.
+(B) She will catch the same flight as
+Mr. Alto.
+(C) She purchased an airline ticket for
+Mr. Alto.
+(D) She will send an updated travel itinerary.
+
+170. What does Mr. Alto offer to do for
+Ms. Shiraz?
+(A) Make a reservation for a hotel
+(B) Give her a ride to an airport
+(C) Contact a travel agent
+(D) Pick up a parcel
+
+171. Why will Ms. Shiraz meet with her
+supervisor?
+(A) She will explain why a shipment was late.
+(B) She will discuss a customer complaint.
+(C) She will request an office transfer.
+(D) She will confirm that a task was
+completed.
+GO ON TO THE NEXT PAGE
+TEST 9 279
+Questions 172-175 refer to the following article.
+May 15
+Westwood Lodge-an international hotel chain that
+operates in 17 countries--has announced the upcoming
+availability of Gold Rewards. Guests who sign up for a
+membership will be able to accumulate points at any
+Westwood Lodge location. - [1]-.
+The new initiative is credited to Dianna Keyes, who was
+promoted to CEO of Westwood Lodge just two months
+ago. "Retention of existing customers must be a key part
+of our business strategy," she said in a recent interview
+with Travel Magazine. - [2] -. "Our competitors have
+developed this type of system, so we need to provide our
+guests with access to one as well."
+Individuals with a Gold Rewards account will be able to
+use their points in lieu of paying for a room. -[3]-
+The points can also be applied to a wide range of other
+services. For example, guests staying at the Westwood
+Lodge here in Miami will be able to book a candlelight
+dinner on the patio overlooking the beach or a private
+session with one of the trainers at the state-of-the-art gym.
+- [4] -. They can even purchase souvenirs at the store
+in the lobby. And once the hotel completes construction of
+its spa, guests will be able to redeem points for massages
+and beauty treatments.
+280 무료 단어 기장 및 단어암기 MP3 Hackersingang.com
+
+172. What is the main topic of the article?
+
+175. In which of the following positions marked
+[1], [2], [3], and [4] does the following
+sentence best belong?
+"However, there will be some limitations with
+regard to complimentary accommodations
+during the peak travel season."
+(A) The expansion of a company overseas
+(B) The launch of a membership program
+(C) The opening of a new hotel location
+(D) The construction of a recreation facility
+
+173. What is indicated about Ms. Keyes?
+(A) She implemented a policy change two (A) [1]
+months ago.
+(B) She was employed by a Westwood
+(B) [2]
+(C) [3]
+(D) [4] Lodge competitor.
+(C) She took on a leadership role in a
+company recently.
+(D) She was interviewed on a local
+television show.
+
+174. What is NOT currently a feature of the
+Westwood Lodge in Miami?
+(A) A fitness center
+(B) A gift shop
+(C) A spa
+(D) An outdoor restaurant
+TEST 9 해커스 토익 실전 1200 READING
+GO ON TO THE NEXT PAGE
+TEST 9 281
+Questions 176-180 refer to the following e-mails.
+To
+From
+David Horton <d.horton@admin.simpsonuniversity.edu>
+Patricia Wheeler <p.wheeler@ims.com>
+Subject Research Project
+Date March 4
+Attachment pamphlet.image
+Dear Mr. Horton,
+I am a researcher at the Institute of Media Studies. My colleagues and I are studying the effects
+of social media use on academic performance. We are looking for 200 university students to
+participate in a survey about their social media habits. The only condition is that they must be
+graduating this year.
+To encourage student participation, anyone who completes the questionnaire will receive
+a $20 voucher for Feldman Bookstore. And, of course, we will respect the confidentiality of
+participants--any information that could identify a student will not be included when our
+research is published. Students who wish to take part should contact me by e-mail.
+Attached is a pamphlet that includes more information about the project. Please let me know
+if it would be acceptable for my organization to distribute copies on your campus. If you have
+any questions or concerns, feel free to contact me by e-mail or to call me at 555-9383.
+Sincerely,
+Patricia Wheeler
+To Patricia Wheeler <p.wheeler@ims.com>
+From Scott Mendoza <s.mendoza@heymail.com>
+Subject Survey
+Date March 19
+Dear Ms. Wheeler,
+I was given one of your pamphlets at my school, Simpson University. Your project sounds very
+interesting, and I'd like to complete the survey. I meet the requirement for participation that was
+mentioned in the pamphlet.
+Please let me know how to proceed. If possible, I would like to fill out the questionnaire this week. I am
+a member of the university's basketball team, and we are playing in the state championship final next
+Saturday. Our coach has scheduled several practices next week, so 1 will not have any free time.
+Sincerely,
+Scott Mendoza
+282 무료 토익 학습자료 취업정보 제공 Hackers.co.kr
+
+176. What is indicated about Ms. Wheeler?
+(A) She is the head of a student
+organization.
+(B) She is a professor at an educational
+institution.
+(C) She is developing a social media
+application.
+(D) She is working on a project with
+associates.
+
+177. What will participants in the survey receive?
+(A) A cash payment of $20
+(B) A coupon for a retail outiet
+(C) A ticket for a university event
+(D) A book by a popular author
+
+178. What did Mr. Horton most likely do?
+(A) He requested a copy of the survey
+in advance.
+(B) He called Ms. Wheeler with some
+follow-up questions.
+(C) He gave permission for a document
+to be handed out.
+(D) He selected students to take part in
+a research project.
+
+179. What is suggested about Mr. Mendoza?
+(A) He is in his final year of university.
+(B) He recently transferred to Simpson
+College.
+(C) He has contacted Ms. Wheeler
+previously.
+(D) He works part-time at a school library.
+
+180. Why will Mr. Mendoza be unavailable next
+week?
+(A) He will be traveling to another state.
+(B) He will be preparing for a sports event.
+(C) He will be studying for a final exam.
+(D) He will be trying out for a professional
+team.
+TEST 9 해커스 토믹 실전 1200제 READING
+GO ON TO THE NEXT PAGE
+TEST 9 283
+Questions 181-185 refer to the following e-mail and article.
+Π
+To
+From
+Date
+Melinda Landry <mell@konect.com>
+Donald Patterson <dp10@konect.com>
+December 30
+Subject New position
+Dear Melinda,
+The deputy director of personnel, Tessa Fischer, has asked me to put forward some
+recommendations for a new managerial position that will be created this spring. I have been
+able to think of four strong candidates, but I would like you to propose two more if you can.
+According to Tessa, age and experience are less important than adaptability.
+The personnel I plan to suggest for promotion are Winston Bonham, a supervisor at our
+Houston production plant; Abel Marquez, a section head in our human relations department;
+Daisy Roberts, the leader of our marketing team; and Griselda Todson, the chief engineer at
+our research lab.
+When putting forward your choices, keep in mind that the appointee will be running our new
+High Temperature Division, which will focus on developing gaskets that are resistant to heat.
+Sincerely,
+Donald Patterson
+Executive Director
+Konect Incorporated
+Konect Expands Operations, Regains Market Share
+Austin (March 17)-The Texas-based company Konect has captured more than half of the market share
+for gaskets in North America for the first time in over a decade. Its recent success is a result of a set of new
+products-gaskets made of a synthetic material that can withstand extreme heat.
+While Konect has long been a leading producer of rubber and metal gaskets, it has struggled in recent years
+to compete here against the Indian company Suraja Industries, according to Executive Director Donald
+Patterson. "We've become more competitive, though, with the launch of our High Temperature Division,"
+said Patterson. "And much of the credit can be given to the head of that division, whose manufacturing
+background has led to the achievement of high quality standards."
+Konect's stock price increased by 15 percent last quarter, and analyst Benedict Tink predicts that it will rise
+steadily in the near future.
+284 무료 단어 기장 및 단어암기 MP3 Hackersingang.com
+日
+
+181. Why did Mr. Patterson contact Ms. Landry?
+
+184. What can be inferred about Suraja
+Industries?
+(A) To praise her contributions to a company
+(B) To encourage her to submit an
+application
+(C) To put her in touch with some coworkers
+(D) To ask her to provide some suggestions
+
+182. What did Ms. Fischer focus on while
+selecting an employeе?
+(A) The ability to meet important deadlines
+(B) Familiarity with technological advances
+(C) The capability to deal with changes
+(D) Knowledge of organizational strategies
+
+183. Which employee most likely received a
+promotion?
+(A) Winston Bonham
+(B) Abel Marquez
+(C) Daisy Roberts
+(D) Griselda Todson
+(A) It is attempting to set up a production
+plant in Austin.
+(B) It signed an agreement with another
+company.
+(C) It sells goods in the North American
+market.
+(D) It purchased patents for a wide
+assortment of gaskets.
+
+185. Ассording to the article, what does Mr. Tink
+believe will happen?
+(A) An invention will be used to improve
+environmental safety.
+(B) A business executive will propose a
+merger.
+(C) A manufacturer will be granted a
+commercial loan.
+(D) A company's stock will increase in value.
+TEST 9 해커스 토익 실전 1200제 READING
+GO ON TO THE NEXT PAGE
+TEST 9 285
+Questions 186-190 refer to the following e-mail, review, and text message.
+From Marielle DuBois <m.dubois@starmaxfilms.com>
+To Brian O'Reilly <b.oreilly@starmaxfilms.com>
+Subject Hollow Lives Premiere
+Date March 13
+Hi Brian
+I want to let you know that I'm pretty worried about the editing you are currently doing for
+our studio's latest movie, Hollow Lives. The film is set to premiere on April 1. And since you
+mentioned a few days ago that the editing is taking longer than expected, I'm concerned we
+won't be able to get everything ready before then.
+Moreover, I will be chargeda cancellation fee for the venue I reserved, Hibiscus Theater, if we
+don't hold the premiere there. This will be a big hit to the film's budget-$5,000 to be exact.
+Please send me status reports every day so that I can make arrangements to reschedule the
+premiere if necessary.
+Thanks,
+Marielle DuBois
+Director, Starmax Film Studio
+MovieBuzz.com
+Online Reviews for your Favorite Movies!
+Hollow Lives ★★★*
+Posted by: Christopher White
+I was lucky enough to catch the premiere of Starmax Film Studio's Hollow Lives last week at the
+Crosswood Theater, and it was an absolute treat! I was delighted to see that director Marielle
+DuBois is still willing to experiment with her film plots. Here, she tells the captivating story of a
+woman struggling to become a successful Hollywood producer.
+Lead actress Nancy Hyland, who played Diana, does afantastic job in her first performance. For
+instance, the film covers a 30-year period in which the challenges Diana faces gradually cause
+dramatic changes in her personality. Ms. Hyland portrays this transformation flawlessly.
+Be sure not to miss Hollow Lives. It's a movie that will truly touch your heart!
+286 무료 토익 학습자료 취업정보 제공 Hackers.co.kr
+Date Received: September 4
+Time Received: 10:02 A.M.
+Hi, Marielle. As you know, I have been nominated for the Greenfield
+Film Festival's Best Actress Award for my role as Diana in Hollow
+Lives. I have received three invitations to the festival's awards
+ceremony on October 1. However, I will only need to use two of
+them. If you would like to bring an additional guest, just let me know
+and I will give you my extra invitation. I look forward to seeing you
+there.
+
+186. Who most likely is Mr. O'Reilly?
+(A) A producer
+(B) An actor
+(C) An editor
+(D) A director
+
+187. What does Ms. DuBoís ask Mr. O'Reilly to
+provide?
+(A) Scripts for newly hired stars
+(B) Budget reports for a production
+(C) Résumés for prospective talent
+(D) Updates on daily progress
+
+188. What did Ms. DuBois have to do prior to
+Hollow Lives' premiere?
+(A) Check on the transitions between
+
+189. What is indicated about Hollow Lives?
+(A) It was the creation of an inexperienced
+director.
+(B) It takes place over a period of several
+decades.
+(C) It was criticized in a popular movie
+magazine.
+(D) It includes scenes shot in various major
+cities.
+
+190. What is mentioned about Ms. Hyland?
+(A) She has been contracted to appear in an
+upcoming film.
+(B) She will meet with Ms. Dubois in person
+on September 4.
+(C) She has scheduled a dinner with one of
+her colleagues.
+(D) She might receive an award for her very
+$5,000
+(C) Recruit additional assistants for the
+studio
+first performance.
+(D) Arrange for a celebratory ceremony
+scenes
+(B) Make a payment in the amount of
+TEST 해커스토익 실전 1200 READING
+GO ON TO THE NEXT PAGE
+TEST 9 287
+Questions 191-195 refer to the following estimate, e-mail, and Web page.
+Hilltop AС
+Serving Scottsdale for over 25 years!
+Prepared for: Brent Accounting
+Contact: Jeremy Watson
+Tel: 555-7264
+E-mail: j.watson@brentacc.com
+Date: May 21
+Address:
+Flanders Building
+1509 Greene Circle
+Scottsdale, AZ 85254
+Description Amount
+Install one Becool Glacier air conditioner $
+
+150.00
+Repair one Becool Alpine air conditioner $300.00
+Repair one Becool Frost air conditioner $400.00
+Clean one Becool Frost air conditioner $
+
+125.00
+Total $975.00
+To book an appointment, please call 555-3209 or send an e-mail to service@
+hilltop.com. Our customer service manager, Judith Hawkins, will be happy to
+assist you. Hilltop AC technicians are available to perform service calls Monday to
+Saturday, 8 A.M. to 5 P.M.
+To Judith Hawkins <service@hilltop.com>
+From Jeremy Watson <j.watson@brentacc.com<
+Subject Billing error
+Date June 3
+Dear Ms. Hawkins.
+I received the bill for the work your technician did in my office last week. Unfortunately, it includes
+an error. As we discussed after you sent me the initial estimate, the maintenance manager in
+my building was able to resolve the issue with the Becool Alpine air conditioner. Therefore, the
+technician from your company did not need to do any work on it. Could you send me a revised
+bill? Once you do this, I will make full payment. I will be out of the office all afternoon today as I
+am attending a tax seminar hosted by the National Revenue Agency. However, you can contact
+me by phone tomorrow if you have any questions. Thank you.
+Sincerely,
+JeremyWatson
+General Manager
+Brent Accounting
+288 무료 단어암기장 및 단어암기 MP3 Hackersingang.com
+www.hilltopac.com/customer_testimonials
+Posted by J. Watson on June 7
+Overall, Ihad a very positive experience with Hilltop AC. The technician arrived promptly at 6 P.M.
+as I requested, and he was very polite and efficient. I also appreciated that he took the time to
+show me the various functions of the new air conditioner he installed. My only complaint is that
+there was an error in my bill, but the customer service manager dealt with this issue quickly.I
+would strongly recommend Hilltop AC to anyone.
+
+191. What is indicated about Hilltop AC?
+(A) It provides services seven days a week.
+(B) It is located in the Flanders Building.
+(C) It opened a second location in
+Scottsdale.
+(D) It was established over two decades
+ago.
+
+192. Which amount was Mr. Watson not required
+to pay?
+(A) $150
+(B) $300
+(C) $400
+(D) $125
+
+193. Why was Mr. Watson unavailable to take a
+call on June 3?
+(A) He was visiting his company's other
+branch office.
+(B) He was submitting a complaint to a
+government agencу.
+(C) He was reviewing his client's tax
+documents.
+(D) He was participating in an informational
+session.
+
+194. What did Hilltop AC agree to do?
+(A) Change an appointment at the last
+minute
+(B) Replace an appliance damaged during
+cleaning
+(C) Provide a discount for an additional
+charge
+(D) Send a worker outside of regular hours
+
+195. What does Mr. Watson say about the
+technician who visited his office?
+(A) He consulted with a maintenance
+manager.
+(B) He explained the operation of a device.
+(C) He recommended an inexpensive
+model.
+(D) He arrived after the scheduled time.
+TEST 9 해커스 토익 실전 1200제 READING
+GO ON TO THE NEXT PAGE
+TEST 9 289
+Questions 196-200 refer to the following presentation slide and e-mails.
+ESTEBAN REALTY - Training Plan
+To facilitate our transition from residential to commercial real estate rentals, our employees will
+need to understand the following:
+- City Zoning Laws (some businesses are not permitted to operate in certain areas of the city)
+Commercial Lease Agreements (leases for commercial tenants are more complex than ones
+for residential tenants)
+- Building Security (businesses tend to have many items of value, making it important to properly
+secure the building)
+Training sessions to address these issues and more will be scheduled for the end of the year.
+*Slide prepared by Sandra Williams
+Π
+To Branch Managers <branchmanagers@estebanrealty.com>
+From George Esteban <g.esteban@estebanrealty.com>
+Subject Training
+Date October 14
+As all ofyou know,our company has decided to focus on commercial property management starting
+next year. It is hoped that this strategy will lead to a significant boost in earnings. However, before
+we can implement it, our employees will have to undergo training.
+I have arranged for workshops to be held at each of your branches. These will be led by specialists
+from the National Realtors Association and will take place in November and December. I will
+provide you with the specific times and dates next week.
+For the Pasadena and Santa Barbara branches, I would like at least nine people to participate in
+each training session. As the Long Beach and San Diego branches are currently understaffed, only
+six people must attend. These individuals can then pass along the knowledge they acquired to the
+other staff in their respective offices.
+Thank you,
+George Esteban
+President
+Esteban Realty
+290 무르트의 학습자료 취업정보 제공 Hackers.co.kr
+日日
+To
+From
+Subject
+Date
+George Esteban <g.esteban@estebanrealty.com>
+Sandra Williams <s.williamsdestebanrealty.com>
+Training Update
+November 2
+Dear Mr. Esteban,
+I just wanted to provide you with an update on the training. The first round of workshops will
+begin tomorrow. There was one minor issue at the Long Beach Branch-the fire sprinkler
+system malfunctioned yesterday, so the conference room is not available. However, one of the
+team leaders, Sam Weber, arranged a meeting room at a nearby conference center, so the
+workshop will proceed on schedule. As you requested, here is the number of employees who
+will be attending the first session at each branch:
+- Santa Barbara: 10 staff members
+- Pasadena: 8 staff members
+- Long Beach: 6 staff members
+- San Diego: 6 staff members
+Let me know if you have any questions or concerns.
+Sandra Williams, Human Resources Manager, Esteban Realty
+
+196. According to the presentation slide, what
+will Esteban Realty employees NOT receive
+training in?
+(A) Municipal regulations
+(B) Legal contracts
+(C) Building maintenance
+(D) Property protection
+
+198. What is indicated about the workshops?
+(A) They will be conducted by outside experts.
+(B) They will be held at a corporate
+headquarters.
+(C) They will take place for more than two
+months.
+(D) They will include a test for all participants.
+
+197. What does Mr. Esteban hope to accomplish
+
+199. Who prepared the presentation slide?
+with the new strategy?
+(A) A company president
+(A) Reduced customer complaints
+(B) Improved employee benefits
+(C) Increased company profits
+(D) Decreased operating expenses
+(B) A real estate agent
+(C) A department head
+(D) A branch manager
+
+200.. Which office did not meet Mr. Esteban's
+requirement?
+(A) Santa Barbara
+(B) Pasadena
+(C) Long Beach
+(D) San Diego
+This is the end of the test. You may review Part 5, 6, and 7 if you finish the test early.
+정답 p.38 2.365 / 해석 해설설 [권] 해설집 p.171 / 해커스 토익 빅플로 자동 채점 및 취약 유형 분석하기
+* 다음페이지에 있는 TEST 9 점수 환산환산표를 확인해 자신의 토익 리딩 점수를 예상해 보세요.
+해커스토익 실전 1200제 READING
+TEST 9 291
+TEST 9 점수 환산표
+TEST 9는 무사히 잘 마치셨나요? 맞은 개수를 세어본 후 아래의 점수 환산표를 통해 자신의 점수를 예상해 보세요.
+전체 난이도 어려운 난이도
+파트별 난이도 PART 5 상
+PART 6O
+PART 7. 상
+정답 수 리딩 점수 정답 수 리딩 점수
+98~100개 480~495점 47~49개 210~225점
+95~97개 470~475점 44~46개 195~205점
+92~94개 455~465점 41~43개 180~190점
+89~91개 440~450점 38~40개 165~175점
+86~88개 425~435점 35~37개 150~160점
+83~85개 410~420점 32~34개 135~145점
+80~82개 395~405점 29~31개 120~130점
+77~79개 380~390점 26~28개 105~115점
+74~76개 365~375점 23~25개 90~100점
+71~73개 350~360점 20~22개 75~85점
+68~70개 330~345점 17~19개 60~70점
+65~67개 315~325점 14~16개 45~55점
+62~64개 295~310점 11~13개 30~40점
+59~61개 275~290점 8~10개 15~25점
+56~58개 260~270점 5~7개 10~15점
+53~55개 245~255점 2~4개 5~10점
+50~52개 230~240점 0~1개 0~5점
+* 점수 환산표는 해커스토익 사이트 유저 데이터를 근거로 제작되었으며, 주기적으로 업데이트되고 있습니다. 해커스토익 사이트
+(Hackers.co.kr)에서 최신 경향을 반영하여 업데이트된 점수환산기를 이용하실 수 있습니다. (토익 > 토익게시판 > 토익점수환산기)
+292 우르 단어암기장 및 단어암기 MP3 Hackersingang.com
+
+# TEST 10
 
 # TEST 10
 
@@ -10822,6 +12173,8 @@ TEST 10은 무사히 잘 마치셨나요? 맞은 개수를 세어본 후 아래�
 
 # TEST 11
 
+# TEST 11
+
 ## PART 5
 
 101. It has become attractive that the business will improve its profitability by the end of the year.
@@ -11901,6 +13254,8 @@ To view photos from the event, follow the link to our company network here.
 | 56~58개 | 260~270점 | 5~7개 | 10~15점 |
 | 53~55개 | 245~255점 | 2~4개 | 5~10점 |
 | 50~52개 | 230~240점 | 0~1개 | 0~5점 |
+
+# TEST 12
 
 # TEST 12
 
