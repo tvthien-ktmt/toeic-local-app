@@ -93,19 +93,28 @@ def _extract_options(q_body: str) -> Dict[str, str]:
 def parse_answer_file(ans_path: Optional[str]) -> Dict[int, Dict[int, str]]:
     """
     Parses answer key file. Returns dict: {test_num: {q_num: "A"|"B"|"C"|"D"}}
-    Handles formats:
-      - "101. A" / "101: (A)" / "101. (B)"
-      - "| 101 | (A) |" (markdown table)
-      - "**101** A" (bold)
+
+    Handles TWO formats:
+    1. Standard: each line has sequential q_nums e.g. "101. (A) | 102. (B) | ... | 110. (C)"
+       and "111. (D) | 112. (A) | ..." etc. — all genuine q_nums.
+
+    2. 2-column OCR: each row has LEFT col (1 value) + RIGHT col (9 values):
+       Row 1: [101. (C)] [102. (C) | 103. (A) | ... | 110. (B)]  ← Q101-Q110
+       Row 2: [102. (C)] [112. (B) | 113. (D) | ... | 120. (A)]  ← left=Q111, right=Q112-Q120
+       Row 3: [103. (D)] [122. (A) | 123. (B) | ... | 130. (C)]  ← left=Q121, right=Q122-Q130
+       ...
+       Row 10: [110. (B)] [192. (D) | 193. (A) | ... | 200. (B)] ← left=Q191, right=Q192-Q200
+
+       Q111, Q121, ... Q191 are encoded as the ANSWER of the LEFT column value on rows 2-10.
+       Detection: row1 has exactly 10 q_nums AND row2's first q_num < row2's second q_num.
     """
     if not ans_path or not os.path.exists(ans_path):
         return {}
-    
+
     try:
         with open(ans_path, "r", encoding="utf-8", errors="ignore") as f:
             text = f.read()
 
-        # Split by test headings — handles "## Test 1", "## TEST 01", etc.
         test_blocks = re.split(r'(?i)\n(?=##?\s*Test\s*\d+)', text)
         answers_by_test = {}
 
@@ -115,15 +124,60 @@ def parse_answer_file(ans_path: Optional[str]) -> Dict[int, Dict[int, str]]:
                 continue
             test_num = int(m.group(1))
 
-            # Comprehensive regex that matches all known answer formats:
-            # "101. (A)", "101: A", "|101|(A)|", "| 101 | (A) |", "**101** A"
-            q_ans_matches = re.findall(
-                r'(?:^|\n|\|)\s*\*{0,2}(1[0-9]{2}|200)\*{0,2}\s*[\.\:\|]\s*\(?([A-Da-d])\)?',
-                block
-            )
             q_map = {}
-            for q_num_str, ans_char in q_ans_matches:
-                q_map[int(q_num_str)] = ans_char.upper()
+
+            # Get lines that contain question-answer pairs
+            data_lines = [
+                l.strip() for l in block.splitlines()
+                if re.search(r'\d{3}\.\s*\([A-D]\)', l, re.I)
+            ]
+
+            # Detect 2-column OCR format:
+            # Row 1 has 10 q_nums (Q101-Q110).
+            # In 2-column OCR: row 2 starts with a repeated low label (102-110, i.e. < 111)
+            # In standard format: row 2 starts with the next sequential q_num (111+)
+            # So: if row1 has 10 items AND row2[0] < 111 => 2-column OCR
+            is_two_col = False
+            if len(data_lines) >= 2:
+                row1_pairs = re.findall(r'\b(1[0-9]{2}|200)\.\s*\([A-Da-d]\)', data_lines[0])
+                row2_pairs = re.findall(r'\b(1[0-9]{2}|200)\.\s*\([A-Da-d]\)', data_lines[1])
+                if (len(row1_pairs) == 10 and len(row2_pairs) >= 2
+                        and int(row2_pairs[0]) < 111):
+                    is_two_col = True
+
+            if is_two_col:
+                # Parse 2-column OCR format
+                all_row_pairs = []
+                for line in data_lines:
+                    pairs = re.findall(r'\b(1[0-9]{2}|200)\.\s*\(([A-Da-d])\)', line)
+                    all_row_pairs.append(pairs)
+
+                # Row 1: all 10 are genuine Q101-Q110
+                for q_str, ans in all_row_pairs[0]:
+                    q_map[int(q_str)] = ans.upper()
+
+                # Rows 2-10: left col encodes Q111, Q121...Q191; right col = genuine q_nums
+                for row_idx, pairs in enumerate(all_row_pairs[1:], start=1):
+                    if not pairs:
+                        continue
+                    # Left col answer = answer for Q(101 + row_idx * 10)
+                    left_ans = pairs[0][1].upper()
+                    missing_q = 101 + row_idx * 10  # 111, 121, 131...191
+                    if 101 <= missing_q <= 200:
+                        q_map[missing_q] = left_ans
+                    # Right col: genuine q_nums
+                    for q_str, ans in pairs[1:]:
+                        q = int(q_str)
+                        q_map[q] = ans.upper()
+            else:
+                # Standard format: every "NNN. (X)" is a genuine q_num
+                for q_str, ans in re.findall(
+                    r'(?:^|\n|\|)\s*\*{0,2}(1[0-9]{2}|200)\*{0,2}\s*[\.:\|]\s*\(?([A-Da-d])\)?',
+                    block
+                ):
+                    q = int(q_str)
+                    if q not in q_map:
+                        q_map[q] = ans.upper()
 
             if q_map:
                 answers_by_test[test_num] = q_map
@@ -132,7 +186,6 @@ def parse_answer_file(ans_path: Optional[str]) -> Dict[int, Dict[int, str]]:
     except Exception as e:
         print(f"[TEXTBOOK SERVICE] Error parsing answer file {ans_path}: {e}")
         return {}
-
 
 def split_text_into_tests_by_q_reset(text: str) -> List[Tuple[int, str]]:
     """
