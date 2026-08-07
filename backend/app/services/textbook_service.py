@@ -181,9 +181,9 @@ def split_text_into_tests_by_q_reset(text: str) -> List[Tuple[int, str]]:
     return test_blocks
 
 
-# Passage header pattern: "Questions 131-134 refer to the following notice."
+# Passage header pattern: "Questions 131-134 refer to the following notice." (supports -, –, —)
 PASSAGE_HEADER_PATTERN = re.compile(
-    r'Questions?\s+(\d+)[\s\-–]+(?:to\s+)?(\d+)\s+refer\s+to\s+the\s+following\b',
+    r'Questions?\s+(\d+)[\s\-–—\u2013\u2014]+(?:to\s+)?(\d+)\s+refer\s+to\s+the\s+following\b',
     re.IGNORECASE
 )
 
