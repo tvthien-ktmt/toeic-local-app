@@ -3107,882 +3107,873 @@ You must mark your answers on the separate answer sheet. Do not write your answe
 
 Directions: A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence. Then mark the letter (A), (B), (C), or (D) on your answer sheet.
 
+# TEST 04
 
 # TEST 04
 
-## PART 6
+READING TEST
+In the Reading test, you will read a variety of texts and answer several different types of reading
+comprehension questions. The entire Reading test will last 75 minutes. There are three parts, and
+directions are given for each part. You are encouraged to answer as many questions as possible
+within the time allowed.
+You must mark your answers on the separate answer sheet. Do not write your answers in your test
+book.
+
+PART 5
+Directions: A word or phrase is missing in each of the sentences below. Four answer choices are
+given below each sentence. Select the best answer to complete the sentence. Then mark the letter
+(A), (B), (C), or (D) on your answer sheet.
+
+101. Mr. Barrientos has worked at the company ------- six years.
+(A) for
+(B) since
+(C) with
+(D) lately
+
+102. The staff cafeteria stops ------- lunch at 2:00 р.м.
+(A) taking
+(B) buying
+(C) serving
+(D) working
+
+103. The annual report will be ready after ------- make the necessary revisions.
+(A) I
+(B) me
+(C) myself
+(D) my
+
+104. Mr. Louden was offered a full-time position at Fortelio Corporation ------- a division manager.
+(A) about
+(B) as
+(C) after
+(D) around
+
+105. Kennedy Sports will ------- its end-of-season sale through the month of January.
+(A) continuing
+(B) continued
+(C) continues
+(D) continue
+
+106. Ms. Najjar is going to give a presentation ------- workplace regulations at noon.
+(A) near
+(B) to
+(C) past
+(D) on
+
+107. Mr. Telguld submitted the ------- surveys before the monthly board meeting.
+(A) completely
+(B) completed
+(C) completing
+(D) completes
+
+108. Travel funds are available to student presenters coming to the conference from a significant -------.
+(A) location
+(B) amount
+(C) reason
+(D) distance
+
+109. Ms. Okada is ------- a new social media campaign at the request of our office manager.
+(A) organize
+(B) organized
+(C) organizing
+(D) organization
+
+110. The speaker will offer five tips for making wise purchasing -------.
+(A) items
+(B) decisions
+(C) values
+(D) remedies
+
+111. Please log on to your online checking account ------- the next 30 days in order to keep it active.
+(A) within
+(B) how
+(C) whether
+(D) and
+
+112. The Bradyville Inn ------- live jazz music in the dining area on Friday evenings.
+(A) features
+(B) marks
+(C) sounds
+(D) collects
+
+113. Leeann's Organic Fruit Spreads can be purchased ------- from the company's Web site.
+(A) direction
+(B) directly
+(C) directness
+(D) directed
+
+114. ------- the event organizers' best efforts, they have been unable to attract enough volunteers this spring.
+(A) Behind
+(B) Versus
+(C) Among
+(D) Despite
+
+115. Mr. Perez ------- as an industrial engineer at Gaberly Logistics for almost twenty years.
+(A) employs
+(B) to be employed
+(C) is employing
+(D) has been employed
+
+116. Soon after Ms. Manilla was hired, the sales department's productivity began to increase -------.
+(A) mainly
+(B) respectively
+(C) noticeably
+(D) closely
+
+117. Small businesses ------- participate in the Get Ahead program will receive marketing tools to help them attract customers.
+(A) that
+(B) they
+(C) what
+(D) whoever
+
+118. Our copy editors will review the manuscript ------- will not return it until the end of next week.
+(A) or
+(B) once
+(C) either
+(D) but
+
+119. Mira Kumar was probably the ------- of all the interns at Kolbry Media last summer.
+(A) ambitious
+(B) most ambitious
+(C) ambitiously
+(D) more ambitiously
+
+120. Orbin's Fish Company expanded to a total of 26 stores ------- its takeover of a rival chain.
+(A) whenever
+(B) toward
+(C) following
+(D) usually
+
+121. Ms. Cartwright told her team members that she wanted ------- to streamline the company's assembly process.
+(A) theirs
+(B) they
+(C) them
+(D) themselves
+
+122. Rupert's Food Service uses ------- technology to track all of its shipments.
+(A) strict
+(B) numerous
+(C) advanced
+(D) crowded
+
+123. Our app includes a ------- so that users can determine whether they are within their budget goals.
+(A) calculator
+(B) calculated
+(C) calculating
+(D) calculations
+
+124. To ------- that its facilities are cleaned every day, the Selboa Company has hired more janitors.
+(A) ensure
+(B) affect
+(C) provide
+(D) secure
+
+125. During his term as a legislator, Jeremy Moran ------- promoted public awareness of the need for infrastructure improvements.
+(A) act
+(B) action
+(C) active
+(D) actively
+
+126. Pyxie Print's business is so new that we need to explain the full range of our services to ------- clients.
+(A) trained
+(B) potential
+(C) elected
+(D) paid
+
+127. Phone orders that are ------- to local stores by 11:00 A.M. are eligible for same-day pickup.
+(A) submitted
+(B) submission
+(C) submitting
+(D) submits
+
+128. An Oswald Hardware associate will ------- place an order for customers who need larger quantities than what is in stock.
+(A) slightly
+(B) wholly
+(C) busily
+(D) gladly
+
+129. Mia Daushvili performed with the Bayhead Orchestra on Monday evening, ------- her virtuosic skills on the piccolo.
+(A) displays
+(B) had displayed
+(C) displaying
+(D) was displayed
+
+130. When reviewing applicants for the clerk position, Ms. Ng will consider both education and ------- experience.
+(A) prior
+(B) quick
+(C) lean
+(D) calm
+
+PART 6
+Directions: Read the texts that follow. A word, phrase, or sentence is missing in parts of each text.
+Four answer choices for each question are given below the text. Select the best answer to complete
+the text. Then mark the letter (A), (B), (C), or (D) on your answer sheet.
+
+Questions 131-134 refer to the following notice.
+D-Zine Pop is your source for information about the latest ------- in the world of fashion. What started as a social media experiment ------- into a content platform with subscribers in seventeen countries worldwide. We are constantly adding features to improve our user experience and share what apparel and clothing accessories are popular right now. We also make periodic updates to our terms of service. Subscribers' ------- access to content is contingent upon consenting to these terms; therefore, we encourage you to review and accept them at dzinepop.com/privacy. Contact our customer service team at support@dzinepop.com if you have any questions.
+
+131. (A) controversies
+(B) consumers
+(C) trends
+(D) versions
+
+132. (A) evolving
+(B) evolution
+(C) will be evolving
+(D) has evolved
+
+133. (A) continue
+(B) continued
+(C) continuation
+(D) continues
+
+134. (A) Representatives are available 24 hours a day to assist you.
+(B) The changes made to our user privacy policy are no longer effective.
+(C) Fresh content is accessible through phone and desktop apps.
+(D) We are no longer offering a discounted rate if you renew your subscription.
+
+Questions 135-138 refer to the following advertisement.
+Rescue your device with Phone Tune-Up
+Is your smartphone screen scratched or cracked? ------- ? Do your apps freeze or crash? The experts at Phone Tune-Up can help! We use nothing but the best quality parts to ------- your mobile phone. Let our certified technicians save you the time and expense involved in replacing your phone with a new one. When we are ------- , you will think your old phone is brand new. To make an appointment, call 604-555-0198 or visit www.phonetuneup.com. Same-day service is often available ------- needed parts are in stock.
+
+135. (A) Does your printer need frequent ink refills?
+(B) Does it take all day for your battery to recharge?
+(C) Do you want to complete a short survey?
+(D) Do you pay too much for your data plan?
+
+136. (A) remove
+(B) borrow
+(C) examine
+(D) repair
+
+137. (A) trained
+(B) available
+(C) done
+(D) dismissed
+
+138. (A) whose
+(B) must
+(C) if
+(D) of
+
+Questions 139-142 refer to the following press release.
+FOR IMMEDIATE RELEASE
+SACRAMENTO (July 28)-The Sacramento-based supermarket chain Hsing Market announced today that it is opening a branch ------- in San Jose in October. It will occupy the building that once housed the Watson Office Superstore located at 1539 West Oak Street, which closed last year.
+Hsing Market CEO Alice Tran said, "We are very excited to ------- open a store in San Jose. When the Watson building became available, we jumped on the opportunity to move in." -------.
+As a neighborhood grocery store, Hsing Market prides itself on hiring applicants from the local community. Approximately 75 percent of all employees live within two miles of the store where they -------.
+
+139. (A) location
+(B) locate
+(C) to locate
+(D) locating
+
+140. (A) finally
+(B) instead
+(C) likewise
+(D) suddenly
+
+141. (A) The store features a variety of fresh and prepared foods.
+(B) We hope that you will be able to join us at our grand-opening celebration.
+(C) We have had our eyes on the city for quite some time.
+(D) Our corporate headquarters will be renovated soon.
+
+142. (A) save
+(B) work
+(C) shop
+(D) register
+
+Questions 143-146 refer to the following Web page information.
+About Leafi Cloth
+Tropick Textiles recently expanded the ------- of fabrics available on the market. In its quest to introduce environmentally friendly alternatives to cotton and other traditional fibers, the company ------- a new fiber made from materials that are typically discarded. Tropick Textiles takes banana and pineapple leaves and combines them with bamboo fibers to create Leafi Cloth. The plants' leaves are ordinarily disposed of ------- the fruit is harvested. Tropick Textiles' process prevents many leaves from entering a landfill, converting them instead into usable material. -------
+
+143. (A) range
+(B) expense
+(C) strength
+(D) appearance
+
+144. (A) are developed
+(B) has developed
+(C) will develop
+(D) to develop
+
+145. (A) now
+(B) thus
+(C) even
+(D) once
+
+146. (A) The resulting durable fabric is a suitable substitute for cotton cloth.
+(B) Inquiries regarding Leafi Cloth were directed to the sales department.
+(C) Tropick Textiles will celebrate its one-hundredth anniversary this year.
+(D) Manufacturing costs have been increasing for Tropick Textiles lately.
+
+PART 7
+Directions: In this part you will read a selection of texts, such as magazine and newspaper articles, e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the best answer for each question and mark the letter (A), (B), (C), or (D) on your answer sheet.
+
+Questions 147-148 refer to the following receipt.
+Zippy Petrol Mart
+M64 Motorway
+Leicester
+0113 4960423
+23 May
+Biscuits £2.00
+Fruit cup £0.95
+Crisps £1.10
+VAT £0.81
+Inclusive
+Total £4.86
+Sign up for our Zippy Club rewards card. You could have earned 4 Zippy Club points on this transaction. Points can be used for discounted merchandise, car products, phone accessories, and more!
+
+147. What was purchased on May 23?
+(A) Fuel
+(B) Snacks
+(C) Auto parts
+(D) Phone accessories
+
+148. What does the receipt indicate about Zippy Petrol Mart?
+(A) It has multiple locations.
+(B) It accepts most major credit cards.
+(C) It has a customer rewards program.
+(D) It reduced the prices of all its merchandise.
+
+Questions 149-150 refer to the following notice.
+Coming Soon: The Best of PBQ Radio
+During the week of April 21-27, PBQ Radio will be hosting a best-of-the-decade program. The most popular tunes by recording artists from the past decade will be played all day long. Both well-known and lesser-known recording artists will be featured. We plan to showcase each artist's top works.
+In addition to featuring the best music of the decade, we would like to highlight our region's businesses. Advertising time is available for purchase. Let our listeners know that your business is one of the best in the community! You can request a shout-out for your company from a program host, or our professional marketing team can write and record a 30-second advertisement.
+Visit www.pbqradio.com/advertise for details and pricing.
+
+149. For whom most likely was the notice written?
+(A) Radio-show hosts
+(B) New recording artists
+(C) Business owners
+(D) Sound technicians
+
+150. What is true about PBQ Radio?
+(A) It has been in business for ten years.
+(B) It is looking for experienced musicians.
+(C) It was voted the best station in the community.
+(D) It has its own marketing department.
+
+Questions 151-152 refer to the following text-message chain.
+Frank Jabati [11:12 A.M.] Hi, Maxine. I'm running late with this delivery today. Could you contact Ms. Dibello to let her know?
+Maxine Larsen [11:13 A.M.] Sure! I know that she is eager to get those new items. She says she needs to set up her kitchen properly so that she can prepare a special meal tonight. What time do you think you will arrive there?
+Frank Jabati [11:15 A.M.] I'm not sure-the road I was taking was closed for repairs. The detour road has heavy traffic.
+Maxine Larsen [11:17 A.M.] Sorry to hear that. What's your estimate?
+Frank Jabati [11:19 A.M.] Maybe around 1 P.M.
+Maxine Larsen [11:20 A.M.] OK, great. I will get in touch with Ms. Dibello to confirm that she will be home at that time. Then I'll get back to you.
+Frank Jabati [11:22 A.M.] Thanks!
+
+151. What most likely has Ms. Dibello purchased?
+(A) Linens
+(B) Bookshelves
+(C) Gardening tools
+(D) Appliances
+
+152. At 11:17 A.M., what does Ms. Larsen most likely mean when she writes, "What's your estimate"?
+(A) She must verify the distance of a route.
+(B) She wants to know how much traffic there is.
+(C) She wants to know a delivery time.
+(D) She has to calculate a delivery charge.
+
+Questions 153-154 refer to the following e-mail.
+To: Janet Hubschmann
+From: customerservice@readymadeofficesupplies.net
+Date: September 3
+Subject: Thank you
+Dear Ms. Hubschmann,
+We here at Readymade Office Supplies are excited to welcome you to our Customers Count rewards program. Your account number 41120 is now registered.
+Be sure to enter your account number to earn points on all your purchases from our Web site. You will earn one point for every dollar you spend on qualifying purchases. Redeem your points on your account page for rewards, including free two-day expedited shipping, special discounts, and more. You can still order via mail from our print catalog, over the telephone from one of our helpful representatives, or by visiting our retail locations across the United States and Canada. However, those purchases do not currently qualify for the rewards program.
+Have questions? Please visit https://www.readymadeofficesupplies.net/customerservice.
+
+153. What types of purchases earn reward points?
+(A) Those made online
+(B) Those made by mail
+(C) Those made by phone
+(D) Those made in a store
+
+154. What is a benefit of the program?
+(A) Invitations to retail events
+(B) Free samples
+(C) Faster shipping
+(D) Extended product warranties
+
+Questions 155-157 refer to the following letter.
+Native Plant Society Headquarters
+161 Sussex Street
+Sydney, NSW 2001
+15 April
+Yasmine Harabi
+247 Kooljak Road
+Perth, Western Australia 6280
+Membership number 4290
+Dear Ms. Harabi,
+Thank you for your continued support as a society member. Given your recent move, your membership has been transferred to the chapter located in the city of Perth. We will be mailing a replacement member identification card within a few days.
+Unlike the chapter in the city of Canberra, the Perth branch meets the first Saturday of every month, so your next meeting will be in three weeks. If you have any questions, please contact us weekdays between 8:00 a.m. and 4:00 p.m. at (08) 5555 0145.
+Sincerely,
+Leticia Davis
+Membership Department
+
+155. What is the purpose of the letter?
+(A) To announce a special event
+(B) To explain changes based on a relocation
+(C) To propose a new meeting time
+(D) To request updated contact information
+
+156. What is suggested about the city of Canberra?
+(A) It is famous for its many gardens.
+(B) It houses the headquarters of Ms. Davis' organization.
+(C) It is where Ms. Harabi previously lived.
+(D) It is home to some of Australia's rarest plants.
+
+157. What can be concluded about the Native Plant Society?
+(A) It is under new leadership.
+(B) Its membership is growing.
+(C) It is raising membership dues.
+(D) Its chapters hold monthly meetings.
+
+Questions 158-160 refer to the following Web page.
+https://www.greenroofplus.com
+Basics Photos Resources News
+What Are Green Roofs?
+Green roofs are an energy-saving option for office buildings and homes. A green roof is one that's covered with grasses, flowers, or other plants. It lowers heating and cooling costs while increasing a structure's aesthetic appeal. This Web site is designed for sharing ideas, photos, and resources to create and maintain a green roof.
+Planting a rooftop garden is a rewarding do-it-yourself project, but special waterproofing and other preparations require the services of an experienced contractor. Costs vary widely by region, roof size, and complexity of the garden you want to create. Be sure to get estimates from at least two contractors.
+If your contractor determines that your roof can handle the extra weight of soil, plants, and irrigation, ask about the project's timeline. Small, simple rooftop gardens may take only one week to complete.
+
+158. According to the Web page, what can visitors to the Web site do?
+(A) Discuss how to create a garden
+(B) Learn how to maximize vegetable production
+(C) Seek advice about landscaping problems
+(D) Help contractors calculate costs
+
+159. What is NOT mentioned about green roofs?
+(A) They decrease energy bills.
+(B) They remove pollution from the air.
+(C) They make a structure more beautiful.
+(D) They can be installed on commercial and residential buildings.
+
+160. In paragraph 3, line 1, the word "handle" is closest in meaning to
+(A) touch
+(B) control
+(C) deliver
+(D) support
+
+Questions 161-163 refer to the following advertisement.
+Martino Technical has been providing live sound-mixing services for more than 30 years. We use the latest technology to produce the best sound.
+The majority of our clients are heavy-metal and classic-rock musicians. Before they go on tour, we rehearse with them to ensure that the sounds are perfectly blended and balanced. In addition, we create recordings for them that they can post on social media to promote their shows.
+Our sound-mixing engineers are known for their experience and professionalism and have an impressive track record working on tours worldwide. They have worked with many popular music groups, including The Peakes, Firebrand, and Cellar Cats, and make bands sound just as good during live performances as they do on their records.
+Contact us by e-mailing information@martinotechnical.ie.
+
+161. What is indicated about Martino Technical?
+(A) It acquires most clients through social media.
+(B) It was founded over 30 years ago.
+(C) It has received many industry awards.
+(D) It has offices throughout the world.
+
+162. The word "promote" in paragraph 2, line 4, is closest in meaning to
+(A) encourage
+(B) schedule
+(C) publicize
+(D) advance
+
+163. What is NOT stated about the live sound-mixing engineers?
+(A) They create promotional materials.
+(B) They have considerable expertise.
+(C) They travel abroad frequently.
+(D) They have degrees in music.
+
+Questions 164-167 refer to the following e-mail.
+To: Employees <employees@bonahoomenterprises.com>
+From: Marcia Noh <mnoh@bonahoomenterprises.com>
+Date: November 14
+Subject: November 28 event
+Dear all,
+On the evening of November 28, there will be a formal dinner to honor our company president and founder, Mr. Bonahoom. At the dinner, we will express our appreciation for his leadership over these past twenty years in making Bonahoom Enterprises a successful company and a great place to work. - [1] -
+This event will be held in the private banquet room at Chez Bistro and is intended to be a surprise, so please avoid mentioning it to him. Those few who are involved with the setup will arrive at 5 P.M. All other attendees should come no later than 6:15 P.M. in anticipation of Mr. Bonahoom's arrival at 6:30 P.M. We expect the celebration to wrap up no later than 8 P.M. - [2] -.
+There is no need to bring a gift. - [3] -. We do ask, though, that you find time this week to sign a card for him. It can be found at Ms. Mueller's desk, inside an envelope marked "November 28."
+Finally, you are welcome to bring one guest with you to the event if you wish. - [4] -.
+Kindly RSVP to this e-mail so we can get a complete count of the number of attendees.
+All the best,
+Marcia Noh
+
+164. What is the main purpose of the e-mail?
+(A) To ask staff to sign up to give speeches at a celebration
+(B) To find people willing to bring various items to a dinner
+(C) To invite workers to a surprise party
+(D) To look for volunteers to help plan an event
+
+165. According to the e-mail, when are most people expected to arrive?
+(A) At 5:00 Р.м.
+(B) At 6:15 P.м.
+(C) At 6:30 P.м.
+(D) At 8:00 Р.м.
+
+166. What should people do if they want to sign a card?
+(A) They should request it from Mr. Bonahoom.
+(B) They should e-mail Ms. Noh.
+(C) They should wait for it to be passed around the office.
+(D) They should go to Ms. Mueller's desk.
+
+167. In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?
+"The senior staff will be presenting a commemorative plaque on behalf of the whole office."
+(A) [1]
+(B) [2]
+(C) [3]
+(D) [4]
+
+Questions 168-171 refer to the following online chat discussion.
+Colin Wikander (10:23 A.M.) I have reviewed the draft of the new client questionnaire, and it looks great overall. I would make the question about bookkeeping strategies more open-ended, though. As written, it may lead respondents to give simple yes or no answers.
+Midori Sakai (10:24 A.M.) That's a good point. We'll need to fix that. I also want to add a couple of questions about how financial and tax reports have been handled in the past.
+Ela Hamidah (10:24 A.M.) I could look at the bookkeeping question to see what I can come up with.
+Colin Wikander (10:25 A.M.) Well, it's four pages already.
+Midori Sakai (10:27 A.M.) That's true. I'll just wait for Ela's revision of the third question. Then Jack Neligan can put a draft of the form up on our Web site.
+Colin Wikander (10:28 A.M.) Is it true that we are not planning to collect any paper forms?
+Midori Sakai (10:30 A.M.) We might do that, but digital collection is preferable to avoid the lag time of waiting for our clients to print, fill out, and scan the forms to send them back.
+
+168. What type of company do the writers most likely work for?
+(A) Publishing
+(B) Accounting
+(C) Retail
+(D) Design
+
+169. What does Mr. Wikander suggest about a question?
+(A) It is mislabeled.
+(B) It is difficult to read.
+(C) It should be reworded.
+(D) It should be made optional.
+
+170. At 10:25 A.M., what does Mr. Wikander most likely mean when he writes, "Well, it's four pages already"?
+(A) He is surprised by the long answers clients gave.
+(B) He is impressed with how quickly the questionnaire is coming along.
+(C) He thinks information in the first four pages should be cut out.
+(D) He thinks the questionnaire should not be any longer.
+
+171. Why does Ms. Sakai think that paperless forms will be preferable?
+(A) They allow for faster data collection.
+(B) They reduce the number of errors.
+(C) They are good for the environment.
+(D) They do not take up space in an office.
+
+Questions 172-175 refer to the following post on a Web site.
+https://www.trehospitalityassociation.com/discussion/tunisia
+I have been a member of the TRE Hospitality Association for many years, but until now, I have posted messages only on the Greece and Egypt forums. - [1] -. This is my first post on the Tunisia forum.
+I am looking for recommendations for a janitorial service on the island of Djerba. My company is opening a hotel there. Our hotel will offer 80 rooms with two restaurants on-site. - [2] -. I would like to contract with a company that can provide about four full-time custodial workers and housekeepers, plus an additional five workers on an as-needed basis for large events on our property. - [3] -
+I may have met some of you previously at one of our hospitality conferences. If so, please remind me. In fact, I attended the most recent one in Rabat. - [4] -.
+I would like to reconnect!
+John Karikas, Director of Development
+Synecdoche Hotel Group
+
+172. Why did Mr. Karikas write the post?
+(A) To promote a job fair
+(B) To request referrals to a service provider
+(C) To recommend a tourist destination
+(D) To invite colleagues to a grand opening
+
+173. What is suggested about the TRE Hospitality Association?
+(A) It is based in Egypt.
+(B) It was recently expanded to include hotel owners.
+(C) It is an international organization.
+(D) It offers janitorial services.
+
+174. What is indicated about Mr. Karikas?
+(A) He teaches a hospitality course.
+(B) He lives in Rabat.
+(C) He is a former restaurant owner.
+(D) He attended at least one hospitality conference.
+
+175. In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?
+"It will also have a large meeting room."
+(A) [1]
+(B) [2]
+(C) [3]
+(D) [4]
+
+Questions 176-180 refer to the following e-mails.
+To: Manuel Torres <m.torres@opalmail.co.uk>
+From: Anya Patel <a.patel@support.harlund.co.uk>
+Date: 3 May
+Subject: Auto insurance
+Dear Mr. Torres,
+Welcome to Harlund Ltd. We are pleased to provide you with comprehensive automobile insurance for your new vehicle. We have received your first payment of £36.00, and your coverage is now in effect. Your policy number is M413927.
+Your billing schedule is based on an annual premium of £432.00. The remaining payments of £36.00 per month are due on the fifteenth day of each month starting in June.
+You can visit us online at www.harlund.co.uk to pay bills and manage your policy. Our Web site offers easy options for managing your account information and for making payments with scheduled transfers directly from your bank.
+Should you have any questions or wish to change your policy, call the customer support centre at 020 7946 0516. In the event of a vehicle incident, please contact an agent as soon as possible at 020 7946 0520. Be sure to have your policy number at hand. Thank you for trusting Harlund Ltd. We look forward to providing you with superior service.
+Best regards,
+Anya Patel, Harlund Ltd. Customer Support Agent
+
+*E-mail*
+To: Anya Patel <a.patel@support.harlund.co.uk>
+From: Manuel Torres <m.torres@opalmail.co.uk>
+Date: 4 May
+Subject: RE: Auto insurance
+Dear Ms. Patel,
+Thank you for the confirmation. I'm happy to have insurance from a trustworthy company. For your reference, the new car is now registered in my name.
+Although I made the initial payment to you by credit card, I plan to follow the process outlined in your e-mail for future payments.
+I also wanted to let you know that I have not yet received the insurance certificate. I looked for one that I could download from your Web site, but I could not find anything. Could you please send me a copy of the certificate?
+Sincerely,
+Manuel Torres
+
+176. What can be inferred about Mr. Torres?
+(A) He is moving to a new home.
+(B) He recently bought a car.
+(C) He will be retiring soon.
+(D) He recently opened a bank account.
+
+177. In the first e-mail, the word "coverage" in paragraph 1, line 3, is closest in meaning to
+(A) measurement
+(B) information
+(C) commentary
+(D) protection
+
+178. What does Ms. Patel recommend that Mr. Torres do?
+(A) Call an agent if needed
+(B) Register at a local office
+(C) Place an order promptly
+(D) Revise an agreement
+
+179. How does Mr. Torres intend to make future payments?
+(A) By cash
+(B) By credit card
+(C) By electronic transfer
+(D) By personal check
+
+180. What does Mr. Torres state that he looked for?
+(A) Directions to an office
+(B) A document to download
+(C) Reviews from customers
+(D) Contact information
+
+Questions 181-185 refer to the following schedule and review.
+Tour Schedule for Book Launch by Andrew Darr
+At each appearance, Mr. Darr will read an excerpt from his new novel, Down the Mountainside, followed by a question-and-answer session. Afterward, Mr. Darr will be available to autograph copies of his books.
+Venue City Date Time
+Neighbourhood Books Toronto, Ontario 18 May 6:00 P.M.
+Weinstock Books and Stationery Ottawa, Ontario 27 May 7:00 P.M.
+Portage Avenue Books Winnipeg, Manitoba 6 June 6:30 P.M.
+Downtown Books and Café Regina, Saskatchewan 15 June 7:00 P.M.
+
+Book Review: Down the Mountainside
+Reviewer: Camile Lin
+Date: 15 May
+Andrew Darr, the author of the best-selling series about detective Charles Martin, will be visiting our city this week, appearing at Neighbourhood Books to promote his new novel, Down the Mountainside. The new work sees Martin investigating mysterious events at a ski resort in the French Alps.
+Darr's storytelling has come a long way since readers first met Charles Martin in The Doorbell, and this installment is Darr's strongest work to date. Fans of the stories will welcome the return of Darr's wit after a three-year wait, and newcomers to the Martin series are sure to find themselves captivated.
+The story includes the right balance of suspense and humour, with an ending that is unpredictable, even to the most devoted Darr reader. I highly recommend this book to all mystery fans. You won't be disappointed.
+
+181. According to the schedule, what is NOT mentioned as an activity for Mr. Darr?
+(A) Reading from his book
+(B) Answering questions
+(C) Signing books for individuals
+(D) Taking photos with participants
+
+182. What city is the book reviewer from?
+(A) Toronto
+(B) Ottawa
+(C) Winnipeg
+(D) Regina
+
+183. What is most likely true about Down the Mountainside?
+(A) It is the author's first book.
+(B) It is a collection of short stories.
+(C) It is part of a series.
+(D) It is being translated into French.
+
+184. Who is Mr. Martin?
+(A) A fan of the author's
+(B) A character in the book
+(C) The writer of the review
+(D) The owner of a bookstore
+
+185. According to the review, who would most likely read Down the Mountainside?
+(A) People who like to read mysteries
+(B) People who enjoy novels based on true stories
+(C) People who travel frequently
+(D) People who prefer science fiction
+
+Questions 186-190 refer to the following report, letter, and article.
+Annual Citrus Production in Yuma County
+82 tons of citrus fruit
+Over 120,000 boxes of lemons
+• 15,000 boxes of oranges
+• 9,000 boxes of grapefruit
+• $190 million in revenue
+Employing close to 3,000 workers and contributing nearly $2 million in taxes to fund public services for the county
+-Arizona Agriculture Division
+
+City West Bank
+455 Canyon Avenue
+Phoenix, Arizona 85007
+March 21
+Domingo Ramirez, Director
+Arizona Agriculture Division
+55 Sixth Avenue
+Yuma, Arizona 85364
+Dear Mr. Ramirez,
+I read the recent report from the Arizona Agriculture Division summarizing Yuma County's success in the citrus industry. City West Bank wants to help the Arizona Agriculture Division you lead by expanding this industry further. We offer low-interest loans and provide expert advice through our connections to area chambers of commerce and to agricultural researchers at Arizona's state universities.
+We recognize that agritourism in southwest Arizona is growing as a result of the popularity of farm tours, bird-watching, and scenic country lodging, but tourism is unlikely to surpass the strength of this region's agriculture production. We support farmers in many counties in Arizona and are poised to help the citrus growers in Yuma County. Together, we can accomplish great things.
+Cordially,
+Bianca Schreiber
+Industry Investment Programs
+
+Schreiber Named Vice President of National Investment Strategies
+PHOENIX (January 19)-City West Bank announced today that Ms. Bianca Schreiber will be promoted to vice president of National Investment Strategies effective February 1.
+Ms. Schreiber currently oversees City West Bank's Industry Investment Programs, serving businesses throughout Arizona.
+Bank President William Dolle cited Ms. Schreiber's record of successful investment in the agricultural sector.
+"Ms. Schreiber's efforts in working with the director of the Arizona Agriculture Division have significantly boosted citrus production. Yuma County now produces as many grapefruit as it does oranges. Ms. Schreiber's keen insight will make her even more valuable to us in her new role," remarked Mr. Dolle.
+
+186. What does the report indicate about the Yuma County region?
+(A) It does not tax fruit that is sold there.
+(B) Several types of fruit are cultivated there.
+(C) More workers are needed for agricultural jobs.
+(D) New types of fruit are being produced there.
+
+187. What is one reason Ms. Schreiber writes to Mr. Ramirez?
+(A) To explain the benefits of doing business together
+(B) To clarify information in the report
+(C) To remind him to make a loan payment
+(D) To offer him advice from university agricultural researchers
+
+188. According to the letter, why do tourists visit Yuma County?
+(A) To shop at farmers markets
+(B) To take pictures
+(C) To enjoy theme parks
+(D) To observe wildlife
+
+189. What is suggested about Mr. Ramirez?
+(A) He accepted Ms. Schreiber's proposal.
+(B) He used to be employed by City West Bank.
+(C) He is a member of the Yuma Chamber of Commerce.
+(D) He recently bought a citrus farm.
+
+190. For what accomplishment does Mr. Dolle praise Ms. Schreiber?
+(A) Arranging the shipping of agricultural products
+(B) Opening many City West Bank branch offices
+(C) Helping to increase grapefruit production to 15,000 boxes
+(D) Promoting Yuma County as a vacation destination
+
+Questions 191-195 refer to the following invitation, Web page, and e-mail.
+https://www.unetcon.org/messages_audreysmith80
+Pending Invitations
+Unetcon - Message Center
+From: Don Fitzpatrick
+Branch Manager, Wilsonville Financial
+To: Audrey Smith
+Dear Audrey,
+Please accept this invitation to connect professionally on Unetcon. I am a fellow Stonerook University graduate and am always looking to expand my network. In this case, I am also reaching out to see if you would be interested in joining the private Stonerook alumni group page to stay current with everything that our fellow graduates are up to. https://www.unetcon.org/private/stonerookugrads.
+Kind regards,
+Don Fitzpatrick
+
+https://www.unetcon.org/private/stonerookugrads
+Stonerook University Graduates
+Check out the continued success and latest updates from Stonerook graduate Jonah Hilliard.
+Current Education Professional
+Director, Albright School of Business
+Master of Business Administration - Turnbull University
+Mr. Hilliard has led the Albright School of Business since 2017.
+Founder and Director, Clear Path
+Contact
+Phone: 843-555-0139
+E-mail: jhilliard@mccleese.edu
+Office: 403 Cordon Hall 530 N Kensington St. Charleston, SC 29425
+Bachelor of Arts in Education Studies - Stonerook University
+Between 2007 and 2017, he carried out extensive research on emerging markets in West Africa while teaching business management in Lagos, Nigeria. Two years ago, he founded Clear Path, a business that advises students from around the globe who wish to pursue studies in the United States.
+
+*E-mail*
+From: Audrey Smith <audrey_smith80@rapidonet.co.uk>
+To: Jonah Hilliard <jhilliard@mccleese.edu>
+Date: 19 September
+Subject: Referral
+Dear Jonah,
+It has been a long time since we last talked. I recently came across your profile on Unetcon and saw that you are now leading the business school at McCleese! My research in Lagos ended last year, when I accepted a position as lead consultant at Pryor and Martell. I have been based here in Manchester ever since.
+Congratulations to you on your most recent business venture-Clear Path already has quite an impressive reputation! I have a nephew who is interested in pursuing a degree in management information systems in the United States, and I was hoping I could put you both in touch so that he can take advantage of your new company's expertise in this area.
+Best,
+Audrey Smith
+
+191. What does the invitation indicate about Unetcon?
+(A) It is a business consulting firm.
+(B) It is a financial services company.
+(C) It is an employment agency.
+(D) It is a professional networking Web site.
+
+192. According to the Web page, where is Mr. Hilliard currently working?
+(A) In Lagos
+(B) In Charleston
+(C) In Wilsonville
+(D) In Manchester
+
+193. What is suggested about Ms. Smith?
+(A) She taught at Stonerook University.
+(B) She works at Wilsonville Financial.
+(C) She accepted Mr. Fitzpatrick's invitation.
+(D) She plans to visit Lagos this year.
+
+194. What do Ms. Smith and Mr. Hilliard have in common?
+(A) They cofounded Clear Path.
+(B) They are colleagues at Pryor and Martell.
+(C) They were classmates at Turnbull University.
+(D) They both conducted research in Nigeria.
+
+195. What is one purpose of Ms. Smith's e-mail to Mr. Hilliard?
+(A) To request his professional services
+(B) To provide a professional reference
+(C) To conduct an informational interview
+(D) To apply for a position at Albright School of Business
+
+Questions 196-200 refer to the following brochure, article, and e-mail.
+Modern Salon Academy
+www.modernsalonacademy.ca
+Established more than twenty years ago, Modern Salon Academy is Toronto's most recognized beauty school. The school offers hands-on training, small class sizes, and individualized instruction from leading industry professionals in the following programs.
+• Cosmetology I: Gain foundational knowledge of haircutting and styling.
+• Cosmetology II: Learn techniques in haircutting, styling, and colouring.
+• Skin Care: Learn techniques in providing advanced skin-care treatments.
+• Leadership: Study salon management, business operations, and compliance.
+Modern Salon Academy is a winner of the International Cosmetology Society's prestigious Award of Excellence. It is no surprise, then, that over 95 percent of our graduates have gone on to successful careers in both the beauty and fashion industries.
+
+Modern Salon Academy Expands in Ontario
+TORONTO (23 August)-Modern Salon Academy, a highly regarded beauty school here in Toronto, is opening a regional campus in Oshawa. The school is already admitting students for classes that are scheduled to begin on 4 October.
+Modern Salon Academy has had a substantial rise in enrollment over the past few years. Francine Dupuis, educational director of Modern Salon Academy, notes, "More than half our students live outside the city limits, so having a satellite campus makes perfect sense."
+Modern Salon Academy offers professional training and certification for careers in a variety of areas, including hair care, skin care, and makeup. For more information about Modern Salon Academy, including admission requirements, fees, and academic calendars, visit www.modernsalonacademy.ca.
+-Chrissy Jellen for the Ontario Daily Times
+
+To: Francine Dupuis <francine.dupuis@modernsalonacademy.ca>
+From: Amit Persaud <amit@shorelinebarbers.ca>
+Subject: Entry-level job opportunities
+Date: 19 November
+Dear Ms. Dupuis,
+My name is Amit Persaud, and I am the owner and operator of Shoreline Barbers. I am interested in recruiting some of your graduating students to work at my barbershop, which is just around the corner from your newly established regional campus. I am seeking highly qualified, entry-level employees who can provide both haircutting and hair-colouring services.
+Would it be possible for me to visit the nearby campus to give interested students an opportunity to talk with me? This would be a convenient way for me to evaluate them for the positions I am seeking to fill, and then I can also answer any questions they may have.
+Please let me know if an arrangement can be made.
+Sincerely,
+Amit Persaud
+
+196. How does Modern Salon Academy teach its students?
+(A) Through online courses
+(B) Through academic lectures
+(C) Through individualized training
+(D) Through large-group discussions
+
+197. According to the article, what has increased at Modern Salon Academy?
+(A) The cost of tuition
+(B) The number of students
+(C) The requirements for admission
+(D) The hours needed for certification
+
+198. What is most likely true about Shoreline Barbers?
+(A) It is located in Oshawa.
+(B) It is opening a shop in Toronto.
+(C) It was sold to Francine Dupuis.
+(D) It has very affordable services.
+
+199. Who would best meet Mr. Persaud's needs?
+(A) Students in Cosmetology I
+(B) Students in Cosmetology II
+(C) Students in Skin Care
+(D) Students in Leadership
+
+200. According to the e-mail, what does Mr. Persaud want to do?
+(A) Establish another business
+(B) Retrain staff members
+(C) Teach some classes
+(D) Interview some students
 
-**Directions:** Read the texts that follow. A word, phrase, or sentence is missing in parts of each text. Four answer choices for each question are given below the text. Select the best answer to complete the text. Then mark the letter (A), (B), (C), or (D) on your answer sheet.
 
----
-
-### Questions 131-134 refer to the following article.
-
-**Grocery Chain to Host Event**
-
-LEIGHTON (October 8)—Ohale Foods, one of the region's largest supermarket chains, is seeking to fill almost 100 open positions. For that reason, the company is holding a 131. event on October 20. Job opportunities exist at all fourteen of Ohale's current stores. 132. , Ohale is seeking employees for its new Westside location, which is still under construction. 133. .
-
-Those who 134. the event should bring copies of their résumé to the Grand Ballroom of the Palace Suites Hotel between 10 A.M. and 7 P.M. No appointment is required.
-
-131. 
-(A) manufacturing
-(B) hiring
-(C) political
-(D) sporting
-
-132. 
-(A) If not
-(B) After all
-(C) Additionally
-(D) For example
-
-133. 
-(A) Its grand opening is scheduled for mid-November.
-(B) Most applicants had prior experience.
-(C) Its appointment of Linda Okumu as its CEO has surprised analysts.
-(D) Local competitors cannot match its prices.
-
-134. 
-(A) attending
-(B) to attend
-(C) attended
-(D) are attending
-
----
-
-### Questions 135-138 refer to the following instructions.
-
-Thank you for your purchase of an Ajaz Water Filter Pitcher. It is a wonderful solution for water that tastes great! To improve the effectiveness of the Ajaz Water Filter Pitcher, we 135. priming the filter before the first use. 136. . Then screw the filter clockwise into the lid of the pitcher until it fits 137. . As you use the pitcher, remember that 138. water flow is a signal that the filter is becoming clogged and will need to be replaced soon.
-
-135. 
-(A) tried
-(B) recommend
-(C) consider
-(D) started
-
-136. 
-(A) Our filtration system will be redesigned within the next year.
-(B) Water use may be reduced by running your dishwasher less frequently.
-(C) To do this, run cool tap water through the filter for three minutes.
-(D) There are 150 liters of water in the main storage tank at all times.
-
-137. 
-(A) extremely
-(B) highly
-(C) tightly
-(D) steadily
-
-138. 
-(A) diminished
-(B) diminishes
-(C) diminish
-(D) diminishable
-
----
-
-### Questions 139-142 refer to the following policy.
-
-**Returning merchandise**
-
-Abney Home Products is committed to providing outstanding service, and we guarantee the 139. of all the products in our catalog. If you are not satisfied with a purchase, call our customer service line at 339-555-0177 to request a return authorization code. The service agent 140. you for the invoice number from the package insert. 141. . Please be aware that Abney Home Products is not 142. for postage on merchandise returns.
-
-139. 
-(A) condition
-(B) object
-(C) explanation
-(D) preview
-
-140. 
-(A) asked
-(B) is asking
-(C) has asked
-(D) will ask
-
-141. 
-(A) Our employees have software training and are skilled at resolving problems.
-(B) To cancel a furniture delivery, please call within 24 hours of ordering.
-(C) When you send back the product, be sure to include the authorization code.
-(D) The catalog has sections for kitchen goods, lighting, appliances, and more.
-
-142. 
-(A) responsibly
-(B) responsible
-(C) responsibility
-(D) responsibleness
-
----
-
-### Questions 143-146 refer to the following memo.
-
-**To:** All Employees  
-**From:** Marina Papantonio, Safety Liaison  
-**Date:** November 12  
-**Subject:** Safety Training  
-
-It is time once again for our annual safety training workshop. This year, training will focus on digital safety measures, like avoiding scams and protecting against cyberattacks. Our technology experts already have installed new programs throughout our company's information system to reduce risk. 143. , we all need to understand how the programs work and what to do when a problem arises.
-
-To accommodate 144. , several workshops will be conducted throughout the upcoming week. You can register for any one of these 145. on our company's intranet page. Just click on the link for "Safety Training."
-
-146. . If you are unable to take part in any of the scheduled workshops for any reason, you must inform your supervisor.
-
-143. 
-(A) If so
-(B) However
-(C) Otherwise
-(D) In that case
-
-144. 
-(A) itself
-(B) his
-(C) whose
-(D) everyone
-
-145. 
-(A) sessions
-(B) positions
-(C) conferences
-(D) competitions
-
-146. 
-(A) Cyberattacks are on the rise.
-(B) The training is held each summer.
-(C) Please make every effort to sign up.
-(D) Last year's program was canceled.
-
----
-
-## PART 7
-
-**Directions:** In this part you will read a selection of texts, such as magazine and newspaper articles, e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the best answer for each question and mark the letter (A), (B), (C), or (D) on your answer sheet.
-
----
-
-### Questions 147-148 refer to the following advertisement.
-
-**Owl and Moon**
-
-Buy one mattress, and choose one of our beautiful rugs for free!
-
-Use the following coupon code when you check out at owlandmoon.co.uk: ESSZRS4T.
-
-Our mattresses are shipped directly to your home and usually arrive within one week. Try out a mattress for 90 days, and if you are not happy with it, send it back for a full refund. We also offer low-interest financing for two years on all our furniture.
-
-147. What types of products are being advertised?  
-(A) Camping gear  
-(B) Household items  
-(C) Office equipment  
-(D) Automobile accessories  
-
-148. What is indicated about the company?  
-(A) It has been in business for two years.  
-(B) It accepts product returns.  
-(C) It has same-day delivery.  
-(D) It has a yearly sale.  
-
----
-
-### Questions 149-150 refer to the following e-mail.
-
-**To:** Demarco Hines <d.hines@worldmail.com>  
-**From:** Soon Yi Park <customerservice@thebestbags.co.kr>  
-**Subject:** Item F208 (canvas overnight bag)  
-**Date:** 19 June  
-
-Dear Mr. Hines,
-
-The Best Bags canvas overnight bag you ordered is not currently available in the colour you requested. There are several options available to you.
-
-1. Cancel your order, and we will gladly refund your money in full.
-2. Select a different colour. That item is currently available in light blue, dark green, and dark gray.
-3. Choose an item of equal value from our Web site or catalogue.
-4. Wait until the item you ordered is back in stock in light gray. Allow three to five weeks.
-
-Please let us know which option you prefer. We apologize for any inconvenience.
-
-Thank you,
-
-Soon Yi Park, Customer Service Agent
-
-149. What is the purpose of the e-mail?  
-(A) To confirm shipment of an order  
-(B) To acknowledge the return of an order  
-(C) To provide alternatives for an order  
-(D) To thank a customer for placing an order  
-
-150. What color bag is currently NOT available?  
-(A) The light blue one  
-(B) The dark green one  
-(C) The dark gray one  
-(D) The light gray one  
-
----
-
-### Questions 151-152 refer to the following text-message chain.
-
-**Christie Moroff (9:47 A.M.)**  
-Good morning, Ren. I just stopped by your office.
-
-**Ren Nomura (9:48 A.M.)**  
-Then you already know that I am not there today.
-
-**Christie Moroff (9:48 A.M.)**  
-Yes, your new office mate—I can't remember her name—told me that you just started working remotely on Tuesdays. I was looking for some empty binders.
-
-**Ren Nomura (9:49 A.M.)**  
-That's Cheryl. I thought you had already met her. Are there any binders in the supply closet?
-
-**Christie Moroff (9:50 A.M.)**  
-No, I just looked. Frank has ordered some more, but they won't be in until next week. I need two or three of them now.
-
-**Ren Nomura (9:51 A.M.)**  
-Check with Cheryl. She is really helpful.
-
-**Christie Moroff (9:52 A.M.)**  
-OK. I will.
-
-151. What is suggested about Mr. Nomura?  
-(A) He does not usually work on Tuesdays.  
-(B) He shares an office with Ms. Moroff.  
-(C) He recently purchased office supplies.  
-(D) He works off-site one day a week.  
-
-152. At 9:51 A.M., what does Mr. Nomura most likely mean when he writes, "Check with Cheryl"?  
-(A) Cheryl may have extra binders.  
-(B) Cheryl must approve a purchase.  
-(C) Cheryl will be able to locate Frank.  
-(D) Cheryl knows when a delivery will arrive.  
-
----
-
-### Questions 153-154 refer to the following form.
-
-**Cortica Bank**
-
-Please fill out the following form to open a new bank account.
-
-**Is this your first account with Cortica Bank?** __ Yes X No  
-**Existing account number (if applicable):** 190-37580  
-**New account type:** __ Chequing X Savings __ Investment  
-**Name:** Frances Wilkes  
-**Mailing address:** 17 Jones Street, North Sydney NSW 2060  
-**Phone number:** (02) 7010 8624  
-**E-mail address:** fwilkes@myemail.com.au  
-**Initial deposit amount (minimum $500):** $1,500  
-**Would you like to sign up for electronic communications?** __ Yes X No  
-
-If you select "Yes," we will contact you via voice mail, e-mail, or text.  
-If you select "No," you will receive monthly paper statements in the mail.  
-
-Please note that accounts take up to two business days to be established. Your funds will be available after this period. You will receive your debit card in the mail in up to five business days.
-
-153. What is indicated about Ms. Wilkes?  
-(A) She has another account with Cortica Bank.  
-(B) She plans to open an investment account.  
-(C) She has lost a debit card.  
-(D) She placed an order for checks.  
-
-154. How will the bank most likely contact Ms. Wilkes?  
-(A) By e-mail  
-(B) By text message  
-(C) By telephone  
-(D) By letter  
-
----
-
-### Questions 155-157 refer to the following job advertisement.
-
-**Construction Superintendent**  
-**Jones-Richmond Construction (JRC)**  
-
-Founded 25 years ago, JRC is a full-service general contractor serving clients throughout Winnipeg and the surrounding area.
-
-**Responsibilities:**
-- Report to senior project manager
-- Manage on-site construction activities
-- Ensure compliance with safety regulations
-- Negotiate purchases and contracts
-- Establish construction schedules
-
-**Qualifications:**
-- Minimum five years of commercial construction experience
-- Willingness to travel to job sites daily (usually within a 50-kilometre radius)
-- Strong written communication skills
-
-To apply, submit a résumé and cover letter through www.jrc.ca/apply.
-
-155. What is suggested about Jones-Richmond Construction?  
-(A) It is a new company.  
-(B) It has won industry awards for its work.  
-(C) It is based in Winnipeg.  
-(D) It specializes in home construction projects.  
-
-156. What is NOT listed as a responsibility of the construction superintendent?  
-(A) Setting schedules  
-(B) Training inexperienced workers  
-(C) Participating in contract discussions  
-(D) Ensuring worker safety  
-
-157. According to the advertisement, what must a successful job applicant have?  
-(A) A technical certification  
-(B) A reference letter from a former employer  
-(C) Senior management experience  
-(D) The ability to visit construction sites each workday  
-
----
-
-### Questions 158-160 refer to the following e-mail.
-
-**To:** All Sledgehammer Gym Staff  
-**From:** Lucas Sledge  
-**Date:** September 15  
-**Subject:** Payroll changes  
-**Attachment:** [0] Form  
-
-Dear Staff,
-
-Thanks to your dedicated work, word of our little gym has spread. Over the past twelve months, enrollment has significantly increased and so has our teaching staff. Although this growth is wonderful, having to process the payroll by myself has become rather burdensome. Therefore, I have contracted Trumbull and Company to provide direct deposit of your wages into your bank accounts. — [1] —. Consequently, you no longer need to deposit your paycheck yourself. Also, you will now be able to get your pay stubs and tax information online. — [2] —.
-
-To allow for these changes, I am asking everyone to provide me with the necessary banking details. Please complete the attached form and bring it to the office with a voided check no later than September 25. — [3] —. The new process will take effect in October. — [4] —. Please let me know if you have any questions.
-
-Take care,  
-Lucas  
-
-158. What is mentioned as a benefit of the new payment system?  
-(A) It will reduce Mr. Sledge's workload.  
-(B) It will include more staff involvement.  
-(C) It will simplify tax collection.  
-(D) It will result in fewer payment errors.  
-
-159. What does Mr. Sledge ask employees to do?  
-(A) Update their contact information  
-(B) Submit ideas on how to improve the gym  
-(C) Provide information about their bank account  
-(D) Sign up for a professional development class  
-
-160. In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?  
-
-"If I am not around, please see my assistant."  
-(A) [1]  
-(B) [2]  
-(C) [3]  
-(D) [4]  
-
----
-
-### Questions 161-163 refer to the following article.
-
-**Aussie Coffee Fair This Weekend**
-
-SYDNEY (4 June)—Coffee will be the main attraction this weekend at the Aussie Coffee Fair hosted by Homewares, the country's top kitchen appliance manufacturer. The event will be held at the Harbour Expo Centre.
-
-The two-day event will feature a variety of coffee-oriented presentations by coffee growers and roasters, food writers, makers of kitchen equipment, and chefs. Foods and beverages will be available to view, taste, and buy at booths throughout the centre.
-
-Sessions will feature demonstrations on cooking with coffee and tips for brewing the best cup of coffee, as well as information on nonfood uses for coffee. In addition, culinary experts will be on hand to meet with coffee enthusiasts for discussions designed to help them create a true coffeehouse experience in their own homes.
-
-Entry to the Aussie Coffee Fair is free. However, registration is required as space is limited. For information and to register online, go to www.aussiecoffeefair.com.
-
-161. The word "top" in paragraph 1, line 3, is closest in meaning to  
-(A) only  
-(B) leading  
-(C) highest  
-(D) modern  
-
-162. Who will NOT be conducting informational presentations at the fair?  
-(A) Chefs  
-(B) Coffee growers  
-(C) Equipment makers  
-(D) Coffeehouse owners  
-
-163. What must people do to attend the fair?  
-(A) Sign up on a Web site  
-(B) Call to make a reservation  
-(C) Buy a ticket at the event location  
-(D) Present a Homewares product receipt  
-
----
-
-### Questions 164-167 refer to the following e-mail.
-
-**From:** melissa@grandgrainsbakery.com  
-**To:** clinorotero@webmail.com  
-**Date:** October 28  
-**Re:** Desserts  
-
-Dear Ms. Otero,
-
-I just followed up with baker about your request to have an assortment of desserts instead of one large cake for the party you are hosting at your home on November 7. We suggest ordering three dessert pieces per person. The cost for three desserts is between $10 and $12 per person. Our most popular desserts are the mini cheesecakes, the berry tartlets, and the brownies.
-
-I know you are using a separate caterer for the lunch, and they will help serve and clean up after the party. You also mentioned that you were considering whether to put the dessert table in your backyard or inside your house. Just keep in mind that if you order the cheesecakes, they should not be left out for more than two hours. If you give us very specific instructions about where to set up the desserts, our staff can leave them in the appropriate place without disturbing the party.
-
-Once you make your dessert choices, simply let us know how many guests you expect, and we can take care of the rest.
-
-Melissa Luhya  
-Grand Grains Bakery  
-
-164. What is the purpose of the e-mail?  
-(A) To advertise some new pastries  
-(B) To present options for an event  
-(C) To recommend serving a larger cake  
-(D) To request payment on an order  
-
-165. What does Ms. Luhya indicate about the mini cheesecakes?  
-(A) They are the most expensive dessert.  
-(B) They are available in several flavors.  
-(C) They should not be unrefrigerated for a long time.  
-(D) They cannot be ordered in larger sizes.  
-
-166. The word "disturbing" in paragraph 2, line 6, is closest in meaning to  
-(A) interrupting  
-(B) frightening  
-(C) rearranging  
-(D) moving  
-
-167. What information does Ms. Luhya request from Ms. Otero?  
-(A) A street address  
-(B) An approximate budget  
-(C) The name of a caterer  
-(D) The number of guests  
-
----
-
-### Questions 168-171 refer to the following e-mail.
-
-**To:** Cheryl Futrel <cfutrel@zephyrmail.com>  
-**From:** Lydia Matsuda <service@candella.com>  
-**Date:** June 9  
-**Subject:** Home decorating  
-
-Dear Ms. Futrel,
-
-Thank you for your interest in Candella Interior Design. — [1] —. We are proud to claim that we are the oldest and most successful online design consulting company in the region. We welcome you as a new client. — [2] —. From modest country homes to urban apartments, we do it all.
-
-We understand from your original inquiry that you intend to sell your apartment soon and are primarily interested in how best to present it to prospective buyers. Here's how our design services work: the first step is completing an online questionnaire. — [3] —. Next, you will be matched with an online professional interior designer who can help you with all choices for paint colors, window treatments, and floor coverings. You will receive a room layout plan and a personalized list of ideas for furniture and accessories, with all products available for purchase online. — [4] —. As a special bonus, from now until July 1 our online retail partners have agreed to offer a 10 percent discount on products purchased through our links.
-
-Finally, you will be glad to learn that we charge not by the hour but by the room for our design ideas, with the average price being about $275 per room.
-
-We look forward to hearing from you and working with you soon.
-
-Sincerely,  
-Lydia Matsuda  
-
-168. What is indicated about Candella Interior Design?  
-(A) Its main office is located in a major city.  
-(B) Its staff members visit clients' houses.  
-(C) It has been in business longer than its competitors have been.  
-(D) It is a family-run business.  
-
-169. Why does Ms. Futrel want to redecorate her apartment?  
-(A) To prepare for a visit from relatives  
-(B) To make it attractive to potential buyers  
-(C) To replace furniture that she dislikes  
-(D) To use it as an example for her clients  
-
-170. What will happen on July 1?  
-(A) Room accessories will be distributed.  
-(B) Work will begin on a new project.  
-(C) The client list will be expanded.  
-(D) A special offer will end.  
-
-171. In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?  
-
-"The answers will give us a sense of your taste and requirements."  
-(A) [1]  
-(B) [2]  
-(C) [3]  
-(D) [4]  
-
----
-
-### Questions 172-175 refer to the following text-message chain.
-
-**Darius Wilkins (11:09 A.M.)**  
-Hi, Ms. Clarke. This is Darius from Roto Bicycle. I promised to check with you before servicing your bicycle.
-
-**Lauren Clarke (11:14 A.M.)**  
-Thanks. So, what do you think?
-
-**Darius Wilkins (11:15 A.M.)**  
-In addition to the regular maintenance service, I suggest a drivetrain cleaning and new brake mechanisms.
-
-**Lauren Clarke (11:16 A.M.)**  
-OK. What does that come to?
-
-**Darius Wilkins (11:18 A.M.)**  
-An extensive maintenance service, which includes the same gear and brake adjustments as a regular maintenance service, plus the drivetrain cleaning, is $140. Add $70 for two new brake mechanisms and pads and another $30 for labor charges. So it should come to around $240 altogether. Shall I move forward?
-
-**Lauren Clarke (11:21 A.M.)**  
-Wow! That much?
-
-**Darius Wilkins (11:22 A.M.)**  
-Especially with that major bicycle race you have ahead of you.
-
-**Lauren Clarke (11:24 A.M.)**  
-I know. I guess we have to do it. Please let me know when it's ready.
-
-172. Why did Mr. Wilkins contact Ms. Clarke?  
-(A) To recommend a new product  
-(B) To discuss a scheduling problem  
-(C) To confirm that a bicycle part has been ordered  
-(D) To request permission to do some work  
-
-173. What most likely cost about $30?  
-(A) New braking mechanisms  
-(B) Labor charges  
-(C) Basic maintenance service  
-(D) Drivetrain cleaning  
-
-174. At 11:21 A.M., what does Ms. Clarke imply when she writes, "That much"?  
-(A) She did not realize how busy Mr. Wilkins is.  
-(B) The pressure in her tires was surprisingly low.  
-(C) The cost of repairs seems high.  
-(D) Repairing the bike will take more time than she expected.  
-
-175. What is suggested about Ms. Clarke?  
-(A) She prefers to pay with cash.  
-(B) She is shopping for a new bicycle.  
-(C) She is unhappy with the quality of a repair.  
-(D) She will soon compete in a bicycle race.  
-
----
-
-### Questions 176-180 refer to the following e-mail and Web page.
-
-**E-Mail Message**  
-**To:** Cassie Raferty <cassie@mailcurrent.ie>  
-**From:** Youssef Zimri <zimri@zimrimechanical.ie>  
-**Subject:** Following up  
-**Date:** 12 September  
-**Attachment:** [0] cmcclinic  
-
-Dear Ms. Raferty,
-
-I am very happy with your work so far. Your suggestion to add photos from our archive certainly dressed up the "Company History" page. The help-wanted pop-up bubble on the home page also looks good. Hopefully, it will attract applicants with mechanical experience.
-
-I'd like you to add one more project to our "Portfolio" page. We have finally finished replacing the plumbing and heating systems at Clary Medical Centre's satellite clinic in Galway. It was a challenging job, and I'm proud of our results. The attachment contains photos and a short description of what we did there.
-
-Sincerely,  
-Youssef Zimri  
-Owner, Zimri Mechanical  
-
-***
-
-**https://www.clarymedicalcentre.ie**  
-**About | News | Staff | Contact Us**  
-
-**Clinic opening soon**  
-
-We have repurposed 47 High Street, Galway, into a satellite medical clinic and will celebrate with a grand opening party on Friday, 28 October. Remarks by Medical Director Dr. Celia O'Leary and local elected officials will begin promptly at 1:00 P.M., followed by a ribbon-cutting ceremony and tours until 4:30 P.M.
-
-Thirty miles from the Clary Medical Centre's main campus, the Clary Clinic is housed in the historic Brandmore shoe factory, which closed more than two decades ago. During renovations, care was taken to maintain the exterior's nineteenth-century architectural features. The clinic's interior boasts eighteen examination rooms, a state-of-the-art x-ray facility, private offices for patient consultations, and a lab for processing patient samples.
-
-Clinic staff will begin seeing patients on Tuesday, 1 November. To make an appointment, please call 020 915 1424.
-
-176. Who most likely is Ms. Raferty?  
-(A) A job recruiter  
-(B) A plumbing contractor  
-(C) A Galway historian  
-(D) A Web-site designer  
-
-177. What is indicated about Mr. Zimri?  
-(A) He is trying to recruit an assistant architect.  
-(B) He is a member of Clary Medical Centre's board of directors.  
-(C) He is pleased with his firm's work at a former shoe factory.  
-(D) He is waiting for Dr. O'Leary's feedback on a portfolio.  
-
-178. According to the Web page, what will happen at the grand opening event?  
-(A) Government officials will be in attendance.  
-(B) Sandwiches will be served.  
-(C) New building plans will be revealed.  
-(D) Former patients will be interviewed.  
-
-179. On the Web page, the word "maintain" in paragraph 2, line 3, is closest in meaning to  
-(A) assert  
-(B) heal  
-(C) support  
-(D) preserve  
-
-180. According to the Web page, what is NOT part of the Clary Clinic?  
-(A) A medical laboratory  
-(B) A pharmacy  
-(C) Medical imaging equipment  
-(D) Offices for clinicians  
-
----
-
-### Questions 181-185 refer to the following form and e-mail.
-
-**PURCHASE ORDER**  
-
-**Pirate's Bounty Seafood**  
-11 Harbor Street  
-Charlottetown, Prince Edward Island, C1A 0A5  
-**Date:** 2 October  
-**Purchase Order:** 5338  
-
-| VENDOR | SHIP TO |
-| :--- | :--- |
-| Rochette's Commercial Refrigeration<br>2175 Lyons Avenue<br>Guelph, Ontario, N1C 0A1<br>519-555-0112 | Pirate's Bounty Seafood<br>11 Harbor Street<br>Charlottetown, Prince Edward Island,<br>C1A 0A5<br>Attn: Lenore Okiya<br>782-555-0145 |
-
-| ITEM NUMBER | DESCRIPTION | QUANTITY | PRICE | TOTAL |
-| :--- | :--- | :--- | :--- | :--- |
-| BF550 | Blizzard walk-in freezer<br>Features: 1.5m x 2m x 2.5m,<br>adjustable shelves,<br>aluminum flooring,<br>galvanized steel panels | 1 | $6,400.00 | $6,400.00 |
-
-| COMMENTS OR SPECIAL INSTRUCTIONS | SUBTOTAL | $6,400.00 |
-| :--- | :--- | :--- |
-| Restaurant expanding. Need unit by 17 November. | TAX | $960.00 |
-| | **GRAND TOTAL** | **$7,360.00** |
-
-***
-
-**To:** Lenore Okiya <l.okiya@piratesbounty.ca>  
-**From:** Shaliya Umuma <customerservice@rochesslerefrigeration.ca>  
-**Date:** 3 October  
-**Subject:** Purchase Order 5338  
-
-Dear Ms. Okiya,
-
-We received your purchase order for the Blizzard walk-in freezer. Unfortunately, the model you requested is on back order and will not be available for three months. We regret the inconvenience and would like to offer you some options.
-
-I can offer you the Blizzard BF600, which measures 2m x 2.5m x 3m, at the discounted price of $6,900 plus tax. It comes with the same features as the item you ordered. Alternatively, we have a refurbished BF400 in stock. It's the same size as the BF550; however, while the BF550 includes a remote control for setting the temperature, the BF400 has a wall-mounted device for that purpose. The BF400 unit comes with a two-year warranty. It is priced at $5,600 plus tax.
-
-Please let me know how you wish to proceed. Just reply to this e-mail.
-
-Shaliya Umuma, Customer Service Manager
-
-181. Why does Pirate's Bounty Seafood need to purchase new equipment?  
-(A) Its current refrigerator stopped working.  
-(B) The warranty on its current refrigerator has expired.  
-(C) The restaurant is increasing in size.  
-(D) The restaurant is moving to a new location.  
-
-182. What is the problem with the item Ms. Okiya ordered?  
-(A) It was lost during shipping.  
-(B) It has been discontinued.  
-(C) It is temporarily out of stock.  
-(D) It has a damaged control panel.  
-
-183. What is NOT a feature of the Blizzard BF600?  
-(A) It has a fast-freeze switch.  
-(B) It has adjustable shelves.  
-(C) It has aluminum flooring.  
-(D) It has galvanized steel panels.  
-
-184. According to the e-mail, what does the BF400 model come with?  
-(A) A user manual  
-(B) A remote control  
-(C) A warranty  
-(D) A tax waiver  
-
-185. In the e-mail, the word "Just" in paragraph 3, line 1, is closest in meaning to  
-(A) immediately  
-(B) kindly  
-(C) shortly  
-(D) simply  
-
----
-
-### Questions 186-190 refer to the following schedule, e-mail, and article.
-
-**Fifth Annual International Marketing Society Conference**  
-23-25 October, Grant Hotel and Conference Centre, London  
-
-**Day 1:**
-
-| Time | Description | Venue |
-| :--- | :--- | :--- |
-| 7:00 A.M. to 8:00 A.M. | Morning Social: Complimentary omelets, pastries, coffee, tea | Mezzanine |
-| 8:30 A.M. to 10:00 A.M. | Marcos Secada, founder and CEO, Grindstone Marketing Group | Room 2 |
-| 10:30 A.M. to noon | Claire Song, business columnist and best-selling author | Room 10 |
-| 12:30 P.M. to 2:00 P.M. | Lunch (ticket purchase required) | Alexander Ballroom |
-
-***
-
-**To:** Nadir Kalwar <kalwar.n@kdbuildingconcepts.com>  
-**From:** Olek Dzik <odzik.k@kdbuildingconcepts.com>  
-**Date:** 12 May  
-**Subject:** Upcoming marketing campaign  
-**Attachment:** [0] Link to video  
-
-Nadir,
-
-Thanks for your help with the corporate marketing plan. Attached is a link to the video created for us by Grindstone Marketing Group. It shows our 3-D printing equipment pouring fast-setting concrete, layer by layer. I think it looks great as is, and I believe it will be the most compelling aspect of our 1 June launch, especially if the Sheffield house is sold by then.
-
-In case you haven't heard, our next construction project will be a home just a couple of kilometres from your office building!
-
-Olek
-
-***
-
-**House Constructed Using 3-D Technology For Sale**
-
-SHEFFIELD (15 May)—An international construction firm specializing in innovative building technologies has completed one of Britain's first 3-D printed houses. The new structure is located on Morgan Road in Sheffield.
-
-KD Building Concepts took less than two weeks to execute the first phase of the project, which entailed printing the concrete walls and installing the electrical and plumbing systems, according to company president Olek Dzik. In just two months, the fully landscaped house with two bedrooms and two bathrooms was ready for market.
-
-"Labour costs were cut in half thanks to 3-D printing technology," said Mr. Dzik, whose company has offices in France and Germany, as well as in Sheffield. "At KD Building Concepts, we are committed to building homes that are both affordable and luxurious."
-
-The house was listed for sale this week by a local real estate broker. The asking price is £150,000.
-
-Next on the horizon for KD Building Concepts is the construction of a home in Hamburg, Germany.
-
-186. What is mentioned on the schedule?  
-(A) Free breakfast is available for conference participants.  
-(B) The conference is five days long.  
-(C) A keynote address will be delivered at the end of the first day.  
-(D) A featured speaker has been replaced.  
-
-187. According to the schedule, what will happen at 10:30 A.M.?  
-(A) A writer will give a presentation.  
-(B) Coffee will be served in the lobby.  
-(C) Lunch tickets will be sold in room 10.  
-(D) A revised schedule will be distributed.  
-
-188. What can be concluded about Mr. Dzik?  
-(A) He wants a marketing video to be shortened.  
-(B) He has asked Mr. Kalwar for a new marketing plan.  
-(C) He organized a conference in London.  
-(D) He hired Mr. Secada's firm for a project.  
-
-189. What is suggested about Mr. Kalwar?  
-(A) He is a videographer.  
-(B) He works in Germany.  
-(C) He is planning to buy a house in Sheffield.  
-(D) He specializes in construction materials.  
-
-190. What does the article indicate about the house created with a 3-D printer?  
-(A) It cost £150,000 to build.  
-(B) It was finished in two months.  
-(C) It will be landscaped next week.  
-(D) Its bedrooms are all the same size.  
-
----
-
-### Questions 191-195 refer to the following job posting, flyer, and article.
-
-**Gallery manager at Richard Lahiri Gallery in Cromwood**
-
-Applicants for this full-time position must have experience in retail art with an established history of successfully attracting patrons interested in purchasing original works of art. Experience managing a social media account is also desired. The position will be primarily on-site; however, some remote hours can be scheduled. Candidates must be available to start work on or before April 1. Qualified applicants should contact gallery director Richard Lahiri at rlahiri@richardlahirigallery.com.
-
-***
-
-**Summer Scene Arts Program**
-
-Starting on May 1, five art galleries in Cromwood will be hosting open houses every Friday from May through August. Come enjoy live music, refreshments, artist talks, and more on the Cromwood boardwalk. Activities start at 4:00 P.M. and continue until 9:30 P.M., rain or shine. Participating galleries are listed below.
-
-Rita Blake Art • Siitva Gallery • Richard Lahiri Gallery  
-Patricia Dolivo Painting • Ashland Pottery and Crafts  
-
-Funded by the Cromwood City Council and Regents Bank
-
-***
-
-**Summer Activities in Middleton County**  
-**Compiled by Lisa Yu-Seaver**  
-
-**Cromwood Art Nights**
-
-Residents of Elmhurst, Melbridge, and Cromwood are invited to explore the local art scene in Cromwood this summer. The five galleries on the boardwalk overlooking the Wye River are holding special events each Friday as part of the Summer Arts Program. This Friday, Richard Lahiri and his gallery manager, Geetu Gelang, will use a giant screen to demonstrate software for creating virtual art. The event will also feature craft vendors, food trucks, and live music. See www.cromwood.gov/things-to-do for more information.
-
-**Movies in Brady Park**
-
-The popular summer movie series in Herrontown returns on June 16! Each Saturday evening, a classic film will be projected on Brady Park's Grand Lawn. Bring your picnic basket and a blanket and get comfortable! The schedule of films is available at www.bradypark.org/activities.
-
-191. What is stated in the job posting about the managerial position?  
-(A) It is fully on-site.  
-(B) It is Mr. Lahiri's current job.  
-(C) It requires sales experience.  
-(D) It will be part-time until April 1.  
-
-192. According to the flyer, what will happen on May 1?  
-(A) A public arts program will begin.  
-(B) A city council meeting will take place.  
-(C) A new art gallery will hold a grand opening.  
-(D) Regents Bank will be closed for the day.  
-
-193. What is suggested about Ashland Pottery and Crafts?  
-(A) It is located near the Wye River.  
-(B) It specializes in virtual art.  
-(C) It hosts pottery workshops every Saturday.  
-(D) It is sponsoring a summer movie series.  
-
-194. What is suggested about Geetu Gelang?  
-(A) She is a local musician.  
-(B) She will be selling her crafts on May 1.  
-(C) She plans to start a social media account.  
-(D) She was recently hired by the Richard Lahiri Gallery.  
-
-195. According to the article, where is Brady Park located?  
-(A) In Cromwood  
-(B) In Elmhurst  
-(C) In Herrontown  
-(D) In Melbridge  
-
----
-
-### Questions 196-200 refer to the following article, memo, and policy.
-
-**Senano Designs Buys Gendalla in $60 Million Deal**
-
-LOS ANGELES (March 20)—Fashion powerhouse Senano Designs announced on Wednesday that it had acquired Gendalla, an up-and-coming luxury brand. The acquisition is part of Senano's plan to supplement its clothing products with a line of designer watches. Over the next two years, the company has further plans to expand its offerings to include fragrances and luggage. Lina Pacheco, Senano's chief executive officer, said that such expansion is necessary to keep up and compete with other international fashion houses. Though based in Los Angeles, in recent years Senano has opened offices in Philadelphia, Chicago, and Miami. Ms. Pacheco says she was unfamiliar with Gendalla products until a year ago, when she saw one of their ads in an automobile magazine. "The products have a distinctive, modern style," Ms. Pacheco said, "which will go well with Senano's trendsetting clothes."
-
-***
-
-**MEMO**  
-
-**From:** Oscar Johansen, Accounting department  
-**To:** All Gendalla employees  
-**Date:** March 22  
-**Subject:** Travel expense policy  
-**Attachment:** Policy  
-
-I have attached a copy of Senano's policy on travel expenses, which will go into effect when we officially become employees of Senano on March 31.
-
-Note that Senano's policy is more restrictive than Gendalla's policy in several ways. For example, employees will no longer have one month to submit expense reports. However, the new policy will make some processes much easier: specifically, Senano's requirements for submitting expenses under $50 are simpler than those under current Gendalla policy.
-
-Carlie Dawson, an accounting director who works at Senano's headquarters, will come to our New York office to lead an information session about this and other policy-related changes on Thursday, March 28, at 2:00 P.M. I strongly encourage you to attend.
-
-***
-
-**Senano Designs**  
-**Travel Expense Policy**  
-
-- To be reimbursed for work-related travel, employees must submit a travel request at least two weeks before a trip, listing the reason for travel and estimating all expenses.  
-- Original receipts must be submitted for expenses above $50. Any expenses below that do not require the submission of original receipts.  
-- All receipts and expense reports must be submitted within three weeks after a trip is completed. Expenses submitted after this time will require the approval of the department head.  
-
-Page 1
-
-196. What does Gendalla mainly produce?  
-(A) Watches  
-(B) Luggage  
-(C) Clothing  
-(D) Fragrances  
-
-197. According to the article, why is Senano Designs acquiring Gendalla?  
-(A) To sell products at a lower price  
-(B) To expand its social media presence  
-(C) To offer a more diverse range of products  
-(D) To address declining sales in some cities  
-
-198. What are Gendalla's employees invited to do on March 28?  
-(A) Suggest changes to a travel policy  
-(B) Attend a meeting in the afternoon  
-(C) Tour Senano's corporate headquarters  
-(D) Make an appointment with an accountant  
-
-199. Where is Ms. Dawson's office?  
-(A) In New York  
-(B) In Chicago  
-(C) In Philadelphia  
-(D) In Los Angeles  
-
-200. How is Gendalla's current travel expense policy likely different from Senano's?  
-(A) A receipt must be submitted for every expense.  
-(B) Preapproval must be obtained for expenses over $50.  
-(C) The expense report must be signed by a manager.  
-(D) Employees can submit their expense reports jointly.  
-
----
 
 
 # TEST 05

@@ -8,16 +8,10 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
 
 ## 📊 THỐNG KÊ TỔNG QUAN
 
-- **Tổng số đề chưa đủ 100 câu**: `12` đề
+- **Tổng số đề chưa đủ 100 câu**: `11` đề
 - **Phân loại**: Chi tiết danh sách bên dưới được chia theo từng bộ sách (Series).
 
 ---
-
-## 📚 [ETS] ETS 2024 RC
-
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
-| :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 04** | **70/100** | 0 | 16 | 54 | `❌ Khuyết 30 câu từ file nguồn OCR` |
 
 ## 📚 [HACKER] HACKER VOL 3 RC
 
@@ -58,42 +52,6 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
 ---
 
 ## 🔍 CHI TIẾT GREP XÁC MINH TỪNG CÂU THIẾU
-
-### 📂 [ETS] ETS 2024 RC
-
-#### 🔹 Test 04 (`[ETS] ETS 2024 RC - Test 04`)
-- **Tổng số câu hiện tại**: `70/100` (Part 5: 0, Part 6: 16, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 101**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 102**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 103**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 104**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 105**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 106**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 107**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 108**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 109**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 110**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 111**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 112**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 113**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 114**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 115**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 116**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 117**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 118**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 119**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 120**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 121**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 122**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 123**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 124**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 125**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 126**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 127**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 128**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 129**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 130**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [HACKER] HACKER VOL 3 RC
 
