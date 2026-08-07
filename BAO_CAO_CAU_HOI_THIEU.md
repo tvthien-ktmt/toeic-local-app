@@ -8,20 +8,10 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
 
 ## 📊 THỐNG KÊ TỔNG QUAN
 
-- **Tổng số đề chưa đủ 100 câu**: `28` đề
+- **Tổng số đề chưa đủ 100 câu**: `23` đề
 - **Phân loại**: Chi tiết danh sách bên dưới được chia theo từng bộ sách (Series).
 
 ---
-
-## 📚 [ETS] ETS 2019 RC
-
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
-| :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 01** | **97/100** | 30 | 14 | 53 | `❌ Khuyết 3 câu từ file nguồn OCR` |
-| **Test 02** | **98/100** | 30 | 15 | 53 | `❌ Khuyết 2 câu từ file nguồn OCR` |
-| **Test 04** | **98/100** | 30 | 14 | 54 | `❌ Khuyết 2 câu từ file nguồn OCR` |
-| **Test 05** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
-| **Test 07** | **96/100** | 30 | 12 | 54 | `❌ Khuyết 4 câu từ file nguồn OCR` |
 
 ## 📚 [ETS] ETS 2020 RC
 
@@ -94,40 +84,6 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
 ---
 
 ## 🔍 CHI TIẾT GREP XÁC MINH TỪNG CÂU THIẾU
-
-### 📂 [ETS] ETS 2019 RC
-
-#### 🔹 Test 01 (`[ETS] ETS 2019 RC - Test 01`)
-- **Tổng số câu hiện tại**: `97/100` (Part 5: 30, Part 6: 14, Part 7: 53)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 163**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 02 (`[ETS] ETS 2019 RC - Test 02`)
-- **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 15, Part 7: 53)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 167**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 04 (`[ETS] ETS 2019 RC - Test 04`)
-- **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 14, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 05 (`[ETS] ETS 2019 RC - Test 05`)
-- **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-
-#### 🔹 Test 07 (`[ETS] ETS 2019 RC - Test 07`)
-- **Tổng số câu hiện tại**: `96/100` (Part 5: 30, Part 6: 12, Part 7: 54)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 134**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 140**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 141**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
-  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [ETS] ETS 2020 RC
 
