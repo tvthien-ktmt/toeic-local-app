@@ -40,7 +40,7 @@ def get_textbook_catalog(db: Session = Depends(get_db)):
     Includes test count, total questions, highest score achieved.
     """
     ensure_db_schema(db)
-    
+
     # Auto seed if empty or no questions exist
     builtin_count = db.query(Document).filter(Document.is_builtin == True).count()
     total_q_count = db.query(Question).count()
@@ -51,6 +51,10 @@ def get_textbook_catalog(db: Session = Depends(get_db)):
             print(f"[TEXTBOOK CATALOG] Auto-seed warning: {e}")
 
     docs = db.query(Document).filter(Document.is_builtin == True).order_by(Document.category, Document.series, Document.test_number).all()
+
+    # Single GROUP BY query to get question counts per document — avoids N+1
+    q_count_rows = db.query(Question.document_id, func.count(Question.id)).group_by(Question.document_id).all()
+    q_count_map = {doc_id: cnt for doc_id, cnt in q_count_rows}
 
     # Get user attempts mapped by document_id
     attempts = db.query(ExamAttempt).all()
@@ -65,15 +69,14 @@ def get_textbook_catalog(db: Session = Depends(get_db)):
     for d in docs:
         cat = d.category or "ETS"
         ser = d.series or d.filename
-        
+
         if cat not in categories_dict:
             categories_dict[cat] = {}
-            
+
         if ser not in categories_dict[cat]:
             categories_dict[cat][ser] = []
 
-        # Find q_count and attempts
-        q_count = db.query(Question).filter(Question.document_id == d.id).count()
+        q_count = q_count_map.get(d.id, 0)
         doc_attempts = attempts_map.get(d.id, [])
         highest_score = max([a.toeic_score for a in doc_attempts], default=None)
         highest_raw = max([a.raw_score for a in doc_attempts], default=None)
@@ -193,16 +196,20 @@ def submit_exam(req: ExamSubmitRequest, db: Session = Depends(get_db)):
     part5_correct = 0
     part6_correct = 0
     part7_correct = 0
+    no_answer_key_count = 0
 
     detailed_results = []
 
     for q in qs:
-        # req.answers maps question.id or question_num string -> user's option ("A","B","C","D")
+        # req.answers maps question.id -> user's option ("A","B","C","D")
         user_ans = req.answers.get(str(q.id)) or req.answers.get(str(q.question_text[:3])) or req.answers.get(str(q.id))
-        corr_ans = (q.correct_answer or "A").strip().upper()
+        corr_ans = (q.correct_answer or "").strip().upper()
 
         is_correct = False
-        if user_ans and user_ans.strip().upper() == corr_ans:
+        if not corr_ans:
+            # No answer key stored — cannot grade this question
+            no_answer_key_count += 1
+        elif user_ans and user_ans.strip().upper() == corr_ans:
             is_correct = True
             raw_score += 1
             if q.part == 5:
@@ -265,6 +272,8 @@ def submit_exam(req: ExamSubmitRequest, db: Session = Depends(get_db)):
         "mode": req.mode,
         "raw_score": raw_score,
         "total_questions": total_qs,
+        "gradeable_questions": total_qs - no_answer_key_count,
+        "no_answer_key_count": no_answer_key_count,
         "toeic_score": toeic_score,
         "time_spent_seconds": req.time_spent_seconds,
         "part5_correct": part5_correct,
