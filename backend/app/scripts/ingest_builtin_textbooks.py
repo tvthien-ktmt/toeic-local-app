@@ -38,17 +38,18 @@ from app.services.textbook_service import (
 # Known expected numbers for TOEIC RC
 EXPECTED_Q_NUMBERS = range(101, 201)
 
-# Regex pattern for searching explicit known question numbers (e.g. \b105[\.\_\:]\s)
+# Option pattern — handles (A)/(B)/(C)/(D), A./B./C./D. formats, and bulleted options "- (A) text"
 OPT_PATTERN = re.compile(
     r'(?:^|\n)\s*'
-    r'(?:\*{1,2})?'
-    r'[\(]?([A-Da-d])[\).]'
-    r'(?:\*{1,2})?'
+    r'(?:[\-\*\•]\s*)?'            # optional bullet prefix (- or * or •)
+    r'(?:\*{1,2})?'                # optional bold start
+    r'[\(]?([A-Da-d])[\)\.]'        # letter with paren or period
+    r'(?:\*{1,2})?'                # optional bold end
     r'\s*(.+?)(?=\n|$)'
 )
 
 INLINE_OPT_PATTERN = re.compile(
-    r'\(([A-D])\)\s*(.+?)(?=\s*\([A-D]\)|$)',
+    r'(?:[\-\*\•]\s*)?\(([A-D])\)\s*(.+?)(?=\s*(?:[\-\*\•]\s*)?\([A-D]\)|$)',
     re.IGNORECASE
 )
 
@@ -105,11 +106,12 @@ def extract_test_by_known_sequence(
     passage_map = _build_passage_map(test_content)
 
     # Step 1: Find literal positions of expected question numbers
+    # Format variations supported: "135.", "### 135.", "**135.**", "### **135.**", "[135]"
     positions: List[Tuple[int, int]] = []  # (q_num, match_start_pos)
     
     for n in EXPECTED_Q_NUMBERS:
-        # Search for exact literal number (e.g. \b105[\.\_\:\-]\s or ### 105.)
-        m = re.search(rf'(?:^|\n)\s*(?:#{1,4}\s*)?(?:\*{1,2})?{n}(?:\*{1,2})?[\.\_\:\-]\s*', test_content)
+        pattern = re.compile(r'(?:^|\s)(?:#+\s*)?\*{0,2}\[?' + str(n) + r'\]?[\.\_\:]?\*{0,2}[\.\_\:]?\s+')
+        m = pattern.search(test_content)
         if m:
             positions.append((n, m.start()))
 
@@ -121,12 +123,8 @@ def extract_test_by_known_sequence(
     inline_p6_markers = {}
 
     for idx, (q_num, pos) in enumerate(positions):
-        # Body text = text from end of current match to start of next match
-        # Find exact end of match heading
-        heading_match = re.search(
-            rf'(?:^|\n)\s*(?:#{1,4}\s*)?(?:\*{1,2})?{q_num}(?:\*{1,2})?[\.\_\:\-]\s*',
-            test_content[pos:]
-        )
+        pattern = re.compile(r'(?:^|\s)(?:#+\s*)?\*{0,2}\[?' + str(q_num) + r'\]?[\.\_\:]?\*{0,2}[\.\_\:]?\s+')
+        heading_match = pattern.search(test_content[pos:])
         body_start = pos + heading_match.end() if heading_match else pos
         body_end = positions[idx + 1][1] if idx + 1 < len(positions) else len(test_content)
 
@@ -136,6 +134,35 @@ def extract_test_by_known_sequence(
 
         opt_by_letter = extract_options_from_body(q_body)
         has_options = len(opt_by_letter) >= 2
+
+        # Special handling for ETS 2020 Pattern 3: Cluster of empty headers 115..120 followed by sequential blocks in q_body of 120
+        if q_num == 120 and (116 not in [p[0] for p in positions] or 118 not in [p[0] for p in positions]):
+            sub_blocks = re.split(r'\n(?=[A-Z0-9\-\'\s]+?\-\-\-\-\-\-\-)', q_body)
+            if len(sub_blocks) >= 4:
+                missing_cluster = [qn for qn in range(115, 121) if qn not in seen_q_nums]
+                for c_idx, sub_b in enumerate(sub_blocks[:len(missing_cluster)]):
+                    target_q = missing_cluster[c_idx]
+                    sub_opts = extract_options_from_body(sub_b)
+                    if len(sub_opts) >= 2:
+                        s_opts = [f"{k}. {v}" for k, v in sorted(sub_opts.items())]
+                        while len(s_opts) < 4:
+                            s_opts.append(f"{['A','B','C','D'][len(s_opts)]}. —")
+                        _s_match = OPT_PATTERN.search(sub_b)
+                        s_stem = sub_b[:_s_match.start()].strip() if _s_match else sub_b
+                        corr_ans = answer_map.get(target_q, "")
+                        questions.append({
+                            "q_num": target_q,
+                            "part": 5,
+                            "question_text": f"{target_q}. {s_stem}",
+                            "options_json": json.dumps(s_opts, ensure_ascii=False),
+                            "correct_answer": corr_ans,
+                            "explanation": f"Đáp án đúng là ({corr_ans})." if corr_ans else "Chưa có đáp án.",
+                            "option_explanations_json": json.dumps({"A": "—", "B": "—", "C": "—", "D": "—"}, ensure_ascii=False),
+                            "translated_sentence": "",
+                            "grammar_topic": "Part 5 Grammar",
+                            "topic_tag": "Part 5"
+                        })
+                        seen_q_nums.add(target_q)
 
         if 131 <= q_num <= 146 and not has_options:
             if q_num not in seen_q_nums:
