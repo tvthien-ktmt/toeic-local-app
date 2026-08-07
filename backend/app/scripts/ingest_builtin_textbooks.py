@@ -267,6 +267,30 @@ def extract_test_by_known_sequence(
     return questions, {"parsed_count": total_parsed, "status": status}
 
 
+def split_text_by_headings_or_reset(text: str) -> List[Tuple[int, str]]:
+    """Splits text into test blocks using explicit headings (## Test 1, # TEST 01) or question number reset."""
+    matches = list(re.finditer(r'(?i)(?:^|\n)\s*(?:#+\s*)(?:TEST|Test)\s*0*(\d+)', text))
+    if len(matches) >= 2:
+        valid_matches = []
+        last_num = 0
+        for m in matches:
+            t_num = int(m.group(1))
+            if t_num == last_num + 1 or (t_num > last_num and t_num <= 20):
+                valid_matches.append(m)
+                last_num = t_num
+
+        if len(valid_matches) >= 2:
+            blocks = []
+            for i, m in enumerate(valid_matches):
+                start = m.start()
+                end = valid_matches[i + 1].start() if i + 1 < len(valid_matches) else len(text)
+                blocks.append((start, text[start:end].strip()))
+            return blocks
+
+    from app.services.textbook_service import split_text_into_tests_by_q_reset
+    return split_text_into_tests_by_q_reset(text)
+
+
 def run_standalone_ingestion():
     """Executes offline textbook ingestion pipeline and prints execution report."""
     print("=" * 65)
@@ -312,8 +336,7 @@ def run_standalone_ingestion():
                 continue
 
             # Split text by Test headings or question resets
-            from app.services.textbook_service import split_text_into_tests_by_q_reset
-            test_blocks = split_text_into_tests_by_q_reset(text)
+            test_blocks = split_text_by_headings_or_reset(text)
 
             if not test_blocks:
                 continue
@@ -329,12 +352,20 @@ def run_standalone_ingestion():
                             test_num = p_num
                             break
 
+                # Skip invalid test fragments (e.g. ETS 2022 Test 11 which is a 5-question OCR fragment)
                 t_ans_map = ans_by_test.get(test_num, {}) or ans_by_test.get(t_idx, {})
                 filename = f"[{category}] {series_name} - Test {test_num:02d}"
-                content_hash = hashlib.sha256(f"{filename}::{block[:1000]}".encode("utf-8")).hexdigest()
 
                 # Extract questions using known sequence literal matching
                 qs_data, stats = extract_test_by_known_sequence(block, t_ans_map)
+
+                if len(qs_data) < 10 and test_num > 10:
+                    # Invalid appendix / fragment test — skip
+                    print(f"  ⚠️ Skipping invalid fragment: {filename} ({len(qs_data)} questions)")
+                    continue
+
+                content_hash = hashlib.sha256(f"{filename}::{block[:1000]}".encode("utf-8")).hexdigest()
+                status_str = "extracted" if stats["status"] == "complete" else "source_incomplete"
 
                 # Upsert Document into SQLite DB
                 existing_doc = db.query(Document).filter(Document.filename == filename).first()
