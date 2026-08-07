@@ -1,15 +1,15 @@
 # ETS TOEIC READING 2020 (TRỌN BỘ 10 TEST)
 
-
-
-# TEST 01
-
 heet. Do not write your answers in your test
 book.
 PARTS
 Directions: A word or phrase is missing in each of the sentences below. Four answer choices are
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
+
+# TEST 01
+
+
 
 ### 101. Departmental restructuring will be
 
@@ -1443,6 +1443,10 @@ Directions: A word or phrase is missing in each of the sentences below. Four ans
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
 
+# TEST 02
+
+
+
 ### 101. The new interns have been very mindful of
 
 ### 105. If you have recently ------- a digital camera
@@ -2853,6 +2857,10 @@ Directions: A word or phrase is missing in each of the sentences below. Four ans
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
 
+# TEST 03
+
+
+
 ### 101. The event planner determined that
 Tuesday's forum will require ------- chairs.
 (A) addition
@@ -4212,6 +4220,10 @@ Directions: A word or phrase is missing in each of the sentences below. Four ans
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
 
+# TEST 04
+
+
+
 ### 101. ------- account will be credited after we
 
 ### 105. Prethart Tool Company has created a more
@@ -5567,16 +5579,16 @@ given below each sentence. Select the best answer to complete the sentence. Then
 (C) The problem will be fixed this afternoon.
 (D) We have not yet verified that the work is complete.
 
-
-
-# TEST 05
-
 heet. Do not write your answers in your test
 book.
 PARTS
 Directions: A word or phrase is missing in each of the sentences below. Four answer choices are
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
+
+# TEST 05
+
+
 
 ### 101. The custodial staff------- that we clean our
 dishes before leaving the kitchen.
@@ -7016,14 +7028,16 @@ Directions: A word or phrase is missing in each of the sentences below. Four ans
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
 
-# TEST 06
-
 heet. Do not write your answers in your test
 book.
 PARTS
 Directions: A word or phrase is missing in each of the sentences below. Four answer choices are
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
+
+# TEST 06
+
+
 
 ### 101. While the director of communications is
 
@@ -8410,14 +8424,16 @@ Directions: A word or phrase is missing in each of the sentences below. Four ans
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
 
-# TEST 07
-
 heet. Do not write your answers in your test
 book.
 PARTS
 Directions: A word or phrase is missing in each of the sentences below. Four answer choices are
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
+
+# TEST 07
+
+
 
 ### 101. Mr. Guo ------- with an electrician yesterday
 about the rewiring project.
@@ -9813,14 +9829,16 @@ Directions: A word or phrase is missing in each of the sentences below. Four ans
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
 
-# TEST 08
-
 heet. Do not write your answers in your test
 book.
 PARTS
 Directions: A word or phrase is missing in each of the sentences below. Four answer choices are
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
+
+# TEST 08
+
+
 
 ### 101. Kanelek Limited and Evensohn LLC have
 
@@ -11243,14 +11261,16 @@ Directions: A word or phrase is missing in each of the sentences below. Four ans
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
 
-# TEST 09
-
 heet. Do not write your answers in your test
 book.
 PARTS
 Directions: A word or phrase is missing in each of the sentences below. Four answer choices are
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
+
+# TEST 09
+
+
 
 ### 101. The review board published a list of
 companies ------- considers to be the most
@@ -12686,6 +12706,10 @@ PARTS
 Directions: A word or phrase is missing in each of the sentences below. Four answer choices are
 given below each sentence. Select the best answer to complete the sentence. Then mark the letter
 (A), (B), (C), or (D) on your answer sheet.
+
+# TEST 10
+
+
 
 ### 101. Sunwirth Sneakers has several ------- in the
 

@@ -8,16 +8,10 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
 
 ## 📊 THỐNG KÊ TỔNG QUAN
 
-- **Tổng số đề chưa đủ 100 câu**: `23` đề
+- **Tổng số đề chưa đủ 100 câu**: `22` đề
 - **Phân loại**: Chi tiết danh sách bên dưới được chia theo từng bộ sách (Series).
 
 ---
-
-## 📚 [ETS] ETS 2020 RC
-
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
-| :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 02** | **99/100** | 30 | 16 | 53 | `❌ Khuyết 1 câu từ file nguồn OCR` |
 
 ## 📚 [ETS] ETS 2022 RC
 
@@ -84,13 +78,6 @@ Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu 
 ---
 
 ## 🔍 CHI TIẾT GREP XÁC MINH TỪNG CÂU THIẾU
-
-### 📂 [ETS] ETS 2020 RC
-
-#### 🔹 Test 02 (`[ETS] ETS 2020 RC - Test 02`)
-- **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 16, Part 7: 53)
-- **Kết quả Grep xác minh file nguồn**:
-  - ❌ **Câu 174**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [ETS] ETS 2022 RC
 
