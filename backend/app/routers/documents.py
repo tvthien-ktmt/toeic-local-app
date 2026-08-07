@@ -25,7 +25,7 @@ from ..services.extraction_service import process_document_extraction
 
 router = APIRouter(prefix="/api/documents", tags=["documents"])
 
-UPLOADS_DIR = os.path.join("backend", "data", "uploads")
+UPLOADS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "uploads")
 os.makedirs(UPLOADS_DIR, exist_ok=True)
 
 def process_document_background(doc_id: int, content_bytes: bytes, filename: str):
