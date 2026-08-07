@@ -7,7 +7,9 @@ env/
 .env
 
 # SQLite Databases & Uploaded Files
-backend/data/toeic.db
+*.db
+backend/*.db
+backend/data/*.db
 backend/data/uploads/*
 !backend/data/uploads/.gitkeep
 

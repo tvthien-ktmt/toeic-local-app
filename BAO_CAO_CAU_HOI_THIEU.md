@@ -1,331 +1,793 @@
-# 📋 BÁO CÁO CHI TIẾT CÁC CÂU HỎI THIẾU TRONG BỘ ĐỀ TOEIC RC
+# 📋 BÁO CÁO CHI TIẾT CÁC CÂU HỎI THIẾU KÈM XÁC MINH GREP NGUỒN GỐC
 
-Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu hỏi (Q101 - Q200), chính xác danh sách các câu bị thiếu trong từng đề, để người dùng dễ dàng kiểm tra và bổ sung nội dung file nguồn (`.md`).
+Báo cáo này liệt kê chi tiết các đề thi chưa đạt đủ 100 câu hỏi (Q101 - Q200). Mỗi câu thiếu ĐỀU ĐƯỢC GREP XÁC MINH TRỰC TIẾP TRONG FILE NGUỒN để phân biệt chính xác:
+- ❌ **DO FILE NGUỒN GỐC THIẾU**: File OCR nguồn không có câu này.
+- ⚠️ **DO PARSER BỎ SÓT**: Text câu hỏi có tồn tại trong file nguồn nhưng bị parser bỏ qua.
 
 ---
 
 ## 📊 THỐNG KÊ TỔNG QUAN
 
-- **Tổng số đề chưa đủ 100 câu**: `42` đề
+- **Tổng số đề chưa đủ 100 câu**: `44` đề
 - **Phân loại**: Chi tiết danh sách bên dưới được chia theo từng bộ sách (Series).
 
 ---
 
 ## 📚 [ETS] ETS 2017 RC
 
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Danh sách các câu bị thiếu |
+| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 01** | **99/100** | 30 | 15 | 54 | `138` |
-| **Test 02** | **98/100** | 30 | 15 | 53 | `146, 171` |
-| **Test 03** | **98/100** | 30 | 14 | 54 | `138, 142` |
-| **Test 05** | **97/100** | 30 | 15 | 52 | `146, 194, 195` |
+| **Test 01** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
+| **Test 02** | **98/100** | 30 | 15 | 53 | `❌ Khuyết 2 câu từ file nguồn OCR` |
+| **Test 03** | **98/100** | 30 | 14 | 54 | `❌ Khuyết 2 câu từ file nguồn OCR` |
+| **Test 05** | **97/100** | 30 | 15 | 52 | `❌ Khuyết 3 câu từ file nguồn OCR` |
 
 ## 📚 [ETS] ETS 2018 RC
 
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Danh sách các câu bị thiếu |
+| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 02** | **99/100** | 30 | 15 | 54 | `138` |
-| **Test 03** | **98/100** | 30 | 14 | 54 | `145, 146` |
-| **Test 04** | **97/100** | 30 | 13 | 54 | `141, 142, 146` |
-| **Test 05** | **99/100** | 30 | 15 | 54 | `138` |
+| **Test 02** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
+| **Test 03** | **98/100** | 30 | 14 | 54 | `❌ Khuyết 2 câu từ file nguồn OCR` |
+| **Test 04** | **97/100** | 30 | 13 | 54 | `❌ Khuyết 3 câu từ file nguồn OCR` |
+| **Test 05** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
 
 ## 📚 [ETS] ETS 2019 RC
 
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Danh sách các câu bị thiếu |
+| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 01** | **97/100** | 30 | 14 | 53 | `138, 142, 163` |
-| **Test 02** | **98/100** | 30 | 15 | 53 | `138, 167` |
-| **Test 04** | **98/100** | 30 | 14 | 54 | `138, 146` |
-| **Test 05** | **99/100** | 30 | 15 | 54 | `142` |
-| **Test 07** | **96/100** | 30 | 12 | 54 | `134, 140, 141, 142` |
+| **Test 01** | **97/100** | 30 | 14 | 53 | `❌ Khuyết 3 câu từ file nguồn OCR` |
+| **Test 02** | **98/100** | 30 | 15 | 53 | `❌ Khuyết 2 câu từ file nguồn OCR` |
+| **Test 04** | **98/100** | 30 | 14 | 54 | `❌ Khuyết 2 câu từ file nguồn OCR` |
+| **Test 05** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
+| **Test 07** | **96/100** | 30 | 12 | 54 | `❌ Khuyết 4 câu từ file nguồn OCR` |
 
 ## 📚 [ETS] ETS 2020 RC
 
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Danh sách các câu bị thiếu |
+| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 02** | **99/100** | 30 | 16 | 53 | `174` |
+| **Test 02** | **99/100** | 30 | 16 | 53 | `❌ Khuyết 1 câu từ file nguồn OCR` |
 
 ## 📚 [ETS] ETS 2021 RC
 
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Danh sách các câu bị thiếu |
+| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 01** | **98/100** | 30 | 14 | 54 | `137, 146` |
-| **Test 02** | **98/100** | 30 | 15 | 53 | `146, 160` |
-| **Test 03** | **98/100** | 30 | 14 | 54 | `142, 146` |
-| **Test 04** | **97/100** | 30 | 14 | 53 | `145, 146, 167` |
-| **Test 05** | **97/100** | 30 | 13 | 54 | `143, 145, 146` |
+| **Test 01** | **98/100** | 30 | 14 | 54 | `❌ Khuyết 2 câu từ file nguồn OCR` |
+| **Test 02** | **98/100** | 30 | 15 | 53 | `❌ Khuyết 2 câu từ file nguồn OCR` |
+| **Test 03** | **98/100** | 30 | 14 | 54 | `❌ Khuyết 2 câu từ file nguồn OCR` |
+| **Test 04** | **97/100** | 30 | 14 | 53 | `❌ Khuyết 3 câu từ file nguồn OCR` |
+| **Test 05** | **97/100** | 30 | 13 | 54 | `❌ Khuyết 3 câu từ file nguồn OCR` |
 
 ## 📚 [ETS] ETS 2022 RC
 
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Danh sách các câu bị thiếu |
+| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 02** | **96/100** | 30 | 16 | 50 | `196, 197, 198, 199` |
-| **Test 10** | **72/100** | 20 | 14 | 38 | `Thiếu 28 câu: 101, 103, 106, 107, 108, 118, 119, 126, 127, 130... (+18 câu nữa)` |
-| **Test 11** | **5/100** | 0 | 0 | 5 | `Thiếu 95 câu: 101, 102, 103, 104, 105, 106, 107, 108, 109, 110... (+85 câu nữa)` |
+| **Test 02** | **96/100** | 30 | 16 | 50 | `❌ Khuyết 4 câu từ file nguồn OCR` |
+| **Test 10** | **77/100** | 20 | 14 | 43 | `❌ Khuyết 23 câu từ file nguồn OCR` |
+| **Test 11** | **5/100** | 0 | 0 | 5 | `❌ Khuyết 95 câu từ file nguồn OCR` |
 
 ## 📚 [ETS] ETS 2023 RC
 
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Danh sách các câu bị thiếu |
+| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 01** | **98/100** | 30 | 14 | 54 | `142, 146` |
-| **Test 03** | **92/100** | 30 | 13 | 49 | `134, 138, 142, 196, 197, 198, 199, 200` |
-| **Test 04** | **99/100** | 30 | 15 | 54 | `138` |
-| **Test 05** | **99/100** | 30 | 15 | 54 | `138` |
-| **Test 06** | **99/100** | 30 | 15 | 54 | `142` |
-| **Test 07** | **96/100** | 30 | 12 | 54 | `143, 144, 145, 146` |
-| **Test 08** | **96/100** | 30 | 12 | 54 | `143, 144, 145, 146` |
-| **Test 09** | **92/100** | 30 | 8 | 54 | `139, 140, 141, 142, 143, 144, 145, 146` |
-| **Test 10** | **92/100** | 30 | 8 | 54 | `139, 140, 141, 142, 143, 144, 145, 146` |
+| **Test 01** | **98/100** | 30 | 14 | 54 | `❌ Khuyết 2 câu từ file nguồn OCR` |
+| **Test 03** | **92/100** | 30 | 13 | 49 | `❌ Khuyết 8 câu từ file nguồn OCR` |
+| **Test 04** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
+| **Test 05** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
+| **Test 06** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
+| **Test 07** | **96/100** | 30 | 12 | 54 | `❌ Khuyết 4 câu từ file nguồn OCR` |
+| **Test 08** | **96/100** | 30 | 12 | 54 | `❌ Khuyết 4 câu từ file nguồn OCR` |
+| **Test 09** | **92/100** | 30 | 8 | 54 | `❌ Khuyết 8 câu từ file nguồn OCR` |
+| **Test 10** | **92/100** | 30 | 8 | 54 | `❌ Khuyết 8 câu từ file nguồn OCR` |
 
-## 📚 [XANH CAM] RC XANH CAM VOL 2
+## 📚 [ETS] ETS 2024 RC
 
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Danh sách các câu bị thiếu |
+| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 07** | **93/100** | 30 | 16 | 47 | `158, 159, 160, 172, 173, 174, 175` |
+| **Test 04** | **70/100** | 0 | 16 | 54 | `❌ Khuyết 30 câu từ file nguồn OCR` |
+
+## 📚 [HACKER] HACKER VOL 3 RC
+
+| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **Test 09** | **0/100** | 0 | 0 | 0 | `❌ Khuyết 100 câu từ file nguồn OCR` |
 
 ## 📚 [XANH CAM] Xanh Cam Vol 1
 
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Danh sách các câu bị thiếu |
+| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 04** | **99/100** | 30 | 15 | 54 | `131` |
+| **Test 04** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
 
 ## 📚 [YBM] YBM 2026 RC
 
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Danh sách các câu bị thiếu |
+| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 09** | **99/100** | 30 | 15 | 54 | `140` |
+| **Test 07** | **68/100** | 2 | 12 | 54 | `❌ Khuyết 32 câu từ file nguồn OCR` |
+| **Test 09** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
 
 ## 📚 [YBM] YBM Vol 1 RC
 
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Danh sách các câu bị thiếu |
+| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 04** | **98/100** | 30 | 14 | 54 | `141, 142` |
-| **Test 05** | **98/100** | 30 | 16 | 52 | `189, 190` |
-| **Test 06** | **99/100** | 30 | 15 | 54 | `145` |
-| **Test 08** | **99/100** | 30 | 15 | 54 | `142` |
-| **Test 09** | **99/100** | 30 | 15 | 54 | `142` |
+| **Test 04** | **98/100** | 30 | 14 | 54 | `❌ Khuyết 2 câu từ file nguồn OCR` |
+| **Test 06** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
+| **Test 08** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
+| **Test 09** | **99/100** | 30 | 15 | 54 | `❌ Khuyết 1 câu từ file nguồn OCR` |
 
 ## 📚 [YBM] YBM Vol 2 RC
 
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Danh sách các câu bị thiếu |
+| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 08** | **78/100** | 23 | 16 | 39 | `Thiếu 22 câu: 101, 103, 104, 105, 106, 107, 108, 186, 187, 188... (+12 câu nữa)` |
-| **Test 09** | **71/100** | 4 | 13 | 54 | `Thiếu 29 câu: 101, 104, 106, 107, 108, 109, 110, 111, 112, 113... (+19 câu nữa)` |
+| **Test 08** | **95/100** | 25 | 16 | 54 | `❌ Khuyết 5 câu từ file nguồn OCR` |
+| **Test 09** | **66/100** | 0 | 12 | 54 | `❌ Khuyết 34 câu từ file nguồn OCR` |
+| **Test 10** | **59/100** | 0 | 5 | 54 | `❌ Khuyết 41 câu từ file nguồn OCR` |
 
 ## 📚 [YBM] YBM Vol 3 RC
 
-| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Danh sách các câu bị thiếu |
+| Đề thi | Số câu hiện có | Part 5 | Part 6 | Part 7 | Trạng thái nguồn |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Test 10** | **92/100** | 22 | 16 | 54 | `101, 102, 103, 104, 105, 106, 107, 108` |
+| **Test 10** | **92/100** | 22 | 16 | 54 | `❌ Khuyết 8 câu từ file nguồn OCR` |
 
 ---
 
-## 🔍 CHI TIẾT CỤ THỂ THEO TỪNG ĐỀ (ĐỂ DỄ BỔ SUNG NỘI DUNG)
+## 🔍 CHI TIẾT GREP XÁC MINH TỪNG CÂU THIẾU
 
 ### 📂 [ETS] ETS 2017 RC
 
 #### 🔹 Test 01 (`[ETS] ETS 2017 RC - Test 01`)
 - **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `138`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 02 (`[ETS] ETS 2017 RC - Test 02`)
 - **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 15, Part 7: 53)
-- ❌ **Thiếu câu Part 6**: `146`
-- ❌ **Thiếu câu Part 7**: `171`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 171**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 03 (`[ETS] ETS 2017 RC - Test 03`)
 - **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 14, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `138, 142`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 05 (`[ETS] ETS 2017 RC - Test 05`)
 - **Tổng số câu hiện tại**: `97/100` (Part 5: 30, Part 6: 15, Part 7: 52)
-- ❌ **Thiếu câu Part 6**: `146`
-- ❌ **Thiếu câu Part 7**: `194, 195`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 194**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 195**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [ETS] ETS 2018 RC
 
 #### 🔹 Test 02 (`[ETS] ETS 2018 RC - Test 02`)
 - **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `138`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 03 (`[ETS] ETS 2018 RC - Test 03`)
 - **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 14, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `145, 146`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 04 (`[ETS] ETS 2018 RC - Test 04`)
 - **Tổng số câu hiện tại**: `97/100` (Part 5: 30, Part 6: 13, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `141, 142, 146`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 141**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 05 (`[ETS] ETS 2018 RC - Test 05`)
 - **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `138`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [ETS] ETS 2019 RC
 
 #### 🔹 Test 01 (`[ETS] ETS 2019 RC - Test 01`)
 - **Tổng số câu hiện tại**: `97/100` (Part 5: 30, Part 6: 14, Part 7: 53)
-- ❌ **Thiếu câu Part 6**: `138, 142`
-- ❌ **Thiếu câu Part 7**: `163`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 163**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 02 (`[ETS] ETS 2019 RC - Test 02`)
 - **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 15, Part 7: 53)
-- ❌ **Thiếu câu Part 6**: `138`
-- ❌ **Thiếu câu Part 7**: `167`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 167**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 04 (`[ETS] ETS 2019 RC - Test 04`)
 - **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 14, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `138, 146`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 05 (`[ETS] ETS 2019 RC - Test 05`)
 - **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `142`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 07 (`[ETS] ETS 2019 RC - Test 07`)
 - **Tổng số câu hiện tại**: `96/100` (Part 5: 30, Part 6: 12, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `134, 140, 141, 142`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 134**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 140**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 141**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [ETS] ETS 2020 RC
 
 #### 🔹 Test 02 (`[ETS] ETS 2020 RC - Test 02`)
 - **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 16, Part 7: 53)
-- ❌ **Thiếu câu Part 7**: `174`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 174**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [ETS] ETS 2021 RC
 
 #### 🔹 Test 01 (`[ETS] ETS 2021 RC - Test 01`)
 - **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 14, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `137, 146`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 137**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 02 (`[ETS] ETS 2021 RC - Test 02`)
 - **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 15, Part 7: 53)
-- ❌ **Thiếu câu Part 6**: `146`
-- ❌ **Thiếu câu Part 7**: `160`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 160**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 03 (`[ETS] ETS 2021 RC - Test 03`)
 - **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 14, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `142, 146`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 04 (`[ETS] ETS 2021 RC - Test 04`)
 - **Tổng số câu hiện tại**: `97/100` (Part 5: 30, Part 6: 14, Part 7: 53)
-- ❌ **Thiếu câu Part 6**: `145, 146`
-- ❌ **Thiếu câu Part 7**: `167`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 167**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 05 (`[ETS] ETS 2021 RC - Test 05`)
 - **Tổng số câu hiện tại**: `97/100` (Part 5: 30, Part 6: 13, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `143, 145, 146`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 143**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [ETS] ETS 2022 RC
 
 #### 🔹 Test 02 (`[ETS] ETS 2022 RC - Test 02`)
 - **Tổng số câu hiện tại**: `96/100` (Part 5: 30, Part 6: 16, Part 7: 50)
-- ❌ **Thiếu câu Part 7**: `196, 197, 198, 199`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 196**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 197**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 198**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 199**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 10 (`[ETS] ETS 2022 RC - Test 10`)
-- **Tổng số câu hiện tại**: `72/100` (Part 5: 20, Part 6: 14, Part 7: 38)
-- ❌ **Thiếu câu Part 5**: `101, 103, 106, 107, 108, 118, 119, 126, 127, 130`
-- ❌ **Thiếu câu Part 6**: `133, 141`
-- ❌ **Thiếu câu Part 7**: `150, 168, 169, 171, 173, 185, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200`
+- **Tổng số câu hiện tại**: `77/100` (Part 5: 20, Part 6: 14, Part 7: 43)
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 101**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 103**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 106**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 107**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 108**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 118**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 119**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 126**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 127**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 130**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 133**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 141**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 168**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 169**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 171**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 173**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 185**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 195**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 196**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 197**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 198**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 199**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 200**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 11 (`[ETS] ETS 2022 RC - Test 11`)
 - **Tổng số câu hiện tại**: `5/100` (Part 5: 0, Part 6: 0, Part 7: 5)
-- ❌ **Thiếu câu Part 5**: `101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130`
-- ❌ **Thiếu câu Part 6**: `131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146`
-- ❌ **Thiếu câu Part 7**: `147, 148, 149, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 195, 196, 197, 198, 199, 200`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 101**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 102**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 103**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 104**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 105**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 106**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 107**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 108**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 109**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 110**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 111**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 112**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 113**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 114**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 115**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 116**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 117**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 118**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 119**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 120**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 121**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 122**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 123**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 124**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 125**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 126**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 127**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 128**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 129**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 130**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 131**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 132**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 133**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 134**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 135**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 136**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 137**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 139**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 140**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 141**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 143**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 144**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 147**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 148**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 149**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 151**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 152**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 153**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 154**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 155**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 156**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 157**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 158**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 159**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 160**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 161**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 162**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 163**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 164**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 165**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 166**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 167**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 168**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 169**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 170**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 171**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 172**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 173**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 174**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 175**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 176**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 177**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 178**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 179**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 180**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 181**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 182**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 183**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 184**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 185**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 186**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 187**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 188**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 189**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 190**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 195**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 196**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 197**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 198**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 199**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 200**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [ETS] ETS 2023 RC
 
 #### 🔹 Test 01 (`[ETS] ETS 2023 RC - Test 01`)
 - **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 14, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `142, 146`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 03 (`[ETS] ETS 2023 RC - Test 03`)
 - **Tổng số câu hiện tại**: `92/100` (Part 5: 30, Part 6: 13, Part 7: 49)
-- ❌ **Thiếu câu Part 6**: `134, 138, 142`
-- ❌ **Thiếu câu Part 7**: `196, 197, 198, 199, 200`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 134**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 196**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 197**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 198**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 199**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 200**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 04 (`[ETS] ETS 2023 RC - Test 04`)
 - **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `138`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 05 (`[ETS] ETS 2023 RC - Test 05`)
 - **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `138`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 06 (`[ETS] ETS 2023 RC - Test 06`)
 - **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `142`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 07 (`[ETS] ETS 2023 RC - Test 07`)
 - **Tổng số câu hiện tại**: `96/100` (Part 5: 30, Part 6: 12, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `143, 144, 145, 146`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 143**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 144**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 08 (`[ETS] ETS 2023 RC - Test 08`)
 - **Tổng số câu hiện tại**: `96/100` (Part 5: 30, Part 6: 12, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `143, 144, 145, 146`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 143**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 144**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 09 (`[ETS] ETS 2023 RC - Test 09`)
 - **Tổng số câu hiện tại**: `92/100` (Part 5: 30, Part 6: 8, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `139, 140, 141, 142, 143, 144, 145, 146`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 139**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 140**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 141**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 143**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 144**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 10 (`[ETS] ETS 2023 RC - Test 10`)
 - **Tổng số câu hiện tại**: `92/100` (Part 5: 30, Part 6: 8, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `139, 140, 141, 142, 143, 144, 145, 146`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 139**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 140**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 141**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 143**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 144**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
-### 📂 [XANH CAM] RC XANH CAM VOL 2
+### 📂 [ETS] ETS 2024 RC
 
-#### 🔹 Test 07 (`[XANH CAM] RC XANH CAM VOL 2 - Test 07`)
-- **Tổng số câu hiện tại**: `93/100` (Part 5: 30, Part 6: 16, Part 7: 47)
-- ❌ **Thiếu câu Part 7**: `158, 159, 160, 172, 173, 174, 175`
+#### 🔹 Test 04 (`[ETS] ETS 2024 RC - Test 04`)
+- **Tổng số câu hiện tại**: `70/100` (Part 5: 0, Part 6: 16, Part 7: 54)
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 101**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 102**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 103**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 104**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 105**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 106**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 107**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 108**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 109**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 110**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 111**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 112**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 113**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 114**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 115**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 116**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 117**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 118**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 119**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 120**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 121**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 122**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 123**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 124**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 125**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 126**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 127**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 128**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 129**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 130**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+
+### 📂 [HACKER] HACKER VOL 3 RC
+
+#### 🔹 Test 09 (`[HACKER] HACKER VOL 3 RC - Test 09`)
+- **Tổng số câu hiện tại**: `0/100` (Part 5: 0, Part 6: 0, Part 7: 0)
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 101**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 102**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 103**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 104**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 105**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 106**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 107**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 108**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 109**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 110**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 111**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 112**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 113**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 114**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 115**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 116**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 117**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 118**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 119**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 120**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 121**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 122**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 123**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 124**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 125**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 126**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 127**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 128**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 129**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 130**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 131**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 132**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 133**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 134**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 135**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 136**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 137**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 139**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 140**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 141**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 143**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 144**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 146**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 147**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 148**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 149**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 150**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 151**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 152**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 153**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 154**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 155**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 156**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 157**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 158**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 159**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 160**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 161**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 162**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 163**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 164**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 165**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 166**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 167**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 168**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 169**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 170**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 171**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 172**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 173**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 174**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 175**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 176**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 177**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 178**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 179**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 180**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 181**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 182**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 183**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 184**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 185**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 186**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 187**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 188**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 189**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 190**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 191**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 192**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 193**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 194**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 195**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 196**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 197**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 198**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 199**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 200**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [XANH CAM] Xanh Cam Vol 1
 
 #### 🔹 Test 04 (`[XANH CAM] Xanh Cam Vol 1 - Test 04`)
 - **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `131`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 131**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [YBM] YBM 2026 RC
 
+#### 🔹 Test 07 (`[YBM] YBM 2026 RC - Test 07`)
+- **Tổng số câu hiện tại**: `68/100` (Part 5: 2, Part 6: 12, Part 7: 54)
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 103**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 104**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 105**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 106**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 107**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 108**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 109**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 110**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 111**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 112**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 113**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 114**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 115**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 116**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 117**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 118**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 119**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 120**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 121**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 122**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 123**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 124**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 125**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 126**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 127**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 128**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 129**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 130**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 131**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 132**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 133**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 134**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+
 #### 🔹 Test 09 (`[YBM] YBM 2026 RC - Test 09`)
 - **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `140`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 140**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [YBM] YBM Vol 1 RC
 
 #### 🔹 Test 04 (`[YBM] YBM Vol 1 RC - Test 04`)
 - **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 14, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `141, 142`
-
-#### 🔹 Test 05 (`[YBM] YBM Vol 1 RC - Test 05`)
-- **Tổng số câu hiện tại**: `98/100` (Part 5: 30, Part 6: 16, Part 7: 52)
-- ❌ **Thiếu câu Part 7**: `189, 190`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 141**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 06 (`[YBM] YBM Vol 1 RC - Test 06`)
 - **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `145`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 145**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 08 (`[YBM] YBM Vol 1 RC - Test 08`)
 - **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `142`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 09 (`[YBM] YBM Vol 1 RC - Test 09`)
 - **Tổng số câu hiện tại**: `99/100` (Part 5: 30, Part 6: 15, Part 7: 54)
-- ❌ **Thiếu câu Part 6**: `142`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [YBM] YBM Vol 2 RC
 
 #### 🔹 Test 08 (`[YBM] YBM Vol 2 RC - Test 08`)
-- **Tổng số câu hiện tại**: `78/100` (Part 5: 23, Part 6: 16, Part 7: 39)
-- ❌ **Thiếu câu Part 5**: `101, 103, 104, 105, 106, 107, 108`
-- ❌ **Thiếu câu Part 7**: `186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200`
+- **Tổng số câu hiện tại**: `95/100` (Part 5: 25, Part 6: 16, Part 7: 54)
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 101**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 104**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 106**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 107**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 108**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 #### 🔹 Test 09 (`[YBM] YBM Vol 2 RC - Test 09`)
-- **Tổng số câu hiện tại**: `71/100` (Part 5: 4, Part 6: 13, Part 7: 54)
-- ❌ **Thiếu câu Part 5**: `101, 104, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129`
-- ❌ **Thiếu câu Part 6**: `131, 132, 134`
+- **Tổng số câu hiện tại**: `66/100` (Part 5: 0, Part 6: 12, Part 7: 54)
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 101**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 102**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 103**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 104**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 105**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 106**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 107**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 108**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 109**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 110**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 111**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 112**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 113**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 114**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 115**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 116**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 117**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 118**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 119**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 120**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 121**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 122**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 123**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 124**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 125**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 126**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 127**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 128**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 129**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 130**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 131**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 132**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 133**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 134**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+
+#### 🔹 Test 10 (`[YBM] YBM Vol 2 RC - Test 10`)
+- **Tổng số câu hiện tại**: `59/100` (Part 5: 0, Part 6: 5, Part 7: 54)
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 101**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 102**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 103**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 104**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 105**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 106**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 107**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 108**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 109**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 110**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 111**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 112**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 113**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 114**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 115**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 116**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 117**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 118**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 119**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 120**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 121**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 122**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 123**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 124**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 125**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 126**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 127**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 128**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 129**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 130**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 131**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 132**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 134**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 135**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 136**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 137**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 138**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 139**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 140**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 141**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 142**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
 ### 📂 [YBM] YBM Vol 3 RC
 
 #### 🔹 Test 10 (`[YBM] YBM Vol 3 RC - Test 10`)
 - **Tổng số câu hiện tại**: `92/100` (Part 5: 22, Part 6: 16, Part 7: 54)
-- ❌ **Thiếu câu Part 5**: `101, 102, 103, 104, 105, 106, 107, 108`
+- **Kết quả Grep xác minh file nguồn**:
+  - ❌ **Câu 101**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 102**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 103**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 104**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 105**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 106**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 107**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
+  - ❌ **Câu 108**: KHÔNG TỒN TẠI TRONG FILE NGUỒN (Lỗi OCR file gốc)
 
