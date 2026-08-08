@@ -92,7 +92,7 @@ const CAT_LABELS: Record<string, string> = {
   vocab_topic: 'Từ vựng',
 };
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = '';
 
 // ====================================================
 // Simple Markdown renderer

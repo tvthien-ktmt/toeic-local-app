@@ -86,7 +86,7 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
   useEffect(() => {
     if (activeTab === 'history' && result.document_id && historyAttempts.length === 0) {
       setHistoryLoading(true);
-      fetch(`http://localhost:8000/api/textbooks/history/${result.document_id}`)
+      fetch(`/api/textbooks/history/${result.document_id}`)
         .then(r => r.json())
         .then(data => {
           if (data.status === 'success') setHistoryAttempts(data.history || []);
@@ -118,7 +118,7 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
     }
 
     try {
-      const res = await fetch('http://localhost:8000/api/generate/explain-question', {
+      const res = await fetch('/api/generate/explain-question', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

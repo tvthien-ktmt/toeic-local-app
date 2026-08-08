@@ -202,7 +202,7 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
   const fetchExamData = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:8000/api/textbooks/exam/${docId}`);
+      const res = await fetch(`/api/textbooks/exam/${docId}`);
       const data = await res.json();
       if (data.status === 'success') {
         setDocument(data.document);
@@ -293,7 +293,7 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
 
     // Call Gemini live API if DB lacks pre-computed AI data
     try {
-      const res = await fetch('http://localhost:8000/api/generate/explain-question', {
+      const res = await fetch('/api/generate/explain-question', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -338,7 +338,7 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
         payloadAnswers[qId] = ans;
       });
       const timeSpent = mode === 'full_exam' ? 4500 - timeLeft : 0;
-      const res = await fetch('http://localhost:8000/api/textbooks/exam/submit', {
+      const res = await fetch('/api/textbooks/exam/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ document_id: docId, mode, time_spent_seconds: timeSpent, answers: payloadAnswers }),
