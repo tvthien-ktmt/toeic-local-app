@@ -1,7 +1,7 @@
 """
 MODULE 12 — Pre-generate and seed all 45 lessons with strict pedagogical quality:
   1. 100% topic-specific question mapping (unique question IDs for every topic).
-  2. Detailed option-by-option explanations for every worked example.
+  2. SEPARATE DISJOINT QUESTION SETS: Worked Examples (5 questions with explanations) and Quick Check Quiz (5 FRESH unseen practice questions).
   3. Beginner-first ("Mất gốc") structure: everyday examples first, warm-up check, complete suffix tables, no unexplained jargon, no meta text.
 
 Run from backend/ directory: python app/scripts/module12_pregenerate_lessons.py
@@ -30,11 +30,16 @@ def get_options_list(opts_raw):
     return []
 
 
-def classify_questions_for_topic(all_qs, topic_id, topic_name):
-    """Filter distinct questions specifically relevant to topic_id."""
+def classify_questions_for_topic(all_qs, topic_id, topic_name, limit=5, exclude_ids=None):
+    """Filter distinct questions specifically relevant to topic_id, excluding already used IDs."""
+    if exclude_ids is None:
+        exclude_ids = set()
+
     matched = []
-    
     for q in all_qs:
+        if q.id in exclude_ids:
+            continue
+
         opts = get_options_list(q.options_json)
         if len(opts) < 4:
             continue
@@ -83,12 +88,13 @@ def classify_questions_for_topic(all_qs, topic_id, topic_name):
             if any(o in opts_str for o in ['more', 'most', 'than', 'as', 'er', 'est']):
                 matched.append(q)
 
-    # Fallback to deterministic chunking if not enough regex matches
-    if len(matched) < 5:
-        start_idx = (topic_id * 7) % max(1, len(all_qs) - 10)
-        matched = all_qs[start_idx : start_idx + 15]
+    # Fallback to deterministic offset if not enough regex matches
+    if len(matched) < limit:
+        start_idx = (topic_id * 13) % max(1, len(all_qs) - 20)
+        extra = [q for q in all_qs[start_idx:] if q.id not in exclude_ids and q.id not in [m.id for m in matched]]
+        matched.extend(extra[:limit - len(matched)])
 
-    return matched[:5]
+    return matched[:limit]
 
 
 def generate_option_explanations(q, topic_id):
@@ -96,7 +102,6 @@ def generate_option_explanations(q, topic_id):
     opts = get_options_list(q.options_json)
     ans = (q.correct_answer or 'A').upper()
     ans_idx = ord(ans) - ord('A') if len(ans) == 1 and 'A' <= ans <= 'D' else 0
-    ans_text = opts[ans_idx] if 0 <= ans_idx < len(opts) else ""
 
     letters = ['A', 'B', 'C', 'D']
     explain_blocks = []
@@ -144,18 +149,25 @@ def generate_option_explanations(q, topic_id):
 
 
 def build_pedagogical_lesson(db, topic: CurriculumTopic) -> Lesson:
-    """Build a beginner-first ("Mất gốc"), pedagogical lesson for a curriculum topic."""
+    """Build a beginner-first ("Mất gốc"), pedagogical lesson with DISJOINT worked examples and quick check quiz."""
     
-    # 1. Get real example questions
     all_p5 = db.query(Question).filter(Question.part == 5, Question.correct_answer != None).all()
-    real_questions = classify_questions_for_topic(all_p5, topic.id, topic.canonical_name)
-    has_real = len(real_questions) > 0
+    
+    # 1. Worked Examples (5 questions)
+    worked_questions = classify_questions_for_topic(all_p5, topic.id, topic.canonical_name, limit=5)
+    worked_ids = set(q.id for q in worked_questions)
+    
+    # 2. Quick Check Quiz (5 FRESH, DISJOINT questions, excluding worked_ids)
+    quiz_questions = classify_questions_for_topic(all_p5, topic.id, topic.canonical_name, limit=5, exclude_ids=worked_ids)
+    quick_ids = [q.id for q in quiz_questions]
 
-    # 2. Format real examples block with option-by-option analysis
+    has_real = len(worked_questions) > 0
+
+    # 3. Format real examples block with option-by-option analysis
     example_md = ""
     if has_real:
         example_md += "## 📝 6. Ví dụ minh họa thực tế từ Đề Thi Thật (Phân tích chi tiết từng đáp án)\n\n"
-        for i, q in enumerate(real_questions, 1):
+        for i, q in enumerate(worked_questions, 1):
             opts = get_options_list(q.options_json)
             opts_formatted = "\n".join(f"  - ({chr(65+j)}) {opt}" for j, opt in enumerate(opts))
             opt_explanations = generate_option_explanations(q, topic.id)
@@ -169,7 +181,7 @@ def build_pedagogical_lesson(db, topic: CurriculumTopic) -> Lesson:
                 example_md += f"💡 **Giải thích bổ sung:** {q.explanation}\n\n"
             example_md += "---\n\n"
 
-    # 3. Topic-Specific Content Generation (Beginner-First / Mất Gốc)
+    # 4. Topic-Specific Content Generation (Beginner-First / Mất Gốc)
     if topic.id == 1:
         content_md = f"""# 📚 Bài Giảng: Từ loại / Dạng từ (Parts of Speech / Word Form)
 
@@ -260,7 +272,6 @@ Trong bài thi TOEIC, bạn **không cần dịch hết nghĩa của từ**, ch�
 - ✔️ **Trạng từ (Adv):** Đuôi `-ly`. Bổ nghĩa cho Động từ thường.
 """
     else:
-        # General beginner-first template for other topics
         parts = json.loads(topic.parts_json or "[5]")
         parts_str = ", ".join(f"Part {p}" for p in parts)
         level_vi = {"basic": "Cơ bản (Cho người mới bắt đầu)", "intermediate": "Trung cấp (Chinh phục 350-450)", "advanced": "Nâng cao (Mục tiêu 495 RC)"}.get(topic.level, topic.level)
@@ -315,36 +326,27 @@ Chủ điểm **{topic.canonical_name}** là một phần kiến thức nền t�
 - ✔️ Ôn tập ví dụ thực tế trên để phản xạ nhanh khi vào phòng thi.
 """
 
-    # 4. Pick quick check question IDs (distinct per topic)
-    quick_ids = [q.id for q in real_questions]
-    if len(quick_ids) < 5:
-        # Add distinct questions from DB
-        offset = (topic.id * 11) % max(1, len(all_p5) - 10)
-        extra_qs = [q.id for q in all_p5[offset:offset+10] if q.id not in quick_ids]
-        quick_ids.extend(extra_qs[:5 - len(quick_ids)])
-
     lesson = Lesson(
         curriculum_topic_id=topic.id,
         content_markdown=content_md,
-        worked_example_question_ids_json=json.dumps([q.id for q in real_questions]),
+        worked_example_question_ids_json=json.dumps(list(worked_ids)),
         quick_check_question_ids_json=json.dumps(quick_ids),
         has_real_examples=has_real,
-        ai_cache_hash="pedagogical_v2_seed"
+        ai_cache_hash="pedagogical_v3_disjoint_seed"
     )
     return lesson
 
 
 def main():
     print("==========================================================")
-    print("MODULE 12 — Rebuilding all 45 lessons with Pedagogical Quality")
+    print("MODULE 12 — Rebuilding with DISJOINT worked & quiz questions")
     print("==========================================================")
 
     db = SessionLocal()
     try:
-        # Delete existing generic lessons
         deleted_count = db.query(Lesson).delete()
         db.commit()
-        print(f"Cleared {deleted_count} old generic lessons from SQLite DB.")
+        print(f"Cleared {deleted_count} old lessons from SQLite DB.")
 
         topics = db.query(CurriculumTopic).all()
         print(f"Processing {len(topics)} canonical topics...")
@@ -356,7 +358,7 @@ def main():
             created_count += 1
 
         db.commit()
-        print(f"\n✅ Successfully pre-generated and seeded {created_count} rich pedagogical lessons into SQLite DB!")
+        print(f"\n✅ Successfully seeded {created_count} lessons with DISJOINT worked and quiz question IDs!")
 
     finally:
         db.close()
