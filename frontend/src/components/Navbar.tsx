@@ -128,8 +128,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
               >
                 {tab.icon}
                 {/* Full label on large screens, short on medium, icon-only on small */}
-                <span className="hidden md:inline">{tab.shortLabel}</span>
-                <span className="hidden lg:inline md:hidden">{tab.label}</span>
+                <span className="hidden md:inline lg:hidden">{tab.shortLabel}</span>
+                <span className="hidden lg:inline">{tab.label}</span>
               </button>
             );
           })}
