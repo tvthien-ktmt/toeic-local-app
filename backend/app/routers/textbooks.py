@@ -10,7 +10,7 @@ from ..db import get_db
 from ..models import Document, Question, ExamAttempt, PracticeAttempt
 from ..services.textbook_service import scan_and_seed_textbooks, calculate_toeic_rc_score, ensure_db_schema
 
-router = APIRouter(prefix="/api/textbooks", tags=["Textbooks & Built-in Exams"])
+router = APIRouter(prefix="/api/documents/textbooks", tags=["Textbooks & Built-in Exams"])
 
 class ExamSubmitRequest(BaseModel):
     document_id: int
