@@ -101,8 +101,14 @@ export const deleteDocument = async (id: number): Promise<{ message: string }> =
 };
 
 export const fetchTextbookCatalog = async (): Promise<CatalogCategory[]> => {
-  const response = await axios.get<CatalogCategory[]>(`${API_BASE}/textbooks/catalog`);
-  return response.data;
+  const response = await axios.get<any>(`${API_BASE}/textbooks/catalog`);
+  if (Array.isArray(response.data)) {
+    return response.data;
+  }
+  if (response.data && Array.isArray(response.data.catalog)) {
+    return response.data.catalog;
+  }
+  return [];
 };
 
 export const fetchDashboardSummary = async (): Promise<DashboardSummaryData> => {
