@@ -1,115 +1,140 @@
 import React from 'react';
-import { BookOpen, FileText, Sparkles, BrainCircuit, BarChart3, GraduationCap } from 'lucide-react';
+import { BookOpen, FileText, Sparkles, BrainCircuit, BarChart3, GraduationCap, Map } from 'lucide-react';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 interface NavbarProps {
-  activeTab: 'textbooks' | 'upload' | 'practice' | 'flashcards' | 'dashboard';
-  setActiveTab: (tab: 'textbooks' | 'upload' | 'practice' | 'flashcards' | 'dashboard') => void;
+  activeTab: 'textbooks' | 'upload' | 'practice' | 'flashcards' | 'dashboard' | 'roadmap';
+  setActiveTab: (tab: 'textbooks' | 'upload' | 'practice' | 'flashcards' | 'dashboard' | 'roadmap') => void;
   selectedDocId: number | null;
   onBackToDocs: () => void;
 }
 
+type Tab = {
+  id: NavbarProps['activeTab'];
+  label: string;
+  shortLabel: string;
+  icon: React.ReactNode;
+  special?: boolean;
+};
+
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selectedDocId, onBackToDocs }) => {
+  const tabs: Tab[] = [
+    {
+      id: 'textbooks',
+      label: 'Kho Đề Cố Định',
+      shortLabel: 'Kho Đề',
+      icon: <GraduationCap className="w-4 h-4 text-theme-warning shrink-0" />,
+    },
+    {
+      id: 'upload',
+      label: 'Đề Thi Cá Nhân',
+      shortLabel: 'Cá Nhân',
+      icon: <FileText className="w-4 h-4 shrink-0" />,
+    },
+    {
+      id: 'practice',
+      label: 'Luyện Tập',
+      shortLabel: 'Luyện Tập',
+      icon: <BookOpen className="w-4 h-4 shrink-0" />,
+    },
+    {
+      id: 'flashcards',
+      label: 'Flashcards',
+      shortLabel: 'Flash',
+      icon: <Sparkles className="w-4 h-4 text-theme-accent shrink-0" />,
+    },
+    {
+      id: 'dashboard',
+      label: 'Dashboard',
+      shortLabel: 'Stats',
+      icon: <BarChart3 className="w-4 h-4 text-theme-success shrink-0" />,
+    },
+    {
+      id: 'roadmap',
+      label: 'Lộ Trình',
+      shortLabel: 'Lộ Trình',
+      icon: <Map className="w-4 h-4 text-theme-accent shrink-0" />,
+      special: true,
+    },
+  ];
+
+  const handleTabClick = (id: NavbarProps['activeTab']) => {
+    onBackToDocs();
+    setActiveTab(id);
+  };
+
+  const isActive = (id: NavbarProps['activeTab']) => {
+    if (id === 'textbooks') return activeTab === 'textbooks' && !selectedDocId;
+    return activeTab === id;
+  };
+
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-theme-surface/90 border-b border-theme transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          
-          {/* Logo & Brand */}
-          <div 
-            onClick={() => { onBackToDocs(); setActiveTab('textbooks'); }}
-            className="flex items-center gap-3 cursor-pointer group"
+      <div className="max-w-7xl mx-auto px-4">
+
+        {/* ── Row 1: Logo + ThemeSwitcher + Status badge ── */}
+        <div className="flex items-center justify-between h-12 border-b border-theme/50">
+
+          {/* Logo */}
+          <div
+            onClick={() => handleTabClick('textbooks')}
+            className="flex items-center gap-2 cursor-pointer group shrink-0"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-500 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform duration-200">
-              <BrainCircuit className="w-6 h-6 text-white" />
+            <div className="w-8 h-8 rounded-lg bg-theme-accent flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
+              <BrainCircuit className="w-5 h-5 text-white" />
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-lg text-theme-primary whitespace-nowrap">
+            <div className="hidden sm:block">
+              <div className="flex items-center gap-1.5">
+                <span className="font-bold text-sm text-theme-primary whitespace-nowrap">
                   TOEIC AI Master
                 </span>
-                <span className="px-2 py-0.5 text-[10px] font-semibold bg-theme-accent/20 text-theme-accent border border-theme-accent/30 rounded-full whitespace-nowrap">
-                  Local App
+                <span className="px-1.5 py-0.5 text-[9px] font-semibold bg-theme-accent/20 text-theme-accent border border-theme-accent/30 rounded-full whitespace-nowrap">
+                  Local
                 </span>
               </div>
-              <p className="text-xs text-theme-secondary font-medium whitespace-nowrap">Luyện thi TOEIC RC Đề Cố Định & AI</p>
+              <p className="text-[10px] text-theme-secondary whitespace-nowrap leading-none mt-0.5">
+                Luyện thi TOEIC RC &amp; AI
+              </p>
             </div>
           </div>
 
-          {/* Navigation Items */}
-          <nav className="flex items-center gap-1 bg-theme-surface-2 p-1 rounded-xl border border-theme overflow-x-auto max-w-full flex-nowrap shrink-0">
-            <button
-              onClick={() => { onBackToDocs(); setActiveTab('textbooks'); }}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 ${
-                activeTab === 'textbooks' && !selectedDocId
-                  ? 'bg-theme-accent text-white shadow-md'
-                  : 'text-theme-secondary hover:text-theme-primary'
-              }`}
-            >
-              <GraduationCap className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>Kho Đề Cố Định</span>
-            </button>
-
-            <button
-              onClick={() => { onBackToDocs(); setActiveTab('upload'); }}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 ${
-                activeTab === 'upload' && !selectedDocId
-                  ? 'bg-theme-accent text-white shadow-md'
-                  : 'text-theme-secondary hover:text-theme-primary'
-              }`}
-            >
-              <FileText className="w-4 h-4 shrink-0" />
-              <span>Đề Thi Cá Nhân</span>
-            </button>
-
-            <button
-              onClick={() => { onBackToDocs(); setActiveTab('practice'); }}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 ${
-                activeTab === 'practice'
-                  ? 'bg-theme-accent text-white shadow-md'
-                  : 'text-theme-secondary hover:text-theme-primary'
-              }`}
-            >
-              <BookOpen className="w-4 h-4 shrink-0" />
-              <span>Luyện Tập</span>
-            </button>
-
-            <button
-              onClick={() => { onBackToDocs(); setActiveTab('flashcards'); }}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 ${
-                activeTab === 'flashcards'
-                  ? 'bg-theme-accent text-white shadow-md'
-                  : 'text-theme-secondary hover:text-theme-primary'
-              }`}
-            >
-              <Sparkles className="w-4 h-4 text-purple-400 shrink-0" />
-              <span>Flashcards</span>
-            </button>
-
-            <button
-              onClick={() => { onBackToDocs(); setActiveTab('dashboard'); }}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 ${
-                activeTab === 'dashboard'
-                  ? 'bg-theme-accent text-white shadow-md'
-                  : 'text-theme-secondary hover:text-theme-primary'
-              }`}
-            >
-              <BarChart3 className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>Dashboard</span>
-            </button>
-          </nav>
-
-          {/* Theme Switcher & Status Info */}
-          <div className="flex items-center space-x-3">
+          {/* Right side: ThemeSwitcher + status */}
+          <div className="flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-lg alert-success border border-theme-success/30 text-theme-success text-[10px] font-medium whitespace-nowrap">
+              <span className="w-1.5 h-1.5 rounded-full bg-theme-success animate-pulse" />
+              Engine Active
+            </div>
             <ThemeSwitcher />
-
-            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              Local Engine Active
-            </div>
           </div>
-
         </div>
+
+        {/* ── Row 2: Navigation tabs ── */}
+        <div className="flex items-center gap-0.5 h-10 overflow-x-auto scrollbar-none">
+          {tabs.map((tab) => {
+            const active = isActive(tab.id);
+            return (
+              <button
+                key={tab.id}
+                onClick={() => handleTabClick(tab.id)}
+                title={tab.label}
+                className={`
+                  flex items-center gap-1.5 px-3 py-1.5 rounded-lg
+                  text-xs font-medium whitespace-nowrap transition-all duration-150 shrink-0
+                  ${active
+                    ? 'bg-theme-accent text-white shadow-md'
+                    : 'text-theme-secondary hover:text-theme-primary hover:bg-theme-surface-2'
+                  }
+                `}
+              >
+                {tab.icon}
+                {/* Full label on large screens, short on medium, icon-only on small */}
+                <span className="hidden md:inline">{tab.shortLabel}</span>
+                <span className="hidden lg:inline md:hidden">{tab.label}</span>
+              </button>
+            );
+          })}
+        </div>
+
       </div>
     </header>
   );

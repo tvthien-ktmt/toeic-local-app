@@ -14,6 +14,62 @@ export interface DocumentDetail extends DocumentSummary {
   markdown_content: string;
 }
 
+export interface TestItem {
+  id: number;
+  test_number: number;
+  filename: string;
+  highest_score: number | null;
+}
+
+export interface SeriesItem {
+  series_title: string;
+  total_tests: number;
+  tests: TestItem[];
+}
+
+export interface CatalogCategory {
+  category_name: string;
+  series: SeriesItem[];
+}
+
+export interface DashboardSummaryData {
+  total_vocab: number;
+  learned_vocab: number;
+  unlearned_vocab: number;
+  total_attempts: number;
+  total_learned_correct?: number;
+  overall_accuracy: number;
+  total_study_min_7d?: number;
+  active_days_7d?: number;
+  part5_avg_speed_sec?: number;
+  part6_avg_speed_sec?: number;
+  part7_avg_speed_sec?: number;
+  part_stats?: { part_name: string; accuracy_rate: number; total_attempts: number }[];
+  topic_progress?: { topic_category: string; learned_words: number; total_words: number; mastery_rate: number }[];
+  grammar_stats?: { grammar_topic: string; accuracy_rate: number; total_attempts: number }[];
+  examHistory?: {
+    id: number;
+    mode: string;
+    exam_title: string;
+    completed_at: string;
+    time_spent_seconds: number;
+    toeic_score: number;
+    raw_score: number;
+    total_questions: number;
+    part5_correct: number;
+    part6_correct: number;
+    part7_correct: number;
+  }[];
+  weaknessData?: {
+    grammar_topic: string;
+    error_rate: number;
+    wrong: number;
+    skipped: number;
+    correct: number;
+    total_questions: number;
+  }[];
+}
+
 const API_BASE = '/api/documents';
 
 export const uploadDocument = async (file: File, docType: 'RC_EXAM' | 'LC_TRANSCRIPT'): Promise<DocumentDetail> => {
@@ -41,5 +97,15 @@ export const fetchDocumentById = async (id: number): Promise<DocumentDetail> => 
 
 export const deleteDocument = async (id: number): Promise<{ message: string }> => {
   const response = await axios.delete<{ message: string }>(`${API_BASE}/${id}`);
+  return response.data;
+};
+
+export const fetchTextbookCatalog = async (): Promise<CatalogCategory[]> => {
+  const response = await axios.get<CatalogCategory[]>(`${API_BASE}/textbooks/catalog`);
+  return response.data;
+};
+
+export const fetchDashboardSummary = async (): Promise<DashboardSummaryData> => {
+  const response = await axios.get<DashboardSummaryData>(`${API_BASE}/dashboard/summary`);
   return response.data;
 };

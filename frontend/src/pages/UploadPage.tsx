@@ -126,14 +126,14 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
               </div>
             </div>
             <div className="flex items-center gap-3 p-3 rounded-xl bg-theme-surface-2 border border-theme">
-              <Zap className="w-5 h-5 text-amber-400 shrink-0" />
+              <Zap className="w-5 h-5 text-theme-warning shrink-0" />
               <div>
                 <p className="text-xs font-semibold text-theme-primary">Async Background Worker</p>
                 <p className="text-[11px] text-theme-secondary">Không freeze UI khi xử lý</p>
               </div>
             </div>
             <div className="flex items-center gap-3 p-3 rounded-xl bg-theme-surface-2 border border-theme">
-              <FileCode className="w-5 h-5 text-purple-400 shrink-0" />
+              <FileCode className="w-5 h-5 text-theme-accent shrink-0" />
               <div>
                 <p className="text-xs font-semibold text-theme-primary">Clean Markdown Output</p>
                 <p className="text-[11px] text-theme-secondary">Tách đúng thứ tự Q101 &rarr; Q108</p>
@@ -312,7 +312,7 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
 
                     <button
                       onClick={(e) => handleDelete(e, doc.id)}
-                      className="p-1.5 rounded-lg text-theme-secondary hover:text-red-400 hover:bg-red-500/10 transition opacity-0 group-hover:opacity-100"
+                      className="p-1.5 rounded-lg text-theme-secondary hover:text-theme-error hover:bg-theme-error/10 transition opacity-0 group-hover:opacity-100"
                       title="Xóa tài liệu"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -330,13 +330,13 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
 
                 <div className="mt-4 pt-3 flex items-center justify-between border-t border-theme text-xs">
                   {doc.status === 'processing' ? (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20 text-[11px] font-medium animate-pulse">
-                      <Loader2 className="w-3 h-3 animate-spin text-amber-400" />
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full alert-warning border border-theme-warning/30 text-[11px] font-medium animate-pulse">
+                      <Loader2 className="w-3 h-3 animate-spin text-theme-warning" />
                       Đang OCR & trích xuất ở nền...
                     </span>
                   ) : (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 text-[11px] font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full alert-success border border-theme-success/30 text-[11px] font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-theme-success" />
                       {doc.status}
                     </span>
                   )}

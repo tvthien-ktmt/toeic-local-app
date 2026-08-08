@@ -312,7 +312,7 @@ export const FlashcardPage: React.FC = () => {
                     </div>
                   ) : (
                     <div className="space-y-4 animate-in fade-in">
-                      <h3 className="text-2xl sm:text-3xl font-extrabold text-emerald-400 select-text">
+                      <h3 className="text-2xl sm:text-3xl font-extrabold text-theme-success select-text">
                         {currentCard.meaning_vi}
                       </h3>
                       {currentCard.example_sentence && (
@@ -378,7 +378,7 @@ export const FlashcardPage: React.FC = () => {
 
               <div className="text-center space-y-2 py-4">
                 <span className="text-xs text-theme-secondary uppercase font-bold tracking-wider">Gõ chính xác từ tiếng Anh cho nghĩa:</span>
-                <h3 className="text-2xl font-extrabold text-emerald-400">{currentCard.meaning_vi}</h3>
+                <h3 className="text-2xl font-extrabold text-theme-success">{currentCard.meaning_vi}</h3>
                 <p className="text-xs text-theme-secondary italic font-mono">{currentCard.part_of_speech} • {currentCard.ipa}</p>
               </div>
 
@@ -391,15 +391,15 @@ export const FlashcardPage: React.FC = () => {
                   autoFocus
                   className={`w-full p-4 rounded-2xl bg-theme-surface-2 border text-center font-bold text-lg text-theme-primary focus:outline-none transition ${
                     typingStatus === 'correct'
-                      ? 'border-emerald-500 bg-emerald-500/10 text-emerald-300'
+                      ? 'border-theme-success alert-success font-bold'
                       : typingStatus === 'incorrect'
-                      ? 'border-red-500 bg-red-500/10 text-red-300'
+                      ? 'border-theme-error alert-error font-bold'
                       : 'border-theme focus:border-theme-accent'
                   }`}
                 />
 
                 {typingStatus === 'incorrect' && (
-                  <p className="text-xs font-bold text-red-400 text-center animate-bounce">
+                  <p className="text-xs font-bold text-theme-error text-center animate-bounce">
                     Chưa chính xác! Đáp án đúng: <span className="font-mono underline">{currentCard.word}</span>
                   </p>
                 )}
@@ -443,7 +443,7 @@ export const FlashcardPage: React.FC = () => {
                         </button>
                       </div>
                       <p className="text-xs text-theme-secondary font-mono">{v.ipa} • {v.part_of_speech}</p>
-                      <p className="text-sm font-semibold text-emerald-400">{v.meaning_vi}</p>
+                      <p className="text-sm font-semibold text-theme-success">{v.meaning_vi}</p>
                       {v.example_sentence && (
                         <p className="text-xs text-theme-primary italic border-l-2 border-theme-accent pl-2 truncate">"{v.example_sentence}"</p>
                       )}
@@ -463,7 +463,7 @@ export const FlashcardPage: React.FC = () => {
                     </button>
                   </div>
                   <p className="text-xs text-theme-secondary font-mono">{v.ipa} • {v.part_of_speech}</p>
-                  <p className="text-sm font-semibold text-emerald-400">{v.meaning_vi}</p>
+                  <p className="text-sm font-semibold text-theme-success">{v.meaning_vi}</p>
                   {v.example_sentence && (
                     <p className="text-xs text-theme-primary italic border-l-2 border-theme-accent pl-2">"{v.example_sentence}"</p>
                   )}

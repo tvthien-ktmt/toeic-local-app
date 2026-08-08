@@ -1,5 +1,5 @@
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, Text, Boolean, Float, DateTime, ForeignKey, UniqueConstraint
+from sqlalchemy import Column, Integer, String, Text, Boolean, Float, DateTime, ForeignKey, UniqueConstraint, Index
 from sqlalchemy.orm import relationship
 from .db import Base
 
@@ -148,3 +148,77 @@ class StudySession(Base):
     duration_seconds = Column(Integer, nullable=False)
     started_at = Column(DateTime, default=datetime.utcnow)
     ended_at = Column(DateTime, default=datetime.utcnow)
+
+
+# ====================================================
+# MODULE 12 — Curriculum Engine Models
+# ====================================================
+
+class CurriculumTopic(Base):
+    """Module 12.1.3 — Canonical curriculum topic from cross-referencing 4 knowledge sources."""
+    __tablename__ = "curriculum_topics"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    canonical_name = Column(String, unique=True, nullable=False, index=True)
+    category = Column(String, nullable=False, index=True)  # grammar_topic / question_type / vocab_topic
+    level = Column(String, nullable=False)                 # basic / intermediate / advanced
+    parts_json = Column(Text, nullable=True)               # JSON array: [5] / [5,6] / [7]
+    prerequisite_topic_id = Column(Integer, ForeignKey("curriculum_topics.id"), nullable=True, index=True)
+    source_files_json = Column(Text, nullable=True)        # JSON array of source file names
+    source_count = Column(Integer, default=1)              # Number of 4 sources that mention this
+    agreement_note = Column(Text, nullable=True)           # Cross-source comparison note
+    mapped_grammar_topics_db_json = Column(Text, nullable=True)  # JSON array: grammar_topic values in questions table
+    question_count = Column(Integer, default=0)            # Cached count from questions table
+    has_specific_db_topic = Column(Boolean, default=False) # True if specific (not generic Part X) topic exists
+    db_coverage_note = Column(Text, nullable=True)         # Human-readable coverage note
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    # Self-referential relationship for prerequisites
+    prerequisite = relationship("CurriculumTopic", remote_side=[id], foreign_keys=[prerequisite_topic_id])
+    lesson = relationship("Lesson", back_populates="curriculum_topic", uselist=False, cascade="all, delete-orphan")
+    mastery_records = relationship("UserMastery", back_populates="curriculum_topic", cascade="all, delete-orphan")
+
+    __table_args__ = (
+        Index("idx_curriculum_topics_prerequisite", "prerequisite_topic_id"),
+        Index("idx_curriculum_topics_category_level", "category", "level"),
+    )
+
+
+class Lesson(Base):
+    """Module 12.2 — AI-generated lesson content for a CurriculumTopic."""
+    __tablename__ = "lessons"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    curriculum_topic_id = Column(Integer, ForeignKey("curriculum_topics.id"), unique=True, nullable=False)
+    content_markdown = Column(Text, nullable=False)         # Full lesson in Markdown (rendered by react-markdown+remark-gfm)
+    worked_example_question_ids_json = Column(Text, nullable=True)  # JSON array of question IDs used as examples
+    quick_check_question_ids_json = Column(Text, nullable=True)     # JSON array of question IDs for quick check quiz
+    has_real_examples = Column(Boolean, default=False)      # True if worked examples come from real DB questions
+    ai_cache_hash = Column(String, nullable=True)           # SHA256 hash key used to cache in ai_cache table
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    curriculum_topic = relationship("CurriculumTopic", back_populates="lesson")
+
+    __table_args__ = (
+        Index("idx_lessons_topic", "curriculum_topic_id"),
+    )
+
+
+class UserMastery(Base):
+    """Module 12.4/12.5 — Per-topic mastery state for the personalized roadmap."""
+    __tablename__ = "user_mastery"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    curriculum_topic_id = Column(Integer, ForeignKey("curriculum_topics.id"), nullable=False)
+    status = Column(String, nullable=False, default="unknown")  # unknown / weak / ok
+    correct_count = Column(Integer, default=0)      # Correct answers on questions tagged to this topic
+    total_count = Column(Integer, default=0)        # Total attempts on questions tagged to this topic
+    mastery_pct = Column(Float, default=0.0)        # correct_count / total_count * 100
+    last_updated_at = Column(DateTime, default=datetime.utcnow)
+
+    curriculum_topic = relationship("CurriculumTopic", back_populates="mastery_records")
+
+    __table_args__ = (
+        UniqueConstraint("curriculum_topic_id", name="_user_mastery_topic_uc"),
+        Index("idx_user_mastery_status", "status"),
+    )

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { HelpCircle, CheckCircle2, XCircle, RefreshCw, Filter, Award, Sparkles, BookOpen, Languages, Clock, Check } from 'lucide-react';
 import { fetchQuestions, fetchTopicsSummary, generateSimilarQuestion } from '../api/questions';
 import type { QuestionItem } from '../api/questions';
+import { MarkdownPassage } from '../components/MarkdownPassage';
 import { GrammarQuickRefModal } from '../components/GrammarQuickRefModal';
 import { TextHighlightPopup } from '../components/TextHighlightPopup';
 import { PracticeTimer } from '../components/PracticeTimer';
@@ -198,7 +199,7 @@ export const PracticePage: React.FC = () => {
                 onClick={() => setPracticeMode('full_mock')}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 ${
                   practiceMode === 'full_mock'
-                    ? 'bg-amber-500 text-slate-950 font-extrabold shadow-lg'
+                    ? 'bg-theme-accent text-white font-extrabold shadow-lg'
                     : 'text-theme-secondary hover:text-theme-primary'
                 }`}
               >
@@ -212,28 +213,28 @@ export const PracticePage: React.FC = () => {
           <div className="bg-theme-surface-2 rounded-2xl p-4 border border-theme text-center shrink-0 min-w-[180px] shadow-lg space-y-2">
             {practiceMode === 'full_mock' ? (
               <>
-                <span className="text-xs text-amber-400 font-bold block uppercase tracking-wider">Đồng hồ Thi Thử</span>
+                <span className="text-xs text-theme-warning font-bold block uppercase tracking-wider">Đồng hồ Thi Thử</span>
                 <PracticeTimer targetMinutes={75} onTimeUp={handleFinishMockTest} isPaused={isMockSubmitted} />
                 {!isMockSubmitted ? (
                   <button
                     onClick={handleFinishMockTest}
-                    className="w-full py-1.5 px-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-xl transition"
+                    className="w-full py-1.5 px-3 bg-theme-warning hover:opacity-90 text-white font-bold text-xs rounded-xl transition"
                   >
                     Nộp Bài Thi Thử
                   </button>
                 ) : (
-                  <span className="text-xs text-emerald-400 font-bold block">Đã hoàn thành!</span>
+                  <span className="text-xs text-theme-success font-bold block">Đã hoàn thành!</span>
                 )}
               </>
             ) : (
               <>
-                <Award className="w-6 h-6 mx-auto text-amber-400 mb-1" />
+                <Award className="w-6 h-6 mx-auto text-theme-accent mb-1" />
                 <span className="text-xs text-theme-secondary block font-medium">Điểm số luyện tập</span>
                 <span className="text-2xl font-extrabold text-theme-primary">
                   {score.correct} / {score.total}
                 </span>
                 {score.total > 0 && (
-                  <span className="text-xs font-bold text-emerald-400 block mt-1">
+                  <span className="text-xs font-bold text-theme-success block mt-1">
                     ({Math.round((score.correct / score.total) * 100)}% Chính xác)
                   </span>
                 )}
@@ -305,8 +306,8 @@ export const PracticePage: React.FC = () => {
 
       {/* Full Mock Test Report Banner after submission */}
       {practiceMode === 'full_mock' && isMockSubmitted && (
-        <div className="bg-theme-surface border border-amber-500/30 rounded-3xl p-6 sm:p-8 space-y-4 shadow-2xl animate-in fade-in">
-          <div className="flex items-center space-x-2 text-amber-400 font-bold text-lg">
+        <div className="bg-theme-surface border border-theme-warning/40 rounded-3xl p-6 sm:p-8 space-y-4 shadow-2xl animate-in fade-in">
+          <div className="flex items-center space-x-2 text-theme-warning font-bold text-lg">
             <Award className="w-6 h-6" />
             <h2>BÁO CÁO KẾT QUẢ THI THỬ THỜI GIAN THẬT (FULL MOCK TEST)</h2>
           </div>
@@ -314,8 +315,8 @@ export const PracticePage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 pt-2">
             <div className="p-4 bg-theme-surface-2 border border-theme rounded-2xl text-center">
               <span className="text-xs text-theme-secondary block font-medium">Tổng điểm thi thử</span>
-              <span className="text-3xl font-extrabold text-amber-400">{score.correct} / {score.total}</span>
-              <span className="text-xs font-bold text-emerald-400 block mt-1">
+              <span className="text-3xl font-extrabold text-theme-accent">{score.correct} / {score.total}</span>
+              <span className="text-xs font-bold text-theme-success block mt-1">
                 ({score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0}% Đúng)
               </span>
             </div>
@@ -387,7 +388,7 @@ export const PracticePage: React.FC = () => {
                     {/* Module 17: Interactive Clickable Grammar Topic Badge */}
                     <button
                       onClick={() => setActiveGrammarTopic(q.grammar_topic)}
-                      className="px-2.5 py-1 rounded-xl bg-amber-400/10 hover:bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-semibold flex items-center space-x-1 transition-colors"
+                      className="px-2.5 py-1 rounded-xl bg-theme-accent/15 hover:bg-theme-accent/25 text-theme-accent border border-theme-accent/30 text-xs font-semibold flex items-center space-x-1 transition-colors"
                       title="Bấm để xem thẻ Ôn Nhanh Ngữ Pháp"
                     >
                       <BookOpen className="w-3.5 h-3.5" />
@@ -395,7 +396,7 @@ export const PracticePage: React.FC = () => {
                     </button>
 
                     {q.topic_tag && (
-                      <span className="px-2.5 py-1 rounded-xl bg-purple-500/20 text-purple-300 text-xs font-medium border border-purple-500/30">
+                      <span className="px-2.5 py-1 rounded-xl bg-theme-surface-2 text-theme-secondary text-xs font-medium border border-theme">
                         {q.topic_tag}
                       </span>
                     )}
@@ -418,9 +419,9 @@ export const PracticePage: React.FC = () => {
                 </div>
 
                 {/* Question Text */}
-                <h3 className="text-base sm:text-lg font-bold text-theme-primary leading-relaxed select-text">
-                  {q.question_text}
-                </h3>
+                <div className="text-base sm:text-lg font-bold text-theme-primary leading-relaxed select-text">
+                  <MarkdownPassage text={q.question_text} />
+                </div>
 
                 {/* Interactive Options */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -433,14 +434,14 @@ export const PracticePage: React.FC = () => {
 
                     if (showFeedback) {
                       if (isCorrect) {
-                        optionStyle = "bg-emerald-500/20 border-emerald-500/60 text-emerald-300 font-bold shadow-lg";
+                        optionStyle = "alert-success border-theme-success font-bold text-theme-success shadow";
                       } else if (isSelected) {
-                        optionStyle = "bg-red-500/20 border-red-500/60 text-red-300 font-bold";
+                        optionStyle = "alert-error border-theme-error font-bold text-theme-error";
                       } else {
                         optionStyle = "bg-theme-surface-2 border-theme text-theme-secondary opacity-60";
                       }
                     } else if (isSelected) {
-                      optionStyle = "bg-theme-accent/30 border-theme-accent text-theme-accent font-bold";
+                      optionStyle = "bg-theme-accent/20 border-theme-accent text-theme-accent font-bold";
                     }
 
                     return (
@@ -451,8 +452,8 @@ export const PracticePage: React.FC = () => {
                         className={`w-full text-left p-4 rounded-2xl border text-xs sm:text-sm font-medium transition-all duration-200 flex items-center justify-between ${optionStyle}`}
                       >
                         <span>{opt}</span>
-                        {showFeedback && isCorrect && <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />}
-                        {showFeedback && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-red-400 shrink-0" />}
+                        {showFeedback && isCorrect && <CheckCircle2 className="w-5 h-5 text-theme-success shrink-0" />}
+                        {showFeedback && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-theme-error shrink-0" />}
                         {!showFeedback && isSelected && <Check className="w-5 h-5 text-theme-accent shrink-0" />}
                       </button>
                     );
@@ -463,8 +464,8 @@ export const PracticePage: React.FC = () => {
                 {showFeedback && (
                   <div className="p-5 rounded-2xl bg-theme-surface-2 border border-theme space-y-3 text-xs sm:text-sm animate-fade-in">
                     <div className="flex items-center gap-2">
-                      <span className="font-bold text-emerald-400">Đáp án chính xác:</span>
-                      <span className="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">
+                      <span className="font-bold text-theme-success">Đáp án chính xác:</span>
+                      <span className="px-2.5 py-0.5 rounded alert-success font-bold">
                         {q.correct_answer || 'Chưa xác định trong đề gốc'}
                       </span>
                     </div>
@@ -484,14 +485,14 @@ export const PracticePage: React.FC = () => {
                     {/* Overall Explanation */}
                     {q.explanation && (
                       <p className="text-theme-primary leading-relaxed">
-                        <span className="font-bold text-amber-400">Giải thích chung:</span> {q.explanation}
+                        <span className="font-bold text-theme-warning">Giải thích chung:</span> {q.explanation}
                       </p>
                     )}
 
                     {/* Natural Sentence Translation */}
                     {q.translated_sentence && (
                       <div className="p-3 bg-theme-surface border border-theme rounded-xl space-y-1">
-                        <div className="flex items-center space-x-1.5 text-xs font-semibold text-emerald-400">
+                        <div className="flex items-center space-x-1.5 text-xs font-semibold text-theme-success">
                           <Languages className="w-4 h-4" />
                           <span>Bản dịch tiếng Việt hoàn chỉnh:</span>
                         </div>

@@ -36,15 +36,15 @@ export const PracticeTimer: React.FC<PracticeTimerProps> = ({ targetMinutes, onT
   const secs = secondsLeft % 60;
   const ratio = secondsLeft / totalSeconds;
 
-  let badgeColor = "bg-emerald-500/20 text-emerald-300 border-emerald-500/40";
-  let iconColor = "text-emerald-400";
+  let badgeColor = "bg-theme-success/15 text-theme-success border-theme-success/40";
+  let iconColor = "text-theme-success";
 
   if (ratio <= 0.1) {
-    badgeColor = "bg-rose-500/20 text-rose-300 border-rose-500/40 animate-pulse";
-    iconColor = "text-rose-400";
+    badgeColor = "bg-theme-error/15 text-theme-error border-theme-error/40 animate-pulse";
+    iconColor = "text-theme-error";
   } else if (ratio <= 0.3) {
-    badgeColor = "bg-amber-500/20 text-amber-300 border-amber-500/40";
-    iconColor = "text-amber-400";
+    badgeColor = "bg-theme-warning/15 text-theme-warning border-theme-warning/40";
+    iconColor = "text-theme-warning";
   }
 
   return (
@@ -54,7 +54,7 @@ export const PracticeTimer: React.FC<PracticeTimerProps> = ({ targetMinutes, onT
         {String(mins).padStart(2, '0')}:{String(secs).padStart(2, '0')}
       </span>
       {ratio <= 0.1 && (
-        <AlertTriangle className="w-3.5 h-3.5 text-rose-400 ml-1" />
+        <AlertTriangle className="w-3.5 h-3.5 text-theme-error ml-1" />
       )}
     </div>
   );
