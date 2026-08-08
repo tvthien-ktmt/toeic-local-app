@@ -166,7 +166,7 @@ def build_pedagogical_lesson(db, topic: CurriculumTopic) -> Lesson:
     # 3. Format real examples block with option-by-option analysis
     example_md = ""
     if has_real:
-        example_md += "## 📝 6. Ví dụ minh họa thực tế từ Đề Thi Thật (Phân tích chi tiết từng đáp án)\n\n"
+        example_md += "## 6. Ví dụ minh họa thực tế từ Đề Thi Thật (Phân tích chi tiết từng đáp án)\n\n"
         for i, q in enumerate(worked_questions, 1):
             opts = get_options_list(q.options_json)
             opts_formatted = "\n".join(f"  - ({chr(65+j)}) {opt}" for j, opt in enumerate(opts))
@@ -175,15 +175,15 @@ def build_pedagogical_lesson(db, topic: CurriculumTopic) -> Lesson:
             example_md += f"### Ví dụ {i} (Đề thi Part 5 - Câu ID #{q.id})\n"
             example_md += f"> **Câu hỏi:** {q.question_text}\n\n"
             example_md += f"**Các phương án:**\n{opts_formatted}\n\n"
-            example_md += f"👉 **Đáp án đúng:** `({q.correct_answer})`\n\n"
-            example_md += f"**🔍 Phân tích chi tiết từng đáp án:**\n{opt_explanations}\n\n"
+            example_md += f"**Đáp án đúng:** `({q.correct_answer})`\n\n"
+            example_md += f"**Phân tích chi tiết từng đáp án:**\n{opt_explanations}\n\n"
             if q.explanation and len(q.explanation) > 10:
-                example_md += f"💡 **Giải thích bổ sung:** {q.explanation}\n\n"
+                example_md += f"**Giải thích bổ sung:** {q.explanation}\n\n"
             example_md += "---\n\n"
 
     # 4. Topic-Specific Content Generation (Beginner-First / Mất Gốc)
     if topic.id == 1:
-        content_md = f"""# 📚 Bài Giảng: Từ loại / Dạng từ (Parts of Speech / Word Form)
+        content_md = f"""# Bài Giảng: Từ loại / Dạng từ (Parts of Speech / Word Form)
 
 > **Phân loại:** Chủ điểm Ngữ Pháp Nền Tảng  
 > **Cấp độ:** Cơ bản (Dành riêng cho người mất gốc từ số 0)  
@@ -191,7 +191,7 @@ def build_pedagogical_lesson(db, topic: CurriculumTopic) -> Lesson:
 
 ---
 
-## 🎯 1. Định nghĩa bằng ví dụ đời thường (Khái niệm từ số 0)
+## 1. Định nghĩa bằng ví dụ đời thường (Khái niệm từ số 0)
 
 Trong tiếng Anh, mỗi từ đóng một **"vai trò" (từ loại)** khác nhau trong câu, giống như các cầu thủ có vị trí riêng trong một đội bóng:
 
@@ -204,14 +204,14 @@ Trong tiếng Anh, mỗi từ đóng một **"vai trò" (từ loại)** khác nh
 4. **Trạng từ** *(Adverb - viết tắt: Adv)*: Là từ chỉ **CÁCH THỨC** thực hiện hành động (dùng để bổ nghĩa cho Động từ, Tính từ).  
    - *Ví dụ đơn giản:* `quickly` (một cách nhanh chóng), `beautifully` (một cách đẹp đẽ).
 
-💡 **Ví dụ trực quan dễ hiểu:**  
+**Ví dụ trực quan dễ hiểu:**  
 Cùng là từ `love`:
-- Trong câu *"I **love** English"* $\rightarrow$ `love` là **Động từ** (chỉ hành động yêu).
-- Trong câu *"English is my **love**"* $\rightarrow$ `love` là **Danh từ** (chỉ tình yêu / điều mình yêu).
+- Trong câu *"I **love** English"* -> `love` là **Động từ** (chỉ hành động yêu).
+- Trong câu *"English is my **love**"* -> `love` là **Danh từ** (chỉ tình yêu / điều mình yêu).
 
 ---
 
-## ❓ 2. Thử kiểm tra nhanh khái niệm (Warm-up Check)
+## 2. Thử kiểm tra nhanh khái niệm (Warm-up Check)
 
 **Câu hỏi kiểm tra nhanh:** Trong câu *"She runs **fast**"*, từ `runs` đóng vai trò là loại từ gì?  
 - (A) Danh từ (N)  
@@ -219,41 +219,41 @@ Cùng là từ `love`:
 - (C) Tính từ (Adj)  
 - (D) Trạng từ (Adv)  
 
-👉 **Đáp án đúng:** **(B) Động từ (V)** — Vì `runs` mô tả hành động "chạy" của cô ấy.
+**Đáp án đúng:** **(B) Động từ (V)** — Vì `runs` mô tả hành động "chạy" của cô ấy.
 
 ---
 
-## 🔍 3. Dấu hiệu nhận biết & Bảng đuôi từ loại thực chiến (TOEIC Suffixes)
+## 3. Dấu hiệu nhận biết & Bảng đuôi từ loại thực chiến (TOEIC Suffixes)
 
 Trong bài thi TOEIC, bạn **không cần dịch hết nghĩa của từ**, chỉ cần nhìn **ĐUÔI TỪ (Suffix)** để biết ngay từ đó là loại từ gì:
 
-### 📋 Bảng đuôi từ loại chuẩn TOEIC:
+### Bảng đuôi từ loại chuẩn TOEIC:
 
 | Loại từ | Đuôi nhận biết phổ biến (Suffixes) | Ví dụ minh họa đơn giản |
 | :--- | :--- | :--- |
 | **Danh từ (N)** | `-tion`, `-sion`, `-ment`, `-ness`, `-ity`, `-ance`, `-ence`, `-er`, `-or` | *information, management, happiness, city, teacher, doctor* |
 | **Tính từ (Adj)** | `-ive`, `-ous`, `-al`, `-able`, `-ible`, `-ful`, `-less`, `-ic` | *active, famous, national, comfortable, helpful, helpless* |
-| **Trạng từ (Adv)** | `-ly` *(Công thức: Tính từ + `-ly` = Trạng từ)* | *quick $\rightarrow$ quickly, careful $\rightarrow$ carefully* |
+| **Trạng từ (Adv)** | `-ly` *(Công thức: Tính từ + `-ly` = Trạng từ)* | *quick -> quickly, careful -> carefully* |
 | **Động từ (V)** | `-ize`, `-ify`, `-ate`, `-en` | *organize, simplify, create, shorten* |
 
 ---
 
-## 📐 4. Vị trí từ loại trong câu & Quy tắc 3 bước làm bài thần tốc
+## 4. Vị trí từ loại trong câu & Quy tắc 3 bước làm bài thần tốc
 
-### 📍 Vị trí đứng trong câu:
+### Vị trí đứng trong câu:
 1. `a / an / the / my / your / this / that` + **DANH TỪ (N)** *(Ví dụ: a **teacher**, the **information**)*
 2. **TÍNH TỪ (Adj)** + **DANH TỪ (N)** *(Ví dụ: a **beautiful** girl)*
 3. `to be` *(am, is, are, was, were)* + **TÍNH TỪ (Adj)** *(Ví dụ: She is **beautiful**)*
 4. **ĐỘNG TỪ (V)** + **TRẠNG TỪ (Adv)** *(Ví dụ: Run **quickly**)*
 
-### 🚀 Quy tắc 3 bước làm bài Part 5 trong 10 giây:
-- **Bước 1:** Nhìn 4 phương án $(A, B, C, D)$. Nếu thấy cùng 1 gốc từ nhưng khác đuôi $\rightarrow$ Xác định đây là câu hỏi **Từ loại**.
+### Quy tắc 3 bước làm bài Part 5 trong 10 giây:
+- **Bước 1:** Nhìn 4 phương án $(A, B, C, D)$. Nếu thấy cùng 1 gốc từ nhưng khác đuôi -> Xác định đây là câu hỏi **Từ loại**.
 - **Bước 2:** Nhìn từ ngay trước và ngay sau chỗ trống để xác định loại từ còn thiếu.
 - **Bước 3:** Tra bảng đuôi từ loại và chọn đáp án có đuôi phù hợp.
 
 ---
 
-## ⚠️ 5. Bẫy hay gặp & Cách tránh (Lưu ý cho người mất gốc)
+## 5. Bẫy hay gặp & Cách tránh (Lưu ý cho người mất gốc)
 
 - **Bẫy 1 (Tính từ đuôi `-ing` vs `-ed`):**  
   - Đuôi `-ing` dùng cho **bản chất của sự vật/sự việc** *(Ví dụ: an **interesting** book - cuốn sách thú vị)*.  
@@ -266,17 +266,17 @@ Trong bài thi TOEIC, bạn **không cần dịch hết nghĩa của từ**, ch�
 
 {example_md}
 
-## 💡 7. Tóm tắt nhanh cần nhớ (Grammar Recall)
-- ✔️ **Danh từ (N):** Đuôi `-tion`, `-ment`, `-ness`. Đứng sau `a/an/the`.
-- ✔️ **Tính từ (Adj):** Đuôi `-ive`, `-ous`, `-ful`. Đứng trước Danh từ hoặc sau `to be`.
-- ✔️ **Trạng từ (Adv):** Đuôi `-ly`. Bổ nghĩa cho Động từ thường.
+## 7. Tóm tắt nhanh cần nhớ (Grammar Recall)
+- **Danh từ (N):** Đuôi `-tion`, `-ment`, `-ness`. Đứng sau `a/an/the`.
+- **Tính từ (Adj):** Đuôi `-ive`, `-ous`, `-ful`. Đứng trước Danh từ hoặc sau `to be`.
+- **Trạng từ (Adv):** Đuôi `-ly`. Bổ nghĩa cho Động từ thường.
 """
     else:
         parts = json.loads(topic.parts_json or "[5]")
         parts_str = ", ".join(f"Part {p}" for p in parts)
         level_vi = {"basic": "Cơ bản (Cho người mới bắt đầu)", "intermediate": "Trung cấp (Chinh phục 350-450)", "advanced": "Nâng cao (Mục tiêu 495 RC)"}.get(topic.level, topic.level)
 
-        content_md = f"""# 📚 Bài Giảng: {topic.canonical_name}
+        content_md = f"""# Bài Giảng: {topic.canonical_name}
 
 > **Phân loại:** Chủ điểm Ngữ Pháp  
 > **Cấp độ:** {level_vi}  
@@ -284,7 +284,7 @@ Trong bài thi TOEIC, bạn **không cần dịch hết nghĩa của từ**, ch�
 
 ---
 
-## 🎯 1. Định nghĩa bằng ví dụ đời thường (Khái niệm từ số 0)
+## 1. Định nghĩa bằng ví dụ đời thường (Khái niệm từ số 0)
 
 Chủ điểm **{topic.canonical_name}** là một phần kiến thức nền tảng trong đề thi TOEIC ({parts_str}).
 
@@ -292,17 +292,17 @@ Chủ điểm **{topic.canonical_name}** là một phần kiến thức nền t�
 
 ---
 
-## ❓ 2. Thử kiểm tra nhanh khái niệm (Warm-up Check)
+## 2. Thử kiểm tra nhanh khái niệm (Warm-up Check)
 
 **Câu hỏi kiểm tra khái niệm:** Đâu là đặc điểm cốt lõi của chủ điểm **{topic.canonical_name}**?
-- (A) Xác định dựa trên từ chỉ báo và ngữ cảnh câu. *(👉 Đáp án đúng)*
+- (A) Xác định dựa trên từ chỉ báo và ngữ cảnh câu. *(Đáp án đúng)*
 - (B) Chọn ngẫu nhiên không cần đọc ngữ cảnh.
 - (C) Chỉ áp dụng cho văn bản dài Part 7.
 - (D) Không xuất hiện trong đề thi TOEIC.
 
 ---
 
-## 🔍 3. Dấu hiệu nhận biết & Quy tắc cốt lõi
+## 3. Dấu hiệu nhận biết & Quy tắc cốt lõi
 
 1. **Dấu hiệu nhận biết:** Quan sát các từ chỉ báo (Signal words), giới từ đi kèm hoặc từ đứng trước/sau chỗ trống.
 2. **Quy tắc 1:** Luôn xác định động từ chính của câu trước khi chọn đáp án.
@@ -310,7 +310,7 @@ Chủ điểm **{topic.canonical_name}** là một phần kiến thức nền t�
 
 ---
 
-## ⚠️ 4. Bẫy hay gặp & Cách tránh (Lưu ý cho người mất gốc)
+## 4. Bẫy hay gặp & Cách tránh (Lưu ý cho người mất gốc)
 
 - **Bẫy 1:** Nhầm lẫn giữa các cấu trúc có hình thức tương tự nhau.
 - **Bẫy 2:** Không chú ý sự hòa hợp giữa các thành phần trong câu.
@@ -320,10 +320,10 @@ Chủ điểm **{topic.canonical_name}** là một phần kiến thức nền t�
 
 {example_md}
 
-## 💡 7. Tóm tắt nhanh cần nhớ (Grammar Recall)
-- ✔️ Nắm vững dấu hiệu nhận biết trong 3 giây đầu.
-- ✔️ Loại trừ ngay các phương án sai ngữ pháp cơ bản.
-- ✔️ Ôn tập ví dụ thực tế trên để phản xạ nhanh khi vào phòng thi.
+## 7. Tóm tắt nhanh cần nhớ (Grammar Recall)
+- Nắm vững dấu hiệu nhận biết trong 3 giây đầu.
+- Loại trừ ngay các phương án sai ngữ pháp cơ bản.
+- Ôn tập ví dụ thực tế trên để phản xạ nhanh khi vào phòng thi.
 """
 
     lesson = Lesson(
