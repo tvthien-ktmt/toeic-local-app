@@ -110,11 +110,7 @@ def get_textbook_catalog(db: Session = Depends(get_db)):
             "series": series_list
         })
 
-    return {
-        "status": "success",
-        "total_builtin_tests": len(docs),
-        "catalog": catalog
-    }
+    return catalog
 
 
 @router.get("/exam/{doc_id}")

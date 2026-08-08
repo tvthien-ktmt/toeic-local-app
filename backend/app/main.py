@@ -50,7 +50,6 @@ app.include_router(flashcards.router)
 app.include_router(dashboard.router)
 app.include_router(grammar.router)
 app.include_router(textbooks.router)
-app.include_router(textbooks.router, prefix="/api/textbooks")
 app.include_router(curriculum.router)
 
 @app.get("/")
