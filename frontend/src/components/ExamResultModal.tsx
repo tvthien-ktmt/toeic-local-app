@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 import {
-  Trophy, CheckCircle2, XCircle, Clock, RotateCcw, Eye, Sparkles,
-  BookOpen, AlertTriangle, Target, TrendingDown, History, Zap, ChevronDown, ChevronUp
+  Trophy, CheckCircle2, XCircle, Clock, RotateCcw, Sparkles,
+  BookOpen, AlertTriangle, Target, TrendingDown, History, ChevronDown, ChevronUp
 } from 'lucide-react';
+import { MarkdownPassage } from './MarkdownPassage';
 
 interface DetailedQuestionResult {
   id: number;
@@ -58,35 +57,7 @@ interface ExamResultModalProps {
   onRetake: () => void;
 }
 
-// ─── Markdown Passage (shared) ──────────────────────────────────────────────
-const MarkdownPassage: React.FC<{ text: string }> = ({ text }) => (
-  <ReactMarkdown
-    remarkPlugins={[remarkGfm]}
-    components={{
-      table: ({ children }) => (
-        <div className="overflow-x-auto my-2">
-          <table className="w-full border-collapse text-xs">{children}</table>
-        </div>
-      ),
-      th: ({ children }) => (
-        <th className="border border-theme-accent/40 bg-theme-accent/10 px-2 py-1 text-left font-bold text-theme-primary text-xs">{children}</th>
-      ),
-      td: ({ children }) => (
-        <td className="border border-theme/40 px-2 py-1 text-theme-secondary text-xs">{children}</td>
-      ),
-      input: ({ type, checked }) =>
-        type === 'checkbox' ? (
-          <span className={`inline-flex items-center justify-center w-4 h-4 border-2 rounded mr-1 align-middle ${checked ? 'border-theme-accent bg-theme-accent' : 'border-theme-secondary/50'}`}>
-            {checked && <span className="text-white text-[9px] font-black">✓</span>}
-          </span>
-        ) : null,
-      p: ({ children }) => <p className="text-theme-secondary leading-relaxed mb-1">{children}</p>,
-      strong: ({ children }) => <strong className="font-bold text-theme-primary">{children}</strong>,
-    }}
-  >
-    {text}
-  </ReactMarkdown>
-);
+
 
 export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClose, onRetake }) => {
   const [activeTab, setActiveTab] = useState<'score' | 'review' | 'weakness' | 'history'>('score');
@@ -131,7 +102,6 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
     setAiExplanationData(null);
     setAiErrorMsg(null);
 
-    // Use DB cached data immediately ONLY if real Gemini data (common_trap or real option_explanations) exists
     if (q.common_trap && q.option_explanations && Object.keys(q.option_explanations).length > 0) {
       setAiExplanationData({
         detailed_explanation: q.explanation,
@@ -175,19 +145,16 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
     }
   };
 
-
-
   // ─── Derived: Tổng Ôn Lỗi Sai grouped by grammar_topic ──────────────────
   const weaknessGroups = useMemo(() => {
     const groups: Record<string, { topic: string; wrong: DetailedQuestionResult[]; skipped: DetailedQuestionResult[] }> = {};
     result.detailed_results.forEach(q => {
-      if (q.is_correct) return; // skip correct ones
+      if (q.is_correct) return;
       const topic = q.grammar_topic || `Part ${q.part}`;
       if (!groups[topic]) groups[topic] = { topic, wrong: [], skipped: [] };
       if (!q.user_answer) groups[topic].skipped.push(q);
       else groups[topic].wrong.push(q);
     });
-    // Sort by total errors descending
     return Object.values(groups).sort((a, b) => (b.wrong.length + b.skipped.length) - (a.wrong.length + a.skipped.length));
   }, [result.detailed_results]);
 
@@ -205,27 +172,27 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
   const wrongCount = result.detailed_results.filter(q => !q.is_correct && !!q.user_answer).length;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-md p-4 sm:p-6 flex items-center justify-center animate-fade-in">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-md p-4 sm:p-6 flex items-center justify-center">
       <div className="bg-theme-surface border border-theme rounded-2xl max-w-5xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden relative">
 
         {/* Modal Header */}
-        <div className="p-5 bg-gradient-to-r from-slate-900 via-indigo-950 to-purple-950 border-b border-theme flex items-center justify-between shrink-0">
+        <div className="p-5 bg-theme-surface-2 border-b border-theme flex items-center justify-between shrink-0">
           <div>
-            <span className="px-2.5 py-0.5 text-[10px] font-extrabold uppercase bg-amber-400/20 text-amber-300 border border-amber-400/30 rounded-md">
+            <span className="px-2.5 py-0.5 text-[10px] font-extrabold uppercase bg-theme-accent/20 text-theme-accent border border-theme-accent/30 rounded-md">
               KẾT QUẢ BÀI THI TOEIC RC
             </span>
-            <h2 className="text-lg font-bold mt-1 text-white">
+            <h2 className="text-lg font-bold mt-1 text-theme-primary">
               {result.exam_title.replace(/^\[.*?\]\s*/, '')}
             </h2>
           </div>
           <div className="text-right">
-            <div className="text-3xl font-black text-white">{result.toeic_score} <span className="text-sm font-normal text-indigo-200">/ 495</span></div>
-            <div className="text-xs text-indigo-300">Đúng {result.raw_score}/{result.total_questions} câu</div>
+            <div className="text-3xl font-black text-theme-accent">{result.toeic_score} <span className="text-sm font-normal text-theme-secondary">/ 495</span></div>
+            <div className="text-xs text-theme-secondary">Đúng {result.raw_score}/{result.total_questions} câu</div>
           </div>
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex items-center gap-1 px-5 py-2 bg-theme-surface-2 border-b border-theme shrink-0 overflow-x-auto">
+        <div className="flex items-center gap-1 px-5 py-2 bg-theme-surface border-b border-theme shrink-0 overflow-x-auto">
           {[
             { id: 'score', label: '📊 Điểm Số' },
             { id: 'weakness', label: `📚 Tổng Ôn Lỗi Sai ${weaknessGroups.length > 0 ? `(${weaknessGroups.length} chủ điểm)` : ''}` },
@@ -235,10 +202,10 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
+              className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap border ${
                 activeTab === tab.id
-                  ? 'bg-theme-accent text-white shadow-sm'
-                  : 'text-theme-secondary hover:text-theme-primary hover:bg-theme-surface-3'
+                  ? 'bg-theme-accent text-white border-theme-accent shadow-sm'
+                  : 'bg-theme-surface-2 text-theme-secondary hover:text-theme-primary border-theme'
               }`}
             >
               {tab.label}
@@ -247,13 +214,13 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
           <div className="ml-auto shrink-0 flex gap-2">
             <button
               onClick={onRetake}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-theme-surface-3 hover:bg-theme-surface-2 text-xs font-semibold text-theme-primary border border-theme transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-theme-surface-2 hover:bg-theme-surface text-xs font-semibold text-theme-primary border border-theme transition-colors"
             >
               <RotateCcw className="w-3.5 h-3.5" /> Làm Lại
             </button>
             <button
               onClick={onClose}
-              className="px-3 py-1.5 rounded-xl bg-theme-surface-3 hover:bg-theme-surface-2 text-xs font-semibold text-theme-secondary hover:text-theme-primary border border-theme transition-colors"
+              className="px-3 py-1.5 rounded-xl bg-theme-surface-2 hover:bg-theme-surface text-xs font-semibold text-theme-secondary hover:text-theme-primary border border-theme transition-colors"
             >
               ✕
             </button>
@@ -261,7 +228,7 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto bg-theme-base">
 
           {/* ── TAB: SCORE ── */}
           {activeTab === 'score' && (
@@ -269,11 +236,11 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
               {/* Score Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {/* Main Score */}
-                <div className="bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800 rounded-2xl p-6 text-white text-center shadow-lg shadow-indigo-500/20">
-                  <Trophy className="w-10 h-10 text-amber-300 mx-auto mb-2 animate-bounce" />
+                <div className="bg-theme-accent rounded-2xl p-6 text-white text-center shadow-lg border border-theme-accent">
+                  <Trophy className="w-10 h-10 text-white/90 mx-auto mb-2 animate-bounce" />
                   <div className="text-5xl font-black">{result.toeic_score}</div>
-                  <div className="text-sm text-indigo-200 mb-2">/ 495 điểm RC</div>
-                  <div className="text-xs bg-white/20 rounded-full px-3 py-1">
+                  <div className="text-sm opacity-90 mb-2">/ 495 điểm RC</div>
+                  <div className="text-xs bg-white/20 rounded-full px-3 py-1 inline-block font-semibold">
                     {result.raw_score}/{result.total_questions} câu ({Math.round((result.raw_score / Math.max(result.gradeable_questions || result.total_questions, 1)) * 100)}%)
                   </div>
                 </div>
@@ -284,16 +251,16 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
                     <BookOpen className="w-4 h-4 text-theme-accent" /> Tỉ Lệ Đúng Theo Part
                   </h3>
                   {[
-                    { label: 'Part 5', correct: result.part5_correct, total: 30, color: 'bg-indigo-500' },
-                    { label: 'Part 6', correct: result.part6_correct, total: 16, color: 'bg-purple-500' },
-                    { label: 'Part 7', correct: result.part7_correct, total: 54, color: 'bg-emerald-500' },
+                    { label: 'Part 5', correct: result.part5_correct, total: 30, color: 'bg-theme-accent' },
+                    { label: 'Part 6', correct: result.part6_correct, total: 16, color: 'bg-theme-warning' },
+                    { label: 'Part 7', correct: result.part7_correct, total: 54, color: 'bg-theme-success' },
                   ].map(p => (
                     <div key={p.label}>
                       <div className="flex justify-between text-xs font-semibold mb-1">
                         <span className="text-theme-primary">{p.label} ({p.total} câu)</span>
                         <span className="text-theme-accent font-bold">{p.correct}/{p.total}</span>
                       </div>
-                      <div className="w-full h-2 rounded-full bg-theme-surface-3 overflow-hidden">
+                      <div className="w-full h-2 rounded-full bg-theme-surface-2 overflow-hidden border border-theme">
                         <div className={`h-full ${p.color} rounded-full`} style={{ width: `${(p.correct / p.total) * 100}%` }} />
                       </div>
                     </div>
@@ -303,32 +270,32 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
                 {/* Info + Skipped/Wrong */}
                 <div className="bg-theme-surface rounded-2xl p-5 border border-theme space-y-3">
                   <h3 className="text-xs font-bold uppercase text-theme-secondary flex items-center gap-1.5">
-                    <Clock className="w-4 h-4 text-amber-400" /> Chi Tiết Lượt Thi
+                    <Clock className="w-4 h-4 text-theme-warning" /> Chi Tiết Lượt Thi
                   </h3>
                   <div className="space-y-2 text-xs">
-                    <div className="flex justify-between py-1 border-b border-theme/50">
+                    <div className="flex justify-between py-1 border-b border-theme">
                       <span className="text-theme-secondary">Chế độ:</span>
                       <span className="font-semibold text-theme-primary">{result.mode === 'full_exam' ? '⏱ Thi Thật 75 Phút' : '📖 Luyện Tập'}</span>
                     </div>
-                    <div className="flex justify-between py-1 border-b border-theme/50">
+                    <div className="flex justify-between py-1 border-b border-theme">
                       <span className="text-theme-secondary">Thời gian làm:</span>
-                      <span className="font-semibold text-amber-400">{formatTime(result.time_spent_seconds)}</span>
+                      <span className="font-semibold text-theme-warning">{formatTime(result.time_spent_seconds)}</span>
                     </div>
-                    <div className="flex justify-between py-1 border-b border-theme/50">
+                    <div className="flex justify-between py-1 border-b border-theme">
                       <span className="text-theme-secondary">❌ Sai (đã chọn):</span>
-                      <span className="font-semibold text-rose-400">{wrongCount} câu</span>
+                      <span className="font-semibold text-theme-error">{wrongCount} câu</span>
                     </div>
                     <div className="flex justify-between py-1">
                       <span className="text-theme-secondary">⬜ Bỏ trống:</span>
-                      <span className="font-semibold text-amber-400">{skippedCount} câu</span>
+                      <span className="font-semibold text-theme-warning">{skippedCount} câu</span>
                     </div>
                   </div>
 
                   {weaknessGroups.length > 0 && (
-                    <div className="pt-2 border-t border-theme/50">
+                    <div className="pt-2 border-t border-theme">
                       <button
                         onClick={() => setActiveTab('weakness')}
-                        className="w-full py-2 rounded-xl bg-gradient-to-r from-rose-500/20 to-amber-500/20 border border-rose-500/30 text-xs font-bold text-rose-300 hover:from-rose-500/30 hover:to-amber-500/30 transition-all flex items-center justify-center gap-1.5"
+                        className="w-full py-2 rounded-xl alert-warning border border-theme-warning text-xs font-bold hover:opacity-90 transition-all flex items-center justify-center gap-1.5"
                       >
                         <Target className="w-3.5 h-3.5" />
                         Xem Tổng Ôn Lỗi Sai →
@@ -345,14 +312,14 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
             <div className="p-6 space-y-4">
               {weaknessGroups.length === 0 ? (
                 <div className="text-center py-16 space-y-3">
-                  <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
+                  <CheckCircle2 className="w-12 h-12 text-theme-success mx-auto" />
                   <h3 className="text-base font-bold text-theme-primary">Xuất Sắc! Không Có Câu Sai Nào 🎉</h3>
                   <p className="text-xs text-theme-secondary">Bạn đã trả lời đúng tất cả các câu hỏi!</p>
                 </div>
               ) : (
                 <>
                   <div className="flex items-center gap-2 pb-2 border-b border-theme">
-                    <TrendingDown className="w-5 h-5 text-rose-400" />
+                    <TrendingDown className="w-5 h-5 text-theme-error" />
                     <h3 className="font-bold text-theme-primary">Chủ Điểm Cần Ôn Lại ({weaknessGroups.length} nhóm)</h3>
                     <span className="ml-auto text-xs text-theme-secondary">{wrongCount + skippedCount} câu sai/bỏ trống</span>
                   </div>
@@ -361,24 +328,24 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
                     const total = group.wrong.length + group.skipped.length;
                     const isExpanded = expandedTopic === group.topic;
                     return (
-                      <div key={group.topic} className="bg-theme-surface-2 rounded-2xl border border-theme overflow-hidden">
+                      <div key={group.topic} className="bg-theme-surface rounded-2xl border border-theme overflow-hidden shadow-sm">
                         {/* Topic Header */}
                         <button
                           onClick={() => setExpandedTopic(isExpanded ? null : group.topic)}
-                          className="w-full p-4 flex items-center justify-between hover:bg-theme-surface-3 transition-colors"
+                          className="w-full p-4 flex items-center justify-between hover:bg-theme-surface-2 transition-colors"
                         >
                           <div className="flex items-center gap-3">
-                            <span className={`w-8 h-8 rounded-xl text-xs font-black flex items-center justify-center ${
-                              total >= 3 ? 'bg-rose-500/20 text-rose-400' : 'bg-amber-500/20 text-amber-400'
+                            <span className={`w-8 h-8 rounded-xl text-xs font-black flex items-center justify-center border ${
+                              total >= 3 ? 'alert-error border-theme-error' : 'alert-warning border-theme-warning'
                             }`}>
                               {total}
                             </span>
                             <div className="text-left">
                               <div className="text-sm font-bold text-theme-primary">{group.topic}</div>
                               <div className="text-xs text-theme-secondary">
-                                {group.wrong.length > 0 && <span className="text-rose-400">❌ {group.wrong.length} sai</span>}
+                                {group.wrong.length > 0 && <span className="text-theme-error">❌ {group.wrong.length} sai</span>}
                                 {group.wrong.length > 0 && group.skipped.length > 0 && <span className="mx-1">•</span>}
-                                {group.skipped.length > 0 && <span className="text-amber-400">⬜ {group.skipped.length} bỏ trống</span>}
+                                {group.skipped.length > 0 && <span className="text-theme-warning">⬜ {group.skipped.length} bỏ trống</span>}
                               </div>
                             </div>
                           </div>
@@ -392,11 +359,11 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
 
                         {/* Expanded: Show wrong questions in this topic */}
                         {isExpanded && (
-                          <div className="border-t border-theme p-4 space-y-3">
+                          <div className="border-t border-theme p-4 space-y-3 bg-theme-surface-2">
                             <p className="text-xs text-theme-secondary italic">Bấm "AI Giải Thích" để hiểu rõ từng câu sai và tránh lặp lại lỗi.</p>
                             {[...group.wrong, ...group.skipped].map(q => (
                               <div key={q.id} className={`p-3 rounded-xl border text-xs ${
-                                !q.user_answer ? 'bg-amber-500/5 border-amber-500/20' : 'bg-rose-500/5 border-rose-500/20'
+                                !q.user_answer ? 'alert-warning border-theme-warning/40' : 'alert-error border-theme-error/40'
                               }`}>
                                 <div className="flex items-start justify-between gap-2 mb-2">
                                   <p className="text-theme-primary font-medium leading-relaxed flex-1 line-clamp-3">
@@ -404,24 +371,24 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
                                   </p>
                                   <button
                                     onClick={() => handleFetchAiExplanation(q)}
-                                    className="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-300 font-bold hover:bg-amber-500/30 transition-colors"
+                                    className="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-theme-accent text-white font-bold hover:opacity-90 transition-opacity"
                                   >
                                     <Sparkles className="w-3 h-3" /> AI
                                   </button>
                                 </div>
                                 <div className="flex items-center gap-2">
                                   <span className="text-theme-secondary">Đáp án đúng:</span>
-                                  <span className="font-bold text-emerald-400">({q.correct_answer})</span>
+                                  <span className="font-bold text-theme-success">({q.correct_answer})</span>
                                   {q.user_answer ? (
                                     <>
                                       <span className="text-theme-secondary ml-1">Bạn chọn:</span>
-                                      <span className="font-bold text-rose-400">({q.user_answer})</span>
+                                      <span className="font-bold text-theme-error">({q.user_answer})</span>
                                     </>
                                   ) : (
-                                    <span className="text-amber-400 font-bold ml-1">⬜ Bỏ trống</span>
+                                    <span className="text-theme-warning font-bold ml-1">⬜ Bỏ trống</span>
                                   )}
                                   {q.common_trap && (
-                                    <span className="ml-auto text-[10px] text-rose-300 bg-rose-500/10 border border-rose-500/20 px-2 py-0.5 rounded-full">
+                                    <span className="ml-auto text-[10px] alert-error px-2 py-0.5 rounded-full border border-theme-error/40">
                                       ⚠️ Có bẫy
                                     </span>
                                   )}
@@ -442,15 +409,15 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
           {activeTab === 'review' && (
             <>
               {/* Filter Bar */}
-              <div className="px-5 py-3 bg-theme-surface-2 border-b border-theme flex items-center gap-2 flex-wrap shrink-0 sticky top-0 z-10">
+              <div className="px-5 py-3 bg-theme-surface border-b border-theme flex items-center gap-2 flex-wrap shrink-0 sticky top-0 z-10">
                 {(['ALL', 'PART5', 'PART6', 'PART7', 'INCORRECT', 'SKIPPED'] as const).map(p => (
                   <button
                     key={p}
                     onClick={() => setFilterPart(p)}
-                    className={`px-3 py-1 rounded-lg text-xs font-semibold transition-colors ${
+                    className={`px-3 py-1 rounded-lg text-xs font-semibold transition-colors border ${
                       filterPart === p
-                        ? 'bg-theme-accent text-white'
-                        : 'bg-theme-surface text-theme-secondary hover:text-theme-primary border border-theme'
+                        ? 'bg-theme-accent text-white border-theme-accent shadow-sm'
+                        : 'bg-theme-surface-2 text-theme-secondary hover:text-theme-primary border-theme'
                     }`}
                   >
                     {p === 'ALL' && 'Tất Cả'}
@@ -471,37 +438,37 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
                     key={q.id}
                     className={`p-5 rounded-2xl border ${
                       q.is_correct
-                        ? 'bg-emerald-500/5 border-emerald-500/20'
+                        ? 'alert-success border-theme-success/40'
                         : !q.user_answer
-                        ? 'bg-amber-500/5 border-amber-500/20'
-                        : 'bg-rose-500/5 border-rose-500/20'
+                        ? 'alert-warning border-theme-warning/40'
+                        : 'alert-error border-theme-error/40'
                     }`}
                   >
                     <div className="flex items-start justify-between gap-4 mb-3">
                       <div className="flex items-center gap-2">
-                        <span className={`w-7 h-7 rounded-lg font-bold text-xs flex items-center justify-center ${
-                          q.is_correct ? 'bg-emerald-500/20 text-emerald-400' : !q.user_answer ? 'bg-amber-500/20 text-amber-400' : 'bg-rose-500/20 text-rose-400'
+                        <span className={`w-7 h-7 rounded-lg font-bold text-xs flex items-center justify-center border ${
+                          q.is_correct ? 'bg-theme-success/20 text-theme-success border-theme-success/30' : !q.user_answer ? 'bg-theme-warning/20 text-theme-warning border-theme-warning/30' : 'bg-theme-error/20 text-theme-error border-theme-error/30'
                         }`}>{idx + 1}</span>
                         <span className="text-xs font-bold text-theme-primary">Part {q.part} • {q.grammar_topic}</span>
                       </div>
 
                       <div className="flex items-center gap-2 flex-wrap justify-end">
                         {q.is_correct ? (
-                          <span className="flex items-center gap-1 text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+                          <span className="flex items-center gap-1 text-xs font-bold text-theme-success alert-success px-2.5 py-1 rounded-full border border-theme-success/30">
                             <CheckCircle2 className="w-3.5 h-3.5" /> Đúng
                           </span>
                         ) : !q.user_answer ? (
-                          <span className="flex items-center gap-1 text-xs font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">
+                          <span className="flex items-center gap-1 text-xs font-bold text-theme-warning alert-warning px-2.5 py-1 rounded-full border border-theme-warning/30">
                             ⬜ Bỏ Trống
                           </span>
                         ) : (
-                          <span className="flex items-center gap-1 text-xs font-bold text-rose-400 bg-rose-500/10 px-2.5 py-1 rounded-full border border-rose-500/20">
+                          <span className="flex items-center gap-1 text-xs font-bold text-theme-error alert-error px-2.5 py-1 rounded-full border border-theme-error/30">
                             <XCircle className="w-3.5 h-3.5" /> Sai ({q.user_answer})
                           </span>
                         )}
                         <button
                           onClick={() => handleFetchAiExplanation(q)}
-                          className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-gradient-to-r from-amber-500/20 to-purple-500/20 hover:from-amber-500/30 hover:to-purple-500/30 text-amber-300 border border-amber-500/30 text-xs font-bold transition-all"
+                          className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-theme-accent hover:bg-theme-accent-hover text-white text-xs font-bold transition-all shadow"
                         >
                           <Sparkles className="w-3.5 h-3.5" /> AI Giải Thích
                         </button>
@@ -523,14 +490,14 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
                         const optChar = opt.charAt(0);
                         const isCorrectOpt = optChar === q.correct_answer;
                         const isUserOpt = optChar === q.user_answer;
-                        let style = 'bg-theme-surface-2 border-theme text-theme-secondary';
-                        if (isCorrectOpt) style = 'bg-emerald-500/20 border-emerald-500/50 text-emerald-300 font-bold';
-                        else if (isUserOpt && !q.is_correct) style = 'bg-rose-500/20 border-rose-500/50 text-rose-300 font-bold';
+                        let style = 'bg-theme-surface border-theme text-theme-secondary';
+                        if (isCorrectOpt) style = 'alert-success border-theme-success font-bold text-theme-success';
+                        else if (isUserOpt && !q.is_correct) style = 'alert-error border-theme-error font-bold text-theme-error';
                         return (
                           <div key={opt} className={`p-2.5 rounded-xl border text-xs flex items-center justify-between ${style}`}>
                             <span>{opt}</span>
-                            {isCorrectOpt && <CheckCircle2 className="w-4 h-4 text-emerald-400" />}
-                            {isUserOpt && !q.is_correct && <XCircle className="w-4 h-4 text-rose-400" />}
+                            {isCorrectOpt && <CheckCircle2 className="w-4 h-4 text-theme-success" />}
+                            {isUserOpt && !q.is_correct && <XCircle className="w-4 h-4 text-theme-error" />}
                           </div>
                         );
                       })}
@@ -543,12 +510,12 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
                           <p className="text-theme-secondary leading-relaxed">{q.explanation}</p>
                         )}
                         {q.translated_sentence && (
-                          <div className="pt-2 border-t border-theme/50 text-emerald-400">
+                          <div className="pt-2 border-t border-theme text-theme-success">
                             <strong>Bản dịch:</strong> {q.translated_sentence}
                           </div>
                         )}
                         {q.common_trap && (
-                          <div className="pt-2 border-t border-theme/50 flex gap-2 text-rose-300">
+                          <div className="pt-2 border-t border-theme flex gap-2 text-theme-error">
                             <AlertTriangle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
                             <span><strong>Bẫy phổ biến:</strong> {q.common_trap}</span>
                           </div>
@@ -576,7 +543,7 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
               ) : (
                 <div className="space-y-3">
                   {historyAttempts.map((att, idx) => (
-                    <div key={att.id} className={`p-4 rounded-xl border text-xs space-y-2 ${idx === 0 ? 'border-theme-accent/50 bg-theme-accent/5' : 'border-theme bg-theme-surface-2'}`}>
+                    <div key={att.id} className={`p-4 rounded-xl border text-xs space-y-2 ${idx === 0 ? 'border-theme-accent bg-theme-surface' : 'border-theme bg-theme-surface-2'}`}>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           {idx === 0 && <span className="px-1.5 py-0.5 text-[9px] font-bold bg-theme-accent text-white rounded">MỚI NHẤT</span>}
@@ -603,17 +570,17 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
 
         {/* AI Explanation Sub-Modal */}
         {selectedAiQuestion && (
-          <div className="fixed inset-0 z-60 bg-black/80 backdrop-blur-md p-4 flex items-center justify-center animate-fade-in">
-            <div className="bg-theme-surface border border-amber-500/40 rounded-2xl max-w-2xl w-full p-6 space-y-5 shadow-2xl relative max-h-[85vh] overflow-y-auto">
+          <div className="fixed inset-0 z-60 bg-black/80 backdrop-blur-md p-4 flex items-center justify-center">
+            <div className="bg-theme-surface border border-theme rounded-2xl max-w-2xl w-full p-6 space-y-5 shadow-2xl relative max-h-[85vh] overflow-y-auto">
 
               <div className="flex items-center justify-between border-b border-theme pb-3">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-amber-400" />
+                  <Sparkles className="w-5 h-5 text-theme-accent" />
                   <h3 className="font-bold text-base text-theme-primary">AI Giải Thích & Nhắc Lại Kiến Thức</h3>
                 </div>
                 <button
                   onClick={() => { setSelectedAiQuestion(null); setAiExplanationData(null); }}
-                  className="px-2.5 py-1 rounded-lg bg-theme-surface-2 hover:bg-theme-surface-3 text-xs font-bold text-theme-secondary"
+                  className="px-2.5 py-1 rounded-lg bg-theme-surface-2 hover:bg-theme-surface text-xs font-bold text-theme-secondary hover:text-theme-primary border border-theme"
                 >
                   ✕ Đóng
                 </button>
@@ -621,21 +588,21 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
 
               {aiLoading ? (
                 <div className="py-12 text-center space-y-3">
-                  <Sparkles className="w-8 h-8 text-amber-400 animate-spin mx-auto" />
+                  <Sparkles className="w-8 h-8 text-theme-accent animate-spin mx-auto" />
                   <p className="text-sm text-theme-secondary">AI đang phân tích câu hỏi...</p>
                 </div>
               ) : aiErrorMsg ? (
-                <div className="p-5 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-300 space-y-3 animate-fade-in text-xs">
-                  <div className="flex items-center gap-2 font-bold text-sm text-rose-400">
+                <div className="p-5 rounded-2xl alert-error border border-theme-error/40 space-y-3 text-xs">
+                  <div className="flex items-center gap-2 font-bold text-sm text-theme-error">
                     <AlertTriangle className="w-5 h-5 shrink-0" />
                     <span>Chưa Thể Phân Tích AI Chi Tiết</span>
                   </div>
                   <p className="leading-relaxed whitespace-pre-wrap">{aiErrorMsg}</p>
-                  <div className="pt-2 flex items-center justify-between border-t border-rose-500/20">
+                  <div className="pt-2 flex items-center justify-between border-t border-theme-error/20">
                     <span className="text-[11px] text-theme-secondary">Hạn ngạch API Gemini Free Tier tự động reset sau vài phút / 24h.</span>
                     <button
                       onClick={() => selectedAiQuestion && handleFetchAiExplanation(selectedAiQuestion)}
-                      className="px-3 py-1.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 text-rose-200 border border-rose-500/40 text-xs font-bold transition-all flex items-center gap-1.5"
+                      className="px-3 py-1.5 rounded-xl bg-theme-accent hover:bg-theme-accent-hover text-white text-xs font-bold transition-all flex items-center gap-1.5"
                     >
                       <RotateCcw className="w-3.5 h-3.5" /> Thử Lại Phân Tích Live
                     </button>
@@ -645,11 +612,11 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
                 <div className="space-y-4 text-xs">
                   {/* Topic Tag */}
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="px-2.5 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-[10px] font-bold">
+                    <span className="px-2.5 py-1 rounded-full bg-theme-accent/15 border border-theme-accent/30 text-theme-accent text-[10px] font-bold">
                       📚 {aiExplanationData.grammar_topic || selectedAiQuestion.grammar_topic}
                     </span>
                     {aiExplanationData.source === 'db_cache' && (
-                      <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-semibold">
+                      <span className="px-2 py-0.5 rounded-full alert-success border border-theme-success/30 text-theme-success text-[10px] font-semibold">
                         ⚡ Tức thì
                       </span>
                     )}
@@ -657,19 +624,19 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
 
                   {/* Grammar Recall */}
                   {aiExplanationData.grammar_recall && (
-                    <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/30">
-                      <h4 className="font-bold text-purple-300 mb-2">📚 Nhắc Lại Quy Tắc Ngữ Pháp</h4>
+                    <div className="p-4 rounded-xl bg-theme-surface-2 border border-theme">
+                      <h4 className="font-bold text-theme-accent mb-2">📚 Nhắc Lại Quy Tắc Ngữ Pháp</h4>
                       <p className="text-theme-primary leading-relaxed whitespace-pre-wrap">{aiExplanationData.grammar_recall}</p>
                     </div>
                   )}
 
                   {/* Option Explanations */}
                   {aiExplanationData.option_explanations && Object.keys(aiExplanationData.option_explanations).length > 0 && (
-                    <div className="p-4 rounded-xl bg-slate-500/10 border border-slate-500/30 space-y-2">
-                      <h4 className="font-bold text-slate-300">📋 Phân Tích Từng Đáp Án</h4>
+                    <div className="p-4 rounded-xl bg-theme-surface-2 border border-theme space-y-2">
+                      <h4 className="font-bold text-theme-primary">📋 Phân Tích Từng Đáp Án</h4>
                       {Object.entries(aiExplanationData.option_explanations).map(([opt, exp]) => (
-                        <div key={opt} className={`flex gap-2 p-2 rounded-lg ${opt === selectedAiQuestion.correct_answer ? 'bg-emerald-500/10 border border-emerald-500/20' : 'bg-theme-surface-2'}`}>
-                          <span className={`font-bold shrink-0 ${opt === selectedAiQuestion.correct_answer ? 'text-emerald-400' : 'text-rose-400'}`}>({opt})</span>
+                        <div key={opt} className={`flex gap-2 p-2 rounded-lg ${opt === selectedAiQuestion.correct_answer ? 'alert-success border border-theme-success/30' : 'bg-theme-surface border border-theme'}`}>
+                          <span className={`font-bold shrink-0 ${opt === selectedAiQuestion.correct_answer ? 'text-theme-success' : 'text-theme-error'}`}>({opt})</span>
                           <span className="text-theme-secondary leading-relaxed">{exp as string}</span>
                         </div>
                       ))}
@@ -678,8 +645,8 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
 
                   {/* Common Trap */}
                   {aiExplanationData.common_trap && (
-                    <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30">
-                      <h4 className="font-bold text-rose-300 flex items-center gap-1.5 mb-2">
+                    <div className="p-4 rounded-xl alert-error border border-theme-error/40">
+                      <h4 className="font-bold text-theme-error flex items-center gap-1.5 mb-2">
                         <AlertTriangle className="w-4 h-4" /> ⚠️ Bẫy Phổ Biến — Vì Sao Hay Nhầm?
                       </h4>
                       <p className="text-theme-primary leading-relaxed">{aiExplanationData.common_trap}</p>
@@ -688,22 +655,22 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({ result, onClos
 
                   {/* Exam Tip */}
                   {aiExplanationData.exam_tip && (
-                    <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30">
-                      <h4 className="font-bold text-amber-300 mb-2">💡 Mẹo Làm Bài Nhanh</h4>
+                    <div className="p-4 rounded-xl alert-warning border border-theme-warning/40">
+                      <h4 className="font-bold text-theme-warning mb-2">💡 Mẹo Làm Bài Nhanh</h4>
                       <p className="text-theme-primary leading-relaxed">{aiExplanationData.exam_tip}</p>
                     </div>
                   )}
 
                   {/* Translation */}
                   {aiExplanationData.sentence_translation && (
-                    <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
-                      <h4 className="font-bold text-emerald-300 mb-2">📝 Bản Dịch Tiếng Việt</h4>
+                    <div className="p-4 rounded-xl alert-success border border-theme-success/40">
+                      <h4 className="font-bold text-theme-success mb-2">📝 Bản Dịch Tiếng Việt</h4>
                       <p className="text-theme-primary leading-relaxed">{aiExplanationData.sentence_translation}</p>
                     </div>
                   )}
                 </div>
               ) : (
-                <div className="py-8 text-center text-xs text-rose-400">Không thể nạp giải thích. Vui lòng thử lại.</div>
+                <div className="py-8 text-center text-xs text-theme-error">Không thể nạp giải thích. Vui lòng thử lại.</div>
               )}
             </div>
           </div>

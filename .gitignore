@@ -28,3 +28,9 @@ pdf thieu/
 textbook/
 /*.txt
 !backend/requirements.txt
+
+# External Repositories & Resources
+skills/
+mattpocock-skills/
+
+

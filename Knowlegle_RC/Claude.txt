@@ -1,0 +1,215 @@
+Đây là bản chi tiết đầy đủ. Vì nội dung khá dài, mình sẽ tổng hợp thành một tài liệu để bạn dễ lưu lại và ôn tập.Mình đã viết chi tiết đầy đủ vào file trên, bao gồm:
+
+- **Part 5**: toàn bộ 15 điểm ngữ pháp trọng tâm (từ loại, thì, bị động, mệnh đề quan hệ, giới từ, collocation...) + nhóm từ vựng + các bẫy thường gặp
+- **Part 6**: cấu trúc 4 đoạn/16 câu, 3 dạng câu hỏi (từ vựng, ngữ pháp, điền câu), điểm đặc trưng riêng là từ nối/liên từ chuyển ý
+- **Part 7**: các loại văn bản (email, quảng cáo, chat, hóa đơn...) và 8 dạng câu hỏi (ý chính, chi tiết, suy luận, từ vựng trong ngữ cảnh, phủ định, điền câu, ý định người viết, đối chiếu chéo)
+- **Từ vựng chủ đề**: 11 mảng chủ đề chính (nhân sự, hợp đồng, marketing, tài chính, công nghệ, du lịch, khách sạn, bất động sản, sản xuất, y tế...)
+
+Nếu muốn, mình có thể làm thêm bộ flashcard từ vựng theo từng chủ đề, hoặc bộ câu hỏi luyện tập mẫu cho từng điểm ngữ pháp ở Part 5.
+
+# TOEIC READING — PART 5, 6, 7: TÀI LIỆU CHI TIẾT
+
+> Reading gồm 100 câu, 75 phút, thang điểm tối đa 495 (tổng Listening + Reading = 990). Part 5–7 kiểm tra ngữ pháp, từ vựng, đọc hiểu.
+
+---
+
+## PHẦN 1: PART 5 — INCOMPLETE SENTENCES (30 câu, số 101–130)
+
+### Cấu trúc
+- Mỗi câu bị khuyết 1 từ/cụm từ, 4 đáp án A/B/C/D, chọn đáp án đúng nhất để hoàn thành câu.
+- Không cần đọc đoạn văn — chỉ cần đọc 1 câu độc lập.
+- Chia làm 2 nhóm lớn: **Ngữ pháp (Grammar)** và **Từ vựng (Vocabulary)**. Nhiều câu là dạng lai (nửa ngữ pháp, nửa từ vựng).
+
+### A. Nhóm câu hỏi NGỮ PHÁP — các điểm cần nắm
+
+1. **Từ loại (Word Form / Part of Speech)** — dạng phổ biến nhất
+   - Phân biệt Danh từ (Noun) – Động từ (Verb) – Tính từ (Adjective) – Trạng từ (Adverb)
+   - Nhận diện qua vị trí: sau mạo từ (a/an/the) → danh từ; trước danh từ → tính từ; bổ nghĩa cho động từ/tính từ/cả câu → trạng từ
+   - Hậu tố (suffix) nhận diện từ loại:
+     - Danh từ: -tion, -sion, -ment, -ness, -ity, -ance/-ence, -er/-or, -ist
+     - Động từ: -ize/-ise, -ify, -en, -ate
+     - Tính từ: -able/-ible, -al, -ive, -ous, -ful, -less, -ic
+     - Trạng từ: -ly (chú ý một số từ -ly là tính từ: friendly, costly, timely)
+   - Danh từ đếm được / không đếm được (Countable vs Uncountable Nouns)
+   - Danh từ ghép (Compound nouns): sales representative, customer satisfaction...
+
+2. **Sự hòa hợp chủ ngữ – động từ (Subject–Verb Agreement)**
+   - Chủ ngữ số ít đi với động từ số ít, chủ ngữ số nhiều đi với động từ số nhiều
+   - Các trường hợp đặc biệt: cụm danh từ dài chen giữa chủ ngữ và động từ; each/every + N số ít; a number of + N số nhiều; the number of + N số ít
+
+3. **Các thì động từ (Verb Tenses)**
+   - Hiện tại đơn, quá khứ đơn, tương lai đơn (will/be going to)
+   - Hiện tại tiếp diễn, quá khứ tiếp diễn, tương lai tiếp diễn
+   - Hiện tại hoàn thành, quá khứ hoàn thành, tương lai hoàn thành
+   - Hiện tại hoàn thành tiếp diễn
+   - **Bẫy thường gặp:** dấu hiệu thời gian (tomorrow, yesterday...) không phải lúc nào cũng quyết định thì — cần đọc hiểu ngữ cảnh (VD: lịch trình cố định dùng hiện tại đơn dù có "tomorrow")
+
+4. **Thể chủ động – bị động (Active vs Passive Voice)**
+   - Nhận diện qua chủ ngữ là người/vật thực hiện hành động hay bị tác động
+   - Chỉ ngoại động từ (transitive verbs) mới có dạng bị động
+   - Bị động kết hợp với các thì: is done, was done, has been done, will be done, is being done...
+
+5. **Danh động từ & động từ nguyên mẫu (Gerund vs. Infinitive)**
+   - V-ing làm chủ ngữ / sau giới từ / sau một số động từ (enjoy, avoid, suggest, consider...)
+   - To V sau một số động từ (decide, plan, want, expect, agree, offer...)
+   - Một số động từ đổi nghĩa khi theo sau bởi V-ing hay to V (remember to do / remember doing; stop to do / stop doing)
+
+6. **Mệnh đề quan hệ (Relative Clauses)**
+   - who, whom, whose (chỉ người); which, that (chỉ vật); where, when
+   - Mệnh đề quan hệ xác định và không xác định
+   - Rút gọn mệnh đề quan hệ (V-ing / V3/ed / to V)
+
+7. **Mệnh đề trạng ngữ & liên từ phụ thuộc (Adverb Clauses / Subordinating Conjunctions)**
+   - Chỉ nguyên nhân: because, since, as
+   - Chỉ nhượng bộ: although, though, even though, despite/in spite of (+ N/V-ing)
+   - Chỉ thời gian: when, while, before, after, as soon as, until
+   - Chỉ điều kiện: if, unless, provided that, as long as
+   - Chỉ mục đích: so that, in order that
+
+8. **Liên từ kết hợp & liên từ tương quan (Coordinating & Correlative Conjunctions)**
+   - and, but, or, so, yet, for, nor
+   - either...or, neither...nor, both...and, not only...but also
+
+9. **Giới từ (Prepositions)**
+   - Giới từ chỉ thời gian: in, on, at
+   - Giới từ chỉ nơi chốn/vị trí: in, on, at, above, below, between, among
+   - Giới từ đi với động từ/tính từ/danh từ cố định (collocations): responsible for, interested in, depend on, prior to, in accordance with...
+   - Phân biệt giới từ với liên từ đồng nghĩa: because vs. because of; although vs. despite/in spite of; while vs. during
+
+10. **Đại từ & từ hạn định (Pronouns and Determiners)**
+    - Đại từ nhân xưng (I/me), sở hữu (my/mine), phản thân (myself)
+    - Đại từ chỉ định (this/that/these/those)
+    - Từ hạn định: some, any, each, every, all, both, few/a few, little/a little, another, other/others
+
+11. **So sánh (Comparatives & Superlatives)**
+    - So sánh hơn: -er / more + adj
+    - So sánh nhất: -est / the most + adj
+    - So sánh bằng: as...as
+    - So sánh kép: the more..., the more...
+
+12. **Câu điều kiện (Conditional Sentences)**
+    - Loại 0, 1, 2, 3 và hỗn hợp
+    - Đảo ngữ trong câu điều kiện (Were I..., Had I known...)
+
+13. **Cấu trúc song song (Parallel Structure)**
+    - Các thành phần liên kết bởi and/or/but phải cùng dạng từ loại/cấu trúc ngữ pháp
+
+14. **Modal verbs (Động từ khuyết thiếu)**
+    - can/could, may/might, must, should, will/would, have to
+    - Modal + have + V3 (diễn tả quá khứ: should have done, must have done...)
+
+15. **Cụm động từ & Collocations (Phrasal Verbs & Word Combinations)**
+    - Động từ đi với giới từ cố định, cụm danh từ, cụm động từ (VD: "your security badge will be activated ___ the beginning of the work day")
+    - Đây là dạng khó vì đòi hỏi thí sinh phải thuộc lòng cụm từ, không thể suy luận thuần túy bằng ngữ pháp
+
+### B. Nhóm câu hỏi TỪ VỰNG (Vocabulary)
+- Chọn từ đúng nghĩa trong 4 đáp án cùng từ loại (nên không thể dùng mẹo ngữ pháp, phải hiểu nghĩa)
+- Phân biệt từ đồng nghĩa gần nghĩa (near-synonyms): VD affect/effect, raise/rise, economic/economical
+- Từ dễ nhầm lẫn (confusing words)
+- Từ vựng theo chủ đề văn phòng – kinh doanh (xem mục Chủ đề từ vựng bên dưới)
+
+### Các bẫy (traps) thường gặp trong Part 5
+- Bẫy về thì động từ: dấu hiệu thời gian gây nhiễu, cần đọc kỹ ngữ cảnh thay vì chỉ dựa vào từ khóa thời gian
+- Bẫy từ loại giống nhau về hình thức nhưng khác nghĩa
+- Bẫy collocation: đáp án đúng ngữ pháp nhưng sai về cách kết hợp từ tự nhiên trong tiếng Anh
+
+---
+
+## PHẦN 2: PART 6 — TEXT COMPLETION (16 câu, 4 đoạn văn, mỗi đoạn 4 câu)
+
+### Cấu trúc
+- 4 đoạn văn ngắn (email, thông báo, quảng cáo, bài báo, thư từ...), mỗi đoạn có 4 chỗ trống
+- Khác Part 5 ở chỗ: phải đọc hiểu **toàn đoạn văn**, không chỉ 1 câu, vì đáp án phụ thuộc vào mạch văn cảnh trước/sau
+
+### 3 dạng câu hỏi trong mỗi đoạn
+1. **Câu hỏi từ vựng** — chọn từ/cụm từ đúng nghĩa dựa theo ngữ cảnh cả đoạn (không chỉ câu chứa chỗ trống)
+2. **Câu hỏi ngữ pháp** — chọn đúng từ loại/thì/dạng từ (giống các điểm ngữ pháp ở Part 5)
+3. **Câu hỏi điền câu (Sentence Insertion)** — dạng đặc trưng riêng của Part 6, không có ở Part 5:
+   - Chọn 1 trong 4 câu hoàn chỉnh để điền vào chỗ trống sao cho phù hợp mạch ý của đoạn
+   - Cần chú ý: từ nối/đại từ ở câu trước-sau, tính logic thời gian, chủ đề đoạn văn
+
+### Điểm ngữ pháp/từ vựng đặc trưng thêm ở Part 6
+- **Từ nối, liên từ chuyển ý (Transition words/Linking words):** however, therefore, in addition, moreover, as a result, otherwise, meanwhile, furthermore, on the other hand, in fact, for example — quan trọng vì phải hiểu quan hệ logic giữa các câu/đoạn
+- Đại từ thay thế (referencing pronouns): it, this, that, these, they — phải xác định từ được thay thế nằm ở câu nào
+- Sự nhất quán về thì giữa các câu trong đoạn
+
+### Loại văn bản thường gặp ở Part 6
+- Email/thư nội bộ công ty (memo)
+- Thông báo (Notice)
+- Quảng cáo (Advertisement)
+- Bài báo ngắn (Article)
+- Hướng dẫn sử dụng (Instructions)
+
+---
+
+## PHẦN 3: PART 7 — READING COMPREHENSION (54 câu, số 147–200)
+
+### Cấu trúc — chia theo số lượng văn bản
+| Dạng | Số văn bản | Đặc điểm |
+|---|---|---|
+| Single passage | 1 văn bản | ~29 câu, mỗi bài 2-4 câu hỏi |
+| Double passages | 2 văn bản liên quan | Cần đối chiếu thông tin giữa 2 văn bản |
+| Triple passages | 3 văn bản liên quan | Cần đối chiếu thông tin giữa 3 văn bản, khó nhất |
+
+### Các loại văn bản (passage types) thường gặp
+- Email / Thư từ (Letter)
+- Fax
+- Quảng cáo (Advertisement)
+- Thông báo (Notice/Announcement)
+- Bài báo (Article)
+- Biên bản họp (Meeting minutes)
+- Lịch trình / thời gian biểu (Schedule/Itinerary)
+- Hóa đơn / biên lai (Invoice/Receipt)
+- Tin nhắn văn bản / hội thoại trực tuyến (Text-message chain / Online chat)
+- Biểu mẫu (Form)
+- Menu, Brochure, tờ rơi (Flyer)
+- Trang web (Webpage)
+- Bài đánh giá sản phẩm (Review)
+
+### Các dạng câu hỏi (question types)
+1. **Ý chính / mục đích văn bản (Main idea / Purpose)** — "What is the purpose of the email?", "What is the article mainly about?"
+2. **Câu hỏi chi tiết (Detail / Specific information)** — hỏi thông tin cụ thể có trong bài, thường dùng từ khóa (keyword) để định vị đoạn chứa đáp án
+3. **Câu hỏi suy luận (Inference)** — "What can be inferred about...", cần suy luận logic từ nội dung, đáp án không được nói trực tiếp
+4. **Từ vựng trong ngữ cảnh (Vocabulary in context)** — "The word 'X' in paragraph 2, line 5, is closest in meaning to..." — phải hiểu nghĩa từ theo NGỮ CẢNH cụ thể, không phải nghĩa từ điển chung
+5. **Câu hỏi phủ định / NOT/TRUE (Negative questions)** — "What is NOT mentioned...", "All of the following are true EXCEPT..."
+6. **Vị trí câu văn phù hợp (Sentence Insertion — chỉ có ở 1 số bài)** — "In which of the positions [1],[2],[3],[4] does the following sentence best belong?"
+7. **Ý định người viết (Writer's intention — thường gặp trong dạng tin nhắn/chat)** — "At 10:15 a.m., what does Mr. Lee mean when he writes 'I'm on it'?" — hỏi hàm ý của một câu nói trong hội thoại
+8. **Câu hỏi đối chiếu thông tin chéo (Cross-reference questions — double/triple passages)** — cần kết hợp thông tin từ 2-3 văn bản khác nhau mới trả lời được, đây là dạng khó và tốn thời gian nhất
+
+### Kỹ năng cần có cho Part 7
+- Kỹ năng đọc lướt (skimming) để nắm ý chính
+- Kỹ năng đọc quét (scanning) để tìm thông tin chi tiết theo từ khóa
+- Kỹ năng quản lý thời gian (đây là phần chiếm thời gian nhiều nhất trong Reading)
+- Vốn từ vựng rộng để đọc hiểu nhanh không cần dịch từng từ
+
+---
+
+## PHẦN 4: TỪ VỰNG CHUNG CHO CẢ PART 5-6-7 (theo chủ đề)
+
+TOEIC là bài thi tiếng Anh thương mại/công sở nên từ vựng xoay quanh các chủ đề sau:
+
+1. **Văn phòng – Công việc hằng ngày (Office/Workplace):** agenda, memo, deadline, colleague, supervisor, department, workload, assignment...
+2. **Nhân sự – Tuyển dụng (Human Resources/Recruitment):** applicant, résumé/CV, candidate, interview, qualification, training, promotion, performance review, salary, benefits...
+3. **Hợp đồng – Đấu thầu (Contracts/Bidding):** agreement, terms and conditions, negotiate, proposal, bid, contractor, clause, sign/execute a contract...
+4. **Marketing – Bán hàng (Marketing/Sales):** campaign, advertisement, market research, target audience, discount, promotion, customer satisfaction, brand...
+5. **Tài chính – Ngân hàng (Finance/Banking):** invoice, budget, expense, revenue, profit, loan, interest rate, transaction, account...
+6. **Công nghệ – Truyền thông (Technology/Media):** software, webinar, security, network, upgrade, subscription, device...
+7. **Du lịch – Vận chuyển (Travel/Transportation):** itinerary, reservation, boarding pass, luggage, flight delay, accommodation...
+8. **Nhà hàng – Khách sạn – Sự kiện (Restaurant/Hotel/Events):** reservation, catering, venue, complimentary, cuisine, RSVP...
+9. **Bất động sản (Real Estate):** lease, tenant, landlord, property, renovation...
+10. **Sản xuất (Manufacturing):** inventory, warehouse, shipment, quality control, defect, supply chain...
+11. **Y tế (Healthcare):** appointment, prescription, insurance, physician...
+
+**Mẹo học:** không học từ đơn lẻ mà học theo **cụm từ / collocation** (VD: "meet a deadline", "place an order", "submit an application") vì Part 5-6 hay kiểm tra chính khả năng nhận biết collocation tự nhiên.
+
+---
+
+## TÓM TẮT NHANH
+
+| Phần | Số câu | Trọng tâm | Đặc điểm |
+|---|---|---|---|
+| Part 5 | 30 (101-130) | Ngữ pháp + Từ vựng | Câu đơn lẻ, không cần đọc đoạn văn |
+| Part 6 | 16 (131-146) | Ngữ pháp + Từ vựng + Điền câu | Đọc cả đoạn văn 4 câu/đoạn |
+| Part 7 | 54 (147-200) | Đọc hiểu | Single/Double/Triple passages, nhiều dạng câu hỏi |
+
+**Xu hướng 2025-2026:** đề thi ngày càng chú trọng câu hỏi suy luận và đối chiếu thông tin chéo (đặc biệt ở Part 7 double/triple passages), đòi hỏi kỹ năng đọc hiểu sâu hơn là chỉ học thuộc công thức ngữ pháp.

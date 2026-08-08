@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { ArrowLeft, Clock, Send, Flag, CheckCircle2, Eye, RefreshCw, Layers, Trophy, XCircle, Sparkles, AlertTriangle, BookOpen, Zap } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { ArrowLeft, Clock, Send, Flag, CheckCircle2, Eye, RefreshCw, Layers, Trophy, XCircle, Sparkles, AlertTriangle, BookOpen } from 'lucide-react';
 import { ExamResultModal } from '../components/ExamResultModal';
+import { MarkdownPassage } from '../components/MarkdownPassage';
 
 interface QuestionItem {
   id: number;
@@ -34,51 +33,7 @@ interface ExamTakePageProps {
   onBack: () => void;
 }
 
-// ─── Markdown Passage Renderer ─────────────────────────────────────────────
-// Used for Part 6/7 question_text which often contains tables, checkboxes, etc.
-const MarkdownPassage: React.FC<{ text: string; className?: string }> = ({ text, className }) => (
-  <div className={`markdown-passage ${className || ''}`}>
-    <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
-      components={{
-        // Tables with proper styling
-        table: ({ children }) => (
-          <div className="overflow-x-auto my-3">
-            <table className="w-full border-collapse text-xs">{children}</table>
-          </div>
-        ),
-        th: ({ children }) => (
-          <th className="border border-theme-accent/40 bg-theme-accent/10 px-3 py-1.5 text-left font-bold text-theme-primary text-xs">{children}</th>
-        ),
-        td: ({ children }) => (
-          <td className="border border-theme/40 px-3 py-1.5 text-theme-secondary text-xs">{children}</td>
-        ),
-        // Checkboxes (GFM task list items)
-        input: ({ type, checked }) =>
-          type === 'checkbox' ? (
-            <span className={`inline-flex items-center justify-center w-4 h-4 border-2 rounded mr-1.5 align-middle ${checked ? 'border-theme-accent bg-theme-accent' : 'border-theme-secondary/50 bg-transparent'}`}>
-              {checked && <span className="text-white text-[9px] font-black">✓</span>}
-            </span>
-          ) : null,
-        li: ({ children, className: liClass }) => (
-          <li className={`${liClass || ''} text-theme-secondary leading-relaxed`}>{children}</li>
-        ),
-        p: ({ children }) => <p className="text-theme-secondary leading-relaxed mb-1.5">{children}</p>,
-        strong: ({ children }) => <strong className="font-bold text-theme-primary">{children}</strong>,
-        em: ({ children }) => <em className="italic text-theme-secondary">{children}</em>,
-        h1: ({ children }) => <h1 className="text-base font-bold text-theme-primary mb-2 mt-3">{children}</h1>,
-        h2: ({ children }) => <h2 className="text-sm font-bold text-theme-primary mb-1.5 mt-2">{children}</h2>,
-        h3: ({ children }) => <h3 className="text-xs font-bold text-theme-primary mb-1 mt-2">{children}</h3>,
-        hr: () => <hr className="border-theme/30 my-3" />,
-        blockquote: ({ children }) => (
-          <blockquote className="border-l-2 border-theme-accent/40 pl-3 italic text-theme-secondary my-2">{children}</blockquote>
-        ),
-      }}
-    >
-      {text}
-    </ReactMarkdown>
-  </div>
-);
+
 
 // ─── Confirm Submit Dialog ──────────────────────────────────────────────────
 interface ConfirmSubmitDialogProps {
@@ -89,10 +44,10 @@ interface ConfirmSubmitDialogProps {
 }
 const ConfirmSubmitDialog: React.FC<ConfirmSubmitDialogProps> = ({ unansweredCount, flaggedCount, onConfirm, onCancel }) => (
   <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
-    <div className="bg-theme-surface border border-amber-500/40 rounded-2xl max-w-sm w-full p-6 space-y-5 shadow-2xl">
+    <div className="bg-theme-surface border border-theme-warning/40 rounded-2xl max-w-sm w-full p-6 space-y-5 shadow-2xl">
       <div className="flex items-center gap-3">
-        <div className="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center shrink-0">
-          <AlertTriangle className="w-6 h-6 text-amber-400" />
+        <div className="w-12 h-12 rounded-xl alert-warning border border-theme-warning/30 flex items-center justify-center shrink-0">
+          <AlertTriangle className="w-6 h-6 text-theme-warning" />
         </div>
         <div>
           <h3 className="font-bold text-base text-theme-primary">Xác Nhận Nộp Bài</h3>
@@ -102,19 +57,19 @@ const ConfirmSubmitDialog: React.FC<ConfirmSubmitDialogProps> = ({ unansweredCou
 
       <div className="space-y-2 text-xs">
         {unansweredCount > 0 && (
-          <div className="flex items-center gap-2 p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300">
+          <div className="flex items-center gap-2 p-3 rounded-xl alert-error border border-theme-error/20">
             <XCircle className="w-4 h-4 shrink-0" />
             <span><strong>{unansweredCount} câu chưa trả lời</strong> — sẽ tính là bỏ trống (0 điểm)</span>
           </div>
         )}
         {flaggedCount > 0 && (
-          <div className="flex items-center gap-2 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-300">
+          <div className="flex items-center gap-2 p-3 rounded-xl alert-warning border border-theme-warning/20">
             <Flag className="w-4 h-4 shrink-0" />
             <span><strong>{flaggedCount} câu đã đánh dấu</strong> cần xem lại — bạn có muốn xem lại trước không?</span>
           </div>
         )}
         {unansweredCount === 0 && flaggedCount === 0 && (
-          <div className="flex items-center gap-2 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300">
+          <div className="flex items-center gap-2 p-3 rounded-xl alert-success border border-theme-success/20">
             <CheckCircle2 className="w-4 h-4 shrink-0" />
             <span>Bạn đã trả lời đầy đủ tất cả câu hỏi. Sẵn sàng nộp bài!</span>
           </div>
@@ -130,7 +85,7 @@ const ConfirmSubmitDialog: React.FC<ConfirmSubmitDialogProps> = ({ unansweredCou
         </button>
         <button
           onClick={onConfirm}
-          className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-xs shadow-lg shadow-emerald-500/20 transition-all hover:from-emerald-600 hover:to-teal-700"
+          className="flex-1 py-2.5 rounded-xl bg-theme-success text-white font-bold text-xs shadow-lg transition-all hover:opacity-90"
         >
           Nộp Bài Ngay
         </button>
@@ -147,10 +102,10 @@ interface ResumeDraftDialogProps {
 }
 const ResumeDraftDialog: React.FC<ResumeDraftDialogProps> = ({ savedAnswerCount, onResume, onStartFresh }) => (
   <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
-    <div className="bg-theme-surface border border-indigo-500/40 rounded-2xl max-w-sm w-full p-6 space-y-5 shadow-2xl">
+    <div className="bg-theme-surface border border-theme-accent/40 rounded-2xl max-w-sm w-full p-6 space-y-5 shadow-2xl">
       <div className="flex items-center gap-3">
-        <div className="w-12 h-12 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center shrink-0">
-          <BookOpen className="w-6 h-6 text-indigo-400" />
+        <div className="w-12 h-12 rounded-xl bg-theme-accent/20 border border-theme-accent/30 flex items-center justify-center shrink-0">
+          <BookOpen className="w-6 h-6 text-theme-accent" />
         </div>
         <div>
           <h3 className="font-bold text-base text-theme-primary">Tiếp Tục Làm Dở?</h3>
@@ -484,7 +439,7 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
               <p className="text-[11px] text-theme-secondary">
                 Đã làm: <strong className="text-theme-primary">{answeredCount} / {questions.length} câu</strong> ({progressPercent}%)
                 {flaggedCount > 0 && (
-                  <span className="ml-2 text-amber-400">🚩 {flaggedCount} đánh dấu</span>
+                  <span className="ml-2 text-theme-warning">🚩 {flaggedCount} đánh dấu</span>
                 )}
               </p>
             </div>
@@ -495,10 +450,10 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
             {mode === 'full_exam' && !examResult && (
               <div className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl font-mono text-sm sm:text-base font-bold border transition-all ${
                 timeLeft < 300
-                  ? 'bg-rose-500/20 text-rose-400 border-rose-500/30 animate-pulse'
+                  ? 'bg-theme-error/20 text-theme-error border-theme-error/30 animate-pulse'
                   : timeLeft < 900
-                  ? 'bg-amber-500/20 text-amber-400 border-amber-500/30'
-                  : 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
+                  ? 'bg-theme-warning/20 text-theme-warning border-theme-warning/30'
+                  : 'bg-theme-success/20 text-theme-success border-theme-success/30'
               }`}>
                 <Clock className="w-4 h-4" />
                 <span>{formatTimer(timeLeft)}</span>
@@ -508,16 +463,16 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
             {examResult ? (
               <button
                 onClick={() => setShowResultModal(true)}
-                className="px-4 sm:px-6 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-purple-600 hover:from-amber-600 hover:to-purple-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-amber-500/20 transition-all duration-200 animate-pulse"
+                className="px-4 sm:px-6 py-2 rounded-xl bg-theme-accent text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-lg transition-all duration-200 animate-pulse"
               >
-                <Trophy className="w-4 h-4 text-amber-300" />
+                <Trophy className="w-4 h-4 text-white" />
                 <span>Xem Bảng Điểm TOEIC ({examResult.toeic_score}/495)</span>
               </button>
             ) : (
               <button
                 onClick={handleSubmitExam}
                 disabled={submitting}
-                className="px-4 sm:px-6 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-emerald-500/20 transition-all duration-200 disabled:opacity-50"
+                className="px-4 sm:px-6 py-2 rounded-xl bg-theme-success hover:opacity-90 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-lg transition-all duration-200 disabled:opacity-50"
               >
                 <Send className="w-4 h-4" />
                 <span>{submitting ? 'Đang nộp...' : 'Nộp Bài Thi'}</span>
@@ -551,12 +506,12 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
                 className={`bg-theme-surface rounded-2xl border transition-all p-5 sm:p-6 space-y-4 shadow-sm ${
                   isSubmitted
                     ? isCorrect
-                      ? 'border-emerald-500/50 bg-emerald-500/5'
+                      ? 'border-theme-success/50 alert-success'
                       : isWrong
-                      ? 'border-rose-500/50 bg-rose-500/5'
-                      : 'border-amber-500/40 bg-amber-500/5'  // skipped = amber
+                      ? 'border-theme-error/50 alert-error'
+                      : 'border-theme-warning/40 alert-warning'  // skipped = amber
                     : isFlagged
-                    ? 'border-amber-500/50 shadow-amber-500/10'
+                    ? 'border-theme-warning/50 shadow-sm'
                     : isAnswered
                     ? 'border-theme-accent/40'
                     : 'border-theme'
@@ -568,10 +523,10 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
                     <span className={`w-8 h-8 rounded-xl font-bold text-xs flex items-center justify-center shadow-md ${
                       isSubmitted
                         ? isCorrect
-                          ? 'bg-emerald-500 text-white'
+                          ? 'bg-theme-success text-white'
                           : isWrong
-                          ? 'bg-rose-500 text-white'
-                          : 'bg-amber-500/70 text-white'
+                          ? 'bg-theme-error text-white'
+                          : 'bg-theme-warning text-white'
                         : 'bg-theme-accent text-white'
                     }`}>
                       {q.q_num}
@@ -587,15 +542,15 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
                     {/* Status Badge if Submitted */}
                     {isSubmitted && (
                       isCorrect ? (
-                        <span className="flex items-center gap-1 text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+                        <span className="flex items-center gap-1 text-xs font-bold alert-success text-theme-success px-2.5 py-1 rounded-full border border-theme-success/30">
                           <CheckCircle2 className="w-3.5 h-3.5" /> Đúng
                         </span>
                       ) : isSkipped ? (
-                        <span className="flex items-center gap-1 text-xs font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">
+                        <span className="flex items-center gap-1 text-xs font-bold alert-warning text-theme-warning px-2.5 py-1 rounded-full border border-theme-warning/30">
                           ⬜ Bỏ Trống
                         </span>
                       ) : (
-                        <span className="flex items-center gap-1 text-xs font-bold text-rose-400 bg-rose-500/10 px-2.5 py-1 rounded-full border border-rose-500/20">
+                        <span className="flex items-center gap-1 text-xs font-bold alert-error text-theme-error px-2.5 py-1 rounded-full border border-theme-error/30">
                           <XCircle className="w-3.5 h-3.5" /> Sai ({selectedOpt})
                         </span>
                       )
@@ -605,9 +560,9 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
                     {(isSubmitted || mode === 'practice') && (
                       <button
                         onClick={() => handleFetchAiExplanation(q)}
-                        className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-gradient-to-r from-amber-500/20 to-purple-500/20 hover:from-amber-500/30 hover:to-purple-500/30 text-amber-300 border border-amber-500/30 text-xs font-bold shadow-sm transition-all"
+                        className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-theme-accent hover:bg-theme-accent-hover text-white text-xs font-bold shadow-sm transition-all cursor-pointer"
                       >
-                        <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                        <Sparkles className="w-3.5 h-3.5" />
                         <span>AI Giải Thích</span>
                       </button>
                     )}
@@ -618,7 +573,7 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
                         onClick={() => handleToggleFlag(q.id)}
                         className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold border transition-all ${
                           isFlagged
-                            ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 shadow-sm'
+                            ? 'alert-warning border-theme-warning/40 shadow-sm font-bold'
                             : 'bg-theme-surface-2 text-theme-secondary hover:text-theme-primary border-theme'
                         }`}
                       >
@@ -648,10 +603,10 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
                     const isCorrectOpt = isSubmitted && optChar === q.correct_answer;
                     const isUserWrongOpt = isSubmitted && isSelected && optChar !== q.correct_answer;
 
-                    let optStyle = 'bg-theme-surface-2 hover:bg-theme-surface-3 border-theme text-theme-secondary hover:text-theme-primary';
-                    if (isCorrectOpt) optStyle = 'bg-emerald-500/20 border-emerald-500 text-emerald-300 font-bold shadow-md shadow-emerald-500/10';
-                    else if (isUserWrongOpt) optStyle = 'bg-rose-500/20 border-rose-500 text-rose-300 font-bold shadow-md shadow-rose-500/10';
-                    else if (isSelected) optStyle = 'bg-theme-accent/20 border-theme-accent text-theme-primary font-bold shadow-md shadow-indigo-500/10';
+                    let optStyle = 'bg-theme-surface-2 hover:bg-theme-surface border-theme text-theme-secondary hover:text-theme-primary';
+                    if (isCorrectOpt) optStyle = 'alert-success border-theme-success font-bold text-theme-success shadow-md';
+                    else if (isUserWrongOpt) optStyle = 'alert-error border-theme-error font-bold text-theme-error shadow-md';
+                    else if (isSelected) optStyle = 'bg-theme-accent/20 border-theme-accent text-theme-primary font-bold shadow-md';
 
                     return (
                       <div
@@ -664,9 +619,9 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
                         <div className="flex items-center gap-3">
                           <div className={`w-6 h-6 rounded-full border text-xs font-bold flex items-center justify-center shrink-0 ${
                             isCorrectOpt
-                              ? 'bg-emerald-500 text-white border-emerald-500'
+                              ? 'bg-theme-success text-white border-theme-success'
                               : isUserWrongOpt
-                              ? 'bg-rose-500 text-white border-rose-500'
+                              ? 'bg-theme-error text-white border-theme-error'
                               : isSelected
                               ? 'bg-theme-accent text-white border-theme-accent'
                               : 'border-theme-secondary/40 text-theme-secondary'
@@ -675,8 +630,8 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
                           </div>
                           <span>{opt.substring(2).trim() || opt}</span>
                         </div>
-                        {isCorrectOpt && <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />}
-                        {isUserWrongOpt && <XCircle className="w-5 h-5 text-rose-400 shrink-0" />}
+                        {isCorrectOpt && <CheckCircle2 className="w-5 h-5 text-theme-success shrink-0" />}
+                        {isUserWrongOpt && <XCircle className="w-5 h-5 text-theme-error shrink-0" />}
                       </div>
                     );
                   })}
@@ -684,16 +639,16 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
 
                 {/* Post-submission or Practice Mode: Show Explanation & Translation */}
                 {(isSubmitted || (mode === 'practice' && isRevealed)) && (
-                  <div className="pt-3 border-t border-theme/50 space-y-3">
+                  <div className="pt-3 border-t border-theme space-y-3">
                     <div className="p-4 rounded-xl bg-theme-surface-2 border border-theme text-xs space-y-2 animate-fade-in">
-                      <div className="font-bold text-emerald-400 flex items-center gap-1.5">
+                      <div className="font-bold text-theme-success flex items-center gap-1.5">
                         <CheckCircle2 className="w-4 h-4" /> Đáp án đúng: ({q.correct_answer})
                       </div>
                       {q.explanation && (
                         <p className="text-theme-secondary leading-relaxed">{q.explanation}</p>
                       )}
                       {q.translated_sentence && (
-                        <div className="pt-2 border-t border-theme/50 text-indigo-300">
+                        <div className="pt-2 border-t border-theme text-theme-accent">
                           <strong>Bản dịch:</strong> {q.translated_sentence}
                         </div>
                       )}
@@ -763,15 +718,15 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
                 const isWrong2 = isSubmitted && userAnswers[q.id] && userAnswers[q.id] !== q.correct_answer;
                 const isSkipped2 = isSubmitted && !userAnswers[q.id];
 
-                let gridStyle = 'bg-theme-surface-2 hover:bg-theme-surface-3 text-theme-secondary border border-theme';
+                let gridStyle = 'bg-theme-surface-2 hover:bg-theme-surface text-theme-secondary border border-theme';
                 if (isSubmitted) {
-                  if (isCorrect2) gridStyle = 'bg-emerald-500 text-white font-bold shadow-md shadow-emerald-500/20';
-                  else if (isWrong2) gridStyle = 'bg-rose-500 text-white font-bold shadow-md shadow-rose-500/20';
-                  else if (isSkipped2) gridStyle = 'bg-amber-500/30 text-amber-300 border border-amber-500/50';
+                  if (isCorrect2) gridStyle = 'bg-theme-success text-white font-bold shadow-md';
+                  else if (isWrong2) gridStyle = 'bg-theme-error text-white font-bold shadow-md';
+                  else if (isSkipped2) gridStyle = 'alert-warning border border-theme-warning/50 font-bold';
                 } else if (isFlagged2) {
-                  gridStyle = 'bg-amber-500 text-slate-900 shadow-md shadow-amber-500/20';
+                  gridStyle = 'bg-theme-warning text-white shadow-md font-bold';
                 } else if (isAnswered2) {
-                  gridStyle = 'bg-theme-accent text-white shadow-md shadow-indigo-500/20';
+                  gridStyle = 'bg-theme-accent text-white shadow-md';
                 }
 
                 return (
@@ -782,7 +737,7 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
                   >
                     {q.q_num}
                     {isFlagged2 && !isSubmitted && (
-                      <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-rose-500 border border-white" />
+                      <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-theme-error border border-white" />
                     )}
                   </button>
                 );
@@ -793,14 +748,14 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
             <div className="pt-3 border-t border-theme flex items-center justify-between text-[11px] text-theme-secondary flex-wrap gap-2">
               {examResult ? (
                 <>
-                  <div className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-md bg-emerald-500" /> Đúng</div>
-                  <div className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-md bg-rose-500" /> Sai</div>
-                  <div className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-md bg-amber-500/30 border border-amber-500/50" /> Bỏ trống</div>
+                  <div className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-md bg-theme-success" /> Đúng</div>
+                  <div className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-md bg-theme-error" /> Sai</div>
+                  <div className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-md alert-warning border border-theme-warning/50" /> Bỏ trống</div>
                 </>
               ) : (
                 <>
                   <div className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-md bg-theme-accent" /> Đã làm</div>
-                  <div className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-md bg-amber-500" /> 🚩 Đánh dấu</div>
+                  <div className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-md bg-theme-warning" /> 🚩 Đánh dấu</div>
                   <div className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-md bg-theme-surface-2 border border-theme" /> Chưa làm</div>
                 </>
               )}
@@ -814,18 +769,18 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
       {/* AI Explanation Modal */}
       {selectedAiQuestion && (
         <div className="fixed inset-0 z-60 bg-black/80 backdrop-blur-md p-4 flex items-center justify-center animate-fade-in">
-          <div className="bg-theme-surface border border-amber-500/40 rounded-2xl max-w-2xl w-full p-6 space-y-5 shadow-2xl relative max-h-[85vh] overflow-y-auto">
+          <div className="bg-theme-surface border border-theme-accent/40 rounded-2xl max-w-2xl w-full p-6 space-y-5 shadow-2xl relative max-h-[85vh] overflow-y-auto">
 
             <div className="flex items-center justify-between border-b border-theme pb-3">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-amber-400" />
+                <Sparkles className="w-5 h-5 text-theme-warning" />
                 <h3 className="font-bold text-base text-theme-primary">
                   AI Giải Thích & Nhắc Lại Kiến Thức — Câu #{selectedAiQuestion.q_num}
                 </h3>
               </div>
               <button
                 onClick={() => setSelectedAiQuestion(null)}
-                className="px-2.5 py-1 rounded-lg bg-theme-surface-2 hover:bg-theme-surface-3 text-xs font-bold text-theme-secondary hover:text-theme-primary"
+                className="px-2.5 py-1 rounded-lg bg-theme-surface-2 hover:bg-theme-surface text-xs font-bold text-theme-secondary hover:text-theme-primary cursor-pointer"
               >
                 ✕ Đóng
               </button>
@@ -833,21 +788,21 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
 
             {aiLoading ? (
               <div className="py-12 text-center space-y-3">
-                <Sparkles className="w-8 h-8 text-amber-400 animate-spin mx-auto" />
+                <Sparkles className="w-8 h-8 text-theme-warning animate-spin mx-auto" />
                 <p className="text-sm font-semibold text-theme-secondary">AI đang phân tích câu hỏi...</p>
               </div>
             ) : aiErrorMsg ? (
-              <div className="p-5 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-300 space-y-3 animate-fade-in text-xs">
-                <div className="flex items-center gap-2 font-bold text-sm text-rose-400">
+              <div className="p-5 rounded-2xl alert-error border border-theme-error/30 text-theme-error space-y-3 animate-fade-in text-xs">
+                <div className="flex items-center gap-2 font-bold text-sm text-theme-error">
                   <AlertTriangle className="w-5 h-5 shrink-0" />
                   <span>Chưa Thể Phân Tích AI Chi Tiết</span>
                 </div>
                 <p className="leading-relaxed whitespace-pre-wrap">{aiErrorMsg}</p>
-                <div className="pt-2 flex items-center justify-between border-t border-rose-500/20">
+                <div className="pt-2 flex items-center justify-between border-t border-theme-error/20">
                   <span className="text-[11px] text-theme-secondary">Hạn ngạch API Gemini Free Tier tự động reset sau vài phút / 24h.</span>
                   <button
                     onClick={() => selectedAiQuestion && handleFetchAiExplanation(selectedAiQuestion)}
-                    className="px-3 py-1.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 text-rose-200 border border-rose-500/40 text-xs font-bold transition-all flex items-center gap-1.5"
+                    className="px-3 py-1.5 rounded-xl alert-error hover:opacity-90 text-theme-error border border-theme-error/40 text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer"
                   >
                     <RefreshCw className="w-3.5 h-3.5" /> Thử Lại Phân Tích Live
                   </button>
@@ -858,19 +813,19 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
 
                 {/* Grammar Topic Tag */}
                 <div className="flex items-center gap-2">
-                  <span className="px-2.5 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-[10px] font-bold flex items-center gap-1">
+                  <span className="px-2.5 py-1 rounded-full bg-theme-accent/20 border border-theme-accent/30 text-theme-accent text-[10px] font-bold flex items-center gap-1">
                     <BookOpen className="w-3 h-3" /> {selectedAiQuestion.grammar_topic}
                   </span>
                   {aiExplanationData.source === 'db_cache' && (
-                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-semibold">
+                    <span className="px-2 py-0.5 rounded-full alert-success border border-theme-success/20 text-theme-success text-[10px] font-semibold">
                       ⚡ Tức thì từ DB
                     </span>
                   )}
                 </div>
 
                 {/* Detailed Explanation */}
-                <div className="p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/30 space-y-1.5">
-                  <h4 className="font-bold text-indigo-300 flex items-center gap-1.5">🧠 Phân Tích Chi Tiết</h4>
+                <div className="p-4 rounded-xl bg-theme-surface-2 border border-theme space-y-1.5">
+                  <h4 className="font-bold text-theme-accent flex items-center gap-1.5">🧠 Phân Tích Chi Tiết</h4>
                   <p className="text-theme-primary leading-relaxed whitespace-pre-wrap">
                     {aiExplanationData.detailed_explanation}
                   </p>
@@ -878,11 +833,11 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
 
                 {/* Option Explanations from DB */}
                 {aiExplanationData.option_explanations && Object.keys(aiExplanationData.option_explanations).length > 0 && (
-                  <div className="p-4 rounded-xl bg-slate-500/10 border border-slate-500/30 space-y-2">
-                    <h4 className="font-bold text-slate-300 flex items-center gap-1.5">📋 Phân Tích Từng Đáp Án</h4>
+                  <div className="p-4 rounded-xl bg-theme-surface-2 border border-theme space-y-2">
+                    <h4 className="font-bold text-theme-primary flex items-center gap-1.5">📋 Phân Tích Từng Đáp Án</h4>
                     {Object.entries(aiExplanationData.option_explanations).map(([opt, exp]) => (
-                      <div key={opt} className={`flex gap-2 p-2 rounded-lg ${opt === selectedAiQuestion.correct_answer ? 'bg-emerald-500/10 border border-emerald-500/20' : 'bg-theme-surface-2'}`}>
-                        <span className={`font-bold shrink-0 ${opt === selectedAiQuestion.correct_answer ? 'text-emerald-400' : 'text-rose-400'}`}>({opt})</span>
+                      <div key={opt} className={`flex gap-2 p-2 rounded-lg ${opt === selectedAiQuestion.correct_answer ? 'alert-success border border-theme-success/20' : 'bg-theme-surface-2'}`}>
+                        <span className={`font-bold shrink-0 ${opt === selectedAiQuestion.correct_answer ? 'text-theme-success' : 'text-theme-error'}`}>({opt})</span>
                         <span className="text-theme-secondary leading-relaxed">{exp as string}</span>
                       </div>
                     ))}
@@ -891,8 +846,8 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
 
                 {/* Common Trap — Bẫy phổ biến */}
                 {aiExplanationData.common_trap && (
-                  <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 space-y-1.5">
-                    <h4 className="font-bold text-rose-300 flex items-center gap-1.5">
+                  <div className="p-4 rounded-xl alert-error border border-theme-error/30 space-y-1.5">
+                    <h4 className="font-bold text-theme-error flex items-center gap-1.5">
                       ⚠️ Bẫy Phổ Biến — Vì Sao Hay Nhầm?
                     </h4>
                     <p className="text-theme-primary leading-relaxed">{aiExplanationData.common_trap}</p>
@@ -900,8 +855,8 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
                 )}
 
                 {/* Grammar Knowledge Recall */}
-                <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/30 space-y-1.5">
-                  <h4 className="font-bold text-purple-300 flex items-center gap-1.5">📚 Nhắc Lại Kiến Thức & Quy Tắc</h4>
+                <div className="p-4 rounded-xl bg-theme-surface-2 border border-theme space-y-1.5">
+                  <h4 className="font-bold text-theme-accent flex items-center gap-1.5">📚 Nhắc Lại Kiến Thức & Quy Tắc</h4>
                   <p className="text-theme-primary leading-relaxed whitespace-pre-wrap">
                     {aiExplanationData.grammar_recall}
                   </p>
@@ -909,16 +864,16 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
 
                 {/* Exam Tip */}
                 {aiExplanationData.exam_tip && (
-                  <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 space-y-1.5">
-                    <h4 className="font-bold text-amber-300 flex items-center gap-1.5">💡 Mẹo Làm Bài Nhanh</h4>
+                  <div className="p-4 rounded-xl alert-warning border border-theme-warning/30 space-y-1.5">
+                    <h4 className="font-bold text-theme-warning flex items-center gap-1.5">💡 Mẹo Làm Bài Nhanh</h4>
                     <p className="text-theme-primary leading-relaxed">{aiExplanationData.exam_tip}</p>
                   </div>
                 )}
 
                 {/* Translation */}
                 {(aiExplanationData.sentence_translation || aiExplanationData.sentence_translation) && (
-                  <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 space-y-1.5">
-                    <h4 className="font-bold text-emerald-300 flex items-center gap-1.5">📝 Bản Dịch Tiếng Việt</h4>
+                  <div className="p-4 rounded-xl alert-success border border-theme-success/30 space-y-1.5">
+                    <h4 className="font-bold text-theme-success flex items-center gap-1.5">📝 Bản Dịch Tiếng Việt</h4>
                     <p className="text-theme-primary leading-relaxed">
                       {aiExplanationData.sentence_translation}
                     </p>
@@ -926,7 +881,7 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
                 )}
               </div>
             ) : (
-              <div className="py-8 text-center text-xs text-rose-400">
+              <div className="py-8 text-center text-xs text-theme-error">
                 Không thể nạp phần giải thích. Vui lòng thử lại.
               </div>
             )}

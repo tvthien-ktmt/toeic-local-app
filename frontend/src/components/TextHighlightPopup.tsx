@@ -181,7 +181,7 @@ export const TextHighlightPopup: React.FC<TextHighlightPopupProps> = ({ document
                 onClick={handleToggleFlashcard}
                 className={`flex-1 py-1.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center space-x-1 ${
                   inFlashcard
-                    ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                    ? 'alert-success border-theme-success font-bold'
                     : 'bg-theme-accent text-white hover:opacity-90'
                 }`}
               >
@@ -235,7 +235,7 @@ export const TextHighlightPopup: React.FC<TextHighlightPopupProps> = ({ document
                           disabled={st.in_flashcard}
                           className="ml-2 p-1 rounded-md text-theme-accent hover:bg-theme-surface transition shrink-0 disabled:opacity-50"
                         >
-                          {st.in_flashcard ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Plus className="w-3.5 h-3.5" />}
+                          {st.in_flashcard ? <Check className="w-3.5 h-3.5 text-theme-success" /> : <Plus className="w-3.5 h-3.5" />}
                         </button>
                       </div>
                     ))}

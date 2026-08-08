@@ -84,7 +84,7 @@ export const GrammarQuickRefModal: React.FC<GrammarQuickRefModalProps> = ({ topi
                 <ul className="space-y-2">
                   {data.key_rules.map((rule, idx) => (
                     <li key={idx} className="flex items-start space-x-2 text-xs sm:text-sm text-theme-primary leading-relaxed bg-theme-surface-2 p-3 rounded-xl border border-theme">
-                      <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <CheckCircle className="w-4 h-4 text-theme-success shrink-0 mt-0.5" />
                       <span>{rule}</span>
                     </li>
                   ))}

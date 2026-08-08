@@ -1,0 +1,1174 @@
+[
+  {
+    "id": 1,
+    "canonical_name": "Từ loại / Dạng từ (Parts of Speech / Word Form)",
+    "category": "grammar_topic",
+    "level": "basic",
+    "parts": [
+      5,
+      6
+    ],
+    "prerequisite_topic_id": null,
+    "prerequisite_name": null,
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Tất cả 4 nguồn đồng thuận đây là chủ điểm quan trọng nhất Part 5 (25-35%)",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 2,
+    "canonical_name": "Thì động từ (Verb Tenses)",
+    "category": "grammar_topic",
+    "level": "basic",
+    "parts": [
+      5,
+      6
+    ],
+    "prerequisite_topic_id": 1,
+    "prerequisite_name": "Từ loại / Dạng từ (Parts of Speech / Word Form)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. Grok bổ sung ngưỡng thì cụ thể (since→PP, yesterday→PS, currently→PC). Claude cảnh báo bẫy: dấu hiệu thời gian không luôn quyết định thì",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 3,
+    "canonical_name": "Câu bị động (Passive Voice)",
+    "category": "grammar_topic",
+    "level": "basic",
+    "parts": [
+      5,
+      6
+    ],
+    "prerequisite_topic_id": 2,
+    "prerequisite_name": "Thì động từ (Verb Tenses)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. Claude thêm: chỉ ngoại động từ (transitive) mới có bị động",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar",
+      "Câu bị động"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 4,
+    "canonical_name": "Hòa hợp chủ ngữ-động từ (Subject-Verb Agreement)",
+    "category": "grammar_topic",
+    "level": "basic",
+    "parts": [
+      5,
+      6
+    ],
+    "prerequisite_topic_id": 1,
+    "prerequisite_name": "Từ loại / Dạng từ (Parts of Speech / Word Form)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 3,
+    "agreement_note": "ChatGPT, Grok, Claude đề cập. Gemini không nhắc riêng. Grok thêm: collective nouns (committee/staff/team) → số ít trong TOEIC",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 5,
+    "canonical_name": "Giới từ (Prepositions)",
+    "category": "grammar_topic",
+    "level": "basic",
+    "parts": [
+      5,
+      6
+    ],
+    "prerequisite_topic_id": 1,
+    "prerequisite_name": "Từ loại / Dạng từ (Parts of Speech / Word Form)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. Grok liệt kê cụm cố định: responsible for, interested in, depend on, prior to. Claude thêm phân biệt giới từ vs liên từ đồng nghĩa",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar",
+      "Giới từ (Preposition)"
+    ],
+    "question_count_in_db": 4701,
+    "has_specific_db_topic": true,
+    "db_coverage_note": "4701 câu hỏi trong DB khớp với mapped_grammar_topics. Có topic cụ thể trong DB."
+  },
+  {
+    "id": 6,
+    "canonical_name": "Liên từ & Giới từ đối lập (Conjunctions vs Prepositions)",
+    "category": "grammar_topic",
+    "level": "intermediate",
+    "parts": [
+      5,
+      6
+    ],
+    "prerequisite_topic_id": 5,
+    "prerequisite_name": "Giới từ (Prepositions)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. although/even though+mệnh đề ↔ despite/in spite of+danh từ; because+mệnh đề ↔ because of/due to+danh từ",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar",
+      "Liên từ & Giới từ chỉ nguyên nhân / nhượng bộ (Conjunctions & Prepositions)"
+    ],
+    "question_count_in_db": 4696,
+    "has_specific_db_topic": true,
+    "db_coverage_note": "4696 câu hỏi trong DB khớp với mapped_grammar_topics. Có topic cụ thể trong DB."
+  },
+  {
+    "id": 7,
+    "canonical_name": "Đại từ & Từ hạn định (Pronouns / Determiners)",
+    "category": "grammar_topic",
+    "level": "basic",
+    "parts": [
+      5,
+      6,
+      7
+    ],
+    "prerequisite_topic_id": null,
+    "prerequisite_name": null,
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. Claude chi tiết nhất: nhân xưng/sở hữu/phản thân/chỉ định + từ hạn định",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar",
+      "Đại từ (Pronoun)"
+    ],
+    "question_count_in_db": 4696,
+    "has_specific_db_topic": true,
+    "db_coverage_note": "4696 câu hỏi trong DB khớp với mapped_grammar_topics. Có topic cụ thể trong DB."
+  },
+  {
+    "id": 8,
+    "canonical_name": "Mệnh đề quan hệ (Relative Clauses)",
+    "category": "grammar_topic",
+    "level": "intermediate",
+    "parts": [
+      5,
+      6
+    ],
+    "prerequisite_topic_id": 2,
+    "prerequisite_name": "Thì động từ (Verb Tenses)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. Gemini thêm rút gọn V-ing/V-ed. Claude phân biệt xác định/không xác định",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar",
+      "Mệnh đề quan hệ (Relative Clauses)"
+    ],
+    "question_count_in_db": 4697,
+    "has_specific_db_topic": true,
+    "db_coverage_note": "4697 câu hỏi trong DB khớp với mapped_grammar_topics. Có topic cụ thể trong DB."
+  },
+  {
+    "id": 9,
+    "canonical_name": "Mệnh đề trạng ngữ (Adverb Clauses / Subordinating Conjunctions)",
+    "category": "grammar_topic",
+    "level": "intermediate",
+    "parts": [
+      5,
+      6
+    ],
+    "prerequisite_topic_id": 6,
+    "prerequisite_name": "Liên từ & Giới từ đối lập (Conjunctions vs Prepositions)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 2,
+    "agreement_note": "Claude liệt kê đầy đủ nhất (nguyên nhân/nhượng bộ/thời gian/điều kiện/mục đích). ChatGPT đề cập ngắn. Grok/Gemini không tách riêng",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 10,
+    "canonical_name": "Danh động từ & Động từ nguyên mẫu (Gerund / Infinitive)",
+    "category": "grammar_topic",
+    "level": "intermediate",
+    "parts": [
+      5
+    ],
+    "prerequisite_topic_id": 1,
+    "prerequisite_name": "Từ loại / Dạng từ (Parts of Speech / Word Form)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. Claude thêm bẫy: remember/stop đổi nghĩa khi dùng V-ing vs to V",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 11,
+    "canonical_name": "Động từ khuyết thiếu (Modal Verbs)",
+    "category": "grammar_topic",
+    "level": "intermediate",
+    "parts": [
+      5,
+      6
+    ],
+    "prerequisite_topic_id": 2,
+    "prerequisite_name": "Thì động từ (Verb Tenses)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. Claude thêm: Modal+have+V3 (should have done) — diễn tả quá khứ",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 12,
+    "canonical_name": "So sánh (Comparatives / Superlatives)",
+    "category": "grammar_topic",
+    "level": "intermediate",
+    "parts": [
+      5
+    ],
+    "prerequisite_topic_id": 1,
+    "prerequisite_name": "Từ loại / Dạng từ (Parts of Speech / Word Form)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 3,
+    "agreement_note": "ChatGPT, Grok, Claude đề cập. Claude thêm so sánh kép (the more...the more...)",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 13,
+    "canonical_name": "Cấu trúc song song (Parallel Structure)",
+    "category": "grammar_topic",
+    "level": "intermediate",
+    "parts": [
+      5,
+      6
+    ],
+    "prerequisite_topic_id": 6,
+    "prerequisite_name": "Liên từ & Giới từ đối lập (Conjunctions vs Prepositions)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 2,
+    "agreement_note": "ChatGPT, Claude đề cập. Grok/Gemini không nhắc riêng",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 14,
+    "canonical_name": "Câu điều kiện (Conditional Sentences)",
+    "category": "grammar_topic",
+    "level": "intermediate",
+    "parts": [
+      5
+    ],
+    "prerequisite_topic_id": 2,
+    "prerequisite_name": "Thì động từ (Verb Tenses)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 3,
+    "agreement_note": "ChatGPT (Type 0-2+Mixed), Grok (Type 1-2), Claude (Type 0-3+hỗn hợp+đảo ngữ). Gemini không nhắc. Claude chi tiết nhất",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar",
+      "Câu điều kiện & Biến thể đảo ngữ (Conditional Sentences)"
+    ],
+    "question_count_in_db": 4697,
+    "has_specific_db_topic": true,
+    "db_coverage_note": "4697 câu hỏi trong DB khớp với mapped_grammar_topics. Có topic cụ thể trong DB."
+  },
+  {
+    "id": 15,
+    "canonical_name": "Từ lượng (Quantifiers)",
+    "category": "grammar_topic",
+    "level": "basic",
+    "parts": [
+      5
+    ],
+    "prerequisite_topic_id": 7,
+    "prerequisite_name": "Đại từ & Từ hạn định (Pronouns / Determiners)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 1,
+    "agreement_note": "Chỉ ChatGPT liệt kê riêng. Gemini/Grok/Claude không tách thành mục riêng — có thể gộp vào Đại từ & Từ hạn định",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 16,
+    "canonical_name": "Mạo từ (Articles)",
+    "category": "grammar_topic",
+    "level": "basic",
+    "parts": [
+      5
+    ],
+    "prerequisite_topic_id": null,
+    "prerequisite_name": null,
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 1,
+    "agreement_note": "Chỉ Grok liệt kê riêng. Các nguồn khác đề cập trong Từ hạn định. Tần suất thấp nhưng hay gặp",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 17,
+    "canonical_name": "Cấu trúc nhân quả (Causative Structure)",
+    "category": "grammar_topic",
+    "level": "advanced",
+    "parts": [
+      5
+    ],
+    "prerequisite_topic_id": 10,
+    "prerequisite_name": "Danh động từ & Động từ nguyên mẫu (Gerund / Infinitive)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 1,
+    "agreement_note": "Chỉ ChatGPT liệt kê (have/get/make/let). Các nguồn khác không nhắc. Tần suất thấp",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 18,
+    "canonical_name": "Đảo ngữ (Inversion)",
+    "category": "grammar_topic",
+    "level": "advanced",
+    "parts": [
+      5
+    ],
+    "prerequisite_topic_id": 14,
+    "prerequisite_name": "Câu điều kiện (Conditional Sentences)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 2,
+    "agreement_note": "ChatGPT, Claude đề cập. Grok/Gemini không nhắc riêng. Tần suất hiếm trong TOEIC",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 19,
+    "canonical_name": "Câu giả định (Subjunctive)",
+    "category": "grammar_topic",
+    "level": "advanced",
+    "parts": [
+      5
+    ],
+    "prerequisite_topic_id": 11,
+    "prerequisite_name": "Động từ khuyết thiếu (Modal Verbs)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 1,
+    "agreement_note": "Chỉ ChatGPT liệt kê (recommend/suggest/insist that + bare inf). Rất ít xuất hiện trong TOEIC",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 20,
+    "canonical_name": "Collocation (Cụm từ cố định)",
+    "category": "grammar_topic",
+    "level": "intermediate",
+    "parts": [
+      5,
+      6
+    ],
+    "prerequisite_topic_id": 1,
+    "prerequisite_name": "Từ loại / Dạng từ (Parts of Speech / Word Form)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. make a decision, meet a deadline, place an order. Claude nhấn mạnh học theo cụm không học từ đơn lẻ",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 21,
+    "canonical_name": "Từ dễ nhầm (Confusing Words)",
+    "category": "grammar_topic",
+    "level": "intermediate",
+    "parts": [
+      5
+    ],
+    "prerequisite_topic_id": 20,
+    "prerequisite_name": "Collocation (Cụm từ cố định)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 3,
+    "agreement_note": "ChatGPT, Claude đề cập (economic/economical, affect/effect). Grok gộp vào vocab. Gemini không nhắc",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 22,
+    "canonical_name": "Cụm động từ (Phrasal Verbs)",
+    "category": "grammar_topic",
+    "level": "intermediate",
+    "parts": [
+      5,
+      6
+    ],
+    "prerequisite_topic_id": 20,
+    "prerequisite_name": "Collocation (Cụm từ cố định)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 3,
+    "agreement_note": "ChatGPT, Gemini, Claude liệt kê. carry out, look into, put off, take over, hand in, set up",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar"
+    ],
+    "question_count_in_db": 4694,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "4694 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 23,
+    "canonical_name": "Liên từ chuyển ý / Discourse Markers (Part 6)",
+    "category": "grammar_topic",
+    "level": "intermediate",
+    "parts": [
+      6
+    ],
+    "prerequisite_topic_id": 6,
+    "prerequisite_name": "Liên từ & Giới từ đối lập (Conjunctions vs Prepositions)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 3,
+    "agreement_note": "ChatGPT, Grok, Claude đồng thuận. however/therefore/moreover/meanwhile/consequently. Đặc trưng Part 6, không có ở Part 5",
+    "mapped_grammar_topics_db": [
+      "Part 6 Text Completion"
+    ],
+    "question_count_in_db": 2496,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "2496 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 24,
+    "canonical_name": "Điền câu vào đoạn văn (Sentence Insertion - Part 6)",
+    "category": "question_type",
+    "level": "advanced",
+    "parts": [
+      6
+    ],
+    "prerequisite_topic_id": 23,
+    "prerequisite_name": "Liên từ chuyển ý / Discourse Markers (Part 6)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận — dạng khó nhất Part 6. Kiểm tra: đại từ tham chiếu, liên từ logic, từ khóa lặp lại",
+    "mapped_grammar_topics_db": [
+      "Part 6 Text Completion"
+    ],
+    "question_count_in_db": 2496,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "2496 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 25,
+    "canonical_name": "Câu hỏi Ý chính (Main Idea / Purpose)",
+    "category": "question_type",
+    "level": "basic",
+    "parts": [
+      7
+    ],
+    "prerequisite_topic_id": null,
+    "prerequisite_name": null,
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận — dạng cơ bản nhất Part 7. Why was the email written? What is the article mainly about?",
+    "mapped_grammar_topics_db": [
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 8454,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "8454 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 26,
+    "canonical_name": "Câu hỏi Chi tiết (Detail Question)",
+    "category": "question_type",
+    "level": "basic",
+    "parts": [
+      7
+    ],
+    "prerequisite_topic_id": 25,
+    "prerequisite_name": "Câu hỏi Ý chính (Main Idea / Purpose)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. Scan từ khóa (ngày tháng, số liệu, tên riêng). Who/What/When/Where/How much",
+    "mapped_grammar_topics_db": [
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 8454,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "8454 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 27,
+    "canonical_name": "Câu hỏi Phủ định (NOT / EXCEPT)",
+    "category": "question_type",
+    "level": "intermediate",
+    "parts": [
+      7
+    ],
+    "prerequisite_topic_id": 26,
+    "prerequisite_name": "Câu hỏi Chi tiết (Detail Question)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 3,
+    "agreement_note": "ChatGPT, Grok, Claude đề cập. Gemini không nhắc riêng. Which is NOT mentioned/true?",
+    "mapped_grammar_topics_db": [
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 8454,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "8454 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 28,
+    "canonical_name": "Câu hỏi Suy luận (Inference / Implication)",
+    "category": "question_type",
+    "level": "intermediate",
+    "parts": [
+      7
+    ],
+    "prerequisite_topic_id": 26,
+    "prerequisite_name": "Câu hỏi Chi tiết (Detail Question)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận — đáp án không được viết thẳng trong bài, phải suy luận từ manh mối",
+    "mapped_grammar_topics_db": [
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 8454,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "8454 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 29,
+    "canonical_name": "Câu hỏi Từ vựng trong ngữ cảnh (Vocabulary in Context)",
+    "category": "question_type",
+    "level": "intermediate",
+    "parts": [
+      7
+    ],
+    "prerequisite_topic_id": 26,
+    "prerequisite_name": "Câu hỏi Chi tiết (Detail Question)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. Dựa vào ngữ cảnh cụ thể, không phải nghĩa từ điển chung",
+    "mapped_grammar_topics_db": [
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 8454,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "8454 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 30,
+    "canonical_name": "Câu hỏi Đại từ tham chiếu (Reference Question)",
+    "category": "question_type",
+    "level": "intermediate",
+    "parts": [
+      7
+    ],
+    "prerequisite_topic_id": 7,
+    "prerequisite_name": "Đại từ & Từ hạn định (Pronouns / Determiners)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 3,
+    "agreement_note": "ChatGPT, Grok, Claude đề cập. What does 'it/this/they' refer to?",
+    "mapped_grammar_topics_db": [
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 8454,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "8454 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 31,
+    "canonical_name": "Câu hỏi Ý định người viết (Writer's Intention - Chat)",
+    "category": "question_type",
+    "level": "advanced",
+    "parts": [
+      7
+    ],
+    "prerequisite_topic_id": 28,
+    "prerequisite_name": "Câu hỏi Suy luận (Inference / Implication)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 1,
+    "agreement_note": "Chỉ Claude đề cập. Hỏi hàm ý của câu nói trong hội thoại chat. Các nguồn khác gộp vào Suy luận",
+    "mapped_grammar_topics_db": [
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 8454,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "8454 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 32,
+    "canonical_name": "Câu hỏi Chèn câu (Sentence Location Part 7)",
+    "category": "question_type",
+    "level": "advanced",
+    "parts": [
+      7
+    ],
+    "prerequisite_topic_id": 24,
+    "prerequisite_name": "Điền câu vào đoạn văn (Sentence Insertion - Part 6)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. In which position [1][2][3][4] does the sentence best belong?",
+    "mapped_grammar_topics_db": [
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 8454,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "8454 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 33,
+    "canonical_name": "Câu hỏi Ghép thông tin (Cross-reference Double/Triple)",
+    "category": "question_type",
+    "level": "advanced",
+    "parts": [
+      7
+    ],
+    "prerequisite_topic_id": 28,
+    "prerequisite_name": "Câu hỏi Suy luận (Inference / Implication)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận — khó nhất Part 7. Phải đối chiếu thông tin từ 2-3 văn bản",
+    "mapped_grammar_topics_db": [
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 8454,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "8454 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 34,
+    "canonical_name": "Đọc bảng / biểu đồ (Graph/Table Question)",
+    "category": "question_type",
+    "level": "intermediate",
+    "parts": [
+      7
+    ],
+    "prerequisite_topic_id": 26,
+    "prerequisite_name": "Câu hỏi Chi tiết (Detail Question)",
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 1,
+    "agreement_note": "Chỉ ChatGPT liệt kê riêng. Đọc bảng/biểu đồ/lịch/sơ đồ/menu kết hợp với đoạn văn",
+    "mapped_grammar_topics_db": [
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 8454,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "8454 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 35,
+    "canonical_name": "Nhân sự & Tuyển dụng (HR/Recruitment)",
+    "category": "vocab_topic",
+    "level": "basic",
+    "parts": [
+      5,
+      6,
+      7
+    ],
+    "prerequisite_topic_id": null,
+    "prerequisite_name": null,
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận — chủ đề từ vựng quan trọng nhất TOEIC. recruit/résumé/candidate/promotion/appraisal/resignation",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar",
+      "Part 6 Text Completion",
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 15644,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "15644 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 36,
+    "canonical_name": "Tài chính & Kế toán (Finance/Accounting)",
+    "category": "vocab_topic",
+    "level": "basic",
+    "parts": [
+      5,
+      6,
+      7
+    ],
+    "prerequisite_topic_id": null,
+    "prerequisite_name": null,
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. invoice/budget/revenue/expenditure/reimbursement/audit/deficit",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar",
+      "Part 6 Text Completion",
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 15644,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "15644 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 37,
+    "canonical_name": "Văn phòng & Hành chính (Office/Admin)",
+    "category": "vocab_topic",
+    "level": "basic",
+    "parts": [
+      5,
+      6,
+      7
+    ],
+    "prerequisite_topic_id": null,
+    "prerequisite_name": null,
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. agenda/memo/deadline/postpone/venue/minutes/colleague/supervisor",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar",
+      "Part 6 Text Completion",
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 15644,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "15644 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 38,
+    "canonical_name": "Logistics & Sản xuất (Logistics/Manufacturing)",
+    "category": "vocab_topic",
+    "level": "basic",
+    "parts": [
+      5,
+      6,
+      7
+    ],
+    "prerequisite_topic_id": null,
+    "prerequisite_name": null,
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. shipment/inventory/warehouse/procurement/dispatch/assembly line/quality control",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar",
+      "Part 6 Text Completion",
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 15644,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "15644 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 39,
+    "canonical_name": "Marketing & Bán hàng (Marketing/Sales)",
+    "category": "vocab_topic",
+    "level": "basic",
+    "parts": [
+      5,
+      6,
+      7
+    ],
+    "prerequisite_topic_id": null,
+    "prerequisite_name": null,
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. campaign/promotion/competitor/consumer/market research/brand/discount",
+    "mapped_grammar_topics_db": [
+      "Part 5 Grammar",
+      "Part 6 Text Completion",
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 15644,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "15644 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 40,
+    "canonical_name": "Du lịch & Vận chuyển (Travel/Transportation)",
+    "category": "vocab_topic",
+    "level": "basic",
+    "parts": [
+      7
+    ],
+    "prerequisite_topic_id": null,
+    "prerequisite_name": null,
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. reservation/delay/itinerary/accommodation/departure/boarding pass/luggage",
+    "mapped_grammar_topics_db": [
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 8454,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "8454 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 41,
+    "canonical_name": "Hợp đồng & Pháp lý (Legal/Contracts)",
+    "category": "vocab_topic",
+    "level": "intermediate",
+    "parts": [
+      6,
+      7
+    ],
+    "prerequisite_topic_id": null,
+    "prerequisite_name": null,
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 3,
+    "agreement_note": "Grok, Claude, ChatGPT đề cập. clause/terminate/liable/comply with/warranty/binding/lease/tenant",
+    "mapped_grammar_topics_db": [
+      "Part 6 Text Completion",
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 10950,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "10950 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 42,
+    "canonical_name": "Công nghệ & Vận hành (Technology)",
+    "category": "vocab_topic",
+    "level": "basic",
+    "parts": [
+      5,
+      6,
+      7
+    ],
+    "prerequisite_topic_id": null,
+    "prerequisite_name": null,
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 4,
+    "agreement_note": "Đồng thuận. software/webinar/security/network/upgrade/subscription/maintenance/implementation",
+    "mapped_grammar_topics_db": [
+      "Part 6 Text Completion",
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 10950,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "10950 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 43,
+    "canonical_name": "Nhà hàng & Khách sạn & Sự kiện (Restaurant/Hotel/Events)",
+    "category": "vocab_topic",
+    "level": "basic",
+    "parts": [
+      7
+    ],
+    "prerequisite_topic_id": null,
+    "prerequisite_name": null,
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 3,
+    "agreement_note": "Claude, ChatGPT, Grok đề cập. reservation/catering/venue/complimentary/cuisine/RSVP/exhibition",
+    "mapped_grammar_topics_db": [
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 8454,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "8454 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 44,
+    "canonical_name": "Y tế & Bảo hiểm (Healthcare/Insurance)",
+    "category": "vocab_topic",
+    "level": "basic",
+    "parts": [
+      7
+    ],
+    "prerequisite_topic_id": null,
+    "prerequisite_name": null,
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 3,
+    "agreement_note": "ChatGPT (y tế + bảo hiểm riêng), Claude (y tế), Grok không nhắc. appointment/prescription/insurance/physician/claim/coverage",
+    "mapped_grammar_topics_db": [
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 8454,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "8454 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  },
+  {
+    "id": 45,
+    "canonical_name": "Giáo dục & Đào tạo (Education/Training)",
+    "category": "vocab_topic",
+    "level": "basic",
+    "parts": [
+      6,
+      7
+    ],
+    "prerequisite_topic_id": null,
+    "prerequisite_name": null,
+    "source_files": [
+      "ChatGPT",
+      "Gemini",
+      "Grok",
+      "Claude"
+    ],
+    "source_count": 2,
+    "agreement_note": "ChatGPT, Claude đề cập. training/seminar/workshop/course/qualification/probation",
+    "mapped_grammar_topics_db": [
+      "Part 6 Text Completion",
+      "Part 7 Reading Comprehension"
+    ],
+    "question_count_in_db": 10950,
+    "has_specific_db_topic": false,
+    "db_coverage_note": "10950 câu hỏi trong DB khớp với mapped_grammar_topics. CẢNH BÁO: Chỉ có topic generic (Part X Grammar/Reading) trong DB — cần phân loại lại câu hỏi để tạo ví dụ thật cho bài giảng này."
+  }
+]

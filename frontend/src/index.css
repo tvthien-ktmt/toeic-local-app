@@ -112,6 +112,20 @@
   --error-icon: #D97757;
 }
 
+@theme {
+  --color-theme-base: var(--bg-base);
+  --color-theme-surface: var(--bg-surface);
+  --color-theme-surface-2: var(--bg-surface-2);
+  --color-theme-primary: var(--text-primary);
+  --color-theme-secondary: var(--text-secondary);
+  --color-theme-border: var(--border);
+  --color-theme-accent: var(--accent-primary);
+  --color-theme-accent-hover: var(--accent-primary-hover);
+  --color-theme-success: var(--accent-success);
+  --color-theme-error: var(--accent-error);
+  --color-theme-warning: var(--accent-warning);
+}
+
 /* Helper Theme Classes */
 .bg-theme-base { background-color: var(--bg-base); }
 .bg-theme-surface { background-color: var(--bg-surface); }
@@ -121,17 +135,21 @@
 .border-theme { border-color: var(--border); }
 
 .bg-theme-accent { background-color: var(--accent-primary); }
+.bg-theme-accent-hover { background-color: var(--accent-primary-hover); }
 .text-theme-accent { color: var(--accent-primary); }
 .border-theme-accent { border-color: var(--accent-primary); }
 
 .bg-theme-success { background-color: var(--accent-success); }
 .text-theme-success { color: var(--accent-success); }
+.border-theme-success { border-color: var(--accent-success); }
 
 .bg-theme-error { background-color: var(--accent-error); }
 .text-theme-error { color: var(--accent-error); }
+.border-theme-error { border-color: var(--accent-error); }
 
 .bg-theme-warning { background-color: var(--accent-warning); }
 .text-theme-warning { color: var(--accent-warning); }
+.border-theme-warning { border-color: var(--accent-warning); }
 
 /* Accessible Theme-Aware Alert Banners */
 .alert-warning {

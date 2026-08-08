@@ -7,9 +7,10 @@ import { DocumentDetailPage } from './pages/DocumentDetailPage';
 import { PracticePage } from './pages/PracticePage';
 import { FlashcardPage } from './pages/FlashcardPage';
 import { DashboardPage } from './pages/DashboardPage';
+import RoadmapPage from './pages/RoadmapPage';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState<'textbooks' | 'upload' | 'practice' | 'flashcards' | 'dashboard'>('textbooks');
+  const [activeTab, setActiveTab] = useState<'textbooks' | 'upload' | 'practice' | 'flashcards' | 'dashboard' | 'roadmap'>('textbooks');
   const [selectedDocId, setSelectedDocId] = useState<number | null>(null);
   
   // Built-in exam active mode state
@@ -78,6 +79,8 @@ export function App() {
         {activeTab === 'flashcards' && <FlashcardPage />}
 
         {activeTab === 'dashboard' && <DashboardPage />}
+
+        {activeTab === 'roadmap' && <RoadmapPage />}
       </main>
 
       {/* Footer */}

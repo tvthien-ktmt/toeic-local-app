@@ -13,6 +13,7 @@ import { fetchVocabulary } from '../api/vocabulary';
 import type { VocabularyItem } from '../api/vocabulary';
 import { speakText } from '../utils/tts';
 import { GrammarQuickRefModal } from '../components/GrammarQuickRefModal';
+import { MarkdownPassage } from '../components/MarkdownPassage';
 import { TextHighlightPopup } from '../components/TextHighlightPopup';
 import { PracticeTimer } from '../components/PracticeTimer';
 import { AIStudyRecommendationCard } from '../components/AIStudyRecommendationCard';
@@ -242,7 +243,7 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
             onClick={handleCopyMarkdown}
             className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-theme-surface-2 hover:bg-theme-surface text-theme-primary border border-theme text-xs font-semibold transition"
           >
-            {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+            {copied ? <Check className="w-4 h-4 text-theme-success" /> : <Copy className="w-4 h-4" />}
             <span>{copied ? 'Đã sao chép' : 'Sao chép Markdown'}</span>
           </button>
         </div>
@@ -316,7 +317,7 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <h3 className="text-base font-bold text-theme-primary flex items-center gap-2">
-                    <Award className="w-5 h-5 text-amber-400" />
+                    <Award className="w-5 h-5 text-theme-warning" />
                     Chọn Chế Độ Thi Đề Thi Này
                   </h3>
                   <p className="text-xs text-theme-secondary">Chọn làm tự do không giới hạn thời gian hoặc thi 75 phút áp lực thi thật</p>
@@ -336,7 +337,7 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
                   <button
                     onClick={() => { setExamMode('timed_75'); setIsExamSubmitted(false); }}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                      examMode === 'timed_75' ? 'bg-amber-500 text-slate-950 font-extrabold shadow-lg' : 'text-theme-secondary hover:text-theme-primary'
+                      examMode === 'timed_75' ? 'bg-theme-warning text-white font-extrabold shadow-lg' : 'text-theme-secondary hover:text-theme-primary'
                     }`}
                   >
                     Thi 75 Phút (Có đếm ngược)
@@ -348,7 +349,7 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
               <div className="flex items-center justify-between pt-2 border-t border-theme">
                 {examMode === 'timed_75' ? (
                   <div className="flex items-center space-x-3">
-                    <span className="text-xs font-bold text-amber-400">Thời Gian Đếm Ngược:</span>
+                    <span className="text-xs font-bold text-theme-warning">Thời Gian Đếm Ngược:</span>
                     <PracticeTimer targetMinutes={75} onTimeUp={handleSubmitExam} isPaused={isExamSubmitted} />
                   </div>
                 ) : (
@@ -358,12 +359,12 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
                 {!isExamSubmitted ? (
                   <button
                     onClick={handleSubmitExam}
-                    className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs rounded-xl shadow-lg transition"
+                    className="px-4 py-2 bg-theme-success hover:opacity-90 text-white font-extrabold text-xs rounded-xl shadow-lg transition"
                   >
                     Nộp Bài Thi
                   </button>
                 ) : (
-                  <div className="flex items-center space-x-2 text-xs font-bold text-emerald-400">
+                  <div className="flex items-center space-x-2 text-xs font-bold text-theme-success">
                     <CheckCircle2 className="w-4 h-4" />
                     <span>Đã nộp bài! Điểm số: {score.correct} / {score.total} câu ({score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0}%)</span>
                   </div>
@@ -434,7 +435,7 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
                       {/* Module 17 Badge */}
                       <button
                         onClick={() => setActiveGrammarTopic(q.grammar_topic || 'general grammar')}
-                        className="px-2.5 py-1 rounded-lg bg-amber-400/10 hover:bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-semibold flex items-center space-x-1 transition"
+                        className="px-2.5 py-1 rounded-lg bg-theme-accent/15 hover:bg-theme-accent/25 text-theme-accent border border-theme-accent/30 text-xs font-semibold flex items-center space-x-1 transition"
                       >
                         <BookOpen className="w-3.5 h-3.5" />
                         <span>{q.grammar_topic || 'unclassified'}</span>
@@ -449,9 +450,9 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
                     </button>
                   </div>
 
-                  <h4 className="text-base font-bold text-theme-primary leading-relaxed select-text">
-                    {q.question_text}
-                  </h4>
+                  <div className="text-base font-bold text-theme-primary leading-relaxed select-text">
+                    <MarkdownPassage text={q.question_text} />
+                  </div>
 
                   {/* Options */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -464,9 +465,9 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
 
                       if (showDetail) {
                         if (isOptCorrect) {
-                          optStyle = "bg-emerald-500/20 border-emerald-500/50 text-emerald-300 font-bold shadow-lg";
+                          optStyle = "alert-success border-theme-success font-bold text-theme-success shadow-lg";
                         } else if (isSelected) {
-                          optStyle = "bg-red-500/20 border-red-500/50 text-red-300 font-bold";
+                          optStyle = "alert-error border-theme-error font-bold text-theme-error";
                         } else {
                           optStyle = "bg-theme-surface border-theme text-theme-secondary opacity-60";
                         }
@@ -482,8 +483,8 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
                           className={`w-full text-left p-3.5 rounded-xl border text-xs sm:text-sm font-medium transition flex items-center justify-between ${optStyle}`}
                         >
                           <span>{opt}</span>
-                          {showDetail && isOptCorrect && <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />}
-                          {showDetail && isSelected && !isOptCorrect && <XCircle className="w-4 h-4 text-red-400 shrink-0" />}
+                          {showDetail && isOptCorrect && <CheckCircle2 className="w-4 h-4 text-theme-success shrink-0" />}
+                          {showDetail && isSelected && !isOptCorrect && <XCircle className="w-4 h-4 text-theme-error shrink-0" />}
                           {!showDetail && isSelected && <Check className="w-4 h-4 text-theme-accent shrink-0" />}
                         </button>
                       );
@@ -494,8 +495,8 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
                   {showDetail && (
                     <div className="p-4 rounded-xl bg-theme-surface border border-theme space-y-3 text-xs animate-fade-in">
                       <div className="flex items-center gap-2">
-                        <span className="font-bold text-emerald-400">Đáp án chính xác:</span>
-                        <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">
+                        <span className="font-bold text-theme-success">Đáp án chính xác:</span>
+                        <span className="px-2 py-0.5 rounded alert-success font-bold">
                           {q.correct_answer || 'N/A'}
                         </span>
                       </div>
@@ -507,7 +508,7 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {Object.entries(optExps).map(([letter, expText]) => (
                               <div key={letter} className="p-2 bg-theme-surface-2 border border-theme rounded-lg">
-                                <span className="font-bold text-amber-400 font-mono mr-1">({letter}):</span>
+                                <span className="font-bold text-theme-warning font-mono mr-1">({letter}):</span>
                                 <span className="text-theme-primary">{expText}</span>
                               </div>
                             ))}
@@ -517,13 +518,13 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
 
                       {q.explanation && (
                         <p className="text-theme-primary leading-relaxed pt-1">
-                          <span className="font-bold text-amber-300">Giải thích chung:</span> {q.explanation}
+                          <span className="font-bold text-theme-warning">Giải thích chung:</span> {q.explanation}
                         </p>
                       )}
 
                       {q.translated_sentence && (
                         <div className="p-3 bg-theme-surface-2 border border-theme rounded-xl space-y-1">
-                          <span className="font-bold text-emerald-400 block">Bản dịch tiếng Việt hoàn chỉnh:</span>
+                          <span className="font-bold text-theme-success block">Bản dịch tiếng Việt hoàn chỉnh:</span>
                           <p className="text-theme-primary italic leading-relaxed">"{q.translated_sentence}"</p>
                         </div>
                       )}
@@ -553,7 +554,7 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
                     </button>
                   </div>
                   <p className="text-xs text-theme-secondary font-mono">{v.ipa} • {v.part_of_speech}</p>
-                  <p className="text-sm font-semibold text-emerald-400">{v.meaning_vi}</p>
+                  <p className="text-sm font-semibold text-theme-success">{v.meaning_vi}</p>
                   {v.example_sentence && (
                     <p className="text-xs text-theme-primary italic border-l-2 border-theme-accent pl-2">"{v.example_sentence}"</p>
                   )}
