@@ -310,7 +310,7 @@ const LessonModal: React.FC<{
         <div className="flex justify-between items-start mb-5">
           <div>
             <h2 className="text-xl sm:text-2xl font-bold text-theme-primary mb-2">
-              📚 {lesson.canonical_name}
+              {lesson.canonical_name}
             </h2>
             <div className="flex gap-2 flex-wrap items-center">
               <span className="bg-theme-accent/20 text-theme-accent border border-theme-accent/30 rounded-md px-2.5 py-0.5 text-xs font-semibold">
@@ -324,7 +324,7 @@ const LessonModal: React.FC<{
               </span>
               {!lesson.has_real_examples && (
                 <span className="alert-warning px-2 py-0.5 rounded-md text-[11px] font-semibold">
-                  ⚠️ Chưa có ví dụ thật
+                  Chưa có ví dụ thật
                 </span>
               )}
             </div>
@@ -352,7 +352,7 @@ const LessonModal: React.FC<{
         {lesson.quick_check.length > 0 && (
           <div className="mb-4">
             <h3 className="text-lg font-bold text-theme-primary mb-3">
-              ⚡ Kiểm tra nhanh ({lesson.quick_check.length} câu)
+              Kiểm tra nhanh ({lesson.quick_check.length} câu)
             </h3>
             {lesson.quick_check.map((q, i) => (
               <div key={q.id} className="bg-theme-surface-2 rounded-xl p-4 mb-3 border border-theme">

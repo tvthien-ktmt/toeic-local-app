@@ -100,7 +100,7 @@ export const MarkdownPassage: React.FC<MarkdownPassageProps> = ({ text, classNam
                               className="inline-flex items-center gap-1 mx-1 px-2 py-0.5 rounded-lg alert-warning border border-theme-warning/40 font-mono text-[11px] font-extrabold text-theme-warning shadow-sm"
                               title={`Vị trí chèn câu [${num}]`}
                             >
-                              📍 [{num}]
+                               [{num}]
                             </span>
                           );
                         }
