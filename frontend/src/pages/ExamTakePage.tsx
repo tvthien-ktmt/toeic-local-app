@@ -597,44 +597,48 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
 
                 {/* Options List */}
                 <div className="space-y-2.5 pt-2">
-                  {q.options.map(opt => {
-                    const optChar = opt.charAt(0);
-                    const isSelected = selectedOpt === optChar;
-                    const isCorrectOpt = isSubmitted && optChar === q.correct_answer;
-                    const isUserWrongOpt = isSubmitted && isSelected && optChar !== q.correct_answer;
+                      {q.options.map(opt => {
+                        const optChar = opt.charAt(0);
+                        const isSelected = selectedOpt === optChar;
+                        const isCorrectOpt = isSubmitted && optChar === q.correct_answer;
+                        const isUserWrongOpt = isSubmitted && isSelected && optChar !== q.correct_answer;
 
-                    let optStyle = 'bg-theme-surface-2 hover:bg-theme-surface border-theme text-theme-secondary hover:text-theme-primary';
-                    if (isCorrectOpt) optStyle = 'alert-success border-theme-success font-bold text-theme-success shadow-md';
-                    else if (isUserWrongOpt) optStyle = 'alert-error border-theme-error font-bold text-theme-error shadow-md';
-                    else if (isSelected) optStyle = 'bg-theme-accent/20 border-theme-accent text-theme-primary font-bold shadow-md';
+                        const rawClean = opt.replace(/^\s*\(?[A-Da-d][\.\)]?\s*[-—]?\s*/, '').trim();
+                        const optionBody = (rawClean && rawClean !== '—' && rawClean !== '-') ? rawClean : (opt.length > 2 ? opt.substring(2).trim() : '');
+                        const displayText = optionBody && optionBody !== '—' && optionBody !== '-' ? optionBody : `Phương án (${optChar})`;
 
-                    return (
-                      <div
-                        key={opt}
-                        onClick={() => !isSubmitted && handleSelectAnswer(q.id, optChar)}
-                        className={`p-3.5 rounded-xl border transition-all duration-200 flex items-center justify-between gap-3 text-xs sm:text-sm font-medium ${
-                          isSubmitted ? 'cursor-default' : 'cursor-pointer'
-                        } ${optStyle}`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className={`w-6 h-6 rounded-full border text-xs font-bold flex items-center justify-center shrink-0 ${
-                            isCorrectOpt
-                              ? 'bg-theme-success text-white border-theme-success'
-                              : isUserWrongOpt
-                              ? 'bg-theme-error text-white border-theme-error'
-                              : isSelected
-                              ? 'bg-theme-accent text-white border-theme-accent'
-                              : 'border-theme-secondary/40 text-theme-secondary'
-                          }`}>
-                            {optChar}
+                        let optStyle = 'bg-theme-surface-2 hover:bg-theme-surface border-theme text-theme-secondary hover:text-theme-primary';
+                        if (isCorrectOpt) optStyle = 'alert-success border-theme-success font-bold text-theme-success shadow-md';
+                        else if (isUserWrongOpt) optStyle = 'alert-error border-theme-error font-bold text-theme-error shadow-md';
+                        else if (isSelected) optStyle = 'bg-theme-accent/20 border-theme-accent text-theme-primary font-bold shadow-md';
+
+                        return (
+                          <div
+                            key={opt}
+                            onClick={() => !isSubmitted && handleSelectAnswer(q.id, optChar)}
+                            className={`p-3.5 rounded-xl border transition-all duration-200 flex items-center justify-between gap-3 text-xs sm:text-sm font-medium ${
+                              isSubmitted ? 'cursor-default' : 'cursor-pointer'
+                            } ${optStyle}`}
+                          >
+                            <div className="flex items-center gap-3">
+                              <div className={`w-6 h-6 rounded-full border text-xs font-bold flex items-center justify-center shrink-0 ${
+                                isCorrectOpt
+                                  ? 'bg-theme-success text-white border-theme-success'
+                                  : isUserWrongOpt
+                                  ? 'bg-theme-error text-white border-theme-error'
+                                  : isSelected
+                                  ? 'bg-theme-accent text-white border-theme-accent'
+                                  : 'border-theme-secondary/40 text-theme-secondary'
+                              }`}>
+                                {optChar}
+                              </div>
+                              <span>{displayText}</span>
+                            </div>
+                            {isCorrectOpt && <CheckCircle2 className="w-5 h-5 text-theme-success shrink-0" />}
+                            {isUserWrongOpt && <XCircle className="w-5 h-5 text-theme-error shrink-0" />}
                           </div>
-                          <span>{opt.substring(2).trim() || opt}</span>
-                        </div>
-                        {isCorrectOpt && <CheckCircle2 className="w-5 h-5 text-theme-success shrink-0" />}
-                        {isUserWrongOpt && <XCircle className="w-5 h-5 text-theme-error shrink-0" />}
-                      </div>
-                    );
-                  })}
+                        );
+                      })}
                 </div>
 
                 {/* Post-submission or Practice Mode: Show Explanation & Translation */}
