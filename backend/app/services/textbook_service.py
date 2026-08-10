@@ -426,10 +426,14 @@ def extract_questions_from_test_text(test_content: str, answer_map: Dict[int, st
 
         corr_ans = answer_map.get(q_num, "")
 
+        clean_text = re.sub(r'[\u0590-\u05FF]+', '', full_text or "")
+        clean_text = re.sub(r'[\r\n]+', ' ', clean_text)
+        clean_text = re.sub(r'\s+', ' ', clean_text).strip()
+
         questions.append({
             "q_num": q_num,
             "part": part,
-            "question_text": f"{q_num}. {full_text}" if full_text else f"{q_num}.",
+            "question_text": f"{q_num}. {clean_text}" if clean_text else f"{q_num}.",
             "options_json": json.dumps(opts, ensure_ascii=False),
             "correct_answer": corr_ans,
             "explanation": f"Đáp án đúng là ({corr_ans})." if corr_ans else "Chưa có đáp án.",
