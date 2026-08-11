@@ -24,13 +24,23 @@ Thumbs.db
 *.pdf
 pdf thieu/
 
-# Textbook Raw Data & Text Files (Copyright Protection for Public Repo)
+# Textbook Raw Data, Books & Temporary Scripts
+book/
+scratch/
 textbook/
+pdf thieu/
 /*.txt
 !backend/requirements.txt
+
+# Prompt & Temporary Spec Reports
+XÂY DỰNG LẠI HỆ THỐNG BÀI GIẢNG TOEIC PART 5–6–7 CHO NGƯỜI MẤT GỐC.md
+bao_cao_chi_tiet_cau_thieu_toeic.md
+empty_options_report.md
+*.log
 
 # External Repositories & Resources
 skills/
 mattpocock-skills/
+
 
 
