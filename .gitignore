@@ -29,7 +29,7 @@ book/
 scratch/
 textbook/
 pdf thieu/
-/*.txt
+*.txt
 !backend/requirements.txt
 
 # Prompt & Temporary Spec Reports
