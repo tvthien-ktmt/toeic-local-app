@@ -207,7 +207,6 @@ def process_document_extraction(db: Session, doc_id: int) -> Dict[str, Any]:
 
         for sub_idx, sub_text in enumerate(text_subchunks):
             # Throttle requests slightly (1.0s) to respect Gemini Free Tier limits
-            import time
             time.sleep(1.0)
 
             print(f"[AI EXTRACTION] Part {part_num} (Subchunk {sub_idx + 1}/{len(text_subchunks)}): Sending {len(sub_text)} characters to Gemini...")
