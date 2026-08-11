@@ -6,8 +6,10 @@ if hasattr(sys.stdout, 'reconfigure'):
 if hasattr(sys.stderr, 'reconfigure'):
     sys.stderr.reconfigure(encoding='utf-8')
 
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from .db import engine, Base
 from .routers import documents, questions, vocabulary, ai_generator, quiz, flashcards, dashboard, grammar, textbooks, curriculum
 from .services.textbook_service import ensure_db_schema
@@ -25,6 +27,11 @@ app = FastAPI(
     description="Backend API for TOEIC Local Study Web App",
     version="1.0.0"
 )
+
+# Mount book static files directory for Mindmaps & Take Notes images
+book_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "book"))
+if os.path.exists(book_dir):
+    app.mount("/static/books", StaticFiles(directory=book_dir), name="static_books")
 
 # Allow CORS for React frontend (default Vite port: 5173)
 origins = [

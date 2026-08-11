@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { MarkdownPassage } from '../components/MarkdownPassage';
 
 // ====================================================
@@ -95,31 +97,113 @@ const CAT_LABELS: Record<string, string> = {
 const API_BASE = '';
 
 // ====================================================
-// Simple Markdown renderer
+// Enhanced Markdown renderer with Image Zoom Lightbox & Rich HTML Tags Styling
 // ====================================================
-const MarkdownRenderer: React.FC<{ content: string }> = ({ content }) => {
-  const [Md, setMd] = useState<any>(null);
-  const [Gfm, setGfm] = useState<any>(null);
-
-  useEffect(() => {
-    Promise.all([
-      import('react-markdown'),
-      import('remark-gfm'),
-    ]).then(([mdModule, gfmModule]) => {
-      setMd(() => mdModule.default);
-      setGfm(() => gfmModule.default);
-    }).catch(() => {});
-  }, []);
-
-  if (!Md || !Gfm) {
-    return (
-      <div className="whitespace-pre-wrap font-mono text-sm text-theme-primary">
+const MarkdownRenderer: React.FC<{ content: string; onImageClick?: (url: string) => void }> = ({ content, onImageClick }) => {
+  return (
+    <div className="markdown-body text-theme-primary leading-relaxed">
+      <ReactMarkdown 
+        remarkPlugins={[remarkGfm]}
+        components={{
+          h1: ({ children }) => (
+            <h1 className="text-2xl sm:text-3xl font-black text-theme-primary mt-8 mb-4 border-b-2 border-theme-accent pb-2 tracking-tight flex items-center gap-2">
+              {children}
+            </h1>
+          ),
+          h2: ({ children }) => (
+            <h2 className="text-xl sm:text-2xl font-extrabold text-theme-primary mt-7 mb-3 border-b border-theme/60 pb-2 tracking-tight text-theme-accent">
+              {children}
+            </h2>
+          ),
+          h3: ({ children }) => (
+            <h3 className="text-lg sm:text-xl font-bold text-theme-primary mt-6 mb-2.5">
+              {children}
+            </h3>
+          ),
+          h4: ({ children }) => (
+            <h4 className="text-base font-bold text-theme-primary mt-4 mb-2">
+              {children}
+            </h4>
+          ),
+          p: ({ children }) => (
+            <p className="text-sm sm:text-base leading-relaxed text-theme-primary mb-3.5">
+              {children}
+            </p>
+          ),
+          ul: ({ children }) => (
+            <ul className="list-disc list-inside space-y-1.5 mb-4 pl-2 text-sm sm:text-base text-theme-primary">
+              {children}
+            </ul>
+          ),
+          ol: ({ children }) => (
+            <ol className="list-decimal list-inside space-y-1.5 mb-4 pl-2 text-sm sm:text-base text-theme-primary">
+              {children}
+            </ol>
+          ),
+          li: ({ children }) => (
+            <li className="leading-relaxed text-sm sm:text-base text-theme-primary">
+              {children}
+            </li>
+          ),
+          blockquote: ({ children }) => (
+            <blockquote className="border-l-4 border-theme-accent bg-theme-surface-2/60 italic my-4 p-4 rounded-r-xl text-theme-primary text-sm shadow-sm">
+              {children}
+            </blockquote>
+          ),
+          table: ({ children }) => (
+            <div className="overflow-x-auto my-4 rounded-xl border border-theme shadow-sm bg-theme-surface-2/40">
+              <table className="min-w-full divide-y divide-theme text-xs sm:text-sm">{children}</table>
+            </div>
+          ),
+          thead: ({ children }) => (
+            <thead className="bg-theme-surface-2 text-theme-primary font-bold">{children}</thead>
+          ),
+          tbody: ({ children }) => (
+            <tbody className="divide-y divide-theme/40 bg-theme-surface/50">{children}</tbody>
+          ),
+          tr: ({ children }) => (
+            <tr className="hover:bg-theme-surface-2/60 transition-colors">{children}</tr>
+          ),
+          th: ({ children }) => (
+            <th className="px-3.5 py-2.5 text-left font-bold text-theme-primary uppercase text-[11px] tracking-wider border-b border-theme">
+              {children}
+            </th>
+          ),
+          td: ({ children }) => (
+            <td className="px-3.5 py-2.5 text-theme-primary text-xs sm:text-sm font-medium border-b border-theme/30">
+              {children}
+            </td>
+          ),
+          hr: () => <hr className="my-6 border-theme/60" />,
+          code: ({ inline, children }: { inline?: boolean; children?: React.ReactNode }) =>
+            inline ? (
+              <code className="bg-theme-surface-2 px-1.5 py-0.5 rounded text-xs font-mono text-theme-accent border border-theme">
+                {children}
+              </code>
+            ) : (
+              <pre className="bg-theme-surface-2 p-4 rounded-xl text-xs font-mono overflow-x-auto my-3 border border-theme text-theme-primary shadow-inner">
+                <code>{children}</code>
+              </pre>
+            ),
+          img: ({ src, alt }: { src?: string; alt?: string }) => (
+            <div className="my-4 text-center cursor-pointer group inline-block w-full">
+              <img 
+                src={src} 
+                alt={alt || 'Visual Guide'} 
+                onClick={() => onImageClick && src && onImageClick(src)}
+                className="max-w-full rounded-xl border border-theme shadow-lg transition-transform duration-300 group-hover:scale-[1.02] max-h-[500px] object-contain mx-auto"
+              />
+              <p className="text-xs text-theme-secondary mt-1.5 font-medium flex items-center justify-center gap-1">
+                🔍 Bấm vào hình để phóng to xem nét hơn
+              </p>
+            </div>
+          )
+        }}
+      >
         {content}
-      </div>
-    );
-  }
-
-  return <Md remarkPlugins={[Gfm]}>{content}</Md>;
+      </ReactMarkdown>
+    </div>
+  );
 };
 
 // ====================================================
@@ -281,6 +365,7 @@ const LessonModal: React.FC<{
   const [loading, setLoading] = useState(true);
   const [quizAnswers, setQuizAnswers] = useState<Record<number, string>>({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
+  const [zoomImage, setZoomImage] = useState<string | null>(null);
 
   useEffect(() => {
     fetch(`${API_BASE}/api/curriculum/lessons/${topicId}`)
@@ -302,61 +387,62 @@ const LessonModal: React.FC<{
   );
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-start justify-center z-50 overflow-y-auto p-4 sm:p-6"
+    <div className="fixed inset-0 bg-black/75 backdrop-blur-md flex items-start justify-center z-50 overflow-y-auto p-3 sm:p-6"
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
-      <div className="bg-theme-surface rounded-2xl p-6 sm:p-8 max-w-3xl w-full border border-theme shadow-2xl mt-6 mb-12">
+      <div className="bg-theme-surface rounded-2xl p-5 sm:p-8 max-w-4xl w-full border border-theme shadow-2xl mt-4 mb-12 relative">
         {/* Header */}
-        <div className="flex justify-between items-start mb-5">
+        <div className="flex justify-between items-start mb-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-bold text-theme-primary mb-2">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-theme-primary mb-2">
               {lesson.canonical_name}
             </h2>
             <div className="flex gap-2 flex-wrap items-center">
-              <span className="bg-theme-accent/20 text-theme-accent border border-theme-accent/30 rounded-md px-2.5 py-0.5 text-xs font-semibold">
+              <span className="bg-theme-accent/20 text-theme-accent border border-theme-accent/30 rounded-md px-3 py-1 text-xs font-bold">
                 {CAT_LABELS[lesson.category] || lesson.category}
               </span>
-              <span className="bg-theme-surface-2 text-theme-secondary border border-theme rounded-md px-2.5 py-0.5 text-xs font-medium">
-                {lesson.level}
+              <span className="bg-theme-surface-2 text-theme-secondary border border-theme rounded-md px-2.5 py-1 text-xs font-semibold">
+                Trình độ: {lesson.level.toUpperCase()}
               </span>
-              <span className="text-theme-secondary text-xs">
+              <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-md px-2.5 py-1 text-xs font-semibold">
                 Part {lesson.parts.join(', ')}
               </span>
-              {!lesson.has_real_examples && (
-                <span className="alert-warning px-2 py-0.5 rounded-md text-[11px] font-semibold">
-                  Chưa có ví dụ thật
-                </span>
-              )}
             </div>
           </div>
-          <button onClick={onClose} className="bg-transparent border-none text-theme-secondary hover:text-theme-primary text-2xl cursor-pointer p-1">
+          <button 
+            onClick={onClose} 
+            className="bg-theme-surface-2 hover:bg-theme-surface-3 border border-theme text-theme-secondary hover:text-theme-primary rounded-xl w-9 h-9 flex items-center justify-center text-xl cursor-pointer transition"
+          >
             ✕
           </button>
         </div>
 
-        {/* Mastery status */}
-        <div className="bg-theme-surface-2 rounded-xl p-3 sm:p-4 mb-5 flex justify-between items-center border border-theme">
-          <span className="text-theme-secondary text-xs sm:text-sm">Trạng thái của bạn:</span>
-          <span className="font-bold text-sm text-theme-accent">
+        {/* Mastery status badge */}
+        <div className="bg-gradient-to-r from-theme-surface-2 to-theme-base rounded-xl p-3.5 sm:p-4 mb-5 flex justify-between items-center border border-theme">
+          <span className="text-theme-secondary text-xs sm:text-sm font-medium">Trạng thái của bạn:</span>
+          <span className="font-extrabold text-sm text-theme-accent">
             {STATUS_LABELS[lesson.mastery.status]}
             {lesson.mastery.total_count > 0 && ` (${lesson.mastery.mastery_pct}%)`}
           </span>
         </div>
 
         {/* Lesson content */}
-        <div className="bg-theme-base rounded-xl p-5 sm:p-6 text-theme-primary leading-relaxed text-sm sm:text-base mb-6 border border-theme max-h-[60vh] overflow-y-auto">
-          <MarkdownRenderer content={lesson.content_markdown} />
+        <div className="bg-theme-base rounded-2xl p-5 sm:p-7 text-theme-primary leading-relaxed text-sm sm:text-base mb-6 border border-theme max-h-[68vh] overflow-y-auto shadow-inner">
+          <MarkdownRenderer content={lesson.content_markdown} onImageClick={(url) => setZoomImage(url)} />
         </div>
 
         {/* Quick check */}
-        {lesson.quick_check.length > 0 && (
+        {lesson.quick_check && lesson.quick_check.length > 0 && (
           <div className="mb-4">
-            <h3 className="text-lg font-bold text-theme-primary mb-3">
-              Kiểm tra nhanh ({lesson.quick_check.length} câu)
+            <h3 className="text-lg font-bold text-theme-primary mb-3 flex items-center gap-2">
+              <span>✍️ Bài Kiểm Tra Nhanh</span>
+              <span className="text-xs bg-theme-accent/20 text-theme-accent border border-theme-accent/30 px-2 py-0.5 rounded-full font-bold">
+                {lesson.quick_check.length} câu
+              </span>
             </h3>
             {lesson.quick_check.map((q, i) => (
-              <div key={q.id} className="bg-theme-surface-2 rounded-xl p-4 mb-3 border border-theme">
-                <div className="text-theme-primary text-sm mb-2.5">
+              <div key={q.id} className="bg-theme-surface-2 rounded-xl p-4 mb-3 border border-theme shadow-sm">
+                <div className="text-theme-primary text-sm mb-2.5 font-medium">
                   <strong>{i + 1}.</strong> <MarkdownPassage text={q.question_text} />
                 </div>
                 <div className="flex flex-col gap-1.5">
@@ -403,6 +489,28 @@ const LessonModal: React.FC<{
                 /{lesson.quick_check.length} câu đúng
               </div>
             )}
+          </div>
+        )}
+
+        {/* Lightbox Image Zoom Modal */}
+        {zoomImage && (
+          <div 
+            className="fixed inset-0 bg-black/90 backdrop-blur-lg flex items-center justify-center z-[100] p-4 cursor-zoom-out"
+            onClick={() => setZoomImage(null)}
+          >
+            <div className="relative max-w-5xl max-h-[92vh] flex items-center justify-center">
+              <img 
+                src={zoomImage} 
+                alt="Zoomed Visual Guide" 
+                className="max-w-full max-h-[90vh] object-contain rounded-2xl border border-white/20 shadow-2xl"
+              />
+              <button 
+                onClick={() => setZoomImage(null)}
+                className="absolute -top-4 -right-4 bg-red-600 hover:bg-red-700 text-white rounded-full w-10 h-10 flex items-center justify-center text-xl font-bold border-2 border-white shadow-xl cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
           </div>
         )}
       </div>
