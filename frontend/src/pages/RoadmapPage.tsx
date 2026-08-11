@@ -246,13 +246,13 @@ const PlacementTest: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
 
   if (loading) return (
     <div className="text-center py-16 text-theme-secondary">
-      ⏳ Đang tải bài chẩn đoán...
+      Đang tải bài chẩn đoán...
     </div>
   );
 
   if (submitted && result) return (
     <div className="max-w-2xl mx-auto py-8 px-4">
-      <h2 className="text-2xl font-extrabold text-theme-success mb-2">✅ Chẩn đoán hoàn thành!</h2>
+      <h2 className="text-2xl font-extrabold text-theme-success mb-2">Chẩn đoán hoàn thành!</h2>
       <div className="bg-theme-surface rounded-2xl p-6 mb-6 border border-theme shadow-xl">
         <p className="text-lg text-theme-primary mb-3">
           Điểm tổng: <strong className="text-theme-success">
@@ -261,18 +261,18 @@ const PlacementTest: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
         </p>
         <div className="flex gap-4 flex-wrap">
           <div className="bg-theme-surface-2 rounded-lg px-4 py-2 text-theme-success font-semibold border border-theme-success/30">
-            ✅ Đã vững: {result.summary.topics_ok} chủ điểm
+            Đã vững: {result.summary.topics_ok} chủ điểm
           </div>
           <div className="bg-theme-surface-2 rounded-lg px-4 py-2 text-theme-warning font-semibold border border-theme-warning/30">
-            ⚠️ Cần ôn: {result.summary.topics_weak} chủ điểm
+            Cần ôn: {result.summary.topics_weak} chủ điểm
           </div>
           <div className="bg-theme-surface-2 rounded-lg px-4 py-2 text-theme-secondary font-semibold border border-theme">
-            ❓ Chưa học: {result.summary.topics_unknown} chủ điểm
+            Chưa học: {result.summary.topics_unknown} chủ điểm
           </div>
         </div>
         {result.summary.priority_topics.length > 0 && (
           <div className="mt-4">
-            <p className="text-xs text-theme-secondary mb-2">🔥 Chủ điểm cần ưu tiên ôn ngay:</p>
+            <p className="text-xs text-theme-secondary mb-2">Chủ điểm cần ưu tiên ôn ngay:</p>
             <div className="flex flex-wrap gap-1.5">
               {result.summary.priority_topics.slice(0, 6).map((t: string, i: number) => (
                 <span key={i} className="bg-theme-accent/20 text-theme-accent border border-theme-accent/30 rounded-md px-2.5 py-1 text-xs">
@@ -287,7 +287,7 @@ const PlacementTest: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
         onClick={onComplete}
         className="w-full sm:w-auto bg-theme-accent hover:bg-theme-accent-hover text-white border-none rounded-xl px-7 py-3 text-base cursor-pointer font-bold transition shadow-lg"
       >
-        📚 Xem Lộ Trình Học Cá Nhân →
+        Xem Lộ Trình Học Cá Nhân →
       </button>
     </div>
   );
@@ -296,7 +296,7 @@ const PlacementTest: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
 
   return (
     <div className="max-w-2xl mx-auto py-6 px-4">
-      <h2 className="text-2xl font-bold text-theme-primary mb-1">📋 Bài Chẩn Đoán Đầu Vào</h2>
+      <h2 className="text-2xl font-bold text-theme-primary mb-1">Bài Chẩn Đoán Đầu Vào</h2>
       <p className="text-sm text-theme-secondary mb-6">
         {answered}/{questions.length} câu đã trả lời. Không giới hạn thời gian.
       </p>
@@ -587,7 +587,7 @@ const RoadmapPage: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-2xl sm:text-4xl font-black text-theme-primary tracking-tight mb-2">
-            🗺️ Lộ Trình Mất Gốc → 495
+            Lộ Trình Mất Gốc → 495
           </h1>
           <p className="text-theme-secondary text-sm sm:text-base">
             Lộ trình cá nhân hoá dựa trên điểm mạnh/yếu thật của bạn
@@ -609,9 +609,9 @@ const RoadmapPage: React.FC = () => {
                 />
               </div>
               <div className="flex gap-4 mt-3 flex-wrap text-xs sm:text-sm">
-                <span className="text-theme-success font-semibold">✅ Đã vững: {summary.ok}</span>
-                <span className="text-theme-warning font-semibold">⚠️ Cần ôn: {summary.weak}</span>
-                <span className="text-theme-secondary font-semibold">❓ Chưa học: {summary.unknown}</span>
+                <span className="text-theme-success font-semibold">Đã vững: {summary.ok}</span>
+                <span className="text-theme-warning font-semibold">Cần ôn: {summary.weak}</span>
+                <span className="text-theme-secondary font-semibold">Chưa học: {summary.unknown}</span>
               </div>
             </div>
             <div className="text-left md:text-right border-t md:border-t-0 md:border-l border-theme pt-3 md:pt-0 md:pl-5">
@@ -633,8 +633,8 @@ const RoadmapPage: React.FC = () => {
                   : 'bg-theme-surface text-theme-secondary border-theme hover:text-theme-primary hover:bg-theme-surface-2'
               }`}
             >
-              {tab === 'roadmap' ? '🗺️ Lộ Trình' :
-                tab === 'placement' ? '📋 Chẩn Đoán' : '📅 Kế Hoạch Hôm Nay'}
+              {tab === 'roadmap' ? 'Lộ Trình' :
+                tab === 'placement' ? 'Chẩn Đoán' : 'Kế Hoạch Hôm Nay'}
             </button>
           ))}
         </div>
