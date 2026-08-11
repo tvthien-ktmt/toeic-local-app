@@ -238,7 +238,7 @@ def generate_synonyms_quiz(
                     correct_syn = dict_entry[4][0]
                     
         if not correct_syn:
-            correct_syn = f"synonym_{target.word}"
+            continue
 
         distractors = [s for s in global_syn_pool if s != correct_syn and s.lower() != target.word.lower()]
         if len(distractors) < 3:

@@ -14,6 +14,8 @@ def safe_print(*args, **kwargs):
             sys.stdout.buffer.write((text + "\n").encode("utf-8", errors="replace"))
         except Exception:
             pass
+import re
+import logging
 from typing import List, Dict, Any, Optional
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, BackgroundTasks, status
 from sqlalchemy.orm import Session
@@ -23,6 +25,7 @@ from ..schemas import DocumentResponse, DocumentSummary
 from ..services.markitdown_service import compute_hash, convert_pdf_to_markdown
 from ..services.extraction_service import process_document_extraction
 
+logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/documents", tags=["documents"])
 
 UPLOADS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "uploads")
@@ -137,17 +140,19 @@ async def upload_document(
     db.commit()
     db.refresh(new_doc)
 
-    # Save uploaded binary file to disk
-    save_path = os.path.join(UPLOADS_DIR, f"{new_doc.id}_{file.filename}")
+    # Save uploaded binary file to disk (sanitize filename to prevent Path Traversal)
+    safe_filename = os.path.basename(file.filename)
+    safe_filename = re.sub(r'[^a-zA-Z0-9_.-]', '_', safe_filename)
+    save_path = os.path.join(UPLOADS_DIR, f"{new_doc.id}_{safe_filename}")
     try:
         with open(save_path, "wb") as save_f:
             save_f.write(content_bytes)
-        print(f"Saved uploaded file to disk: '{save_path}'")
+        logger.info(f"Saved uploaded file to disk: '{save_path}'")
     except Exception as ex:
-        print(f"File save note: {ex}")
+        logger.warning(f"File save note: {ex}")
 
     # Schedule background processing task
-    background_tasks.add_task(process_document_background, new_doc.id, content_bytes, file.filename)
+    background_tasks.add_task(process_document_background, new_doc.id, content_bytes, safe_filename)
 
     return new_doc
 
