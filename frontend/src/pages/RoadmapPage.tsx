@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { MarkdownPassage } from '../components/MarkdownPassage';
 
 // ====================================================
@@ -104,6 +105,7 @@ const MarkdownRenderer: React.FC<{ content: string; onImageClick?: (url: string)
     <div className="markdown-body text-theme-primary leading-relaxed">
       <ReactMarkdown 
         remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
         components={{
           h1: ({ children }) => (
             <h1 className="text-2xl sm:text-3xl font-black text-theme-primary mt-8 mb-4 border-b-2 border-theme-accent pb-2 tracking-tight flex items-center gap-2">

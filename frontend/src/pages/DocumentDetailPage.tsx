@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { 
   ArrowLeft, Copy, Check, FileText, Eye, 
   BrainCircuit, Volume2, HelpCircle, BookOpen, CheckCircle2, RefreshCw, Award, XCircle
@@ -302,7 +303,7 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
         {/* PREVIEW TAB */}
         {activeTab === 'preview' && (
           <div className={`prose max-w-none select-text ${theme === 'light' ? 'prose-neutral' : 'prose-invert'} prose-headings:text-theme-accent prose-a:text-theme-accent`}>
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
               {doc?.markdown_content || ''}
             </ReactMarkdown>
           </div>
