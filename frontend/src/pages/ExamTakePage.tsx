@@ -33,6 +33,97 @@ interface ExamTakePageProps {
   onBack: () => void;
 }
 
+interface PassageGroup {
+  id: string;
+  part: number;
+  isPassageGroup: boolean;
+  passageText: string;
+  docType: string;
+  qStart: number;
+  qEnd: number;
+  questions: Array<{
+    item: QuestionItem;
+    promptOnly: string;
+  }>;
+}
+
+function groupQuestionsForDisplay(questions: QuestionItem[]): PassageGroup[] {
+  const groups: PassageGroup[] = [];
+  let currentGroup: PassageGroup | null = null;
+
+  for (const q of questions) {
+    if (q.part === 5) {
+      if (currentGroup) {
+        groups.push(currentGroup);
+        currentGroup = null;
+      }
+      groups.push({
+        id: `q-${q.id}`,
+        part: 5,
+        isPassageGroup: false,
+        passageText: '',
+        docType: '',
+        qStart: q.q_num,
+        qEnd: q.q_num,
+        questions: [{ item: q, promptOnly: q.question_text }],
+      });
+    } else {
+      // Part 6 or Part 7
+      const headerMatch = q.question_text.match(/^\s*(?:\*\*)?Questions?\s+(\d{3})[\s\-–]+(\d{3})\s+refer\s+to\s+the\s+following\s+([^.\n*]+)[\.\*]?\s*(?:\*\*)?\s*([\s\S]*)$/i);
+
+      if (headerMatch) {
+        const qStart = parseInt(headerMatch[1], 10);
+        const qEnd = parseInt(headerMatch[2], 10);
+        const docType = headerMatch[3].trim();
+        const body = headerMatch[4];
+
+        // Split passage body from specific question prompt
+        const promptMatch = body.match(/^([\s\S]*?)(?:\n\n(?=(?:\d{3}|33)\.\s+.*))([\s\S]*)$/);
+        const passageOnly = promptMatch ? promptMatch[1].trim() : body.trim();
+        const promptOnly = promptMatch ? promptMatch[2].trim() : (body.trim().startsWith(`${q.q_num}.`) ? body.trim() : `${q.q_num}. ${q.question_text}`);
+        const fullPassage = `**Questions ${qStart}-${qEnd} refer to the following ${docType}.**\n\n${passageOnly}`;
+
+        if (currentGroup && currentGroup.qStart === qStart && currentGroup.qEnd === qEnd) {
+          currentGroup.questions.push({ item: q, promptOnly });
+        } else {
+          if (currentGroup) groups.push(currentGroup);
+          currentGroup = {
+            id: `passage-${qStart}-${qEnd}-${q.id}`,
+            part: q.part,
+            isPassageGroup: true,
+            passageText: fullPassage,
+            docType,
+            qStart,
+            qEnd,
+            questions: [{ item: q, promptOnly }],
+          };
+        }
+      } else {
+        if (currentGroup) {
+          groups.push(currentGroup);
+          currentGroup = null;
+        }
+        groups.push({
+          id: `q-${q.id}`,
+          part: q.part,
+          isPassageGroup: false,
+          passageText: '',
+          docType: '',
+          qStart: q.q_num,
+          qEnd: q.q_num,
+          questions: [{ item: q, promptOnly: q.question_text }],
+        });
+      }
+    }
+  }
+
+  if (currentGroup) {
+    groups.push(currentGroup);
+  }
+
+  return groups;
+}
+
 
 
 // ─── Confirm Submit Dialog ──────────────────────────────────────────────────
@@ -485,193 +576,232 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
       {/* Main Layout: Left Questions Stream + Right Sticky Question Matrix */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-        {/* Left Column: Questions List (8 Cols) */}
+        {/* Left Column: Questions Stream with Split-Pane layout for Part 6 & 7 (8 Cols) */}
         <div className="lg:col-span-8 space-y-8">
 
-          {questions.map((q) => {
-            const isAnswered = !!userAnswers[q.id];
-            const isFlagged = !!flaggedQuestions[q.id];
-            const isRevealed = !!revealedExplanations[q.id];
-            const selectedOpt = userAnswers[q.id];
+          {groupQuestionsForDisplay(questions).map((group) => {
+            // Function to render an individual question card
+            const renderQuestionCard = (q: QuestionItem, promptText: string, isNestedInGroup: boolean = false) => {
+              const isAnswered = !!userAnswers[q.id];
+              const isFlagged = !!flaggedQuestions[q.id];
+              const isRevealed = !!revealedExplanations[q.id];
+              const selectedOpt = userAnswers[q.id];
 
-            const isSubmitted = !!examResult;
-            const isCorrect = isSubmitted && selectedOpt === q.correct_answer;
-            const isWrong = isSubmitted && selectedOpt && selectedOpt !== q.correct_answer;
-            const isSkipped = isSubmitted && !selectedOpt; // Bỏ trống
+              const isSubmitted = !!examResult;
+              const isCorrect = isSubmitted && selectedOpt === q.correct_answer;
+              const isWrong = isSubmitted && selectedOpt && selectedOpt !== q.correct_answer;
+              const isSkipped = isSubmitted && !selectedOpt;
 
+              return (
+                <div
+                  key={q.id}
+                  ref={el => { questionRefs.current[q.id] = el; }}
+                  className={`bg-theme-surface rounded-2xl border transition-all p-5 sm:p-6 space-y-4 shadow-sm ${
+                    isSubmitted
+                      ? isCorrect
+                        ? 'border-theme-success/50 alert-success'
+                        : isWrong
+                        ? 'border-theme-error/50 alert-error'
+                        : 'border-theme-warning/40 alert-warning'
+                      : isFlagged
+                      ? 'border-theme-warning/50 shadow-sm'
+                      : isAnswered
+                      ? 'border-theme-accent/40'
+                      : 'border-theme'
+                  } ${isNestedInGroup ? 'border-theme/70 bg-theme-surface' : ''}`}
+                >
+                  {/* Question Header */}
+                  <div className="flex items-center justify-between border-b border-theme/50 pb-3">
+                    <div className="flex items-center gap-2">
+                      <span className={`w-8 h-8 rounded-xl font-bold text-xs flex items-center justify-center shadow-md ${
+                        isSubmitted
+                          ? isCorrect
+                            ? 'bg-theme-success text-white'
+                            : isWrong
+                            ? 'bg-theme-error text-white'
+                            : 'bg-theme-warning text-white'
+                          : 'bg-theme-accent text-white'
+                      }`}>
+                        {q.q_num}
+                      </span>
+                      <div>
+                        <span className="text-xs font-bold text-theme-primary">
+                          Part {q.part} • {q.grammar_topic}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 flex-wrap justify-end">
+                      {/* Status Badge if Submitted */}
+                      {isSubmitted && (
+                        isCorrect ? (
+                          <span className="flex items-center gap-1 text-xs font-bold alert-success text-theme-success px-2.5 py-1 rounded-full border border-theme-success/30">
+                            <CheckCircle2 className="w-3.5 h-3.5" /> Đúng
+                          </span>
+                        ) : isSkipped ? (
+                          <span className="flex items-center gap-1 text-xs font-bold alert-warning text-theme-warning px-2.5 py-1 rounded-full border border-theme-warning/30">
+                            ⬜ Bỏ Trống
+                          </span>
+                        ) : (
+                          <span className="flex items-center gap-1 text-xs font-bold alert-error text-theme-error px-2.5 py-1 rounded-full border border-theme-error/30">
+                            <XCircle className="w-3.5 h-3.5" /> Sai ({selectedOpt})
+                          </span>
+                        )
+                      )}
+
+                      {/* AI Explanation Button */}
+                      {(isSubmitted || mode === 'practice') && (
+                        <button
+                          onClick={() => handleFetchAiExplanation(q)}
+                          className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-theme-accent hover:bg-theme-accent-hover text-white text-xs font-bold shadow-sm transition-all cursor-pointer"
+                        >
+                          <Sparkles className="w-3.5 h-3.5" />
+                          <span>AI Giải Thích</span>
+                        </button>
+                      )}
+
+                      {/* Flag for Review Toggle */}
+                      {!isSubmitted && (
+                        <button
+                          onClick={() => handleToggleFlag(q.id)}
+                          className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold border transition-all ${
+                            isFlagged
+                              ? 'alert-warning border-theme-warning/40 shadow-sm font-bold'
+                              : 'bg-theme-surface-2 text-theme-secondary hover:text-theme-primary border-theme'
+                          }`}
+                        >
+                          <Flag className={`w-3.5 h-3.5 ${isFlagged ? 'fill-current' : ''}`} />
+                          <span>{isFlagged ? 'Đã Đánh Dấu' : 'Đánh Dấu'}</span>
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Question Text */}
+                  <div className="text-sm font-semibold text-theme-primary leading-relaxed whitespace-pre-wrap">
+                    {promptText.startsWith(`${q.q_num}.`) ? promptText : `${q.q_num}. ${promptText}`}
+                  </div>
+
+                  {/* Options List */}
+                  <div className="space-y-2.5 pt-2">
+                    {q.options.map(opt => {
+                      const optChar = opt.charAt(0);
+                      const isSelected = selectedOpt === optChar;
+                      const isCorrectOpt = isSubmitted && optChar === q.correct_answer;
+                      const isUserWrongOpt = isSubmitted && isSelected && optChar !== q.correct_answer;
+
+                      const rawClean = opt.replace(/^\s*\(?[A-Da-d][\.\)]?\s*[-—]?\s*/, '').trim();
+                      const optionBody = (rawClean && rawClean !== '—' && rawClean !== '-') ? rawClean : (opt.length > 2 ? opt.substring(2).trim() : '');
+                      const displayText = optionBody && optionBody !== '—' && optionBody !== '-' ? optionBody : `Phương án (${optChar})`;
+
+                      let optStyle = 'bg-theme-surface-2 hover:bg-theme-surface border-theme text-theme-secondary hover:text-theme-primary';
+                      if (isCorrectOpt) optStyle = 'alert-success border-theme-success font-bold text-theme-success shadow-md';
+                      else if (isUserWrongOpt) optStyle = 'alert-error border-theme-error font-bold text-theme-error shadow-md';
+                      else if (isSelected) optStyle = 'bg-theme-accent/20 border-theme-accent text-theme-primary font-bold shadow-md';
+
+                      return (
+                        <div
+                          key={opt}
+                          onClick={() => !isSubmitted && handleSelectAnswer(q.id, optChar)}
+                          className={`p-3.5 rounded-xl border transition-all duration-200 flex items-center justify-between gap-3 text-xs sm:text-sm font-medium ${
+                            isSubmitted ? 'cursor-default' : 'cursor-pointer'
+                          } ${optStyle}`}
+                        >
+                          <div className="flex items-center gap-3">
+                            <div className={`w-6 h-6 rounded-full border text-xs font-bold flex items-center justify-center shrink-0 ${
+                              isCorrectOpt
+                                ? 'bg-theme-success text-white border-theme-success'
+                                : isUserWrongOpt
+                                ? 'bg-theme-error text-white border-theme-error'
+                                : isSelected
+                                ? 'bg-theme-accent text-white border-theme-accent'
+                                : 'border-theme-secondary/40 text-theme-secondary'
+                            }`}>
+                              {optChar}
+                            </div>
+                            <span>{displayText}</span>
+                          </div>
+                          {isCorrectOpt && <CheckCircle2 className="w-5 h-5 text-theme-success shrink-0" />}
+                          {isUserWrongOpt && <XCircle className="w-5 h-5 text-theme-error shrink-0" />}
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Post-submission or Practice Mode: Show Explanation & Translation */}
+                  {(isSubmitted || (mode === 'practice' && isRevealed)) && (
+                    <div className="pt-3 border-t border-theme space-y-3">
+                      <div className="p-4 rounded-xl bg-theme-surface-2 border border-theme text-xs space-y-2 animate-fade-in">
+                        <div className="font-bold text-theme-success flex items-center gap-1.5">
+                          <CheckCircle2 className="w-4 h-4" /> Đáp án đúng: ({q.correct_answer})
+                        </div>
+                        {q.explanation && (
+                          <p className="text-theme-secondary leading-relaxed">{q.explanation}</p>
+                        )}
+                        {q.translated_sentence && (
+                          <div className="pt-2 border-t border-theme text-theme-accent">
+                            <strong>Bản dịch:</strong> {q.translated_sentence}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Practice Mode Toggle Button */}
+                  {mode === 'practice' && !isSubmitted && (
+                    <div className="pt-2 border-t border-theme/50">
+                      <button
+                        onClick={() => handleToggleExplanation(q.id)}
+                        className="px-3.5 py-1.5 rounded-xl bg-theme-surface-3 hover:bg-theme-surface-2 text-theme-accent border border-theme-accent/30 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+                      >
+                        <Eye className="w-4 h-4" />
+                        <span>{isRevealed ? 'Ẩn Giải Thích' : 'Xem Đáp Án & Giải Thích Tức Thì'}</span>
+                      </button>
+                    </div>
+                  )}
+                </div>
+              );
+            };
+
+            // 1. Part 5 Single Question
+            if (!group.isPassageGroup) {
+              const q = group.questions[0].item;
+              return renderQuestionCard(q, q.question_text);
+            }
+
+            // 2. Part 6 & Part 7 Dual-Column Split Layout
             return (
               <div
-                key={q.id}
-                ref={el => { questionRefs.current[q.id] = el; }}
-                className={`bg-theme-surface rounded-2xl border transition-all p-5 sm:p-6 space-y-4 shadow-sm ${
-                  isSubmitted
-                    ? isCorrect
-                      ? 'border-theme-success/50 alert-success'
-                      : isWrong
-                      ? 'border-theme-error/50 alert-error'
-                      : 'border-theme-warning/40 alert-warning'  // skipped = amber
-                    : isFlagged
-                    ? 'border-theme-warning/50 shadow-sm'
-                    : isAnswered
-                    ? 'border-theme-accent/40'
-                    : 'border-theme'
-                }`}
+                key={group.id}
+                className="bg-theme-surface/50 rounded-3xl border-2 border-theme p-4 sm:p-6 space-y-5 shadow-lg"
               >
-                {/* Question Header */}
-                <div className="flex items-center justify-between border-b border-theme/50 pb-3">
+                {/* Group Top Header */}
+                <div className="flex items-center justify-between pb-3 border-b border-theme/60 flex-wrap gap-2">
                   <div className="flex items-center gap-2">
-                    <span className={`w-8 h-8 rounded-xl font-bold text-xs flex items-center justify-center shadow-md ${
-                      isSubmitted
-                        ? isCorrect
-                          ? 'bg-theme-success text-white'
-                          : isWrong
-                          ? 'bg-theme-error text-white'
-                          : 'bg-theme-warning text-white'
-                        : 'bg-theme-accent text-white'
-                    }`}>
-                      {q.q_num}
+                    <span className="px-3 py-1 rounded-xl bg-theme-accent text-white font-mono text-xs font-black shadow-sm">
+                      Part {group.part} • Câu {group.qStart}–{group.qEnd}
                     </span>
-                    <div>
-                      <span className="text-xs font-bold text-theme-primary">
-                        Part {q.part} • {q.grammar_topic}
-                      </span>
-                    </div>
+                    <span className="text-xs font-bold text-theme-primary">
+                      {group.docType || 'Reading Comprehension'}
+                    </span>
                   </div>
-
-                  <div className="flex items-center gap-2 flex-wrap justify-end">
-                    {/* Status Badge if Submitted */}
-                    {isSubmitted && (
-                      isCorrect ? (
-                        <span className="flex items-center gap-1 text-xs font-bold alert-success text-theme-success px-2.5 py-1 rounded-full border border-theme-success/30">
-                          <CheckCircle2 className="w-3.5 h-3.5" /> Đúng
-                        </span>
-                      ) : isSkipped ? (
-                        <span className="flex items-center gap-1 text-xs font-bold alert-warning text-theme-warning px-2.5 py-1 rounded-full border border-theme-warning/30">
-                          ⬜ Bỏ Trống
-                        </span>
-                      ) : (
-                        <span className="flex items-center gap-1 text-xs font-bold alert-error text-theme-error px-2.5 py-1 rounded-full border border-theme-error/30">
-                          <XCircle className="w-3.5 h-3.5" /> Sai ({selectedOpt})
-                        </span>
-                      )
-                    )}
-
-                    {/* AI Explanation Button */}
-                    {(isSubmitted || mode === 'practice') && (
-                      <button
-                        onClick={() => handleFetchAiExplanation(q)}
-                        className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-theme-accent hover:bg-theme-accent-hover text-white text-xs font-bold shadow-sm transition-all cursor-pointer"
-                      >
-                        <Sparkles className="w-3.5 h-3.5" />
-                        <span>AI Giải Thích</span>
-                      </button>
-                    )}
-
-                    {/* Flag for Review Toggle */}
-                    {!isSubmitted && (
-                      <button
-                        onClick={() => handleToggleFlag(q.id)}
-                        className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold border transition-all ${
-                          isFlagged
-                            ? 'alert-warning border-theme-warning/40 shadow-sm font-bold'
-                            : 'bg-theme-surface-2 text-theme-secondary hover:text-theme-primary border-theme'
-                        }`}
-                      >
-                        <Flag className={`w-3.5 h-3.5 ${isFlagged ? 'fill-current' : ''}`} />
-                        <span>{isFlagged ? 'Đã Đánh Dấu' : 'Đánh Dấu'}</span>
-                      </button>
-                    )}
-                  </div>
+                  <span className="text-[11px] text-theme-secondary font-medium italic">
+                    Đoạn văn bên trái • Câu hỏi bên phải
+                  </span>
                 </div>
 
-                {/* Question Text — use Markdown for Part 6/7, plain text for Part 5 */}
-                {q.part === 5 ? (
-                  <div className="text-sm sm:text-base font-semibold text-theme-primary leading-relaxed whitespace-pre-wrap">
-                    {q.question_text}
+                {/* Real TOEIC Split-Pane Layout */}
+                <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+                  {/* Left Column: Passage Text (Shown ONLY ONCE!) */}
+                  <div className="xl:col-span-6 xl:sticky xl:top-32 max-h-[75vh] overflow-y-auto pr-1">
+                    <MarkdownPassage text={group.passageText} />
                   </div>
-                ) : (
-                  <div className="text-sm text-theme-primary leading-relaxed">
-                    <MarkdownPassage text={q.question_text} />
+
+                  {/* Right Column: Questions Stack */}
+                  <div className="xl:col-span-6 space-y-5">
+                    {group.questions.map(({ item, promptOnly }) => renderQuestionCard(item, promptOnly, true))}
                   </div>
-                )}
-
-                {/* Options List */}
-                <div className="space-y-2.5 pt-2">
-                      {q.options.map(opt => {
-                        const optChar = opt.charAt(0);
-                        const isSelected = selectedOpt === optChar;
-                        const isCorrectOpt = isSubmitted && optChar === q.correct_answer;
-                        const isUserWrongOpt = isSubmitted && isSelected && optChar !== q.correct_answer;
-
-                        const rawClean = opt.replace(/^\s*\(?[A-Da-d][\.\)]?\s*[-—]?\s*/, '').trim();
-                        const optionBody = (rawClean && rawClean !== '—' && rawClean !== '-') ? rawClean : (opt.length > 2 ? opt.substring(2).trim() : '');
-                        const displayText = optionBody && optionBody !== '—' && optionBody !== '-' ? optionBody : `Phương án (${optChar})`;
-
-                        let optStyle = 'bg-theme-surface-2 hover:bg-theme-surface border-theme text-theme-secondary hover:text-theme-primary';
-                        if (isCorrectOpt) optStyle = 'alert-success border-theme-success font-bold text-theme-success shadow-md';
-                        else if (isUserWrongOpt) optStyle = 'alert-error border-theme-error font-bold text-theme-error shadow-md';
-                        else if (isSelected) optStyle = 'bg-theme-accent/20 border-theme-accent text-theme-primary font-bold shadow-md';
-
-                        return (
-                          <div
-                            key={opt}
-                            onClick={() => !isSubmitted && handleSelectAnswer(q.id, optChar)}
-                            className={`p-3.5 rounded-xl border transition-all duration-200 flex items-center justify-between gap-3 text-xs sm:text-sm font-medium ${
-                              isSubmitted ? 'cursor-default' : 'cursor-pointer'
-                            } ${optStyle}`}
-                          >
-                            <div className="flex items-center gap-3">
-                              <div className={`w-6 h-6 rounded-full border text-xs font-bold flex items-center justify-center shrink-0 ${
-                                isCorrectOpt
-                                  ? 'bg-theme-success text-white border-theme-success'
-                                  : isUserWrongOpt
-                                  ? 'bg-theme-error text-white border-theme-error'
-                                  : isSelected
-                                  ? 'bg-theme-accent text-white border-theme-accent'
-                                  : 'border-theme-secondary/40 text-theme-secondary'
-                              }`}>
-                                {optChar}
-                              </div>
-                              <span>{displayText}</span>
-                            </div>
-                            {isCorrectOpt && <CheckCircle2 className="w-5 h-5 text-theme-success shrink-0" />}
-                            {isUserWrongOpt && <XCircle className="w-5 h-5 text-theme-error shrink-0" />}
-                          </div>
-                        );
-                      })}
                 </div>
-
-                {/* Post-submission or Practice Mode: Show Explanation & Translation */}
-                {(isSubmitted || (mode === 'practice' && isRevealed)) && (
-                  <div className="pt-3 border-t border-theme space-y-3">
-                    <div className="p-4 rounded-xl bg-theme-surface-2 border border-theme text-xs space-y-2 animate-fade-in">
-                      <div className="font-bold text-theme-success flex items-center gap-1.5">
-                        <CheckCircle2 className="w-4 h-4" /> Đáp án đúng: ({q.correct_answer})
-                      </div>
-                      {q.explanation && (
-                        <p className="text-theme-secondary leading-relaxed">{q.explanation}</p>
-                      )}
-                      {q.translated_sentence && (
-                        <div className="pt-2 border-t border-theme text-theme-accent">
-                          <strong>Bản dịch:</strong> {q.translated_sentence}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
-
-                {/* Practice Mode Toggle Button */}
-                {mode === 'practice' && !isSubmitted && (
-                  <div className="pt-2 border-t border-theme/50">
-                    <button
-                      onClick={() => handleToggleExplanation(q.id)}
-                      className="px-3.5 py-1.5 rounded-xl bg-theme-surface-3 hover:bg-theme-surface-2 text-theme-accent border border-theme-accent/30 text-xs font-semibold flex items-center gap-1.5 transition-colors"
-                    >
-                      <Eye className="w-4 h-4" />
-                      <span>{isRevealed ? 'Ẩn Giải Thích' : 'Xem Đáp Án & Giải Thích Tức Thì'}</span>
-                    </button>
-                  </div>
-                )}
               </div>
             );
           })}
