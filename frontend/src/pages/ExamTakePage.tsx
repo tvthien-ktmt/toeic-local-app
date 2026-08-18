@@ -1005,11 +1005,11 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
                 )}
 
                 {/* Translation */}
-                {(aiExplanationData.sentence_translation || aiExplanationData.sentence_translation) && (
+                {(aiExplanationData.sentence_translation || aiExplanationData.translated_sentence) && (
                   <div className="p-4 rounded-xl alert-success border border-theme-success/30 space-y-1.5">
                     <h4 className="font-bold text-theme-success flex items-center gap-1.5">📝 Bản Dịch Tiếng Việt</h4>
                     <p className="text-theme-primary leading-relaxed">
-                      {aiExplanationData.sentence_translation}
+                      {aiExplanationData.sentence_translation || aiExplanationData.translated_sentence}
                     </p>
                   </div>
                 )}

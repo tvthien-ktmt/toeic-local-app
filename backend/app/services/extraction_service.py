@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import re
+import time
 from datetime import datetime
 from typing import Dict, Any, List
 from .local_parser_service import parse_part5_locally
@@ -466,7 +467,7 @@ Nội dung:
                                 syn_list = item.get("synonyms", [])
                                 ant_list = item.get("antonyms", [])
                                 syn_str = json.dumps(syn_list, ensure_ascii=False) if isinstance(syn_list, list) else "[]"
-                                ant_str = json.dumps(ant_list, ensure_ascii=False) if isinstance(ant_str, list) else "[]"
+                                ant_str = json.dumps(ant_list, ensure_ascii=False) if isinstance(ant_list, list) else "[]"
 
                                 existing_v = db.query(Vocabulary).filter(
                                     Vocabulary.word == word_clean,
