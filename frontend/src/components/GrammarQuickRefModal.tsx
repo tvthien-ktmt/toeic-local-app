@@ -7,29 +7,36 @@ interface GrammarQuickRefModalProps {
   onClose: () => void;
 }
 
+/**
+ * Modal quick-reference card displaying core grammar formulas, key rules, and example sentences for any topic.
+ */
 export const GrammarQuickRefModal: React.FC<GrammarQuickRefModalProps> = ({ topicName, onClose }) => {
   const [data, setData] = useState<GrammarReference | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!topicName) return;
+    if (!topicName) {
+      return;
+    }
 
-    setLoading(true);
-    setError(null);
+    setIsLoading(true);
+    setErrorMessage(null);
     fetchGrammarReference(topicName)
-      .then((res) => {
-        setData(res);
-        setLoading(false);
+      .then((response) => {
+        setData(response);
+        setIsLoading(false);
       })
-      .catch((err) => {
-        console.error('Failed to load grammar reference:', err);
-        setError('Không thể tải thẻ ôn nhanh ngữ pháp.');
-        setLoading(false);
+      .catch((error) => {
+        console.error('Failed to load grammar reference:', error);
+        setErrorMessage('Không thể tải thẻ ôn nhanh ngữ pháp.');
+        setIsLoading(false);
       });
   }, [topicName]);
 
-  if (!topicName) return null;
+  if (!topicName) {
+    return null;
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
@@ -50,14 +57,14 @@ export const GrammarQuickRefModal: React.FC<GrammarQuickRefModalProps> = ({ topi
 
         {/* Content Body */}
         <div className="p-6 space-y-5 max-h-[80vh] overflow-y-auto">
-          {loading ? (
+          {isLoading ? (
             <div className="flex flex-col items-center justify-center py-12 space-y-3">
               <Loader2 className="w-8 h-8 text-theme-accent animate-spin" />
               <p className="text-sm text-theme-secondary">Đang nạp kiến thức ngữ pháp...</p>
             </div>
-          ) : error ? (
+          ) : errorMessage ? (
             <div className="p-4 rounded-xl alert-error text-sm text-center">
-              {error}
+              {errorMessage}
             </div>
           ) : data ? (
             <>
@@ -82,8 +89,8 @@ export const GrammarQuickRefModal: React.FC<GrammarQuickRefModalProps> = ({ topi
               <div className="space-y-2">
                 <span className="text-xs uppercase tracking-wider text-theme-secondary font-bold">Quy tắc cần nhớ</span>
                 <ul className="space-y-2">
-                  {data.key_rules.map((rule, idx) => (
-                    <li key={idx} className="flex items-start space-x-2 text-xs sm:text-sm text-theme-primary leading-relaxed bg-theme-surface-2 p-3 rounded-xl border border-theme">
+                  {data.key_rules.map((rule, index) => (
+                    <li key={index} className="flex items-start space-x-2 text-xs sm:text-sm text-theme-primary leading-relaxed bg-theme-surface-2 p-3 rounded-xl border border-theme">
                       <CheckCircle className="w-4 h-4 text-theme-success shrink-0 mt-0.5" />
                       <span>{rule}</span>
                     </li>
@@ -95,9 +102,9 @@ export const GrammarQuickRefModal: React.FC<GrammarQuickRefModalProps> = ({ topi
               <div className="space-y-2">
                 <span className="text-xs uppercase tracking-wider text-theme-secondary font-bold">Ví dụ minh họa TOEIC</span>
                 <div className="space-y-2">
-                  {data.example_sentences.map((ex, idx) => (
-                    <div key={idx} className="p-3 rounded-xl bg-theme-surface-2 border border-theme text-xs sm:text-sm italic text-theme-primary border-l-4 border-l-theme-accent">
-                      "{ex}"
+                  {data.example_sentences.map((exampleSentence, index) => (
+                    <div key={index} className="p-3 rounded-xl bg-theme-surface-2 border border-theme text-xs sm:text-sm italic text-theme-primary border-l-4 border-l-theme-accent">
+                      "{exampleSentence}"
                     </div>
                   ))}
                 </div>

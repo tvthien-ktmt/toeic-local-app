@@ -32,6 +32,29 @@ export interface CatalogCategory {
   series: SeriesItem[];
 }
 
+export interface DashboardWeaknessItem {
+  grammar_topic: string;
+  error_rate: number;
+  wrong: number;
+  skipped: number;
+  correct: number;
+  total_questions: number;
+}
+
+export interface DashboardExamHistoryItem {
+  id: number;
+  mode: string;
+  exam_title: string;
+  completed_at: string;
+  time_spent_seconds: number;
+  toeic_score: number;
+  raw_score: number;
+  total_questions: number;
+  part5_correct: number;
+  part6_correct: number;
+  part7_correct: number;
+}
+
 export interface DashboardSummaryData {
   total_vocab: number;
   learned_vocab: number;
@@ -47,31 +70,15 @@ export interface DashboardSummaryData {
   part_stats?: { part_name: string; accuracy_rate: number; total_attempts: number }[];
   topic_progress?: { topic_category: string; learned_words: number; total_words: number; mastery_rate: number }[];
   grammar_stats?: { grammar_topic: string; accuracy_rate: number; total_attempts: number }[];
-  examHistory?: {
-    id: number;
-    mode: string;
-    exam_title: string;
-    completed_at: string;
-    time_spent_seconds: number;
-    toeic_score: number;
-    raw_score: number;
-    total_questions: number;
-    part5_correct: number;
-    part6_correct: number;
-    part7_correct: number;
-  }[];
-  weaknessData?: {
-    grammar_topic: string;
-    error_rate: number;
-    wrong: number;
-    skipped: number;
-    correct: number;
-    total_questions: number;
-  }[];
+  examHistory?: DashboardExamHistoryItem[];
+  weaknessData?: DashboardWeaknessItem[];
 }
 
 const API_BASE = '/api/documents';
 
+/**
+ * Uploads a PDF or Markdown file with specified document type for extraction.
+ */
 export const uploadDocument = async (file: File, docType: 'RC_EXAM' | 'LC_TRANSCRIPT'): Promise<DocumentDetail> => {
   const formData = new FormData();
   formData.append('file', file);
@@ -82,36 +89,54 @@ export const uploadDocument = async (file: File, docType: 'RC_EXAM' | 'LC_TRANSC
       'Content-Type': 'multipart/form-data',
     },
   });
+
   return response.data;
 };
 
+/**
+ * Fetches summary list of all uploaded exam papers and transcripts.
+ */
 export const fetchDocuments = async (): Promise<DocumentSummary[]> => {
   const response = await axios.get<DocumentSummary[]>(API_BASE);
+
   return response.data;
 };
 
+/**
+ * Retrieves full document details including raw markdown and extraction status.
+ */
 export const fetchDocumentById = async (id: number): Promise<DocumentDetail> => {
   const response = await axios.get<DocumentDetail>(`${API_BASE}/${id}`);
+
   return response.data;
 };
 
-export const deleteDocument = async (id: number): Promise<{ message: string }> => {
-  const response = await axios.delete<{ message: string }>(`${API_BASE}/${id}`);
+/**
+ * Deletes an uploaded document and associated questions/vocab from SQLite database.
+ */
+export const deleteDocument = async (id: number): Promise<void> => {
+  await axios.delete(`${API_BASE}/${id}`);
+};
+
+/**
+ * Fetches the ETS textbook catalog organized by test year series.
+ */
+export const fetchCatalog = async (): Promise<CatalogCategory[]> => {
+  const response = await axios.get<CatalogCategory[]>('/api/textbooks/catalog');
+
   return response.data;
 };
 
-export const fetchTextbookCatalog = async (): Promise<CatalogCategory[]> => {
-  const response = await axios.get<any>(`${API_BASE}/textbooks/catalog`);
-  if (Array.isArray(response.data)) {
-    return response.data;
-  }
-  if (response.data && Array.isArray(response.data.catalog)) {
-    return response.data.catalog;
-  }
-  return [];
-};
+/**
+ * Alias for fetchCatalog to maintain compatibility with textbook catalog components.
+ */
+export const fetchTextbookCatalog = fetchCatalog;
 
+/**
+ * Fetches overall dashboard learning statistics, streak, and recent exam history.
+ */
 export const fetchDashboardSummary = async (): Promise<DashboardSummaryData> => {
-  const response = await axios.get<DashboardSummaryData>(`${API_BASE}/dashboard/summary`);
+  const response = await axios.get<DashboardSummaryData>('/api/dashboard/summary');
+
   return response.data;
 };

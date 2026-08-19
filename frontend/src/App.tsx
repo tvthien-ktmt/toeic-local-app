@@ -9,6 +9,9 @@ import { FlashcardPage } from './pages/FlashcardPage';
 import { DashboardPage } from './pages/DashboardPage';
 import RoadmapPage from './pages/RoadmapPage';
 
+/**
+ * Root application component orchestrating top-level tab routing between Kho Đề, Upload, Practice, Flashcards, Dashboard, and Roadmap.
+ */
 export function App() {
   const [activeTab, setActiveTab] = useState<'textbooks' | 'upload' | 'practice' | 'flashcards' | 'dashboard' | 'roadmap'>('textbooks');
   const [selectedDocId, setSelectedDocId] = useState<number | null>(null);

@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
-import { MarkdownPassage } from '../components/MarkdownPassage';
+import { PlacementTest } from '../components/PlacementTest';
+import { LessonModal } from '../components/LessonModal';
+import { RoadmapDailyPlanTab } from '../components/RoadmapDailyPlanTab';
+import { RoadmapTopicCard } from '../components/RoadmapTopicCard';
 
-// ====================================================
-// Types
-// ====================================================
 interface MasteryInfo {
   status: 'unknown' | 'weak' | 'ok';
   correct_count: number;
@@ -38,57 +35,6 @@ interface RoadmapSummary {
   next_recommended: number | null;
 }
 
-interface LessonData {
-  topic_id: number;
-  canonical_name: string;
-  category: string;
-  level: string;
-  parts: number[];
-  lesson_id: number;
-  content_markdown: string;
-  has_real_examples: boolean;
-  worked_examples: WorkedExample[];
-  quick_check: QuickCheckQ[];
-  mastery: MasteryInfo;
-}
-
-interface WorkedExample {
-  id: number;
-  question_text: string;
-  options: Record<string, string>;
-  correct_answer: string;
-  common_trap: string | null;
-  grammar_topic: string | null;
-}
-
-interface QuickCheckQ {
-  id: number;
-  question_text: string;
-  options: Record<string, string>;
-  correct_answer: string;
-  part: number;
-}
-
-interface PlacementQuestion {
-  question_id: number;
-  topic_id: number;
-  topic_name: string;
-  topic_level: string;
-  part: number;
-  question_text: string;
-  options: Record<string, string>;
-  correct_answer: string;
-}
-
-// ====================================================
-// Color helpers using Theme Tokens
-// ====================================================
-const STATUS_LABELS: Record<string, string> = {
-  unknown: 'Chưa học',
-  weak: 'Cần ôn',
-  ok: 'Đã vững',
-};
-
 const CAT_LABELS: Record<string, string> = {
   grammar_topic: 'Ngữ pháp',
   question_type: 'Dạng câu hỏi',
@@ -97,437 +43,14 @@ const CAT_LABELS: Record<string, string> = {
 
 const API_BASE = '';
 
-// ====================================================
-// Enhanced Markdown renderer with Image Zoom Lightbox & Rich HTML Tags Styling
-// ====================================================
-const MarkdownRenderer: React.FC<{ content: string; onImageClick?: (url: string) => void }> = ({ content, onImageClick }) => {
-  return (
-    <div className="markdown-body text-theme-primary leading-relaxed">
-      <ReactMarkdown 
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeRaw]}
-        components={{
-          h1: ({ children }) => (
-            <h1 className="text-2xl sm:text-3xl font-black text-theme-primary mt-8 mb-4 border-b-2 border-theme-accent pb-2 tracking-tight flex items-center gap-2">
-              {children}
-            </h1>
-          ),
-          h2: ({ children }) => (
-            <h2 className="text-xl sm:text-2xl font-extrabold text-theme-primary mt-7 mb-3 border-b border-theme/60 pb-2 tracking-tight text-theme-accent">
-              {children}
-            </h2>
-          ),
-          h3: ({ children }) => (
-            <h3 className="text-lg sm:text-xl font-bold text-theme-primary mt-6 mb-2.5">
-              {children}
-            </h3>
-          ),
-          h4: ({ children }) => (
-            <h4 className="text-base font-bold text-theme-primary mt-4 mb-2">
-              {children}
-            </h4>
-          ),
-          p: ({ children }) => (
-            <p className="text-sm sm:text-base leading-relaxed text-theme-primary mb-3.5">
-              {children}
-            </p>
-          ),
-          ul: ({ children }) => (
-            <ul className="list-disc list-inside space-y-1.5 mb-4 pl-2 text-sm sm:text-base text-theme-primary">
-              {children}
-            </ul>
-          ),
-          ol: ({ children }) => (
-            <ol className="list-decimal list-inside space-y-1.5 mb-4 pl-2 text-sm sm:text-base text-theme-primary">
-              {children}
-            </ol>
-          ),
-          li: ({ children }) => (
-            <li className="leading-relaxed text-sm sm:text-base text-theme-primary">
-              {children}
-            </li>
-          ),
-          blockquote: ({ children }) => (
-            <blockquote className="border-l-4 border-theme-accent bg-theme-surface-2/60 italic my-4 p-4 rounded-r-xl text-theme-primary text-sm shadow-sm">
-              {children}
-            </blockquote>
-          ),
-          table: ({ children }) => (
-            <div className="overflow-x-auto my-4 rounded-xl border border-theme shadow-sm bg-theme-surface-2/40">
-              <table className="min-w-full divide-y divide-theme text-xs sm:text-sm">{children}</table>
-            </div>
-          ),
-          thead: ({ children }) => (
-            <thead className="bg-theme-surface-2 text-theme-primary font-bold">{children}</thead>
-          ),
-          tbody: ({ children }) => (
-            <tbody className="divide-y divide-theme/40 bg-theme-surface/50">{children}</tbody>
-          ),
-          tr: ({ children }) => (
-            <tr className="hover:bg-theme-surface-2/60 transition-colors">{children}</tr>
-          ),
-          th: ({ children }) => (
-            <th className="px-3.5 py-2.5 text-left font-bold text-theme-primary uppercase text-[11px] tracking-wider border-b border-theme">
-              {children}
-            </th>
-          ),
-          td: ({ children }) => (
-            <td className="px-3.5 py-2.5 text-theme-primary text-xs sm:text-sm font-medium border-b border-theme/30">
-              {children}
-            </td>
-          ),
-          hr: () => <hr className="my-6 border-theme/60" />,
-          code: ({ inline, children }: { inline?: boolean; children?: React.ReactNode }) =>
-            inline ? (
-              <code className="bg-theme-surface-2 px-1.5 py-0.5 rounded text-xs font-mono text-theme-accent border border-theme">
-                {children}
-              </code>
-            ) : (
-              <pre className="bg-theme-surface-2 p-4 rounded-xl text-xs font-mono overflow-x-auto my-3 border border-theme text-theme-primary shadow-inner">
-                <code>{children}</code>
-              </pre>
-            ),
-          img: ({ src, alt }: { src?: string; alt?: string }) => (
-            <div className="my-4 text-center cursor-pointer group inline-block w-full">
-              <img 
-                src={src} 
-                alt={alt || 'Visual Guide'} 
-                onClick={() => onImageClick && src && onImageClick(src)}
-                className="max-w-full rounded-xl border border-theme shadow-lg transition-transform duration-300 group-hover:scale-[1.02] max-h-[500px] object-contain mx-auto"
-              />
-              <p className="text-xs text-theme-secondary mt-1.5 font-medium flex items-center justify-center gap-1">
-                🔍 Bấm vào hình để phóng to xem nét hơn
-              </p>
-            </div>
-          )
-        }}
-      >
-        {content}
-      </ReactMarkdown>
-    </div>
-  );
-};
-
-// ====================================================
-// PlacementTest component
-// ====================================================
-const PlacementTest: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
-  const [questions, setQuestions] = useState<PlacementQuestion[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [answers, setAnswers] = useState<Record<number, string>>({});
-  const [submitted, setSubmitted] = useState(false);
-  const [result, setResult] = useState<any>(null);
-
-  useEffect(() => {
-    fetch(`${API_BASE}/api/curriculum/placement-test/start`, { method: 'POST' })
-      .then(r => r.json())
-      .then(data => {
-        setQuestions(data.questions || []);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, []);
-
-  const handleSelect = (qid: number, opt: string) => {
-    if (!submitted) setAnswers(prev => ({ ...prev, [qid]: opt }));
-  };
-
-  const handleSubmit = async () => {
-    const questionTopicMap: Record<number, number> = {};
-    questions.forEach(q => { questionTopicMap[q.question_id] = q.topic_id; });
-
-    const res = await fetch(`${API_BASE}/api/curriculum/placement-test/submit`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ answers, question_topic_map: questionTopicMap }),
-    });
-    const data = await res.json();
-    setResult(data);
-    setSubmitted(true);
-  };
-
-  if (loading) return (
-    <div className="text-center py-16 text-theme-secondary">
-      Đang tải bài chẩn đoán...
-    </div>
-  );
-
-  if (submitted && result) return (
-    <div className="max-w-2xl mx-auto py-8 px-4">
-      <h2 className="text-2xl font-extrabold text-theme-success mb-2">Chẩn đoán hoàn thành!</h2>
-      <div className="bg-theme-surface rounded-2xl p-6 mb-6 border border-theme shadow-xl">
-        <p className="text-lg text-theme-primary mb-3">
-          Điểm tổng: <strong className="text-theme-success">
-            {result.overall.total_correct}/{result.overall.total_questions} ({result.overall.overall_pct}%)
-          </strong>
-        </p>
-        <div className="flex gap-4 flex-wrap">
-          <div className="bg-theme-surface-2 rounded-lg px-4 py-2 text-theme-success font-semibold border border-theme-success/30">
-            Đã vững: {result.summary.topics_ok} chủ điểm
-          </div>
-          <div className="bg-theme-surface-2 rounded-lg px-4 py-2 text-theme-warning font-semibold border border-theme-warning/30">
-            Cần ôn: {result.summary.topics_weak} chủ điểm
-          </div>
-          <div className="bg-theme-surface-2 rounded-lg px-4 py-2 text-theme-secondary font-semibold border border-theme">
-            Chưa học: {result.summary.topics_unknown} chủ điểm
-          </div>
-        </div>
-        {result.summary.priority_topics.length > 0 && (
-          <div className="mt-4">
-            <p className="text-xs text-theme-secondary mb-2">Chủ điểm cần ưu tiên ôn ngay:</p>
-            <div className="flex flex-wrap gap-1.5">
-              {result.summary.priority_topics.slice(0, 6).map((t: string, i: number) => (
-                <span key={i} className="bg-theme-accent/20 text-theme-accent border border-theme-accent/30 rounded-md px-2.5 py-1 text-xs">
-                  {t}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-      <button
-        onClick={onComplete}
-        className="w-full sm:w-auto bg-theme-accent hover:bg-theme-accent-hover text-white border-none rounded-xl px-7 py-3 text-base cursor-pointer font-bold transition shadow-lg"
-      >
-        Xem Lộ Trình Học Cá Nhân →
-      </button>
-    </div>
-  );
-
-  const answered = Object.keys(answers).length;
-
-  return (
-    <div className="max-w-2xl mx-auto py-6 px-4">
-      <h2 className="text-2xl font-bold text-theme-primary mb-1">Bài Chẩn Đoán Đầu Vào</h2>
-      <p className="text-sm text-theme-secondary mb-6">
-        {answered}/{questions.length} câu đã trả lời. Không giới hạn thời gian.
-      </p>
-      {/* Progress bar */}
-      <div className="h-2 bg-theme-surface-2 rounded-full mb-7 overflow-hidden border border-theme">
-        <div className="h-full bg-theme-accent transition-all duration-300"
-             style={{ width: `${(answered / Math.max(1, questions.length)) * 100}%` }} />
-      </div>
-
-      {questions.map((q, i) => (
-        <div key={q.question_id} className={`bg-theme-surface rounded-2xl p-5 mb-4 border ${answers[q.question_id] ? 'border-theme-accent' : 'border-theme'} shadow-md`}>
-          <div className="flex justify-between mb-2">
-            <span className="text-xs text-theme-secondary font-medium">
-              Q{i + 1} · Part {q.part} · {q.topic_name.substring(0, 30)}
-            </span>
-          </div>
-          <p className="text-base text-theme-primary mb-4 leading-relaxed font-medium">
-            {q.question_text}
-          </p>
-          <div className="flex flex-col gap-2">
-            {Object.entries(q.options).map(([opt, text]) => {
-              const isSelected = answers[q.question_id] === opt;
-              return (
-                <button
-                  key={opt}
-                  onClick={() => handleSelect(q.question_id, opt)}
-                  className={`text-left p-3 rounded-xl text-sm transition-all border ${
-                    isSelected
-                      ? 'border-theme-accent bg-theme-accent/15 text-theme-accent font-semibold shadow'
-                      : 'border-theme bg-theme-surface-2 text-theme-primary hover:border-theme-accent/50'
-                  }`}
-                >
-                  <strong>({opt})</strong> {text as string}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      ))}
-
-      <button
-        onClick={handleSubmit}
-        disabled={answered < Math.ceil(questions.length * 0.7)}
-        className={`mt-4 w-full py-3.5 rounded-xl text-base font-bold transition shadow-lg ${
-          answered >= Math.ceil(questions.length * 0.7)
-            ? 'bg-theme-accent hover:bg-theme-accent-hover text-white cursor-pointer'
-            : 'bg-theme-surface-2 text-theme-secondary border border-theme cursor-not-allowed'
-        }`}
-      >
-        {answered < Math.ceil(questions.length * 0.7)
-          ? `Cần trả lời thêm ${Math.ceil(questions.length * 0.7) - answered} câu`
-          : '✅ Nộp Bài Chẩn Đoán'}
-      </button>
-    </div>
-  );
-};
-
-// ====================================================
-// LessonModal component
-// ====================================================
-const LessonModal: React.FC<{
-  topicId: number;
-  onClose: () => void;
-}> = ({ topicId, onClose }) => {
-  const [lesson, setLesson] = useState<LessonData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [quizAnswers, setQuizAnswers] = useState<Record<number, string>>({});
-  const [quizSubmitted, setQuizSubmitted] = useState(false);
-  const [zoomImage, setZoomImage] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetch(`${API_BASE}/api/curriculum/lessons/${topicId}`)
-      .then(r => r.json())
-      .then(data => { setLesson(data); setLoading(false); })
-      .catch(() => setLoading(false));
-  }, [topicId]);
-
-  const handleQuizSubmit = () => {
-    setQuizSubmitted(true);
-  };
-
-  if (loading || !lesson) return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
-      <div className="text-theme-primary text-lg font-semibold bg-theme-surface px-6 py-4 rounded-xl border border-theme shadow-2xl">
-        ⏳ Đang tải bài giảng...
-      </div>
-    </div>
-  );
-
-  return (
-    <div className="fixed inset-0 bg-black/75 backdrop-blur-md flex items-start justify-center z-50 overflow-y-auto p-3 sm:p-6"
-      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
-    >
-      <div className="bg-theme-surface rounded-2xl p-5 sm:p-8 max-w-4xl w-full border border-theme shadow-2xl mt-4 mb-12 relative">
-        {/* Header */}
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-extrabold text-theme-primary mb-2">
-              {lesson.canonical_name}
-            </h2>
-            <div className="flex gap-2 flex-wrap items-center">
-              <span className="bg-theme-accent/20 text-theme-accent border border-theme-accent/30 rounded-md px-3 py-1 text-xs font-bold">
-                {CAT_LABELS[lesson.category] || lesson.category}
-              </span>
-              <span className="bg-theme-surface-2 text-theme-secondary border border-theme rounded-md px-2.5 py-1 text-xs font-semibold">
-                Trình độ: {lesson.level.toUpperCase()}
-              </span>
-              <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-md px-2.5 py-1 text-xs font-semibold">
-                Part {lesson.parts.join(', ')}
-              </span>
-            </div>
-          </div>
-          <button 
-            onClick={onClose} 
-            className="bg-theme-surface-2 hover:bg-theme-surface-3 border border-theme text-theme-secondary hover:text-theme-primary rounded-xl w-9 h-9 flex items-center justify-center text-xl cursor-pointer transition"
-          >
-            ✕
-          </button>
-        </div>
-
-        {/* Mastery status badge */}
-        <div className="bg-gradient-to-r from-theme-surface-2 to-theme-base rounded-xl p-3.5 sm:p-4 mb-5 flex justify-between items-center border border-theme">
-          <span className="text-theme-secondary text-xs sm:text-sm font-medium">Trạng thái của bạn:</span>
-          <span className="font-extrabold text-sm text-theme-accent">
-            {STATUS_LABELS[lesson.mastery.status]}
-            {lesson.mastery.total_count > 0 && ` (${lesson.mastery.mastery_pct}%)`}
-          </span>
-        </div>
-
-        {/* Lesson content */}
-        <div className="bg-theme-base rounded-2xl p-5 sm:p-7 text-theme-primary leading-relaxed text-sm sm:text-base mb-6 border border-theme max-h-[68vh] overflow-y-auto shadow-inner">
-          <MarkdownRenderer content={lesson.content_markdown} onImageClick={(url) => setZoomImage(url)} />
-        </div>
-
-        {/* Quick check */}
-        {lesson.quick_check && lesson.quick_check.length > 0 && (
-          <div className="mb-4">
-            <h3 className="text-lg font-bold text-theme-primary mb-3 flex items-center gap-2">
-              <span>✍️ Bài Kiểm Tra Nhanh</span>
-              <span className="text-xs bg-theme-accent/20 text-theme-accent border border-theme-accent/30 px-2 py-0.5 rounded-full font-bold">
-                {lesson.quick_check.length} câu
-              </span>
-            </h3>
-            {lesson.quick_check.map((q, i) => (
-              <div key={q.id} className="bg-theme-surface-2 rounded-xl p-4 mb-3 border border-theme shadow-sm">
-                <div className="text-theme-primary text-sm mb-2.5 font-medium">
-                  <strong>{i + 1}.</strong> <MarkdownPassage text={q.question_text} />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  {Object.entries(q.options).map(([opt, text]) => {
-                    const isSelected = quizAnswers[q.id] === opt;
-                    const isCorrect = quizSubmitted && opt === q.correct_answer;
-                    const isWrong = quizSubmitted && isSelected && opt !== q.correct_answer;
-                    return (
-                      <button
-                        key={opt}
-                        onClick={() => { if (!quizSubmitted) setQuizAnswers(p => ({ ...p, [q.id]: opt })); }}
-                        className={`text-left p-2.5 rounded-lg text-xs sm:text-sm transition-all border ${
-                          isCorrect
-                            ? 'alert-success border-theme-success font-bold'
-                            : isWrong
-                            ? 'alert-error border-theme-error font-bold'
-                            : isSelected
-                            ? 'bg-theme-accent/20 border-theme-accent text-theme-accent font-semibold'
-                            : 'bg-theme-surface border-theme text-theme-primary hover:border-theme-accent/40'
-                        }`}
-                      >
-                        <strong>({opt})</strong> {text as string}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
-            {!quizSubmitted ? (
-              <button
-                onClick={handleQuizSubmit}
-                disabled={Object.keys(quizAnswers).length < lesson.quick_check.length}
-                className={`w-full py-3 rounded-xl text-sm font-bold transition shadow ${
-                  Object.keys(quizAnswers).length >= lesson.quick_check.length
-                    ? 'bg-theme-accent hover:bg-theme-accent-hover text-white cursor-pointer'
-                    : 'bg-theme-surface-2 text-theme-secondary border border-theme cursor-not-allowed'
-                }`}
-              >
-                ✅ Xem Đáp Án
-              </button>
-            ) : (
-              <div className="alert-success rounded-xl p-3 text-center font-bold text-sm">
-                Kết quả: {lesson.quick_check.filter(q => quizAnswers[q.id] === q.correct_answer).length}
-                /{lesson.quick_check.length} câu đúng
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Lightbox Image Zoom Modal */}
-        {zoomImage && (
-          <div 
-            className="fixed inset-0 bg-black/90 backdrop-blur-lg flex items-center justify-center z-[100] p-4 cursor-zoom-out"
-            onClick={() => setZoomImage(null)}
-          >
-            <div className="relative max-w-5xl max-h-[92vh] flex items-center justify-center">
-              <img 
-                src={zoomImage} 
-                alt="Zoomed Visual Guide" 
-                className="max-w-full max-h-[90vh] object-contain rounded-2xl border border-white/20 shadow-2xl"
-              />
-              <button 
-                onClick={() => setZoomImage(null)}
-                className="absolute -top-4 -right-4 bg-red-600 hover:bg-red-700 text-white rounded-full w-10 h-10 flex items-center justify-center text-xl font-bold border-2 border-white shadow-xl cursor-pointer"
-              >
-                ✕
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-// ====================================================
-// Main RoadmapPage
-// ====================================================
-const RoadmapPage: React.FC = () => {
+/**
+ * Curriculum roadmap view presenting the 45-topic progressive learning tree, placement test, and daily study plan.
+ */
+export const RoadmapPage: React.FC = () => {
   const [view, setView] = useState<'roadmap' | 'placement' | 'daily'>('roadmap');
   const [topics, setTopics] = useState<CurriculumTopic[]>([]);
   const [summary, setSummary] = useState<RoadmapSummary | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedTopicId, setSelectedTopicId] = useState<number | null>(null);
   const [filterLevel, setFilterLevel] = useState<string>('all');
   const [filterCategory, setFilterCategory] = useState<string>('all');
@@ -536,21 +59,21 @@ const RoadmapPage: React.FC = () => {
   const [dailyMinutes, setDailyMinutes] = useState(40);
 
   const fetchRoadmap = () => {
-    setLoading(true);
+    setIsLoading(true);
     fetch(`${API_BASE}/api/curriculum/roadmap`)
-      .then(r => r.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         setTopics(data.roadmap || []);
         setSummary(data.summary || null);
-        setLoading(false);
+        setIsLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => setIsLoading(false));
   };
 
   const fetchDailyPlan = (minutes: number) => {
     fetch(`${API_BASE}/api/curriculum/daily-plan?minutes_per_day=${minutes}`)
-      .then(r => r.json())
-      .then(data => setDailyPlan(data))
+      .then((response) => response.json())
+      .then((data) => setDailyPlan(data))
       .catch(() => {});
   };
 
@@ -559,14 +82,23 @@ const RoadmapPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (view === 'daily') fetchDailyPlan(dailyMinutes);
+    if (view === 'daily') {
+      fetchDailyPlan(dailyMinutes);
+    }
   }, [view, dailyMinutes]);
 
-  const filteredTopics = topics.filter(t => {
-    const status = t.status ?? t.mastery?.status ?? 'unknown';
-    if (filterLevel !== 'all' && t.level !== filterLevel) return false;
-    if (filterCategory !== 'all' && t.category !== filterCategory) return false;
-    if (filterStatus !== 'all' && status !== filterStatus) return false;
+  const filteredTopics = topics.filter((topicItem) => {
+    const status = topicItem.status ?? topicItem.mastery?.status ?? 'unknown';
+    if (filterLevel !== 'all' && topicItem.level !== filterLevel) {
+      return false;
+    }
+    if (filterCategory !== 'all' && topicItem.category !== filterCategory) {
+      return false;
+    }
+    if (filterStatus !== 'all' && status !== filterStatus) {
+      return false;
+    }
+
     return true;
   });
 
@@ -580,12 +112,14 @@ const RoadmapPage: React.FC = () => {
       {selectedTopicId && (
         <LessonModal
           topicId={selectedTopicId}
-          onClose={() => { setSelectedTopicId(null); fetchRoadmap(); }}
+          onClose={() => {
+            setSelectedTopicId(null);
+            fetchRoadmap();
+          }}
         />
       )}
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-2xl sm:text-4xl font-black text-theme-primary tracking-tight mb-2">
@@ -625,7 +159,7 @@ const RoadmapPage: React.FC = () => {
 
         {/* Tab bar */}
         <div className="flex gap-2 mb-6 border-b border-theme pb-3">
-          {(['roadmap', 'placement', 'daily'] as const).map(tab => (
+          {(['roadmap', 'placement', 'daily'] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setView(tab)}
@@ -635,77 +169,33 @@ const RoadmapPage: React.FC = () => {
                   : 'bg-theme-surface text-theme-secondary border-theme hover:text-theme-primary hover:bg-theme-surface-2'
               }`}
             >
-              {tab === 'roadmap' ? 'Lộ Trình' :
-                tab === 'placement' ? 'Chẩn Đoán' : 'Kế Hoạch Hôm Nay'}
+              {tab === 'roadmap'
+                ? 'Lộ Trình'
+                : tab === 'placement'
+                ? 'Chẩn Đoán'
+                : 'Kế Hoạch Hôm Nay'}
             </button>
           ))}
         </div>
 
         {/* PLACEMENT TEST TAB */}
         {view === 'placement' && (
-          <PlacementTest onComplete={() => { setView('roadmap'); fetchRoadmap(); }} />
+          <PlacementTest
+            onComplete={() => {
+              setView('roadmap');
+              fetchRoadmap();
+            }}
+          />
         )}
 
         {/* DAILY PLAN TAB */}
         {view === 'daily' && (
-          <div>
-            {/* Time selector */}
-            <div className="bg-theme-surface rounded-xl p-4 mb-5 border border-theme flex gap-3 items-center flex-wrap">
-              <span className="text-theme-secondary text-xs sm:text-sm font-medium">Thời gian học/ngày:</span>
-              {[20, 40, 60].map(m => (
-                <button
-                  key={m}
-                  onClick={() => setDailyMinutes(m)}
-                  className={`px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold border transition ${
-                    dailyMinutes === m
-                      ? 'bg-theme-accent text-white border-theme-accent shadow'
-                      : 'bg-theme-surface-2 text-theme-secondary border-theme hover:text-theme-primary'
-                  }`}
-                >
-                  {m} phút
-                </button>
-              ))}
-            </div>
-
-            {dailyPlan && (
-              <div>
-                <h3 className="text-lg font-bold text-theme-primary mb-3">
-                  📚 Bài học hôm nay ({dailyPlan.today_lessons.length} chủ điểm)
-                </h3>
-                {dailyPlan.today_lessons.map((lesson: any, i: number) => (
-                  <div
-                    key={lesson.topic_id}
-                    className="bg-theme-surface rounded-xl p-4 mb-3 border border-theme hover:border-theme-accent transition cursor-pointer flex justify-between items-center"
-                    onClick={() => setSelectedTopicId(lesson.topic_id)}
-                  >
-                    <div>
-                      <div className="text-theme-primary font-semibold text-sm sm:text-base mb-1">
-                        {i + 1}. {lesson.canonical_name}
-                      </div>
-                      <div className="flex gap-2 text-xs">
-                        <span className="text-theme-accent font-medium">
-                          {STATUS_LABELS[lesson.status]}
-                        </span>
-                        <span className="text-theme-secondary">
-                          {CAT_LABELS[lesson.category] || lesson.category}
-                        </span>
-                        {!lesson.has_lesson_generated && (
-                          <span className="text-theme-warning font-semibold">🤖 Sẽ sinh AI</span>
-                        )}
-                      </div>
-                    </div>
-                    <span className="text-theme-accent font-bold text-lg">→</span>
-                  </div>
-                ))}
-
-                {dailyPlan.today_lessons.length === 0 && (
-                  <div className="alert-success rounded-2xl p-6 text-center text-sm font-bold">
-                    🎉 Tuyệt vời! Bạn đã hoàn thành tất cả các chủ điểm. Hãy làm bài luyện tập đề thi thật!
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
+          <RoadmapDailyPlanTab
+            dailyPlan={dailyPlan}
+            dailyMinutes={dailyMinutes}
+            onSetDailyMinutes={setDailyMinutes}
+            onSelectTopicId={setSelectedTopicId}
+          />
         )}
 
         {/* ROADMAP TAB */}
@@ -715,125 +205,59 @@ const RoadmapPage: React.FC = () => {
             <div className="flex gap-3 mb-5 flex-wrap bg-theme-surface p-4 rounded-xl border border-theme text-xs sm:text-sm">
               <select
                 value={filterLevel}
-                onChange={e => setFilterLevel(e.target.value)}
-                className="bg-theme-surface-2 text-theme-primary border border-theme rounded-lg px-3 py-1.5 focus:outline-none"
+                onChange={(changeEvent) => setFilterLevel(changeEvent.target.value)}
+                className="bg-theme-surface-2 border border-theme text-theme-primary rounded-lg px-3 py-1.5 text-xs focus:outline-none"
               >
-                <option value="all">Mọi cấp độ</option>
-                <option value="basic">Cơ bản</option>
-                <option value="intermediate">Trung cấp</option>
-                <option value="advanced">Nâng cao</option>
+                <option value="all">Tất cả mục tiêu</option>
+                <option value="500">Mục tiêu 500+</option>
+                <option value="650">Mục tiêu 650+</option>
+                <option value="800">Mục tiêu 800+</option>
+                <option value="900">Mục tiêu 900+</option>
               </select>
               <select
                 value={filterCategory}
-                onChange={e => setFilterCategory(e.target.value)}
-                className="bg-theme-surface-2 text-theme-primary border border-theme rounded-lg px-3 py-1.5 focus:outline-none"
+                onChange={(changeEvent) => setFilterCategory(changeEvent.target.value)}
+                className="bg-theme-surface-2 border border-theme text-theme-primary rounded-lg px-3 py-1.5 text-xs focus:outline-none"
               >
-                <option value="all">Mọi loại</option>
-                <option value="grammar_topic">Ngữ pháp</option>
-                <option value="question_type">Dạng câu hỏi</option>
-                <option value="vocab_topic">Từ vựng</option>
+                <option value="all">Tất cả chủ điểm</option>
+                {Object.entries(CAT_LABELS).map(([k, v]) => (
+                  <option key={k} value={k}>
+                    {v}
+                  </option>
+                ))}
               </select>
               <select
                 value={filterStatus}
-                onChange={e => setFilterStatus(e.target.value)}
-                className="bg-theme-surface-2 text-theme-primary border border-theme rounded-lg px-3 py-1.5 focus:outline-none"
+                onChange={(changeEvent) => setFilterStatus(changeEvent.target.value)}
+                className="bg-theme-surface-2 border border-theme text-theme-primary rounded-lg px-3 py-1.5 text-xs focus:outline-none"
               >
-                <option value="all">Mọi trạng thái</option>
-                <option value="unknown">Chưa học</option>
-                <option value="weak">Cần ôn</option>
-                <option value="ok">Đã vững</option>
+                <option value="all">Tất cả trạng thái</option>
+                <option value="not_started">Chưa học</option>
+                <option value="learning">Đang học</option>
+                <option value="review_needed">Cần ôn lại</option>
+                <option value="mastered">Đã nắm vững</option>
               </select>
               <span className="text-theme-secondary text-xs self-center ml-auto">
                 Hiển thị {filteredTopics.length}/{topics.length} chủ điểm
               </span>
             </div>
 
-            {loading ? (
-              <div className="text-center py-16 text-theme-secondary">
-                ⏳ Đang tải lộ trình...
+            {isLoading ? (
+              <div className="text-center py-16 text-theme-secondary text-sm font-medium">
+                Đang tải lộ trình...
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {filteredTopics.map((t) => {
-                  const masteryStatus: string = t.status ?? t.mastery?.status ?? 'unknown';
-                  const masteryPct: number = t.mastery_pct ?? t.mastery?.mastery_pct ?? 0;
-                  const isNext = summary?.next_recommended === t.id;
+                {filteredTopics.map((topicItem) => {
+                  const isNext = summary?.next_recommended === topicItem.id;
 
                   return (
-                    <div
-                      key={t.id}
-                      onClick={() => setSelectedTopicId(t.id)}
-                      className={`bg-theme-surface rounded-2xl p-4 sm:p-5 border transition-all duration-200 cursor-pointer relative overflow-hidden flex flex-col justify-between hover:shadow-lg ${
-                        isNext ? 'border-theme-accent ring-2 ring-theme-accent/30' : 'border-theme hover:border-theme-accent/60'
-                      }`}
-                    >
-                      {/* "Học tiếp" badge */}
-                      {isNext && (
-                        <div className="absolute top-3 right-3 bg-theme-accent text-white rounded-md px-2 py-0.5 text-[11px] font-bold shadow">
-                          👉 Học tiếp
-                        </div>
-                      )}
-
-                      <div>
-                        {/* Status badge */}
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className={`w-2.5 h-2.5 rounded-full ${
-                            masteryStatus === 'ok' ? 'bg-theme-success' :
-                            masteryStatus === 'weak' ? 'bg-theme-warning' : 'bg-theme-secondary'
-                          }`} />
-                          <span className="text-xs font-semibold text-theme-secondary">
-                            {STATUS_LABELS[masteryStatus]}
-                          </span>
-                        </div>
-
-                        {/* Title */}
-                        <h3 className="text-sm sm:text-base font-bold text-theme-primary mb-2 leading-snug pr-12">
-                          {t.canonical_name}
-                        </h3>
-
-                        {/* Tags */}
-                        <div className="flex gap-1.5 flex-wrap mb-3 text-xs">
-                          <span className="bg-theme-surface-2 text-theme-secondary border border-theme rounded px-2 py-0.5 text-[11px]">
-                            {t.level}
-                          </span>
-                          <span className="bg-theme-accent/15 text-theme-accent border border-theme-accent/25 rounded px-2 py-0.5 text-[11px] font-medium">
-                            {CAT_LABELS[t.category]}
-                          </span>
-                          <span className="text-theme-secondary text-[11px] self-center">
-                            Part {t.parts.join('/')}
-                          </span>
-                        </div>
-                      </div>
-
-                      <div>
-                        {/* Mastery progress bar */}
-                        <div className="mb-3">
-                          <div className="flex justify-between text-xs mb-1">
-                            <span className="text-theme-secondary font-medium">Độ vững:</span>
-                            <span className="text-theme-primary font-bold">{masteryPct}%</span>
-                          </div>
-                          <div className="h-1.5 bg-theme-surface-2 rounded-full overflow-hidden border border-theme">
-                            <div
-                              className={`h-full transition-all duration-300 ${
-                                masteryStatus === 'ok' ? 'bg-theme-success' :
-                                masteryStatus === 'weak' ? 'bg-theme-warning' : 'bg-theme-secondary'
-                              }`}
-                              style={{ width: `${masteryPct}%` }}
-                            />
-                          </div>
-                        </div>
-
-                        {/* Footer meta */}
-                        <div className="flex justify-between items-center text-[11px] border-t border-theme pt-2 mt-1 text-theme-secondary">
-                          <span>{t.source_count}/4 nguồn · {t.question_count.toLocaleString()} câu DB</span>
-                          {t.has_lesson ? (
-                            <span className="text-theme-success font-medium">✅ Bài giảng</span>
-                          ) : (
-                            <span className="text-theme-secondary">🤖 Sinh AI</span>
-                          )}
-                        </div>
-                      </div>
-                    </div>
+                    <RoadmapTopicCard
+                      key={topicItem.id}
+                      topicItem={topicItem}
+                      isNext={isNext}
+                      onSelectTopicId={setSelectedTopicId}
+                    />
                   );
                 })}
               </div>

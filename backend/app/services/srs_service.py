@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from typing import Dict, Any
 from sqlalchemy.orm import Session
 from ..models import Flashcard, PracticeAttempt
@@ -12,11 +12,12 @@ INTERVAL_MAP = {
 }
 
 def process_flashcard_review(db: Session, flashcard_id: int, remembered: bool) -> Dict[str, Any]:
+    """Updates SRS interval and ease factor for a flashcard using modified SM-2 spaced repetition logic."""
     fc = db.query(Flashcard).filter(Flashcard.id == flashcard_id).first()
     if not fc:
         raise ValueError(f"Flashcard #{flashcard_id} không tồn tại")
 
-    now = datetime.utcnow()
+    now = datetime.now(timezone.utc)
     prev_level = fc.srs_level
     prev_next_review = fc.next_review_at
 

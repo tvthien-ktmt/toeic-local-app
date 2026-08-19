@@ -1,7 +1,8 @@
 import random
 import re
 import json
-from typing import Optional, List
+import logging
+from typing import Optional, List, Dict, Any, Annotated
 from pydantic import BaseModel
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
@@ -10,6 +11,7 @@ from ..db import get_db
 from ..models import Vocabulary, Flashcard, PracticeAttempt
 from ..services.extraction_service import REAL_VIETNAMESE_DICTIONARY
 
+logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/quiz", tags=["quiz"])
 
 class ReverseTypingRequest(BaseModel):
@@ -23,8 +25,8 @@ def generate_vocab_quiz(
     topic_category: Optional[str] = None,
     unmastered_only: bool = False,
     limit: int = Query(10, ge=1, le=50),
-    db: Session = Depends(get_db)
-):
+    db: Annotated[Session, Depends(get_db)] = None # type: ignore
+) -> Dict[str, Any]:
     """
     Generates standard Vocab Quiz with flexible range selectors (Module 14.4).
     Optimized with SQL ORDER BY RANDOM() LIMIT N to avoid loading full table into RAM.
@@ -107,8 +109,8 @@ def generate_vocab_quiz(
 def generate_listening_quiz(
     document_id: Optional[int] = None,
     limit: int = Query(10, ge=1, le=50),
-    db: Session = Depends(get_db)
-):
+    db: Annotated[Session, Depends(get_db)] = None # type: ignore
+) -> Dict[str, Any]:
     """
     Module 14.1: Listening Quiz mode (TTS pronounced).
     Optimized with SQL ORDER BY RANDOM() LIMIT N.
@@ -148,8 +150,8 @@ def generate_listening_quiz(
 @router.post("/reverse_typing")
 def check_reverse_typing(
     req: ReverseTypingRequest,
-    db: Session = Depends(get_db)
-):
+    db: Annotated[Session, Depends(get_db)] = None # type: ignore
+) -> Dict[str, Any]:
     """
     Module 14.2: Reverse Typing Practice (English word -> Vietnamese meaning with flexible keyword matching).
     """
@@ -185,8 +187,8 @@ def check_reverse_typing(
 @router.get("/synonyms")
 def generate_synonyms_quiz(
     limit: int = Query(10, ge=1, le=50),
-    db: Session = Depends(get_db)
-):
+    db: Annotated[Session, Depends(get_db)] = None # type: ignore
+) -> Dict[str, Any]:
     """
     Module 14.3: Synonyms & Antonyms Quiz Mode.
     Optimized with SQL ORDER BY RANDOM() LIMIT N.
@@ -214,8 +216,8 @@ def generate_synonyms_quiz(
                 syns = json.loads(syn_str)
                 if isinstance(syns, list):
                     global_syn_pool.extend(syns)
-            except Exception:
-                pass
+            except Exception as syn_err:
+                logger.warning(f"Error parsing global synonyms JSON pool: {syn_err}")
 
     if len(global_syn_pool) < 5:
         global_syn_pool.extend(["suggestion", "inquiry", "reconstruction", "location", "possessions", "initiative", "safe", "outstanding", "thorough"])
@@ -228,8 +230,8 @@ def generate_synonyms_quiz(
                 syns = json.loads(target.synonyms)
                 if isinstance(syns, list) and len(syns) > 0:
                     correct_syn = syns[0]
-            except Exception:
-                pass
+            except Exception as target_syn_err:
+                logger.warning(f"Error parsing synonyms JSON for vocab #{target.id}: {target_syn_err}")
                 
         if not correct_syn:
             if target.word.lower() in REAL_VIETNAMESE_DICTIONARY:
@@ -263,8 +265,9 @@ def generate_synonyms_quiz(
 def record_quiz_attempt(
     vocab_id: int,
     is_correct: bool,
-    db: Session = Depends(get_db)
-):
+    db: Annotated[Session, Depends(get_db)] = None # type: ignore
+) -> Dict[str, Any]:
+    """Records a vocabulary quiz attempt result into user practice history."""
     attempt = PracticeAttempt(
         vocabulary_id=vocab_id,
         attempt_type="quiz",

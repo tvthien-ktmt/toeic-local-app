@@ -1,8 +1,11 @@
 import json
+import logging
 from typing import Dict, Any, List, Optional
 from sqlalchemy.orm import Session
 from ..models import Vocabulary, Flashcard
 from .gemini_service import query_gemini_with_cache, get_gemini_api_key
+
+logger = logging.getLogger(__name__)
 
 def lookup_word_in_context(
     db: Session,
@@ -29,7 +32,7 @@ def lookup_word_in_context(
         existing = query.first()
 
     if existing:
-        print(f"[VOCAB LOOKUP CACHE HIT] word='{clean_word}' (Returned from DB, 0 API tokens spent)")
+        logger.info(f"[VOCAB LOOKUP CACHE HIT] word='{clean_word}' (Returned from DB, 0 API tokens spent)")
         syns = json.loads(existing.synonyms) if (existing.synonyms and existing.synonyms.startswith("[")) else []
         ants = json.loads(existing.antonyms) if (existing.antonyms and existing.antonyms.startswith("[")) else []
         
@@ -51,7 +54,7 @@ def lookup_word_in_context(
         }
 
     # 2. Query Gemini API for contextual lookup
-    print(f"[VOCAB LOOKUP CACHE MISS] word='{clean_word}'. Triggering Gemini API contextual lookup...")
+    logger.info(f"[VOCAB LOOKUP CACHE MISS] word='{clean_word}'. Triggering Gemini API contextual lookup...")
     api_key = get_gemini_api_key()
 
     prompt_type = "lookup_word_context"
@@ -139,7 +142,7 @@ def get_related_vocabulary_suggestions(
     ).all()
 
     if existing_suggestions and len(existing_suggestions) >= 3:
-        print(f"[RELATED VOCAB CACHE HIT] Suggestions for '{clean_word}' returned from DB ({len(existing_suggestions)} terms)")
+        logger.info(f"[RELATED VOCAB CACHE HIT] Suggestions for '{clean_word}' returned from DB ({len(existing_suggestions)} terms)")
         res = []
         for v in existing_suggestions:
             fc = db.query(Flashcard).filter(Flashcard.vocabulary_id == v.id).first()
@@ -160,7 +163,7 @@ def get_related_vocabulary_suggestions(
         return res
 
     # 2. Query Gemini for 3-5 business/TOEIC related terms
-    print(f"[RELATED VOCAB CACHE MISS] Generating 3-5 TOEIC business terms related to '{clean_word}' via Gemini...")
+    logger.info(f"[RELATED VOCAB CACHE MISS] Generating 3-5 TOEIC business terms related to '{clean_word}' via Gemini...")
     api_key = get_gemini_api_key()
 
     prompt_type = "suggest_related_vocab"

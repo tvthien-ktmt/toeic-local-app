@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
+    "audit": "bash ../dev-rules/audit-rules.sh src --config ../AGENTS.md",
     "preview": "vite preview"
   },
   "dependencies": {

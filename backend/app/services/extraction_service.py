@@ -3,7 +3,8 @@ import sys
 import json
 import re
 import time
-from datetime import datetime
+import logging
+from datetime import datetime, timezone
 from typing import Dict, Any, List
 from .local_parser_service import parse_part5_locally
 
@@ -12,15 +13,7 @@ if hasattr(sys.stdout, 'reconfigure'):
 if hasattr(sys.stderr, 'reconfigure'):
     sys.stderr.reconfigure(encoding='utf-8')
 
-def safe_print(*args, **kwargs):
-    try:
-        print(*args, **kwargs)
-    except UnicodeEncodeError:
-        try:
-            text = " ".join(str(a) for a in args)
-            sys.stdout.buffer.write((text + "\n").encode("utf-8", errors="replace"))
-        except Exception:
-            pass
+logger = logging.getLogger(__name__)
 from sqlalchemy.orm import Session
 from ..models import Document, Question, Vocabulary, Flashcard
 from .gemini_service import query_gemini_with_cache, get_gemini_api_key
@@ -82,6 +75,7 @@ def split_large_text_chunk(text: str, max_chars: int = 4500) -> List[str]:
 
 
 def fallback_extract_vocab(part_text: str) -> List[Dict[str, Any]]:
+    """Local dictionary-backed fallback extractor that extracts key business vocabulary when offline."""
     words = re.findall(r'\b[A-Za-z]{4,}\b', part_text)
     ignore = {"this", "that", "with", "from", "they", "them", "have", "will", "been", "were", "what", "when", "where", "which", "part", "questions", "select", "best", "answer"}
     vocab_list = []
@@ -121,7 +115,7 @@ def fallback_extract_part5(part_text: str) -> List[Dict[str, Any]]:
     [MODE: MOCK_FALLBACK] Trích xuất câu hỏi Part 5 bằng regex khi KHÔNG có API key hoặc Gemini API gặp 429.
     Runs local_parser_service to parse remaining blocks cleanly.
     """
-    print("[MODE: MOCK_FALLBACK] fallback_extract_part5 đang chạy — trích xuất câu hỏi Part 5 bằng regex cục bộ.")
+    logger.info("[MODE: MOCK_FALLBACK] fallback_extract_part5 đang chạy — trích xuất câu hỏi Part 5 bằng regex cục bộ.")
     parsed, failed = parse_part5_locally(part_text, start_q=101, end_q=130)
     
     # For any blocks in failed list, create fallback question items stripping OCR header/footer garbage
@@ -184,6 +178,7 @@ def fallback_extract_part5(part_text: str) -> List[Dict[str, Any]]:
 
 
 def process_document_extraction(db: Session, doc_id: int) -> Dict[str, Any]:
+    """Orchestrates full-pipeline question and vocabulary extraction from an uploaded document using Gemini AI."""
     doc = db.query(Document).filter(Document.id == doc_id).first()
     if not doc:
         raise ValueError(f"Không tìm thấy document #{doc_id}")
@@ -195,9 +190,9 @@ def process_document_extraction(db: Session, doc_id: int) -> Dict[str, Any]:
 
     api_key = get_gemini_api_key()
     if api_key:
-        print(f"[EXECUTION MODE: LIVE_GEMINI_API] Gemini API Key detected ({api_key[:6]}***). Processing full document without silent truncation.")
+        logger.info(f"[EXECUTION MODE: LIVE_GEMINI_API] Gemini API Key detected ({api_key[:6]}***). Processing full document without silent truncation.")
     else:
-        print("[EXECUTION MODE: MOCK_FALLBACK] WARNING: No GEMINI_API_KEY configured in .env! Running fallback extraction mode.")
+        logger.warning("[EXECUTION MODE: MOCK_FALLBACK] WARNING: No GEMINI_API_KEY configured in .env! Running fallback extraction mode.")
 
     for chunk in chunks:
         part_num = chunk.get("part", 5)
@@ -210,13 +205,13 @@ def process_document_extraction(db: Session, doc_id: int) -> Dict[str, Any]:
             # Throttle requests slightly (1.0s) to respect Gemini Free Tier limits
             time.sleep(1.0)
 
-            print(f"[AI EXTRACTION] Part {part_num} (Subchunk {sub_idx + 1}/{len(text_subchunks)}): Sending {len(sub_text)} characters to Gemini...")
+            logger.info(f"[AI EXTRACTION] Part {part_num} (Subchunk {sub_idx + 1}/{len(text_subchunks)}): Sending {len(sub_text)} characters to Gemini...")
 
             if doc.doc_type == "RC_EXAM":
                 if part_num == 5:
                     q_list = []
                     if api_key:
-                        safe_print(f"[AI EXTRACTION] Part 5 (Subchunk {sub_idx + 1}/{len(text_subchunks)}): Sending to Gemini AI for direct extraction & 100% full enrichment...")
+                        logger.info(f"[AI EXTRACTION] Part 5 (Subchunk {sub_idx + 1}/{len(text_subchunks)}): Sending to Gemini AI for direct extraction & 100% full enrichment...")
                         prompt_type = "extract_question_part5_full"
                         prompt_text = f"""Bạn nhận được văn bản đề thi TOEIC Part 5 (gồm các câu hỏi từ 101 tới 130).
 Nhiệm vụ: Trích xuất TẤT CẢ các câu hỏi thành một JSON array hoàn chỉnh.
@@ -251,10 +246,10 @@ Nội dung đề thi:
                             raw_ai_qs = query_gemini_with_cache(db, prompt_type, prompt_text, sub_text)
                             q_list = raw_ai_qs if isinstance(raw_ai_qs, list) else (raw_ai_qs.get("questions", []) if isinstance(raw_ai_qs, dict) else [])
                         except Exception as e:
-                            safe_print(f"[EXTRACTION_FALLBACK] Gemini API lỗi ({e}), chuyển sang fallback local parser.")
+                            logger.warning(f"[EXTRACTION_FALLBACK] Gemini API lỗi ({e}), chuyển sang fallback local parser.")
                             q_list = fallback_extract_part5(sub_text)
                     else:
-                        safe_print("[EXTRACTION_FALLBACK] No API Key, running fallback local parser on Part 5...")
+                        logger.info("[EXTRACTION_FALLBACK] No API Key, running fallback local parser on Part 5...")
                         q_list = fallback_extract_part5(sub_text)
 
                     for q in q_list:
@@ -305,7 +300,7 @@ Nội dung:
                         try:
                             vocab_data = query_gemini_with_cache(db, vocab_prompt_type, vocab_prompt_text, sub_text)
                         except Exception as ve:
-                            safe_print(f"[EXTRACTION_NOTE] Vocab Part 5 API limit, using fallback vocab.")
+                            logger.info(f"[EXTRACTION_NOTE] Vocab Part 5 API limit, using fallback vocab.")
                             vocab_data = fallback_extract_vocab(sub_text)
                     else:
                         vocab_data = fallback_extract_vocab(sub_text)
@@ -355,7 +350,7 @@ Nội dung:
                                     vocabulary_id=new_v.id,
                                     srs_level=0,
                                     ease_factor=2.5,
-                                    next_review_at=datetime.utcnow()
+                                    next_review_at=datetime.now(timezone.utc)
                                 )
                                 db.add(new_fc)
                             extracted_vocab_count += 1
@@ -404,7 +399,7 @@ Nội dung:
                         if api_key:
                             raw_data = query_gemini_with_cache(db, prompt_type, prompt_text, sub_text)
                         else:
-                            print(f"[MODE: MOCK_FALLBACK] Part {part_num} — không có API key, dùng fallback regex.")
+                            logger.info(f"[MODE: MOCK_FALLBACK] Part {part_num} — không có API key, dùng fallback regex.")
                             raw_data = {
                                 "passage_type": "email",
                                 "passage_topic_tag": f"Part {part_num} Business Topic",
@@ -503,13 +498,13 @@ Nội dung:
                                             vocabulary_id=new_v.id,
                                             srs_level=0,
                                             ease_factor=2.5,
-                                            next_review_at=datetime.utcnow()
+                                            next_review_at=datetime.now(timezone.utc)
                                         )
                                         db.add(new_fc)
                         db.commit()
 
                     except Exception as e:
-                        safe_print(f"[EXTRACTION_FAILED] Part {part_num} subchunk {sub_idx + 1}/{len(text_subchunks)}: Gemini API lỗi ({e}). Chunk này sẽ KHÔNG được thay thế bằng regex rác.")
+                        logger.error(f"[EXTRACTION_FAILED] Part {part_num} subchunk {sub_idx + 1}/{len(text_subchunks)}: Gemini API lỗi ({e}).")
     if doc:
         doc.status = "extracted"
         db.commit()

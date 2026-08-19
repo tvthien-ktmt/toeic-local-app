@@ -1,3 +1,4 @@
+from typing import Dict, Any, Annotated
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from ..db import get_db
@@ -6,7 +7,7 @@ from ..services.grammar_service import get_or_create_grammar_reference
 router = APIRouter(prefix="/api/grammar-reference", tags=["grammar-reference"])
 
 @router.get("/{topic_name}")
-def get_grammar_reference(topic_name: str, db: Session = Depends(get_db)):
+def get_grammar_reference(topic_name: str, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Module 17: Returns Grammar Quick Reference Card for a specified grammar_topic.
     Reads from SQLite DB (0 API tokens spent on cache hit).

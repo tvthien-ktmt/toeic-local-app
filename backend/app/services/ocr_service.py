@@ -1,10 +1,13 @@
 import os
 import io
+import logging
 import fitz  # PyMuPDF
 from PIL import Image
 import pytesseract
 from typing import List, Tuple, Dict, Any, Optional
 from concurrent.futures import ThreadPoolExecutor
+
+logger = logging.getLogger(__name__)
 
 def is_scanned_pdf(markdown_text: str, page_count: int = 1) -> bool:
     """
@@ -19,15 +22,16 @@ def is_scanned_pdf(markdown_text: str, page_count: int = 1) -> bool:
 # Lazy-loaded EasyOCR reader instance
 _easyocr_reader = None
 
-def get_easyocr_reader():
+def get_easyocr_reader() -> Optional[Any]:
+    """Provides a singleton lazy-loaded EasyOCR reader initialized for CPU inference."""
     global _easyocr_reader
     if _easyocr_reader is None:
         try:
             import easyocr
-            print("[OCR SERVICE] Initializing EasyOCR engine (CPU mode)...")
+            logger.info("[OCR SERVICE] Initializing EasyOCR engine (CPU mode)...")
             _easyocr_reader = easyocr.Reader(['en'], gpu=False)
         except Exception as e:
-            print(f"[OCR SERVICE WARNING] Failed to initialize EasyOCR: {e}")
+            logger.warning(f"[OCR SERVICE WARNING] Failed to initialize EasyOCR: {e}")
             _easyocr_reader = False
     return _easyocr_reader if _easyocr_reader is not False else None
 
@@ -97,23 +101,23 @@ def ocr_image_local(img: Image.Image) -> str:
                 if text and len(text.strip()) > 5:
                     return text.strip()
     except Exception as ex:
-        print(f"[OCR WARNING] EasyOCR note: {ex}")
+        logger.warning(f"[OCR WARNING] EasyOCR note: {ex}")
 
     # 2. Fallback: PyTesseract PSM 6
     try:
         text = pytesseract.image_to_string(img, lang="eng", config="--psm 6 --oem 1")
         if text and len(text.strip()) > 5:
             return text.strip()
-    except Exception:
-        pass
+    except Exception as tesseract_psm6_err:
+        logger.debug(f"PyTesseract PSM 6 fallback skipped: {tesseract_psm6_err}")
 
     # 3. Fallback: PyTesseract PSM 3
     try:
         text = pytesseract.image_to_string(img, lang="eng", config="--psm 3 --oem 1")
         if text and len(text.strip()) > 5:
             return text.strip()
-    except Exception:
-        pass
+    except Exception as tesseract_psm3_err:
+        logger.debug(f"PyTesseract PSM 3 fallback skipped: {tesseract_psm3_err}")
 
     return ""
 
@@ -181,7 +185,7 @@ def extract_pdf_with_local_ocr(pdf_bytes: bytes, filename: str) -> str:
     Full Local 0-AI-Token OCR processing pipeline for scanned PDFs.
     Uses optimal 200 DPI rendering + multi-process parallel execution for maximum speed and accuracy.
     """
-    print(f"[MODE: LOCAL_OCR] Executing High-Precision Parallel Local OCR pipeline for '{filename}' (0 AI tokens spent).")
+    logger.info(f"[MODE: LOCAL_OCR] Executing High-Precision Parallel Local OCR pipeline for '{filename}' (0 AI tokens spent).")
     
     pdf_doc = fitz.open(stream=pdf_bytes, filetype="pdf")
     page_count = len(pdf_doc)
@@ -189,7 +193,7 @@ def extract_pdf_with_local_ocr(pdf_bytes: bytes, filename: str) -> str:
 
     from concurrent.futures import ProcessPoolExecutor
     max_workers = min(4, os.cpu_count() or 4)
-    print(f"[MODE: LOCAL_OCR] Spawning {max_workers} parallel CPU processes...")
+    logger.info(f"[MODE: LOCAL_OCR] Spawning {max_workers} parallel CPU processes...")
 
     tasks = [(idx, pdf_bytes) for idx in range(page_count)]
     page_results = {}
@@ -198,9 +202,9 @@ def extract_pdf_with_local_ocr(pdf_bytes: bytes, filename: str) -> str:
         with ProcessPoolExecutor(max_workers=max_workers) as executor:
             for page_idx, page_md in executor.map(_process_single_page, tasks):
                 page_results[page_idx] = page_md
-                print(f" -> Page {page_idx + 1}/{page_count} OCR completed.")
+                logger.info(f" -> Page {page_idx + 1}/{page_count} OCR completed.")
     except Exception as e:
-        print(f"[OCR WARNING] ProcessPoolExecutor fallback to ThreadPoolExecutor due to: {e}")
+        logger.warning(f"[OCR WARNING] ProcessPoolExecutor fallback to ThreadPoolExecutor due to: {e}")
         from concurrent.futures import ThreadPoolExecutor
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             for page_idx, page_md in executor.map(_process_single_page, tasks):

@@ -1,7 +1,8 @@
 import json
 import re
 import difflib
-from typing import Optional, Dict, Any, List
+import logging
+from typing import Optional, Dict, Any, List, Annotated
 from pydantic import BaseModel
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
@@ -9,9 +10,11 @@ from ..db import get_db
 from ..models import Question, Vocabulary
 from ..services.gemini_service import query_gemini_with_cache, get_gemini_api_key
 
+logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/generate", tags=["generator"])
 
 def generate_similar_question_logic(orig_q: Question, db: Session) -> Dict[str, Any]:
+    """Generates a new TOEIC practice question mirroring the grammar topic and difficulty of the original question."""
     api_key = get_gemini_api_key()
     if not api_key:
         raise HTTPException(
@@ -88,8 +91,9 @@ CHỈ trả JSON."""
 @router.post("/similar/{question_id}")
 def generate_similar_question_endpoint(
     question_id: int,
-    db: Session = Depends(get_db)
-):
+    db: Annotated[Session, Depends(get_db)] = None # type: ignore
+) -> Dict[str, Any]:
+    """Generates a novel, pedagogical TOEIC practice question similar to an existing one using Gemini AI."""
     orig_q = db.query(Question).filter(Question.id == question_id).first()
     if not orig_q:
         raise HTTPException(status_code=404, detail="Không tìm thấy câu hỏi gốc")
@@ -114,12 +118,11 @@ class QuestionExplanationRequest(BaseModel):
 
 
 @router.post("/explain-question")
-def generate_question_explanation(req: QuestionExplanationRequest, db: Session = Depends(get_db)):
+def generate_question_explanation(req: QuestionExplanationRequest, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Generates AI detailed explanation & grammar knowledge recall for any question.
     Uses DB cache first (0 latency), falls back to live Gemini with upgraded quality prompt.
     """
-    # Fetch DB question for cached data
     db_q = None
     if req.question_id:
         db_q = db.query(Question).filter(Question.id == req.question_id).first()
@@ -143,12 +146,11 @@ def generate_question_explanation(req: QuestionExplanationRequest, db: Session =
                         "key_vocabulary": []
                     }
                 }
-        except Exception:
-            pass
+        except Exception as parse_err:
+            logger.warning(f"Failed parsing cached explanation JSON for question #{req.question_id}: {parse_err}")
 
     api_key = get_gemini_api_key()
 
-    # Upgraded prompt — specific, actionable, competitive quality
     prompt_type = "explain_question_v2"
     user_ans_str = req.user_answer if req.user_answer else "Không chọn"
     g_topic = req.grammar_topic or (db_q.grammar_topic if db_q else "Ngữ pháp TOEIC RC")
@@ -188,7 +190,6 @@ Trả về JSON duy nhất:
 }}
 CHỈ trả JSON thuần túy, không markdown, không giải thích thêm."""
 
-    # Use deterministic content_chunk (do NOT use Python built-in hash() which changes on process restart)
     clean_q_snippet = re.sub(r'\s+', ' ', req.question_text[:100]).strip()
     content_chunk = f"explain_v2::{req.question_id}::{req.correct_answer}::{user_ans_str}::{clean_q_snippet}"
 
@@ -211,7 +212,7 @@ CHỈ trả JSON thuần túy, không markdown, không giải thích thêm."""
                             db_q.explanation = f"Đáp án đúng: ({req.correct_answer}). " + data["grammar_recall"]
                         db.commit()
                     except Exception as commit_err:
-                        print(f"[AI EXPLAIN v2] Error saving AI data back to DB: {commit_err}")
+                        logger.warning(f"[AI EXPLAIN v2] Error saving AI data back to DB: {commit_err}")
 
                 return {
                     "status": "success",
@@ -228,7 +229,7 @@ CHỈ trả JSON thuần túy, không markdown, không giải thích thêm."""
                     }
                 }
         except Exception as e:
-            print(f"[AI EXPLAIN v2] Gemini call failed: {e}")
+            logger.warning(f"[AI EXPLAIN v2] Gemini call failed: {e}")
 
     # If DB lacks enriched AI data, fall back to live Gemini call or clear pending indicator
     fallback_exp = (db_q.explanation if db_q and db_q.explanation else f"Đáp án đúng là ({req.correct_answer}).")
@@ -237,8 +238,8 @@ CHỈ trả JSON thuần túy, không markdown, không giải thích thêm."""
     if db_q and db_q.option_explanations_json:
         try:
             fallback_opt_exps = json.loads(db_q.option_explanations_json)
-        except Exception:
-            pass
+        except Exception as json_err:
+            logger.warning(f"Failed parsing fallback option explanations for question #{db_q.id}: {json_err}")
 
     return {
         "status": "success",
@@ -256,10 +257,8 @@ CHỈ trả JSON thuần túy, không markdown, không giải thích thêm."""
     }
 
 
-
-
 @router.post("/study-recommendations")
-def generate_study_recommendations(req: StudyRecommendationRequest, db: Session = Depends(get_db)):
+def generate_study_recommendations(req: StudyRecommendationRequest, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Generates personalized AI study advice after exam completion based on user score & weak points.
     Discloses overall evaluation, weak grammar topics to review, and recommended Flashcard categories.
@@ -307,4 +306,3 @@ CHỈ trả JSON object."""
         )
 
     return data
-

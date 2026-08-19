@@ -9,16 +9,19 @@ interface NavbarProps {
   onBackToDocs: () => void;
 }
 
-type Tab = {
+interface TabItem {
   id: NavbarProps['activeTab'];
   label: string;
   shortLabel: string;
   icon: React.ReactNode;
   special?: boolean;
-};
+}
 
+/**
+ * Top navigation bar providing responsive tabs for Kho Đề, Roadmap, Thư Viện, Luyện Tập, Flashcards, and Thống Kê.
+ */
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selectedDocId, onBackToDocs }) => {
-  const tabs: Tab[] = [
+  const tabs: TabItem[] = [
     {
       id: 'textbooks',
       label: 'Kho Đề Cố Định',
@@ -64,7 +67,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
   };
 
   const isActive = (id: NavbarProps['activeTab']) => {
-    if (id === 'textbooks') return activeTab === 'textbooks' && !selectedDocId;
+    if (id === 'textbooks') {
+      return activeTab === 'textbooks' && !selectedDocId;
+    }
+
     return activeTab === id;
   };
 
@@ -112,6 +118,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
         <div className="flex items-center gap-0.5 h-10 overflow-x-auto scrollbar-none">
           {tabs.map((tab) => {
             const active = isActive(tab.id);
+
             return (
               <button
                 key={tab.id}

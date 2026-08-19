@@ -17,6 +17,9 @@ interface AIStudyRecommendationCardProps {
   weakParts: number[];
 }
 
+/**
+ * AI recommendation card analyzing practice scores to provide a personalized action plan and grammar review suggestions.
+ */
 export const AIStudyRecommendationCard: React.FC<AIStudyRecommendationCardProps> = ({
   scoreCorrect,
   scoreTotal,
@@ -24,11 +27,11 @@ export const AIStudyRecommendationCard: React.FC<AIStudyRecommendationCardProps>
   weakParts
 }) => {
   const [data, setData] = useState<AIRecommendationData | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [selectedGrammarTopic, setSelectedGrammarTopic] = useState<string | null>(null);
 
   useEffect(() => {
-    setLoading(true);
+    setIsLoading(true);
     axios
       .post<AIRecommendationData>('/api/generate/study-recommendations', {
         score_correct: scoreCorrect,
@@ -36,17 +39,17 @@ export const AIStudyRecommendationCard: React.FC<AIStudyRecommendationCardProps>
         weak_grammar_topics: weakGrammarTopics,
         weak_parts: weakParts
       })
-      .then((res) => {
-        setData(res.data);
-        setLoading(false);
+      .then((response) => {
+        setData(response.data);
+        setIsLoading(false);
       })
-      .catch((err) => {
-        console.error('Failed to fetch AI study recommendations:', err);
-        setLoading(false);
+      .catch((error) => {
+        console.error('Failed to fetch AI study recommendations:', error);
+        setIsLoading(false);
       });
   }, [scoreCorrect, scoreTotal, weakGrammarTopics, weakParts]);
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="p-6 rounded-3xl bg-theme-surface border border-theme space-y-3 text-center">
         <Loader2 className="w-8 h-8 animate-spin mx-auto text-theme-accent" />
@@ -57,7 +60,9 @@ export const AIStudyRecommendationCard: React.FC<AIStudyRecommendationCardProps>
     );
   }
 
-  if (!data) return null;
+  if (!data) {
+    return null;
+  }
 
   return (
     <div className="p-6 sm:p-8 rounded-3xl bg-theme-surface border border-theme shadow-2xl space-y-6 animate-in fade-in duration-300">
@@ -108,14 +113,14 @@ export const AIStudyRecommendationCard: React.FC<AIStudyRecommendationCardProps>
             <span>Chủ điểm ngữ pháp cần ôn lại khẩn cấp (Bấm để mở Thẻ Ôn Nhanh)</span>
           </div>
           <div className="flex flex-wrap gap-2 pt-1">
-            {data.grammar_to_review.map((gTopic, idx) => (
+            {data.grammar_to_review.map((grammarTopic, index) => (
               <button
-                key={idx}
-                onClick={() => setSelectedGrammarTopic(gTopic)}
+                key={index}
+                onClick={() => setSelectedGrammarTopic(grammarTopic)}
                 className="px-3 py-1.5 rounded-xl bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-bold transition flex items-center space-x-1.5"
               >
                 <BookOpen className="w-3.5 h-3.5" />
-                <span>{gTopic}</span>
+                <span>{grammarTopic}</span>
               </button>
             ))}
           </div>
@@ -130,12 +135,12 @@ export const AIStudyRecommendationCard: React.FC<AIStudyRecommendationCardProps>
             <span>Album từ vựng thương mại khuyến nghị làm Flashcard</span>
           </div>
           <div className="flex flex-wrap gap-2 pt-1">
-            {data.recommended_vocab_focus.map((vCat, idx) => (
+            {data.recommended_vocab_focus.map((vocabCategory, index) => (
               <span
-                key={idx}
+                key={index}
                 className="px-3 py-1.5 rounded-xl bg-theme-surface-2 text-theme-primary border border-theme text-xs font-semibold capitalize"
               >
-                {vCat}
+                {vocabCategory}
               </span>
             ))}
           </div>

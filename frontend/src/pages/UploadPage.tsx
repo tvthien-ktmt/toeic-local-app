@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { UploadCloud, FileText, Headphones, Trash2, Eye, ShieldCheck, Zap, AlertCircle, RefreshCw, FileCode, Loader2 } from 'lucide-react';
+import { UploadCloud, FileText, Headphones, ShieldCheck, AlertCircle, RefreshCw } from 'lucide-react';
 import { uploadDocument, fetchDocuments, deleteDocument } from '../api/documents';
 import type { DocumentSummary } from '../api/documents';
+import { UploadHeaderBanner } from '../components/UploadHeaderBanner';
+import { UploadDocumentCard } from '../components/UploadDocumentCard';
 
 interface UploadPageProps {
   onSelectDocument: (docId: number) => void;
 }
 
+/**
+ * Document upload and library management page for PDF/Markdown TOEIC exam papers and listening transcripts.
+ */
 export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
   const [documents, setDocuments] = useState<DocumentSummary[]>([]);
   const [docType, setDocType] = useState<'RC_EXAM' | 'LC_TRANSCRIPT'>('RC_EXAM');
@@ -34,8 +39,10 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
 
   // Poll every 2 seconds if any document is currently in 'processing' status
   useEffect(() => {
-    const hasProcessingDoc = documents.some(d => d.status === 'processing');
-    if (!hasProcessingDoc) return;
+    const hasProcessingDoc = documents.some((docItem) => docItem.status === 'processing');
+    if (!hasProcessingDoc) {
+      return;
+    }
 
     const interval = setInterval(() => {
       loadDocs(false);
@@ -45,7 +52,10 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
   }, [documents]);
 
   const handleFileUpload = async (file: File) => {
-    if (!file) return;
+    if (!file) {
+      return;
+    }
+
     setErrorMsg(null);
     setSuccessMsg(null);
     setIsUploading(true);
@@ -58,16 +68,16 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
         setSuccessMsg(`Tải lên & chuyển đổi thành công! Trích xuất ${result.markdown_content?.length.toLocaleString() || 0} ký tự Markdown.`);
       }
       await loadDocs(false);
-    } catch (err: any) {
-      console.error(err);
-      setErrorMsg(err.response?.data?.detail || 'Có lỗi xảy ra khi tải lên hoặc chuyển đổi file PDF.');
+    } catch (error: any) {
+      console.error(error);
+      setErrorMsg(error.response?.data?.detail || 'Có lỗi xảy ra khi tải lên hoặc chuyển đổi file PDF.');
     } finally {
       setIsUploading(false);
     }
   };
 
-  const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault();
+  const handleDragOver = (dragEvent: React.DragEvent) => {
+    dragEvent.preventDefault();
     setIsDragging(true);
   };
 
@@ -75,85 +85,38 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
     setIsDragging(false);
   };
 
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault();
+  const handleDrop = (dropEvent: React.DragEvent) => {
+    dropEvent.preventDefault();
     setIsDragging(false);
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      handleFileUpload(e.dataTransfer.files[0]);
+    if (dropEvent.dataTransfer.files && dropEvent.dataTransfer.files[0]) {
+      handleFileUpload(dropEvent.dataTransfer.files[0]);
     }
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      handleFileUpload(e.target.files[0]);
+  const handleFileChange = (changeEvent: React.ChangeEvent<HTMLInputElement>) => {
+    if (changeEvent.target.files && changeEvent.target.files[0]) {
+      handleFileUpload(changeEvent.target.files[0]);
     }
   };
 
-  const handleDelete = async (e: React.MouseEvent, id: number) => {
-    e.stopPropagation();
-    if (!window.confirm('Bạn có chắc chắn muốn xóa tài liệu này khỏi cơ sở dữ liệu?')) return;
+  const handleDelete = async (clickEvent: React.MouseEvent, id: number) => {
+    clickEvent.stopPropagation();
+    if (!window.confirm('Bạn có chắc chắn muốn xóa tài liệu này khỏi cơ sở dữ liệu?')) {
+      return;
+    }
+
     try {
       await deleteDocument(id);
-      setDocuments(documents.filter(d => d.id !== id));
+      setDocuments(documents.filter((docItem) => docItem.id !== id));
       setSuccessMsg('Đã xóa tài liệu thành công.');
-    } catch (err) {
+    } catch (error) {
       setErrorMsg('Không thể xóa tài liệu.');
     }
   };
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 space-y-10">
-      
-      {/* Header Banner */}
-      <div className="relative overflow-hidden rounded-3xl bg-theme-surface p-8 border border-theme shadow-2xl">
-        <div className="relative z-10 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-theme-accent/10 border border-theme-accent/30 text-theme-accent text-xs font-semibold">
-            <Zap className="w-3.5 h-3.5" /> MarkItDown & Local 2-Column OCR Engine
-          </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-theme-primary tracking-tight">
-            Upload PDF & Chuyển Đổi Sang Markdown
-          </h1>
-          <p className="text-theme-secondary max-w-2xl text-sm sm:text-base leading-relaxed">
-            Hỗ trợ cả PDF text thuần và <span className="text-theme-accent font-semibold">PDF Scan/Ảnh 2 cột (Local OCR 0 Token AI)</span>. Xử lý bất đồng bộ ở nền không gây treo giật máy!
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-theme-surface-2 border border-theme">
-              <ShieldCheck className="w-5 h-5 text-theme-accent shrink-0" />
-              <div>
-                <p className="text-xs font-semibold text-theme-primary">Local OCR 0 Token AI</p>
-                <p className="text-[11px] text-theme-secondary">PyMuPDF + Tesseract 2 Cột</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-theme-surface-2 border border-theme">
-              <Zap className="w-5 h-5 text-theme-warning shrink-0" />
-              <div>
-                <p className="text-xs font-semibold text-theme-primary">Async Background Worker</p>
-                <p className="text-[11px] text-theme-secondary">Không freeze UI khi xử lý</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-theme-surface-2 border border-theme">
-              <FileCode className="w-5 h-5 text-theme-accent shrink-0" />
-              <div>
-                <p className="text-xs font-semibold text-theme-primary">Clean Markdown Output</p>
-                <p className="text-[11px] text-theme-secondary">Tách đúng thứ tự Q101 &rarr; Q108</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Large PDF Multi-Test Safety Warning Banner */}
-      <div className="p-4 rounded-2xl alert-warning text-xs sm:text-sm flex items-start space-x-3 shadow-lg">
-        <AlertCircle className="w-5 h-5 alert-warning-icon shrink-0 mt-0.5" />
-        <div className="space-y-1">
-          <p className="font-bold alert-warning-title">Lưu ý quan trọng khi upload sách tổng hợp nhiều đề thi (450+ trang):</p>
-          <p className="leading-relaxed">
-            Hệ thống phân loại câu hỏi theo từng đề thi đơn lẻ (~25-30 trang/đề). Nếu bạn upload nguyên một cuốn sách 450+ trang chứa 10 đề thi gộp chung, câu hỏi giữa các đề thi khác nhau sẽ bị trộn lẫn vào nhau. 
-            <strong className="alert-warning-highlight"> Khuyên dùng:</strong> Hãy dùng công cụ tách file PDF (như Smallpdf hoặc ILovePDF) tách cuốn sách thành từng file đề thi riêng lẻ trước khi upload!
-          </p>
-        </div>
-      </div>
+      <UploadHeaderBanner />
 
       {/* Notifications */}
       {errorMsg && (
@@ -178,7 +141,6 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
 
       {/* Upload Zone & Config */}
       <div className="bg-theme-surface rounded-3xl p-6 sm:p-8 border border-theme shadow-xl space-y-6">
-        
         {/* Document Type Selector */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-theme">
           <div>
@@ -288,69 +250,17 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {documents.map((doc) => (
-              <div
-                key={doc.id}
-                onClick={() => onSelectDocument(doc.id)}
-                className="group relative bg-theme-surface hover:bg-theme-surface-2 rounded-2xl p-5 border border-theme hover:border-theme-accent shadow-lg transition-all duration-200 cursor-pointer flex flex-col justify-between"
-              >
-                <div className="space-y-3">
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2.5 rounded-xl border bg-theme-accent/10 border-theme-accent/30 text-theme-accent">
-                        {doc.doc_type === 'RC_EXAM' ? <FileText className="w-5 h-5" /> : <Headphones className="w-5 h-5" />}
-                      </div>
-                      <div className="overflow-hidden">
-                        <h3 className="font-bold text-theme-primary group-hover:text-theme-accent transition truncate text-sm">
-                          {doc.filename}
-                        </h3>
-                        <span className="text-[10px] font-semibold text-theme-secondary uppercase tracking-wider">
-                          {doc.doc_type === 'RC_EXAM' ? 'Reading Exam (Part 5-7)' : 'Listening Transcript (Part 1-4)'}
-                        </span>
-                      </div>
-                    </div>
-
-                    <button
-                      onClick={(e) => handleDelete(e, doc.id)}
-                      className="p-1.5 rounded-lg text-theme-secondary hover:text-theme-error hover:bg-theme-error/10 transition opacity-0 group-hover:opacity-100"
-                      title="Xóa tài liệu"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
-                  </div>
-
-                  <div className="flex items-center justify-between text-xs text-theme-secondary pt-2 border-t border-theme">
-                    <span className="inline-flex items-center gap-1 font-mono text-[11px]">
-                      <FileCode className="w-3.5 h-3.5 text-theme-accent" />
-                      {(doc.markdown_length / 1024).toFixed(1)} KB ({doc.markdown_length.toLocaleString()} chars)
-                    </span>
-                    <span>{new Date(doc.uploaded_at).toLocaleDateString('vi-VN')}</span>
-                  </div>
-                </div>
-
-                <div className="mt-4 pt-3 flex items-center justify-between border-t border-theme text-xs">
-                  {doc.status === 'processing' ? (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full alert-warning border border-theme-warning/30 text-[11px] font-medium animate-pulse">
-                      <Loader2 className="w-3 h-3 animate-spin text-theme-warning" />
-                      Đang OCR & trích xuất ở nền...
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full alert-success border border-theme-success/30 text-[11px] font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-theme-success" />
-                      {doc.status}
-                    </span>
-                  )}
-
-                  <span className="inline-flex items-center gap-1 text-theme-accent font-semibold group-hover:translate-x-1 transition-transform">
-                    <Eye className="w-3.5 h-3.5" /> Xem chi tiết &rarr;
-                  </span>
-                </div>
-              </div>
+            {documents.map((docItem) => (
+              <UploadDocumentCard
+                key={docItem.id}
+                doc={docItem}
+                onSelect={onSelectDocument}
+                onDelete={handleDelete}
+              />
             ))}
           </div>
         )}
       </div>
-
     </div>
   );
 };

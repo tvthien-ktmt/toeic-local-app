@@ -6,16 +6,21 @@ MODULE 12 — Pre-generate and seed all 45 lessons with strict pedagogical quali
 
 Run from backend/ directory: python app/scripts/module12_pregenerate_lessons.py
 """
-import sys, io, os, json, re, random
+import sys, io, os, json, re, random, logging
+from typing import Any
 
-sys.stdout.reconfigure(encoding='utf-8')
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+logger = logging.getLogger(__name__)
 
 from app.db import SessionLocal, engine, Base
 from app.models import CurriculumTopic, Lesson, Question
 
 
-def get_options_list(opts_raw):
+def get_options_list(opts_raw: Any) -> list:
     """Normalize options list to [A_text, B_text, C_text, D_text]."""
     if not opts_raw:
         return []
@@ -25,12 +30,12 @@ def get_options_list(opts_raw):
             return [re.sub(r'^[A-D][.\s]+', '', str(o)).strip() for o in data]
         elif isinstance(data, dict):
             return [re.sub(r'^[A-D][.\s]+', '', str(v)).strip() for v in data.values()]
-    except Exception:
-        pass
+    except Exception as parse_opts_err:
+        logger.debug(f"Could not parse raw options JSON: {parse_opts_err}")
     return []
 
 
-def classify_questions_for_topic(all_qs, topic_id, topic_name, limit=5, exclude_ids=None):
+def classify_questions_for_topic(all_qs: list, topic_id: int, topic_name: str, limit: int = 5, exclude_ids: set = None) -> list:
     """Filter distinct questions specifically relevant to topic_id, excluding already used IDs."""
     if exclude_ids is None:
         exclude_ids = set()
@@ -97,7 +102,7 @@ def classify_questions_for_topic(all_qs, topic_id, topic_name, limit=5, exclude_
     return matched[:limit]
 
 
-def generate_option_explanations(q, topic_id):
+def generate_option_explanations(q: Any, topic_id: int) -> tuple:
     """Generate detailed, pedagogical option-by-option explanation for a question."""
     opts = get_options_list(q.options_json)
     ans = (q.correct_answer or 'A').upper()
@@ -337,19 +342,20 @@ Chủ điểm **{topic.canonical_name}** là một phần kiến thức nền t�
     return lesson
 
 
-def main():
-    print("==========================================================")
-    print("MODULE 12 — Rebuilding with DISJOINT worked & quiz questions")
-    print("==========================================================")
+def main() -> None:
+    """Pre-generates 45 complete pedagogical lessons with disjoint worked examples and quick-check quizzes."""
+    logger.info("==========================================================")
+    logger.info("MODULE 12 — Rebuilding with DISJOINT worked & quiz questions")
+    logger.info("==========================================================")
 
     db = SessionLocal()
     try:
         deleted_count = db.query(Lesson).delete()
         db.commit()
-        print(f"Cleared {deleted_count} old lessons from SQLite DB.")
+        logger.info(f"Cleared {deleted_count} old lessons from SQLite DB.")
 
         topics = db.query(CurriculumTopic).all()
-        print(f"Processing {len(topics)} canonical topics...")
+        logger.info(f"Processing {len(topics)} canonical topics...")
 
         created_count = 0
         for topic in topics:
@@ -358,7 +364,7 @@ def main():
             created_count += 1
 
         db.commit()
-        print(f"\n✅ Successfully seeded {created_count} lessons with DISJOINT worked and quiz question IDs!")
+        logger.info(f"\n✅ Successfully seeded {created_count} lessons with DISJOINT worked and quiz question IDs!")
 
     finally:
         db.close()

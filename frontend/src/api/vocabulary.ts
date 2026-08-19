@@ -64,36 +64,59 @@ export interface SuggestedVocabResult {
   in_flashcard: boolean;
 }
 
-export const fetchVocabulary = async (params: {
+export interface FetchVocabularyParams {
   document_id?: number;
   appears_in_part?: string;
   topic_category?: string;
   search?: string;
   page?: number;
   limit?: number;
-}): Promise<VocabularyListResponse> => {
-  const response = await axios.get<VocabularyListResponse>('/api/vocabulary', { params });
-  return response.data;
-};
+}
 
-export const fetchTopicAlbums = async (): Promise<TopicAlbumsResponse> => {
-  const response = await axios.get<TopicAlbumsResponse>('/api/vocabulary/topics/albums');
-  return response.data;
-};
-
-export const lookupVocabularyWord = async (data: {
+export interface LookupVocabularyParams {
   word: string;
   context_sentence?: string;
   document_id?: number;
-}): Promise<VocabularyLookupResult> => {
-  const response = await axios.post<VocabularyLookupResult>('/api/vocabulary/lookup', data);
+}
+
+export interface SuggestRelatedVocabularyParams {
+  word: string;
+  topic_category?: string;
+}
+
+/**
+ * Retrieves paginated vocabulary entries with associated SRS flashcard progress.
+ */
+export const fetchVocabulary = async (params: FetchVocabularyParams): Promise<VocabularyListResponse> => {
+  const response = await axios.get<VocabularyListResponse>('/api/vocabulary', { params });
+
   return response.data;
 };
 
-export const suggestRelatedVocabulary = async (data: {
-  word: string;
-  topic_category?: string;
-}): Promise<SuggestedVocabResult[]> => {
-  const response = await axios.post<SuggestedVocabResult[]>('/api/vocabulary/suggest-related', data);
+/**
+ * Fetches topic album collections with total words and learned words counts.
+ */
+export const fetchTopicAlbums = async (): Promise<TopicAlbumsResponse> => {
+  const response = await axios.get<TopicAlbumsResponse>('/api/vocabulary/topics/albums');
+
   return response.data;
 };
+
+/**
+ * Looks up instantaneous definition, IPA, POS, and examples for a highlighted word.
+ */
+export const lookupVocabularyWord = async (data: LookupVocabularyParams): Promise<VocabularyLookupResult> => {
+  const response = await axios.post<VocabularyLookupResult>('/api/vocabulary/lookup', data);
+
+  return response.data;
+};
+
+/**
+ * Requests AI-suggested related synonyms, collocations, and contextual terms.
+ */
+export const suggestRelatedVocabulary = async (data: SuggestRelatedVocabularyParams): Promise<SuggestedVocabResult[]> => {
+  const response = await axios.post<SuggestedVocabResult[]>('/api/vocabulary/suggest-related', data);
+
+  return response.data;
+};
+

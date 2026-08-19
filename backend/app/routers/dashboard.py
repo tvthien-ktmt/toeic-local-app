@@ -1,5 +1,5 @@
-from typing import Dict, Any, List
-from datetime import datetime, timedelta
+from typing import Dict, Any, List, Annotated
+from datetime import datetime, timedelta, timezone
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from sqlalchemy import func, case, cast, Float, Integer
@@ -10,12 +10,12 @@ from ..schemas import StudySessionCreate
 router = APIRouter(prefix="/api/dashboard", tags=["dashboard"])
 
 @router.post("/study-session")
-def record_study_session(req: StudySessionCreate, db: Session = Depends(get_db)):
+def record_study_session(req: StudySessionCreate, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Module 20.1: Records a study session duration (in seconds) from frontend.
     """
     dur = max(1, req.duration_seconds)
-    now = datetime.utcnow()
+    now = datetime.now(timezone.utc)
     start_time = now - timedelta(seconds=dur)
 
     session = StudySession(
@@ -31,7 +31,7 @@ def record_study_session(req: StudySessionCreate, db: Session = Depends(get_db))
 
 
 @router.get("/stats")
-def get_dashboard_stats(db: Session = Depends(get_db)):
+def get_dashboard_stats(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Returns aggregated learning progress, Module 19 Part Speed Analytics & Module 20 Study Time Analytics.
     DoD: Direct SQL aggregation, fast load times (< 100ms).
@@ -54,7 +54,7 @@ def get_dashboard_stats(db: Session = Depends(get_db)):
     overall_accuracy = round((correct_attempts / total_attempts * 100), 1) if total_attempts > 0 else 0.0
 
     # 4. Module 20 Study Time & Consistency Analytics
-    now = datetime.utcnow()
+    now = datetime.now(timezone.utc)
     seven_days_ago = now - timedelta(days=7)
     thirty_days_ago = now - timedelta(days=30)
 

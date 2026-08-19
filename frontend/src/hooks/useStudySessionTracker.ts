@@ -1,6 +1,9 @@
 import { useEffect, useRef } from 'react';
 import axios from 'axios';
 
+/**
+ * Custom hook tracking user active study duration and flushing session stats to backend upon unmount/navigation.
+ */
 export const useStudySessionTracker = (sessionType: 'practice' | 'quiz' | 'flashcard' | 'reading') => {
   const startTimeRef = useRef<number>(Date.now());
 

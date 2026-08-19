@@ -19,6 +19,7 @@ logger = logging.getLogger("gemini_service")
 logging.basicConfig(level=logging.INFO)
 
 def get_gemini_api_keys() -> List[str]:
+    """Retrieves all configured Gemini API keys (primary and secondary rotation keys) from environment."""
     keys = []
     # Primary key
     k_main = os.getenv("GEMINI_API_KEY", "").strip()
@@ -34,10 +35,12 @@ def get_gemini_api_keys() -> List[str]:
     return keys
 
 def get_gemini_api_key() -> str:
+    """Returns the primary active Gemini API key from the rotation pool."""
     keys = get_gemini_api_keys()
     return keys[0] if keys else ""
 
 def get_input_hash(prompt_type: str, content_chunk: str) -> str:
+    """Computes a SHA-256 fingerprint from prompt type and content chunk for SQLite AI caching."""
     raw = f"{prompt_type}::{content_chunk}"
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
@@ -131,8 +134,8 @@ def query_gemini_with_cache(
         logger.info(f"[SQLITE CACHE HIT] prompt_type='{prompt_type}', hash={input_hash[:10]}... (Returned from DB cache, 0 API tokens spent)")
         try:
             return json.loads(cached.response_json)
-        except json.JSONDecodeError:
-            pass
+        except json.JSONDecodeError as cache_decode_err:
+            logger.warning(f"[CACHE CORRUPT] Invalid JSON in cache for hash {input_hash[:10]}: {cache_decode_err}")
 
     logger.info(f"[SQLITE CACHE MISS] prompt_type='{prompt_type}', hash={input_hash[:10]}... Triggering live Gemini API request...")
     
@@ -159,13 +162,13 @@ def query_gemini_with_cache(
         if arr_match:
             try:
                 parsed_json = json.loads(arr_match.group(0))
-            except Exception:
-                pass
+            except Exception as regex_arr_err:
+                logger.debug(f"Regex array parse failed: {regex_arr_err}")
         if not parsed_json and obj_match:
             try:
                 parsed_json = json.loads(obj_match.group(0))
-            except Exception:
-                pass
+            except Exception as regex_obj_err:
+                logger.debug(f"Regex object parse failed: {regex_obj_err}")
 
         if not parsed_json and cleaned_response.startswith("["):
             last_brace = cleaned_response.rfind("}")
@@ -174,8 +177,8 @@ def query_gemini_with_cache(
                 try:
                     parsed_json = json.loads(truncated_array)
                     logger.info(f"[GEMINI JSON REPAIR SUCCESS] Truncated JSON array repaired cleanly! Parsed {len(parsed_json)} valid items.")
-                except Exception:
-                    pass
+                except Exception as trunc_err:
+                    logger.debug(f"Array truncation repair parse failed: {trunc_err}")
 
         if parsed_json is None:
             logger.error(f"[GEMINI JSON PARSE ERROR] Failed to parse JSON response ({len(cleaned_response)} chars):\n{cleaned_response[:500]}...")

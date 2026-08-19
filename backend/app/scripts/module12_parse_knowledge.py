@@ -3,9 +3,11 @@ MODULE 12.1 — Parse 4 knowledge files into structured curriculum topics
 Canonical topic = cross-reference from ChatGPT.txt, Gemini.txt, Grok.txt, Claude.txt
 Output: JSON file backend/data/curriculum_seed.json for review before DB import
 """
-import json, sys, io, os
+import json, sys, io, os, logging
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+logger = logging.getLogger(__name__)
 
 KNOWLEDGE_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "Knowlegle_RC")
 
@@ -14,7 +16,7 @@ KNOWLEDGE_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "Knowl
 # STEP 1: Parse each source file into items
 # ====================================================
 
-def parse_chatgpt(text):
+def parse_chatgpt(text: str) -> list:
     """ChatGPT.txt: Structured with markdown headings (####), clear enumeration."""
     items = []
     # Grammar topics Part 5
@@ -124,7 +126,7 @@ def parse_chatgpt(text):
     return items
 
 
-def parse_gemini(text):
+def parse_gemini(text: str) -> list:
     """Gemini.txt: Vietnamese prose with some bold headings."""
     items = []
     grammar_topics = [
@@ -182,7 +184,7 @@ def parse_gemini(text):
     return items
 
 
-def parse_grok(text):
+def parse_grok(text: str) -> list:
     """Grok.txt: Markdown with tables, bold headers, ratio percentages."""
     items = []
     grammar_topics = [
@@ -243,7 +245,7 @@ def parse_grok(text):
     return items
 
 
-def parse_claude(text):
+def parse_claude(text: str) -> list:
     """Claude.txt: Most detailed, 15 grammar points explicitly numbered."""
     items = []
     grammar_topics = [
@@ -329,7 +331,8 @@ def parse_claude(text):
 # STEP 2: Parse all 4 files
 # ====================================================
 
-def read_file(fname):
+def read_file(fname: str) -> str:
+    """Reads raw contents of a knowledge benchmark text file with UTF-8 encoding."""
     fpath = os.path.join(KNOWLEDGE_DIR, fname)
     with open(fpath, 'r', encoding='utf-8', errors='replace') as f:
         return f.read()
@@ -345,8 +348,8 @@ grok_items = parse_grok(grok_text)
 claude_items = parse_claude(claude_text)
 
 all_items = chatgpt_items + gemini_items + grok_items + claude_items
-print(f"Parsed items: ChatGPT={len(chatgpt_items)}, Gemini={len(gemini_items)}, Grok={len(grok_items)}, Claude={len(claude_items)}")
-print(f"Total raw items: {len(all_items)}")
+logger.info(f"Parsed items: ChatGPT={len(chatgpt_items)}, Gemini={len(gemini_items)}, Grok={len(grok_items)}, Claude={len(claude_items)}")
+logger.info(f"Total raw items: {len(all_items)}")
 
 # ====================================================
 # STEP 3: Cross-reference → canonical topics
@@ -861,20 +864,20 @@ grammar_topics = [t for t in curriculum_seed if t["category"] == "grammar_topic"
 question_types = [t for t in curriculum_seed if t["category"] == "question_type"]
 vocab_topics = [t for t in curriculum_seed if t["category"] == "vocab_topic"]
 
-print(f"\n=== MODULE 12.1 — CURRICULUM SEED REPORT ===")
-print(f"Total canonical topics: {total}")
-print(f"  Grammar topics: {len(grammar_topics)}")
-print(f"  Question types: {len(question_types)}")
-print(f"  Vocab topic areas: {len(vocab_topics)}")
-print(f"\nDB Coverage:")
-print(f"  Topics with specific DB grammar_topic: {has_specific}")
-print(f"  Topics with ONLY generic DB topic (need reclassification): {no_specific}")
-print(f"\n=== DoD: 10 random spot-check ===")
+logger.info(f"\n=== MODULE 12.1 — CURRICULUM SEED REPORT ===")
+logger.info(f"Total canonical topics: {total}")
+logger.info(f"  Grammar topics: {len(grammar_topics)}")
+logger.info(f"  Question types: {len(question_types)}")
+logger.info(f"  Vocab topic areas: {len(vocab_topics)}")
+logger.info(f"\nDB Coverage:")
+logger.info(f"  Topics with specific DB grammar_topic: {has_specific}")
+logger.info(f"  Topics with ONLY generic DB topic (need reclassification): {no_specific}")
+logger.info(f"\n=== DoD: 10 random spot-check ===")
 import random
 random.seed(42)
 for t in random.sample(curriculum_seed, min(10, len(curriculum_seed))):
-    print(f"  [{t['id']:02d}] [{t['category'][:12]:12s}] [{t['level']:12s}] {t['canonical_name'][:60]}")
-    print(f"        Source count: {t['source_count']}/4  |  DB questions: {t['question_count_in_db']}")
+    logger.info(f"  [{t['id']:02d}] [{t['category'][:12]:12s}] [{t['level']:12s}] {t['canonical_name'][:60]}")
+    logger.info(f"        Source count: {t['source_count']}/4  |  DB questions: {t['question_count_in_db']}")
 
 # Save seed file
 output_path = os.path.join(os.path.dirname(__file__), "..", "..", "data", "curriculum_seed.json")
@@ -882,5 +885,5 @@ output_path = os.path.abspath(output_path)
 os.makedirs(os.path.dirname(output_path), exist_ok=True)
 with open(output_path, 'w', encoding='utf-8') as f:
     json.dump(curriculum_seed, f, ensure_ascii=False, indent=2)
-print(f"\n✅ Saved curriculum_seed.json to: {output_path}")
-print(f"   Total {len(curriculum_seed)} canonical topics ready for review before DB import")
+logger.info(f"\n✅ Saved curriculum_seed.json to: {output_path}")
+logger.info(f"   Total {len(curriculum_seed)} canonical topics ready for review before DB import")

@@ -1,5 +1,5 @@
 import json
-from typing import List, Optional
+from typing import List, Optional, Dict, Any, Annotated
 from fastapi import APIRouter, Depends, Query, HTTPException, status
 from sqlalchemy.orm import Session
 from sqlalchemy import func
@@ -17,8 +17,9 @@ def list_questions(
     topic_tag: Optional[str] = None,
     page: int = Query(1, ge=1),
     limit: int = Query(20, ge=1, le=100),
-    db: Session = Depends(get_db)
-):
+    db: Annotated[Session, Depends(get_db)] = None # type: ignore
+) -> Dict[str, Any]:
+    """Retrieves paginated practice questions filtered by document, Part, or grammar topic."""
     query = db.query(Question)
 
     if document_id is not None:
@@ -63,7 +64,8 @@ def list_questions(
     }
 
 @router.get("/topics/summary")
-def get_topics_summary(db: Session = Depends(get_db)):
+def get_topics_summary(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
+    """Aggregates question counts grouped by grammar topic and passage topic tags."""
     grammar_topics = db.query(
         Question.grammar_topic, func.count(Question.id)
     ).filter(Question.grammar_topic.isnot(None)).group_by(Question.grammar_topic).all()
@@ -78,7 +80,8 @@ def get_topics_summary(db: Session = Depends(get_db)):
     }
 
 @router.get("/{question_id}")
-def get_question_detail(question_id: int, db: Session = Depends(get_db)):
+def get_question_detail(question_id: int, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
+    """Fetches full question details including option explanations, translations, and common traps."""
     q = db.query(Question).filter(Question.id == question_id).first()
     if not q:
         raise HTTPException(status_code=404, detail="Không tìm thấy câu hỏi")
@@ -114,7 +117,7 @@ class QuestionAttemptRequest(BaseModel):
 
 
 @router.post("/attempt")
-def record_question_attempt(req: QuestionAttemptRequest, db: Session = Depends(get_db)):
+def record_question_attempt(req: QuestionAttemptRequest, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Module 19.3: Records practice attempt with timing and Part info for speed analytics.
     """

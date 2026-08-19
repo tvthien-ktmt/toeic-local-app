@@ -1,0 +1,88 @@
+Phần thi Reading của TOEIC (Đọc hiểu) kéo dài 75 phút, bao gồm Part 5, Part 6 và Part 7 với tổng cộng 100 câu hỏi. Dưới đây là bức tranh tổng thể và chi tiết nhất về các dạng bài, dạng câu hỏi, điểm ngữ pháp và chủ đề từ vựng bạn sẽ gặp trong 3 phần này.
+
+---
+
+## 1. Part 5: Incomplete Sentences (Điền từ vào câu)
+
+**Tổng số câu:** 30 câu (Câu 101 - 130)
+**Nhiệm vụ:** Chọn 1 đáp án (A, B, C, D) điền vào chỗ trống để tạo thành một câu đúng ngữ pháp và ngữ nghĩa.
+
+### Các dạng câu hỏi chính:
+
+Part 5 được chia làm 2 dạng chính là **Ngữ pháp** và **Từ vựng** (tỉ lệ thường là 40% ngữ pháp, 60% từ vựng).
+
+**1. Dạng câu hỏi Ngữ pháp (Grammar):**
+
+* **Từ loại (Parts of speech):** Dạng bài "ăn điểm". Cho cùng 1 gốc từ (ví dụ: *produce, product, productive, productivity*), bạn phải xác định chỗ trống cần Danh từ, Động từ, Tính từ hay Trạng từ.
+* **Thì của động từ (Verb tenses):** Chia thì quá khứ, hiện tại, tương lai, hoàn thành dựa vào dấu hiệu nhận biết thời gian trong câu.
+* **Câu bị động (Passive voice):** Phân biệt khi nào chủ ngữ thực hiện hành động (chủ động) hoặc bị tác động (bị động).
+* **Đại từ (Pronouns):** Chọn đại từ nhân xưng (he/she), đại từ phản thân (himself), tính từ sở hữu (his/her) hoặc đại từ sở hữu (his/hers).
+* **Giới từ & Liên từ (Prepositions & Conjunctions):** Phân biệt cách dùng *because/because of, although/despite, in/on/at/during/within*.
+* **Mệnh đề quan hệ (Relative clauses):** Sử dụng *who, whom, which, that, whose* hoặc rút gọn mệnh đề quan hệ (V-ing / V-ed).
+
+**2. Dạng câu hỏi Từ vựng (Vocabulary):**
+
+* **Nghĩa của từ:** Bốn đáp án là 4 từ hoàn toàn khác nhau nhưng cùng từ loại. Buộc bạn phải dịch được ngữ cảnh của câu.
+* **Cụm từ cố định (Collocations & Idioms):** Những từ luôn đi liền với nhau. Ví dụ: *make a decision* (không dùng *do a decision*), *highly recommended*.
+* **Cụm động từ (Phrasal verbs):** Ví dụ: *look forward to, turn down, carry out*.
+
+---
+
+## 2. Part 6: Text Completion (Điền từ vào đoạn văn)
+
+**Tổng số câu:** 16 câu (Câu 131 - 146) gồm 4 đoạn văn, mỗi đoạn có 4 chỗ trống.
+**Nhiệm vụ:** Tương tự Part 5 nhưng đặt trong ngữ cảnh của một đoạn văn dài.
+
+### Các dạng bài (Văn bản):
+
+* **Email / Letter:** Thư điện tử, thư tín thương mại (hỏi thăm, thông báo nghỉ việc, khiếu nại...).
+* **Memo (Bản ghi nhớ):** Thông báo nội bộ trong công ty (thay đổi chính sách, nhắc nhở nhân viên).
+* **Notice / Announcement:** Thông báo dán ở nơi công cộng hoặc công ty (sửa chữa thang máy, đổi giờ làm).
+* **Article:** Bài báo ngắn (giới thiệu sản phẩm mới, vinh danh cá nhân).
+
+### Các dạng câu hỏi:
+
+* **Ngữ pháp & Từ vựng (như Part 5):** Tuy nhiên, để chọn đúng, bạn thường phải đọc cả câu trước hoặc câu sau chỗ trống thay vì chỉ nhìn vào 1 câu độc lập.
+* **Điền CẢ MỘT CÂU (Sentence Insertion):** Đây là dạng câu khó nhất của Part 6. Bốn đáp án là 4 câu hoàn chỉnh. Bạn phải hiểu mạch văn (logic) của đoạn để chọn câu phù hợp nhất chèn vào chỗ trống.
+
+---
+
+## 3. Part 7: Reading Comprehension (Đọc hiểu đoạn văn)
+
+**Tổng số câu:** 54 câu (Câu 147 - 200). Đây là phần dài nhất, tốn sức nhất và quyết định điểm số của bạn.
+
+### Các dạng bài (Cấu trúc đoạn):
+
+* **Single Passages (Đoạn đơn):** 10 đoạn văn, mỗi đoạn đi kèm 2-4 câu hỏi. (29 câu)
+* **Double Passages (Đoạn kép):** 2 bài đọc kép (mỗi bài gồm 2 đoạn văn liên quan nhau), mỗi bài 5 câu hỏi. (10 câu)
+* **Triple Passages (Đoạn ba):** 3 bài đọc ba (mỗi bài gồm 3 đoạn văn liên quan nhau), mỗi bài 5 câu hỏi. (15 câu)
+
+*Các loại văn bản thường gặp nhất:*
+
+* Email/Thư từ qua lại (chủ đề công việc, mua bán).
+* Chuỗi tin nhắn chat (Text message chain) - thường có nhiều người tham gia thảo luận.
+* Quảng cáo (Advertisement).
+* Hóa đơn, biên lai, vé máy bay, lịch trình (Schedules/Invoices).
+* Bài báo, đánh giá sản phẩm (Articles/Reviews).
+* Trang web (Web page/Online form).
+
+### Các dạng câu hỏi:
+
+1. **Câu hỏi Ý chính (Main idea / Purpose):** *Why was the email written? What is the main topic of the article?*
+2. **Câu hỏi Chi tiết (Detail questions):** Tìm thông tin cụ thể có sẵn trong bài. *How much is the discount? When will the event start?*
+3. **Câu hỏi Suy luận (Inference):** Thông tin không viết trực tiếp, bạn phải tự suy ra. *What is suggested about Mr. Smith? What will most likely happen next?*
+4. **Câu hỏi Đồng nghĩa (Vocabulary in context):** Hỏi một từ trong đoạn văn mang nghĩa gần nhất với từ nào. *The word "address" in paragraph 1 is closest in meaning to...?*
+5. **Câu hỏi Liên kết thông tin (chỉ có ở đoạn kép/ba):** Buộc bạn phải đối chiếu dữ liệu từ Đoạn 1 và Đoạn 2 (hoặc 3) mới ra được đáp án. (Ví dụ: Đoạn 1 giảm giá cho người mua trên $50. Đoạn 2 cho thấy hóa đơn của bà A là $60 $\rightarrow$ Suy ra bà A được giảm giá).
+6. **Câu hỏi Điền câu vào vị trí (Sentence location):** Bài thi đánh số [1], [2], [3], [4] trong đoạn văn và hỏi một câu cho trước nên đặt vào vị trí nào thì hợp logic nhất.
+
+---
+
+## 4. Các chủ đề Từ vựng trọng tâm (Bao trùm cả Part 5, 6, 7)
+
+Bài thi TOEIC xoay quanh môi trường làm việc quốc tế và giao tiếp thường nhật. Bạn cần nắm chắc từ vựng của các chủ đề sau:
+
+* **Nhân sự (Human Resources):** Tuyển dụng, phỏng vấn, lương thưởng, phúc lợi, thăng tiến, sa thải, đào tạo (*recruit, resume, benefit, promote, evaluate*).
+* **Kinh doanh & Tài chính (Business & Finance):** Hợp đồng, đàm phán, ngân sách, thuế, doanh thu, lợi nhuận, kế toán (*contract, negotiate, budget, revenue, asset*).
+* **Sản xuất & Bán lẻ (Manufacturing & Retail):** Dây chuyền sản xuất, kiểm tra chất lượng, đặt hàng, vận chuyển, hàng tồn kho (*assembly line, quality control, inventory, shipment*).
+* **Văn phòng (Office Issues):** Sửa chữa máy móc, đặt văn phòng phẩm, họp hành, lịch trình, công tác (*maintenance, supplies, agenda, itinerary*).
+* **Dịch vụ & Đời sống (Services & Daily Life):** Đặt phòng khách sạn, nhà hàng, mua sắm, bảo hành, y tế, bất động sản (*reservation, warranty, prescription, lease*).

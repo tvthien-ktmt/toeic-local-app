@@ -10,7 +10,7 @@ def chunk_markdown_document(markdown_text: str, doc_type: str) -> List[Dict[str,
         return chunks
 
     if doc_type == "RC_EXAM":
-        # Strategy 1: Look for PART headings or 'Questions XXX-XXX'
+        # Strategy 1: Look for PART headings or 'Questions 101-200'
         part5_match = re.search(r'(?i)(#+\s*PART\s*5|PART\s*5|Questions?\s*101[\s\-–]+130)', markdown_text)
         part6_match = re.search(r'(?i)(#+\s*PART\s*6|PART\s*6|Questions?\s*131[\s\-–]+146)', markdown_text)
         part7_match = re.search(r'(?i)(#+\s*PART\s*7|PART\s*7|Questions?\s*147[\s\-–]+200)', markdown_text)
@@ -36,9 +36,9 @@ def chunk_markdown_document(markdown_text: str, doc_type: str) -> List[Dict[str,
                     chunks.append({"part": part_num, "content": part_text})
         else:
             # Fallback strategy: Multiline regex search for question numbers 101, 131, 147 at line starts -> Part 5/6/7
-            q101 = re.search(r'(?m)^\s*(?:Questions?\s*)?101\.', markdown_text) or re.search(r'\b101\.', markdown_text)
-            q131 = re.search(r'(?m)^\s*(?:Questions?\s*)?131\.', markdown_text) or re.search(r'\b131\.', markdown_text)
-            q147 = re.search(r'(?m)^\s*(?:Questions?\s*)?147\.', markdown_text) or re.search(r'\b147\.', markdown_text)
+            q101 = re.search(r'(?m)^\s*(?:Questions?\s*)?101[\.\:\s]', markdown_text)
+            q131 = re.search(r'(?m)^\s*(?:Questions?\s*)?131[\.\:\s]', markdown_text)
+            q147 = re.search(r'(?m)^\s*(?:Questions?\s*)?147[\.\:\s]', markdown_text)
 
             pos2 = []
             if q101: pos2.append((q101.start(), 5))

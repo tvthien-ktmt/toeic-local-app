@@ -13,12 +13,12 @@ Handles:
 import json
 import re
 import hashlib
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Tuple, Annotated
 from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 from pydantic import BaseModel
-from datetime import datetime
+from datetime import datetime, timezone
 
 from ..db import get_db
 from ..models import CurriculumTopic, Lesson, UserMastery, Question, ExamAttempt
@@ -34,10 +34,8 @@ MASTERY_WEAK_THRESHOLD = 30     # >= 30% and < 60% correct → "weak"
 # < 30% or 0 attempts → "unknown"
 
 
-# ====================================================
-# Helper: Compute mastery status from pct
-# ====================================================
-def compute_mastery_status(correct: int, total: int) -> tuple:
+def compute_mastery_status(correct: int, total: int) -> Tuple[str, float]:
+    """Calculates user mastery status ('ok', 'weak', or 'unknown') and accuracy percentage."""
     if total == 0:
         return "unknown", 0.0
     pct = correct / total * 100
@@ -59,7 +57,8 @@ def build_ordered_roadmap(topics: List[CurriculumTopic]) -> List[CurriculumTopic
     visited = set()
     result = []
 
-    def visit(tid):
+    def _visit(tid: int) -> None:
+        """Recursive helper for depth-first topological traversal of prerequisites."""
         if tid in visited:
             return
         visited.add(tid)
@@ -68,11 +67,11 @@ def build_ordered_roadmap(topics: List[CurriculumTopic]) -> List[CurriculumTopic
             return
         # Visit prerequisite first
         if t.prerequisite_topic_id and t.prerequisite_topic_id in id_map:
-            visit(t.prerequisite_topic_id)
+            _visit(t.prerequisite_topic_id)
         result.append(t)
 
     for t in topics:
-        visit(t.id)
+        _visit(t.id)
 
     return result
 
@@ -201,27 +200,33 @@ CHỈ trả JSON thuần túy, không markdown bọc ngoài."""
 ### Tóm tắt nhanh
 {result.get('grammar_recall', '')}
 """
-        if not has_real:
-            content_md = "> ⚠️ **Chưa có ví dụ thật từ CSDL** — Ví dụ bên dưới do AI tạo minh hoạ.\n\n" + content_md
+            # Append real examples if available
+            if real_questions:
+                content_md += "\n\n### Ví dụ từ đề thi thật\n"
+                for i, q in enumerate(real_questions, 1):
+                    try:
+                        opts = json.loads(q.options_json)
+                    except Exception:
+                        opts = {}
+                    opts_text = "\n".join(f"- ({k}) {v}" for k, v in opts.items() if isinstance(opts, dict))
+                    content_md += f"\n**Ví dụ {i}:** {q.question_text}\n{opts_text}\n\n**Đáp án đúng:** ({q.correct_answer})\n\n"
 
-        # Quick check: pick random questions same topic
-        quick_check_ids = []
-        all_topic_qs = db.query(Question).filter(
-            Question.grammar_topic.in_(mapped_topics),
-            Question.part.in_(json.loads(topic.parts_json or "[5]")),
-            Question.correct_answer != None,
-        ).all()
-        import random
-        if len(all_topic_qs) >= 5:
-            quick_check_ids = [q.id for q in random.sample(all_topic_qs, 5)]
-        elif all_topic_qs:
-            quick_check_ids = [q.id for q in all_topic_qs]
+        # Check for Quick Check questions: find up to 3 real questions
+        quick_check_qs = []
+        if mapped_topics:
+            quick_candidates = db.query(Question).filter(
+                Question.grammar_topic.in_(mapped_topics),
+                Question.id.notin_([q.id for q in real_questions]),
+                Question.correct_answer != None,
+                Question.question_text != None,
+            ).limit(3).all()
+            quick_check_qs = [q.id for q in quick_candidates]
 
         lesson = Lesson(
             curriculum_topic_id=topic.id,
             content_markdown=content_md,
             worked_example_question_ids_json=json.dumps([q.id for q in real_questions]),
-            quick_check_question_ids_json=json.dumps(quick_check_ids),
+            quick_check_question_ids_json=json.dumps(quick_check_qs),
             has_real_examples=has_real,
             ai_cache_hash=input_hash,
         )
@@ -231,20 +236,18 @@ CHỈ trả JSON thuần túy, không markdown bọc ngoài."""
         return lesson
 
     except Exception as e:
-        err_msg = str(e)
-        placeholder_md = f"""## {topic.canonical_name}
+        # Fallback placeholder on error
+        fallback_md = f"""## {topic.canonical_name}
 
-> ⚠️ **Chưa thể sinh bài giảng AI**
-
-**Lỗi:** {err_msg[:200]}
+> Lỗi kết nối AI: {str(e)[:200]}
 
 **Loại:** {cat_vi} | **Cấp độ:** {level_vi}
 
----
-*Thử lại sau khi hạn ngạch API Gemini được phục hồi.*"""
+Vui lòng thử lại sau hoặc thêm GEMINI_API_KEY hợp lệ.
+"""
         lesson = Lesson(
             curriculum_topic_id=topic.id,
-            content_markdown=placeholder_md,
+            content_markdown=fallback_md,
             worked_example_question_ids_json=json.dumps([q.id for q in real_questions]),
             quick_check_question_ids_json=json.dumps([]),
             has_real_examples=has_real,
@@ -263,8 +266,8 @@ CHỈ trả JSON thuần túy, không markdown bọc ngoài."""
 def list_curriculum_topics(
     category: Optional[str] = None,
     level: Optional[str] = None,
-    db: Session = Depends(get_db)
-):
+    db: Annotated[Session, Depends(get_db)] = None # type: ignore
+) -> List[Dict[str, Any]]:
     """List all canonical curriculum topics with their current mastery status."""
     query = db.query(CurriculumTopic)
     if category:
@@ -302,7 +305,8 @@ def list_curriculum_topics(
 # GET /api/curriculum/topics/{topic_id}
 # ====================================================
 @router.get("/topics/{topic_id}")
-def get_topic_detail(topic_id: int, db: Session = Depends(get_db)):
+def get_topic_detail(topic_id: int, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
+    """Returns detailed metadata, mastery stats, and prerequisite info for a curriculum topic."""
     t = db.query(CurriculumTopic).filter(CurriculumTopic.id == topic_id).first()
     if not t:
         raise HTTPException(status_code=404, detail="Topic not found")
@@ -340,7 +344,7 @@ def get_topic_detail(topic_id: int, db: Session = Depends(get_db)):
 # GET /api/curriculum/roadmap
 # ====================================================
 @router.get("/roadmap")
-def get_roadmap(db: Session = Depends(get_db)):
+def get_roadmap(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """Get personalized roadmap: topics ordered by prerequisites, prioritizing unknown > weak > ok."""
     all_topics = db.query(CurriculumTopic).all()
     ordered = build_ordered_roadmap(all_topics)
@@ -372,8 +376,6 @@ def get_roadmap(db: Session = Depends(get_db)):
             "priority": priority,
         })
 
-    # Re-sort within same prerequisite level: unknown > weak > ok
-    # Keep topological order for prerequisites but within "siblings" sort by priority
     return {
         "roadmap": roadmap,
         "summary": {
@@ -392,12 +394,11 @@ def get_roadmap(db: Session = Depends(get_db)):
 # POST /api/curriculum/placement-test/start
 # ====================================================
 @router.post("/placement-test/start")
-def start_placement_test(db: Session = Depends(get_db)):
+def start_placement_test(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Generate a 25-question placement test sampling from basic-level topics.
     Spec 12.4.1: prefer basic topics, avoid overwhelming beginners with hard questions.
     """
-    # Get basic topics
     basic_topics = db.query(CurriculumTopic).filter(
         CurriculumTopic.level == "basic",
         CurriculumTopic.category.in_(["grammar_topic", "question_type"])
@@ -423,7 +424,6 @@ def start_placement_test(db: Session = Depends(get_db)):
                 "questions": qs
             }
 
-    # Pick 1-2 questions per topic, total ~25 questions
     selected = []
     import random
     random.shuffle(basic_topics)
@@ -447,12 +447,11 @@ def start_placement_test(db: Session = Depends(get_db)):
                 "part": q.part,
                 "question_text": q.question_text[:500] if q.question_text else "",
                 "options": opts,
-                "correct_answer": q.correct_answer,  # Will be hidden in frontend
+                "correct_answer": q.correct_answer,
             })
         if len(selected) >= 25:
             break
 
-    # Shuffle question order
     random.shuffle(selected)
     selected = selected[:25]
 
@@ -476,19 +475,17 @@ class PlacementSubmitRequest(BaseModel):
     question_topic_map: Dict[int, int]  # {question_id: topic_id}
 
 @router.post("/placement-test/submit")
-def submit_placement_test(req: PlacementSubmitRequest, db: Session = Depends(get_db)):
+def submit_placement_test(req: PlacementSubmitRequest, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Compute mastery_map from placement test answers.
     Spec 12.4.1 DoD: test with all-wrong and all-right to verify 2 extremes.
     """
-    # Get all questions and their correct answers
     question_ids = list(req.answers.keys())
     questions = db.query(Question).filter(Question.id.in_(question_ids)).all()
     q_map = {q.id: q for q in questions}
 
-    # Tally per topic
-    topic_correct = {}
-    topic_total = {}
+    topic_correct: Dict[int, int] = {}
+    topic_total: Dict[int, int] = {}
 
     for qid_str, selected in req.answers.items():
         qid = int(qid_str)
@@ -505,7 +502,6 @@ def submit_placement_test(req: PlacementSubmitRequest, db: Session = Depends(get
         if selected == q.correct_answer:
             topic_correct[topic_id] += 1
 
-    # Update UserMastery
     mastery_results = {}
     for topic_id in topic_total.keys():
         correct = topic_correct.get(topic_id, 0)
@@ -521,7 +517,7 @@ def submit_placement_test(req: PlacementSubmitRequest, db: Session = Depends(get
         m.correct_count = correct
         m.total_count = total
         m.mastery_pct = pct
-        m.last_updated_at = datetime.utcnow()
+        m.last_updated_at = datetime.now(timezone.utc)
 
         t = db.query(CurriculumTopic).filter(CurriculumTopic.id == topic_id).first()
         mastery_results[topic_id] = {
@@ -534,7 +530,6 @@ def submit_placement_test(req: PlacementSubmitRequest, db: Session = Depends(get
 
     db.commit()
 
-    # Compute overall result
     total_correct = sum(topic_correct.values())
     total_questions = sum(topic_total.values())
     overall_pct = round(total_correct / total_questions * 100, 1) if total_questions else 0
@@ -564,7 +559,7 @@ def submit_placement_test(req: PlacementSubmitRequest, db: Session = Depends(get
 # GET /api/curriculum/lessons/{topic_id}
 # ====================================================
 @router.get("/lessons/{topic_id}")
-def get_lesson(topic_id: int, db: Session = Depends(get_db)):
+def get_lesson(topic_id: int, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """Get lesson for a topic. Generate via AI if not yet created."""
     topic = db.query(CurriculumTopic).filter(CurriculumTopic.id == topic_id).first()
     if not topic:
@@ -572,51 +567,42 @@ def get_lesson(topic_id: int, db: Session = Depends(get_db)):
 
     lesson = db.query(Lesson).filter(Lesson.curriculum_topic_id == topic_id).first()
     if not lesson:
-        # Generate lesson (synchronous)
         lesson = generate_lesson_content(db, topic)
 
-    # Get worked example questions
     worked_ids = json.loads(lesson.worked_example_question_ids_json or "[]")
     worked_qs = []
     if worked_ids:
         qs = db.query(Question).filter(Question.id.in_(worked_ids)).all()
-        q_map = {q.id: q for q in qs}
-        for qid in worked_ids:
-            q = q_map.get(qid)
-            if q:
-                try:
-                    opts = json.loads(q.options_json)
-                except Exception:
-                    opts = {}
-                worked_qs.append({
-                    "id": q.id,
-                    "question_text": q.question_text[:500] if q.question_text else "",
-                    "options": opts,
-                    "correct_answer": q.correct_answer,
-                    "common_trap": q.common_trap,
-                    "grammar_topic": q.grammar_topic,
-                })
+        for q in qs:
+            try:
+                opts = json.loads(q.options_json)
+            except Exception:
+                opts = {}
+            worked_qs.append({
+                "id": q.id,
+                "question_text": q.question_text,
+                "options": opts,
+                "correct_answer": q.correct_answer,
+                "common_trap": q.common_trap,
+                "grammar_topic": q.grammar_topic,
+            })
 
-    # Get quick check questions (without correct answers — for quiz)
     quick_ids = json.loads(lesson.quick_check_question_ids_json or "[]")
     quick_qs = []
     if quick_ids:
         qs = db.query(Question).filter(Question.id.in_(quick_ids)).all()
-        q_map = {q.id: q for q in qs}
-        for qid in quick_ids:
-            q = q_map.get(qid)
-            if q:
-                try:
-                    opts = json.loads(q.options_json)
-                except Exception:
-                    opts = {}
-                quick_qs.append({
-                    "id": q.id,
-                    "question_text": q.question_text[:500] if q.question_text else "",
-                    "options": opts,
-                    "correct_answer": q.correct_answer,
-                    "part": q.part,
-                })
+        for q in qs:
+            try:
+                opts = json.loads(q.options_json)
+            except Exception:
+                opts = {}
+            quick_qs.append({
+                "id": q.id,
+                "question_text": q.question_text,
+                "options": opts,
+                "correct_answer": q.correct_answer,
+                "part": q.part,
+            })
 
     mastery = db.query(UserMastery).filter(UserMastery.curriculum_topic_id == topic_id).first()
 
@@ -644,26 +630,22 @@ def get_lesson(topic_id: int, db: Session = Depends(get_db)):
 # ====================================================
 @router.get("/daily-plan")
 def get_daily_plan(
-    minutes_per_day: int = 40,  # default 40 min/day
-    db: Session = Depends(get_db)
-):
+    minutes_per_day: int = 40,
+    db: Annotated[Session, Depends(get_db)] = None # type: ignore
+) -> Dict[str, Any]:
     """
     Generate today's study plan:
     - N new lessons (unknown/weak topics)
     - K quick check questions
-    Spec 12.5.2: Don't repeat completed lessons unless user opts in.
     """
-    # Estimate: 10 min/lesson reading, 2 min/question
     max_lessons = max(1, minutes_per_day // 10)
     max_questions = max(5, (minutes_per_day % 10) * 3 + 5)
 
-    # Get ordered roadmap
     all_topics = db.query(CurriculumTopic).all()
     ordered = build_ordered_roadmap(all_topics)
 
     mastery_map_db = {m.curriculum_topic_id: m for m in db.query(UserMastery).all()}
 
-    # Pick topics for today: prioritize unknown, then weak
     today_lessons = []
     for t in ordered:
         if len(today_lessons) >= max_lessons:
@@ -683,7 +665,6 @@ def get_daily_plan(
                 "parts": json.loads(t.parts_json or "[]"),
             })
 
-    # Get quick check questions from weak topics
     quick_questions = []
     for t in ordered:
         if len(quick_questions) >= max_questions:
@@ -721,7 +702,7 @@ def get_daily_plan(
     }
 
     return {
-        "date": datetime.utcnow().strftime("%Y-%m-%d"),
+        "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "minutes_allocated": minutes_per_day,
         "today_lessons": today_lessons,
         "quick_check_questions": quick_questions[:max_questions],
@@ -740,10 +721,10 @@ class MasteryUpdateItem(BaseModel):
 
 class MasteryUpdateRequest(BaseModel):
     updates: List[MasteryUpdateItem]
-    source: str = "exam"  # exam / practice / placement_test
+    source: str = "exam"
 
 @router.post("/mastery/update")
-def update_mastery(req: MasteryUpdateRequest, db: Session = Depends(get_db)):
+def update_mastery(req: MasteryUpdateRequest, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Update mastery for multiple topics at once.
     Called after exam/practice submissions (spec 12.6.1 feedback loop).
@@ -755,13 +736,12 @@ def update_mastery(req: MasteryUpdateRequest, db: Session = Depends(get_db)):
             m = UserMastery(curriculum_topic_id=item.topic_id)
             db.add(m)
 
-        # Accumulate (not replace) — rolling update
         m.correct_count += item.correct
         m.total_count += item.total
         status, pct = compute_mastery_status(m.correct_count, m.total_count)
         m.status = status
         m.mastery_pct = pct
-        m.last_updated_at = datetime.utcnow()
+        m.last_updated_at = datetime.now(timezone.utc)
 
         t = db.query(CurriculumTopic).filter(CurriculumTopic.id == item.topic_id).first()
         updated.append({

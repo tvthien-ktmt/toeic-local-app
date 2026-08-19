@@ -21,6 +21,7 @@ function getDocumentTypeInfo(typeText: string) {
   if (lower.includes('article') || lower.includes('report') || lower.includes('review')) return { label: 'ARTICLE', icon: Newspaper, color: 'text-purple-500', bg: 'bg-purple-500/10 border-purple-500/30' };
   if (lower.includes('schedule') || lower.includes('calendar') || lower.includes('timetable')) return { label: 'SCHEDULE', icon: Calendar, color: 'text-rose-500', bg: 'bg-rose-500/10 border-rose-500/30' };
   if (lower.includes('form') || lower.includes('invoice') || lower.includes('receipt') || lower.includes('order')) return { label: 'FORM / RECEIPT', icon: Receipt, color: 'text-teal-500', bg: 'bg-teal-500/10 border-teal-500/30' };
+
   return { label: 'DOCUMENT', icon: FileText, color: 'text-theme-accent', bg: 'bg-theme-accent/10 border-theme-accent/30' };
 }
 
@@ -29,7 +30,10 @@ function getDocumentTypeInfo(typeText: string) {
  * and sentence insertion markers [1], [2], [3], [4], [131] render beautifully as rich HTML.
  */
 export function preprocessToeicMarkdown(text: string): string {
-  if (!text) return '';
+  if (!text) {
+    return '';
+  }
+
   let processed = text;
 
   // Replace raw single-line [x] or [ ] with markdown task list item syntax if not formatted as a list
@@ -49,8 +53,13 @@ export function preprocessToeicMarkdown(text: string): string {
   return processed;
 }
 
+/**
+ * Formatted TOEIC reading passage renderer transforming raw markdown emails, letters, forms, and chat logs into styled passage components.
+ */
 export const MarkdownPassage: React.FC<MarkdownPassageProps> = ({ text, className }) => {
-  if (!text) return null;
+  if (!text) {
+    return null;
+  }
 
   // Check if text contains a passage header: "Questions XXX-XXX refer to the following..."
   const passageHeaderMatch = text.match(/^\s*(?:\*\*)?Questions?\s+(\d{3})[\s\-–]+(\d{3})\s+refer\s+to\s+the\s+following\s+([^.\n*]+)[\.\*]?\s*(?:\*\*)?\s*([\s\S]*)$/i);
@@ -176,6 +185,7 @@ const customMarkdownComponents = {
         </span>
       );
     }
+
     return null;
   },
 
@@ -188,12 +198,13 @@ const customMarkdownComponents = {
             // Match sentence insertion markers like [1], [2], [3], [4] or [___131___] or ------- [131]
             const parts = child.split(/(\-{2,}\s*\[\d+\]|\[___\d+___\]|\[\d+\])/g);
             if (parts.length > 1) {
-              return parts.map((part, pIdx) => {
+              return parts.map((part, partIndex) => {
                 if (/^(\-{2,}\s*\[\d+\]|\[___\d+___\]|\[\d+\])$/.test(part)) {
                   const num = part.replace(/[^\d]/g, '');
+
                   return (
                     <span
-                      key={pIdx}
+                      key={partIndex}
                       className="inline-flex items-center gap-1 mx-1 px-2 py-0.5 rounded-md alert-warning border border-theme-warning/40 font-mono text-[11px] font-extrabold text-theme-warning shadow-sm"
                       title={`Vị trí chèn câu [${num}]`}
                     >
@@ -201,10 +212,12 @@ const customMarkdownComponents = {
                     </span>
                   );
                 }
+
                 return part;
               });
             }
           }
+
           return child;
         })}
       </p>

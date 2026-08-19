@@ -2,33 +2,37 @@
 MODULE 12.1.3 — Import curriculum_seed.json into curriculum_topics table.
 Run from backend/ directory: python app/scripts/module12_import_curriculum.py
 """
-import sys, io, os, json
+import sys, io, os, json, logging
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+logger = logging.getLogger(__name__)
+
 from app.db import SessionLocal, engine, Base
 from app.models import CurriculumTopic, Lesson, UserMastery
 
-def main():
+def main() -> None:
+    """Imports curriculum_seed.json into SQLite DB tables and establishes prerequisite graphs."""
     # Create new tables (curriculum_topics, lessons, user_mastery) if they don't exist
-    print("Creating Module 12 tables if not exist...")
+    logger.info("Creating Module 12 tables if not exist...")
     Base.metadata.create_all(bind=engine)
-    print("  ✅ Tables created: curriculum_topics, lessons, user_mastery")
+    logger.info("  ✅ Tables created: curriculum_topics, lessons, user_mastery")
 
     # Load seed file
     seed_path = os.path.join(os.path.dirname(__file__), "..", "..", "data", "curriculum_seed.json")
     seed_path = os.path.abspath(seed_path)
 
     if not os.path.exists(seed_path):
-        print(f"  ❌ curriculum_seed.json not found at: {seed_path}")
-        print("  Run module12_parse_knowledge.py first!")
+        logger.error(f"  ❌ curriculum_seed.json not found at: {seed_path}")
+        logger.error("  Run module12_parse_knowledge.py first!")
         return
 
     with open(seed_path, 'r', encoding='utf-8') as f:
         seed_data = json.load(f)
 
-    print(f"\nLoaded {len(seed_data)} canonical topics from {seed_path}")
+    logger.info(f"\nLoaded {len(seed_data)} canonical topics from {seed_path}")
 
     db = SessionLocal()
     try:
@@ -67,7 +71,7 @@ def main():
             created_count += 1
 
         db.commit()
-        print(f"\nFirst pass: {created_count} created, {existing_count} already existed")
+        logger.info(f"\nFirst pass: {created_count} created, {existing_count} already existed")
 
         # Second pass: set prerequisite_topic_id links
         updated_prereq = 0
@@ -84,7 +88,7 @@ def main():
                         updated_prereq += 1
 
         db.commit()
-        print(f"Second pass: {updated_prereq} prerequisite links set")
+        logger.info(f"Second pass: {updated_prereq} prerequisite links set")
 
         # Initialize UserMastery records for all topics (status=unknown)
         mastery_created = 0
@@ -107,31 +111,30 @@ def main():
                 mastery_created += 1
 
         db.commit()
-        print(f"UserMastery init: {mastery_created} records created (status=unknown)")
+        logger.info(f"UserMastery init: {mastery_created} records created (status=unknown)")
 
         # Verification
         total_topics = db.query(CurriculumTopic).count()
         total_mastery = db.query(UserMastery).count()
-        print(f"\n=== IMPORT COMPLETE ===")
-        print(f"curriculum_topics: {total_topics} rows")
-        print(f"user_mastery: {total_mastery} rows")
+        logger.info(f"\n=== IMPORT COMPLETE ===")
+        logger.info(f"curriculum_topics: {total_topics} rows")
+        logger.info(f"user_mastery: {total_mastery} rows")
 
         # Print breakdown
-        from sqlalchemy import func
         for cat in ["grammar_topic", "question_type", "vocab_topic"]:
             cnt = db.query(CurriculumTopic).filter(CurriculumTopic.category == cat).count()
-            print(f"  {cat}: {cnt}")
+            logger.info(f"  {cat}: {cnt}")
 
-        print("\n=== DoD 12.1.3 Check ===")
+        logger.info("\n=== DoD 12.1.3 Check ===")
         topics_with_prereq = db.query(CurriculumTopic).filter(
             CurriculumTopic.prerequisite_topic_id != None
         ).count()
-        print(f"Topics with prerequisite link: {topics_with_prereq}")
+        logger.info(f"Topics with prerequisite link: {topics_with_prereq}")
 
         # List first 5 with prerequisite to verify
         for t in db.query(CurriculumTopic).filter(CurriculumTopic.prerequisite_topic_id != None).limit(5).all():
             prereq = db.query(CurriculumTopic).filter(CurriculumTopic.id == t.prerequisite_topic_id).first()
-            print(f"  '{t.canonical_name[:40]}' → prereq: '{prereq.canonical_name[:40] if prereq else None}'")
+            logger.info(f"  '{t.canonical_name[:40]}' → prereq: '{prereq.canonical_name[:40] if prereq else None}'")
 
     finally:
         db.close()

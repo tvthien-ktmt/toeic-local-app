@@ -7,22 +7,25 @@ interface TextHighlightPopupProps {
   documentId?: number;
 }
 
+/**
+ * Floating word lookup popup appearing upon user text selection, providing definitions and 1-click SRS flashcard saving.
+ */
 export const TextHighlightPopup: React.FC<TextHighlightPopupProps> = ({ documentId }) => {
   const [selectedWord, setSelectedWord] = useState<string>('');
   const [popupPos, setPopupPos] = useState<{ top: number; left: number } | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [data, setData] = useState<VocabularyLookupResult | null>(null);
-  const [inFlashcard, setInFlashcard] = useState<boolean>(false);
+  const [isInFlashcard, setIsInFlashcard] = useState<boolean>(false);
   const [suggestedTerms, setSuggestedTerms] = useState<SuggestedVocabResult[]>([]);
-  const [loadingSuggestions, setLoadingSuggestions] = useState<boolean>(false);
-  const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
+  const [isLoadingSuggestions, setIsLoadingSuggestions] = useState<boolean>(false);
+  const [isShowSuggestions, setIsShowSuggestions] = useState<boolean>(false);
 
   const popupRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleMouseUp = (e: MouseEvent) => {
+    const handleMouseUp = (mouseEvent: MouseEvent) => {
       // Don't trigger if click inside popup itself
-      if (popupRef.current && popupRef.current.contains(e.target as Node)) {
+      if (popupRef.current && popupRef.current.contains(mouseEvent.target as Node)) {
         return;
       }
 
@@ -48,29 +51,30 @@ export const TextHighlightPopup: React.FC<TextHighlightPopupProps> = ({ document
         });
 
         // Trigger lookup
-        setLoading(true);
+        setIsLoading(true);
         setData(null);
         setSuggestedTerms([]);
-        setShowSuggestions(false);
+        setIsShowSuggestions(false);
 
         lookupVocabularyWord({
           word: text,
           context_sentence: parentText,
           document_id: documentId
         })
-          .then((res) => {
-            setData(res);
-            setInFlashcard(res.in_flashcard);
-            setLoading(false);
+          .then((response) => {
+            setData(response);
+            setIsInFlashcard(response.in_flashcard);
+            setIsLoading(false);
           })
-          .catch((err) => {
-            console.error('Failed to lookup word context:', err);
-            setLoading(false);
+          .catch((error) => {
+            console.error('Failed to lookup word context:', error);
+            setIsLoading(false);
           });
       }
     };
 
     document.addEventListener('mouseup', handleMouseUp);
+
     return () => {
       document.removeEventListener('mouseup', handleMouseUp);
     };
@@ -80,52 +84,60 @@ export const TextHighlightPopup: React.FC<TextHighlightPopupProps> = ({ document
     setSelectedWord('');
     setPopupPos(null);
     setData(null);
-    setShowSuggestions(false);
+    setIsShowSuggestions(false);
   };
 
   const handleToggleFlashcard = async () => {
-    if (!data) return;
+    if (!data) {
+      return;
+    }
+
     try {
-      if (inFlashcard) {
+      if (isInFlashcard) {
         // Already in flashcards
       } else {
         await axios.post('/api/flashcards', { vocabulary_id: data.id });
-        setInFlashcard(true);
+        setIsInFlashcard(true);
       }
-    } catch (err) {
-      console.error('Failed to update flashcard state:', err);
+    } catch (error) {
+      console.error('Failed to update flashcard state:', error);
     }
   };
 
   const handleFetchSuggestions = async () => {
-    if (!data) return;
-    setShowSuggestions(true);
-    setLoadingSuggestions(true);
+    if (!data) {
+      return;
+    }
+
+    setIsShowSuggestions(true);
+    setIsLoadingSuggestions(true);
     try {
-      const res = await suggestRelatedVocabulary({
+      const response = await suggestRelatedVocabulary({
         word: data.word,
         topic_category: data.topic_category
       });
-      setSuggestedTerms(res);
-      setLoadingSuggestions(false);
-    } catch (err) {
-      console.error('Failed to fetch related suggestions:', err);
-      setLoadingSuggestions(false);
+      setSuggestedTerms(response);
+      setIsLoadingSuggestions(false);
+    } catch (error) {
+      console.error('Failed to fetch related suggestions:', error);
+      setIsLoadingSuggestions(false);
     }
   };
 
   const handleAddSuggestedToFlashcard = async (vocabId: number) => {
     try {
       await axios.post('/api/flashcards', { vocabulary_id: vocabId });
-      setSuggestedTerms((prev) =>
-        prev.map((t) => (t.id === vocabId ? { ...t, in_flashcard: true } : t))
+      setSuggestedTerms((previousTerms) =>
+        previousTerms.map((termItem) => (termItem.id === vocabId ? { ...termItem, in_flashcard: true } : termItem))
       );
-    } catch (err) {
-      console.error('Failed to add suggested term to flashcard:', err);
+    } catch (error) {
+      console.error('Failed to add suggested term to flashcard:', error);
     }
   };
 
-  if (!popupPos || !selectedWord) return null;
+  if (!popupPos || !selectedWord) {
+    return null;
+  }
 
   return (
     <div
@@ -149,7 +161,7 @@ export const TextHighlightPopup: React.FC<TextHighlightPopupProps> = ({ document
 
       {/* Body */}
       <div className="p-4 space-y-3">
-        {loading ? (
+        {isLoading ? (
           <div className="flex items-center justify-center py-6 space-x-2 text-theme-secondary">
             <Loader2 className="w-5 h-5 animate-spin text-theme-accent" />
             <span className="text-xs">Đang tra nghĩa từ '{selectedWord}'...</span>
@@ -180,12 +192,12 @@ export const TextHighlightPopup: React.FC<TextHighlightPopupProps> = ({ document
               <button
                 onClick={handleToggleFlashcard}
                 className={`flex-1 py-1.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center space-x-1 ${
-                  inFlashcard
+                  isInFlashcard
                     ? 'alert-success border-theme-success font-bold'
                     : 'bg-theme-accent text-white hover:opacity-90'
                 }`}
               >
-                {inFlashcard ? (
+                {isInFlashcard ? (
                   <>
                     <Check className="w-3.5 h-3.5" />
                     <span>Đã có Flashcard</span>
@@ -209,33 +221,33 @@ export const TextHighlightPopup: React.FC<TextHighlightPopupProps> = ({ document
             </div>
 
             {/* Suggested Terms Accordion */}
-            {showSuggestions && (
+            {isShowSuggestions && (
               <div className="pt-2 border-t border-theme space-y-2">
                 <span className="text-[11px] uppercase tracking-wider font-bold text-theme-secondary">
                   Gợi ý từ vựng liên quan chủ đề
                 </span>
-                {loadingSuggestions ? (
+                {isLoadingSuggestions ? (
                   <div className="py-3 text-center text-xs text-theme-secondary flex items-center justify-center space-x-1">
                     <Loader2 className="w-3.5 h-3.5 animate-spin text-theme-accent" />
                     <span>Gemini AI đang sinh 3-5 từ gợi ý...</span>
                   </div>
                 ) : (
                   <div className="space-y-1.5 max-h-36 overflow-y-auto pr-1">
-                    {suggestedTerms.map((st) => (
+                    {suggestedTerms.map((suggestedItem) => (
                       <div
-                        key={st.id}
+                        key={suggestedItem.id}
                         className="p-2 rounded-lg bg-theme-surface-2 border border-theme flex items-center justify-between text-xs"
                       >
                         <div>
-                          <span className="font-bold text-theme-primary">{st.word}</span>{' '}
-                          <span className="text-[11px] text-theme-secondary">({st.part_of_speech})</span>: {st.meaning_vi}
+                          <span className="font-bold text-theme-primary">{suggestedItem.word}</span>{' '}
+                          <span className="text-[11px] text-theme-secondary">({suggestedItem.part_of_speech})</span>: {suggestedItem.meaning_vi}
                         </div>
                         <button
-                          onClick={() => handleAddSuggestedToFlashcard(st.id)}
-                          disabled={st.in_flashcard}
+                          onClick={() => handleAddSuggestedToFlashcard(suggestedItem.id)}
+                          disabled={suggestedItem.in_flashcard}
                           className="ml-2 p-1 rounded-md text-theme-accent hover:bg-theme-surface transition shrink-0 disabled:opacity-50"
                         >
-                          {st.in_flashcard ? <Check className="w-3.5 h-3.5 text-theme-success" /> : <Plus className="w-3.5 h-3.5" />}
+                          {suggestedItem.in_flashcard ? <Check className="w-3.5 h-3.5 text-theme-success" /> : <Plus className="w-3.5 h-3.5" />}
                         </button>
                       </div>
                     ))}

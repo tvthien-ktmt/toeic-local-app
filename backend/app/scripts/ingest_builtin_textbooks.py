@@ -8,6 +8,7 @@ import sys
 import re
 import json
 import hashlib
+import logging
 from typing import List, Dict, Any, Tuple, Optional
 
 # Add backend directory to sys.path
@@ -19,6 +20,9 @@ if _BACKEND_DIR not in sys.path:
 
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
+
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+logger = logging.getLogger(__name__)
 
 os.environ.setdefault("DATABASE_URL", "sqlite:///./data/toeic.db")
 
@@ -291,11 +295,11 @@ def split_text_by_headings_or_reset(text: str) -> List[Tuple[int, str]]:
     return split_text_into_tests_by_q_reset(text)
 
 
-def run_standalone_ingestion():
+def run_standalone_ingestion() -> None:
     """Executes offline textbook ingestion pipeline and prints execution report."""
-    print("=" * 65)
-    print("🚀 TOEIC LOCAL APP — BUILT-IN EXAM INGESTION PIPELINE")
-    print("=" * 65)
+    logger.info("=" * 65)
+    logger.info("🚀 TOEIC LOCAL APP — BUILT-IN EXAM INGESTION PIPELINE")
+    logger.info("=" * 65)
 
     db_url = os.environ.get("DATABASE_URL", "sqlite:///./data/toeic.db")
     engine = create_engine(db_url, connect_args={"check_same_thread": False})
@@ -305,7 +309,7 @@ def run_standalone_ingestion():
     ensure_db_schema(db)
 
     if not os.path.exists(TEXTBOOK_ROOT_DIR):
-        print(f"❌ Error: Textbook root directory not found at: {TEXTBOOK_ROOT_DIR}")
+        logger.error(f"❌ Error: Textbook root directory not found at: {TEXTBOOK_ROOT_DIR}")
         return
 
     total_tests_processed = 0
@@ -332,7 +336,7 @@ def run_standalone_ingestion():
                 with open(md_path, "r", encoding="utf-8", errors="ignore") as file:
                     text = file.read()
             except Exception as ex:
-                print(f"⚠️ Error reading {md_path}: {ex}")
+                logger.warning(f"⚠️ Error reading {md_path}: {ex}")
                 continue
 
             # Split text by Test headings or question resets
@@ -361,7 +365,7 @@ def run_standalone_ingestion():
 
                 if len(qs_data) < 10 and test_num > 10:
                     # Invalid appendix / fragment test — skip
-                    print(f"  ⚠️ Skipping invalid fragment: {filename} ({len(qs_data)} questions)")
+                    logger.warning(f"  ⚠️ Skipping invalid fragment: {filename} ({len(qs_data)} questions)")
                     continue
 
                 content_hash = hashlib.sha256(f"{filename}::{block[:1000]}".encode("utf-8")).hexdigest()
@@ -433,14 +437,14 @@ def run_standalone_ingestion():
 
     db.close()
 
-    print("\n" + "=" * 65)
-    print("📊 INGESTION SUMMARY REPORT")
-    print("=" * 65)
-    print(f"Total Tests Processed : {total_tests_processed}")
-    print(f"  ✅ Complete (100 qs) : {complete_tests}")
-    print(f"  ⚠️ Partial (80-99 qs): {partial_tests}")
-    print(f"  ❌ Failed (<80 qs)   : {failed_tests}")
-    print("-" * 65)
+    logger.info("\n" + "=" * 65)
+    logger.info("📊 INGESTION SUMMARY REPORT")
+    logger.info("=" * 65)
+    logger.info(f"Total Tests Processed : {total_tests_processed}")
+    logger.info(f"  ✅ Complete (100 qs) : {complete_tests}")
+    logger.info(f"  ⚠️ Partial (80-99 qs): {partial_tests}")
+    logger.info(f"  ❌ Failed (<80 qs)   : {failed_tests}")
+    logger.info("-" * 65)
 
 
 if __name__ == "__main__":

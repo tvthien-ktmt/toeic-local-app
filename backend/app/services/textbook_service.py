@@ -2,9 +2,12 @@ import os
 import re
 import json
 import hashlib
+import logging
 from typing import List, Dict, Any, Optional, Tuple
 from sqlalchemy.orm import Session
 from ..models import Document, Question, Vocabulary
+
+logger = logging.getLogger(__name__)
 
 # Calculate dynamic root path to 'textbook' directory relative to repository root
 _CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -202,7 +205,7 @@ def parse_answer_file(ans_path: Optional[str]) -> Dict[int, Dict[int, str]]:
 
         return answers_by_test
     except Exception as e:
-        print(f"[TEXTBOOK SERVICE] Error parsing answer file {ans_path}: {e}")
+        logger.error(f"[TEXTBOOK SERVICE] Error parsing answer file {ans_path}: {e}")
         return {}
 
 def split_text_into_tests_by_q_reset(text: str) -> List[Tuple[int, str]]:
@@ -471,7 +474,7 @@ def extract_questions_from_test_text(test_content: str, answer_map: Dict[int, st
     return questions
 
 
-def ensure_db_schema(db: Session):
+def ensure_db_schema(db: Session) -> None:
     """Ensures new columns and tables exist in SQLite DB without requiring manual migration."""
     from sqlalchemy import text
     columns_to_add = [
@@ -526,7 +529,7 @@ def scan_and_seed_textbooks(db: Session) -> Dict[str, Any]:
     ensure_db_schema(db)
     if not os.path.exists(TEXTBOOK_ROOT_DIR):
         err_msg = f"[TEXTBOOK SERVICE] Directory not found: {TEXTBOOK_ROOT_DIR}. Please set TEXTBOOK_ROOT_DIR env var or place 'textbook' directory in project root."
-        print(err_msg)
+        logger.error(err_msg)
         raise FileNotFoundError(err_msg)
 
     seeded_count = 0
@@ -553,17 +556,17 @@ def scan_and_seed_textbooks(db: Session) -> Dict[str, Any]:
                 with open(md_path, "r", encoding="utf-8", errors="ignore") as file:
                     text = file.read()
             except Exception as ex:
-                print(f"[TEXTBOOK SERVICE] Error reading {md_path}: {ex}")
+                logger.error(f"[TEXTBOOK SERVICE] Error reading {md_path}: {ex}")
                 continue
 
             # Split into tests by question-number reset
             test_blocks = split_text_into_tests_by_q_reset(text)
             
             if not test_blocks:
-                print(f"[TEXTBOOK SERVICE] ⚠️ No questions found in: {rel}")
+                logger.warning(f"[TEXTBOOK SERVICE] No questions found in: {rel}")
                 continue
 
-            print(f"[TEXTBOOK SERVICE] 📚 {rel}: {len(test_blocks)} tests detected")
+            logger.info(f"[TEXTBOOK SERVICE] {rel}: {len(test_blocks)} tests detected")
 
             for t_idx, (_, block) in enumerate(test_blocks, 1):
                 # Try to determine test number from heading in the block
@@ -619,7 +622,7 @@ def scan_and_seed_textbooks(db: Session) -> Dict[str, Any]:
                     else:
                         # Has < 100 questions — delete old questions and re-extract
                         # (catches tests missing passages or with inline markers skipped)
-                        print(f"[TEXTBOOK SERVICE] ♻️  Re-extracting {filename} (had only {q_count} qs)")
+                        logger.info(f"[TEXTBOOK SERVICE] Re-extracting {filename} (had only {q_count} qs)")
                         db.query(Question).filter(
                             Question.document_id == existing_doc.id
                         ).delete()
@@ -691,7 +694,7 @@ def scan_and_seed_textbooks(db: Session) -> Dict[str, Any]:
                 db.commit()
                 seeded_count += 1
 
-    print(f"[TEXTBOOK SERVICE] Completed scan: {seeded_count} tests seeded/updated, {skipped_count} skipped (already OK).")
+    logger.info(f"[TEXTBOOK SERVICE] Completed scan: {seeded_count} tests seeded/updated, {skipped_count} skipped (already OK).")
     return {
         "status": "success",
         "seeded_count": seeded_count,

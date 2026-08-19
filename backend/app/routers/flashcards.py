@@ -1,7 +1,7 @@
-from typing import Optional
+from typing import Optional, Dict, Any, Annotated
 from fastapi import APIRouter, Depends, HTTPException, Body
 from sqlalchemy.orm import Session
-from datetime import datetime
+from datetime import datetime, timezone
 from ..db import get_db
 from ..models import Flashcard, Vocabulary
 from ..services.srs_service import process_flashcard_review
@@ -9,8 +9,9 @@ from ..services.srs_service import process_flashcard_review
 router = APIRouter(prefix="/api/flashcards", tags=["flashcards"])
 
 @router.get("/due")
-def get_due_flashcards(db: Session = Depends(get_db)):
-    now = datetime.utcnow()
+def get_due_flashcards(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
+    """Retrieves all flashcards scheduled for review based on the SM-2 SRS spaced repetition algorithm."""
+    now = datetime.now(timezone.utc)
     due_cards = db.query(Flashcard, Vocabulary).join(
         Vocabulary, Flashcard.vocabulary_id == Vocabulary.id
     ).filter(Flashcard.next_review_at <= now).order_by(Flashcard.next_review_at.asc()).all()
@@ -36,8 +37,9 @@ def get_due_flashcards(db: Session = Depends(get_db)):
 def review_flashcard(
     flashcard_id: int,
     remembered: bool = Body(..., embed=True),
-    db: Session = Depends(get_db)
-):
+    db: Annotated[Session, Depends(get_db)] = None # type: ignore
+) -> Dict[str, Any]:
+    """Submits a review result (remembered/forgotten) for a flashcard and updates its next review interval."""
     try:
         res = process_flashcard_review(db, flashcard_id, remembered)
         return res

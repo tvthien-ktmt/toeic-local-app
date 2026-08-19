@@ -1,6 +1,7 @@
 import json
 import re
-from typing import Dict, Any, List, Optional
+import logging
+from typing import Dict, Any, List, Optional, Annotated
 from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
@@ -10,6 +11,7 @@ from ..db import get_db
 from ..models import Document, Question, ExamAttempt, PracticeAttempt
 from ..services.textbook_service import scan_and_seed_textbooks, calculate_toeic_rc_score, ensure_db_schema
 
+logger = logging.getLogger(__name__)
 router = APIRouter(tags=["Textbooks & Built-in Exams"])
 
 class ExamSubmitRequest(BaseModel):
@@ -20,7 +22,7 @@ class ExamSubmitRequest(BaseModel):
 
 
 @router.post("/init")
-def init_builtin_textbooks(db: Session = Depends(get_db)):
+def init_builtin_textbooks(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     r"""Triggers scan and seed of textbook directory."""
     try:
         res = scan_and_seed_textbooks(db)
@@ -34,7 +36,7 @@ def init_builtin_textbooks(db: Session = Depends(get_db)):
 
 
 @router.get("/catalog")
-def get_textbook_catalog(db: Session = Depends(get_db)):
+def get_textbook_catalog(db: Annotated[Session, Depends(get_db)]) -> List[Dict[str, Any]]:
     """
     Returns structured catalog of built-in textbooks grouped by Category (ETS, HACKER, YBM, XANH CAM).
     Includes test count, total questions, highest score achieved.
@@ -48,7 +50,7 @@ def get_textbook_catalog(db: Session = Depends(get_db)):
         try:
             scan_and_seed_textbooks(db)
         except Exception as e:
-            print(f"[TEXTBOOK CATALOG] Auto-seed warning: {e}")
+            logger.warning(f"[TEXTBOOK CATALOG] Auto-seed warning: {e}")
 
     docs = db.query(Document).filter(Document.is_builtin == True).order_by(Document.category, Document.series, Document.test_number).all()
 
@@ -114,7 +116,7 @@ def get_textbook_catalog(db: Session = Depends(get_db)):
 
 
 @router.get("/exam/{doc_id}")
-def get_exam_questions(doc_id: int, db: Session = Depends(get_db)):
+def get_exam_questions(doc_id: int, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Returns full test payload (questions 101-200, passages, options) for exam taking.
     """
@@ -124,12 +126,12 @@ def get_exam_questions(doc_id: int, db: Session = Depends(get_db)):
 
     qs = db.query(Question).filter(Question.document_id == doc_id).all()
     
-    # Sort questions by integer extracted from question_text e.g. "101. Former..."
-    def get_q_num(q):
-        m = re.search(r'\d+', q.question_text)
-        return int(m.group(0)) if m else q.id
+    def _extract_question_number(question_item: Question) -> int:
+        """Extracts the integer question number from text prefix (e.g. 101 from '101. Former...')."""
+        match = re.search(r'\d+', question_item.question_text)
+        return int(match.group(0)) if match else question_item.id
 
-    sorted_qs = sorted(qs, key=get_q_num)
+    sorted_qs = sorted(qs, key=_extract_question_number)
 
     formatted_qs = []
     for q in sorted_qs:
@@ -179,7 +181,7 @@ def get_exam_questions(doc_id: int, db: Session = Depends(get_db)):
 
 
 @router.post("/exam/submit")
-def submit_exam(req: ExamSubmitRequest, db: Session = Depends(get_db)):
+def submit_exam(req: ExamSubmitRequest, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Grades exam submission, calculates TOEIC RC scaled score (5-495), stores attempt in DB.
     """
@@ -285,7 +287,7 @@ def submit_exam(req: ExamSubmitRequest, db: Session = Depends(get_db)):
 
 
 @router.get("/history")
-def get_exam_history(db: Session = Depends(get_db)):
+def get_exam_history(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """Returns list of past exam attempts for dashboard analytics."""
     attempts = db.query(ExamAttempt).order_by(ExamAttempt.completed_at.desc()).all()
 
@@ -314,7 +316,7 @@ def get_exam_history(db: Session = Depends(get_db)):
 
 
 @router.get("/history/{doc_id}")
-def get_doc_exam_history(doc_id: int, db: Session = Depends(get_db)):
+def get_doc_exam_history(doc_id: int, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """Returns all exam attempts for a specific document, newest first."""
     attempts = db.query(ExamAttempt).filter(
         ExamAttempt.document_id == doc_id
@@ -344,16 +346,14 @@ def get_doc_exam_history(doc_id: int, db: Session = Depends(get_db)):
 
 
 @router.get("/weakness-report")
-def get_weakness_report(db: Session = Depends(get_db)):
+def get_weakness_report(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Aggregates grammar topics from all exam attempts to identify weak spots.
     Returns top weak grammar_topics based on missed questions across all exams.
     """
-    # Get all exam attempts that have detailed results stored (via question-level joins)
-    # Since we store answers_json per attempt, we need to cross-reference with questions
     attempts = db.query(ExamAttempt).order_by(ExamAttempt.completed_at.desc()).limit(50).all()
 
-    topic_stats: dict = {}  # {grammar_topic: {correct: int, wrong: int, skipped: int}}
+    topic_stats: dict = {}
 
     for attempt in attempts:
         try:
@@ -361,7 +361,6 @@ def get_weakness_report(db: Session = Depends(get_db)):
         except Exception:
             continue
 
-        # Get questions for this attempt's document
         qs = db.query(Question).filter(Question.document_id == attempt.document_id).all()
         for q in qs:
             topic = q.grammar_topic or f"Part {q.part}"
@@ -373,7 +372,7 @@ def get_weakness_report(db: Session = Depends(get_db)):
 
             topic_stats[topic]["total"] += 1
             if not corr_ans:
-                pass  # No answer key
+                pass
             elif not user_ans:
                 topic_stats[topic]["skipped"] += 1
             elif user_ans == corr_ans:
@@ -381,7 +380,6 @@ def get_weakness_report(db: Session = Depends(get_db)):
             else:
                 topic_stats[topic]["wrong"] += 1
 
-    # Sort by wrong+skipped descending
     weakness_list = []
     for topic, stats in topic_stats.items():
         total_graded = stats["correct"] + stats["wrong"] + stats["skipped"]
@@ -402,5 +400,5 @@ def get_weakness_report(db: Session = Depends(get_db)):
     return {
         "status": "success",
         "topics_analyzed": len(weakness_list),
-        "weakest_topics": weakness_list[:15]  # Top 15 weakest
+        "weakest_topics": weakness_list[:15]
     }

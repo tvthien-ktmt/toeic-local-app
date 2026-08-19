@@ -31,33 +31,54 @@ export interface ExtractionResult {
   chunks_processed: number;
 }
 
-export const triggerExtraction = async (docId: number): Promise<ExtractionResult> => {
-  const response = await axios.post<ExtractionResult>(`/api/documents/${docId}/extract`);
-  return response.data;
-};
-
-export const fetchQuestions = async (params: {
+export interface FetchQuestionsParams {
   document_id?: number;
   part?: number;
   grammar_topic?: string;
   topic_tag?: string;
   page?: number;
   limit?: number;
-}): Promise<QuestionListResponse> => {
-  const response = await axios.get<QuestionListResponse>('/api/questions', { params });
-  return response.data;
-};
+}
 
-export const fetchTopicsSummary = async (): Promise<{
+export interface TopicsSummaryResponse {
   grammar_topics: { topic: string; count: number }[];
   topic_tags: { tag: string; count: number }[];
-}> => {
-  const response = await axios.get('/api/questions/topics/summary');
+}
+
+/**
+ * Triggers asynchronous background extraction pipeline (questions + vocabulary) for a document.
+ */
+export const triggerExtraction = async (docId: number): Promise<ExtractionResult> => {
+  const response = await axios.post<ExtractionResult>(`/api/documents/${docId}/extract`);
+
   return response.data;
 };
 
-export const generateSimilarQuestion = async (questionId: number): Promise<QuestionItem> => {
-  const response = await axios.post<QuestionItem>(`/api/generate/similar/${questionId}`);
+/**
+ * Fetches paginated practice questions filtered by document, Part, or grammar topic.
+ */
+export const fetchQuestions = async (params: FetchQuestionsParams): Promise<QuestionListResponse> => {
+  const response = await axios.get<QuestionListResponse>('/api/questions', { params });
+
   return response.data;
 };
+
+/**
+ * Retrieves aggregate summary counts of questions grouped by grammar topics and passage topics.
+ */
+export const fetchTopicsSummary = async (): Promise<TopicsSummaryResponse> => {
+  const response = await axios.get<TopicsSummaryResponse>('/api/questions/topics/summary');
+
+  return response.data;
+};
+
+/**
+ * Requests Gemini AI to generate a similar clone question mirroring the grammar topic and difficulty.
+ */
+export const generateSimilarQuestion = async (questionId: number): Promise<QuestionItem> => {
+  const response = await axios.post<QuestionItem>(`/api/generate/similar/${questionId}`);
+
+  return response.data;
+};
+
 

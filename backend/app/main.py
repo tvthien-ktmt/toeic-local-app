@@ -7,6 +7,7 @@ if hasattr(sys.stderr, 'reconfigure'):
     sys.stderr.reconfigure(encoding='utf-8')
 
 import os
+from typing import Dict
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -61,5 +62,6 @@ app.include_router(textbooks.router, prefix="/api/textbooks")
 app.include_router(curriculum.router)
 
 @app.get("/")
-def read_root():
+def read_root() -> Dict[str, str]:
+    """Health check endpoint to verify backend API availability."""
     return {"message": "Welcome to TOEIC Local Study API!"}

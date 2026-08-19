@@ -3,12 +3,16 @@ import sys
 import json
 import re
 import time
+import logging
 from typing import List, Dict, Any, Optional
 
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 if hasattr(sys.stderr, 'reconfigure'):
     sys.stderr.reconfigure(encoding='utf-8')
+
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+logger = logging.getLogger(__name__)
 
 _CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 _APP_DIR = os.path.abspath(os.path.join(_CURRENT_DIR, ".."))
@@ -28,7 +32,7 @@ def batch_enrich_questions_with_real_gemini(
     batch_size: int = 5,
     retry_delay_sec: int = 15,
     max_quota_retries: int = 3
-):
+) -> Dict[str, Any]:
     """
     Systematically processes built-in exam questions with REAL Gemini AI analysis.
     NO FAKE TEMPLATES / NO MOCK STRINGS:
@@ -37,7 +41,7 @@ def batch_enrich_questions_with_real_gemini(
     """
     api_key = get_gemini_api_key()
     if not api_key:
-        print("[BATCH GEMINI] LỖI: Không tìm thấy GEMINI_API_KEY trong file .env!")
+        logger.error("[BATCH GEMINI] LỖI: Không tìm thấy GEMINI_API_KEY trong file .env!")
         return {"processed": 0, "status": "error_no_api_key"}
 
     query = db.query(Question)
@@ -52,10 +56,10 @@ def batch_enrich_questions_with_real_gemini(
     ).order_by(Question.id.asc()).limit(max_questions).all()
 
     if not pending_qs:
-        print(f"[BATCH GEMINI] Tất cả câu hỏi (Part {part_filter or 'All'}) đã có dữ liệu Gemini AI thật!")
+        logger.info(f"[BATCH GEMINI] Tất cả câu hỏi (Part {part_filter or 'All'}) đã có dữ liệu Gemini AI thật!")
         return {"processed": 0, "status": "completed"}
 
-    print(f"[BATCH GEMINI] Tìm thấy {len(pending_qs)} câu chưa có Gemini AI thật. Bắt đầu xử lý batch {batch_size} câu/lần...")
+    logger.info(f"[BATCH GEMINI] Tìm thấy {len(pending_qs)} câu chưa có Gemini AI thật. Bắt đầu xử lý batch {batch_size} câu/lần...")
 
     processed_count = 0
     consecutive_rpd_failures = 0
@@ -64,7 +68,7 @@ def batch_enrich_questions_with_real_gemini(
         batch = pending_qs[i:i + batch_size]
         batch_num = (i // batch_size) + 1
         total_batches = (len(pending_qs) + batch_size - 1) // batch_size
-        print(f"\n📦 Batch {batch_num}/{total_batches} ({len(batch)} câu)...")
+        logger.info(f"\n📦 Batch {batch_num}/{total_batches} ({len(batch)} câu)...")
 
         batch_prompt_items = []
         for q in batch:
@@ -136,33 +140,33 @@ CHỈ trả JSON array thuần túy, không thêm markdown hay bất kỳ chữ 
                         db.commit()
                         processed_count += batch_success_count
                         consecutive_rpd_failures = 0
-                        print(f"   ✅ Đã lưu {batch_success_count}/{len(batch)} câu Gemini AI THẬT vào DB.")
+                        logger.info(f"   ✅ Đã lưu {batch_success_count}/{len(batch)} câu Gemini AI THẬT vào DB.")
                         success = True
                     else:
-                        print(f"   ⚠️ Lần thử {attempts}: Gemini trả về cấu trúc chưa đủ tiếng Việt. Thử lại sau {retry_delay_sec}s...")
+                        logger.warning(f"   ⚠️ Lần thử {attempts}: Gemini trả về cấu trúc chưa đủ tiếng Việt. Thử lại sau {retry_delay_sec}s...")
                         time.sleep(retry_delay_sec)
                 else:
-                    print(f"   ⚠️ Lần thử {attempts}: Phản hồi Gemini không phải JSON array. Thử lại sau {retry_delay_sec}s...")
+                    logger.warning(f"   ⚠️ Lần thử {attempts}: Phản hồi Gemini không phải JSON array. Thử lại sau {retry_delay_sec}s...")
                     time.sleep(retry_delay_sec)
 
             except Exception as e:
                 err_msg = str(e)
-                print(f"   ⚠️ Gemini API rate-limited hoặc hết quota ({err_msg[:120]}). Lần thử {attempts}/{max_quota_retries}...")
+                logger.warning(f"   ⚠️ Gemini API rate-limited hoặc hết quota ({err_msg[:120]}). Lần thử {attempts}/{max_quota_retries}...")
                 time.sleep(retry_delay_sec * attempts)
 
         if not success:
             consecutive_rpd_failures += 1
             if consecutive_rpd_failures >= 2:
-                print("\n🛑 [DAILY QUOTA EXCEEDED] Đã chạm giới hạn 1.500 RPD (Requests Per Day) của Gemini Free Tier trên toàn bộ API Keys!")
-                print("📌 Gemini Free Tier tự động reset daily quota vào 00:00 UTC (7:00 AM giờ Việt Nam).")
-                print(f"📌 Đã hoàn thành và bảo toàn nguyên vẹn {processed_count} câu Gemini AI THẬT trong DB.")
-                print("📌 Vui lòng chạy lại script vào ngày mai hoặc bổ sung thêm API Key mới vào file .env.")
+                logger.warning("\n🛑 [DAILY QUOTA EXCEEDED] Đã chạm giới hạn 1.500 RPD (Requests Per Day) của Gemini Free Tier trên toàn bộ API Keys!")
+                logger.info("📌 Gemini Free Tier tự động reset daily quota vào 00:00 UTC (7:00 AM giờ Việt Nam).")
+                logger.info(f"📌 Đã hoàn thành và bảo toàn nguyên vẹn {processed_count} câu Gemini AI THẬT trong DB.")
+                logger.info("📌 Vui lòng chạy lại script vào ngày mai hoặc bổ sung thêm API Key mới vào file .env.")
                 break
 
         # RPM Rate-Limit Safety Pause (15 RPM max = ~4 seconds between requests)
         time.sleep(4)
 
-    print(f"\n🎉 [HOÀN TẤT BATCH AI THẬT] Đã tạo và lưu thành công {processed_count} câu Gemini AI THẬT vào DB.")
+    logger.info(f"\n🎉 [HOÀN TẤT BATCH AI THẬT] Đã tạo và lưu thành công {processed_count} câu Gemini AI THẬT vào DB.")
     return {"processed": processed_count, "status": "success"}
 
 

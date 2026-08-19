@@ -6,12 +6,12 @@ venv/
 env/
 .env
 
-# SQLite Databases & Uploaded Files
-*.db
-backend/*.db
-backend/data/*.db
-backend/data/uploads/*
-!backend/data/uploads/.gitkeep
+# SQLite Databases & Uploaded Files (Uncommented for review per user request)
+# *.db
+# backend/*.db
+# backend/data/*.db
+# backend/data/uploads/*
+# !backend/data/uploads/.gitkeep
 
 # Node / React Frontend
 frontend/node_modules/
@@ -21,27 +21,29 @@ frontend/.venv/
 # Temporary / OS Files
 .DS_Store
 Thumbs.db
+
+# Exclude PDF files strictly
 *.pdf
 pdf thieu/
 
-# Textbook Raw Data, Books & Temporary Scripts
-book/
-scratch/
-textbook/
-pdf thieu/
-*.txt
-!backend/requirements.txt
+# Textbook Raw Data, Books & Temporary Scripts (Uncommented for review per user request)
+# book/
+# scratch/
+# textbook/
+# pdf thieu/
+# *.txt
+# !backend/requirements.txt
 
-# Prompt & Temporary Spec Reports
-XÂY DỰNG LẠI HỆ THỐNG BÀI GIẢNG TOEIC PART 5–6–7 CHO NGƯỜI MẤT GỐC.md
-bao_cao_chi_tiet_cau_thieu_toeic.md
-empty_options_report.md
-*.log
+# Prompt & Temporary Spec Reports (Uncommented for review per user request)
+# XÂY DỰNG LẠI HỆ THỐNG BÀI GIẢNG TOEIC PART 5–6–7 CHO NGƯỜI MẤT GỐC.md
+# bao_cao_chi_tiet_cau_thieu_toeic.md
+# empty_options_report.md
+# *.log
 
-# External Repositories & Resources
-skills/
-mattpocock-skills/
-Knowlegle_RC/
+# External Repositories & Resources (Uncommented for review per user request)
+# skills/
+# mattpocock-skills/
+# Knowlegle_RC/
 
 
 

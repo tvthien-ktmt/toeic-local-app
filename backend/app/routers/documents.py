@@ -1,22 +1,8 @@
 import os
 import sys
-
-if hasattr(sys.stdout, 'reconfigure'):
-    sys.stdout.reconfigure(encoding='utf-8')
-if hasattr(sys.stderr, 'reconfigure'):
-    sys.stderr.reconfigure(encoding='utf-8')
-def safe_print(*args, **kwargs):
-    try:
-        print(*args, **kwargs)
-    except UnicodeEncodeError:
-        try:
-            text = " ".join(str(a) for a in args)
-            sys.stdout.buffer.write((text + "\n").encode("utf-8", errors="replace"))
-        except Exception:
-            pass
 import re
 import logging
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Annotated
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, BackgroundTasks, status
 from sqlalchemy.orm import Session
 from ..db import get_db, SessionLocal
@@ -25,13 +11,18 @@ from ..schemas import DocumentResponse, DocumentSummary
 from ..services.markitdown_service import compute_hash, convert_pdf_to_markdown
 from ..services.extraction_service import process_document_extraction
 
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8')
+
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/documents", tags=["documents"])
 
 UPLOADS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "uploads")
 os.makedirs(UPLOADS_DIR, exist_ok=True)
 
-def process_document_background(doc_id: int, content_bytes: bytes, filename: str):
+def process_document_background(doc_id: int, content_bytes: bytes, filename: str) -> None:
     """
     Background worker function for asynchronous OCR / MarkItDown conversion & AI extraction.
     Does NOT block the main HTTP server thread.
@@ -42,7 +33,7 @@ def process_document_background(doc_id: int, content_bytes: bytes, filename: str
         if not doc:
             return
 
-        safe_print(f"[BACKGROUND TASK] Starting asynchronous conversion for Document #{doc_id} ('{filename}')...")
+        logger.info(f"[BACKGROUND TASK] Starting asynchronous conversion for Document #{doc_id} ('{filename}')...")
         markdown_text = convert_pdf_to_markdown(content_bytes, filename)
 
         if not markdown_text or "conversion_failed" in markdown_text:
@@ -54,14 +45,14 @@ def process_document_background(doc_id: int, content_bytes: bytes, filename: str
             db.commit()
 
             # Auto-trigger AI extraction
-            safe_print(f"[BACKGROUND TASK] Auto-triggering AI extraction for Document #{doc_id}...")
+            logger.info(f"[BACKGROUND TASK] Auto-triggering AI extraction for Document #{doc_id}...")
             process_document_extraction(db, doc.id)
 
         db.commit()
-        safe_print(f"[BACKGROUND TASK COMPLETED] Document #{doc_id} is ready with status='{doc.status}'!")
+        logger.info(f"[BACKGROUND TASK COMPLETED] Document #{doc_id} is ready with status='{doc.status}'!")
 
     except Exception as e:
-        safe_print(f"[BACKGROUND TASK ERROR] Document #{doc_id} failed: {e}")
+        logger.error(f"[BACKGROUND TASK ERROR] Document #{doc_id} failed: {e}")
         doc = db.query(Document).filter(Document.id == doc_id).first()
         if doc:
             doc.status = "conversion_failed"
@@ -72,7 +63,8 @@ def process_document_background(doc_id: int, content_bytes: bytes, filename: str
 
 
 @router.post("/{doc_id}/extract")
-def extract_document_questions_and_vocab(doc_id: int, db: Session = Depends(get_db)):
+def extract_document_questions_and_vocab(doc_id: int, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
+    """Triggers AI/regex question and vocabulary extraction on an uploaded document."""
     try:
         res = process_document_extraction(db, doc_id)
         return res
@@ -88,8 +80,9 @@ async def upload_document(
     background_tasks: BackgroundTasks,
     file: UploadFile = File(...),
     doc_type: str = Form("RC_EXAM"),
-    db: Session = Depends(get_db)
-):
+    db: Annotated[Session, Depends(get_db)] = None # type: ignore
+) -> Document:
+    """Accepts a PDF/MD file upload, computes SHA-256 hash for deduplication, and schedules OCR in background."""
     if doc_type not in ["RC_EXAM", "LC_TRANSCRIPT"]:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -118,7 +111,7 @@ async def upload_document(
             (existing_doc.status == "extracted" and q_count == 0 and v_count == 0)
         )
         if is_broken:
-            print(f"[RE-PROCESSING BROKEN DOC] Document #{existing_doc.id} ('{file.filename}') has broken status/data. Wiping old record and re-processing...")
+            logger.info(f"[RE-PROCESSING BROKEN DOC] Document #{existing_doc.id} ('{file.filename}') has broken status/data. Wiping old record and re-processing...")
             v_subq = db.query(Vocabulary.id).filter(Vocabulary.source_document_id == existing_doc.id).subquery()
             db.query(Flashcard).filter(Flashcard.vocabulary_id.in_(v_subq)).delete(synchronize_session=False)
             db.query(Question).filter(Question.document_id == existing_doc.id).delete()
@@ -158,7 +151,8 @@ async def upload_document(
 
 
 @router.get("", response_model=List[DocumentSummary])
-def list_documents(db: Session = Depends(get_db)):
+def list_documents(db: Annotated[Session, Depends(get_db)]) -> List[DocumentSummary]:
+    """Returns a list of all user-uploaded exam and transcript documents."""
     docs = db.query(Document).order_by(Document.uploaded_at.desc()).all()
     summaries = []
     for d in docs:
@@ -175,7 +169,8 @@ def list_documents(db: Session = Depends(get_db)):
 
 
 @router.get("/{doc_id}", response_model=DocumentResponse)
-def get_document(doc_id: int, db: Session = Depends(get_db)):
+def get_document(doc_id: int, db: Annotated[Session, Depends(get_db)]) -> Document:
+    """Fetches details and raw markdown content of a specific uploaded document."""
     doc = db.query(Document).filter(Document.id == doc_id).first()
     if not doc:
         raise HTTPException(
@@ -186,7 +181,8 @@ def get_document(doc_id: int, db: Session = Depends(get_db)):
 
 
 @router.delete("/{doc_id}")
-def delete_document(doc_id: int, db: Session = Depends(get_db)):
+def delete_document(doc_id: int, db: Annotated[Session, Depends(get_db)]) -> Dict[str, str]:
+    """Deletes a document and cascade-deletes its associated questions, vocabularies, and flashcards."""
     doc = db.query(Document).filter(Document.id == doc_id).first()
     if not doc:
         raise HTTPException(

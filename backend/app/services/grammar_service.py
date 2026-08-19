@@ -1,8 +1,11 @@
 import json
+import logging
 from typing import Dict, Any
 from sqlalchemy.orm import Session
 from ..models import GrammarReference
 from .gemini_service import query_gemini_with_cache, get_gemini_api_key
+
+logger = logging.getLogger(__name__)
 
 def get_or_create_grammar_reference(db: Session, topic_name: str) -> Dict[str, Any]:
     """
@@ -16,7 +19,7 @@ def get_or_create_grammar_reference(db: Session, topic_name: str) -> Dict[str, A
     # 1. Check SQLite Cache
     existing = db.query(GrammarReference).filter(GrammarReference.topic_name.ilike(clean_topic)).first()
     if existing:
-        print(f"[GRAMMAR REFERENCE CACHE HIT] topic='{clean_topic}' (Returned from DB, 0 API tokens spent)")
+        logger.info(f"[GRAMMAR REFERENCE CACHE HIT] topic='{clean_topic}' (Returned from DB, 0 API tokens spent)")
         try:
             return {
                 "id": existing.id,
@@ -26,10 +29,10 @@ def get_or_create_grammar_reference(db: Session, topic_name: str) -> Dict[str, A
                 "example_sentences": json.loads(existing.example_sentences_json),
                 "created_at": existing.created_at.isoformat()
             }
-        except Exception:
-            pass
+        except Exception as json_decode_err:
+            logger.warning(f"[GRAMMAR REFERENCE CACHE CORRUPT] Failed parsing grammar reference #{existing.id}: {json_decode_err}")
 
-    print(f"[GRAMMAR REFERENCE CACHE MISS] topic='{clean_topic}'. Triggering Gemini API 1-time generation...")
+    logger.info(f"[GRAMMAR REFERENCE CACHE MISS] topic='{clean_topic}'. Triggering Gemini API 1-time generation...")
     api_key = get_gemini_api_key()
 
     prompt_type = "grammar_reference"

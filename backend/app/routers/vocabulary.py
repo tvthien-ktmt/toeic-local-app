@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List, Optional, Dict, Any, Annotated
 from fastapi import APIRouter, Depends, Query, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy import func
@@ -31,8 +31,9 @@ def list_vocabulary(
     search: Optional[str] = None,
     page: int = Query(1, ge=1),
     limit: int = Query(30, ge=1, le=100),
-    db: Session = Depends(get_db)
-):
+    db: Annotated[Session, Depends(get_db)] = None # type: ignore
+) -> Dict[str, Any]:
+    """Returns paginated vocabulary items with associated SRS flashcard progress."""
     query = db.query(Vocabulary, Flashcard).outerjoin(Flashcard, Vocabulary.id == Flashcard.vocabulary_id)
 
     if document_id is not None:
@@ -76,7 +77,7 @@ def list_vocabulary(
     }
 
 @router.get("/topics/albums")
-def get_topic_albums(db: Session = Depends(get_db)):
+def get_topic_albums(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Returns topic albums with statistics: total_words count and learned_words count (srs_level >= 3).
     """
@@ -114,7 +115,8 @@ def get_topic_albums(db: Session = Depends(get_db)):
     }
 
 @router.get("/{vocab_id}")
-def get_vocab_detail(vocab_id: int, db: Session = Depends(get_db)):
+def get_vocab_detail(vocab_id: int, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
+    """Fetches full vocabulary entry details including synonyms, antonyms, and review interval."""
     result = db.query(Vocabulary, Flashcard).outerjoin(
         Flashcard, Vocabulary.id == Flashcard.vocabulary_id
     ).filter(Vocabulary.id == vocab_id).first()
@@ -140,7 +142,7 @@ def get_vocab_detail(vocab_id: int, db: Session = Depends(get_db)):
 
 
 @router.post("/lookup")
-def lookup_vocabulary_word(req: VocabularyLookupRequest, db: Session = Depends(get_db)):
+def lookup_vocabulary_word(req: VocabularyLookupRequest, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Module 16.1: Context lookup for highlighted text.
     First checks DB (0 API tokens spent). If missing, queries Gemini API 1 time and saves to DB.
@@ -156,7 +158,7 @@ def lookup_vocabulary_word(req: VocabularyLookupRequest, db: Session = Depends(g
 
 
 @router.post("/suggest-related")
-def suggest_related_vocabulary(req: RelatedVocabRequest, db: Session = Depends(get_db)):
+def suggest_related_vocabulary(req: RelatedVocabRequest, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Module 16.2: Suggests 3-5 related TOEIC business terms for a given word.
     Uses Gemini general business knowledge (0 copyright violation of proprietary ETS lists).
