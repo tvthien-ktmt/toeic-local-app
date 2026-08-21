@@ -171,107 +171,126 @@ export const FrequentVocabBankPage: React.FC<FrequentVocabBankPageProps> = ({
         </div>
       </div>
 
-      {/* Vocabulary Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredWords.map((item) => {
-          const isSaved = Boolean(savedWordIds[item.id]);
+      {/* Vocabulary Cards Grid or Empty Updating State */}
+      {filteredWords.length === 0 ? (
+        <div className="p-12 text-center rounded-3xl bg-theme-surface border border-theme max-w-xl mx-auto space-y-4 shadow-xs animate-fade-in my-8">
+          <div className="w-16 h-16 rounded-3xl bg-theme-accent/15 text-theme-accent flex items-center justify-center mx-auto shadow-inner">
+            <BookMarked className="w-8 h-8" />
+          </div>
+          <div className="space-y-1.5">
+            <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-theme-warning/15 text-theme-warning border border-theme-warning/30">
+              Dữ Liệu Đang Được Cập Nhật
+            </span>
+            <h3 className="text-xl font-extrabold text-theme-primary">
+              Kho Từ Vựng Tần Suất Cao
+            </h3>
+            <p className="text-xs sm:text-sm text-theme-secondary leading-relaxed max-w-md mx-auto">
+              Dữ liệu từ vựng tần suất cao đang chờ bạn cập nhật từ các bộ đề thi thật. Giao diện và hệ thống Flashcard SRS đã sẵn sàng tiếp nhận!
+            </p>
+          </div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {filteredWords.map((item) => {
+            const isSaved = Boolean(savedWordIds[item.id]);
 
-          return (
-            <div
-              key={item.id}
-              className="p-5 rounded-3xl bg-theme-surface border border-theme shadow-2xs space-y-3.5 flex flex-col justify-between hover:border-theme-accent/50 transition-all group"
-            >
-              <div className="space-y-2">
-                {/* Header: Word + IPA + Audio */}
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <div className="flex items-baseline gap-2">
-                      <h3 className="text-lg font-black text-theme-primary tracking-tight group-hover:text-theme-accent transition-colors">
-                        {item.word}
-                      </h3>
-                      <span className="text-xs font-mono text-theme-secondary">
-                        {item.ipa}
+            return (
+              <div
+                key={item.id}
+                className="p-5 rounded-3xl bg-theme-surface border border-theme shadow-2xs space-y-3.5 flex flex-col justify-between hover:border-theme-accent/50 transition-all group"
+              >
+                <div className="space-y-2">
+                  {/* Header: Word + IPA + Audio */}
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <div className="flex items-baseline gap-2">
+                        <h3 className="text-lg font-black text-theme-primary tracking-tight group-hover:text-theme-accent transition-colors">
+                          {item.word}
+                        </h3>
+                        <span className="text-xs font-mono text-theme-secondary">
+                          {item.ipa}
+                        </span>
+                      </div>
+                      <span className="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold bg-theme-surface-2 border border-theme text-theme-secondary uppercase mt-1">
+                        {item.partOfSpeech}
                       </span>
                     </div>
-                    <span className="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold bg-theme-surface-2 border border-theme text-theme-secondary uppercase mt-1">
-                      {item.partOfSpeech}
-                    </span>
+
+                    <button
+                      type="button"
+                      onClick={() => handleSpeak(item.word)}
+                      aria-label={`Phát âm từ ${item.word}`}
+                      className="p-2 rounded-xl bg-theme-accent/15 text-theme-accent hover:bg-theme-accent/25 transition-colors cursor-pointer"
+                    >
+                      <Volume2 className="w-4 h-4" />
+                    </button>
                   </div>
+
+                  {/* Meaning */}
+                  <p className="text-xs font-bold text-theme-primary leading-snug">
+                    {item.meaningVi}
+                  </p>
+
+                  {/* Collocations & Parts */}
+                  {item.collocations.length > 0 && (
+                    <div className="p-2.5 rounded-xl bg-theme-surface-2 border border-theme/60 space-y-1">
+                      <span className="text-[10px] font-extrabold text-theme-secondary uppercase tracking-wider block">
+                        Cụm từ đi kèm (Collocations):
+                      </span>
+                      <p className="text-xs text-theme-primary font-medium leading-relaxed">
+                        {item.collocations.join(' • ')}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Paraphrase synonyms */}
+                  {item.paraphrasePairs.length > 0 && (
+                    <div className="flex items-center gap-1.5 text-[11px] text-theme-secondary">
+                      <ArrowRightLeft className="w-3 h-3 text-theme-accent" />
+                      <span>Đồng nghĩa: <strong className="text-theme-primary">{item.paraphrasePairs[0].synonym}</strong></span>
+                    </div>
+                  )}
+
+                  {/* Real exam example */}
+                  <div className="text-[11px] text-theme-secondary italic border-l-2 border-theme-accent/50 pl-2.5 pt-0.5">
+                    &ldquo;{item.exampleSentenceEn}&rdquo;
+                  </div>
+                </div>
+
+                {/* Action Button: Save to Flashcard */}
+                <div className="pt-2 border-t border-theme/40 flex items-center justify-between">
+                  <span className="text-[10px] font-bold text-theme-secondary">
+                    Tần suất: {item.frequencyScore}/100
+                  </span>
 
                   <button
                     type="button"
-                    onClick={() => handleSpeak(item.word)}
-                    aria-label={`Phát âm từ ${item.word}`}
-                    className="p-2 rounded-xl bg-theme-accent/15 text-theme-accent hover:bg-theme-accent/25 transition-colors cursor-pointer"
+                    onClick={() => handleSaveToFlashcard(item)}
+                    disabled={isSaved}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                      isSaved
+                        ? 'bg-theme-success/20 text-theme-success border border-theme-success/30'
+                        : 'bg-theme-accent text-white shadow-xs hover:brightness-110'
+                    }`}
                   >
-                    <Volume2 className="w-4 h-4" />
+                    {isSaved ? (
+                      <>
+                        <Check className="w-3.5 h-3.5" />
+                        <span>Đã Lưu</span>
+                      </>
+                    ) : (
+                      <>
+                        <Plus className="w-3.5 h-3.5" />
+                        <span>Thêm Vào Flashcard</span>
+                      </>
+                    )}
                   </button>
                 </div>
-
-                {/* Meaning */}
-                <p className="text-xs font-bold text-theme-primary leading-snug">
-                  {item.meaningVi}
-                </p>
-
-                {/* Collocations & Parts */}
-                {item.collocations.length > 0 && (
-                  <div className="p-2.5 rounded-xl bg-theme-surface-2 border border-theme/60 space-y-1">
-                    <span className="text-[10px] font-extrabold text-theme-secondary uppercase tracking-wider block">
-                      Cụm từ đi kèm (Collocations):
-                    </span>
-                    <p className="text-xs text-theme-primary font-medium leading-relaxed">
-                      {item.collocations.join(' • ')}
-                    </p>
-                  </div>
-                )}
-
-                {/* Paraphrase synonyms */}
-                {item.paraphrasePairs.length > 0 && (
-                  <div className="flex items-center gap-1.5 text-[11px] text-theme-secondary">
-                    <ArrowRightLeft className="w-3 h-3 text-theme-accent" />
-                    <span>Đồng nghĩa: <strong className="text-theme-primary">{item.paraphrasePairs[0].synonym}</strong></span>
-                  </div>
-                )}
-
-                {/* Real exam example */}
-                <div className="text-[11px] text-theme-secondary italic border-l-2 border-theme-accent/50 pl-2.5 pt-0.5">
-                  &ldquo;{item.exampleSentenceEn}&rdquo;
-                </div>
               </div>
-
-              {/* Action Button: Save to Flashcard */}
-              <div className="pt-2 border-t border-theme/40 flex items-center justify-between">
-                <span className="text-[10px] font-bold text-theme-secondary">
-                  Tần suất: {item.frequencyScore}/100
-                </span>
-
-                <button
-                  type="button"
-                  onClick={() => handleSaveToFlashcard(item)}
-                  disabled={isSaved}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
-                    isSaved
-                      ? 'bg-theme-success/20 text-theme-success border border-theme-success/30'
-                      : 'bg-theme-accent text-white shadow-xs hover:brightness-110'
-                  }`}
-                >
-                  {isSaved ? (
-                    <>
-                      <Check className="w-3.5 h-3.5" />
-                      <span>Đã Lưu</span>
-                    </>
-                  ) : (
-                    <>
-                      <Plus className="w-3.5 h-3.5" />
-                      <span>Thêm Vào Flashcard</span>
-                    </>
-                  )}
-                </button>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
