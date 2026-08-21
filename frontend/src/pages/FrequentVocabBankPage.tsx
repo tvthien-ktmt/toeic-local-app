@@ -171,7 +171,7 @@ export const FrequentVocabBankPage: React.FC<FrequentVocabBankPageProps> = ({
         </div>
       </div>
 
-      {/* Vocabulary Cards Grid or Empty Updating State */}
+      {/* Vocabulary Cards Grid or Empty Developing State */}
       {filteredWords.length === 0 ? (
         <div className="p-12 text-center rounded-3xl bg-theme-surface border border-theme max-w-xl mx-auto space-y-4 shadow-xs animate-fade-in my-8">
           <div className="w-16 h-16 rounded-3xl bg-theme-accent/15 text-theme-accent flex items-center justify-center mx-auto shadow-inner">
@@ -179,13 +179,13 @@ export const FrequentVocabBankPage: React.FC<FrequentVocabBankPageProps> = ({
           </div>
           <div className="space-y-1.5">
             <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-theme-warning/15 text-theme-warning border border-theme-warning/30">
-              Dữ Liệu Đang Được Cập Nhật
+              Tính Năng Đang Phát Triển
             </span>
             <h3 className="text-xl font-extrabold text-theme-primary">
               Kho Từ Vựng Tần Suất Cao
             </h3>
             <p className="text-xs sm:text-sm text-theme-secondary leading-relaxed max-w-md mx-auto">
-              Dữ liệu từ vựng tần suất cao đang chờ bạn cập nhật từ các bộ đề thi thật. Giao diện và hệ thống Flashcard SRS đã sẵn sàng tiếp nhận!
+              Tính năng đang được phát triển, vui lòng đợi admin làm việc nhé!
             </p>
           </div>
         </div>
