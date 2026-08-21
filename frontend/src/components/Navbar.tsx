@@ -11,10 +11,12 @@ import {
   Zap,
   Headphones,
   Volume2,
+  Trophy,
 } from 'lucide-react';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 export type AppNavTab =
+  | 'full_exam'
   | 'textbooks'
   | 'lc_catalog'
   | 'lc_practice'
@@ -49,6 +51,12 @@ interface TabItem {
  */
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selectedDocId, onBackToDocs }) => {
   const tabs: TabItem[] = [
+    {
+      id: 'full_exam',
+      label: 'Thi Full 2 Kỹ Năng (200C)',
+      shortLabel: 'Full 200C',
+      icon: <Trophy className="w-4 h-4 text-amber-500 shrink-0" />,
+    },
     {
       id: 'lc_catalog',
       label: 'Kho Đề LC (Listening)',

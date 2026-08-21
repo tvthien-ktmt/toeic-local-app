@@ -16,6 +16,7 @@ import { LcExamTakePage } from './pages/LcExamTakePage';
 import { LcPracticeHubPage } from './pages/LcPracticeHubPage';
 import { LcDashboardPage } from './pages/LcDashboardPage';
 import { LcErrorNotebookPage } from './pages/LcErrorNotebookPage';
+import { FullToeicExamTakePage } from './pages/FullToeicExamTakePage';
 import type { LCExamDocument } from './types/toeicListening';
 
 /**
@@ -80,6 +81,13 @@ export function App() {
 
       {/* Main Container */}
       <main className="flex-1 pb-16">
+        {/* Full 2-Skill Exam Track */}
+        {activeTab === 'full_exam' && (
+          <FullToeicExamTakePage
+            onNavigateHome={() => setActiveTab('lc_catalog')}
+          />
+        )}
+
         {/* LC Track */}
         {activeTab === 'lc_catalog' && (
           activeLcExamDoc !== null ? (
