@@ -236,13 +236,14 @@ export const LcCatalogView: React.FC<LcCatalogViewProps> = ({ onStartExam }) => 
             {/* Mode Choices Grid */}
             <div className="grid grid-cols-1 gap-3">
               {/* Exam Mode Option */}
-              <div
+              <button
+                type="button"
                 onClick={() => {
                   const doc = pendingDoc;
                   setPendingDoc(null);
                   onStartExam(doc, 'full_exam');
                 }}
-                className="p-4 rounded-2xl border-2 border-theme hover:border-theme-warning bg-theme-surface hover:bg-theme-warning/5 transition-all cursor-pointer space-y-2 group"
+                className="p-4 rounded-2xl border-2 border-theme hover:border-theme-warning bg-theme-surface hover:bg-theme-warning/5 transition-all cursor-pointer space-y-2 group text-left w-full focus-visible:ring-2 focus-visible:ring-theme-warning focus-visible:outline-none"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-sm text-theme-primary group-hover:text-theme-warning flex items-center gap-1.5">
@@ -256,16 +257,17 @@ export const LcCatalogView: React.FC<LcCatalogViewProps> = ({ onStartExam }) => 
                 <p className="text-xs text-theme-secondary leading-relaxed">
                   Audio tự động phát liên tục 45 phút, không tua lại, không tạm dừng, không xem transcript hay đáp án. Tính điểm chuẩn 5-495 ETS.
                 </p>
-              </div>
+              </button>
 
               {/* Practice Mode Option */}
-              <div
+              <button
+                type="button"
                 onClick={() => {
                   const doc = pendingDoc;
                   setPendingDoc(null);
                   onStartExam(doc, 'practice');
                 }}
-                className="p-4 rounded-2xl border-2 border-theme hover:border-theme-accent bg-theme-surface hover:bg-theme-accent/5 transition-all cursor-pointer space-y-2 group"
+                className="p-4 rounded-2xl border-2 border-theme hover:border-theme-accent bg-theme-surface hover:bg-theme-accent/5 transition-all cursor-pointer space-y-2 group text-left w-full focus-visible:ring-2 focus-visible:ring-theme-accent focus-visible:outline-none"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-sm text-theme-primary group-hover:text-theme-accent flex items-center gap-1.5">
@@ -279,7 +281,7 @@ export const LcCatalogView: React.FC<LcCatalogViewProps> = ({ onStartExam }) => 
                 <p className="text-xs text-theme-secondary leading-relaxed">
                   Được tạm dừng, nghe lại, chỉnh tốc độ (0.75x - 1.2x), xem transcript đồng bộ và giải thích chi tiết cạm bẫy.
                 </p>
-              </div>
+              </button>
             </div>
 
             {/* Cancel Button */}

@@ -11,6 +11,7 @@ interface ThemeOption {
 
 /**
  * Compact theme selector toggle switching between Sáng (light), Tối (dark), and Đọc Đêm (night warm) color schemes.
+ * Follows WCAG accessible interactive button standards with aria-label, aria-pressed, and focus-visible.
  */
 export const ThemeSwitcher: React.FC = () => {
   const { theme, setTheme } = useTheme();
@@ -22,15 +23,22 @@ export const ThemeSwitcher: React.FC = () => {
   ];
 
   return (
-    <div className="inline-flex p-1 rounded-xl bg-theme-surface-2 border border-theme space-x-1 shadow-sm">
+    <div
+      role="group"
+      aria-label="Chọn giao diện"
+      className="inline-flex p-1 rounded-xl bg-theme-surface-2 border border-theme space-x-1 shadow-sm"
+    >
       {themes.map((themeItem) => {
         const isActive = theme === themeItem.mode;
 
         return (
           <button
             key={themeItem.mode}
+            type="button"
             onClick={() => setTheme(themeItem.mode)}
-            className={`px-2.5 py-1 rounded-lg text-xs font-bold transition flex items-center space-x-1.5 ${
+            aria-pressed={isActive}
+            aria-label={`Giao diện ${themeItem.label}`}
+            className={`px-2.5 py-1 rounded-lg text-xs font-bold transition flex items-center space-x-1.5 cursor-pointer focus-visible:ring-2 focus-visible:ring-theme-accent focus-visible:outline-none ${
               isActive
                 ? 'bg-theme-accent text-white shadow-md'
                 : 'text-theme-secondary hover:text-theme-primary'
