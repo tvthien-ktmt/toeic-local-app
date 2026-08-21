@@ -19,6 +19,13 @@ export interface TestItem {
   test_number: number;
   filename: string;
   highest_score: number | null;
+  highest_raw?: number | null;
+  average_score?: number | null;
+  attempt_count?: number;
+  difficulty_rating?: string;
+  format_similarity?: string;
+  status?: string;
+  last_completed?: string | null;
 }
 
 export interface SeriesItem {
@@ -55,6 +62,15 @@ export interface DashboardExamHistoryItem {
   part7_correct: number;
 }
 
+export interface TodayPlanStep {
+  step: number;
+  title: string;
+  description: string;
+  target_time: string;
+  action_tab: string;
+  badge: string;
+}
+
 export interface DashboardSummaryData {
   total_vocab: number;
   learned_vocab: number;
@@ -67,6 +83,20 @@ export interface DashboardSummaryData {
   part5_avg_speed_sec?: number;
   part6_avg_speed_sec?: number;
   part7_avg_speed_sec?: number;
+  estimated_rc_range?: {
+    min_score: number;
+    max_score: number;
+    mid_score: number;
+    confidence: string;
+  };
+  target_tracker?: {
+    target_score: number;
+    current_estimated: number;
+    gap: number;
+    progress_pct: number;
+  };
+  primary_weaknesses?: string[];
+  today_adaptive_plan?: TodayPlanStep[];
   part_stats?: { part_name: string; accuracy_rate: number; total_attempts: number }[];
   topic_progress?: { topic_category: string; learned_words: number; total_words: number; mastery_rate: number }[];
   grammar_stats?: { grammar_topic: string; accuracy_rate: number; total_attempts: number }[];
@@ -131,6 +161,33 @@ export const fetchCatalog = async (): Promise<CatalogCategory[]> => {
  * Alias for fetchCatalog to maintain compatibility with textbook catalog components.
  */
 export const fetchTextbookCatalog = fetchCatalog;
+
+export interface CoverageMatrixRow {
+  part: number;
+  skill: string;
+  subskill: string;
+  sample_patterns: string;
+  attempts: number;
+  mastery_rate: number;
+  status: 'NOT_STARTED' | 'PRACTICING' | 'PROFICIENT' | 'MASTERED';
+}
+
+export interface CoverageMatrixResponse {
+  status: string;
+  total_categories: number;
+  covered_categories: number;
+  overall_coverage_pct: number;
+  rows: CoverageMatrixRow[];
+}
+
+/**
+ * Fetches the TOEIC RC skill coverage matrix and mastery distribution across all 3 Parts.
+ */
+export const fetchCoverageMatrix = async (): Promise<CoverageMatrixResponse> => {
+  const response = await axios.get<CoverageMatrixResponse>('/api/dashboard/coverage-matrix');
+
+  return response.data;
+};
 
 /**
  * Fetches overall dashboard learning statistics, streak, and recent exam history.

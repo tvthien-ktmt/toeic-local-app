@@ -18,14 +18,14 @@ def main() -> None:
     # Create new tables (curriculum_topics, lessons, user_mastery) if they don't exist
     logger.info("Creating Module 12 tables if not exist...")
     Base.metadata.create_all(bind=engine)
-    logger.info("  ✅ Tables created: curriculum_topics, lessons, user_mastery")
+    logger.info("  [OK] Tables created: curriculum_topics, lessons, user_mastery")
 
     # Load seed file
     seed_path = os.path.join(os.path.dirname(__file__), "..", "..", "data", "curriculum_seed.json")
     seed_path = os.path.abspath(seed_path)
 
     if not os.path.exists(seed_path):
-        logger.error(f"  ❌ curriculum_seed.json not found at: {seed_path}")
+        logger.error(f"  [ERROR] curriculum_seed.json not found at: {seed_path}")
         logger.error("  Run module12_parse_knowledge.py first!")
         return
 

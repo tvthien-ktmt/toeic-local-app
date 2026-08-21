@@ -9,6 +9,7 @@ interface PracticeQuestionCardProps {
   userChoice: string | undefined;
   practiceMode: 'part_practice' | 'full_mock';
   isMockSubmitted: boolean;
+  isGuidedMode?: boolean;
   generatingId: number | null;
   onSelectOption: (questionItem: QuestionItem, optionLetter: string) => void;
   onOpenGrammarModal: (topicName: string | null) => void;
@@ -16,7 +17,7 @@ interface PracticeQuestionCardProps {
 }
 
 /**
- * Practice question component rendering question prompt, choices A-D, grammar tags, and AI similar question generator.
+ * Practice question component rendering question prompt, choices A-D, grammar tags, Guided Mode strategy, and AI similar question generator.
  */
 export const PracticeQuestionCard: React.FC<PracticeQuestionCardProps> = ({
   questionItem,
@@ -24,6 +25,7 @@ export const PracticeQuestionCard: React.FC<PracticeQuestionCardProps> = ({
   userChoice,
   practiceMode,
   isMockSubmitted,
+  isGuidedMode = false,
   generatingId,
   onSelectOption,
   onOpenGrammarModal,
@@ -106,6 +108,66 @@ export const PracticeQuestionCard: React.FC<PracticeQuestionCardProps> = ({
           </button>
         )}
       </div>
+
+      {/* Guided Strategy Box (Section XXV, XXVII, XXIX) */}
+      {isGuidedMode && !showFeedback && (
+        <div className="p-4 rounded-2xl alert-warning border border-theme-warning/40 space-y-2.5 text-xs animate-in fade-in duration-150">
+          <div className="flex items-center gap-2 font-bold text-theme-warning">
+            <Sparkles className="w-4 h-4" /> Chiến Thuật Giải Nhanh (Guided Mode — Part {questionItem.part}):
+          </div>
+
+          {questionItem.part === 5 && (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-[11px] text-theme-primary">
+              <div className="p-2.5 rounded-xl bg-theme-surface border border-theme space-y-0.5">
+                <strong className="text-theme-accent block">1. Vị trí chỗ trống:</strong>
+                <p className="text-theme-secondary">Quan sát các từ đứng liền trước & sau khoảng trống để định vị cấu trúc ngữ pháp.</p>
+              </div>
+              <div className="p-2.5 rounded-xl bg-theme-surface border border-theme space-y-0.5">
+                <strong className="text-theme-accent block">2. Loại từ cần điền:</strong>
+                <p className="text-theme-secondary">Xác định vị trí thiếu Danh từ, Động từ, Tính từ hay Trạng từ bổ nghĩa.</p>
+              </div>
+              <div className="p-2.5 rounded-xl bg-theme-surface border border-theme space-y-0.5">
+                <strong className="text-theme-accent block">3. Dạng bài trọng tâm:</strong>
+                <p className="text-theme-primary font-semibold truncate">{questionItem.grammar_topic}</p>
+              </div>
+            </div>
+          )}
+
+          {questionItem.part === 6 && (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-[11px] text-theme-primary">
+              <div className="p-2.5 rounded-xl bg-theme-surface border border-theme space-y-0.5">
+                <strong className="text-theme-accent block">1. Đọc lướt ngữ cảnh:</strong>
+                <p className="text-theme-secondary">Đọc trọn vẹn câu đứng trước và câu đứng sau ô trống để nắm mạch thông tin.</p>
+              </div>
+              <div className="p-2.5 rounded-xl bg-theme-surface border border-theme space-y-0.5">
+                <strong className="text-theme-accent block">2. Hòa hợp thì & Liên từ:</strong>
+                <p className="text-theme-secondary">Chú ý mốc thời gian toàn bài để chia thì đúng hoặc chọn liên từ chuyển ý phù hợp.</p>
+              </div>
+              <div className="p-2.5 rounded-xl bg-theme-surface border border-theme space-y-0.5">
+                <strong className="text-theme-accent block">3. Câu chèn ngữ cảnh:</strong>
+                <p className="text-theme-primary font-semibold">Nếu là câu chèn: Tìm từ nối (However, Therefore) hoặc đại từ chỉ định.</p>
+              </div>
+            </div>
+          )}
+
+          {questionItem.part === 7 && (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-[11px] text-theme-primary">
+              <div className="p-2.5 rounded-xl bg-theme-surface border border-theme space-y-0.5">
+                <strong className="text-theme-accent block">1. Đọc câu hỏi trước:</strong>
+                <p className="text-theme-secondary">Gạch chân Keywords (tên người, ngày tháng, địa điểm, mục đích) trước khi đọc bài.</p>
+              </div>
+              <div className="p-2.5 rounded-xl bg-theme-surface border border-theme space-y-0.5">
+                <strong className="text-theme-accent block">2. Scan tìm chứng cứ:</strong>
+                <p className="text-theme-secondary">Dò nhanh vị trí chứa từ khóa trong đoạn văn để xác định câu chứa manh mối (Evidence).</p>
+              </div>
+              <div className="p-2.5 rounded-xl bg-theme-surface border border-theme space-y-0.5">
+                <strong className="text-theme-accent block">3. Loại suy bẫy Paraphrase:</strong>
+                <p className="text-theme-primary font-semibold">Cảnh giác với đáp án dùng từ y hệt trong bài nhưng sai ngữ cảnh.</p>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Question Text */}
       <div className="text-base sm:text-lg font-bold text-theme-primary leading-relaxed select-text">

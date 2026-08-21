@@ -106,6 +106,50 @@ export const ExamScoreTab: React.FC<ExamScoreTabProps> = ({
         </div>
       </div>
 
+      {/* Time & Pacing Analytics Section (Module XIV) */}
+      {result.time_analysis && (
+        <div className="bg-theme-surface rounded-2xl p-5 border border-theme space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-xs font-bold uppercase text-theme-secondary flex items-center gap-1.5">
+              <Clock className="w-4 h-4 text-theme-warning" /> Phân Tích Tốc Độ & Nhịp Độ Làm Bài (Time Pacing)
+            </h3>
+            <span className="text-xs font-bold text-theme-accent">
+              Trung bình: {result.time_analysis.avg_seconds_per_question}s / câu
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="p-3 rounded-xl bg-theme-surface-2 border border-theme text-xs space-y-1">
+              <div className="flex justify-between text-theme-secondary">
+                <span>Part 5 (30 câu):</span>
+                <span className="font-bold text-theme-primary">{result.time_analysis.part5_avg_seconds}s / câu</span>
+              </div>
+              <div className="text-[10px] text-theme-secondary">Chuẩn TOEIC: 18 - 20s/câu</div>
+            </div>
+
+            <div className="p-3 rounded-xl bg-theme-surface-2 border border-theme text-xs space-y-1">
+              <div className="flex justify-between text-theme-secondary">
+                <span>Part 6 (16 câu):</span>
+                <span className="font-bold text-theme-primary">{result.time_analysis.part6_avg_seconds}s / câu</span>
+              </div>
+              <div className="text-[10px] text-theme-secondary">Chuẩn TOEIC: 30 - 38s/câu</div>
+            </div>
+
+            <div className="p-3 rounded-xl bg-theme-surface-2 border border-theme text-xs space-y-1">
+              <div className="flex justify-between text-theme-secondary">
+                <span>Part 7 (54 câu):</span>
+                <span className="font-bold text-theme-primary">{result.time_analysis.part7_avg_seconds}s / câu</span>
+              </div>
+              <div className="text-[10px] text-theme-secondary">Chuẩn TOEIC: 55 - 65s/câu</div>
+            </div>
+          </div>
+
+          <div className="p-3 rounded-xl alert-warning border border-theme-warning/30 text-xs font-medium text-theme-primary">
+            {result.time_analysis.pacing_verdict}
+          </div>
+        </div>
+      )}
+
       {/* Action shortcuts */}
       <div className="flex flex-wrap gap-3">
         <button

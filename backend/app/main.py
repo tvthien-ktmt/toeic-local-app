@@ -12,7 +12,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from .db import engine, Base
-from .routers import documents, questions, vocabulary, ai_generator, quiz, flashcards, dashboard, grammar, textbooks, curriculum
+from .routers import documents, questions, vocabulary, ai_generator, quiz, flashcards, dashboard, grammar, textbooks, curriculum, error_notebook, listening
 from .services.textbook_service import ensure_db_schema
 from .db import SessionLocal
 
@@ -60,6 +60,8 @@ app.include_router(grammar.router)
 app.include_router(textbooks.router, prefix="/api/documents/textbooks")
 app.include_router(textbooks.router, prefix="/api/textbooks")
 app.include_router(curriculum.router)
+app.include_router(error_notebook.router)
+app.include_router(listening.router)
 
 @app.get("/")
 def read_root() -> Dict[str, str]:

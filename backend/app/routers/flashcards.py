@@ -41,7 +41,7 @@ def review_flashcard(
 ) -> Dict[str, Any]:
     """Submits a review result (remembered/forgotten) for a flashcard and updates its next review interval."""
     try:
-        res = process_flashcard_review(db, flashcard_id, remembered)
-        return res
+        review_result = process_flashcard_review(db, flashcard_id, remembered)
+        return review_result
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))

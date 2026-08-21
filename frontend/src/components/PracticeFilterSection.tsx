@@ -68,14 +68,24 @@ export const PracticeFilterSection: React.FC<PracticeFilterSectionProps> = ({
 
         <div>
           <label className="text-xs text-theme-secondary font-semibold mb-1.5 block">
-            Chủ điểm ngữ pháp (Part 5)
+            {selectedPart === 7
+              ? 'Dạng câu hỏi đọc hiểu (Part 7)'
+              : selectedPart === 6
+              ? 'Dạng bài điền đoạn văn (Part 6)'
+              : 'Chủ điểm ngữ pháp / Dạng bài (Part 5)'}
           </label>
           <select
             value={selectedGrammar}
             onChange={(changeEvent) => onSelectGrammar(changeEvent.target.value)}
             className="w-full bg-theme-surface-2 border border-theme rounded-xl px-3 py-2 text-xs font-medium text-theme-primary focus:border-theme-accent focus:outline-none"
           >
-            <option value="">Tất cả chủ điểm ngữ pháp</option>
+            <option value="">
+              {selectedPart === 7
+                ? 'Tất cả dạng câu hỏi Part 7 (Detail, Inference...)'
+                : selectedPart === 6
+                ? 'Tất cả dạng bài Part 6 (Context, Grammar...)'
+                : 'Tất cả chủ điểm ngữ pháp Part 5'}
+            </option>
             {grammarTopics.map((grammarTopicItem, index) => (
               <option key={index} value={grammarTopicItem.topic}>
                 {grammarTopicItem.topic} ({grammarTopicItem.count} câu)

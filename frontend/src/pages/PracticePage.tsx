@@ -1,18 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { HelpCircle, RefreshCw, Award, BookOpen, Clock } from 'lucide-react';
+import { HelpCircle, RefreshCw } from 'lucide-react';
 import { fetchQuestions, fetchTopicsSummary, generateSimilarQuestion } from '../api/questions';
 import type { QuestionItem } from '../api/questions';
 import { GrammarQuickRefModal } from '../components/GrammarQuickRefModal';
 import { TextHighlightPopup } from '../components/TextHighlightPopup';
-import { PracticeTimer } from '../components/PracticeTimer';
 import { PracticeFilterSection } from '../components/PracticeFilterSection';
 import { PracticeQuestionCard } from '../components/PracticeQuestionCard';
 import { PracticeMockSummaryBanner } from '../components/PracticeMockSummaryBanner';
+import { Part7EvidenceCard } from '../components/Part7EvidenceCard';
+import { Part6TrainingModes, type Part6DisplayMode } from '../components/Part6TrainingModes';
+import { CoverageMatrixSection } from '../components/CoverageMatrixSection';
+import { PracticeHeaderSection } from '../components/PracticeHeaderSection';
 import { useStudySessionTracker } from '../hooks/useStudySessionTracker';
 import axios from 'axios';
 
 /**
- * Targeted practice questions page with filter tabs (Part 5/6/7, grammar topics), AI similar question generator, and speed timer.
+ * Targeted practice questions page with filter tabs (Part 5/6/7, grammar topics), AI similar question generator, Part 7 Evidence mode, and Part 6 Context training.
  */
 export const PracticePage: React.FC = () => {
   useStudySessionTracker('practice');
@@ -24,6 +27,8 @@ export const PracticePage: React.FC = () => {
   const [selectedPart, setSelectedPart] = useState<number | undefined>(undefined);
   const [selectedGrammar, setSelectedGrammar] = useState<string>('');
   const [selectedTopicTag, setSelectedTopicTag] = useState<string>('');
+  const [part6Mode, setPart6Mode] = useState<Part6DisplayMode>('full_text');
+  const [isShowCoverageMatrix, setIsShowCoverageMatrix] = useState<boolean>(false);
 
   const [isLoading, setIsLoading] = useState(true);
   const [userAnswers, setUserAnswers] = useState<Record<number, string>>({});
@@ -31,6 +36,7 @@ export const PracticePage: React.FC = () => {
   const [generatingId, setGeneratingId] = useState<number | null>(null);
 
   const [practiceMode, setPracticeMode] = useState<'part_practice' | 'full_mock'>('part_practice');
+  const [isGuidedMode, setIsGuidedMode] = useState<boolean>(true);
   const [isMockSubmitted, setIsMockSubmitted] = useState<boolean>(false);
   const [mockStartTime, setMockStartTime] = useState<number>(0);
 
@@ -160,86 +166,23 @@ export const PracticePage: React.FC = () => {
         onClose={() => setActiveGrammarTopic(null)}
       />
 
-      {/* Header Banner & Mode Switcher */}
-      <div className="relative overflow-hidden rounded-3xl bg-theme-surface p-8 border border-theme shadow-2xl">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-          <div className="space-y-3">
-            <div className="flex items-center space-x-2">
-              <span className="px-3 py-1 rounded-full bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-semibold">
-                Module 19 — Time Budgeting & Full Mock Test 75 Phút
-              </span>
-            </div>
-            <h1 className="text-3xl font-extrabold text-theme-primary">Luyện Tập & Thi Thử TOEIC</h1>
-            <p className="text-theme-secondary text-sm max-w-xl">
-              Tự luyện tập theo Part hoặc chọn chế độ Thi Thử Đầy Đủ 75 Phút với đồng hồ đếm ngược áp lực thi thật!
-            </p>
+      {/* Header Banner */}
+      <PracticeHeaderSection
+        practiceMode={practiceMode}
+        score={score}
+        isMockSubmitted={isMockSubmitted}
+        isShowCoverageMatrix={isShowCoverageMatrix}
+        isGuidedMode={isGuidedMode}
+        onToggleGuidedMode={() => setIsGuidedMode(!isGuidedMode)}
+        onToggleCoverageMatrix={() => setIsShowCoverageMatrix(!isShowCoverageMatrix)}
+        onChangePracticeMode={setPracticeMode}
+        onFinishMockTest={handleFinishMockTest}
+      />
 
-            <div className="inline-flex p-1 bg-theme-surface-2 rounded-2xl border border-theme space-x-1 pt-1">
-              <button
-                onClick={() => setPracticeMode('part_practice')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 ${
-                  practiceMode === 'part_practice'
-                    ? 'bg-theme-accent text-white shadow-lg'
-                    : 'text-theme-secondary hover:text-theme-primary'
-                }`}
-              >
-                <BookOpen className="w-4 h-4" />
-                <span>Luyện Theo Part</span>
-              </button>
-
-              <button
-                onClick={() => setPracticeMode('full_mock')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 ${
-                  practiceMode === 'full_mock'
-                    ? 'bg-theme-accent text-white font-extrabold shadow-lg'
-                    : 'text-theme-secondary hover:text-theme-primary'
-                }`}
-              >
-                <Clock className="w-4 h-4" />
-                <span>Thi Thử Đầy Đủ 75 Phút (Full Mock)</span>
-              </button>
-            </div>
-          </div>
-
-          <div className="bg-theme-surface-2 rounded-2xl p-4 border border-theme text-center shrink-0 min-w-[180px] shadow-lg space-y-2">
-            {practiceMode === 'full_mock' ? (
-              <>
-                <span className="text-xs text-theme-warning font-bold block uppercase tracking-wider">
-                  Đồng hồ Thi Thử
-                </span>
-                <PracticeTimer
-                  targetMinutes={75}
-                  onTimeUp={handleFinishMockTest}
-                  isPaused={isMockSubmitted}
-                />
-                {!isMockSubmitted ? (
-                  <button
-                    onClick={handleFinishMockTest}
-                    className="w-full py-1.5 px-3 bg-theme-warning hover:opacity-90 text-white font-bold text-xs rounded-xl transition"
-                  >
-                    Nộp Bài Thi Thử
-                  </button>
-                ) : (
-                  <span className="text-xs text-theme-success font-bold block">Đã hoàn thành!</span>
-                )}
-              </>
-            ) : (
-              <>
-                <Award className="w-6 h-6 mx-auto text-theme-accent mb-1" />
-                <span className="text-xs text-theme-secondary block font-medium">Điểm số luyện tập</span>
-                <span className="text-2xl font-extrabold text-theme-primary">
-                  {score.correct} / {score.total}
-                </span>
-                {score.total > 0 && (
-                  <span className="text-xs font-bold text-theme-success block mt-1">
-                    ({Math.round((score.correct / score.total) * 100)}% Chính xác)
-                  </span>
-                )}
-              </>
-            )}
-          </div>
-        </div>
-      </div>
+      {/* Coverage Matrix Panel (Toggleable) */}
+      {isShowCoverageMatrix && (
+        <CoverageMatrixSection />
+      )}
 
       {practiceMode === 'part_practice' && (
         <PracticeFilterSection
@@ -251,6 +194,14 @@ export const PracticePage: React.FC = () => {
           onSelectPart={setSelectedPart}
           onSelectGrammar={setSelectedGrammar}
           onSelectTopicTag={setSelectedTopicTag}
+        />
+      )}
+
+      {/* Part 6 Mode Selector when Part 6 is filtered */}
+      {practiceMode === 'part_practice' && selectedPart === 6 && (
+        <Part6TrainingModes
+          activeMode={part6Mode}
+          onChangeMode={setPart6Mode}
         />
       )}
 
@@ -272,25 +223,41 @@ export const PracticePage: React.FC = () => {
           <HelpCircle className="w-12 h-12 mx-auto text-theme-secondary" />
           <p className="text-theme-primary font-medium text-base">Chưa có câu hỏi nào khớp bộ lọc này</p>
           <p className="text-xs text-theme-secondary">
-            Hãy upload tài liệu đề thi PDF ở trang "Tài liệu & Upload" và nhấn "Trích xuất AI"!
+            Hãy upload tài liệu đề thi PDF ở trang "Tài liệu & Upload" hoặc chọn bộ đề cố định!
           </p>
         </div>
       ) : (
         <div className="space-y-6">
-          {questions.map((questionItem, index) => (
-            <PracticeQuestionCard
-              key={questionItem.id}
-              questionItem={questionItem}
-              index={index}
-              userChoice={userAnswers[questionItem.id]}
-              practiceMode={practiceMode}
-              isMockSubmitted={isMockSubmitted}
-              generatingId={generatingId}
-              onSelectOption={handleSelectOption}
-              onOpenGrammarModal={setActiveGrammarTopic}
-              onGenerateSimilar={handleGenerateSimilar}
-            />
-          ))}
+          {questions.map((questionItem, index) => {
+            if (questionItem.part === 7 && practiceMode === 'part_practice') {
+              return (
+                <Part7EvidenceCard
+                  key={questionItem.id}
+                  questionItem={questionItem}
+                  index={index}
+                  userChoice={userAnswers[questionItem.id]}
+                  onSelectOption={handleSelectOption}
+                  onOpenGrammarModal={setActiveGrammarTopic}
+                />
+              );
+            }
+
+            return (
+              <PracticeQuestionCard
+                key={questionItem.id}
+                questionItem={questionItem}
+                index={index}
+                userChoice={userAnswers[questionItem.id]}
+                practiceMode={practiceMode}
+                isMockSubmitted={isMockSubmitted}
+                isGuidedMode={isGuidedMode}
+                generatingId={generatingId}
+                onSelectOption={handleSelectOption}
+                onOpenGrammarModal={setActiveGrammarTopic}
+                onGenerateSimilar={handleGenerateSimilar}
+              />
+            );
+          })}
         </div>
       )}
     </div>

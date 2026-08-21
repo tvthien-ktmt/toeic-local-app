@@ -290,7 +290,7 @@ def main() -> None:
     frontend_dir = project_root / "frontend" / "src"
 
     logger.info("=" * 70)
-    logger.info("🔍 CLEAN CODE & ARCHITECTURE QUALITY AUDITOR (SKILL V1)")
+    logger.info("[AUDIT] CLEAN CODE & ARCHITECTURE QUALITY AUDITOR (SKILL V1)")
     logger.info("   Enforcing Explicit Naming (N1-N7) & Professional Comments (C1-C6)")
     logger.info("=" * 70)
 
@@ -310,7 +310,7 @@ def main() -> None:
     raw_score = max(0.0, min(100.0, 100.0 - deductions + doc_bonus))
     grade = calculate_grade(raw_score)
 
-    logger.info(f"\n📊 SUMMARY METRICS:")
+    logger.info(f"\n[SUMMARY] SUMMARY METRICS:")
     logger.info(f"   • Backend Files Scanned    : {py_results['files_scanned']} files")
     logger.info(f"   • Frontend Files Scanned   : {ts_results['files_scanned']} files")
     logger.info(f"   • Python Public Functions  : {py_results['total_functions']}")
@@ -319,18 +319,18 @@ def main() -> None:
     logger.info(f"   • Quality Score            : {raw_score:.1f} / 100.0")
     logger.info(f"   • Overall Quality Grade    : {grade}")
 
-    logger.info(f"\n📋 VIOLATIONS BREAKDOWN:")
+    logger.info(f"\n[REPORT] VIOLATIONS BREAKDOWN:")
     logger.info(f"   • Critical / High Severity : {len(high_sev)}")
     logger.info(f"   • Medium Severity          : {len(med_sev)}")
     logger.info(f"   • Low Severity / Tips      : {len(low_sev)}")
 
     if all_violations:
-        logger.info(f"\n🔎 ALL DETAILED FINDINGS ({len(all_violations)} items):")
+        logger.info(f"\n[FINDINGS] ALL DETAILED FINDINGS ({len(all_violations)} items):")
         for v in all_violations:
-            icon = "🔴" if v["severity"] == "HIGH" else ("🟡" if v["severity"] == "MEDIUM" else "ℹ️")
+            icon = "[HIGH]" if v["severity"] == "HIGH" else ("[MEDIUM]" if v["severity"] == "MEDIUM" else "[INFO]")
             logger.info(f"   {icon} [{v['severity']}] {v['file']}:{v['line']} — {v['message']}")
     else:
-        logger.info("\n✨ PERFECT CODEBASE: Zero violations found across all naming & comment rules!")
+        logger.info("\n[OK] PERFECT CODEBASE: Zero violations found across all naming & comment rules!")
 
     logger.info("=" * 70)
 

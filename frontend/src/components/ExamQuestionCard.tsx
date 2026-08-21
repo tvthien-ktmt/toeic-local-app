@@ -89,7 +89,10 @@ export const ExamQuestionCard: React.FC<ExamQuestionCardProps> = ({
           </span>
           <div>
             <span className="text-xs font-bold text-theme-primary">
-              Part {questionItem.part} • {questionItem.grammar_topic}
+              {questionItem.grammar_topic &&
+              !questionItem.grammar_topic.toLowerCase().startsWith(`part ${questionItem.part}`)
+                ? `Part ${questionItem.part} • ${questionItem.grammar_topic}`
+                : `Part ${questionItem.part}`}
             </span>
           </div>
         </div>

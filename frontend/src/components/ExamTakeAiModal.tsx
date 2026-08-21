@@ -86,7 +86,10 @@ export const ExamTakeAiModal: React.FC<ExamTakeAiModalProps> = ({
             {/* Meta Badge Bar */}
             <div className="flex items-center gap-2 flex-wrap pb-2 border-b border-theme">
               <span className="px-2 py-0.5 rounded-full bg-theme-accent/15 text-theme-accent font-bold text-[11px]">
-                Part {selectedAiQuestion.part} • {selectedAiQuestion.grammar_topic || 'Grammar'}
+                {selectedAiQuestion.grammar_topic &&
+                !selectedAiQuestion.grammar_topic.toLowerCase().startsWith(`part ${selectedAiQuestion.part}`)
+                  ? `Part ${selectedAiQuestion.part} • ${selectedAiQuestion.grammar_topic}`
+                  : `Part ${selectedAiQuestion.part}`}
               </span>
               <span className="px-2 py-0.5 rounded-full bg-theme-success/15 text-theme-success font-bold text-[11px]">
                 Đáp án đúng: ({selectedAiQuestion.correct_answer})

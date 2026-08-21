@@ -1,50 +1,76 @@
-# Python / Virtualenv
+# =====================================================================
+# SECRETS, CONFIG & LOCAL ENVIRONMENT
+# =====================================================================
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# =====================================================================
+# DATABASES, UPLOADS & LOCAL RUNTIME DATA
+# =====================================================================
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+backend/*.db
+backend/data/*.db
+backend/data/*.sqlite
+backend/data/uploads/*
+!backend/data/uploads/.gitkeep
+backend/app/data/
+
+# =====================================================================
+# CONFIDENTIAL EXAM RAW DATA, OCR, BOOKS & PDFS
+# =====================================================================
+*.pdf
+pdf thieu/
+book/
+textbook/
+Book_LC/
+Knowlegle_RC/
+scratch/
+
+# Confidential spec / requirements / internal reports
+Render_QuestionRC.md
+Project_Requiments.md
+RC_Format.md
+XÂY DỰNG LẠI HỆ THỐNG BÀI GIẢNG TOEIC PART 5–6–7 CHO NGƯỜI MẤT GỐC.md
+bao_cao_chi_tiet_cau_thieu_toeic.md
+empty_options_report.md
+BAO_CAO_TRICH_XUAT_DE_THI.md
+*.html
+!frontend/index.html
+*.log
+
+# =====================================================================
+# PYTHON & BACKEND RUNTIME
+# =====================================================================
 __pycache__/
 *.py[cod]
 *$py.class
 venv/
 env/
-.env
+.venv/
 
-# SQLite Databases & Uploaded Files (Uncommented for review per user request)
-# *.db
-# backend/*.db
-# backend/data/*.db
-# backend/data/uploads/*
-# !backend/data/uploads/.gitkeep
-
-# Node / React Frontend
+# =====================================================================
+# JAVASCRIPT & FRONTEND RUNTIME
+# =====================================================================
+node_modules/
 frontend/node_modules/
+dist/
 frontend/dist/
 frontend/.venv/
+.npm
+.eslintcache
 
-# Temporary / OS Files
+# =====================================================================
+# IDE, EDITORS & OS METADATA
+# =====================================================================
 .DS_Store
 Thumbs.db
-
-# Exclude PDF files strictly
-*.pdf
-pdf thieu/
-
-# Textbook Raw Data, Books & Temporary Scripts (Uncommented for review per user request)
-# book/
-# scratch/
-# textbook/
-# pdf thieu/
-# *.txt
-# !backend/requirements.txt
-
-# Prompt & Temporary Spec Reports (Uncommented for review per user request)
-# XÂY DỰNG LẠI HỆ THỐNG BÀI GIẢNG TOEIC PART 5–6–7 CHO NGƯỜI MẤT GỐC.md
-# bao_cao_chi_tiet_cau_thieu_toeic.md
-# empty_options_report.md
-# *.log
-
-# External Repositories & Resources (Uncommented for review per user request)
-# skills/
-# mattpocock-skills/
-# Knowlegle_RC/
-
-
-
-
+.idea/
+.vscode/
+*.swp
+*.swo

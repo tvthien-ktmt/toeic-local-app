@@ -68,7 +68,7 @@ def batch_enrich_questions_with_real_gemini(
         batch = pending_qs[i:i + batch_size]
         batch_num = (i // batch_size) + 1
         total_batches = (len(pending_qs) + batch_size - 1) // batch_size
-        logger.info(f"\n📦 Batch {batch_num}/{total_batches} ({len(batch)} câu)...")
+        logger.info(f"\n[BATCH] Batch {batch_num}/{total_batches} ({len(batch)} câu)...")
 
         batch_prompt_items = []
         for q in batch:
@@ -120,53 +120,53 @@ CHỈ trả JSON array thuần túy, không thêm markdown hay bất kỳ chữ 
                 if isinstance(data, list) and len(data) > 0:
                     data_map = {item.get("q_id"): item for item in data if isinstance(item, dict) and "q_id" in item}
                     batch_success_count = 0
-                    for q in batch:
-                        res = data_map.get(q.id)
-                        if res and res.get("common_trap") and res.get("translated_sentence"):
+                    for question_obj in batch:
+                        ai_result_item = data_map.get(question_obj.id)
+                        if ai_result_item and ai_result_item.get("common_trap") and ai_result_item.get("translated_sentence"):
                             # Verify translation is actually in Vietnamese
-                            trans = res.get("translated_sentence", "")
-                            if not re.search(r'[àáảãạăắằẳẵặâấầẩẫậèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵđ]', trans, re.IGNORECASE):
+                            translated_text = ai_result_item.get("translated_sentence", "")
+                            if not re.search(r'[àáảãạăắằẳẵặâấầẩẫậèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵđ]', translated_text, re.IGNORECASE):
                                 continue
 
-                            q.grammar_topic = res.get("grammar_topic") or q.grammar_topic
-                            q.option_explanations_json = json.dumps(res.get("option_explanations", {}), ensure_ascii=False)
-                            q.common_trap = res.get("common_trap", "")
-                            q.translated_sentence = trans
-                            if res.get("explanation"):
-                                q.explanation = res.get("explanation")
+                            question_obj.grammar_topic = ai_result_item.get("grammar_topic") or question_obj.grammar_topic
+                            question_obj.option_explanations_json = json.dumps(ai_result_item.get("option_explanations", {}), ensure_ascii=False)
+                            question_obj.common_trap = ai_result_item.get("common_trap", "")
+                            question_obj.translated_sentence = translated_text
+                            if ai_result_item.get("explanation"):
+                                question_obj.explanation = ai_result_item.get("explanation")
                             batch_success_count += 1
 
                     if batch_success_count > 0:
                         db.commit()
                         processed_count += batch_success_count
                         consecutive_rpd_failures = 0
-                        logger.info(f"   ✅ Đã lưu {batch_success_count}/{len(batch)} câu Gemini AI THẬT vào DB.")
+                        logger.info(f"   [OK] Đã lưu {batch_success_count}/{len(batch)} câu Gemini AI THẬT vào DB.")
                         success = True
                     else:
-                        logger.warning(f"   ⚠️ Lần thử {attempts}: Gemini trả về cấu trúc chưa đủ tiếng Việt. Thử lại sau {retry_delay_sec}s...")
+                        logger.warning(f"   [WARNING] Lần thử {attempts}: Gemini trả về cấu trúc chưa đủ tiếng Việt. Thử lại sau {retry_delay_sec}s...")
                         time.sleep(retry_delay_sec)
                 else:
-                    logger.warning(f"   ⚠️ Lần thử {attempts}: Phản hồi Gemini không phải JSON array. Thử lại sau {retry_delay_sec}s...")
+                    logger.warning(f"   [WARNING] Lần thử {attempts}: Phản hồi Gemini không phải JSON array. Thử lại sau {retry_delay_sec}s...")
                     time.sleep(retry_delay_sec)
 
             except Exception as e:
                 err_msg = str(e)
-                logger.warning(f"   ⚠️ Gemini API rate-limited hoặc hết quota ({err_msg[:120]}). Lần thử {attempts}/{max_quota_retries}...")
+                logger.warning(f"   [WARNING] Gemini API rate-limited hoặc hết quota ({err_msg[:120]}). Lần thử {attempts}/{max_quota_retries}...")
                 time.sleep(retry_delay_sec * attempts)
 
         if not success:
             consecutive_rpd_failures += 1
             if consecutive_rpd_failures >= 2:
-                logger.warning("\n🛑 [DAILY QUOTA EXCEEDED] Đã chạm giới hạn 1.500 RPD (Requests Per Day) của Gemini Free Tier trên toàn bộ API Keys!")
-                logger.info("📌 Gemini Free Tier tự động reset daily quota vào 00:00 UTC (7:00 AM giờ Việt Nam).")
-                logger.info(f"📌 Đã hoàn thành và bảo toàn nguyên vẹn {processed_count} câu Gemini AI THẬT trong DB.")
-                logger.info("📌 Vui lòng chạy lại script vào ngày mai hoặc bổ sung thêm API Key mới vào file .env.")
+                logger.warning("\n[LIMIT] [DAILY QUOTA EXCEEDED] Đã chạm giới hạn 1.500 RPD (Requests Per Day) của Gemini Free Tier trên toàn bộ API Keys!")
+                logger.info("[INFO] Gemini Free Tier tự động reset daily quota vào 00:00 UTC (7:00 AM giờ Việt Nam).")
+                logger.info(f"[INFO] Đã hoàn thành và bảo toàn nguyên vẹn {processed_count} câu Gemini AI THẬT trong DB.")
+                logger.info("[INFO] Vui lòng chạy lại script vào ngày mai hoặc bổ sung thêm API Key mới vào file .env.")
                 break
 
         # RPM Rate-Limit Safety Pause (15 RPM max = ~4 seconds between requests)
         time.sleep(4)
 
-    logger.info(f"\n🎉 [HOÀN TẤT BATCH AI THẬT] Đã tạo và lưu thành công {processed_count} câu Gemini AI THẬT vào DB.")
+    logger.info(f"\n[DONE] [HOÀN TẤT BATCH AI THẬT] Đã tạo và lưu thành công {processed_count} câu Gemini AI THẬT vào DB.")
     return {"processed": processed_count, "status": "success"}
 
 

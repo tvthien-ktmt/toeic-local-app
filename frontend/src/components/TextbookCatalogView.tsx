@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { fetchTextbookCatalog, type CatalogCategory, type TestItem } from '../api/documents';
-import { BookOpen, Layers, Clock, Trophy, Play, CheckCircle2, Search, RefreshCw, AlertCircle, Sparkles } from 'lucide-react';
+import { BookOpen, Layers, Clock, Trophy, Play, Search, RefreshCw, AlertCircle, Sparkles } from 'lucide-react';
+import { ExamInstructionsModal } from './ExamInstructionsModal';
+import { TextbookModeModal } from './TextbookModeModal';
 
 interface TextbookCatalogViewProps {
   onStartExam: (testId: number, mode: 'full_exam' | 'practice') => void;
@@ -18,6 +20,7 @@ export const TextbookCatalogView: React.FC<TextbookCatalogViewProps> = ({ onStar
   // Modal mode selector state
   const [selectedTest, setSelectedTest] = useState<TestItem | null>(null);
   const [isShowModeModal, setIsShowModeModal] = useState<boolean>(false);
+  const [instructionsTest, setInstructionsTest] = useState<{ test: TestItem; mode: 'full_exam' | 'practice' } | null>(null);
 
   useEffect(() => {
     setIsLoading(true);
@@ -46,7 +49,19 @@ export const TextbookCatalogView: React.FC<TextbookCatalogViewProps> = ({ onStar
   const handleConfirmStart = (mode: 'full_exam' | 'practice') => {
     if (selectedTest) {
       setIsShowModeModal(false);
-      onStartExam(selectedTest.id, mode);
+      if (mode === 'full_exam') {
+        setInstructionsTest({ test: selectedTest, mode });
+      } else {
+        onStartExam(selectedTest.id, mode);
+      }
+    }
+  };
+
+  const handleStartFromInstructions = () => {
+    if (instructionsTest) {
+      const { test, mode } = instructionsTest;
+      setInstructionsTest(null);
+      onStartExam(test.id, mode);
     }
   };
 
@@ -176,7 +191,7 @@ export const TextbookCatalogView: React.FC<TextbookCatalogViewProps> = ({ onStar
 
                       {/* Tests Grid */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                        {filteredTests.map(test => (
+                        {filteredTests.map((test) => (
                           <div
                             key={test.id}
                             className="group relative bg-theme-surface-2 hover:bg-theme-surface border border-theme hover:border-theme-accent rounded-xl p-4 transition-all duration-200 flex flex-col justify-between hover:shadow-lg"
@@ -186,9 +201,13 @@ export const TextbookCatalogView: React.FC<TextbookCatalogViewProps> = ({ onStar
                                 <span className="px-2 py-0.5 text-[10px] font-bold bg-theme-accent/15 text-theme-accent border border-theme-accent/30 rounded-md">
                                   TEST {test.test_number < 10 ? `0${test.test_number}` : test.test_number}
                                 </span>
-                                {test.highest_score !== null && (
+                                {test.highest_score !== null ? (
                                   <span className="flex items-center gap-1 text-[11px] font-extrabold text-theme-success alert-success border border-theme-success/30 px-2 py-0.5 rounded-full">
                                     <Trophy className="w-3 h-3" /> {test.highest_score} / 495
+                                  </span>
+                                ) : (
+                                  <span className="text-[10px] font-semibold text-theme-secondary">
+                                    Chưa làm
                                   </span>
                                 )}
                               </div>
@@ -196,9 +215,28 @@ export const TextbookCatalogView: React.FC<TextbookCatalogViewProps> = ({ onStar
                               <h4 className="text-sm font-bold text-theme-primary group-hover:text-theme-accent transition-colors line-clamp-2 mb-1">
                                 {test.filename.replace(/^\[.*?\]\s*/, '')}
                               </h4>
-                              <p className="text-[11px] text-theme-secondary mb-4">
-                                Cấu trúc chuẩn TOEIC RC (100 Câu: Part 5, 6, 7)
-                              </p>
+
+                              {/* Metadata Badges */}
+                              <div className="space-y-1.5 mb-3 mt-2 text-[11px]">
+                                {test.difficulty_rating && (
+                                  <div className="flex items-center justify-between text-theme-secondary">
+                                    <span>Độ khó:</span>
+                                    <span className="font-semibold text-theme-primary">{test.difficulty_rating}</span>
+                                  </div>
+                                )}
+                                {test.average_score !== undefined && test.average_score !== null && (
+                                  <div className="flex items-center justify-between text-theme-secondary">
+                                    <span>Điểm trung bình:</span>
+                                    <span className="font-bold text-theme-accent">{test.average_score} / 495</span>
+                                  </div>
+                                )}
+                                {test.attempt_count !== undefined && test.attempt_count > 0 && (
+                                  <div className="flex items-center justify-between text-theme-secondary">
+                                    <span>Lượt thi:</span>
+                                    <span className="font-semibold text-theme-success">{test.attempt_count} lần</span>
+                                  </div>
+                                )}
+                              </div>
                             </div>
 
                             {/* Action Buttons */}
@@ -224,67 +262,21 @@ export const TextbookCatalogView: React.FC<TextbookCatalogViewProps> = ({ onStar
 
       {/* Mode Selector Modal */}
       {isShowModeModal && selectedTest && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-          <div className="bg-theme-surface border border-theme rounded-2xl max-w-md w-full p-6 space-y-6 shadow-2xl">
-            <div className="text-center space-y-2">
-              <div className="w-12 h-12 rounded-2xl bg-theme-accent/20 border border-theme-accent/30 text-theme-accent flex items-center justify-center mx-auto mb-2">
-                <BookOpen className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold text-theme-primary">
-                {selectedTest.filename.replace(/^\[.*?\]\s*/, '')}
-              </h3>
-              <p className="text-xs text-theme-secondary">
-                Vui lòng chọn chế độ thi phù hợp với nhu cầu ôn tập của bạn
-              </p>
-            </div>
+        <TextbookModeModal
+          selectedTest={selectedTest}
+          onConfirmStart={handleConfirmStart}
+          onClose={() => setIsShowModeModal(false)}
+        />
+      )}
 
-            {/* Mode Cards */}
-            <div className="space-y-3">
-              {/* Mode 1: Full Exam 75m */}
-              <div
-                onClick={() => handleConfirmStart('full_exam')}
-                className="group cursor-pointer p-4 rounded-xl alert-warning border border-theme-warning/40 hover:border-theme-warning transition-all duration-200 flex items-start gap-3.5"
-              >
-                <div className="w-10 h-10 rounded-xl bg-theme-warning/20 text-theme-warning flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                  <Clock className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-2 mb-0.5">
-                    <h4 className="text-sm font-bold text-theme-warning">Thi Thật RC (75 Phút)</h4>
-                    <span className="px-1.5 py-0.5 text-[9px] font-bold uppercase bg-theme-warning text-white rounded">Khuyên Dùng</span>
-                  </div>
-                  <p className="text-xs text-theme-secondary leading-relaxed">
-                    Có đồng hồ đếm ngược 75:00. Tự động nộp bài khi hết giờ và tính điểm TOEIC RC chuẩn (5-495 điểm).
-                  </p>
-                </div>
-              </div>
-
-              {/* Mode 2: Unlimited Practice */}
-              <div
-                onClick={() => handleConfirmStart('practice')}
-                className="group cursor-pointer p-4 rounded-xl alert-success border border-theme-success/40 hover:border-theme-success transition-all duration-200 flex items-start gap-3.5"
-              >
-                <div className="w-10 h-10 rounded-xl bg-theme-success/20 text-theme-success flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                  <CheckCircle2 className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-theme-success mb-0.5">Luyện Tập Tự Do (Không Giới Hạn)</h4>
-                  <p className="text-xs text-theme-secondary leading-relaxed">
-                    Không giới hạn thời gian. Xem ngay đáp án, giải thích chi tiết và bản dịch Tiếng Việt từng câu.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Cancel Button */}
-            <button
-              onClick={() => setIsShowModeModal(false)}
-              className="w-full py-2.5 rounded-xl border border-theme text-xs font-semibold text-theme-secondary hover:text-theme-primary transition-colors cursor-pointer"
-            >
-              Hủy Bỏ
-            </button>
-          </div>
-        </div>
+      {/* Instructions Modal before Exam */}
+      {instructionsTest && (
+        <ExamInstructionsModal
+          test={instructionsTest.test}
+          mode={instructionsTest.mode}
+          onStartTest={handleStartFromInstructions}
+          onClose={() => setInstructionsTest(null)}
+        />
       )}
     </div>
   );

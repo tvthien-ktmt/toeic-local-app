@@ -11,6 +11,7 @@ export interface QuestionItem {
   option_explanations_json?: string | null;
   translated_sentence?: string | null;
   grammar_topic: string;
+  common_trap?: string | null;
   topic_tag: string | null;
   is_generated: boolean;
   created_at: string;

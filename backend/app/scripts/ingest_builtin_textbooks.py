@@ -298,7 +298,7 @@ def split_text_by_headings_or_reset(text: str) -> List[Tuple[int, str]]:
 def run_standalone_ingestion() -> None:
     """Executes offline textbook ingestion pipeline and prints execution report."""
     logger.info("=" * 65)
-    logger.info("🚀 TOEIC LOCAL APP — BUILT-IN EXAM INGESTION PIPELINE")
+    logger.info("[START] TOEIC LOCAL APP — BUILT-IN EXAM INGESTION PIPELINE")
     logger.info("=" * 65)
 
     db_url = os.environ.get("DATABASE_URL", "sqlite:///./data/toeic.db")
@@ -309,7 +309,7 @@ def run_standalone_ingestion() -> None:
     ensure_db_schema(db)
 
     if not os.path.exists(TEXTBOOK_ROOT_DIR):
-        logger.error(f"❌ Error: Textbook root directory not found at: {TEXTBOOK_ROOT_DIR}")
+        logger.error(f"[ERROR] Error: Textbook root directory not found at: {TEXTBOOK_ROOT_DIR}")
         return
 
     total_tests_processed = 0
@@ -336,7 +336,7 @@ def run_standalone_ingestion() -> None:
                 with open(md_path, "r", encoding="utf-8", errors="ignore") as file:
                     text = file.read()
             except Exception as ex:
-                logger.warning(f"⚠️ Error reading {md_path}: {ex}")
+                logger.warning(f"[WARNING] Error reading {md_path}: {ex}")
                 continue
 
             # Split text by Test headings or question resets
@@ -365,7 +365,7 @@ def run_standalone_ingestion() -> None:
 
                 if len(qs_data) < 10 and test_num > 10:
                     # Invalid appendix / fragment test — skip
-                    logger.warning(f"  ⚠️ Skipping invalid fragment: {filename} ({len(qs_data)} questions)")
+                    logger.warning(f"  [WARNING] Skipping invalid fragment: {filename} ({len(qs_data)} questions)")
                     continue
 
                 content_hash = hashlib.sha256(f"{filename}::{block[:1000]}".encode("utf-8")).hexdigest()
@@ -438,12 +438,12 @@ def run_standalone_ingestion() -> None:
     db.close()
 
     logger.info("\n" + "=" * 65)
-    logger.info("📊 INGESTION SUMMARY REPORT")
+    logger.info("[SUMMARY] INGESTION SUMMARY REPORT")
     logger.info("=" * 65)
     logger.info(f"Total Tests Processed : {total_tests_processed}")
-    logger.info(f"  ✅ Complete (100 qs) : {complete_tests}")
-    logger.info(f"  ⚠️ Partial (80-99 qs): {partial_tests}")
-    logger.info(f"  ❌ Failed (<80 qs)   : {failed_tests}")
+    logger.info(f"  [OK] Complete (100 qs) : {complete_tests}")
+    logger.info(f"  [WARNING] Partial (80-99 qs): {partial_tests}")
+    logger.info(f"  [ERROR] Failed (<80 qs)   : {failed_tests}")
     logger.info("-" * 65)
 
 

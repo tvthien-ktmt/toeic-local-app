@@ -116,7 +116,7 @@ def generate_lesson_content(
             example_block += f"\n→ Bẫy: {q.common_trap}"
 
     if not has_real:
-        example_block = "\n⚠️ Chưa có ví dụ thật trong CSDL cho chủ điểm này. Ví dụ dưới đây do AI tạo minh hoạ — KHÔNG phải từ đề thi thật."
+        example_block = "\n[WARNING] Chưa có ví dụ thật trong CSDL cho chủ điểm này. Ví dụ dưới đây do AI tạo minh hoạ — KHÔNG phải từ đề thi thật."
 
     parts_str = ", ".join(f"Part {p}" for p in json.loads(topic.parts_json or "[5]"))
     level_vi = {"basic": "cơ bản", "intermediate": "trung cấp", "advanced": "nâng cao"}.get(topic.level, topic.level)
@@ -153,7 +153,7 @@ CHỈ trả JSON thuần túy, không markdown bọc ngoài."""
         # No API key — create placeholder lesson
         placeholder_md = f"""## {topic.canonical_name}
 
-> ⚠️ **Chưa có dữ liệu AI** — Cần GEMINI_API_KEY để sinh bài giảng tự động.
+> [WARNING] **Chưa có dữ liệu AI** — Cần GEMINI_API_KEY để sinh bài giảng tự động.
 
 **Loại:** {cat_vi} | **Cấp độ:** {level_vi} | **Xuất hiện:** {parts_str}
 

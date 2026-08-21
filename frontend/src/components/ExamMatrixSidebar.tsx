@@ -85,16 +85,18 @@ export const ExamMatrixSidebar: React.FC<ExamMatrixSidebarProps> = ({
       {/* Question Grid Buttons */}
       <div className="grid grid-cols-5 gap-2 max-h-[50vh] overflow-y-auto pr-1">
         {filteredMatrixQs.map((matrixQuestionItem) => {
-          const isAnswered2 = !!userAnswers[matrixQuestionItem.id];
-          const isFlagged2 = !!flaggedQuestions[matrixQuestionItem.id];
+          const userAns = userAnswers[matrixQuestionItem.id] || userAnswers[matrixQuestionItem.q_num];
+          const isAnswered2 = !!userAns;
+          const isFlagged2 =
+            !!flaggedQuestions[matrixQuestionItem.id] || !!flaggedQuestions[matrixQuestionItem.q_num];
           const isSubmitted = !!examResult;
           const isCorrect2 =
-            isSubmitted && userAnswers[matrixQuestionItem.id] === matrixQuestionItem.correct_answer;
+            isSubmitted && userAns === matrixQuestionItem.correct_answer;
           const isWrong2 =
             isSubmitted &&
-            userAnswers[matrixQuestionItem.id] &&
-            userAnswers[matrixQuestionItem.id] !== matrixQuestionItem.correct_answer;
-          const isSkipped2 = isSubmitted && !userAnswers[matrixQuestionItem.id];
+            userAns &&
+            userAns !== matrixQuestionItem.correct_answer;
+          const isSkipped2 = isSubmitted && !userAns;
 
           let gridStyle =
             'bg-theme-surface-2 hover:bg-theme-surface text-theme-secondary border border-theme';

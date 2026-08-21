@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { RefreshCw } from 'lucide-react';
 import { ExamResultModal } from '../components/ExamResultModal';
 import { ConfirmSubmitDialog } from '../components/ConfirmSubmitDialog';
@@ -7,6 +7,7 @@ import { ExamTakeHeader } from '../components/ExamTakeHeader';
 import { ExamMatrixSidebar } from '../components/ExamMatrixSidebar';
 import { ExamTakeAiModal } from '../components/ExamTakeAiModal';
 import { ExamQuestionStream } from '../components/ExamQuestionStream';
+import { StructuredExamStream } from '../components/toeic/StructuredExamStream';
 import { groupQuestionsForDisplay } from '../utils/examGrouping';
 import { useExamTakingSession } from '../hooks/useExamTakingSession';
 
@@ -23,6 +24,7 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
   const {
     document,
     questions,
+    parts,
     isLoading,
     userAnswers,
     flaggedQuestions,
@@ -58,14 +60,24 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
   const questionRefs = useRef<Record<number, HTMLDivElement | null>>({});
 
   const scrollToQuestion = (questionId: number) => {
-    const targetElement = questionRefs.current[questionId];
+    let targetElement = questionRefs.current[questionId];
+    if (!targetElement) {
+      const targetQ = questions.find((item) => item.id === questionId || item.q_num === questionId);
+      if (targetQ) {
+        targetElement = questionRefs.current[targetQ.q_num] || questionRefs.current[targetQ.id];
+      }
+    }
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   };
 
-  const answeredCount = Object.keys(userAnswers).length;
-  const flaggedCount = Object.values(flaggedQuestions).filter(Boolean).length;
+  const answeredCount = questions.filter(
+    (q) => !!userAnswers[q.id] || !!userAnswers[q.q_num]
+  ).length;
+  const flaggedCount = questions.filter(
+    (q) => !!flaggedQuestions[q.id] || !!flaggedQuestions[q.q_num]
+  ).length;
   const unansweredCount = questions.length - answeredCount;
   const progressPercent =
     questions.length > 0 ? Math.round((answeredCount / questions.length) * 100) : 0;
@@ -81,14 +93,29 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
       return questionItem.part === 7;
     }
     if (matrixFilter === 'FLAGGED') {
-      return flaggedQuestions[questionItem.id];
+      return !!flaggedQuestions[questionItem.id] || !!flaggedQuestions[questionItem.q_num];
     }
     if (matrixFilter === 'UNANSWERED') {
-      return !userAnswers[questionItem.id];
+      return !userAnswers[questionItem.id] && !userAnswers[questionItem.q_num];
     }
 
     return true;
   });
+
+  useEffect(() => {
+    // Content protection: Prevent shortcuts like Ctrl+S (Save), Ctrl+U (Source), Ctrl+P (Print)
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if ((event.ctrlKey || event.metaKey) && ['s', 'u', 'p'].includes(event.key.toLowerCase())) {
+        event.preventDefault();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   if (isLoading) {
     return (
@@ -100,7 +127,10 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
   }
 
   return (
-    <div className="min-h-screen bg-theme-base pb-24">
+    <div 
+      className="min-h-screen bg-theme-base pb-24 select-none"
+      onContextMenu={(event) => event.preventDefault()}
+    >
       {isShowResumeDialog && pendingDraft && (
         <ResumeDraftDialog
           savedAnswerCount={Object.keys(pendingDraft.answers || {}).length}
@@ -135,19 +165,38 @@ export const ExamTakePage: React.FC<ExamTakePageProps> = ({ docId, mode, onBack 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className="lg:col-span-8 space-y-8">
-          <ExamQuestionStream
-            groups={groupQuestionsForDisplay(questions)}
-            userAnswers={userAnswers}
-            flaggedQuestions={flaggedQuestions}
-            revealedExplanations={revealedExplanations}
-            mode={mode}
-            isSubmitted={!!examResult}
-            questionRefs={questionRefs}
-            onSelectAnswer={handleSelectAnswer}
-            onToggleFlag={handleToggleFlag}
-            onToggleExplanation={handleToggleExplanation}
-            onFetchAiExplanation={handleFetchAiExplanation}
-          />
+          {parts ? (
+            <StructuredExamStream
+              parts={parts}
+              userAnswers={userAnswers}
+              flaggedQuestions={flaggedQuestions}
+              isSubmitted={!!examResult}
+              mode={mode}
+              questionRefs={questionRefs}
+              onSelectAnswer={handleSelectAnswer}
+              onToggleFlag={handleToggleFlag}
+              onFetchAiExplanation={(qNum) => {
+                const targetQ = questions.find((item) => item.q_num === qNum || item.id === qNum);
+                if (targetQ) {
+                  handleFetchAiExplanation(targetQ);
+                }
+              }}
+            />
+          ) : (
+            <ExamQuestionStream
+              groups={groupQuestionsForDisplay(questions)}
+              userAnswers={userAnswers}
+              flaggedQuestions={flaggedQuestions}
+              revealedExplanations={revealedExplanations}
+              mode={mode}
+              isSubmitted={!!examResult}
+              questionRefs={questionRefs}
+              onSelectAnswer={handleSelectAnswer}
+              onToggleFlag={handleToggleFlag}
+              onToggleExplanation={handleToggleExplanation}
+              onFetchAiExplanation={handleFetchAiExplanation}
+            />
+          )}
         </div>
 
         <div className="lg:col-span-4">

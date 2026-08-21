@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { QuestionItem } from '../utils/examGrouping';
+import type { NormalizedParts } from '../types/toeicContent';
 
 export interface ExamDocument {
   id: number;
@@ -18,6 +19,7 @@ export interface ExamDocument {
 export function useExamTakingSession(docId: number, mode: 'full_exam' | 'practice') {
   const [document, setDocument] = useState<ExamDocument | null>(null);
   const [questions, setQuestions] = useState<QuestionItem[]>([]);
+  const [parts, setParts] = useState<NormalizedParts | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const [userAnswers, setUserAnswers] = useState<Record<number, string>>({});
@@ -47,11 +49,14 @@ export function useExamTakingSession(docId: number, mode: 'full_exam' | 'practic
   const fetchExamData = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch(`/api/textbooks/exam/${docId}`);
+      const response = await fetch(`/api/textbooks/exam/${docId}?mode=${mode}`);
       const data = await response.json();
       if (data.status === 'success') {
         setDocument(data.document);
-        setQuestions(data.questions);
+        setQuestions(data.questions || []);
+        if (data.parts) {
+          setParts(data.parts);
+        }
 
         const savedDraft = localStorage.getItem(draftKey);
         if (savedDraft) {
@@ -260,6 +265,7 @@ export function useExamTakingSession(docId: number, mode: 'full_exam' | 'practic
   return {
     document,
     questions,
+    parts,
     isLoading,
     userAnswers,
     flaggedQuestions,

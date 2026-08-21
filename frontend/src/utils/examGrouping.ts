@@ -90,6 +90,8 @@ export function groupQuestionsForDisplay(questions: QuestionItem[]): PassageGrou
             questions: [{ item: questionItem, promptOnly }],
           };
         }
+      } else if (currentGroup && currentGroup.qStart <= questionItem.q_num && questionItem.q_num <= currentGroup.qEnd) {
+        currentGroup.questions.push({ item: questionItem, promptOnly: questionItem.question_text });
       } else {
         if (currentGroup) {
           groups.push(currentGroup);

@@ -143,24 +143,24 @@ def get_related_vocabulary_suggestions(
 
     if existing_suggestions and len(existing_suggestions) >= 3:
         logger.info(f"[RELATED VOCAB CACHE HIT] Suggestions for '{clean_word}' returned from DB ({len(existing_suggestions)} terms)")
-        res = []
-        for v in existing_suggestions:
-            fc = db.query(Flashcard).filter(Flashcard.vocabulary_id == v.id).first()
-            syns = json.loads(v.synonyms) if (v.synonyms and v.synonyms.startswith("[")) else []
-            res.append({
-                "id": v.id,
-                "word": v.word,
-                "ipa": v.ipa,
-                "part_of_speech": v.part_of_speech,
-                "meaning_vi": v.meaning_vi,
-                "example_sentence": v.example_sentence,
-                "synonyms": syns,
-                "topic_category": v.topic_category,
-                "source_type": v.source_type,
-                "parent_word": v.parent_word,
-                "in_flashcard": fc is not None
+        suggested_terms_list = []
+        for vocabulary_item in existing_suggestions:
+            flashcard_item = db.query(Flashcard).filter(Flashcard.vocabulary_id == vocabulary_item.id).first()
+            synonyms_list = json.loads(vocabulary_item.synonyms) if (vocabulary_item.synonyms and vocabulary_item.synonyms.startswith("[")) else []
+            suggested_terms_list.append({
+                "id": vocabulary_item.id,
+                "word": vocabulary_item.word,
+                "ipa": vocabulary_item.ipa,
+                "part_of_speech": vocabulary_item.part_of_speech,
+                "meaning_vi": vocabulary_item.meaning_vi,
+                "example_sentence": vocabulary_item.example_sentence,
+                "synonyms": synonyms_list,
+                "topic_category": vocabulary_item.topic_category,
+                "source_type": vocabulary_item.source_type,
+                "parent_word": vocabulary_item.parent_word,
+                "in_flashcard": flashcard_item is not None
             })
-        return res
+        return suggested_terms_list
 
     # 2. Query Gemini for 3-5 business/TOEIC related terms
     logger.info(f"[RELATED VOCAB CACHE MISS] Generating 3-5 TOEIC business terms related to '{clean_word}' via Gemini...")

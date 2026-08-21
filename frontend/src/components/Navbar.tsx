@@ -1,43 +1,109 @@
 import React from 'react';
-import { BookOpen, FileText, Sparkles, BrainCircuit, BarChart3, GraduationCap, Map } from 'lucide-react';
+import {
+  BookOpen,
+  FileText,
+  Sparkles,
+  BrainCircuit,
+  BarChart3,
+  GraduationCap,
+  Map,
+  BookMarked,
+  Zap,
+  Headphones,
+  Volume2,
+} from 'lucide-react';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
+export type AppNavTab =
+  | 'textbooks'
+  | 'lc_catalog'
+  | 'lc_practice'
+  | 'lc_dashboard'
+  | 'lc_errors'
+  | 'roadmap'
+  | 'errors'
+  | 'speed'
+  | 'practice'
+  | 'flashcards'
+  | 'dashboard'
+  | 'upload';
+
 interface NavbarProps {
-  activeTab: 'textbooks' | 'upload' | 'practice' | 'flashcards' | 'dashboard' | 'roadmap';
-  setActiveTab: (tab: 'textbooks' | 'upload' | 'practice' | 'flashcards' | 'dashboard' | 'roadmap') => void;
+  activeTab: AppNavTab;
+  setActiveTab: (tab: AppNavTab) => void;
   selectedDocId: number | null;
   onBackToDocs: () => void;
 }
 
 interface TabItem {
-  id: NavbarProps['activeTab'];
+  id: AppNavTab;
   label: string;
   shortLabel: string;
   icon: React.ReactNode;
-  special?: boolean;
+  isLcSection?: boolean;
 }
 
 /**
- * Top navigation bar providing responsive tabs for Kho Đề, Roadmap, Thư Viện, Luyện Tập, Flashcards, and Thống Kê.
+ * Top navigation bar providing responsive tabs for both RC and LC tracks.
  */
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selectedDocId, onBackToDocs }) => {
   const tabs: TabItem[] = [
     {
+      id: 'lc_catalog',
+      label: 'Kho Đề LC (Listening)',
+      shortLabel: 'Đề LC',
+      icon: <Headphones className="w-4 h-4 text-theme-accent shrink-0" />,
+      isLcSection: true,
+    },
+    {
+      id: 'lc_practice',
+      label: 'Luyện Nghe LC',
+      shortLabel: 'Luyện LC',
+      icon: <Volume2 className="w-4 h-4 text-theme-warning shrink-0" />,
+      isLcSection: true,
+    },
+    {
+      id: 'lc_dashboard',
+      label: 'Dashboard LC',
+      shortLabel: 'Stats LC',
+      icon: <BarChart3 className="w-4 h-4 text-theme-success shrink-0" />,
+      isLcSection: true,
+    },
+    {
+      id: 'lc_errors',
+      label: 'Sổ Lỗi LC (SRS)',
+      shortLabel: 'Lỗi LC',
+      icon: <BookMarked className="w-4 h-4 text-theme-error shrink-0" />,
+      isLcSection: true,
+    },
+    {
       id: 'textbooks',
-      label: 'Kho Đề Cố Định',
-      shortLabel: 'Kho Đề',
+      label: 'Kho Đề RC (Reading)',
+      shortLabel: 'Đề RC',
       icon: <GraduationCap className="w-4 h-4 text-theme-warning shrink-0" />,
     },
     {
-      id: 'upload',
-      label: 'Đề Thi Cá Nhân',
-      shortLabel: 'Cá Nhân',
-      icon: <FileText className="w-4 h-4 shrink-0" />,
+      id: 'roadmap',
+      label: 'Lộ Trình RC',
+      shortLabel: 'Lộ Trình',
+      icon: <Map className="w-4 h-4 text-theme-accent shrink-0" />,
+    },
+    {
+      id: 'errors',
+      label: 'Sổ Lỗi RC',
+      shortLabel: 'Lỗi RC',
+      icon: <BookMarked className="w-4 h-4 text-theme-error shrink-0" />,
+    },
+    {
+      id: 'speed',
+      label: 'Luyện Tốc Độ RC',
+      shortLabel: 'Tốc Độ',
+      icon: <Zap className="w-4 h-4 text-theme-warning shrink-0" />,
     },
     {
       id: 'practice',
-      label: 'Luyện Tập',
-      shortLabel: 'Luyện Tập',
+      label: 'Luyện Tập RC',
+      shortLabel: 'Luyện RC',
       icon: <BookOpen className="w-4 h-4 shrink-0" />,
     },
     {
@@ -48,27 +114,26 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
     },
     {
       id: 'dashboard',
-      label: 'Dashboard',
-      shortLabel: 'Stats',
+      label: 'Dashboard RC',
+      shortLabel: 'Stats RC',
       icon: <BarChart3 className="w-4 h-4 text-theme-success shrink-0" />,
     },
     {
-      id: 'roadmap',
-      label: 'Lộ Trình',
-      shortLabel: 'Lộ Trình',
-      icon: <Map className="w-4 h-4 text-theme-accent shrink-0" />,
-      special: true,
+      id: 'upload',
+      label: 'Tài Liệu Upload',
+      shortLabel: 'Upload',
+      icon: <FileText className="w-4 h-4 shrink-0" />,
     },
   ];
 
-  const handleTabClick = (id: NavbarProps['activeTab']) => {
+  const handleTabClick = (id: AppNavTab) => {
     onBackToDocs();
     setActiveTab(id);
   };
 
-  const isActive = (id: NavbarProps['activeTab']) => {
-    if (id === 'textbooks') {
-      return activeTab === 'textbooks' && !selectedDocId;
+  const isActive = (id: AppNavTab) => {
+    if (id === 'textbooks' || id === 'lc_catalog') {
+      return activeTab === id && !selectedDocId;
     }
 
     return activeTab === id;
@@ -83,7 +148,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
 
           {/* Logo */}
           <div
-            onClick={() => handleTabClick('textbooks')}
+            onClick={() => handleTabClick('lc_catalog')}
             className="flex items-center gap-2 cursor-pointer group shrink-0"
           >
             <div className="w-8 h-8 rounded-lg bg-theme-accent flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
@@ -95,11 +160,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
                   TOEIC AI Master
                 </span>
                 <span className="px-1.5 py-0.5 text-[9px] font-semibold bg-theme-accent/20 text-theme-accent border border-theme-accent/30 rounded-full whitespace-nowrap">
-                  Local
+                  LC &amp; RC Full
                 </span>
               </div>
               <p className="text-[10px] text-theme-secondary whitespace-nowrap leading-none mt-0.5">
-                Luyện thi TOEIC RC &amp; AI
+                Hệ thống luyện thi TOEIC Listening &amp; Reading Chuẩn ETS
               </p>
             </div>
           </div>
@@ -108,14 +173,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
           <div className="flex items-center gap-2">
             <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-lg alert-success border border-theme-success/30 text-theme-success text-[10px] font-medium whitespace-nowrap">
               <span className="w-1.5 h-1.5 rounded-full bg-theme-success animate-pulse" />
-              Engine Active
+              LC &amp; RC Engines Active
             </div>
             <ThemeSwitcher />
           </div>
         </div>
 
         {/* ── Row 2: Navigation tabs ── */}
-        <div className="flex items-center gap-0.5 h-10 overflow-x-auto scrollbar-none">
+        <div className="flex items-center gap-1 h-11 overflow-x-auto scrollbar-none py-1">
           {tabs.map((tab) => {
             const active = isActive(tab.id);
 
@@ -126,9 +191,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
                 title={tab.label}
                 className={`
                   flex items-center gap-1.5 px-3 py-1.5 rounded-lg
-                  text-xs font-medium whitespace-nowrap transition-all duration-150 shrink-0
+                  text-xs font-medium whitespace-nowrap transition-all duration-150 shrink-0 cursor-pointer
                   ${active
-                    ? 'bg-theme-accent text-white shadow-md'
+                    ? 'bg-theme-accent text-white shadow-md font-bold'
+                    : tab.isLcSection
+                    ? 'text-theme-primary hover:bg-theme-surface-2 border border-theme-accent/20'
                     : 'text-theme-secondary hover:text-theme-primary hover:bg-theme-surface-2'
                   }
                 `}

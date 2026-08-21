@@ -517,18 +517,88 @@ def _is_answer_file(filename: str) -> bool:
 
 def scan_and_seed_textbooks(db: Session) -> Dict[str, Any]:
     r"""
-    Scans d:\TOIEC Web\textbook and seeds built-in exam documents + questions into SQLite DB.
-    
-    Strategy: 
-    1. For each non-answer MD file, read the full text
-    2. Split into individual tests by detecting question-number resets (Q101 appears again)
-    3. Extract 100 questions per test (Q101-Q200)
-    4. Match answer keys from companion answer file
-    5. Seed into DB with deduplication
+    Scans and seeds built-in exam documents + questions into SQLite DB.
+    First tries loading from pre-compiled master seed file for maximum performance & accuracy.
+    Falls back to scanning markdown files if seed file is missing.
     """
     ensure_db_schema(db)
+    
+    # 1. Master JSON Seed Fast-Path
+    seed_json_path = os.path.join(_PROJECT_ROOT, "backend", "app", "data", "textbooks_master_seed.json")
+    if os.path.exists(seed_json_path):
+        try:
+            with open(seed_json_path, 'r', encoding='utf-8') as f:
+                master_catalog = json.load(f)
+            
+            seeded_count = 0
+            skipped_count = 0
+            
+            for series_data in master_catalog:
+                category_name = series_data["category"]
+                series_name = series_data["series"]
+                for test_data in series_data["tests"]:
+                    test_number = int(test_data["test_number"])
+                    document_filename = test_data["filename"]
+                    markdown_content = test_data["markdown_content"]
+                    content_hash = hashlib.sha256(f"{document_filename}::{test_number}".encode("utf-8")).hexdigest()
+                    
+                    existing_doc = db.query(Document).filter(
+                        Document.filename == document_filename,
+                        Document.is_builtin == True
+                    ).first()
+                    
+                    if existing_doc:
+                        question_count = db.query(Question).filter(Question.document_id == existing_doc.id).count()
+                        if question_count >= 100:
+                            skipped_count += 1
+                            continue
+                        else:
+                            db.query(Question).filter(Question.document_id == existing_doc.id).delete()
+                            doc_obj = existing_doc
+                    else:
+                        doc_obj = Document(
+                            filename=document_filename,
+                            doc_type="RC_EXAM",
+                            content_hash=content_hash,
+                            markdown_content=markdown_content,
+                            status="extracted",
+                            is_builtin=True,
+                            category=category_name,
+                            series=series_name,
+                            test_number=test_number
+                        )
+                        db.add(doc_obj)
+                        db.commit()
+                        db.refresh(doc_obj)
+                    
+                    for question_data in test_data["questions"]:
+                        options_json_str = json.dumps(question_data["options"], ensure_ascii=False)
+                        new_question = Question(
+                            document_id=doc_obj.id,
+                            part=question_data["part"],
+                            question_text=question_data["question_text"],
+                            options_json=options_json_str,
+                            correct_answer=question_data["correct_answer"],
+                            explanation=question_data["explanation"],
+                            is_generated=False
+                        )
+                        db.add(new_question)
+                    
+                    db.commit()
+                    seeded_count += 1
+                    
+            logger.info(f"[TEXTBOOK SERVICE] Master seed finished: {seeded_count} tests seeded, {skipped_count} skipped.")
+            return {
+                "status": "success",
+                "seeded_count": seeded_count,
+                "skipped_count": skipped_count
+            }
+        except Exception as ex:
+            logger.error(f"[TEXTBOOK SERVICE] Error loading master seed JSON: {ex}")
+            db.rollback()
+
     if not os.path.exists(TEXTBOOK_ROOT_DIR):
-        err_msg = f"[TEXTBOOK SERVICE] Directory not found: {TEXTBOOK_ROOT_DIR}. Please set TEXTBOOK_ROOT_DIR env var or place 'textbook' directory in project root."
+        err_msg = f"[TEXTBOOK SERVICE] Directory not found: {TEXTBOOK_ROOT_DIR}."
         logger.error(err_msg)
         raise FileNotFoundError(err_msg)
 

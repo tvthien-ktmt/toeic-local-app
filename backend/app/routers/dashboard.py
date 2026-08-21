@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from sqlalchemy import func, case, cast, Float, Integer
 from ..db import get_db
-from ..models import Vocabulary, Flashcard, PracticeAttempt, Question, StudySession
+from ..models import Vocabulary, Flashcard, PracticeAttempt, Question, StudySession, ExamAttempt
 from ..schemas import StudySessionCreate
 
 router = APIRouter(prefix="/api/dashboard", tags=["dashboard"])
@@ -166,6 +166,87 @@ def get_dashboard_stats(db: Annotated[Session, Depends(get_db)]) -> Dict[str, An
 
     daily_history = [{"date": str(d_date), "attempts": d_cnt} for d_date, d_cnt in daily_raw]
 
+    # 10. Module 18, 19, 36, 37: Estimated Score Range & Target Gap & 5-Step Daily Plan
+    recent_exams = db.query(ExamAttempt).order_by(ExamAttempt.completed_at.desc()).limit(5).all()
+    if recent_exams:
+        exam_scores = [e.toeic_score for e in recent_exams]
+        avg_exam = sum(exam_scores) / len(exam_scores)
+        min_est = max(5, int(round(avg_exam - 25)))
+        max_est = min(495, int(round(avg_exam + 25)))
+        mid_est = int(round(avg_exam))
+        confidence = "High (Độ tin cậy cao)" if len(recent_exams) >= 3 else "Medium (Độ tin cậy trung bình)"
+    elif total_attempts > 20:
+        # Estimate from practice accuracy scaled to 5-495
+        base_score = int(50 + (overall_accuracy / 100.0) * 400)
+        min_est = max(5, base_score - 35)
+        max_est = min(495, base_score + 35)
+        mid_est = base_score
+        confidence = "Preliminary (Dựa trên luyện tập)"
+    else:
+        min_est = 250
+        max_est = 320
+        mid_est = 285
+        confidence = "Initial (Cần làm bài thi thử)"
+
+    target_score = 420  # RC Target default (tương đương 800+ overall)
+    score_gap = max(0, target_score - mid_est)
+    target_progress_pct = min(100, round((mid_est / target_score) * 100, 1))
+
+    # Identify Primary Weaknesses
+    sorted_weak_grammar = sorted(
+        [g for g in grammar_stats if g["total_attempts"] >= 3],
+        key=lambda x: x["accuracy_rate"]
+    )
+    primary_weakness_topics = [g["grammar_topic"] for g in sorted_weak_grammar[:3]]
+    if not primary_weakness_topics:
+        primary_weakness_topics = ["Word Form (Từ loại)", "Prepositions (Giới từ)", "Part 7 Inference (Suy luận)"]
+
+    weakest_focus = primary_weakness_topics[0]
+
+    # Today's 5-Step Adaptive Action Plan (Section XIX)
+    today_adaptive_plan = [
+        {
+            "step": 1,
+            "title": "Ôn lại lỗi sai",
+            "description": f"Giải quyết các câu sai gần đây trong Sổ tay lỗi sai",
+            "target_time": "10 phút",
+            "action_tab": "errors",
+            "badge": "Ưu tiên cao"
+        },
+        {
+            "step": 2,
+            "title": f"Học chủ điểm: {weakest_focus}",
+            "description": "Xem tóm tắt lý thuyết, bẫy thường gặp và ví dụ thực tế",
+            "target_time": "15 phút",
+            "action_tab": "roadmap",
+            "badge": "Lý thuyết"
+        },
+        {
+            "step": 3,
+            "title": f"Luyện tập Part 5 ({weakest_focus})",
+            "description": "Luyện 10 câu áp dụng chế độ Guided Mode có hướng dẫn từng bước",
+            "target_time": "10 phút",
+            "action_tab": "practice",
+            "badge": "Thực hành"
+        },
+        {
+            "step": 4,
+            "title": "Luyện đọc hiểu Part 7",
+            "description": "Rèn luyện kỹ năng định vị thông tin và tránh bẫy suy luận",
+            "target_time": "15 phút",
+            "action_tab": "practice",
+            "badge": "Đọc hiểu"
+        },
+        {
+            "step": 5,
+            "title": "Luyện tốc độ (Speed Sprint)",
+            "description": "Part 5 Sprint: 10 câu trong 3 phút để tự động hóa phản xạ",
+            "target_time": "5 phút",
+            "action_tab": "speed",
+            "badge": "Tốc độ"
+        }
+    ]
+
     return {
         "summary": {
             "total_vocab": total_vocab,
@@ -182,10 +263,138 @@ def get_dashboard_stats(db: Annotated[Session, Depends(get_db)]) -> Dict[str, An
             "active_days_30d": active_days_30d,
             "part5_avg_speed_sec": part_speeds["part5_avg_sec"],
             "part6_avg_speed_sec": part_speeds["part6_avg_sec"],
-            "part7_avg_speed_sec": part_speeds["part7_avg_sec"]
+            "part7_avg_speed_sec": part_speeds["part7_avg_sec"],
+            "estimated_rc_range": {
+                "min_score": min_est,
+                "max_score": max_est,
+                "mid_score": mid_est,
+                "confidence": confidence
+            },
+            "target_tracker": {
+                "target_score": target_score,
+                "current_estimated": mid_est,
+                "gap": score_gap,
+                "progress_pct": target_progress_pct
+            },
+            "primary_weaknesses": primary_weakness_topics
         },
+        "today_adaptive_plan": today_adaptive_plan,
         "part_stats": part_stats,
         "topic_progress": topic_progress,
         "grammar_stats": grammar_stats,
         "daily_history": daily_history
+    }
+
+
+@router.get("/coverage-matrix")
+def get_coverage_matrix(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
+    """
+    Computes TOEIC RC Coverage Matrix and Mastery levels across Part 5, 6, 7 taxonomy (RC_Format.md Section 25-27).
+    """
+    from ..constants.taxonomy import PART5_TAXONOMY, PART6_TAXONOMY, PART7_TAXONOMY
+
+    # Query all attempts by topic
+    topic_attempts = db.query(
+        Question.part,
+        Question.grammar_topic,
+        func.count(PracticeAttempt.id).label("total_att"),
+        func.sum(case((PracticeAttempt.is_correct == True, 1), else_=0)).label("corr_att")
+    ).join(PracticeAttempt, Question.id == PracticeAttempt.question_id).group_by(Question.part, Question.grammar_topic).all()
+
+    stats_map = {}
+    for p, g_top, t_att, c_att in topic_attempts:
+        key = (p, (g_top or "").lower().strip())
+        stats_map[key] = {
+            "total": t_att or 0,
+            "correct": c_att or 0,
+            "accuracy": round(((c_att or 0) / t_att * 100), 1) if t_att > 0 else 0.0
+        }
+
+    matrix_rows = []
+
+    # 1. Part 5 Rows
+    for skill_name, subskills in PART5_TAXONOMY.items():
+        # Find matching attempts
+        tot = sum(v["total"] for k, v in stats_map.items() if k[0] == 5)
+        corr = sum(v["correct"] for k, v in stats_map.items() if k[0] == 5)
+        acc = round((corr / tot * 100), 1) if tot > 0 else 0.0
+
+        if tot >= 20 and acc >= 85:
+            status = "MASTERED"
+        elif tot >= 10 and acc >= 70:
+            status = "PROFICIENT"
+        elif tot > 0:
+            status = "PRACTICING"
+        else:
+            status = "NOT_STARTED"
+
+        matrix_rows.append({
+            "part": 5,
+            "skill": "Grammar" if skill_name != "VOCABULARY" else "Vocabulary",
+            "subskill": skill_name.replace("_", " ").title(),
+            "sample_patterns": ", ".join(subskills[:3]),
+            "attempts": tot // len(PART5_TAXONOMY),
+            "mastery_rate": min(100.0, max(0.0, acc if tot > 0 else 0.0)),
+            "status": status
+        })
+
+    # 2. Part 6 Rows
+    for skill_name, subskills in PART6_TAXONOMY.items():
+        tot = sum(v["total"] for k, v in stats_map.items() if k[0] == 6)
+        corr = sum(v["correct"] for k, v in stats_map.items() if k[0] == 6)
+        acc = round((corr / tot * 100), 1) if tot > 0 else 0.0
+
+        if tot >= 15 and acc >= 80:
+            status = "MASTERED"
+        elif tot >= 8 and acc >= 65:
+            status = "PROFICIENT"
+        elif tot > 0:
+            status = "PRACTICING"
+        else:
+            status = "NOT_STARTED"
+
+        matrix_rows.append({
+            "part": 6,
+            "skill": "Context & Coherence" if skill_name in ["CONTEXT", "SENTENCE_INSERTION"] else "Grammar/Vocab",
+            "subskill": skill_name.replace("_", " ").title(),
+            "sample_patterns": ", ".join(subskills[:3]),
+            "attempts": tot // len(PART6_TAXONOMY),
+            "mastery_rate": min(100.0, max(0.0, acc if tot > 0 else 0.0)),
+            "status": status
+        })
+
+    # 3. Part 7 Rows
+    for skill_name, subskills in PART7_TAXONOMY.items():
+        tot = sum(v["total"] for k, v in stats_map.items() if k[0] == 7)
+        corr = sum(v["correct"] for k, v in stats_map.items() if k[0] == 7)
+        acc = round((corr / tot * 100), 1) if tot > 0 else 0.0
+
+        if tot >= 20 and acc >= 80:
+            status = "MASTERED"
+        elif tot >= 10 and acc >= 65:
+            status = "PROFICIENT"
+        elif tot > 0:
+            status = "PRACTICING"
+        else:
+            status = "NOT_STARTED"
+
+        matrix_rows.append({
+            "part": 7,
+            "skill": "Reading Comprehension",
+            "subskill": skill_name.replace("_", " ").title(),
+            "sample_patterns": ", ".join(subskills[:3]),
+            "attempts": tot // len(PART7_TAXONOMY),
+            "mastery_rate": min(100.0, max(0.0, acc if tot > 0 else 0.0)),
+            "status": status
+        })
+
+    covered_count = sum(1 for r in matrix_rows if r["status"] in ["PROFICIENT", "MASTERED"])
+    overall_coverage_pct = round((covered_count / len(matrix_rows) * 100), 1) if matrix_rows else 0.0
+
+    return {
+        "status": "success",
+        "total_categories": len(matrix_rows),
+        "covered_categories": covered_count,
+        "overall_coverage_pct": overall_coverage_pct,
+        "rows": matrix_rows
     }

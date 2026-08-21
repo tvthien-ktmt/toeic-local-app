@@ -885,5 +885,5 @@ output_path = os.path.abspath(output_path)
 os.makedirs(os.path.dirname(output_path), exist_ok=True)
 with open(output_path, 'w', encoding='utf-8') as f:
     json.dump(curriculum_seed, f, ensure_ascii=False, indent=2)
-logger.info(f"\n✅ Saved curriculum_seed.json to: {output_path}")
+logger.info(f"\n[OK] Saved curriculum_seed.json to: {output_path}")
 logger.info(f"   Total {len(curriculum_seed)} canonical topics ready for review before DB import")

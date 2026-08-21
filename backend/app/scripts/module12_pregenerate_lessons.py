@@ -128,25 +128,25 @@ def generate_option_explanations(q: Any, topic_id: int) -> tuple:
                 desc = "Từ gốc / Động từ nguyên mẫu (V)"
 
             if is_corr:
-                explain_blocks.append(f"  - **({letter}) {opt_val}** ({desc}): 👉 **ĐÚNG**. Vị trí chỗ trống cần từ loại này theo đúng cấu trúc câu.")
+                explain_blocks.append(f"  - **({letter}) {opt_val}** ({desc}): -> **ĐÚNG**. Vị trí chỗ trống cần từ loại này theo đúng cấu trúc câu.")
             else:
                 explain_blocks.append(f"  - **({letter}) {opt_val}** ({desc}): Sai từ loại. Vị trí này không thể điền {desc}.")
 
         elif topic_id == 5: # Prepositions
             if is_corr:
-                explain_blocks.append(f"  - **({letter}) {opt_val}**: 👉 **ĐÚNG**. Giới từ chuẩn đi kèm với từ/cụm từ trong câu.")
+                explain_blocks.append(f"  - **({letter}) {opt_val}**: -> **ĐÚNG**. Giới từ chuẩn đi kèm với từ/cụm từ trong câu.")
             else:
                 explain_blocks.append(f"  - **({letter}) {opt_val}**: Sai giới từ. Không kết hợp hợp lệ với ngữ cảnh này.")
 
         elif topic_id == 7: # Pronouns
             if is_corr:
-                explain_blocks.append(f"  - **({letter}) {opt_val}**: 👉 **ĐÚNG**. Đúng ngôi, số và vai trò đại từ trong câu.")
+                explain_blocks.append(f"  - **({letter}) {opt_val}**: -> **ĐÚNG**. Đúng ngôi, số và vai trò đại từ trong câu.")
             else:
                 explain_blocks.append(f"  - **({letter}) {opt_val}**: Sai dạng đại từ (chủ ngữ/tân ngữ/sở hữu không phù hợp).")
 
         else:
             if is_corr:
-                explain_blocks.append(f"  - **({letter}) {opt_val}**: 👉 **ĐÚNG**. Phù hợp chính xác với quy tắc ngữ pháp và ngữ cảnh câu.")
+                explain_blocks.append(f"  - **({letter}) {opt_val}**: -> **ĐÚNG**. Phù hợp chính xác với quy tắc ngữ pháp và ngữ cảnh câu.")
             else:
                 explain_blocks.append(f"  - **({letter}) {opt_val}**: Sai ngữ pháp hoặc nghĩa không phù hợp.")
 
@@ -364,7 +364,7 @@ def main() -> None:
             created_count += 1
 
         db.commit()
-        logger.info(f"\n✅ Successfully seeded {created_count} lessons with DISJOINT worked and quiz question IDs!")
+        logger.info(f"\n[OK] Successfully seeded {created_count} lessons with DISJOINT worked and quiz question IDs!")
 
     finally:
         db.close()

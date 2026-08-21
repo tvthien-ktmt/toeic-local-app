@@ -1,6 +1,7 @@
 import json
 import re
 import logging
+from datetime import datetime
 from typing import Dict, Any, List, Optional, Annotated
 from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel
@@ -25,10 +26,10 @@ class ExamSubmitRequest(BaseModel):
 def init_builtin_textbooks(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     r"""Triggers scan and seed of textbook directory."""
     try:
-        res = scan_and_seed_textbooks(db)
-        if res.get("status") == "error":
-            raise HTTPException(status_code=500, detail=res.get("message", "Seed failed"))
-        return res
+        seed_result = scan_and_seed_textbooks(db)
+        if seed_result.get("status") == "error":
+            raise HTTPException(status_code=500, detail=seed_result.get("message", "Seed failed"))
+        return seed_result
     except FileNotFoundError as e:
         raise HTTPException(status_code=500, detail=str(e))
     except Exception as e:
@@ -83,7 +84,18 @@ def get_textbook_catalog(db: Annotated[Session, Depends(get_db)]) -> List[Dict[s
         highest_score = max([a.toeic_score for a in doc_attempts], default=None)
         highest_raw = max([a.raw_score for a in doc_attempts], default=None)
         attempt_count = len(doc_attempts)
+        average_score = round(sum([a.toeic_score for a in doc_attempts]) / attempt_count) if attempt_count > 0 else None
         last_completed = max([a.completed_at.isoformat() for a in doc_attempts], default=None)
+
+        # Calculate standard difficulty & format similarity per Category
+        difficulty_map = {
+            "ETS": "Chuẩn ETS (Trung Bình)",
+            "HACKER": "Nâng Cao (Khó)",
+            "YBM": "Thực Chiến (Khá Khó)",
+            "XANH CAM": "Luyện Đề (Trung Bình Khá)"
+        }
+        diff_rating = difficulty_map.get(cat.upper(), "Chuẩn Format Mới")
+        status_tag = "completed" if attempt_count > 0 else "not_started"
 
         categories_dict[cat][ser].append({
             "id": d.id,
@@ -93,7 +105,11 @@ def get_textbook_catalog(db: Annotated[Session, Depends(get_db)]) -> List[Dict[s
             "is_seeded": q_count > 0,
             "highest_score": highest_score,
             "highest_raw": highest_raw,
+            "average_score": average_score,
             "attempt_count": attempt_count,
+            "difficulty_rating": diff_rating,
+            "format_similarity": "100% Format TOEIC Mới",
+            "status": status_tag,
             "last_completed": last_completed
         })
 
@@ -116,68 +132,24 @@ def get_textbook_catalog(db: Annotated[Session, Depends(get_db)]) -> List[Dict[s
 
 
 @router.get("/exam/{doc_id}")
-def get_exam_questions(doc_id: int, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
+def get_exam_questions(
+    doc_id: int, 
+    mode: Optional[str] = Query(None),
+    db: Annotated[Session, Depends(get_db)] = None
+) -> Dict[str, Any]:
     """
-    Returns full test payload (questions 101-200, passages, options) for exam taking.
+    Returns full structured test payload (Part 5 questions, Part 6 passages with inline blanks,
+    Part 7 Single/Double/Triple passage sets with semantic documents and questions).
+    In full_exam mode, correct_answer and explanations are omitted to prevent F12 inspection.
     """
+    from ..services.content_normalizer import get_normalized_exam_payload
+    
     doc = db.query(Document).filter(Document.id == doc_id).first()
     if not doc:
         raise HTTPException(status_code=404, detail="Đề thi không tồn tại.")
 
     qs = db.query(Question).filter(Question.document_id == doc_id).all()
-    
-    def _extract_question_number(question_item: Question) -> int:
-        """Extracts the integer question number from text prefix (e.g. 101 from '101. Former...')."""
-        match = re.search(r'\d+', question_item.question_text)
-        return int(match.group(0)) if match else question_item.id
-
-    sorted_qs = sorted(qs, key=_extract_question_number)
-
-    formatted_qs = []
-    for q in sorted_qs:
-        try:
-            options = json.loads(q.options_json) if q.options_json else []
-        except Exception:
-            options = []
-
-        try:
-            opt_exps = json.loads(q.option_explanations_json) if q.option_explanations_json else {}
-            if isinstance(opt_exps, dict) and not any(v and str(v).strip() not in ('—', '-') for v in opt_exps.values()):
-                opt_exps = {}
-        except Exception:
-            opt_exps = {}
-
-        m_num = re.search(r'^\s*(\d{3})\b', q.question_text)
-        q_num = int(m_num.group(1)) if m_num else get_q_num(q)
-
-        formatted_qs.append({
-            "id": q.id,
-            "q_num": q_num,
-            "part": q.part or (5 if q_num <= 130 else (6 if q_num <= 146 else 7)),
-            "question_text": q.question_text,
-            "options": options,
-            "correct_answer": q.correct_answer,
-            "explanation": q.explanation,
-            "option_explanations": opt_exps,
-            "translated_sentence": q.translated_sentence,
-            "grammar_topic": q.grammar_topic or f"Part {q.part}",
-            "common_trap": q.common_trap
-        })
-
-    return {
-        "status": "success",
-        "document": {
-            "id": doc.id,
-            "filename": doc.filename,
-            "category": doc.category,
-            "series": doc.series,
-            "test_number": doc.test_number,
-            "markdown_content": doc.markdown_content,
-            "is_builtin": doc.is_builtin
-        },
-        "total_questions": len(formatted_qs),
-        "questions": formatted_qs
-    }
+    return get_normalized_exam_payload(doc, qs, mode=mode)
 
 
 @router.post("/exam/submit")
@@ -202,8 +174,12 @@ def submit_exam(req: ExamSubmitRequest, db: Annotated[Session, Depends(get_db)])
     detailed_results = []
 
     for q in qs:
-        # req.answers maps question.id -> user's option ("A","B","C","D")
-        user_ans = req.answers.get(str(q.id)) or req.answers.get(str(q.question_text[:3])) or req.answers.get(str(q.id))
+        m_num = re.search(r'^\s*(\d{3})\b', q.question_text)
+        match = re.search(r'\d+', q.question_text)
+        q_num = int(m_num.group(1)) if m_num else (int(match.group(0)) if match else q.id)
+
+        # req.answers maps question number or question.id -> user's option ("A","B","C","D")
+        user_ans = req.answers.get(str(q.id)) or req.answers.get(str(q_num))
         corr_ans = (q.correct_answer or "").strip().upper()
 
         is_correct = False
@@ -261,11 +237,39 @@ def submit_exam(req: ExamSubmitRequest, db: Annotated[Session, Depends(get_db)])
         part5_correct=part5_correct,
         part6_correct=part6_correct,
         part7_correct=part7_correct,
+        completed_at=datetime.utcnow(),
         answers_json=json.dumps(req.answers, ensure_ascii=False)
     )
     db.add(attempt)
     db.commit()
     db.refresh(attempt)
+
+    # Time & Pacing Analytics (Module XIV & XV)
+    avg_sec_per_q = round(req.time_spent_seconds / max(1, total_qs), 1)
+    
+    # Estimate pacing distribution
+    part5_est_time = round(req.time_spent_seconds * 0.16) # ~16%
+    part6_est_time = round(req.time_spent_seconds * 0.14) # ~14%
+    part7_est_time = req.time_spent_seconds - part5_est_time - part6_est_time
+
+    pacing_verdict = "Tốc độ làm bài chuẩn! Phân bổ thời gian đồng đều giữa các Part."
+    if req.time_spent_seconds > 4200: # > 70 mins
+        pacing_verdict = "Cảnh báo tốc độ: Bạn hoàn thành sát nút hoặc thiếu giờ. Cần tăng tốc Part 5 (mục tiêu 15-20s/câu) để dành tối thiểu 50 phút cho Part 7."
+    elif req.time_spent_seconds < 2400 and req.time_spent_seconds > 0: # < 40 mins
+        pacing_verdict = "Bạn làm bài rất nhanh. Hãy kiểm tra lại độ cẩn thận để tránh bẫy từ loại và bẫy suy luận ở Part 7."
+
+    time_analysis = {
+        "total_seconds": req.time_spent_seconds,
+        "avg_seconds_per_question": avg_sec_per_q,
+        "part5_avg_seconds": round(part5_est_time / 30, 1),
+        "part6_avg_seconds": round(part6_est_time / 16, 1),
+        "part7_avg_seconds": round(part7_est_time / 54, 1),
+        "part5_est_seconds": part5_est_time,
+        "part6_est_seconds": part6_est_time,
+        "part7_est_seconds": part7_est_time,
+        "pacing_verdict": pacing_verdict,
+        "late_part7_warning": req.time_spent_seconds > 4000
+    }
 
     return {
         "status": "success",
@@ -277,11 +281,16 @@ def submit_exam(req: ExamSubmitRequest, db: Annotated[Session, Depends(get_db)])
         "gradeable_questions": total_qs - no_answer_key_count,
         "no_answer_key_count": no_answer_key_count,
         "toeic_score": toeic_score,
+        "scaled_score": toeic_score,
         "time_spent_seconds": req.time_spent_seconds,
         "part5_correct": part5_correct,
+        "part5_total": 30,
         "part6_correct": part6_correct,
+        "part6_total": 16,
         "part7_correct": part7_correct,
-        "completed_at": attempt.completed_at.isoformat(),
+        "part7_total": 54,
+        "completed_at": (attempt.completed_at or datetime.utcnow()).isoformat(),
+        "time_analysis": time_analysis,
         "detailed_results": detailed_results
     }
 

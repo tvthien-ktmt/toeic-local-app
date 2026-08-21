@@ -13,6 +13,19 @@ export interface DetailedQuestionResult {
   common_trap?: string;
 }
 
+export interface TimeAnalysisData {
+  total_seconds: number;
+  avg_seconds_per_question: number;
+  part5_avg_seconds: number;
+  part6_avg_seconds: number;
+  part7_avg_seconds: number;
+  part5_est_seconds: number;
+  part6_est_seconds: number;
+  part7_est_seconds: number;
+  pacing_verdict: string;
+  late_part7_warning: boolean;
+}
+
 export interface ExamResultData {
   attempt_id: number;
   exam_title: string;
@@ -28,6 +41,7 @@ export interface ExamResultData {
   part7_correct: number;
   completed_at: string;
   detailed_results: DetailedQuestionResult[];
+  time_analysis?: TimeAnalysisData;
   document_id?: number;
 }
 

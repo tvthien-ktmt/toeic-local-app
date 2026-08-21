@@ -63,6 +63,45 @@ export const ExamHistoryTab: React.FC<ExamHistoryTabProps> = ({
         <h3 className="font-bold text-theme-primary">Lịch Sử Thi Đề Này</h3>
       </div>
 
+      {/* Score Progression Visualizer (Module XVI) */}
+      {attempts.length >= 2 && (
+        <div className="bg-theme-surface-2 p-4 rounded-2xl border border-theme space-y-3">
+          <div className="flex items-center justify-between text-xs">
+            <span className="font-bold text-theme-primary">Tiến trình điểm số (Progression Trend)</span>
+            <span className="text-theme-success font-bold">
+              {attempts[0].toeic_score >= attempts[attempts.length - 1].toeic_score
+                ? `+${attempts[0].toeic_score - attempts[attempts.length - 1].toeic_score} điểm so với lần đầu`
+                : `${attempts[0].toeic_score - attempts[attempts.length - 1].toeic_score} điểm`}
+            </span>
+          </div>
+
+          {/* Bar / Sparkline comparison */}
+          <div className="flex items-end justify-between gap-2 h-24 pt-4 px-2 border-b border-theme">
+            {[...attempts].reverse().map((attItem, idx) => {
+              const heightPercent = Math.max(15, Math.round((attItem.toeic_score / 495) * 100));
+              const isLatest = idx === attempts.length - 1;
+
+              return (
+                <div key={attItem.id} className="flex-1 flex flex-col items-center gap-1 group relative">
+                  <span className="text-[10px] font-bold text-theme-primary opacity-0 group-hover:opacity-100 transition absolute -top-5">
+                    {attItem.toeic_score}
+                  </span>
+                  <div
+                    className={`w-full max-w-[32px] rounded-t-lg transition-all duration-500 ${
+                      isLatest ? 'bg-theme-accent shadow-md' : 'bg-theme-secondary/40 hover:bg-theme-secondary/60'
+                    }`}
+                    style={{ height: `${heightPercent}%` }}
+                  />
+                  <span className="text-[9px] font-semibold text-theme-secondary">
+                    L{idx + 1}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {isLoading ? (
         <div className="py-8 text-center text-xs text-theme-secondary flex items-center justify-center gap-2">
           <RefreshCw className="w-4 h-4 animate-spin text-theme-accent" />

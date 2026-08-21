@@ -66,8 +66,8 @@ def process_document_background(doc_id: int, content_bytes: bytes, filename: str
 def extract_document_questions_and_vocab(doc_id: int, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """Triggers AI/regex question and vocabulary extraction on an uploaded document."""
     try:
-        res = process_document_extraction(db, doc_id)
-        return res
+        extraction_result = process_document_extraction(db, doc_id)
+        return extraction_result
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
