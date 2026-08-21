@@ -17,6 +17,9 @@ import { LcPracticeHubPage } from './pages/LcPracticeHubPage';
 import { LcDashboardPage } from './pages/LcDashboardPage';
 import { LcErrorNotebookPage } from './pages/LcErrorNotebookPage';
 import { FullToeicExamTakePage } from './pages/FullToeicExamTakePage';
+import { RcKnowledgeHubPage } from './pages/RcKnowledgeHubPage';
+import { QuestionTypePracticePage } from './pages/QuestionTypePracticePage';
+import { FrequentVocabBankPage } from './pages/FrequentVocabBankPage';
 import type { LCExamDocument } from './types/toeicListening';
 
 /**
@@ -85,6 +88,28 @@ export function App() {
         {activeTab === 'full_exam' && (
           <FullToeicExamTakePage
             onNavigateHome={() => setActiveTab('lc_catalog')}
+          />
+        )}
+
+        {/* Knowledge & Tactics Curriculum Track */}
+        {activeTab === 'rc_knowledge' && (
+          <RcKnowledgeHubPage
+            onNavigateDrills={() => setActiveTab('type_drills')}
+          />
+        )}
+
+        {/* Question-Type Drills Track */}
+        {activeTab === 'type_drills' && (
+          <QuestionTypePracticePage
+            onNavigateLessons={() => setActiveTab('rc_knowledge')}
+            onNavigateHome={() => setActiveTab('lc_catalog')}
+          />
+        )}
+
+        {/* Frequent High-Yield Vocabulary Bank Track */}
+        {activeTab === 'frequent_vocab' && (
+          <FrequentVocabBankPage
+            onNavigateFlashcards={() => setActiveTab('flashcards')}
           />
         )}
 

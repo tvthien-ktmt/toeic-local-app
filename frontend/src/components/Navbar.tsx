@@ -17,6 +17,9 @@ import { ThemeSwitcher } from './ThemeSwitcher';
 
 export type AppNavTab =
   | 'full_exam'
+  | 'rc_knowledge'
+  | 'type_drills'
+  | 'frequent_vocab'
   | 'textbooks'
   | 'lc_catalog'
   | 'lc_practice'
@@ -56,6 +59,24 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
       label: 'Thi Full 2 Kỹ Năng (200C)',
       shortLabel: 'Full 200C',
       icon: <Trophy className="w-4 h-4 text-amber-500 shrink-0" />,
+    },
+    {
+      id: 'rc_knowledge',
+      label: 'Học Kiến Thức & Chiến Thuật',
+      shortLabel: 'Kiến Thức',
+      icon: <GraduationCap className="w-4 h-4 text-theme-accent shrink-0" />,
+    },
+    {
+      id: 'type_drills',
+      label: 'Luyện Theo Dạng Bài',
+      shortLabel: 'Dạng Bài',
+      icon: <BookOpen className="w-4 h-4 text-theme-warning shrink-0" />,
+    },
+    {
+      id: 'frequent_vocab',
+      label: 'Từ Vựng Tần Suất Cao',
+      shortLabel: 'Từ Hay Gặp',
+      icon: <Sparkles className="w-4 h-4 text-theme-accent shrink-0" />,
     },
     {
       id: 'lc_catalog',
