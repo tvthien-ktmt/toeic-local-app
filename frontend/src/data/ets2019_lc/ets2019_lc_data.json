@@ -2057,7 +2057,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Medical Lab</td><td style='text-align: center; word-wrap: break-word;'>ID code</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Blood test</td><td style='text-align: center; word-wrap: break-word;'>018</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Allergy test</td><td style='text-align: center; word-wrap: break-word;'>019</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Body Fat test</td><td style='text-align: center; word-wrap: break-word;'>020</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>X-ray</td><td style='text-align: center; word-wrap: break-word;'>021</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -2315,7 +2315,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Medical Lab</td><td style='text-align: center; word-wrap: break-word;'>ID code</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Blood test</td><td style='text-align: center; word-wrap: break-word;'>018</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Allergy test</td><td style='text-align: center; word-wrap: break-word;'>019</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Body Fat test</td><td style='text-align: center; word-wrap: break-word;'>020</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>X-ray</td><td style='text-align: center; word-wrap: break-word;'>021</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -2569,12 +2569,12 @@
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2019/img_014.jpg"
               }
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_014.jpg",
             "difficulty": "Hard"
           },
           {
@@ -2832,7 +2832,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_014.jpg",
             "difficulty": "Medium"
           },
           {
@@ -3436,7 +3436,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Saturday</td><td style='text-align: center; word-wrap: break-word;'>Sunday</td><td style='text-align: center; word-wrap: break-word;'>Monday</td><td style='text-align: center; word-wrap: break-word;'>Tuesday</td></tr><tr><td style='text-align: center; word-wrap: break-word;'><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//5ac00f81-36b8-4de4-8615-2381f7aecd24/markdown_1/imgs/img_in_image_box_144_162_207_205.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-20T13%3A36%3A17Z%2F-1%2F%2Fd6bebfc4c9ae390e9e1bdecbb4ad291637dba191729d34899d31a6393b0a76f7\" alt=\"Image\"\" /> Partly Sunny</td><td style='text-align: center; word-wrap: break-word;'><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//5ac00f81-36b8-4de4-8615-2381f7aecd24/markdown_1/imgs/img_in_image_box_240_162_316_203.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-20T13%3A36%3A17Z%2F-1%2F%2F592bf614d536782548aae4337216817a117907149272e50bd9665d6d6d0494af\" alt=\"Image\"\" /> Cloudy</td><td style='text-align: center; word-wrap: break-word;'>Rain</td><td style='text-align: center; word-wrap: break-word;'>Rain</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -3557,7 +3557,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Saturday</td><td style='text-align: center; word-wrap: break-word;'>Sunday</td><td style='text-align: center; word-wrap: break-word;'>Monday</td><td style='text-align: center; word-wrap: break-word;'>Tuesday</td></tr><tr><td style='text-align: center; word-wrap: break-word;'><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//5ac00f81-36b8-4de4-8615-2381f7aecd24/markdown_1/imgs/img_in_image_box_144_162_207_205.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-20T13%3A36%3A17Z%2F-1%2F%2Fd6bebfc4c9ae390e9e1bdecbb4ad291637dba191729d34899d31a6393b0a76f7\" alt=\"Image\"\" /> Partly Sunny</td><td style='text-align: center; word-wrap: break-word;'><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//5ac00f81-36b8-4de4-8615-2381f7aecd24/markdown_1/imgs/img_in_image_box_240_162_316_203.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-20T13%3A36%3A17Z%2F-1%2F%2F592bf614d536782548aae4337216817a117907149272e50bd9665d6d6d0494af\" alt=\"Image\"\" /> Cloudy</td><td style='text-align: center; word-wrap: break-word;'>Rain</td><td style='text-align: center; word-wrap: break-word;'>Rain</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -3678,7 +3678,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Saturday</td><td style='text-align: center; word-wrap: break-word;'>Sunday</td><td style='text-align: center; word-wrap: break-word;'>Monday</td><td style='text-align: center; word-wrap: break-word;'>Tuesday</td></tr><tr><td style='text-align: center; word-wrap: break-word;'><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//5ac00f81-36b8-4de4-8615-2381f7aecd24/markdown_1/imgs/img_in_image_box_144_162_207_205.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-20T13%3A36%3A17Z%2F-1%2F%2Fd6bebfc4c9ae390e9e1bdecbb4ad291637dba191729d34899d31a6393b0a76f7\" alt=\"Image\"\" /> Partly Sunny</td><td style='text-align: center; word-wrap: break-word;'><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//5ac00f81-36b8-4de4-8615-2381f7aecd24/markdown_1/imgs/img_in_image_box_240_162_316_203.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-20T13%3A36%3A17Z%2F-1%2F%2F592bf614d536782548aae4337216817a117907149272e50bd9665d6d6d0494af\" alt=\"Image\"\" /> Cloudy</td><td style='text-align: center; word-wrap: break-word;'>Rain</td><td style='text-align: center; word-wrap: break-word;'>Rain</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -3795,12 +3795,12 @@
                 "category": "NEXT_ACTION",
                 "trapType": "SIMILAR_SOUND",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2019/img_016.jpg"
               }
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_016.jpg",
             "difficulty": "Hard"
           },
           {
@@ -3881,7 +3881,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Westside Technology Conference\\nApril 6</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>8:00</td><td style='text-align: center; word-wrap: break-word;'>Protecting Your Data, Carla Wynn</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:00</td><td style='text-align: center; word-wrap: break-word;'>Learning to Code, Jae-Ho Kim</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>10:00</td><td style='text-align: center; word-wrap: break-word;'>Latest Devices, Kaori Aoki</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>11:00</td><td style='text-align: center; word-wrap: break-word;'>Is Newer Better?, Alex Lehmann</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>12:00</td><td style='text-align: center; word-wrap: break-word;'>Lunch</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -3920,7 +3920,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Westside Technology Conference\\nApril 6</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>8:00</td><td style='text-align: center; word-wrap: break-word;'>Protecting Your Data, Carla Wynn</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:00</td><td style='text-align: center; word-wrap: break-word;'>Learning to Code, Jae-Ho Kim</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>10:00</td><td style='text-align: center; word-wrap: break-word;'>Latest Devices, Kaori Aoki</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>11:00</td><td style='text-align: center; word-wrap: break-word;'>Is Newer Better?, Alex Lehmann</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>12:00</td><td style='text-align: center; word-wrap: break-word;'>Lunch</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           }
@@ -6244,7 +6244,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Wood Flooring Options</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Product Code</td><td style='text-align: center; word-wrap: break-word;'>Type Of Wood</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>W32</td><td style='text-align: center; word-wrap: break-word;'>Maple</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>W51</td><td style='text-align: center; word-wrap: break-word;'>Oak</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>W76</td><td style='text-align: center; word-wrap: break-word;'>Pine</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>W94</td><td style='text-align: center; word-wrap: break-word;'>Ash</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -6334,7 +6334,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Wood Flooring Options</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Product Code</td><td style='text-align: center; word-wrap: break-word;'>Type Of Wood</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>W32</td><td style='text-align: center; word-wrap: break-word;'>Maple</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>W51</td><td style='text-align: center; word-wrap: break-word;'>Oak</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>W76</td><td style='text-align: center; word-wrap: break-word;'>Pine</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>W94</td><td style='text-align: center; word-wrap: break-word;'>Ash</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -6373,7 +6373,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Wood Flooring Options</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Product Code</td><td style='text-align: center; word-wrap: break-word;'>Type Of Wood</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>W32</td><td style='text-align: center; word-wrap: break-word;'>Maple</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>W51</td><td style='text-align: center; word-wrap: break-word;'>Oak</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>W76</td><td style='text-align: center; word-wrap: break-word;'>Pine</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>W94</td><td style='text-align: center; word-wrap: break-word;'>Ash</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -6760,7 +6760,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Mammal Hall</td><td style='text-align: center; word-wrap: break-word;'>Bird Hall</td><td style='text-align: center; word-wrap: break-word;'>Main Hall</td><td style='text-align: center; word-wrap: break-word;'>Cafeteria</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -7366,7 +7366,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_028.jpg",
             "difficulty": "Medium"
           },
           {
@@ -7487,7 +7487,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_028.jpg",
             "difficulty": "Hard"
           },
           {
@@ -7608,7 +7608,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_028.jpg",
             "difficulty": "Hard"
           },
           {
@@ -7845,7 +7845,7 @@
                 "category": "NEXT_ACTION",
                 "trapType": "KEYWORD_REPETITION",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2019/img_029.jpg"
               }
             ],
             "vocabularyList": [],
@@ -10173,7 +10173,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Catering Company</td><td style='text-align: center; word-wrap: break-word;'>Cost</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Café Delight</td><td style='text-align: center; word-wrap: break-word;'>$1,250</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Corner Deli</td><td style='text-align: center; word-wrap: break-word;'>$1,400</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Golden Eagle</td><td style='text-align: center; word-wrap: break-word;'>$950</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Star Restaurant</td><td style='text-align: center; word-wrap: break-word;'>$850</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -10297,12 +10297,12 @@
                 "explanation": "",
                 "category": "NEXT_ACTION",
                 "trapType": "KEYWORD_REPETITION",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Catering Company</td><td style='text-align: center; word-wrap: break-word;'>Cost</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Café Delight</td><td style='text-align: center; word-wrap: break-word;'>$1,250</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Corner Deli</td><td style='text-align: center; word-wrap: break-word;'>$1,400</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Golden Eagle</td><td style='text-align: center; word-wrap: break-word;'>$950</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Star Restaurant</td><td style='text-align: center; word-wrap: break-word;'>$850</td></tr></table>",
                 "graphicImageUrl": null
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Catering Company</td><td style='text-align: center; word-wrap: break-word;'>Cost</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Café Delight</td><td style='text-align: center; word-wrap: break-word;'>$1,250</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Corner Deli</td><td style='text-align: center; word-wrap: break-word;'>$1,400</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Golden Eagle</td><td style='text-align: center; word-wrap: break-word;'>$950</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Star Restaurant</td><td style='text-align: center; word-wrap: break-word;'>$850</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -10690,7 +10690,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_040.jpg",
             "difficulty": "Medium"
           },
           {
@@ -11294,7 +11294,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Feedback Survey</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Cleanliness</td><td style='text-align: center; word-wrap: break-word;'>★★★★\n4 stars</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Location</td><td style='text-align: center; word-wrap: break-word;'>★★★★\n4 stars</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Staff friendliness</td><td style='text-align: center; word-wrap: break-word;'>★★★★★\n5 stars</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Cost</td><td style='text-align: center; word-wrap: break-word;'>★★★\n3 stars</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -11415,7 +11415,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Feedback Survey</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Cleanliness</td><td style='text-align: center; word-wrap: break-word;'>★★★★\n4 stars</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Location</td><td style='text-align: center; word-wrap: break-word;'>★★★★\n4 stars</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Staff friendliness</td><td style='text-align: center; word-wrap: break-word;'>★★★★★\n5 stars</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Cost</td><td style='text-align: center; word-wrap: break-word;'>★★★\n3 stars</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -11536,7 +11536,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Feedback Survey</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Cleanliness</td><td style='text-align: center; word-wrap: break-word;'>★★★★\n4 stars</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Location</td><td style='text-align: center; word-wrap: break-word;'>★★★★\n4 stars</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Staff friendliness</td><td style='text-align: center; word-wrap: break-word;'>★★★★★\n5 stars</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Cost</td><td style='text-align: center; word-wrap: break-word;'>★★★\n3 stars</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -11653,12 +11653,12 @@
                 "category": "NEXT_ACTION",
                 "trapType": "SIMILAR_SOUND",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2019/img_041.jpg"
               }
             ],
             "vocabularyList": [],
             "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Feedback Survey</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Cleanliness</td><td style='text-align: center; word-wrap: break-word;'>★★★★\n4 stars</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Location</td><td style='text-align: center; word-wrap: break-word;'>★★★★\n4 stars</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Staff friendliness</td><td style='text-align: center; word-wrap: break-word;'>★★★★★\n5 stars</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Cost</td><td style='text-align: center; word-wrap: break-word;'>★★★\n3 stars</td></tr></table>",
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_041.jpg",
             "difficulty": "Hard"
           },
           {
@@ -14103,7 +14103,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_052.jpg",
             "difficulty": "Hard"
           },
           {
@@ -14322,7 +14322,7 @@
                 "category": "DETAIL",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2019/img_053.jpg"
               },
               {
                 "id": 4067,
@@ -14361,7 +14361,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_053.jpg",
             "difficulty": "Hard"
           },
           {
@@ -14619,7 +14619,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_053.jpg",
             "difficulty": "Medium"
           },
           {
@@ -14740,7 +14740,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_053.jpg",
             "difficulty": "Medium"
           },
           {
@@ -15223,7 +15223,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>July 3-Afternoon</td><td style='text-align: center; word-wrap: break-word;'>Speaker</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Session 1</td><td style='text-align: center; word-wrap: break-word;'>Maria Garcia</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Session 2</td><td style='text-align: center; word-wrap: break-word;'>Klaus Bauer</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Session 3</td><td style='text-align: center; word-wrap: break-word;'>Naoko Ito</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Session 4</td><td style='text-align: center; word-wrap: break-word;'>Jeff Harper</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -15344,7 +15344,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>July 3-Afternoon</td><td style='text-align: center; word-wrap: break-word;'>Speaker</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Session 1</td><td style='text-align: center; word-wrap: break-word;'>Maria Garcia</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Session 2</td><td style='text-align: center; word-wrap: break-word;'>Klaus Bauer</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Session 3</td><td style='text-align: center; word-wrap: break-word;'>Naoko Ito</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Session 4</td><td style='text-align: center; word-wrap: break-word;'>Jeff Harper</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -15465,7 +15465,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>July 3-Afternoon</td><td style='text-align: center; word-wrap: break-word;'>Speaker</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Session 1</td><td style='text-align: center; word-wrap: break-word;'>Maria Garcia</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Session 2</td><td style='text-align: center; word-wrap: break-word;'>Klaus Bauer</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Session 3</td><td style='text-align: center; word-wrap: break-word;'>Naoko Ito</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Session 4</td><td style='text-align: center; word-wrap: break-word;'>Jeff Harper</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -15548,7 +15548,7 @@
                 "category": "DETAIL",
                 "trapType": "KEYWORD_REPETITION",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2019/img_054.jpg"
               },
               {
                 "id": 4097,
@@ -15587,7 +15587,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_054.jpg",
             "difficulty": "Hard"
           },
           {
@@ -18031,7 +18031,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Error Code</td><td style='text-align: center; word-wrap: break-word;'>Problem</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>☐ E-1</td><td style='text-align: center; word-wrap: break-word;'>Dirty lens</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>☐ E-2</td><td style='text-align: center; word-wrap: break-word;'>No flash</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>☐ E-3</td><td style='text-align: center; word-wrap: break-word;'>Low battery</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>☐ E-4</td><td style='text-align: center; word-wrap: break-word;'>Memory card full</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -18160,7 +18160,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Error Code</td><td style='text-align: center; word-wrap: break-word;'>Problem</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>☐ E-1</td><td style='text-align: center; word-wrap: break-word;'>Dirty lens</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>☐ E-2</td><td style='text-align: center; word-wrap: break-word;'>No flash</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>☐ E-3</td><td style='text-align: center; word-wrap: break-word;'>Low battery</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>☐ E-4</td><td style='text-align: center; word-wrap: break-word;'>Memory card full</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -18251,7 +18251,7 @@
                 "category": "DETAIL",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2019/img_065.jpg"
               },
               {
                 "id": 5067,
@@ -18290,7 +18290,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_065.jpg",
             "difficulty": "Hard"
           },
           {
@@ -18346,7 +18346,7 @@
                 "category": "MAIN_IDEA",
                 "trapType": "KEYWORD_REPETITION",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2019/img_065.jpg"
               },
               {
                 "id": 5069,
@@ -18548,7 +18548,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_065.jpg",
             "difficulty": "Medium"
           },
           {
@@ -19152,7 +19152,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Tuesday Schedule</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:00</td><td style='text-align: center; word-wrap: break-word;'>Board meeting</td><td style='text-align: center; word-wrap: break-word;'>Room 223</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:30</td><td style='text-align: center; word-wrap: break-word;'>Marketing meeting</td><td style='text-align: center; word-wrap: break-word;'>Auditorium</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:30</td><td style='text-align: center; word-wrap: break-word;'>Product development videoconference</td><td style='text-align: center; word-wrap: break-word;'>Room 407</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>11:00</td><td style='text-align: center; word-wrap: break-word;'>All-staff meeting</td><td style='text-align: center; word-wrap: break-word;'>Cafeteria</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -19273,7 +19273,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Tuesday Schedule</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:00</td><td style='text-align: center; word-wrap: break-word;'>Board meeting</td><td style='text-align: center; word-wrap: break-word;'>Room 223</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:30</td><td style='text-align: center; word-wrap: break-word;'>Marketing meeting</td><td style='text-align: center; word-wrap: break-word;'>Auditorium</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:30</td><td style='text-align: center; word-wrap: break-word;'>Product development videoconference</td><td style='text-align: center; word-wrap: break-word;'>Room 407</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>11:00</td><td style='text-align: center; word-wrap: break-word;'>All-staff meeting</td><td style='text-align: center; word-wrap: break-word;'>Cafeteria</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -19356,7 +19356,7 @@
                 "category": "DETAIL",
                 "trapType": "SIMILAR_SOUND",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2019/img_066.jpg"
               },
               {
                 "id": 5094,
@@ -19395,7 +19395,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_066.jpg",
             "difficulty": "Hard"
           },
           {
@@ -21961,7 +21961,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_078.jpg",
             "difficulty": "Hard"
           },
           {
@@ -22085,7 +22085,7 @@
                 "category": "NEXT_ACTION",
                 "trapType": "KEYWORD_REPETITION",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2019/img_078.jpg"
               }
             ],
             "vocabularyList": [],
@@ -22309,7 +22309,7 @@
                 "category": "DETAIL",
                 "trapType": "SIMILAR_SOUND",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2019/img_083.jpg"
               },
               {
                 "id": 6070,
@@ -22348,7 +22348,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_083.jpg",
             "difficulty": "Hard"
           }
         ]
@@ -22477,7 +22477,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_083.jpg",
             "difficulty": "Medium"
           },
           {
@@ -23203,7 +23203,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_084.jpg",
             "difficulty": "Hard"
           },
           {
@@ -23324,7 +23324,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_084.jpg",
             "difficulty": "Hard"
           },
           {
@@ -23526,7 +23526,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Interview Schedule for May 16</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Time</td><td style='text-align: center; word-wrap: break-word;'>Candidate</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Bob Heilig</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>10:00 A.M.</td><td style='text-align: center; word-wrap: break-word;'>Jihoon Lee</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>11:00 A.M.</td><td style='text-align: center; word-wrap: break-word;'>Susan Petersen</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>12:00 Noon</td><td style='text-align: center; word-wrap: break-word;'>Maya Gomez</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1:00 P.M.</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -23565,7 +23565,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Interview Schedule for May 16</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Time</td><td style='text-align: center; word-wrap: break-word;'>Candidate</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Bob Heilig</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>10:00 A.M.</td><td style='text-align: center; word-wrap: break-word;'>Jihoon Lee</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>11:00 A.M.</td><td style='text-align: center; word-wrap: break-word;'>Susan Petersen</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>12:00 Noon</td><td style='text-align: center; word-wrap: break-word;'>Maya Gomez</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1:00 P.M.</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           }
@@ -25890,7 +25890,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_095.jpg",
             "difficulty": "Hard"
           },
           {
@@ -26014,12 +26014,12 @@
                 "category": "NEXT_ACTION",
                 "trapType": "KEYWORD_REPETITION",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2019/img_095.jpg"
               }
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_095.jpg",
             "difficulty": "Hard"
           },
           {
@@ -26143,7 +26143,7 @@
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2019/img_095.jpg"
               }
             ],
             "vocabularyList": [],
@@ -26406,7 +26406,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_096.jpg",
             "difficulty": "Medium"
           },
           {
@@ -26527,7 +26527,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_096.jpg",
             "difficulty": "Medium"
           },
           {
@@ -27132,7 +27132,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_097.jpg",
             "difficulty": "Hard"
           },
           {
@@ -27253,7 +27253,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_097.jpg",
             "difficulty": "Hard"
           },
           {
@@ -27334,7 +27334,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "KEYWORD_REPETITION",
-                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Wednesdays</td><td style='text-align: center; word-wrap: break-word;'>Comedy Special</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Thursdays</td><td style='text-align: center; word-wrap: break-word;'>Magic Show</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Fridays</td><td style='text-align: center; word-wrap: break-word;'>Music Performance</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Saturdays</td><td style='text-align: center; word-wrap: break-word;'>Parade</td></tr></table>",
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Mon.</td><td style='text-align: center; word-wrap: break-word;'>Tues.</td><td style='text-align: center; word-wrap: break-word;'>Wed.</td><td style='text-align: center; word-wrap: break-word;'>Thurs.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>8:00</td><td style='text-align: center; word-wrap: break-word;'>Planning meeting</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:00</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Work on budget report</td><td style='text-align: center; word-wrap: break-word;'>Leadership training</td><td style='text-align: center; word-wrap: break-word;'>Finish budget report</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>10:00</td><td style='text-align: center; word-wrap: break-word;'>Presentation</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Directors&#x27; strategy meeting</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1:00</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Team meeting</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -27373,7 +27373,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Wednesdays</td><td style='text-align: center; word-wrap: break-word;'>Comedy Special</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Thursdays</td><td style='text-align: center; word-wrap: break-word;'>Magic Show</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Fridays</td><td style='text-align: center; word-wrap: break-word;'>Music Performance</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Saturdays</td><td style='text-align: center; word-wrap: break-word;'>Parade</td></tr></table>",
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Mon.</td><td style='text-align: center; word-wrap: break-word;'>Tues.</td><td style='text-align: center; word-wrap: break-word;'>Wed.</td><td style='text-align: center; word-wrap: break-word;'>Thurs.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>8:00</td><td style='text-align: center; word-wrap: break-word;'>Planning meeting</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:00</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Work on budget report</td><td style='text-align: center; word-wrap: break-word;'>Leadership training</td><td style='text-align: center; word-wrap: break-word;'>Finish budget report</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>10:00</td><td style='text-align: center; word-wrap: break-word;'>Presentation</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Directors&#x27; strategy meeting</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1:00</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Team meeting</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -27455,7 +27455,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Mon.</td><td style='text-align: center; word-wrap: break-word;'>Tues.</td><td style='text-align: center; word-wrap: break-word;'>Wed.</td><td style='text-align: center; word-wrap: break-word;'>Thurs.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>8:00</td><td style='text-align: center; word-wrap: break-word;'>Planning meeting</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:00</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Work on budget report</td><td style='text-align: center; word-wrap: break-word;'>Leadership training</td><td style='text-align: center; word-wrap: break-word;'>Finish budget report</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>10:00</td><td style='text-align: center; word-wrap: break-word;'>Presentation</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Directors&#x27; strategy meeting</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1:00</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Team meeting</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -27494,7 +27494,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Mon.</td><td style='text-align: center; word-wrap: break-word;'>Tues.</td><td style='text-align: center; word-wrap: break-word;'>Wed.</td><td style='text-align: center; word-wrap: break-word;'>Thurs.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>8:00</td><td style='text-align: center; word-wrap: break-word;'>Planning meeting</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:00</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Work on budget report</td><td style='text-align: center; word-wrap: break-word;'>Leadership training</td><td style='text-align: center; word-wrap: break-word;'>Finish budget report</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>10:00</td><td style='text-align: center; word-wrap: break-word;'>Presentation</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Directors&#x27; strategy meeting</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1:00</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Team meeting</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           }
@@ -29690,7 +29690,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_107.jpg",
             "difficulty": "Medium"
           },
           {
@@ -29819,7 +29819,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_107.jpg",
             "difficulty": "Hard"
           },
           {
@@ -30200,12 +30200,12 @@
                 "explanation": "",
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Interview schedule</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Name</td><td style='text-align: center; word-wrap: break-word;'>Time</td><td style='text-align: center; word-wrap: break-word;'>Type of interview</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Tim Bartlett</td><td style='text-align: center; word-wrap: break-word;'>10:00</td><td style='text-align: center; word-wrap: break-word;'>On-site</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Brandy Miller</td><td style='text-align: center; word-wrap: break-word;'>11:00</td><td style='text-align: center; word-wrap: break-word;'>Videoconference</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Louisa Sanchez</td><td style='text-align: center; word-wrap: break-word;'>1:00</td><td style='text-align: center; word-wrap: break-word;'>Videoconference</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Ken Mori</td><td style='text-align: center; word-wrap: break-word;'>2:00</td><td style='text-align: center; word-wrap: break-word;'>On-site</td></tr></table>",
                 "graphicImageUrl": null
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Interview schedule</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Name</td><td style='text-align: center; word-wrap: break-word;'>Time</td><td style='text-align: center; word-wrap: break-word;'>Type of interview</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Tim Bartlett</td><td style='text-align: center; word-wrap: break-word;'>10:00</td><td style='text-align: center; word-wrap: break-word;'>On-site</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Brandy Miller</td><td style='text-align: center; word-wrap: break-word;'>11:00</td><td style='text-align: center; word-wrap: break-word;'>Videoconference</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Louisa Sanchez</td><td style='text-align: center; word-wrap: break-word;'>1:00</td><td style='text-align: center; word-wrap: break-word;'>Videoconference</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Ken Mori</td><td style='text-align: center; word-wrap: break-word;'>2:00</td><td style='text-align: center; word-wrap: break-word;'>On-site</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           }
@@ -30939,7 +30939,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Flights to Los Angeles</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Departs</td><td style='text-align: center; word-wrap: break-word;'>Day</td><td style='text-align: center; word-wrap: break-word;'>Price</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:00 A.M.</td><td style='text-align: center; word-wrap: break-word;'>Thursday, June 16</td><td style='text-align: center; word-wrap: break-word;'>$280</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>6:00 P.M.</td><td style='text-align: center; word-wrap: break-word;'>Friday, June 17</td><td style='text-align: center; word-wrap: break-word;'>$375</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>8:00 A.M.</td><td style='text-align: center; word-wrap: break-word;'>Saturday, June 18</td><td style='text-align: center; word-wrap: break-word;'>$310</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>3:00 P.M.</td><td style='text-align: center; word-wrap: break-word;'>Sunday, June 19</td><td style='text-align: center; word-wrap: break-word;'>$345</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -31060,7 +31060,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Flights to Los Angeles</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Departs</td><td style='text-align: center; word-wrap: break-word;'>Day</td><td style='text-align: center; word-wrap: break-word;'>Price</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:00 A.M.</td><td style='text-align: center; word-wrap: break-word;'>Thursday, June 16</td><td style='text-align: center; word-wrap: break-word;'>$280</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>6:00 P.M.</td><td style='text-align: center; word-wrap: break-word;'>Friday, June 17</td><td style='text-align: center; word-wrap: break-word;'>$375</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>8:00 A.M.</td><td style='text-align: center; word-wrap: break-word;'>Saturday, June 18</td><td style='text-align: center; word-wrap: break-word;'>$310</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>3:00 P.M.</td><td style='text-align: center; word-wrap: break-word;'>Sunday, June 19</td><td style='text-align: center; word-wrap: break-word;'>$345</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -31181,7 +31181,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Flights to Los Angeles</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Departs</td><td style='text-align: center; word-wrap: break-word;'>Day</td><td style='text-align: center; word-wrap: break-word;'>Price</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:00 A.M.</td><td style='text-align: center; word-wrap: break-word;'>Thursday, June 16</td><td style='text-align: center; word-wrap: break-word;'>$280</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>6:00 P.M.</td><td style='text-align: center; word-wrap: break-word;'>Friday, June 17</td><td style='text-align: center; word-wrap: break-word;'>$375</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>8:00 A.M.</td><td style='text-align: center; word-wrap: break-word;'>Saturday, June 18</td><td style='text-align: center; word-wrap: break-word;'>$310</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>3:00 P.M.</td><td style='text-align: center; word-wrap: break-word;'>Sunday, June 19</td><td style='text-align: center; word-wrap: break-word;'>$345</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -31264,7 +31264,7 @@
                 "category": "DETAIL",
                 "trapType": "KEYWORD_REPETITION",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2019/img_109.jpg"
               },
               {
                 "id": 8097,
@@ -31303,7 +31303,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_109.jpg",
             "difficulty": "Hard"
           },
           {
@@ -31385,7 +31385,7 @@
                 "category": "DETAIL",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": "/images/ets2019/img_110.jpg"
+                "graphicImageUrl": "/images/ets2019/img_109.jpg"
               },
               {
                 "id": 8100,
@@ -31424,7 +31424,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": "/images/ets2019/img_110.jpg",
+            "graphicImageUrl": "/images/ets2019/img_109.jpg",
             "difficulty": "Hard"
           }
         ]
@@ -33747,7 +33747,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"4\">Flight 722\\nBristol to London</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Date:</td><td style='text-align: center; word-wrap: break-word;'>Gate:</td><td style='text-align: center; word-wrap: break-word;'>Seat:</td><td rowspan=\"4\"><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//85fc97f9-4464-4e6e-afc5-4231382ee493/markdown_1/imgs/img_in_image_box_957_179_997_348.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-20T13%3A36%3A17Z%2F-1%2F%2Fd6430e2cc81361f44f3ee8dad5b045468ee1c6046f255d8a639e17b3b0365a84\" alt=\"Image\"\" /></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>June 17</td><td style='text-align: center; word-wrap: break-word;'>56</td><td style='text-align: center; word-wrap: break-word;'>8C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Departure:</td><td style='text-align: center; word-wrap: break-word;'>Arrival:</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:30 A.M.</td><td style='text-align: center; word-wrap: break-word;'>11:22 A.M.</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -33803,7 +33803,7 @@
                 "explanation": "",
                 "category": "MAIN_IDEA",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"4\">Flight 722\\nBristol to London</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Date:</td><td style='text-align: center; word-wrap: break-word;'>Gate:</td><td style='text-align: center; word-wrap: break-word;'>Seat:</td><td rowspan=\"4\"><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//85fc97f9-4464-4e6e-afc5-4231382ee493/markdown_1/imgs/img_in_image_box_957_179_997_348.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-20T13%3A36%3A17Z%2F-1%2F%2Fd6430e2cc81361f44f3ee8dad5b045468ee1c6046f255d8a639e17b3b0365a84\" alt=\"Image\"\" /></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>June 17</td><td style='text-align: center; word-wrap: break-word;'>56</td><td style='text-align: center; word-wrap: break-word;'>8C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Departure:</td><td style='text-align: center; word-wrap: break-word;'>Arrival:</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:30 A.M.</td><td style='text-align: center; word-wrap: break-word;'>11:22 A.M.</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -33876,7 +33876,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"4\">Flight 722\\nBristol to London</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Date:</td><td style='text-align: center; word-wrap: break-word;'>Gate:</td><td style='text-align: center; word-wrap: break-word;'>Seat:</td><td rowspan=\"4\"><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//85fc97f9-4464-4e6e-afc5-4231382ee493/markdown_1/imgs/img_in_image_box_957_179_997_348.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-20T13%3A36%3A17Z%2F-1%2F%2Fd6430e2cc81361f44f3ee8dad5b045468ee1c6046f255d8a639e17b3b0365a84\" alt=\"Image\"\" /></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>June 17</td><td style='text-align: center; word-wrap: break-word;'>56</td><td style='text-align: center; word-wrap: break-word;'>8C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Departure:</td><td style='text-align: center; word-wrap: break-word;'>Arrival:</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>9:30 A.M.</td><td style='text-align: center; word-wrap: break-word;'>11:22 A.M.</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": "/images/ets2019/img_123.jpg",
             "difficulty": "Hard"
           },
@@ -33966,7 +33966,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Expenses</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Equipment</td><td style='text-align: center; word-wrap: break-word;'>$300</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Marketing</td><td style='text-align: center; word-wrap: break-word;'>$520</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Utilities</td><td style='text-align: center; word-wrap: break-word;'>$160</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Travel</td><td style='text-align: center; word-wrap: break-word;'>$75</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -34005,7 +34005,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Expenses</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Equipment</td><td style='text-align: center; word-wrap: break-word;'>$300</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Marketing</td><td style='text-align: center; word-wrap: break-word;'>$520</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Utilities</td><td style='text-align: center; word-wrap: break-word;'>$160</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Travel</td><td style='text-align: center; word-wrap: break-word;'>$75</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -34095,7 +34095,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "SIMILAR_SOUND",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Expenses</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Equipment</td><td style='text-align: center; word-wrap: break-word;'>$300</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Marketing</td><td style='text-align: center; word-wrap: break-word;'>$520</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Utilities</td><td style='text-align: center; word-wrap: break-word;'>$160</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Travel</td><td style='text-align: center; word-wrap: break-word;'>$75</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -34134,7 +34134,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Expenses</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Equipment</td><td style='text-align: center; word-wrap: break-word;'>$300</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Marketing</td><td style='text-align: center; word-wrap: break-word;'>$520</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Utilities</td><td style='text-align: center; word-wrap: break-word;'>$160</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Travel</td><td style='text-align: center; word-wrap: break-word;'>$75</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           }
@@ -34869,7 +34869,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_125.jpg",
             "difficulty": "Medium"
           },
           {
@@ -34990,7 +34990,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_125.jpg",
             "difficulty": "Hard"
           },
           {
@@ -35111,7 +35111,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_125.jpg",
             "difficulty": "Hard"
           },
           {
@@ -37418,7 +37418,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Monday/Tuesday</td><td style='text-align: center; word-wrap: break-word;'>Maria</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wednesday/Thursday</td><td style='text-align: center; word-wrap: break-word;'>Ali</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Friday</td><td style='text-align: center; word-wrap: break-word;'>Lior</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Saturday/Sunday</td><td style='text-align: center; word-wrap: break-word;'>Ema</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -37676,7 +37676,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Monday/Tuesday</td><td style='text-align: center; word-wrap: break-word;'>Maria</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wednesday/Thursday</td><td style='text-align: center; word-wrap: break-word;'>Ali</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Friday</td><td style='text-align: center; word-wrap: break-word;'>Lior</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Saturday/Sunday</td><td style='text-align: center; word-wrap: break-word;'>Ema</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -37767,7 +37767,7 @@
                 "category": "DETAIL",
                 "trapType": "NONE",
                 "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Monday/Tuesday</td><td style='text-align: center; word-wrap: break-word;'>Maria</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wednesday/Thursday</td><td style='text-align: center; word-wrap: break-word;'>Ali</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Friday</td><td style='text-align: center; word-wrap: break-word;'>Lior</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Saturday/Sunday</td><td style='text-align: center; word-wrap: break-word;'>Ema</td></tr></table>",
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2019/img_137.jpg"
               },
               {
                 "id": 10064,
@@ -37806,7 +37806,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Monday/Tuesday</td><td style='text-align: center; word-wrap: break-word;'>Maria</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wednesday/Thursday</td><td style='text-align: center; word-wrap: break-word;'>Ali</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Friday</td><td style='text-align: center; word-wrap: break-word;'>Lior</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Saturday/Sunday</td><td style='text-align: center; word-wrap: break-word;'>Ema</td></tr></table>",
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_137.jpg",
             "difficulty": "Hard"
           },
           {
@@ -38192,7 +38192,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Accountant Jobs</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>• Senior Accountant</td><td style='text-align: center; word-wrap: break-word;'>No travel</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>• Tax Accountant</td><td style='text-align: center; word-wrap: break-word;'>Local site visits</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>• Property Accountant</td><td style='text-align: center; word-wrap: break-word;'>Work from home</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>• Management Accountant</td><td style='text-align: center; word-wrap: break-word;'>Global trips</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -38798,7 +38798,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_138.jpg",
             "difficulty": "Medium"
           },
           {
@@ -38919,7 +38919,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_138.jpg",
             "difficulty": "Hard"
           },
           {
@@ -39040,7 +39040,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2019/img_138.jpg",
             "difficulty": "Hard"
           },
           {

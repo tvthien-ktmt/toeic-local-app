@@ -2315,7 +2315,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Admission Price per Person</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>University student</td><td style='text-align: center; word-wrap: break-word;'>$8</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Group of 10 or more</td><td style='text-align: center; word-wrap: break-word;'>$12</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Member</td><td style='text-align: center; word-wrap: break-word;'>$15</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Nonmember</td><td style='text-align: center; word-wrap: break-word;'>$20</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -2663,7 +2663,7 @@
                 "explanation": "Đáp án đúng là (A).",
                 "category": "DETAIL",
                 "trapType": "SIMILAR_SOUND",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>FROM:</td><td style='text-align: center; word-wrap: break-word;'>SUBJECT:</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Mike Collins</td><td style='text-align: center; word-wrap: break-word;'>ATTACHED: Budget Report</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Jared Huber</td><td style='text-align: center; word-wrap: break-word;'>Sales Projection Assistance</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Darla Rosenfeld</td><td style='text-align: center; word-wrap: break-word;'>Conference Agenda</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Janice West</td><td style='text-align: center; word-wrap: break-word;'>CANCELED: Technology Seminar</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -2702,7 +2702,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>FROM:</td><td style='text-align: center; word-wrap: break-word;'>SUBJECT:</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Mike Collins</td><td style='text-align: center; word-wrap: break-word;'>ATTACHED: Budget Report</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Jared Huber</td><td style='text-align: center; word-wrap: break-word;'>Sales Projection Assistance</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Darla Rosenfeld</td><td style='text-align: center; word-wrap: break-word;'>Conference Agenda</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Janice West</td><td style='text-align: center; word-wrap: break-word;'>CANCELED: Technology Seminar</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           }
@@ -3557,7 +3557,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Susie&#x27;s Boutique</td><td style='text-align: center; word-wrap: break-word;'>Fashion Plus</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Low prices</td><td style='text-align: center; word-wrap: break-word;'>✓</td><td style='text-align: center; word-wrap: break-word;'>✓</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Free shipping</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>✓</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Variety of styles</td><td style='text-align: center; word-wrap: break-word;'>✓</td><td style='text-align: center; word-wrap: break-word;'>✓</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Convenient Web site</td><td style='text-align: center; word-wrap: break-word;'>✓</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -3678,7 +3678,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Susie&#x27;s Boutique</td><td style='text-align: center; word-wrap: break-word;'>Fashion Plus</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Low prices</td><td style='text-align: center; word-wrap: break-word;'>✓</td><td style='text-align: center; word-wrap: break-word;'>✓</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Free shipping</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>✓</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Variety of styles</td><td style='text-align: center; word-wrap: break-word;'>✓</td><td style='text-align: center; word-wrap: break-word;'>✓</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Convenient Web site</td><td style='text-align: center; word-wrap: break-word;'>✓</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -3795,12 +3795,12 @@
                 "category": "NEXT_ACTION",
                 "trapType": "SIMILAR_SOUND",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2018/img_021.jpg"
               }
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2018/img_021.jpg",
             "difficulty": "Hard"
           },
           {
@@ -6244,7 +6244,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Quantity</td><td style='text-align: center; word-wrap: break-word;'>Description</td><td style='text-align: center; word-wrap: break-word;'>Total Price</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>4</td><td style='text-align: center; word-wrap: break-word;'>Dinner Plate</td><td style='text-align: center; word-wrap: break-word;'>$20</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>6</td><td style='text-align: center; word-wrap: break-word;'>Soup Bowl</td><td style='text-align: center; word-wrap: break-word;'>$36</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>3</td><td style='text-align: center; word-wrap: break-word;'>Coffee Mug</td><td style='text-align: center; word-wrap: break-word;'>$12</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1</td><td style='text-align: center; word-wrap: break-word;'>Teapot</td><td style='text-align: center; word-wrap: break-word;'>$25</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -6368,12 +6368,12 @@
                 "explanation": "Đáp án đúng là (B).",
                 "category": "NEXT_ACTION",
                 "trapType": "KEYWORD_REPETITION",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Origin</td><td style='text-align: center; word-wrap: break-word;'>Status</td><td style='text-align: center; word-wrap: break-word;'>Expected Time of Arrival</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Philadelphia</td><td style='text-align: center; word-wrap: break-word;'>Landed</td><td style='text-align: center; word-wrap: break-word;'>9:00 A.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Vancouver</td><td style='text-align: center; word-wrap: break-word;'>On Time</td><td style='text-align: center; word-wrap: break-word;'>10:30 A.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Chicago</td><td style='text-align: center; word-wrap: break-word;'>Delayed</td><td style='text-align: center; word-wrap: break-word;'>1:45 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Mexico City</td><td style='text-align: center; word-wrap: break-word;'>On Time</td><td style='text-align: center; word-wrap: break-word;'>3:30 A.M.</td></tr></table>",
                 "graphicImageUrl": null
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Origin</td><td style='text-align: center; word-wrap: break-word;'>Status</td><td style='text-align: center; word-wrap: break-word;'>Expected Time of Arrival</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Philadelphia</td><td style='text-align: center; word-wrap: break-word;'>Landed</td><td style='text-align: center; word-wrap: break-word;'>9:00 A.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Vancouver</td><td style='text-align: center; word-wrap: break-word;'>On Time</td><td style='text-align: center; word-wrap: break-word;'>10:30 A.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Chicago</td><td style='text-align: center; word-wrap: break-word;'>Delayed</td><td style='text-align: center; word-wrap: break-word;'>1:45 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Mexico City</td><td style='text-align: center; word-wrap: break-word;'>On Time</td><td style='text-align: center; word-wrap: break-word;'>3:30 A.M.</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -6429,7 +6429,7 @@
                 "explanation": "Đáp án đúng là (C).",
                 "category": "MAIN_IDEA",
                 "trapType": "SIMILAR_SOUND",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Length of Contract</td><td style='text-align: center; word-wrap: break-word;'>Cost per Month</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>3 months</td><td style='text-align: center; word-wrap: break-word;'>$40.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>6 months</td><td style='text-align: center; word-wrap: break-word;'>$30.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1 year</td><td style='text-align: center; word-wrap: break-word;'>$20.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>2 years</td><td style='text-align: center; word-wrap: break-word;'>$10.00</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -6502,7 +6502,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Length of Contract</td><td style='text-align: center; word-wrap: break-word;'>Cost per Month</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>3 months</td><td style='text-align: center; word-wrap: break-word;'>$40.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>6 months</td><td style='text-align: center; word-wrap: break-word;'>$30.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1 year</td><td style='text-align: center; word-wrap: break-word;'>$20.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>2 years</td><td style='text-align: center; word-wrap: break-word;'>$10.00</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -6626,12 +6626,12 @@
                 "explanation": "Đáp án đúng là (C).",
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Length of Contract</td><td style='text-align: center; word-wrap: break-word;'>Cost per Month</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>3 months</td><td style='text-align: center; word-wrap: break-word;'>$40.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>6 months</td><td style='text-align: center; word-wrap: break-word;'>$30.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1 year</td><td style='text-align: center; word-wrap: break-word;'>$20.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>2 years</td><td style='text-align: center; word-wrap: break-word;'>$10.00</td></tr></table>",
                 "graphicImageUrl": null
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Length of Contract</td><td style='text-align: center; word-wrap: break-word;'>Cost per Month</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>3 months</td><td style='text-align: center; word-wrap: break-word;'>$40.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>6 months</td><td style='text-align: center; word-wrap: break-word;'>$30.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1 year</td><td style='text-align: center; word-wrap: break-word;'>$20.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>2 years</td><td style='text-align: center; word-wrap: break-word;'>$10.00</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           }
@@ -6760,7 +6760,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Length of Contract</td><td style='text-align: center; word-wrap: break-word;'>Cost per Month</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>3 months</td><td style='text-align: center; word-wrap: break-word;'>$40.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>6 months</td><td style='text-align: center; word-wrap: break-word;'>$30.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1 year</td><td style='text-align: center; word-wrap: break-word;'>$20.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>2 years</td><td style='text-align: center; word-wrap: break-word;'>$10.00</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -7608,7 +7608,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2018/img_029.jpg",
             "difficulty": "Hard"
           },
           {
@@ -7690,7 +7690,7 @@
                 "category": "DETAIL",
                 "trapType": "KEYWORD_REPETITION",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2018/img_029.jpg"
               },
               {
                 "id": 2097,
@@ -7729,7 +7729,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2018/img_029.jpg",
             "difficulty": "Hard"
           },
           {
@@ -10174,7 +10174,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2018/img_037.jpg",
             "difficulty": "Hard"
           },
           {
@@ -10393,7 +10393,7 @@
                 "category": "DETAIL",
                 "trapType": "NONE",
                 "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Stage 1</td><td style='text-align: center; word-wrap: break-word;'>Refinish cabinets</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Stage 2</td><td style='text-align: center; word-wrap: break-word;'>Install flooring</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Stage 3</td><td style='text-align: center; word-wrap: break-word;'>Paint outside</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Stage 4</td><td style='text-align: center; word-wrap: break-word;'>Replace roof</td></tr></table>",
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2018/img_038.jpg"
               },
               {
                 "id": 3067,
@@ -10432,7 +10432,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Stage 1</td><td style='text-align: center; word-wrap: break-word;'>Refinish cabinets</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Stage 2</td><td style='text-align: center; word-wrap: break-word;'>Install flooring</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Stage 3</td><td style='text-align: center; word-wrap: break-word;'>Paint outside</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Stage 4</td><td style='text-align: center; word-wrap: break-word;'>Replace roof</td></tr></table>",
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2018/img_038.jpg",
             "difficulty": "Hard"
           },
           {
@@ -10690,7 +10690,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2018/img_038.jpg",
             "difficulty": "Medium"
           },
           {
@@ -11415,7 +11415,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Order form</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Item</td><td style='text-align: center; word-wrap: break-word;'>Quantity</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>T-shirts</td><td style='text-align: center; word-wrap: break-word;'>100</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Postcards</td><td style='text-align: center; word-wrap: break-word;'>150</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Coffee cups</td><td style='text-align: center; word-wrap: break-word;'>500</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Candy bars</td><td style='text-align: center; word-wrap: break-word;'>700</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -11536,7 +11536,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Order form</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Item</td><td style='text-align: center; word-wrap: break-word;'>Quantity</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>T-shirts</td><td style='text-align: center; word-wrap: break-word;'>100</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Postcards</td><td style='text-align: center; word-wrap: break-word;'>150</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Coffee cups</td><td style='text-align: center; word-wrap: break-word;'>500</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Candy bars</td><td style='text-align: center; word-wrap: break-word;'>700</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -11585,7 +11585,7 @@
                 "category": "MAIN_IDEA",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2018/img_039.jpg"
               },
               {
                 "id": 3096,
@@ -11658,7 +11658,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2018/img_039.jpg",
             "difficulty": "Hard"
           },
           {
@@ -14102,7 +14102,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Floor 1</td><td style='text-align: center; word-wrap: break-word;'>Lobby</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 2</td><td style='text-align: center; word-wrap: break-word;'>Business Center</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 3</td><td style='text-align: center; word-wrap: break-word;'>Meeting Rooms</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 4</td><td style='text-align: center; word-wrap: break-word;'>Fitness Center</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 5-10</td><td style='text-align: center; word-wrap: break-word;'>Guest Rooms</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -14226,12 +14226,12 @@
                 "explanation": "Đáp án đúng là (B).",
                 "category": "NEXT_ACTION",
                 "trapType": "KEYWORD_REPETITION",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Floor 1</td><td style='text-align: center; word-wrap: break-word;'>Lobby</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 2</td><td style='text-align: center; word-wrap: break-word;'>Business Center</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 3</td><td style='text-align: center; word-wrap: break-word;'>Meeting Rooms</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 4</td><td style='text-align: center; word-wrap: break-word;'>Fitness Center</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 5-10</td><td style='text-align: center; word-wrap: break-word;'>Guest Rooms</td></tr></table>",
                 "graphicImageUrl": null
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Floor 1</td><td style='text-align: center; word-wrap: break-word;'>Lobby</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 2</td><td style='text-align: center; word-wrap: break-word;'>Business Center</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 3</td><td style='text-align: center; word-wrap: break-word;'>Meeting Rooms</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 4</td><td style='text-align: center; word-wrap: break-word;'>Fitness Center</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 5-10</td><td style='text-align: center; word-wrap: break-word;'>Guest Rooms</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -14355,12 +14355,12 @@
                 "explanation": "Đáp án đúng là (B).",
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Delvin Institute Conference Fees</td></tr><tr><td rowspan=\"2\">Day 1 only</td><td style='text-align: center; word-wrap: break-word;'>member</td><td style='text-align: center; word-wrap: break-word;'>$75</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>non-member</td><td style='text-align: center; word-wrap: break-word;'>$85</td></tr><tr><td rowspan=\"2\">Day 2 only</td><td style='text-align: center; word-wrap: break-word;'>member</td><td style='text-align: center; word-wrap: break-word;'>$90</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>non-member</td><td style='text-align: center; word-wrap: break-word;'>$100</td></tr><tr><td rowspan=\"2\">Both days</td><td style='text-align: center; word-wrap: break-word;'>member</td><td style='text-align: center; word-wrap: break-word;'>$150</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>non-member</td><td style='text-align: center; word-wrap: break-word;'>$160</td></tr></table>",
                 "graphicImageUrl": null
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Delvin Institute Conference Fees</td></tr><tr><td rowspan=\"2\">Day 1 only</td><td style='text-align: center; word-wrap: break-word;'>member</td><td style='text-align: center; word-wrap: break-word;'>$75</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>non-member</td><td style='text-align: center; word-wrap: break-word;'>$85</td></tr><tr><td rowspan=\"2\">Day 2 only</td><td style='text-align: center; word-wrap: break-word;'>member</td><td style='text-align: center; word-wrap: break-word;'>$90</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>non-member</td><td style='text-align: center; word-wrap: break-word;'>$100</td></tr><tr><td rowspan=\"2\">Both days</td><td style='text-align: center; word-wrap: break-word;'>member</td><td style='text-align: center; word-wrap: break-word;'>$150</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>non-member</td><td style='text-align: center; word-wrap: break-word;'>$160</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -14450,7 +14450,7 @@
                 "explanation": "Đáp án đúng là (C).",
                 "category": "DETAIL",
                 "trapType": "SIMILAR_SOUND",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Delvin Institute Conference Fees</td></tr><tr><td rowspan=\"2\">Day 1 only</td><td style='text-align: center; word-wrap: break-word;'>member</td><td style='text-align: center; word-wrap: break-word;'>$75</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>non-member</td><td style='text-align: center; word-wrap: break-word;'>$85</td></tr><tr><td rowspan=\"2\">Day 2 only</td><td style='text-align: center; word-wrap: break-word;'>member</td><td style='text-align: center; word-wrap: break-word;'>$90</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>non-member</td><td style='text-align: center; word-wrap: break-word;'>$100</td></tr><tr><td rowspan=\"2\">Both days</td><td style='text-align: center; word-wrap: break-word;'>member</td><td style='text-align: center; word-wrap: break-word;'>$150</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>non-member</td><td style='text-align: center; word-wrap: break-word;'>$160</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -14489,7 +14489,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Delvin Institute Conference Fees</td></tr><tr><td rowspan=\"2\">Day 1 only</td><td style='text-align: center; word-wrap: break-word;'>member</td><td style='text-align: center; word-wrap: break-word;'>$75</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>non-member</td><td style='text-align: center; word-wrap: break-word;'>$85</td></tr><tr><td rowspan=\"2\">Day 2 only</td><td style='text-align: center; word-wrap: break-word;'>member</td><td style='text-align: center; word-wrap: break-word;'>$90</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>non-member</td><td style='text-align: center; word-wrap: break-word;'>$100</td></tr><tr><td rowspan=\"2\">Both days</td><td style='text-align: center; word-wrap: break-word;'>member</td><td style='text-align: center; word-wrap: break-word;'>$150</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>non-member</td><td style='text-align: center; word-wrap: break-word;'>$160</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           }
@@ -15344,7 +15344,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Tour Schedule</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Museum Visit</td><td style='text-align: center; word-wrap: break-word;'>10:00 A.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Lunch</td><td style='text-align: center; word-wrap: break-word;'>12:30 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Nature Walk</td><td style='text-align: center; word-wrap: break-word;'>1:30 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Theater Performance</td><td style='text-align: center; word-wrap: break-word;'>4:00 P.M.</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -15465,7 +15465,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Tour Schedule</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Museum Visit</td><td style='text-align: center; word-wrap: break-word;'>10:00 A.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Lunch</td><td style='text-align: center; word-wrap: break-word;'>12:30 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Nature Walk</td><td style='text-align: center; word-wrap: break-word;'>1:30 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Theater Performance</td><td style='text-align: center; word-wrap: break-word;'>4:00 P.M.</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -15548,7 +15548,7 @@
                 "category": "DETAIL",
                 "trapType": "KEYWORD_REPETITION",
                 "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Tour Schedule</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Museum Visit</td><td style='text-align: center; word-wrap: break-word;'>10:00 A.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Lunch</td><td style='text-align: center; word-wrap: break-word;'>12:30 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Nature Walk</td><td style='text-align: center; word-wrap: break-word;'>1:30 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Theater Performance</td><td style='text-align: center; word-wrap: break-word;'>4:00 P.M.</td></tr></table>",
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2018/img_047.jpg"
               },
               {
                 "id": 4097,
@@ -15587,7 +15587,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Tour Schedule</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Museum Visit</td><td style='text-align: center; word-wrap: break-word;'>10:00 A.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Lunch</td><td style='text-align: center; word-wrap: break-word;'>12:30 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Nature Walk</td><td style='text-align: center; word-wrap: break-word;'>1:30 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Theater Performance</td><td style='text-align: center; word-wrap: break-word;'>4:00 P.M.</td></tr></table>",
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2018/img_047.jpg",
             "difficulty": "Hard"
           },
           {
@@ -15703,7 +15703,7 @@
                 "category": "NEXT_ACTION",
                 "trapType": "KEYWORD_REPETITION",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2018/img_047.jpg"
               }
             ],
             "vocabularyList": [],
@@ -17774,7 +17774,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2018/img_055.jpg",
             "difficulty": "Medium"
           },
           {
@@ -18032,7 +18032,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2018/img_055.jpg",
             "difficulty": "Hard"
           },
           {
@@ -18156,7 +18156,7 @@
                 "category": "NEXT_ACTION",
                 "trapType": "KEYWORD_REPETITION",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2018/img_055.jpg"
               }
             ],
             "vocabularyList": [],
@@ -18251,7 +18251,7 @@
                 "category": "DETAIL",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2018/img_056.jpg"
               },
               {
                 "id": 5067,
@@ -18290,7 +18290,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2018/img_056.jpg",
             "difficulty": "Hard"
           },
           {
@@ -18413,7 +18413,7 @@
                 "explanation": "Đáp án đúng là (C).",
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>75%</td><td style='text-align: center; word-wrap: break-word;'>50%</td><td style='text-align: center; word-wrap: break-word;'>25%</td><td style='text-align: center; word-wrap: break-word;'>0%</td></tr></table>",
                 "graphicImageUrl": null
               }
             ],
@@ -18547,7 +18547,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>75%</td><td style='text-align: center; word-wrap: break-word;'>50%</td><td style='text-align: center; word-wrap: break-word;'>25%</td><td style='text-align: center; word-wrap: break-word;'>0%</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -19274,7 +19274,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2018/img_060.jpg",
             "difficulty": "Hard"
           },
           {
@@ -19395,7 +19395,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2018/img_060.jpg",
             "difficulty": "Hard"
           },
           {
@@ -19597,7 +19597,7 @@
                 "explanation": "Đáp án đúng là (B).",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Late Payment Policy</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Days Late</td><td style='text-align: center; word-wrap: break-word;'>Fee</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>5</td><td style='text-align: center; word-wrap: break-word;'>$7.50</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>10</td><td style='text-align: center; word-wrap: break-word;'>$15.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>15</td><td style='text-align: center; word-wrap: break-word;'>$22.50</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>20</td><td style='text-align: center; word-wrap: break-word;'>$30.00</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -19636,7 +19636,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Late Payment Policy</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Days Late</td><td style='text-align: center; word-wrap: break-word;'>Fee</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>5</td><td style='text-align: center; word-wrap: break-word;'>$7.50</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>10</td><td style='text-align: center; word-wrap: break-word;'>$15.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>15</td><td style='text-align: center; word-wrap: break-word;'>$22.50</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>20</td><td style='text-align: center; word-wrap: break-word;'>$30.00</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           }

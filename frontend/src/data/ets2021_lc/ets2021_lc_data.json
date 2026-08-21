@@ -2316,7 +2316,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2021/img_011.jpg",
             "difficulty": "Hard"
           },
           {
@@ -2372,7 +2372,7 @@
                 "category": "MAIN_IDEA",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2021/img_011.jpg"
               },
               {
                 "id": 1063,
@@ -2698,7 +2698,7 @@
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2021/img_013.jpg"
               }
             ],
             "vocabularyList": [],
@@ -2832,7 +2832,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2021/img_013.jpg",
             "difficulty": "Medium"
           },
           {
@@ -3678,7 +3678,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Office Supplies</td><td style='text-align: center; word-wrap: break-word;'>Item Number</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Printer cartridges</td><td style='text-align: center; word-wrap: break-word;'>NT-105</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Printer paper</td><td style='text-align: center; word-wrap: break-word;'>FF-200</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>File folders</td><td style='text-align: center; word-wrap: break-word;'>A-888</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Desk calendars</td><td style='text-align: center; word-wrap: break-word;'>C-250</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -3794,12 +3794,12 @@
                 "explanation": "",
                 "category": "NEXT_ACTION",
                 "trapType": "SIMILAR_SOUND",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Office Supplies</td><td style='text-align: center; word-wrap: break-word;'>Item Number</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Printer cartridges</td><td style='text-align: center; word-wrap: break-word;'>NT-105</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Printer paper</td><td style='text-align: center; word-wrap: break-word;'>FF-200</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>File folders</td><td style='text-align: center; word-wrap: break-word;'>A-888</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Desk calendars</td><td style='text-align: center; word-wrap: break-word;'>C-250</td></tr></table>",
                 "graphicImageUrl": null
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Office Supplies</td><td style='text-align: center; word-wrap: break-word;'>Item Number</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Printer cartridges</td><td style='text-align: center; word-wrap: break-word;'>NT-105</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Printer paper</td><td style='text-align: center; word-wrap: break-word;'>FF-200</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>File folders</td><td style='text-align: center; word-wrap: break-word;'>A-888</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Desk calendars</td><td style='text-align: center; word-wrap: break-word;'>C-250</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -3881,7 +3881,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Office Supplies</td><td style='text-align: center; word-wrap: break-word;'>Item Number</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Printer cartridges</td><td style='text-align: center; word-wrap: break-word;'>NT-105</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Printer paper</td><td style='text-align: center; word-wrap: break-word;'>FF-200</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>File folders</td><td style='text-align: center; word-wrap: break-word;'>A-888</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Desk calendars</td><td style='text-align: center; word-wrap: break-word;'>C-250</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -3920,7 +3920,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Office Supplies</td><td style='text-align: center; word-wrap: break-word;'>Item Number</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Printer cartridges</td><td style='text-align: center; word-wrap: break-word;'>NT-105</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Printer paper</td><td style='text-align: center; word-wrap: break-word;'>FF-200</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>File folders</td><td style='text-align: center; word-wrap: break-word;'>A-888</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Desk calendars</td><td style='text-align: center; word-wrap: break-word;'>C-250</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           }
@@ -6115,7 +6115,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Product Feature</td><td style='text-align: center; word-wrap: break-word;'>Satisfaction Rating</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Battery Life</td><td style='text-align: center; word-wrap: break-word;'>69%</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Memory Storage</td><td style='text-align: center; word-wrap: break-word;'>75%</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>User Manual</td><td style='text-align: center; word-wrap: break-word;'>88%</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Design</td><td style='text-align: center; word-wrap: break-word;'>95%</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -6244,7 +6244,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Product Feature</td><td style='text-align: center; word-wrap: break-word;'>Satisfaction Rating</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Battery Life</td><td style='text-align: center; word-wrap: break-word;'>69%</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Memory Storage</td><td style='text-align: center; word-wrap: break-word;'>75%</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>User Manual</td><td style='text-align: center; word-wrap: break-word;'>88%</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Design</td><td style='text-align: center; word-wrap: break-word;'>95%</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -6334,7 +6334,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Product Feature</td><td style='text-align: center; word-wrap: break-word;'>Satisfaction Rating</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Battery Life</td><td style='text-align: center; word-wrap: break-word;'>69%</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Memory Storage</td><td style='text-align: center; word-wrap: break-word;'>75%</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>User Manual</td><td style='text-align: center; word-wrap: break-word;'>88%</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Design</td><td style='text-align: center; word-wrap: break-word;'>95%</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -6373,7 +6373,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Product Feature</td><td style='text-align: center; word-wrap: break-word;'>Satisfaction Rating</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Battery Life</td><td style='text-align: center; word-wrap: break-word;'>69%</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Memory Storage</td><td style='text-align: center; word-wrap: break-word;'>75%</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>User Manual</td><td style='text-align: center; word-wrap: break-word;'>88%</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Design</td><td style='text-align: center; word-wrap: break-word;'>95%</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -6592,7 +6592,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "SIMILAR_SOUND",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Item</td><td style='text-align: center; word-wrap: break-word;'>Quantity</td><td style='text-align: center; word-wrap: break-word;'>Total Price</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Suit jackets</td><td style='text-align: center; word-wrap: break-word;'>6</td><td style='text-align: center; word-wrap: break-word;'>€150</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Dresses</td><td style='text-align: center; word-wrap: break-word;'>8</td><td style='text-align: center; word-wrap: break-word;'>€240</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Scarves</td><td style='text-align: center; word-wrap: break-word;'>12</td><td style='text-align: center; word-wrap: break-word;'>€36</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Hats</td><td style='text-align: center; word-wrap: break-word;'>18</td><td style='text-align: center; word-wrap: break-word;'>€40</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Order Total = €466</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -6631,7 +6631,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Item</td><td style='text-align: center; word-wrap: break-word;'>Quantity</td><td style='text-align: center; word-wrap: break-word;'>Total Price</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Suit jackets</td><td style='text-align: center; word-wrap: break-word;'>6</td><td style='text-align: center; word-wrap: break-word;'>€150</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Dresses</td><td style='text-align: center; word-wrap: break-word;'>8</td><td style='text-align: center; word-wrap: break-word;'>€240</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Scarves</td><td style='text-align: center; word-wrap: break-word;'>12</td><td style='text-align: center; word-wrap: break-word;'>€36</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Hats</td><td style='text-align: center; word-wrap: break-word;'>18</td><td style='text-align: center; word-wrap: break-word;'>€40</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Order Total = €466</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           }
@@ -7486,7 +7486,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Local Restaurant Reviews</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Roma Italian Palace</td><td style='text-align: center; word-wrap: break-word;'>★★</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Adobe Mexican Restaurant</td><td style='text-align: center; word-wrap: break-word;'>★★★★</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Susanna&#x27;s Southern Foods</td><td style='text-align: center; word-wrap: break-word;'>★★</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>City Vegetarian Café</td><td style='text-align: center; word-wrap: break-word;'>★</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -7607,7 +7607,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Local Restaurant Reviews</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Roma Italian Palace</td><td style='text-align: center; word-wrap: break-word;'>★★</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Adobe Mexican Restaurant</td><td style='text-align: center; word-wrap: break-word;'>★★★★</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Susanna&#x27;s Southern Foods</td><td style='text-align: center; word-wrap: break-word;'>★★</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>City Vegetarian Café</td><td style='text-align: center; word-wrap: break-word;'>★</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -7690,7 +7690,7 @@
                 "category": "DETAIL",
                 "trapType": "KEYWORD_REPETITION",
                 "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Local Restaurant Reviews</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Roma Italian Palace</td><td style='text-align: center; word-wrap: break-word;'>★★</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Adobe Mexican Restaurant</td><td style='text-align: center; word-wrap: break-word;'>★★★★</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Susanna&#x27;s Southern Foods</td><td style='text-align: center; word-wrap: break-word;'>★★</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>City Vegetarian Café</td><td style='text-align: center; word-wrap: break-word;'>★</td></tr></table>",
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2021/img_024.jpg"
               },
               {
                 "id": 2097,
@@ -7729,7 +7729,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Local Restaurant Reviews</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Roma Italian Palace</td><td style='text-align: center; word-wrap: break-word;'>★★</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Adobe Mexican Restaurant</td><td style='text-align: center; word-wrap: break-word;'>★★★★</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Susanna&#x27;s Southern Foods</td><td style='text-align: center; word-wrap: break-word;'>★★</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>City Vegetarian Café</td><td style='text-align: center; word-wrap: break-word;'>★</td></tr></table>",
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2021/img_024.jpg",
             "difficulty": "Hard"
           },
           {
@@ -10174,7 +10174,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2021/img_037.jpg",
             "difficulty": "Hard"
           },
           {
@@ -10426,12 +10426,12 @@
                 "explanation": "",
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Wire Transfer Request</td></tr><tr><td colspan=\"2\"></td></tr><tr><td colspan=\"2\">Step 3: Bank Information</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 1</td><td style='text-align: center; word-wrap: break-word;'>Toorak United Bank</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 2</td><td style='text-align: center; word-wrap: break-word;'>20 Collingswood Street</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 3</td><td style='text-align: center; word-wrap: break-word;'>Melbourne</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 4</td><td style='text-align: center; word-wrap: break-word;'>Victoria</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 5</td><td style='text-align: center; word-wrap: break-word;'>3000</td></tr></table>",
                 "graphicImageUrl": null
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Wire Transfer Request</td></tr><tr><td colspan=\"2\"></td></tr><tr><td colspan=\"2\">Step 3: Bank Information</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 1</td><td style='text-align: center; word-wrap: break-word;'>Toorak United Bank</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 2</td><td style='text-align: center; word-wrap: break-word;'>20 Collingswood Street</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 3</td><td style='text-align: center; word-wrap: break-word;'>Melbourne</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 4</td><td style='text-align: center; word-wrap: break-word;'>Victoria</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 5</td><td style='text-align: center; word-wrap: break-word;'>3000</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -10555,12 +10555,12 @@
                 "explanation": "",
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Wire Transfer Request</td></tr><tr><td colspan=\"2\"></td></tr><tr><td colspan=\"2\">Step 3: Bank Information</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 1</td><td style='text-align: center; word-wrap: break-word;'>Toorak United Bank</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 2</td><td style='text-align: center; word-wrap: break-word;'>20 Collingswood Street</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 3</td><td style='text-align: center; word-wrap: break-word;'>Melbourne</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 4</td><td style='text-align: center; word-wrap: break-word;'>Victoria</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 5</td><td style='text-align: center; word-wrap: break-word;'>3000</td></tr></table>",
                 "graphicImageUrl": null
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Wire Transfer Request</td></tr><tr><td colspan=\"2\"></td></tr><tr><td colspan=\"2\">Step 3: Bank Information</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 1</td><td style='text-align: center; word-wrap: break-word;'>Toorak United Bank</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 2</td><td style='text-align: center; word-wrap: break-word;'>20 Collingswood Street</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 3</td><td style='text-align: center; word-wrap: break-word;'>Melbourne</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 4</td><td style='text-align: center; word-wrap: break-word;'>Victoria</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Line 5</td><td style='text-align: center; word-wrap: break-word;'>3000</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           }
@@ -11294,7 +11294,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Hans Schmidt&#x27;s Schedule</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Noon</td><td style='text-align: center; word-wrap: break-word;'>Lunch with new clients</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1:00</td><td style='text-align: center; word-wrap: break-word;'>Sales department appointment</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>2:00</td><td style='text-align: center; word-wrap: break-word;'>Design deadline</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>3:00</td><td style='text-align: center; word-wrap: break-word;'>Project review</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -11415,7 +11415,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Hans Schmidt&#x27;s Schedule</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Noon</td><td style='text-align: center; word-wrap: break-word;'>Lunch with new clients</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1:00</td><td style='text-align: center; word-wrap: break-word;'>Sales department appointment</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>2:00</td><td style='text-align: center; word-wrap: break-word;'>Design deadline</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>3:00</td><td style='text-align: center; word-wrap: break-word;'>Project review</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -11536,7 +11536,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Hans Schmidt&#x27;s Schedule</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Noon</td><td style='text-align: center; word-wrap: break-word;'>Lunch with new clients</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1:00</td><td style='text-align: center; word-wrap: break-word;'>Sales department appointment</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>2:00</td><td style='text-align: center; word-wrap: break-word;'>Design deadline</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>3:00</td><td style='text-align: center; word-wrap: break-word;'>Project review</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -11652,12 +11652,12 @@
                 "explanation": "",
                 "category": "NEXT_ACTION",
                 "trapType": "SIMILAR_SOUND",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Day</td><td style='text-align: center; word-wrap: break-word;'>Conditions</td><td style='text-align: center; word-wrap: break-word;'>Temperature</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Monday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>17°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Tuesday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>20°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wednesday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>21°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Thursday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>19°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Friday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>18°C</td></tr></table>",
                 "graphicImageUrl": null
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Hans Schmidt&#x27;s Schedule</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Noon</td><td style='text-align: center; word-wrap: break-word;'>Lunch with new clients</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>1:00</td><td style='text-align: center; word-wrap: break-word;'>Sales department appointment</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>2:00</td><td style='text-align: center; word-wrap: break-word;'>Design deadline</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>3:00</td><td style='text-align: center; word-wrap: break-word;'>Project review</td></tr></table>",
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Day</td><td style='text-align: center; word-wrap: break-word;'>Conditions</td><td style='text-align: center; word-wrap: break-word;'>Temperature</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Monday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>17°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Tuesday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>20°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wednesday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>21°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Thursday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>19°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Friday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>18°C</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -11705,7 +11705,7 @@
                 "explanation": "",
                 "category": "MAIN_IDEA",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Day</td><td style='text-align: center; word-wrap: break-word;'>Conditions</td><td style='text-align: center; word-wrap: break-word;'>Temperature</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Monday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>17°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Tuesday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>20°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wednesday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>21°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Thursday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>19°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Friday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>18°C</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -11778,7 +11778,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Day</td><td style='text-align: center; word-wrap: break-word;'>Conditions</td><td style='text-align: center; word-wrap: break-word;'>Temperature</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Monday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>17°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Tuesday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>20°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wednesday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>21°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Thursday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>19°C</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Friday</td><td style='text-align: center; word-wrap: break-word;'>○</td><td style='text-align: center; word-wrap: break-word;'>18°C</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           }
@@ -13973,7 +13973,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Ninth Floor</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wilbur&#x27;s Finance</td><td style='text-align: center; word-wrap: break-word;'>900</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Bauman Law Firm</td><td style='text-align: center; word-wrap: break-word;'>920</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Showa Dentistry</td><td style='text-align: center; word-wrap: break-word;'>960</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Cohen Textiles</td><td style='text-align: center; word-wrap: break-word;'>972</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -14102,7 +14102,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Ninth Floor</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wilbur&#x27;s Finance</td><td style='text-align: center; word-wrap: break-word;'>900</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Bauman Law Firm</td><td style='text-align: center; word-wrap: break-word;'>920</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Showa Dentistry</td><td style='text-align: center; word-wrap: break-word;'>960</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Cohen Textiles</td><td style='text-align: center; word-wrap: break-word;'>972</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -14158,7 +14158,7 @@
                 "explanation": "",
                 "category": "MAIN_IDEA",
                 "trapType": "NONE",
-                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Ninth Floor</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wilbur&#x27;s Finance</td><td style='text-align: center; word-wrap: break-word;'>900</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Bauman Law Firm</td><td style='text-align: center; word-wrap: break-word;'>920</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Showa Dentistry</td><td style='text-align: center; word-wrap: break-word;'>960</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Cohen Textiles</td><td style='text-align: center; word-wrap: break-word;'>972</td></tr></table>",
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Comparison Chart of Features</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Newton Electronics</td><td style='text-align: center; word-wrap: break-word;'>Technology Brothers</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Free Shipping</td><td style='text-align: center; word-wrap: break-word;'>✓</td><td style='text-align: center; word-wrap: break-word;'>✓</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Lifetime Warranty</td><td style='text-align: center; word-wrap: break-word;'>✓</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Annual Maintenance</td><td style='text-align: center; word-wrap: break-word;'>✓</td><td style='text-align: center; word-wrap: break-word;'>✓</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Loyalty Program</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>✓</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -14231,7 +14231,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Ninth Floor</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wilbur&#x27;s Finance</td><td style='text-align: center; word-wrap: break-word;'>900</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Bauman Law Firm</td><td style='text-align: center; word-wrap: break-word;'>920</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Showa Dentistry</td><td style='text-align: center; word-wrap: break-word;'>960</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Cohen Textiles</td><td style='text-align: center; word-wrap: break-word;'>972</td></tr></table>",
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">Comparison Chart of Features</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Newton Electronics</td><td style='text-align: center; word-wrap: break-word;'>Technology Brothers</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Free Shipping</td><td style='text-align: center; word-wrap: break-word;'>✓</td><td style='text-align: center; word-wrap: break-word;'>✓</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Lifetime Warranty</td><td style='text-align: center; word-wrap: break-word;'>✓</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Annual Maintenance</td><td style='text-align: center; word-wrap: break-word;'>✓</td><td style='text-align: center; word-wrap: break-word;'>✓</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Loyalty Program</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>✓</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -14322,7 +14322,7 @@
                 "category": "DETAIL",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2021/img_052.jpg"
               },
               {
                 "id": 4067,
@@ -14361,7 +14361,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2021/img_052.jpg",
             "difficulty": "Hard"
           },
           {
@@ -14485,7 +14485,7 @@
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2021/img_052.jpg"
               }
             ],
             "vocabularyList": [],
@@ -14619,7 +14619,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2021/img_052.jpg",
             "difficulty": "Medium"
           },
           {
@@ -15344,7 +15344,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Kondo&#x27;s Café</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Saturday–Monday</td><td style='text-align: center; word-wrap: break-word;'>Closed</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Tuesday</td><td style='text-align: center; word-wrap: break-word;'>10:00 A.M. to 5:00 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wednesday</td><td style='text-align: center; word-wrap: break-word;'>9:00 A.M. to 5:00 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Thursday</td><td style='text-align: center; word-wrap: break-word;'>9:00 A.M. to 5:00 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Friday</td><td style='text-align: center; word-wrap: break-word;'>8:00 A.M. to 6:00 P.M.</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -15465,7 +15465,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Kondo&#x27;s Café</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Saturday–Monday</td><td style='text-align: center; word-wrap: break-word;'>Closed</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Tuesday</td><td style='text-align: center; word-wrap: break-word;'>10:00 A.M. to 5:00 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wednesday</td><td style='text-align: center; word-wrap: break-word;'>9:00 A.M. to 5:00 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Thursday</td><td style='text-align: center; word-wrap: break-word;'>9:00 A.M. to 5:00 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Friday</td><td style='text-align: center; word-wrap: break-word;'>8:00 A.M. to 6:00 P.M.</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -15548,7 +15548,7 @@
                 "category": "DETAIL",
                 "trapType": "KEYWORD_REPETITION",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2021/img_053.jpg"
               },
               {
                 "id": 4097,
@@ -15587,7 +15587,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2021/img_053.jpg",
             "difficulty": "Hard"
           },
           {
@@ -15703,7 +15703,7 @@
                 "category": "NEXT_ACTION",
                 "trapType": "KEYWORD_REPETITION",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2021/img_053.jpg"
               }
             ],
             "vocabularyList": [],
@@ -18031,7 +18031,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Monday</td><td style='text-align: center; word-wrap: break-word;'>Presentation at 3:00 PM.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Tuesday</td><td style='text-align: center; word-wrap: break-word;'>Conference call at 10:00 AM.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wednesday</td><td style='text-align: center; word-wrap: break-word;'>Meeting with client at 2:00 PM.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Thursday</td><td style='text-align: center; word-wrap: break-word;'>Business lunch at 1:00 PM.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Friday</td><td style='text-align: center; word-wrap: break-word;'>Workshop (all day)</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           },
@@ -18122,7 +18122,7 @@
                 "category": "DETAIL",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ets2021/img_066.jpg"
               },
               {
                 "id": 5064,
@@ -18161,7 +18161,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2021/img_066.jpg",
             "difficulty": "Hard"
           },
           {
@@ -18413,12 +18413,12 @@
                 "explanation": "",
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"4\">Order Ticket Table Number: 17</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>3 Soups</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>3 Salads</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>3 Chicken dinners</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Tax</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Total</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td colspan=\"4\">Thank You — Please Come Again</td></tr></table>",
                 "graphicImageUrl": null
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"4\">Order Ticket Table Number: 17</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>3 Soups</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>3 Salads</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>3 Chicken dinners</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Tax</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Total</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td colspan=\"4\">Thank You — Please Come Again</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Hard"
           }
@@ -19274,7 +19274,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2021/img_070.jpg",
             "difficulty": "Hard"
           },
           {
@@ -19395,7 +19395,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ets2021/img_070.jpg",
             "difficulty": "Hard"
           },
           {

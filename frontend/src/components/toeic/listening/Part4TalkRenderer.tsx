@@ -93,21 +93,23 @@ export const Part4TalkRenderer: React.FC<Part4TalkRendererProps> = ({
       </div>
 
       {/* Visual Question Graphics (Images or Tables) */}
-      {talk.graphicImageUrl && (
+      {(talk.graphicImageUrl || talk.questions?.find((subQuestionItem) => subQuestionItem.graphicImageUrl)?.graphicImageUrl) && (
         <div className="flex justify-center p-3 bg-theme-surface-2 rounded-2xl border border-theme">
           <img
-            src={talk.graphicImageUrl}
+            src={talk.graphicImageUrl || talk.questions?.find((subQuestionItem) => subQuestionItem.graphicImageUrl)?.graphicImageUrl}
             alt="Talk Graphic Diagram"
-            className="max-h-64 rounded-xl object-contain shadow-xs"
+            className="max-h-72 rounded-xl object-contain shadow-xs"
             loading="lazy"
           />
         </div>
       )}
 
-      {talk.graphicHtml && (
+      {(talk.graphicHtml || talk.questions?.find((subQuestionItem) => subQuestionItem.graphicHtml)?.graphicHtml) && (
         <div
           className="p-4 bg-theme-surface-2 rounded-2xl border border-theme overflow-x-auto text-xs text-theme-primary"
-          dangerouslySetInnerHTML={{ __html: talk.graphicHtml }}
+          dangerouslySetInnerHTML={{
+            __html: (talk.graphicHtml || talk.questions?.find((subQuestionItem) => subQuestionItem.graphicHtml)?.graphicHtml) || '',
+          }}
         />
       )}
 

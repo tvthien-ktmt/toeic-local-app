@@ -72,21 +72,23 @@ export const Part3ConversationRenderer: React.FC<Part3ConversationRendererProps>
       </div>
 
       {/* Visual Question Graphics (Images or Tables) */}
-      {conversation.graphicImageUrl && (
+      {(conversation.graphicImageUrl || conversation.questions?.find((subQuestionItem) => subQuestionItem.graphicImageUrl)?.graphicImageUrl) && (
         <div className="flex justify-center p-3 bg-theme-surface-2 rounded-2xl border border-theme">
           <img
-            src={conversation.graphicImageUrl}
+            src={conversation.graphicImageUrl || conversation.questions?.find((subQuestionItem) => subQuestionItem.graphicImageUrl)?.graphicImageUrl}
             alt="Conversation Graphic Diagram"
-            className="max-h-64 rounded-xl object-contain shadow-xs"
+            className="max-h-72 rounded-xl object-contain shadow-xs"
             loading="lazy"
           />
         </div>
       )}
 
-      {conversation.graphicHtml && (
+      {(conversation.graphicHtml || conversation.questions?.find((subQuestionItem) => subQuestionItem.graphicHtml)?.graphicHtml) && (
         <div
           className="p-4 bg-theme-surface-2 rounded-2xl border border-theme overflow-x-auto text-xs text-theme-primary"
-          dangerouslySetInnerHTML={{ __html: conversation.graphicHtml }}
+          dangerouslySetInnerHTML={{
+            __html: (conversation.graphicHtml || conversation.questions?.find((subQuestionItem) => subQuestionItem.graphicHtml)?.graphicHtml) || '',
+          }}
         />
       )}
 

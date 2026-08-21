@@ -2316,7 +2316,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_009.jpg",
             "difficulty": "Medium"
           },
           {
@@ -2405,7 +2405,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">INVOICE</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Item</td><td style='text-align: center; word-wrap: break-word;'>Quantity</td><td style='text-align: center; word-wrap: break-word;'>Price</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Pens</td><td style='text-align: center; word-wrap: break-word;'>3 boxes</td><td style='text-align: center; word-wrap: break-word;'>$10</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Sticky notes</td><td style='text-align: center; word-wrap: break-word;'>5 boxes</td><td style='text-align: center; word-wrap: break-word;'>$75</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Paperclips</td><td style='text-align: center; word-wrap: break-word;'>7 boxes</td><td style='text-align: center; word-wrap: break-word;'>$11</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Binders</td><td style='text-align: center; word-wrap: break-word;'>4 boxes</td><td style='text-align: center; word-wrap: break-word;'>$120</td></tr></table>",
                 "graphicImageUrl": "/images/ybm2025/img_009.jpg"
               },
               {
@@ -2444,7 +2444,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"3\">INVOICE</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Item</td><td style='text-align: center; word-wrap: break-word;'>Quantity</td><td style='text-align: center; word-wrap: break-word;'>Price</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Pens</td><td style='text-align: center; word-wrap: break-word;'>3 boxes</td><td style='text-align: center; word-wrap: break-word;'>$10</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Sticky notes</td><td style='text-align: center; word-wrap: break-word;'>5 boxes</td><td style='text-align: center; word-wrap: break-word;'>$75</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Paperclips</td><td style='text-align: center; word-wrap: break-word;'>7 boxes</td><td style='text-align: center; word-wrap: break-word;'>$11</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Binders</td><td style='text-align: center; word-wrap: break-word;'>4 boxes</td><td style='text-align: center; word-wrap: break-word;'>$120</td></tr></table>",
             "graphicImageUrl": "/images/ybm2025/img_009.jpg",
             "difficulty": "Medium"
           },
@@ -2535,7 +2535,7 @@
                 "category": "DETAIL",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_010.jpg"
               },
               {
                 "id": 1067,
@@ -2574,7 +2574,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_010.jpg",
             "difficulty": "Medium"
           },
           {
@@ -2663,7 +2663,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Destination</td><td style='text-align: center; word-wrap: break-word;'>Departure Time</td><td style='text-align: center; word-wrap: break-word;'>Status</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Montreal</td><td style='text-align: center; word-wrap: break-word;'>15:00</td><td style='text-align: center; word-wrap: break-word;'>Delayed – 40 minutes</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Winnipeg</td><td style='text-align: center; word-wrap: break-word;'>15:30</td><td style='text-align: center; word-wrap: break-word;'>On time</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Toronto</td><td style='text-align: center; word-wrap: break-word;'>16:00</td><td style='text-align: center; word-wrap: break-word;'>On time</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Calgary</td><td style='text-align: center; word-wrap: break-word;'>16:30</td><td style='text-align: center; word-wrap: break-word;'>Delayed – one hour</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -2702,7 +2702,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Destination</td><td style='text-align: center; word-wrap: break-word;'>Departure Time</td><td style='text-align: center; word-wrap: break-word;'>Status</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Montreal</td><td style='text-align: center; word-wrap: break-word;'>15:00</td><td style='text-align: center; word-wrap: break-word;'>Delayed – 40 minutes</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Winnipeg</td><td style='text-align: center; word-wrap: break-word;'>15:30</td><td style='text-align: center; word-wrap: break-word;'>On time</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Toronto</td><td style='text-align: center; word-wrap: break-word;'>16:00</td><td style='text-align: center; word-wrap: break-word;'>On time</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Calgary</td><td style='text-align: center; word-wrap: break-word;'>16:30</td><td style='text-align: center; word-wrap: break-word;'>Delayed – one hour</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           }
@@ -3558,7 +3558,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_011.jpg",
             "difficulty": "Medium"
           },
           {
@@ -3679,7 +3679,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_011.jpg",
             "difficulty": "Medium"
           },
           {
@@ -3916,7 +3916,7 @@
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_012.jpg"
               }
             ],
             "vocabularyList": [],
@@ -6116,7 +6116,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_020.jpg",
             "difficulty": "Medium"
           },
           {
@@ -6245,7 +6245,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_020.jpg",
             "difficulty": "Medium"
           },
           {
@@ -6761,7 +6761,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_022.jpg",
             "difficulty": "Medium"
           },
           {
@@ -7366,7 +7366,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_023.jpg",
             "difficulty": "Medium"
           },
           {
@@ -7487,7 +7487,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_023.jpg",
             "difficulty": "Medium"
           },
           {
@@ -7608,7 +7608,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_023.jpg",
             "difficulty": "Medium"
           },
           {
@@ -10173,7 +10173,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Inbox</td><td style='text-align: center; word-wrap: break-word;'>Subject</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Tony Parsons</td><td style='text-align: center; word-wrap: break-word;'>Volunteers needed</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Roy Martino</td><td style='text-align: center; word-wrap: break-word;'>Approved catering companies</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Beth Landrum</td><td style='text-align: center; word-wrap: break-word;'>New extension number</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Anna Cordero</td><td style='text-align: center; word-wrap: break-word;'>Vacation request reminder</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -10263,7 +10263,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Inbox</td><td style='text-align: center; word-wrap: break-word;'>Subject</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Tony Parsons</td><td style='text-align: center; word-wrap: break-word;'>Volunteers needed</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Roy Martino</td><td style='text-align: center; word-wrap: break-word;'>Approved catering companies</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Beth Landrum</td><td style='text-align: center; word-wrap: break-word;'>New extension number</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Anna Cordero</td><td style='text-align: center; word-wrap: break-word;'>Vacation request reminder</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -10302,7 +10302,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Inbox</td><td style='text-align: center; word-wrap: break-word;'>Subject</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Tony Parsons</td><td style='text-align: center; word-wrap: break-word;'>Volunteers needed</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Roy Martino</td><td style='text-align: center; word-wrap: break-word;'>Approved catering companies</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Beth Landrum</td><td style='text-align: center; word-wrap: break-word;'>New extension number</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Anna Cordero</td><td style='text-align: center; word-wrap: break-word;'>Vacation request reminder</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -10393,7 +10393,7 @@
                 "category": "DETAIL",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_035.jpg"
               },
               {
                 "id": 3067,
@@ -10432,7 +10432,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_035.jpg",
             "difficulty": "Medium"
           },
           {
@@ -10556,7 +10556,7 @@
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_037.jpg"
               }
             ],
             "vocabularyList": [],
@@ -10690,7 +10690,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_037.jpg",
             "difficulty": "Medium"
           },
           {
@@ -11415,7 +11415,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td rowspan=\"3\">Event Room</td><td rowspan=\"2\">West Wing: Pilot Accessories</td><td style='text-align: center; word-wrap: break-word;'>North Wing: Early Flights</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Main Hall: Model Airplanes</td><td style='text-align: center; word-wrap: break-word;'>East Wing: The Jet Age</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Gift Shop</td><td style='text-align: center; word-wrap: break-word;'>Entrance</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -11536,7 +11536,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td rowspan=\"3\">Event Room</td><td rowspan=\"2\">West Wing: Pilot Accessories</td><td style='text-align: center; word-wrap: break-word;'>North Wing: Early Flights</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Main Hall: Model Airplanes</td><td style='text-align: center; word-wrap: break-word;'>East Wing: The Jet Age</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Gift Shop</td><td style='text-align: center; word-wrap: break-word;'>Entrance</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -11584,7 +11584,7 @@
                 "explanation": "",
                 "category": "MAIN_IDEA",
                 "trapType": "NONE",
-                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td rowspan=\"3\">Event Room</td><td rowspan=\"2\">West Wing: Pilot Accessories</td><td style='text-align: center; word-wrap: break-word;'>North Wing: Early Flights</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Main Hall: Model Airplanes</td><td style='text-align: center; word-wrap: break-word;'>East Wing: The Jet Age</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Gift Shop</td><td style='text-align: center; word-wrap: break-word;'>Entrance</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>4</td><td style='text-align: center; word-wrap: break-word;'>5</td><td style='text-align: center; word-wrap: break-word;'>6</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Magazine Photo Shoot</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Preview Screening</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>7</td><td style='text-align: center; word-wrap: break-word;'>8</td><td style='text-align: center; word-wrap: break-word;'>9</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Awards Banquet</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -11657,7 +11657,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td rowspan=\"3\">Event Room</td><td rowspan=\"2\">West Wing: Pilot Accessories</td><td style='text-align: center; word-wrap: break-word;'>North Wing: Early Flights</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Main Hall: Model Airplanes</td><td style='text-align: center; word-wrap: break-word;'>East Wing: The Jet Age</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Gift Shop</td><td style='text-align: center; word-wrap: break-word;'>Entrance</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>4</td><td style='text-align: center; word-wrap: break-word;'>5</td><td style='text-align: center; word-wrap: break-word;'>6</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Magazine Photo Shoot</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Preview Screening</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>7</td><td style='text-align: center; word-wrap: break-word;'>8</td><td style='text-align: center; word-wrap: break-word;'>9</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Awards Banquet</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -11705,7 +11705,7 @@
                 "explanation": "",
                 "category": "MAIN_IDEA",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>4</td><td style='text-align: center; word-wrap: break-word;'>5</td><td style='text-align: center; word-wrap: break-word;'>6</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Magazine Photo Shoot</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Preview Screening</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>7</td><td style='text-align: center; word-wrap: break-word;'>8</td><td style='text-align: center; word-wrap: break-word;'>9</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Awards Banquet</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -11778,7 +11778,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>4</td><td style='text-align: center; word-wrap: break-word;'>5</td><td style='text-align: center; word-wrap: break-word;'>6</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Magazine Photo Shoot</td><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Preview Screening</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>7</td><td style='text-align: center; word-wrap: break-word;'>8</td><td style='text-align: center; word-wrap: break-word;'>9</td></tr><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Awards Banquet</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           }
@@ -13974,7 +13974,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_045.jpg",
             "difficulty": "Medium"
           },
           {
@@ -14103,7 +14103,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_045.jpg",
             "difficulty": "Medium"
           },
           {
@@ -14321,7 +14321,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">The Best Energy Bars Following Dietary Restrictions</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Category</td><td style='text-align: center; word-wrap: break-word;'>Winner</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Vegan</td><td style='text-align: center; word-wrap: break-word;'>YouFuel</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Dairy-free</td><td style='text-align: center; word-wrap: break-word;'>Savorette</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Nut-free</td><td style='text-align: center; word-wrap: break-word;'>Power Crunch</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Gluten-free</td><td style='text-align: center; word-wrap: break-word;'>The Go Bar</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -14360,7 +14360,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">The Best Energy Bars Following Dietary Restrictions</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Category</td><td style='text-align: center; word-wrap: break-word;'>Winner</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Vegan</td><td style='text-align: center; word-wrap: break-word;'>YouFuel</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Dairy-free</td><td style='text-align: center; word-wrap: break-word;'>Savorette</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Nut-free</td><td style='text-align: center; word-wrap: break-word;'>Power Crunch</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Gluten-free</td><td style='text-align: center; word-wrap: break-word;'>The Go Bar</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -14450,7 +14450,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">The Best Energy Bars Following Dietary Restrictions</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Category</td><td style='text-align: center; word-wrap: break-word;'>Winner</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Vegan</td><td style='text-align: center; word-wrap: break-word;'>YouFuel</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Dairy-free</td><td style='text-align: center; word-wrap: break-word;'>Savorette</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Nut-free</td><td style='text-align: center; word-wrap: break-word;'>Power Crunch</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Gluten-free</td><td style='text-align: center; word-wrap: break-word;'>The Go Bar</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -14489,7 +14489,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">The Best Energy Bars Following Dietary Restrictions</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Category</td><td style='text-align: center; word-wrap: break-word;'>Winner</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Vegan</td><td style='text-align: center; word-wrap: break-word;'>YouFuel</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Dairy-free</td><td style='text-align: center; word-wrap: break-word;'>Savorette</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Nut-free</td><td style='text-align: center; word-wrap: break-word;'>Power Crunch</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Gluten-free</td><td style='text-align: center; word-wrap: break-word;'>The Go Bar</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           }
@@ -15224,7 +15224,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_046.jpg",
             "difficulty": "Medium"
           },
           {
@@ -15345,7 +15345,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_046.jpg",
             "difficulty": "Medium"
           },
           {
@@ -15466,7 +15466,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_046.jpg",
             "difficulty": "Medium"
           },
           {
@@ -15634,7 +15634,7 @@
                 "explanation": "",
                 "category": "MAIN_IDEA",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Video</td><td style='text-align: center; word-wrap: break-word;'>Length</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Choosing the Right Guitar</td><td style='text-align: center; word-wrap: break-word;'>11:25</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Improve your Strumming Technique</td><td style='text-align: center; word-wrap: break-word;'>6:10</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Practice Exercises for Beginners</td><td style='text-align: center; word-wrap: break-word;'>14:35</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>How to Hold the Pick</td><td style='text-align: center; word-wrap: break-word;'>4:50</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>...</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -15707,7 +15707,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Video</td><td style='text-align: center; word-wrap: break-word;'>Length</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Choosing the Right Guitar</td><td style='text-align: center; word-wrap: break-word;'>11:25</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Improve your Strumming Technique</td><td style='text-align: center; word-wrap: break-word;'>6:10</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Practice Exercises for Beginners</td><td style='text-align: center; word-wrap: break-word;'>14:35</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>How to Hold the Pick</td><td style='text-align: center; word-wrap: break-word;'>4:50</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>...</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           }
@@ -17774,7 +17774,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_054.jpg",
             "difficulty": "Medium"
           },
           {
@@ -18032,7 +18032,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_054.jpg",
             "difficulty": "Medium"
           },
           {
@@ -18251,7 +18251,7 @@
                 "category": "DETAIL",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_055.jpg"
               },
               {
                 "id": 5067,
@@ -18290,7 +18290,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_055.jpg",
             "difficulty": "Medium"
           },
           {
@@ -18548,7 +18548,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_055.jpg",
             "difficulty": "Medium"
           },
           {
@@ -19273,7 +19273,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Date</td><td style='text-align: center; word-wrap: break-word;'>Event</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Saturday, September 9</td><td style='text-align: center; word-wrap: break-word;'>Company picnic</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wednesday, September 27</td><td style='text-align: center; word-wrap: break-word;'>Board meeting</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Friday, October 6</td><td style='text-align: center; word-wrap: break-word;'>Retirement party</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Thursday, October 19</td><td style='text-align: center; word-wrap: break-word;'>Awards dinner</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -19394,7 +19394,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Date</td><td style='text-align: center; word-wrap: break-word;'>Event</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Saturday, September 9</td><td style='text-align: center; word-wrap: break-word;'>Company picnic</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wednesday, September 27</td><td style='text-align: center; word-wrap: break-word;'>Board meeting</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Friday, October 6</td><td style='text-align: center; word-wrap: break-word;'>Retirement party</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Thursday, October 19</td><td style='text-align: center; word-wrap: break-word;'>Awards dinner</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -19476,7 +19476,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Summary of Fees</td><td style='text-align: center; word-wrap: break-word;'>Due</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Deposit: $350</td><td style='text-align: center; word-wrap: break-word;'>June 8</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Site assessment: $90</td><td style='text-align: center; word-wrap: break-word;'>June 15</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Filing: $35</td><td style='text-align: center; word-wrap: break-word;'>June 15</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Phase 1: $1,200</td><td style='text-align: center; word-wrap: break-word;'>June 21</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -19515,7 +19515,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Summary of Fees</td><td style='text-align: center; word-wrap: break-word;'>Due</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Deposit: $350</td><td style='text-align: center; word-wrap: break-word;'>June 8</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Site assessment: $90</td><td style='text-align: center; word-wrap: break-word;'>June 15</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Filing: $35</td><td style='text-align: center; word-wrap: break-word;'>June 15</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Phase 1: $1,200</td><td style='text-align: center; word-wrap: break-word;'>June 21</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -19597,7 +19597,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Summary of Fees</td><td style='text-align: center; word-wrap: break-word;'>Due</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Deposit: $350</td><td style='text-align: center; word-wrap: break-word;'>June 8</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Site assessment: $90</td><td style='text-align: center; word-wrap: break-word;'>June 15</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Filing: $35</td><td style='text-align: center; word-wrap: break-word;'>June 15</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Phase 1: $1,200</td><td style='text-align: center; word-wrap: break-word;'>June 21</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -19636,7 +19636,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Summary of Fees</td><td style='text-align: center; word-wrap: break-word;'>Due</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Deposit: $350</td><td style='text-align: center; word-wrap: break-word;'>June 8</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Site assessment: $90</td><td style='text-align: center; word-wrap: break-word;'>June 15</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Filing: $35</td><td style='text-align: center; word-wrap: break-word;'>June 15</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Phase 1: $1,200</td><td style='text-align: center; word-wrap: break-word;'>June 21</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           }
@@ -21832,7 +21832,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_064.jpg",
             "difficulty": "Medium"
           },
           {
@@ -21961,7 +21961,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_064.jpg",
             "difficulty": "Medium"
           },
           {
@@ -22213,12 +22213,12 @@
                 "explanation": "",
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Item</td><td style='text-align: center; word-wrap: break-word;'>Quantity</td><td style='text-align: center; word-wrap: break-word;'>Price</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Bananas</td><td style='text-align: center; word-wrap: break-word;'>1</td><td style='text-align: center; word-wrap: break-word;'>$3.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Spinach</td><td style='text-align: center; word-wrap: break-word;'>1</td><td style='text-align: center; word-wrap: break-word;'>$4.50</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Avocados</td><td style='text-align: center; word-wrap: break-word;'>3</td><td style='text-align: center; word-wrap: break-word;'>$6.30</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Watermelon</td><td style='text-align: center; word-wrap: break-word;'>2</td><td style='text-align: center; word-wrap: break-word;'>$10.10</td></tr><tr><td colspan=\"3\">Total: $23.90</td></tr></table>",
                 "graphicImageUrl": null
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Item</td><td style='text-align: center; word-wrap: break-word;'>Quantity</td><td style='text-align: center; word-wrap: break-word;'>Price</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Bananas</td><td style='text-align: center; word-wrap: break-word;'>1</td><td style='text-align: center; word-wrap: break-word;'>$3.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Spinach</td><td style='text-align: center; word-wrap: break-word;'>1</td><td style='text-align: center; word-wrap: break-word;'>$4.50</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Avocados</td><td style='text-align: center; word-wrap: break-word;'>3</td><td style='text-align: center; word-wrap: break-word;'>$6.30</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Watermelon</td><td style='text-align: center; word-wrap: break-word;'>2</td><td style='text-align: center; word-wrap: break-word;'>$10.10</td></tr><tr><td colspan=\"3\">Total: $23.90</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -22308,7 +22308,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Item</td><td style='text-align: center; word-wrap: break-word;'>Quantity</td><td style='text-align: center; word-wrap: break-word;'>Price</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Bananas</td><td style='text-align: center; word-wrap: break-word;'>1</td><td style='text-align: center; word-wrap: break-word;'>$3.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Spinach</td><td style='text-align: center; word-wrap: break-word;'>1</td><td style='text-align: center; word-wrap: break-word;'>$4.50</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Avocados</td><td style='text-align: center; word-wrap: break-word;'>3</td><td style='text-align: center; word-wrap: break-word;'>$6.30</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Watermelon</td><td style='text-align: center; word-wrap: break-word;'>2</td><td style='text-align: center; word-wrap: break-word;'>$10.10</td></tr><tr><td colspan=\"3\">Total: $23.90</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -22347,7 +22347,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Item</td><td style='text-align: center; word-wrap: break-word;'>Quantity</td><td style='text-align: center; word-wrap: break-word;'>Price</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Bananas</td><td style='text-align: center; word-wrap: break-word;'>1</td><td style='text-align: center; word-wrap: break-word;'>$3.00</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Spinach</td><td style='text-align: center; word-wrap: break-word;'>1</td><td style='text-align: center; word-wrap: break-word;'>$4.50</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Avocados</td><td style='text-align: center; word-wrap: break-word;'>3</td><td style='text-align: center; word-wrap: break-word;'>$6.30</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Watermelon</td><td style='text-align: center; word-wrap: break-word;'>2</td><td style='text-align: center; word-wrap: break-word;'>$10.10</td></tr><tr><td colspan=\"3\">Total: $23.90</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           }
@@ -23202,7 +23202,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Venegas Fashion Store\\nStaff Development Day</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Introduction to Upcoming Products</td><td style='text-align: center; word-wrap: break-word;'>1:00 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Good Customer Service</td><td style='text-align: center; word-wrap: break-word;'>2:00 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>How to Arrange Displays</td><td style='text-align: center; word-wrap: break-word;'>3:00 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Career Paths at Venegas Fashion</td><td style='text-align: center; word-wrap: break-word;'>4:00 P.M.</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -23323,7 +23323,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Venegas Fashion Store\\nStaff Development Day</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Introduction to Upcoming Products</td><td style='text-align: center; word-wrap: break-word;'>1:00 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Good Customer Service</td><td style='text-align: center; word-wrap: break-word;'>2:00 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>How to Arrange Displays</td><td style='text-align: center; word-wrap: break-word;'>3:00 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Career Paths at Venegas Fashion</td><td style='text-align: center; word-wrap: break-word;'>4:00 P.M.</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -23406,7 +23406,7 @@
                 "category": "DETAIL",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_068.jpg"
               },
               {
                 "id": 6097,
@@ -23445,7 +23445,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_068.jpg",
             "difficulty": "Medium"
           },
           {
@@ -25631,7 +25631,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Section 1: Labels</td><td style='text-align: center; word-wrap: break-word;'>Section 2: Markers</td><td style='text-align: center; word-wrap: break-word;'>Section 3: Scissors</td><td style='text-align: center; word-wrap: break-word;'>Section 4: Tape</td></tr><tr><td style='text-align: center; word-wrap: break-word;'><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//338ad251-cfd9-4d62-b1e0-c22eefae661c/markdown_0/imgs/img_in_image_box_500_173_581_231.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-21T06%3A08%3A55Z%2F-1%2F%2Ff882bf2c145096f18602a849a3b96e5e1ee0343ee315f6a8c2f9c2b94701a569\" alt=\"Image\"\" /></td><td style='text-align: center; word-wrap: break-word;'><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//338ad251-cfd9-4d62-b1e0-c22eefae661c/markdown_0/imgs/img_in_image_box_616_156_680_240.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-21T06%3A08%3A55Z%2F-1%2F%2F1b02773229285a1c602ec25a34dad3d49463cca435152f287110b96866586b60\" alt=\"Image\"\" /></td><td style='text-align: center; word-wrap: break-word;'><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//338ad251-cfd9-4d62-b1e0-c22eefae661c/markdown_0/imgs/img_in_image_box_704_152_786_242.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-21T06%3A08%3A55Z%2F-1%2F%2F14b21f4a121218b0c5f406f532f43b8dee25af06294aaf8e722a877f2c4f6d72\" alt=\"Image\"\" /></td><td style='text-align: center; word-wrap: break-word;'><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//338ad251-cfd9-4d62-b1e0-c22eefae661c/markdown_0/imgs/img_in_image_box_819_150_879_237.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-21T06%3A08%3A55Z%2F-1%2F%2F1d72f2675c92e2b521859378315e95b0d8a58c3aad15a4efd281fafab162524c\" alt=\"Image\"\" /></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -25889,7 +25889,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Section 1: Labels</td><td style='text-align: center; word-wrap: break-word;'>Section 2: Markers</td><td style='text-align: center; word-wrap: break-word;'>Section 3: Scissors</td><td style='text-align: center; word-wrap: break-word;'>Section 4: Tape</td></tr><tr><td style='text-align: center; word-wrap: break-word;'><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//338ad251-cfd9-4d62-b1e0-c22eefae661c/markdown_0/imgs/img_in_image_box_500_173_581_231.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-21T06%3A08%3A55Z%2F-1%2F%2Ff882bf2c145096f18602a849a3b96e5e1ee0343ee315f6a8c2f9c2b94701a569\" alt=\"Image\"\" /></td><td style='text-align: center; word-wrap: break-word;'><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//338ad251-cfd9-4d62-b1e0-c22eefae661c/markdown_0/imgs/img_in_image_box_616_156_680_240.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-21T06%3A08%3A55Z%2F-1%2F%2F1b02773229285a1c602ec25a34dad3d49463cca435152f287110b96866586b60\" alt=\"Image\"\" /></td><td style='text-align: center; word-wrap: break-word;'><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//338ad251-cfd9-4d62-b1e0-c22eefae661c/markdown_0/imgs/img_in_image_box_704_152_786_242.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-21T06%3A08%3A55Z%2F-1%2F%2F14b21f4a121218b0c5f406f532f43b8dee25af06294aaf8e722a877f2c4f6d72\" alt=\"Image\"\" /></td><td style='text-align: center; word-wrap: break-word;'><img src=\"https://pplines-online.bj.bcebos.com/deploy/official/paddleocr/pp-ocr-vl-16-online//338ad251-cfd9-4d62-b1e0-c22eefae661c/markdown_0/imgs/img_in_image_box_819_150_879_237.jpg?authorization=bce-auth-v1%2FALTAKDN8mY5KlNI7zaRpLmOqrw%2F2026-08-21T06%3A08%3A55Z%2F-1%2F%2F1d72f2675c92e2b521859378315e95b0d8a58c3aad15a4efd281fafab162524c\" alt=\"Image\"\" /></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -25980,7 +25980,7 @@
                 "category": "DETAIL",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_080.jpg"
               },
               {
                 "id": 7064,
@@ -26019,7 +26019,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_080.jpg",
             "difficulty": "Medium"
           },
           {
@@ -26075,7 +26075,7 @@
                 "category": "MAIN_IDEA",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_081.jpg"
               },
               {
                 "id": 7066,
@@ -26148,7 +26148,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_081.jpg",
             "difficulty": "Medium"
           },
           {
@@ -26406,7 +26406,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_081.jpg",
             "difficulty": "Medium"
           },
           {
@@ -27132,7 +27132,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_082.jpg",
             "difficulty": "Medium"
           },
           {
@@ -27253,7 +27253,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_082.jpg",
             "difficulty": "Medium"
           },
           {
@@ -27369,7 +27369,7 @@
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_082.jpg"
               }
             ],
             "vocabularyList": [],
@@ -27489,12 +27489,12 @@
                 "explanation": "",
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Monday:</td><td style='text-align: center; word-wrap: break-word;'>Ravi Dayal</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Tuesday:</td><td style='text-align: center; word-wrap: break-word;'>Maya Mendoza</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wednesday:</td><td style='text-align: center; word-wrap: break-word;'>Kami Foster</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Thursday:</td><td style='text-align: center; word-wrap: break-word;'>Yun Bai – Part 1</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Friday:</td><td style='text-align: center; word-wrap: break-word;'>Yun Bai – Part 2</td></tr></table>",
                 "graphicImageUrl": null
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Monday:</td><td style='text-align: center; word-wrap: break-word;'>Ravi Dayal</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Tuesday:</td><td style='text-align: center; word-wrap: break-word;'>Maya Mendoza</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Wednesday:</td><td style='text-align: center; word-wrap: break-word;'>Kami Foster</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Thursday:</td><td style='text-align: center; word-wrap: break-word;'>Yun Bai – Part 1</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Friday:</td><td style='text-align: center; word-wrap: break-word;'>Yun Bai – Part 2</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           }
@@ -29818,7 +29818,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">Digital Photo Packages</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>One image 30-minute shoot $100</td><td style='text-align: center; word-wrap: break-word;'>Two images 45-minute shoot $190</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Three images 60-minute shoot $270</td><td style='text-align: center; word-wrap: break-word;'>Four images 75-minute shoot $340</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -30037,7 +30037,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">UPSHAW HOTEL</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 4</td><td style='text-align: center; word-wrap: break-word;'>Suites</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 3</td><td style='text-align: center; word-wrap: break-word;'>Rooms</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 2</td><td style='text-align: center; word-wrap: break-word;'>Restaurant</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 1</td><td style='text-align: center; word-wrap: break-word;'>Lobby</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -30076,7 +30076,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">UPSHAW HOTEL</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 4</td><td style='text-align: center; word-wrap: break-word;'>Suites</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 3</td><td style='text-align: center; word-wrap: break-word;'>Rooms</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 2</td><td style='text-align: center; word-wrap: break-word;'>Restaurant</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 1</td><td style='text-align: center; word-wrap: break-word;'>Lobby</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -30200,7 +30200,7 @@
                 "explanation": "",
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">UPSHAW HOTEL</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 4</td><td style='text-align: center; word-wrap: break-word;'>Suites</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 3</td><td style='text-align: center; word-wrap: break-word;'>Rooms</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 2</td><td style='text-align: center; word-wrap: break-word;'>Restaurant</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 1</td><td style='text-align: center; word-wrap: break-word;'>Lobby</td></tr></table>",
                 "graphicImageUrl": null
               }
             ],
@@ -30334,7 +30334,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"2\">UPSHAW HOTEL</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 4</td><td style='text-align: center; word-wrap: break-word;'>Suites</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 3</td><td style='text-align: center; word-wrap: break-word;'>Rooms</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 2</td><td style='text-align: center; word-wrap: break-word;'>Restaurant</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Floor 1</td><td style='text-align: center; word-wrap: break-word;'>Lobby</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -31061,7 +31061,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_091.jpg",
             "difficulty": "Medium"
           },
           {
@@ -31182,7 +31182,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_091.jpg",
             "difficulty": "Medium"
           },
           {
@@ -31298,7 +31298,7 @@
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_092.jpg"
               }
             ],
             "vocabularyList": [],
@@ -31351,7 +31351,7 @@
                 "category": "MAIN_IDEA",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_096.jpg"
               },
               {
                 "id": 8099,
@@ -31424,7 +31424,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_096.jpg",
             "difficulty": "Medium"
           }
         ]
@@ -33618,7 +33618,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>101</td><td style='text-align: center; word-wrap: break-word;'>Tabor Sales</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>102</td><td style='text-align: center; word-wrap: break-word;'>Ace Publishing</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>201</td><td style='text-align: center; word-wrap: break-word;'>Norris Inc.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>202</td><td style='text-align: center; word-wrap: break-word;'>EG Interior Designs</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -33747,7 +33747,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>101</td><td style='text-align: center; word-wrap: break-word;'>Tabor Sales</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>102</td><td style='text-align: center; word-wrap: break-word;'>Ace Publishing</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>201</td><td style='text-align: center; word-wrap: break-word;'>Norris Inc.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>202</td><td style='text-align: center; word-wrap: break-word;'>EG Interior Designs</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -33837,7 +33837,7 @@
                 "explanation": "",
                 "category": "DETAIL",
                 "trapType": "NONE",
-                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>101</td><td style='text-align: center; word-wrap: break-word;'>Tabor Sales</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>102</td><td style='text-align: center; word-wrap: break-word;'>Ace Publishing</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>201</td><td style='text-align: center; word-wrap: break-word;'>Norris Inc.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>202</td><td style='text-align: center; word-wrap: break-word;'>EG Interior Designs</td></tr></table>",
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Haircut and styling</td><td style='text-align: center; word-wrap: break-word;'>$60</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Facial treatment</td><td style='text-align: center; word-wrap: break-word;'>$50</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Pedicure</td><td style='text-align: center; word-wrap: break-word;'>$40</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Manicure</td><td style='text-align: center; word-wrap: break-word;'>$30</td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -33876,7 +33876,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>101</td><td style='text-align: center; word-wrap: break-word;'>Tabor Sales</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>102</td><td style='text-align: center; word-wrap: break-word;'>Ace Publishing</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>201</td><td style='text-align: center; word-wrap: break-word;'>Norris Inc.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>202</td><td style='text-align: center; word-wrap: break-word;'>EG Interior Designs</td></tr></table>",
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Haircut and styling</td><td style='text-align: center; word-wrap: break-word;'>$60</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Facial treatment</td><td style='text-align: center; word-wrap: break-word;'>$50</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Pedicure</td><td style='text-align: center; word-wrap: break-word;'>$40</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Manicure</td><td style='text-align: center; word-wrap: break-word;'>$30</td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -33933,7 +33933,7 @@
                 "category": "MAIN_IDEA",
                 "trapType": "NONE",
                 "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Haircut and styling</td><td style='text-align: center; word-wrap: break-word;'>$60</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Facial treatment</td><td style='text-align: center; word-wrap: break-word;'>$50</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Pedicure</td><td style='text-align: center; word-wrap: break-word;'>$40</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Manicure</td><td style='text-align: center; word-wrap: break-word;'>$30</td></tr></table>",
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_104.jpg"
               },
               {
                 "id": 9066,
@@ -34006,7 +34006,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Haircut and styling</td><td style='text-align: center; word-wrap: break-word;'>$60</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Facial treatment</td><td style='text-align: center; word-wrap: break-word;'>$50</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Pedicure</td><td style='text-align: center; word-wrap: break-word;'>$40</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Manicure</td><td style='text-align: center; word-wrap: break-word;'>$30</td></tr></table>",
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_104.jpg",
             "difficulty": "Medium"
           },
           {
@@ -34130,12 +34130,12 @@
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_104.jpg"
               }
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": "/images/ybm2025/img_105.jpg",
+            "graphicImageUrl": "/images/ybm2025/img_104.jpg",
             "difficulty": "Medium"
           }
         ]
@@ -34264,7 +34264,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_105.jpg",
             "difficulty": "Medium"
           },
           {
@@ -34990,7 +34990,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_106.jpg",
             "difficulty": "Medium"
           },
           {
@@ -35111,7 +35111,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_106.jpg",
             "difficulty": "Medium"
           },
           {
@@ -35227,7 +35227,7 @@
                 "category": "NEXT_ACTION",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_106.jpg"
               }
             ],
             "vocabularyList": [],
@@ -37676,7 +37676,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"4\">Carey Auto Repair Thursday, October 9</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Branch</td><td colspan=\"3\">Available Appointments</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Dixon Street</td><td style='text-align: center; word-wrap: break-word;'>10 A.M.</td><td style='text-align: center; word-wrap: break-word;'>2 P.M.</td><td style='text-align: center; word-wrap: break-word;'>5 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>City Center</td><td style='text-align: center; word-wrap: break-word;'>11 A.M.</td><td style='text-align: center; word-wrap: break-word;'>3 P.M.</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Rogers Park</td><td style='text-align: center; word-wrap: break-word;'>9 A.M.</td><td style='text-align: center; word-wrap: break-word;'>12 P.M.</td><td style='text-align: center; word-wrap: break-word;'>4 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Brantfield</td><td style='text-align: center; word-wrap: break-word;'>1 P.M.</td><td style='text-align: center; word-wrap: break-word;'>6 P.M.</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -37732,7 +37732,7 @@
                 "explanation": "",
                 "category": "MAIN_IDEA",
                 "trapType": "NONE",
-                "graphicHtml": null,
+                "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"4\">Carey Auto Repair Thursday, October 9</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Branch</td><td colspan=\"3\">Available Appointments</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Dixon Street</td><td style='text-align: center; word-wrap: break-word;'>10 A.M.</td><td style='text-align: center; word-wrap: break-word;'>2 P.M.</td><td style='text-align: center; word-wrap: break-word;'>5 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>City Center</td><td style='text-align: center; word-wrap: break-word;'>11 A.M.</td><td style='text-align: center; word-wrap: break-word;'>3 P.M.</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Rogers Park</td><td style='text-align: center; word-wrap: break-word;'>9 A.M.</td><td style='text-align: center; word-wrap: break-word;'>12 P.M.</td><td style='text-align: center; word-wrap: break-word;'>4 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Brantfield</td><td style='text-align: center; word-wrap: break-word;'>1 P.M.</td><td style='text-align: center; word-wrap: break-word;'>6 P.M.</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
                 "graphicImageUrl": null
               },
               {
@@ -37805,7 +37805,7 @@
               }
             ],
             "vocabularyList": [],
-            "graphicHtml": null,
+            "graphicHtml": "<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td colspan=\"4\">Carey Auto Repair Thursday, October 9</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Branch</td><td colspan=\"3\">Available Appointments</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Dixon Street</td><td style='text-align: center; word-wrap: break-word;'>10 A.M.</td><td style='text-align: center; word-wrap: break-word;'>2 P.M.</td><td style='text-align: center; word-wrap: break-word;'>5 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>City Center</td><td style='text-align: center; word-wrap: break-word;'>11 A.M.</td><td style='text-align: center; word-wrap: break-word;'>3 P.M.</td><td style='text-align: center; word-wrap: break-word;'></td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Rogers Park</td><td style='text-align: center; word-wrap: break-word;'>9 A.M.</td><td style='text-align: center; word-wrap: break-word;'>12 P.M.</td><td style='text-align: center; word-wrap: break-word;'>4 P.M.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Brantfield</td><td style='text-align: center; word-wrap: break-word;'>1 P.M.</td><td style='text-align: center; word-wrap: break-word;'>6 P.M.</td><td style='text-align: center; word-wrap: break-word;'></td></tr></table>",
             "graphicImageUrl": null,
             "difficulty": "Medium"
           },
@@ -37862,7 +37862,7 @@
                 "category": "MAIN_IDEA",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_115.jpg"
               },
               {
                 "id": 10066,
@@ -37935,7 +37935,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_115.jpg",
             "difficulty": "Medium"
           },
           {
@@ -38193,7 +38193,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_115.jpg",
             "difficulty": "Medium"
           },
           {
@@ -39040,7 +39040,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_116.jpg",
             "difficulty": "Medium"
           },
           {
@@ -39122,7 +39122,7 @@
                 "category": "DETAIL",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_116.jpg"
               },
               {
                 "id": 10097,
@@ -39161,7 +39161,7 @@
             ],
             "vocabularyList": [],
             "graphicHtml": null,
-            "graphicImageUrl": null,
+            "graphicImageUrl": "/images/ybm2025/img_116.jpg",
             "difficulty": "Medium"
           },
           {
@@ -39209,7 +39209,7 @@
                 "category": "MAIN_IDEA",
                 "trapType": "NONE",
                 "graphicHtml": null,
-                "graphicImageUrl": null
+                "graphicImageUrl": "/images/ybm2025/img_116.jpg"
               },
               {
                 "id": 10099,

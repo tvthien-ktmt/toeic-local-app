@@ -86,6 +86,25 @@ export const Part3QuestionItemCard: React.FC<Part3QuestionItemCardProps> = ({
         </div>
       </div>
 
+      {/* Visual Question Graphics for this sub-question if present */}
+      {questionItem.graphicImageUrl && (
+        <div className="flex justify-center p-2.5 bg-theme-surface-2 rounded-xl border border-theme my-2">
+          <img
+            src={questionItem.graphicImageUrl}
+            alt={`Hình ảnh / Biểu đồ câu ${questionItem.questionNumber}`}
+            className="max-h-60 rounded-lg object-contain"
+            loading="lazy"
+          />
+        </div>
+      )}
+
+      {questionItem.graphicHtml && (
+        <div
+          className="p-3 bg-theme-surface-2 rounded-xl border border-theme overflow-x-auto text-xs text-theme-primary my-2"
+          dangerouslySetInnerHTML={{ __html: questionItem.graphicHtml }}
+        />
+      )}
+
       {/* 4 Choices Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {questionItem.options.map((option) => {
