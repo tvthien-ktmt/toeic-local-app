@@ -44,7 +44,8 @@ interface TabItem {
 }
 
 /**
- * Top navigation bar providing responsive tabs for both RC and LC tracks.
+ * Top navigation bar providing overflow-safe responsive navigation tabs for both RC and LC tracks.
+ * Implements Rule 1 Option A with visible horizontal scroll affordance, touch-scrolling, and keyboard accessibility.
  */
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selectedDocId, onBackToDocs }) => {
   const tabs: TabItem[] = [
@@ -140,11 +141,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
   };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-theme-surface/90 border-b border-theme transition-colors">
-      <div className="max-w-7xl mx-auto px-4">
+    <header className="sticky top-0 z-50 backdrop-blur-xl bg-theme-surface/95 border-b border-theme transition-colors">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4">
 
         {/* ── Row 1: Logo + ThemeSwitcher + Status badge ── */}
-        <div className="flex items-center justify-between h-12 border-b border-theme/50">
+        <div className="flex items-center justify-between h-12 border-b border-theme/50 gap-2">
 
           {/* Logo */}
           <div
@@ -170,7 +171,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
           </div>
 
           {/* Right side: ThemeSwitcher + status */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-lg alert-success border border-theme-success/30 text-theme-success text-[10px] font-medium whitespace-nowrap">
               <span className="w-1.5 h-1.5 rounded-full bg-theme-success animate-pulse" />
               LC &amp; RC Engines Active
@@ -179,8 +180,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
           </div>
         </div>
 
-        {/* ── Row 2: Navigation tabs ── */}
-        <div className="flex items-center gap-1 h-11 overflow-x-auto scrollbar-none py-1">
+        {/* ── Row 2: Overflow-Safe Navigation tabs (Rule 1 & Rule 4) ── */}
+        <nav
+          aria-label="Main Navigation"
+          className="flex items-center gap-1.5 h-11 overflow-x-auto py-1 overscroll-x-contain touch-pan-x"
+          style={{ scrollbarWidth: 'thin' }}
+        >
           {tabs.map((tab) => {
             const active = isActive(tab.id);
 
@@ -189,25 +194,27 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
                 key={tab.id}
                 onClick={() => handleTabClick(tab.id)}
                 title={tab.label}
+                aria-current={active ? 'page' : undefined}
                 className={`
                   flex items-center gap-1.5 px-3 py-1.5 rounded-lg
                   text-xs font-medium whitespace-nowrap transition-all duration-150 shrink-0 cursor-pointer
+                  focus-visible:ring-2 focus-visible:ring-theme-accent focus-visible:outline-none
                   ${active
                     ? 'bg-theme-accent text-white shadow-md font-bold'
                     : tab.isLcSection
-                    ? 'text-theme-primary hover:bg-theme-surface-2 border border-theme-accent/20'
+                    ? 'text-theme-primary hover:bg-theme-surface-2 border border-theme-accent/25'
                     : 'text-theme-secondary hover:text-theme-primary hover:bg-theme-surface-2'
                   }
                 `}
               >
                 {tab.icon}
-                {/* Full label on large screens, short on medium, icon-only on small */}
-                <span className="hidden md:inline lg:hidden">{tab.shortLabel}</span>
+                {/* Visible short label on mobile/tablet, full label on desktop */}
+                <span className="inline lg:hidden text-[11px] sm:text-xs font-semibold">{tab.shortLabel}</span>
                 <span className="hidden lg:inline">{tab.label}</span>
               </button>
             );
           })}
-        </div>
+        </nav>
 
       </div>
     </header>

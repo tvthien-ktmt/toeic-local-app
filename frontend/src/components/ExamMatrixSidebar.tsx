@@ -17,7 +17,8 @@ interface ExamMatrixSidebarProps {
 }
 
 /**
- * Sidebar matrix panel providing jump navigation for all 100 exam questions, with status indicators (answered, flagged, unanswered).
+ * Sidebar matrix panel providing jump navigation for all 100 exam questions, with status indicators.
+ * Implements overflow-safe scrolling and responsive buttons.
  */
 export const ExamMatrixSidebar: React.FC<ExamMatrixSidebarProps> = ({
   filteredMatrixQs,
@@ -42,7 +43,10 @@ export const ExamMatrixSidebar: React.FC<ExamMatrixSidebarProps> = ({
       </div>
 
       {/* Matrix Filters */}
-      <div className="flex gap-1 overflow-x-auto pb-1">
+      <div
+        className="flex gap-1.5 overflow-x-auto pb-1 touch-pan-x"
+        style={{ scrollbarWidth: 'thin' }}
+      >
         {(
           [
             'ALL',
@@ -56,7 +60,7 @@ export const ExamMatrixSidebar: React.FC<ExamMatrixSidebarProps> = ({
           <button
             key={filterOption}
             onClick={() => onSetMatrixFilter(filterOption)}
-            className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-colors whitespace-nowrap cursor-pointer flex items-center gap-1 ${
+            className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer flex items-center gap-1 ${
               matrixFilter === filterOption
                 ? 'bg-theme-accent text-white'
                 : 'bg-theme-surface-2 text-theme-secondary hover:text-theme-primary border border-theme'
@@ -68,13 +72,13 @@ export const ExamMatrixSidebar: React.FC<ExamMatrixSidebarProps> = ({
             {filterOption === 'PART7' && 'P7'}
             {filterOption === 'FLAGGED' && (
               <>
-                <Flag className="w-3 h-3" />
+                <Flag className="w-3 h-3 shrink-0" />
                 <span>{flaggedCount > 0 ? flaggedCount : ''}</span>
               </>
             )}
             {filterOption === 'UNANSWERED' && (
               <>
-                <HelpCircle className="w-3 h-3" />
+                <HelpCircle className="w-3 h-3 shrink-0" />
                 <span>{unansweredCount > 0 ? unansweredCount : ''}</span>
               </>
             )}
@@ -133,25 +137,25 @@ export const ExamMatrixSidebar: React.FC<ExamMatrixSidebarProps> = ({
       <div className="pt-3 border-t border-theme flex items-center justify-between text-[11px] text-theme-secondary flex-wrap gap-2">
         {examResult ? (
           <>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 shrink-0">
               <span className="w-3 h-3 rounded-md bg-theme-success" /> Đúng
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 shrink-0">
               <span className="w-3 h-3 rounded-md bg-theme-error" /> Sai
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 shrink-0">
               <span className="w-3 h-3 rounded-md alert-warning border border-theme-warning/50" /> Bỏ trống
             </div>
           </>
         ) : (
           <>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 shrink-0">
               <span className="w-3 h-3 rounded-md bg-theme-accent" /> Đã làm
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 shrink-0">
               <span className="w-3 h-3 rounded-md bg-theme-warning" /> Đánh dấu
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 shrink-0">
               <span className="w-3 h-3 rounded-md bg-theme-surface-2 border border-theme" /> Chưa làm
             </div>
           </>

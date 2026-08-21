@@ -102,12 +102,15 @@ export const TextbookCatalogView: React.FC<TextbookCatalogViewProps> = ({ onStar
       {/* Filter & Search Bar */}
       <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
         {/* Publisher Tabs */}
-        <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
+        <div
+          className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 touch-pan-x"
+          style={{ scrollbarWidth: 'thin' }}
+        >
           {categoriesList.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap border ${
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap shrink-0 border cursor-pointer ${
                 activeCategory === category
                   ? 'bg-theme-accent text-white border-theme-accent shadow-md'
                   : 'bg-theme-surface-2 text-theme-secondary hover:text-theme-primary hover:bg-theme-surface border-theme'

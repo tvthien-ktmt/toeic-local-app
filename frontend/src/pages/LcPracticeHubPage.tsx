@@ -74,7 +74,10 @@ export const LcPracticeHubPage: React.FC<LcPracticeHubPageProps> = ({
       </div>
 
       {/* Sub Navigation Bar */}
-      <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none">
+      <div
+        className="flex items-center gap-2 overflow-x-auto pb-2 touch-pan-x"
+        style={{ scrollbarWidth: 'thin' }}
+      >
         {navItems.map((item) => {
           const isActive = activeTab === item.id;
 
@@ -82,7 +85,7 @@ export const LcPracticeHubPage: React.FC<LcPracticeHubPageProps> = ({
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap shrink-0 transition-all cursor-pointer ${
                 isActive
                   ? 'bg-theme-accent text-white shadow-md'
                   : 'bg-theme-surface border border-theme text-theme-secondary hover:text-theme-primary hover:bg-theme-surface-2'
@@ -91,7 +94,7 @@ export const LcPracticeHubPage: React.FC<LcPracticeHubPageProps> = ({
               {item.icon}
               <span>{item.label}</span>
               {item.badge && (
-                <span className={`px-1.5 py-0.5 rounded-full text-[9px] font-bold ${
+                <span className={`px-1.5 py-0.5 rounded-full text-[9px] font-bold shrink-0 ${
                   isActive ? 'bg-white/25 text-white' : 'bg-theme-accent/15 text-theme-accent'
                 }`}>
                   {item.badge}

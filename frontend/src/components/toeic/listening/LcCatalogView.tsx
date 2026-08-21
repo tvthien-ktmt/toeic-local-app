@@ -86,12 +86,15 @@ export const LcCatalogView: React.FC<LcCatalogViewProps> = ({ onStartExam }) => 
       {/* Filter & Search Toolbar */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         {/* Category Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 w-full sm:w-auto scrollbar-none">
+        <div
+          className="flex items-center gap-2 overflow-x-auto pb-2 w-full sm:w-auto touch-pan-x"
+          style={{ scrollbarWidth: 'thin' }}
+        >
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap shrink-0 transition-all cursor-pointer ${
                 activeCategory === cat.id
                   ? 'bg-theme-accent text-white shadow-md'
                   : 'bg-theme-surface border border-theme text-theme-secondary hover:text-theme-primary hover:bg-theme-surface-2'
