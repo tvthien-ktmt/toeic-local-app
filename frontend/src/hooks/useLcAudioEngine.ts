@@ -42,9 +42,27 @@ export const useLcAudioEngine = ({
   const speechStartTimeRef = useRef<number>(0);
   const estimatedDurationRef = useRef<number>(10);
   const playbackRateRef = useRef<number>(audioState.playbackRate);
+  const lastProgressUpdateRef = useRef<number>(0);
+
+  const onEndedRef = useRef(onEnded);
+  useEffect(() => {
+    onEndedRef.current = onEnded;
+  }, [onEnded]);
 
   // Keep playbackRateRef synced
   playbackRateRef.current = audioState.playbackRate;
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, []);
 
   // Initialize audio element
   useEffect(() => {
@@ -89,8 +107,8 @@ export const useLcAudioEngine = ({
         isPaused: false,
         currentTime: 0,
       }));
-      if (onEnded) {
-        onEnded();
+      if (onEndedRef.current) {
+        onEndedRef.current();
       }
     };
 
@@ -104,7 +122,7 @@ export const useLcAudioEngine = ({
       audio.removeEventListener('ended', handleAudioEnded);
       audio.pause();
     };
-  }, [transcriptLines, onEnded]);
+  }, [transcriptLines]);
 
   // Load new audio source or setup Web Speech fallback without infinite loops
   useEffect(() => {
@@ -141,32 +159,37 @@ export const useLcAudioEngine = ({
     }
   }, [audioUrl, fallbackText, autoPlay]);
 
-  // Handle Web Speech tick for transcript tracking
+  // Handle Web Speech tick with 150ms throttling to avoid 60fps React state churn
   const updateSpeechProgress = useCallback(() => {
     if (!isUsingSpeechFallback.current || !window.speechSynthesis.speaking) {
       return;
     }
 
-    const elapsed = (Date.now() - speechStartTimeRef.current) / 1000;
-    const current = Math.min(elapsed, estimatedDurationRef.current);
+    const now = Date.now();
+    if (now - lastProgressUpdateRef.current >= 150) {
+      lastProgressUpdateRef.current = now;
+      const elapsed = (now - speechStartTimeRef.current) / 1000;
+      const current = Math.min(elapsed, estimatedDurationRef.current);
 
-    setAudioState((prev) => {
-      let activeLineId = prev.activeTranscriptLineId;
-      if (transcriptLines.length > 0) {
-        const matched = transcriptLines.find(
-          (line) => current >= line.startTimeSeconds && current <= line.endTimeSeconds
-        );
-        activeLineId = matched ? matched.id : null;
-      }
+      setAudioState((prev) => {
+        let activeLineId = prev.activeTranscriptLineId;
+        if (transcriptLines.length > 0) {
+          const matched = transcriptLines.find(
+            (line) => current >= line.startTimeSeconds && current <= line.endTimeSeconds
+          );
+          activeLineId = matched ? matched.id : null;
+        }
 
-      return {
-        ...prev,
-        currentTime: current,
-        activeTranscriptLineId: activeLineId,
-      };
-    });
+        return {
+          ...prev,
+          currentTime: current,
+          activeTranscriptLineId: activeLineId,
+        };
+      });
+    }
 
-    if (elapsed < estimatedDurationRef.current) {
+    const totalElapsed = (now - speechStartTimeRef.current) / 1000;
+    if (totalElapsed < estimatedDurationRef.current) {
       animationFrameRef.current = requestAnimationFrame(updateSpeechProgress);
     }
   }, [transcriptLines]);

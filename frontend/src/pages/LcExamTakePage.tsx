@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Send, LayoutGrid } from 'lucide-react';
 import { AudioPlayerEngine } from '../components/toeic/listening/AudioPlayerEngine';
 import { LcExamStreamRenderer } from '../components/toeic/listening/LcExamStreamRenderer';
@@ -59,26 +59,42 @@ export const LcExamTakePage: React.FC<LcExamTakePageProps> = ({
     isExamMode: mode === 'full_exam',
   });
 
+  const draftKey = `lc_exam_draft_${examData.id}_${mode}`;
+
+  // Restore draft if exists
   useEffect(() => {
-    if (isSubmitted || !hasQuestionsLoaded) {
-      return;
-    }
-
-    const timerInterval = setInterval(() => {
-      setTimeRemainingSeconds((previousSeconds) => {
-        if (previousSeconds <= 1) {
-          clearInterval(timerInterval);
-          handleSubmitExam();
-
-          return 0;
+    const saved = localStorage.getItem(draftKey);
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (parsed.answers && Object.keys(parsed.answers).length > 0) {
+          setUserAnswers(parsed.answers);
         }
+        if (parsed.flags) {
+          setFlaggedQuestions(parsed.flags);
+        }
+        if (typeof parsed.timeLeft === 'number' && parsed.timeLeft > 0) {
+          setTimeRemainingSeconds(parsed.timeLeft);
+        }
+      } catch (err) {
+        console.warn('Could not parse LC draft:', err);
+      }
+    }
+  }, [draftKey]);
 
-        return previousSeconds - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(timerInterval);
-  }, [isSubmitted, hasQuestionsLoaded]);
+  // Persist draft answers & flags
+  useEffect(() => {
+    if (isSubmitted || Object.keys(userAnswers).length === 0) return;
+    try {
+      localStorage.setItem(draftKey, JSON.stringify({
+        answers: userAnswers,
+        flags: flaggedQuestions,
+        timeLeft: timeRemainingSeconds,
+      }));
+    } catch {
+      // Ignore quota exceeded
+    }
+  }, [userAnswers, flaggedQuestions, isSubmitted, draftKey, timeRemainingSeconds]);
 
   const allEvaluationQuestions: QuestionEvalInput[] = useMemo(() => {
     if (!hasQuestionsLoaded || !examData.parts) {
@@ -88,7 +104,7 @@ export const LcExamTakePage: React.FC<LcExamTakePageProps> = ({
     return extractAllEvaluationQuestions({ parts: examData.parts });
   }, [examData, hasQuestionsLoaded]);
 
-  const handleSubmitExam = () => {
+  const handleSubmitExam = useCallback(() => {
     const timeSpent = 45 * 60 - timeRemainingSeconds;
     const evaluated = evaluateLcExamSubmission(
       examData.id,
@@ -102,9 +118,39 @@ export const LcExamTakePage: React.FC<LcExamTakePageProps> = ({
     setResult(evaluated);
     setIsSubmitted(true);
     handlePause();
-  };
+    localStorage.removeItem(draftKey);
+  }, [allEvaluationQuestions, examData.id, examData.title, handlePause, mode, timeRemainingSeconds, userAnswers, draftKey]);
+
+  const submitExamRef = useRef(handleSubmitExam);
+  useEffect(() => {
+    submitExamRef.current = handleSubmitExam;
+  }, [handleSubmitExam]);
+
+  useEffect(() => {
+    if (isSubmitted || !hasQuestionsLoaded) {
+      return;
+    }
+
+    const timerInterval = setInterval(() => {
+      setTimeRemainingSeconds((previousSeconds) => {
+        if (previousSeconds <= 1) {
+          clearInterval(timerInterval);
+          setTimeout(() => {
+            submitExamRef.current();
+          }, 0);
+
+          return 0;
+        }
+
+        return previousSeconds - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timerInterval);
+  }, [isSubmitted, hasQuestionsLoaded]);
 
   const handleRetakeExam = () => {
+    localStorage.removeItem(draftKey);
     setUserAnswers({});
     setFlaggedQuestions({});
     setCurrentQuestionNumber(1);

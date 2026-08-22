@@ -7,7 +7,7 @@
  */
 export const speakText = (text: string, language: string = 'en-US'): boolean => {
   if (!('speechSynthesis' in window)) {
-    alert('Trình duyệt của bạn không hỗ trợ Web Speech API để phát âm!');
+    console.warn('Trình duyệt của bạn không hỗ trợ Web Speech API để phát âm!');
 
     return false;
   }

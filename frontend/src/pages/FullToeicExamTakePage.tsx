@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { BookOpen, BookMarked } from 'lucide-react';
 import { calculateFullToeicScore } from '../utils/fullToeicScoreCalculator';
 import type { FullToeicScoreSummary } from '../utils/fullToeicScoreCalculator';
@@ -12,6 +12,10 @@ import { FullToeicHeaderBar } from '../components/toeic/FullToeicHeaderBar';
 import { FullToeicQuestionCard } from '../components/toeic/FullToeicQuestionCard';
 import type { PaletteFilterType } from '../components/toeic/FullToeicPaletteSidebar';
 import type { VocabularyItem } from '../api/vocabulary';
+import {
+  FULL_TOEIC_OFFICIAL_ANSWER_KEY,
+  getPart7PassageForQuestion,
+} from '../data/fullToeicExamData';
 
 interface FullToeicExamTakePageProps {
   onNavigateHome: () => void;
@@ -41,6 +45,74 @@ export const FullToeicExamTakePage: React.FC<FullToeicExamTakePageProps> = ({
   const [dictionaryWord, setDictionaryWord] = useState<string | null>(null);
   const [scoreSummary, setScoreSummary] = useState<FullToeicScoreSummary | null>(null);
 
+  const handleSubmitExam = useCallback(() => {
+    let lcCorrect = 0;
+    let rcCorrect = 0;
+    const partBreakdownOverrides: Record<string, { correct: number; total: number }> = {
+      'Part 1': { correct: 0, total: 6 },
+      'Part 2': { correct: 0, total: 25 },
+      'Part 3': { correct: 0, total: 39 },
+      'Part 4': { correct: 0, total: 30 },
+      'Part 5': { correct: 0, total: 30 },
+      'Part 6': { correct: 0, total: 16 },
+      'Part 7': { correct: 0, total: 54 },
+    };
+
+    for (let qNum = 1; qNum <= 200; qNum += 1) {
+      const selected = userAnswers[qNum];
+      const correctAns = FULL_TOEIC_OFFICIAL_ANSWER_KEY[qNum];
+      const isCorrect = Boolean(selected && selected.toUpperCase() === correctAns);
+
+      if (qNum <= 100) {
+        if (isCorrect) lcCorrect += 1;
+        if (qNum <= 6) {
+          if (isCorrect) partBreakdownOverrides['Part 1']!.correct += 1;
+        } else if (qNum <= 31) {
+          if (isCorrect) partBreakdownOverrides['Part 2']!.correct += 1;
+        } else if (qNum <= 70) {
+          if (isCorrect) partBreakdownOverrides['Part 3']!.correct += 1;
+        } else {
+          if (isCorrect) partBreakdownOverrides['Part 4']!.correct += 1;
+        }
+      } else {
+        if (isCorrect) rcCorrect += 1;
+        if (qNum <= 130) {
+          if (isCorrect) partBreakdownOverrides['Part 5']!.correct += 1;
+        } else if (qNum <= 146) {
+          if (isCorrect) partBreakdownOverrides['Part 6']!.correct += 1;
+        } else {
+          if (isCorrect) partBreakdownOverrides['Part 7']!.correct += 1;
+        }
+      }
+    }
+
+    const calculatedSummary = calculateFullToeicScore(
+      lcCorrect,
+      100,
+      rcCorrect,
+      100,
+      partBreakdownOverrides
+    );
+
+    setScoreSummary(calculatedSummary);
+    setExamStage('RESULT');
+  }, [userAnswers]);
+
+  const submitExamRef = useRef(handleSubmitExam);
+  useEffect(() => {
+    submitExamRef.current = handleSubmitExam;
+  }, [handleSubmitExam]);
+
+  const handleTransitionSection = useCallback(() => {
+    setExamStage('TRANSITION');
+  }, []);
+
+  const transitionRef = useRef(handleTransitionSection);
+  useEffect(() => {
+    transitionRef.current = handleTransitionSection;
+  }, [handleTransitionSection]);
+
+  // LC Timer Countdown
   useEffect(() => {
     if (examStage !== 'LISTENING') return;
 
@@ -48,7 +120,9 @@ export const FullToeicExamTakePage: React.FC<FullToeicExamTakePageProps> = ({
       setLcTimeRemainingSeconds((previousSeconds) => {
         if (previousSeconds <= 1) {
           clearInterval(timer);
-          setExamStage('TRANSITION');
+          setTimeout(() => {
+            transitionRef.current();
+          }, 0);
 
           return 0;
         }
@@ -60,6 +134,7 @@ export const FullToeicExamTakePage: React.FC<FullToeicExamTakePageProps> = ({
     return () => clearInterval(timer);
   }, [examStage]);
 
+  // RC Timer Countdown
   useEffect(() => {
     if (examStage !== 'READING') return;
 
@@ -67,7 +142,9 @@ export const FullToeicExamTakePage: React.FC<FullToeicExamTakePageProps> = ({
       setRcTimeRemainingSeconds((previousSeconds) => {
         if (previousSeconds <= 1) {
           clearInterval(timer);
-          handleSubmitExam();
+          setTimeout(() => {
+            submitExamRef.current();
+          }, 0);
 
           return 0;
         }
@@ -100,32 +177,6 @@ export const FullToeicExamTakePage: React.FC<FullToeicExamTakePageProps> = ({
     }));
   };
 
-  const handleSubmitExam = () => {
-    let lcCorrect = 0;
-    let rcCorrect = 0;
-
-    for (let questionIndex = 1; questionIndex <= 100; questionIndex += 1) {
-      if (userAnswers[questionIndex]) {
-        lcCorrect += 1;
-      }
-    }
-    for (let questionIndex = 101; questionIndex <= 200; questionIndex += 1) {
-      if (userAnswers[questionIndex]) {
-        rcCorrect += 1;
-      }
-    }
-
-    const calculatedSummary = calculateFullToeicScore(
-      Math.max(45, Math.round(lcCorrect * 0.85)),
-      100,
-      Math.max(40, Math.round(rcCorrect * 0.82)),
-      100
-    );
-
-    setScoreSummary(calculatedSummary);
-    setExamStage('RESULT');
-  };
-
   const isListeningSection = examStage === 'LISTENING' || examStage === 'PRE_TEST';
   const startQ = isListeningSection ? 1 : 101;
   const endQ = isListeningSection ? 100 : 200;
@@ -146,6 +197,8 @@ export const FullToeicExamTakePage: React.FC<FullToeicExamTakePageProps> = ({
   const activeTimerString = formatTimer(
     examStage === 'LISTENING' ? lcTimeRemainingSeconds : rcTimeRemainingSeconds
   );
+
+  const activePart7Passage = currentQuestionNumber >= 147 ? getPart7PassageForQuestion(currentQuestionNumber) : null;
 
   return (
     <div className="min-h-screen bg-theme-surface-2 flex flex-col text-theme-primary animate-fade-in">
@@ -184,16 +237,16 @@ export const FullToeicExamTakePage: React.FC<FullToeicExamTakePageProps> = ({
           {/* Main Question Display Column (8 cols) */}
           <div className="lg:col-span-8 space-y-6">
             {/* Passage & Tool Banner for Reading */}
-            {examStage === 'READING' && currentQuestionNumber >= 147 && (
+            {examStage === 'READING' && activePart7Passage && (
               <div className="bg-theme-surface border border-theme rounded-2xl p-5 shadow-xs space-y-4">
                 <div className="flex items-center justify-between border-b border-theme/50 pb-3">
                   <div className="flex items-center gap-2 text-xs font-bold text-theme-primary">
                     <BookOpen className="w-4 h-4 text-theme-warning" />
-                    <span>Bài Đọc Part 7 &bull; Câu {currentQuestionNumber}</span>
+                    <span>Bài Đọc Part 7 &bull; Câu {activePart7Passage.questionRange} ({activePart7Passage.titleVi})</span>
                   </div>
                   <button
                     type="button"
-                    onClick={() => setDictionaryWord('accommodate')}
+                    onClick={() => setDictionaryWord(activePart7Passage.defaultLookupWord)}
                     className="text-[11px] font-bold text-theme-accent hover:underline flex items-center gap-1 cursor-pointer"
                   >
                     <BookMarked className="w-3.5 h-3.5" />
@@ -201,12 +254,9 @@ export const FullToeicExamTakePage: React.FC<FullToeicExamTakePageProps> = ({
                   </button>
                 </div>
 
-                <div className="text-xs sm:text-sm text-theme-primary leading-relaxed p-4 bg-theme-surface-2 rounded-xl border border-theme">
-                  <p className="font-semibold mb-2">Questions 147-148 refer to the following email:</p>
-                  <p>
-                    Dear Ms. Henderson,<br /><br />
-                    We are pleased to inform you that your request for a conference room has been approved. Room 302 can comfortably accommodate up to 40 attendees. Please let our maintenance team know if you require any specialized audiovisual equipment.
-                  </p>
+                <div className="text-xs sm:text-sm text-theme-primary leading-relaxed p-4 bg-theme-surface-2 rounded-xl border border-theme whitespace-pre-line">
+                  <p className="font-semibold mb-2">Questions {activePart7Passage.questionRange} refer to the following document:</p>
+                  <p>{activePart7Passage.passageContent}</p>
                 </div>
 
                 {/* Highlighter Component */}

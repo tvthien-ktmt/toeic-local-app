@@ -161,7 +161,9 @@ export function useExamTakingSession(docId: number, mode: 'full_exam' | 'practic
       setTimeLeft((previousTimeLeft) => {
         if (previousTimeLeft <= 1) {
           clearInterval(timer);
-          confirmSubmitRef.current();
+          setTimeout(() => {
+            confirmSubmitRef.current();
+          }, 0);
 
           return 0;
         }

@@ -75,7 +75,7 @@ def extract_document_questions_and_vocab(doc_id: int, db: Annotated[Session, Dep
         )
 
 
-@router.post("/upload", response_model=DocumentResponse)
+@router.post("/upload", response_model=DocumentResponse, status_code=status.HTTP_201_CREATED)
 async def upload_document(
     background_tasks: BackgroundTasks,
     file: UploadFile = File(...),
@@ -96,6 +96,12 @@ async def upload_document(
             detail="File rỗng!"
         )
 
+    if len(content_bytes) > MAX_UPLOAD_SIZE:
+        raise HTTPException(
+            status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+            detail="Kích thước file vượt quá giới hạn cho phép (tối đa 50MB)."
+        )
+
     file_hash = compute_hash(content_bytes)
 
     # Check if document already uploaded
@@ -113,6 +119,11 @@ async def upload_document(
         if is_broken:
             logger.info(f"[RE-PROCESSING BROKEN DOC] Document #{existing_doc.id} ('{file.filename}') has broken status/data. Wiping old record and re-processing...")
             v_subq = db.query(Vocabulary.id).filter(Vocabulary.source_document_id == existing_doc.id).subquery()
+            q_subq = db.query(Question.id).filter(Question.document_id == existing_doc.id).subquery()
+            db.query(PracticeAttempt).filter(
+                (PracticeAttempt.vocabulary_id.in_(v_subq)) | (PracticeAttempt.question_id.in_(q_subq))
+            ).delete(synchronize_session=False)
+            db.query(ExamAttempt).filter(ExamAttempt.document_id == existing_doc.id).delete()
             db.query(Flashcard).filter(Flashcard.vocabulary_id.in_(v_subq)).delete(synchronize_session=False)
             db.query(Question).filter(Question.document_id == existing_doc.id).delete()
             db.query(Vocabulary).filter(Vocabulary.source_document_id == existing_doc.id).delete()
@@ -199,8 +210,13 @@ def delete_document(doc_id: int, db: Annotated[Session, Depends(get_db)]) -> Dic
             detail="Không tìm thấy tài liệu"
         )
     
-    # Cascade delete all questions, vocabulary, and flashcards associated with doc
+    # Cascade delete all related attempts, questions, vocabulary, and flashcards
     v_subq = db.query(Vocabulary.id).filter(Vocabulary.source_document_id == doc.id).subquery()
+    q_subq = db.query(Question.id).filter(Question.document_id == doc.id).subquery()
+    db.query(PracticeAttempt).filter(
+        (PracticeAttempt.vocabulary_id.in_(v_subq)) | (PracticeAttempt.question_id.in_(q_subq))
+    ).delete(synchronize_session=False)
+    db.query(ExamAttempt).filter(ExamAttempt.document_id == doc.id).delete()
     db.query(Flashcard).filter(Flashcard.vocabulary_id.in_(v_subq)).delete(synchronize_session=False)
     db.query(Question).filter(Question.document_id == doc.id).delete()
     db.query(Vocabulary).filter(Vocabulary.source_document_id == doc.id).delete()

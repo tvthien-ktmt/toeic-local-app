@@ -157,6 +157,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, selecte
   ];
 
   const handleTabClick = (id: AppNavTab) => {
+    if (selectedDocId && id !== activeTab) {
+      const isConfirmed = window.confirm(
+        'Bạn đang ở trong bài làm/chi tiết đề thi. Rời khỏi trang sẽ đóng phiên hiện tại. Bạn có chắc chắn muốn chuyển trang?'
+      );
+      if (!isConfirmed) {
+        return;
+      }
+    }
     onBackToDocs();
     setActiveTab(id);
   };

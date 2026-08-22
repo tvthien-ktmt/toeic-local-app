@@ -16,7 +16,6 @@ load_dotenv(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file_
 load_dotenv(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))), ".env"))
 
 logger = logging.getLogger("gemini_service")
-logging.basicConfig(level=logging.INFO)
 
 def get_gemini_api_keys() -> List[str]:
     """Retrieves all configured Gemini API keys (primary and secondary rotation keys) from environment."""
@@ -47,7 +46,7 @@ def get_input_hash(prompt_type: str, content_chunk: str) -> str:
 def call_gemini_api(prompt: str, json_schema_required: bool = True) -> str:
     """
     Calls Gemini API REST endpoint with explicit disclosure, maxOutputTokens=8192, multi-key rotation, and exponential backoff.
-    Uses gemini-2.0-flash-lite for higher free tier rate limits (30 RPM).
+    Passes API key in HTTP header rather than query string to prevent leakage in proxy/server logs.
     """
     keys = get_gemini_api_keys()
     if not keys:
@@ -76,11 +75,14 @@ def call_gemini_api(prompt: str, json_schema_required: bool = True) -> str:
     # Try available keys in sequence
     for key_idx, api_key in enumerate(keys):
         logger.info(f"[MODE: GEMINI_API] Executing live request to Gemini API (Key #{key_idx + 1})...")
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key={api_key}"
+        url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent"
         req = urllib.request.Request(
             url,
             data=data,
-            headers={"Content-Type": "application/json"}
+            headers={
+                "Content-Type": "application/json",
+                "x-goog-api-key": api_key
+            }
         )
 
         max_retries = 2
@@ -125,6 +127,7 @@ def query_gemini_with_cache(
     """
     Queries Gemini API with mandatory SQLite caching.
     Explicitly discloses whether response comes from SQLite Cache or Live Gemini API.
+    Cleans up corrupted cache entries automatically.
     """
     input_hash = get_input_hash(prompt_type, content_chunk)
 
@@ -135,7 +138,12 @@ def query_gemini_with_cache(
         try:
             return json.loads(cached.response_json)
         except json.JSONDecodeError as cache_decode_err:
-            logger.warning(f"[CACHE CORRUPT] Invalid JSON in cache for hash {input_hash[:10]}: {cache_decode_err}")
+            logger.warning(f"[CACHE CORRUPT] Invalid JSON in cache for hash {input_hash[:10]}: {cache_decode_err}. Deleting corrupt entry...")
+            try:
+                db.delete(cached)
+                db.commit()
+            except Exception:
+                db.rollback()
 
     logger.info(f"[SQLITE CACHE MISS] prompt_type='{prompt_type}', hash={input_hash[:10]}... Triggering live Gemini API request...")
     
@@ -154,22 +162,28 @@ def query_gemini_with_cache(
     try:
         parsed_json = json.loads(cleaned_response)
     except Exception as parse_err:
-        logger.warning(f"[GEMINI JSON PARSE WARNING] Direct json.loads failed: {parse_err}. Attempting regex repair...")
-        arr_match = re.search(r'\[.*\]', cleaned_response, re.DOTALL)
-        obj_match = re.search(r'\{.*\}', cleaned_response, re.DOTALL)
-        
+        logger.warning(f"[GEMINI JSON PARSE WARNING] Direct json.loads failed: {parse_err}. Attempting structured extraction...")
         parsed_json = None
-        if arr_match:
-            try:
-                parsed_json = json.loads(arr_match.group(0))
-            except Exception as regex_arr_err:
-                logger.debug(f"Regex array parse failed: {regex_arr_err}")
-        if not parsed_json and obj_match:
-            try:
-                parsed_json = json.loads(obj_match.group(0))
-            except Exception as regex_obj_err:
-                logger.debug(f"Regex object parse failed: {regex_obj_err}")
 
+        # Try to find outermost bracketed JSON structure
+        start_arr = cleaned_response.find("[")
+        end_arr = cleaned_response.rfind("]")
+        if start_arr != -1 and end_arr != -1 and end_arr > start_arr:
+            try:
+                parsed_json = json.loads(cleaned_response[start_arr:end_arr + 1])
+            except Exception as extract_arr_err:
+                logger.debug(f"Array slice parse failed: {extract_arr_err}")
+
+        if parsed_json is None:
+            start_obj = cleaned_response.find("{")
+            end_obj = cleaned_response.rfind("}")
+            if start_obj != -1 and end_obj != -1 and end_obj > start_obj:
+                try:
+                    parsed_json = json.loads(cleaned_response[start_obj:end_obj + 1])
+                except Exception as extract_obj_err:
+                    logger.debug(f"Object slice parse failed: {extract_obj_err}")
+
+        # Truncated array repair
         if not parsed_json and cleaned_response.startswith("["):
             last_brace = cleaned_response.rfind("}")
             if last_brace != -1:

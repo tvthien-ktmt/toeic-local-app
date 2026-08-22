@@ -1,7 +1,11 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from sqlalchemy import Column, Integer, String, Text, Boolean, Float, DateTime, ForeignKey, UniqueConstraint, Index
 from sqlalchemy.orm import relationship
 from .db import Base
+
+def utc_now() -> datetime:
+    """Returns current timezone-aware UTC datetime."""
+    return datetime.now(timezone.utc)
 
 class Document(Base):
     __tablename__ = "documents"
@@ -12,7 +16,7 @@ class Document(Base):
     content_hash = Column(String, unique=True, index=True, nullable=True)
     markdown_content = Column(Text, nullable=False)
     status = Column(String, default="uploaded")  # uploaded / converted / extracted
-    uploaded_at = Column(DateTime, default=datetime.utcnow)
+    uploaded_at = Column(DateTime, default=utc_now)
     
     # Built-in textbook attributes
     is_builtin = Column(Boolean, default=False, index=True)
@@ -22,6 +26,7 @@ class Document(Base):
 
     questions = relationship("Question", back_populates="document", cascade="all, delete-orphan")
     vocabularies = relationship("Vocabulary", back_populates="document", cascade="all, delete-orphan")
+    exam_attempts = relationship("ExamAttempt", back_populates="document", cascade="all, delete-orphan")
 
 
 class Question(Base):
@@ -41,9 +46,10 @@ class Question(Base):
     topic_tag = Column(String, index=True, nullable=True)
     is_generated = Column(Boolean, default=False)
     source_question_id = Column(Integer, ForeignKey("questions.id"), nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
     document = relationship("Document", back_populates="questions")
+    practice_attempts = relationship("PracticeAttempt", back_populates="question", cascade="all, delete-orphan")
 
 
 class Vocabulary(Base):
@@ -70,6 +76,7 @@ class Vocabulary(Base):
 
     document = relationship("Document", back_populates="vocabularies")
     flashcard = relationship("Flashcard", back_populates="vocabulary", uselist=False, cascade="all, delete-orphan")
+    practice_attempts = relationship("PracticeAttempt", back_populates="vocabulary", cascade="all, delete-orphan")
 
 
 class Flashcard(Base):
@@ -79,7 +86,7 @@ class Flashcard(Base):
     vocabulary_id = Column(Integer, ForeignKey("vocabulary.id"), unique=True, nullable=False)
     srs_level = Column(Integer, default=0)
     ease_factor = Column(Float, default=2.5)
-    next_review_at = Column(DateTime, default=datetime.utcnow, index=True)
+    next_review_at = Column(DateTime, default=utc_now, index=True)
     last_reviewed_at = Column(DateTime, nullable=True)
 
     vocabulary = relationship("Vocabulary", back_populates="flashcard")
@@ -96,7 +103,10 @@ class PracticeAttempt(Base):
     time_spent_seconds = Column(Integer, default=0)
     part = Column(Integer, nullable=True)
     session_id = Column(String, nullable=True)
-    attempted_at = Column(DateTime, default=datetime.utcnow)
+    attempted_at = Column(DateTime, default=utc_now)
+
+    question = relationship("Question", back_populates="practice_attempts")
+    vocabulary = relationship("Vocabulary", back_populates="practice_attempts")
 
 
 class ExamAttempt(Base):
@@ -114,9 +124,9 @@ class ExamAttempt(Base):
     part6_correct = Column(Integer, default=0)
     part7_correct = Column(Integer, default=0)
     answers_json = Column(Text, nullable=False)  # JSON string of user answers {question_id: selected_option}
-    completed_at = Column(DateTime, default=datetime.utcnow)
+    completed_at = Column(DateTime, default=utc_now)
 
-    document = relationship("Document")
+    document = relationship("Document", back_populates="exam_attempts")
 
 
 class AICache(Base):
@@ -126,7 +136,7 @@ class AICache(Base):
     input_hash = Column(String, unique=True, index=True, nullable=False)
     prompt_type = Column(String, nullable=False)
     response_json = Column(Text, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class GrammarReference(Base):
@@ -137,7 +147,7 @@ class GrammarReference(Base):
     formula = Column(Text, nullable=False)
     key_rules_json = Column(Text, nullable=False)  # JSON array string of rules
     example_sentences_json = Column(Text, nullable=False)  # JSON array string of example sentences
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class StudySession(Base):
@@ -146,8 +156,8 @@ class StudySession(Base):
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     session_type = Column(String, nullable=False)  # practice / quiz / flashcard / reading
     duration_seconds = Column(Integer, nullable=False)
-    started_at = Column(DateTime, default=datetime.utcnow)
-    ended_at = Column(DateTime, default=datetime.utcnow)
+    started_at = Column(DateTime, default=utc_now)
+    ended_at = Column(DateTime, default=utc_now)
 
 
 # ====================================================
@@ -171,7 +181,7 @@ class CurriculumTopic(Base):
     question_count = Column(Integer, default=0)            # Cached count from questions table
     has_specific_db_topic = Column(Boolean, default=False) # True if specific (not generic Part X) topic exists
     db_coverage_note = Column(Text, nullable=True)         # Human-readable coverage note
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
     # Self-referential relationship for prerequisites
     prerequisite = relationship("CurriculumTopic", remote_side=[id], foreign_keys=[prerequisite_topic_id])
@@ -195,7 +205,7 @@ class Lesson(Base):
     quick_check_question_ids_json = Column(Text, nullable=True)     # JSON array of question IDs for quick check quiz
     has_real_examples = Column(Boolean, default=False)      # True if worked examples come from real DB questions
     ai_cache_hash = Column(String, nullable=True)           # SHA256 hash key used to cache in ai_cache table
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
     curriculum_topic = relationship("CurriculumTopic", back_populates="lesson")
 
@@ -214,7 +224,7 @@ class UserMastery(Base):
     correct_count = Column(Integer, default=0)      # Correct answers on questions tagged to this topic
     total_count = Column(Integer, default=0)        # Total attempts on questions tagged to this topic
     mastery_pct = Column(Float, default=0.0)        # correct_count / total_count * 100
-    last_updated_at = Column(DateTime, default=datetime.utcnow)
+    last_updated_at = Column(DateTime, default=utc_now)
 
     curriculum_topic = relationship("CurriculumTopic", back_populates="mastery_records")
 

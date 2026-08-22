@@ -2,6 +2,7 @@ import { useState, useEffect, Suspense, lazy } from 'react';
 import { Navbar } from './components/Navbar';
 import type { AppNavTab } from './components/Navbar';
 import type { LCExamDocument } from './types/toeicListening';
+import { ErrorBoundary } from './components/common/ErrorBoundary';
 
 // Route-based code-splitting: each page becomes a separate JS chunk loaded on demand,
 // reducing initial bundle size from ~1MB to ~100KB (Navbar + active page only).
@@ -99,106 +100,108 @@ export function App() {
 
       {/* Main Container */}
       <main className="flex-1 pb-16">
-      <Suspense fallback={<PageLoadingSkeleton />}>
-        {/* Full 2-Skill Exam Track */}
-        {activeTab === 'full_exam' && (
-          <FullToeicExamTakePage
-            onNavigateHome={() => setActiveTab('lc_catalog')}
-          />
-        )}
+        <ErrorBoundary fallbackTitle="Lỗi tải trang" fallbackMessage="Không thể hiển thị trang hiện tại do lỗi bất ngờ. Vui lòng bấm Thử lại để tải lại giao diện.">
+          <Suspense fallback={<PageLoadingSkeleton />}>
+            {/* Full 2-Skill Exam Track */}
+            {activeTab === 'full_exam' && (
+              <FullToeicExamTakePage
+                onNavigateHome={() => setActiveTab('lc_catalog')}
+              />
+            )}
 
-        {/* Knowledge & Tactics Curriculum Track */}
-        {activeTab === 'rc_knowledge' && (
-          <RcKnowledgeHubPage
-            onNavigateDrills={() => setActiveTab('type_drills')}
-          />
-        )}
+            {/* Knowledge & Tactics Curriculum Track */}
+            {activeTab === 'rc_knowledge' && (
+              <RcKnowledgeHubPage
+                onNavigateDrills={() => setActiveTab('type_drills')}
+              />
+            )}
 
-        {/* Question-Type Drills Track */}
-        {activeTab === 'type_drills' && (
-          <QuestionTypePracticePage
-            onNavigateLessons={() => setActiveTab('rc_knowledge')}
-            onNavigateHome={() => setActiveTab('lc_catalog')}
-          />
-        )}
+            {/* Question-Type Drills Track */}
+            {activeTab === 'type_drills' && (
+              <QuestionTypePracticePage
+                onNavigateLessons={() => setActiveTab('rc_knowledge')}
+                onNavigateHome={() => setActiveTab('lc_catalog')}
+              />
+            )}
 
-        {/* Frequent High-Yield Vocabulary Bank Track */}
-        {activeTab === 'frequent_vocab' && (
-          <FrequentVocabBankPage
-            onNavigateFlashcards={() => setActiveTab('flashcards')}
-          />
-        )}
+            {/* Frequent High-Yield Vocabulary Bank Track */}
+            {activeTab === 'frequent_vocab' && (
+              <FrequentVocabBankPage
+                onNavigateFlashcards={() => setActiveTab('flashcards')}
+              />
+            )}
 
-        {/* LC Track */}
-        {activeTab === 'lc_catalog' && (
-          activeLcExamDoc !== null ? (
-            <LcExamTakePage
-              document={activeLcExamDoc}
-              mode={activeLcExamMode}
-              onBack={handleBackToLcCatalog}
-              onNavigateHome={() => setActiveTab('lc_catalog')}
-            />
-          ) : (
-            <LcCatalogView onStartExam={handleStartLcExam} />
-          )
-        )}
+            {/* LC Track */}
+            {activeTab === 'lc_catalog' && (
+              activeLcExamDoc !== null ? (
+                <LcExamTakePage
+                  document={activeLcExamDoc}
+                  mode={activeLcExamMode}
+                  onBack={handleBackToLcCatalog}
+                  onNavigateHome={() => setActiveTab('lc_catalog')}
+                />
+              ) : (
+                <LcCatalogView onStartExam={handleStartLcExam} />
+              )
+            )}
 
-        {activeTab === 'lc_practice' && (
-          <LcPracticeHubPage
-            onNavigateHome={() => setActiveTab('lc_catalog')}
-            onNavigateCatalog={() => setActiveTab('lc_catalog')}
-          />
-        )}
+            {activeTab === 'lc_practice' && (
+              <LcPracticeHubPage
+                onNavigateHome={() => setActiveTab('lc_catalog')}
+                onNavigateCatalog={() => setActiveTab('lc_catalog')}
+              />
+            )}
 
-        {activeTab === 'lc_dashboard' && (
-          <LcDashboardPage
-            onNavigateTab={(tab) => setActiveTab(tab as AppNavTab)}
-            onStartExam={() => {
-              setActiveTab('lc_catalog');
-            }}
-          />
-        )}
+            {activeTab === 'lc_dashboard' && (
+              <LcDashboardPage
+                onNavigateTab={(tab) => setActiveTab(tab as AppNavTab)}
+                onStartExam={() => {
+                  setActiveTab('lc_catalog');
+                }}
+              />
+            )}
 
-        {activeTab === 'lc_errors' && (
-          <LcErrorNotebookPage
-            onNavigateHome={() => setActiveTab('lc_catalog')}
-            onNavigateCatalog={() => setActiveTab('lc_catalog')}
-          />
-        )}
+            {activeTab === 'lc_errors' && (
+              <LcErrorNotebookPage
+                onNavigateHome={() => setActiveTab('lc_catalog')}
+                onNavigateCatalog={() => setActiveTab('lc_catalog')}
+              />
+            )}
 
-        {/* RC Track */}
-        {activeTab === 'textbooks' && (
-          activeExamDocId !== null ? (
-            <ExamTakePage
-              docId={activeExamDocId}
-              mode={activeExamMode}
-              onBack={handleBackToRcCatalog}
-            />
-          ) : (
-            <TextbookCatalogView onStartExam={handleStartRcExam} />
-          )
-        )}
+            {/* RC Track */}
+            {activeTab === 'textbooks' && (
+              activeExamDocId !== null ? (
+                <ExamTakePage
+                  docId={activeExamDocId}
+                  mode={activeExamMode}
+                  onBack={handleBackToRcCatalog}
+                />
+              ) : (
+                <TextbookCatalogView onStartExam={handleStartRcExam} />
+              )
+            )}
 
-        {activeTab === 'roadmap' && <RoadmapPage />}
+            {activeTab === 'roadmap' && <RoadmapPage />}
 
-        {activeTab === 'errors' && <ErrorNotebookPage />}
+            {activeTab === 'errors' && <ErrorNotebookPage />}
 
-        {activeTab === 'speed' && <SpeedTrainingPage />}
+            {activeTab === 'speed' && <SpeedTrainingPage />}
 
-        {activeTab === 'practice' && <PracticePage />}
+            {activeTab === 'practice' && <PracticePage />}
 
-        {activeTab === 'flashcards' && <FlashcardPage />}
+            {activeTab === 'flashcards' && <FlashcardPage />}
 
-        {activeTab === 'dashboard' && <DashboardPage onNavigateTab={(tab) => setActiveTab(tab as AppNavTab)} />}
+            {activeTab === 'dashboard' && <DashboardPage onNavigateTab={(tab) => setActiveTab(tab as AppNavTab)} />}
 
-        {activeTab === 'upload' && (
-          selectedDocId !== null ? (
-            <DocumentDetailPage docId={selectedDocId} onBack={handleBackToDocs} />
-          ) : (
-            <UploadPage onSelectDocument={handleSelectDocument} />
-          )
-        )}
-      </Suspense>
+            {activeTab === 'upload' && (
+              selectedDocId !== null ? (
+                <DocumentDetailPage docId={selectedDocId} onBack={handleBackToDocs} />
+              ) : (
+                <UploadPage onSelectDocument={handleSelectDocument} />
+              )
+            )}
+          </Suspense>
+        </ErrorBoundary>
       </main>
 
       {/* Footer */}

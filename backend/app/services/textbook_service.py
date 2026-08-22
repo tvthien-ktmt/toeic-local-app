@@ -660,7 +660,7 @@ def scan_and_seed_textbooks(db: Session) -> Dict[str, Any]:
 
                 filename = f"[{category}] {series_name} - Test {test_num:02d}"
                 content_hash = hashlib.sha256(
-                    f"{filename}::{block[:1000]}".encode("utf-8")
+                    f"{filename}::{block}".encode("utf-8")
                 ).hexdigest()
 
                 # Check if document already exists (by hash or filename)

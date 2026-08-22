@@ -66,7 +66,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateTab }) =
       <div>
         <div className="flex items-center space-x-2 text-theme-accent text-xs font-bold uppercase tracking-wider mb-1">
           <Sparkles className="w-4 h-4" />
-          <span>HỆ THỐNG PHÂN TÍCH NĂNG LỰC TOÀN DIỆN (RC_FORMAT.MD & PROJECT_REQUIMENTS.MD)</span>
+          <span>HỆ THỐNG PHÂN TÍCH NĂNG LỰC TOÀN DIỆN &amp; CHẨN ĐOÁN THÔNG MINH</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-theme-primary tracking-tight">
           Dashboard Tổng Quan Luyện Thi TOEIC RC
@@ -86,12 +86,12 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateTab }) =
 
           <div className="space-y-2 py-2">
             <div className="text-4xl font-black text-theme-accent tracking-tight">
-              {estimated_rc_range ? `${estimated_rc_range.min_score} - ${estimated_rc_range.max_score}` : '620 - 680'}
+              {estimated_rc_range ? `${estimated_rc_range.min_score} - ${estimated_rc_range.max_score}` : 'Chưa có'}
               <span className="text-sm font-semibold text-theme-secondary ml-2">/ 495</span>
             </div>
             <div className="text-xs text-theme-secondary font-medium flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-theme-success" />
-              <span>Độ tin cậy: <strong className="text-theme-primary">{estimated_rc_range?.confidence || 'High'}</strong></span>
+              <span>Độ tin cậy: <strong className="text-theme-primary">{estimated_rc_range?.confidence || 'Đang cập nhật'}</strong></span>
             </div>
           </div>
 
@@ -106,7 +106,9 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateTab }) =
             <span className="text-xs font-bold uppercase text-theme-secondary tracking-wider">
               2. Mục tiêu & Khoảng cách (Gap)
             </span>
-            <h3 className="text-xl font-black text-theme-primary">Target: 420 RC (800+)</h3>
+            <h3 className="text-xl font-black text-theme-primary">
+              {target_tracker ? `Target: ${target_tracker.target_score} RC` : 'Mục Tiêu: 420 RC'}
+            </h3>
           </div>
 
           <div className="space-y-2 py-2">
