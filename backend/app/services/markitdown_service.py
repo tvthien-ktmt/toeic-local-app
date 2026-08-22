@@ -26,7 +26,8 @@ def convert_pdf_to_markdown(file_bytes: bytes, filename: str) -> str:
         pdf_doc = fitz.open(stream=file_bytes, filetype="pdf")
         page_count = len(pdf_doc)
         pdf_doc.close()
-    except Exception:
+    except Exception as page_count_err:
+        logger.debug(f"[PAGE_COUNT NOTE] Could not count PDF pages via PyMuPDF for '{filename}': {page_count_err}")
         page_count = 1
 
     markdown_text = ""

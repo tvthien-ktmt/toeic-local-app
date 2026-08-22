@@ -1,7 +1,7 @@
 from typing import List, Optional, Dict, Any, Annotated
 from fastapi import APIRouter, Depends, Query, HTTPException
 from sqlalchemy.orm import Session
-from sqlalchemy import func
+from sqlalchemy import func, case
 from ..db import get_db
 from ..models import Vocabulary, Flashcard
 from ..schemas import VocabularyLookupRequest, RelatedVocabRequest
@@ -80,33 +80,47 @@ def list_vocabulary(
 def get_topic_albums(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
     Returns topic albums with statistics: total_words count and learned_words count (srs_level >= 3).
+    Optimized: Single SQL query with GROUP BY and in-memory taxonomy grouping (0 extra queries).
     """
-    albums = []
-    for topic in TAXONOMY_TOPICS:
-        query = db.query(Vocabulary, Flashcard).outerjoin(Flashcard, Vocabulary.id == Flashcard.vocabulary_id).filter(
-            Vocabulary.topic_category.ilike(f"%{topic}%")
-        )
-        total = query.count()
-        learned = query.filter(Flashcard.srs_level >= 3).count()
+    stats_rows = db.query(
+        Vocabulary.topic_category,
+        func.count(Vocabulary.id).label("total_words"),
+        func.sum(case((Flashcard.srs_level >= 3, 1), else_=0)).label("learned_words")
+    ).outerjoin(Flashcard, Vocabulary.id == Flashcard.vocabulary_id).group_by(Vocabulary.topic_category).all()
 
-        if total > 0:
+    category_map: Dict[str, Dict[str, int]] = {}
+    for topic_cat, total_cnt, learned_cnt in stats_rows:
+        if topic_cat:
+            category_map[topic_cat.strip()] = {
+                "total": total_cnt or 0,
+                "learned": int(learned_cnt or 0)
+            }
+
+    albums = []
+    seen_categories = set()
+
+    for topic in TAXONOMY_TOPICS:
+        matched_total = 0
+        matched_learned = 0
+        for cat_name, stats in category_map.items():
+            if topic.lower() in cat_name.lower():
+                matched_total += stats["total"]
+                matched_learned += stats["learned"]
+                seen_categories.add(cat_name)
+
+        if matched_total > 0:
             albums.append({
                 "topic_category": topic,
-                "total_words": total,
-                "learned_words": learned
+                "total_words": matched_total,
+                "learned_words": matched_learned
             })
 
-    # Also query any custom categories present in DB not in default TAXONOMY_TOPICS
-    db_topics = db.query(Vocabulary.topic_category).distinct().all()
-    for (t_name,) in db_topics:
-        if t_name and not any(a["topic_category"].lower() == t_name.lower() for a in albums):
-            query = db.query(Vocabulary, Flashcard).outerjoin(Flashcard, Vocabulary.id == Flashcard.vocabulary_id).filter(
-                Vocabulary.topic_category == t_name
-            )
+    for cat_name, stats in category_map.items():
+        if cat_name not in seen_categories and stats["total"] > 0:
             albums.append({
-                "topic_category": t_name,
-                "total_words": query.count(),
-                "learned_words": query.filter(Flashcard.srs_level >= 3).count()
+                "topic_category": cat_name,
+                "total_words": stats["total"],
+                "learned_words": stats["learned"]
             })
 
     return {

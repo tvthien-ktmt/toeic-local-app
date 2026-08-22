@@ -512,25 +512,39 @@ def submit_placement_test(req: PlacementSubmitRequest, db: Annotated[Session, De
             topic_correct[topic_id] += 1
 
     mastery_results = {}
-    for topic_id in topic_total.keys():
+    submitted_topic_ids = list(topic_total.keys())
+
+    # Batch load existing mastery and topic definitions to eliminate N+1 queries in the loop
+    existing_mastery_map = {
+        m.curriculum_topic_id: m
+        for m in db.query(UserMastery).filter(UserMastery.curriculum_topic_id.in_(submitted_topic_ids)).all()
+    } if submitted_topic_ids else {}
+
+    topics_map = {
+        t.id: t
+        for t in db.query(CurriculumTopic).filter(CurriculumTopic.id.in_(submitted_topic_ids)).all()
+    } if submitted_topic_ids else {}
+
+    for topic_id in submitted_topic_ids:
         correct = topic_correct.get(topic_id, 0)
         total = topic_total.get(topic_id, 0)
         status, pct = compute_mastery_status(correct, total)
 
-        m = db.query(UserMastery).filter(UserMastery.curriculum_topic_id == topic_id).first()
-        if not m:
-            m = UserMastery(curriculum_topic_id=topic_id)
-            db.add(m)
+        mastery_record = existing_mastery_map.get(topic_id)
+        if not mastery_record:
+            mastery_record = UserMastery(curriculum_topic_id=topic_id)
+            db.add(mastery_record)
+            existing_mastery_map[topic_id] = mastery_record
 
-        m.status = status
-        m.correct_count = correct
-        m.total_count = total
-        m.mastery_pct = pct
-        m.last_updated_at = datetime.now(timezone.utc)
+        mastery_record.status = status
+        mastery_record.correct_count = correct
+        mastery_record.total_count = total
+        mastery_record.mastery_pct = pct
+        mastery_record.last_updated_at = datetime.now(timezone.utc)
 
-        t = db.query(CurriculumTopic).filter(CurriculumTopic.id == topic_id).first()
+        topic_def = topics_map.get(topic_id)
         mastery_results[topic_id] = {
-            "topic_name": t.canonical_name if t else str(topic_id),
+            "topic_name": topic_def.canonical_name if topic_def else str(topic_id),
             "status": status,
             "correct": correct,
             "total": total,
@@ -740,28 +754,43 @@ def update_mastery(req: MasteryUpdateRequest, db: Annotated[Session, Depends(get
     """
     Update mastery for multiple topics at once.
     Called after exam/practice submissions (spec 12.6.1 feedback loop).
+    Batch loaded to eliminate N+1 database queries.
     """
     updated = []
+    update_topic_ids = [item.topic_id for item in req.updates]
+
+    # Batch load all existing mastery records and topic definitions upfront
+    existing_mastery_map = {
+        m.curriculum_topic_id: m
+        for m in db.query(UserMastery).filter(UserMastery.curriculum_topic_id.in_(update_topic_ids)).all()
+    } if update_topic_ids else {}
+
+    topics_map = {
+        t.id: t
+        for t in db.query(CurriculumTopic).filter(CurriculumTopic.id.in_(update_topic_ids)).all()
+    } if update_topic_ids else {}
+
     for item in req.updates:
-        m = db.query(UserMastery).filter(UserMastery.curriculum_topic_id == item.topic_id).first()
-        if not m:
-            m = UserMastery(curriculum_topic_id=item.topic_id)
-            db.add(m)
+        mastery_record = existing_mastery_map.get(item.topic_id)
+        if not mastery_record:
+            mastery_record = UserMastery(curriculum_topic_id=item.topic_id)
+            db.add(mastery_record)
+            existing_mastery_map[item.topic_id] = mastery_record
 
-        m.correct_count += item.correct
-        m.total_count += item.total
-        status, pct = compute_mastery_status(m.correct_count, m.total_count)
-        m.status = status
-        m.mastery_pct = pct
-        m.last_updated_at = datetime.now(timezone.utc)
+        mastery_record.correct_count += item.correct
+        mastery_record.total_count += item.total
+        status, pct = compute_mastery_status(mastery_record.correct_count, mastery_record.total_count)
+        mastery_record.status = status
+        mastery_record.mastery_pct = pct
+        mastery_record.last_updated_at = datetime.now(timezone.utc)
 
-        t = db.query(CurriculumTopic).filter(CurriculumTopic.id == item.topic_id).first()
+        topic_def = topics_map.get(item.topic_id)
         updated.append({
             "topic_id": item.topic_id,
-            "topic_name": t.canonical_name if t else str(item.topic_id),
+            "topic_name": topic_def.canonical_name if topic_def else str(item.topic_id),
             "new_status": status,
             "mastery_pct": pct,
-            "total_attempts": m.total_count,
+            "total_attempts": mastery_record.total_count,
         })
 
     db.commit()
