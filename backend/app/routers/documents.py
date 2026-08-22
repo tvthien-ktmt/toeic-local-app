@@ -4,9 +4,10 @@ import re
 import logging
 from typing import List, Dict, Any, Optional, Annotated
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, BackgroundTasks, status
+from sqlalchemy import func
 from sqlalchemy.orm import Session
 from ..db import get_db, SessionLocal
-from ..models import Document, Question, Vocabulary, Flashcard, PracticeAttempt
+from ..models import Document, Question, Vocabulary, Flashcard, PracticeAttempt, ExamAttempt
 from ..schemas import DocumentResponse, DocumentSummary
 from ..services.markitdown_service import compute_hash, convert_pdf_to_markdown
 from ..services.extraction_service import process_document_extraction
@@ -19,6 +20,7 @@ if hasattr(sys.stderr, 'reconfigure'):
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/documents", tags=["documents"])
 
+MAX_UPLOAD_SIZE = 50 * 1024 * 1024  # 50MB
 UPLOADS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "uploads")
 os.makedirs(UPLOADS_DIR, exist_ok=True)
 
