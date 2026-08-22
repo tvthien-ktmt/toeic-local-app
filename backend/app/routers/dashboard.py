@@ -121,7 +121,7 @@ def get_dashboard_stats(db: Annotated[Session, Depends(get_db)]) -> Dict[str, An
     # Also include vocab attempts for Part 1-4
     vocab_listening_subquery = db.query(Vocabulary.id).filter(
         Vocabulary.appears_in_part.in_(["Part 1", "Part 2", "Part 3", "Part 4"])
-    ).subquery()
+    ).scalar_subquery()
     listening_vocab_stats = db.query(
         func.count(PracticeAttempt.id).label("total_attempts"),
         func.sum(case((PracticeAttempt.is_correct == True, 1), else_=0)).label("correct_attempts")
@@ -276,10 +276,9 @@ def get_dashboard_stats(db: Annotated[Session, Depends(get_db)]) -> Dict[str, An
             "total_study_min_7d": total_study_min_7d,
             "total_study_min_30d": total_study_min_30d,
             "active_days_7d": active_days_7d,
-            "active_days_30d": active_days_30d,
-            "part5_avg_speed_sec": part_speeds["part5_avg_sec"],
-            "part6_avg_speed_sec": part_speeds["part6_avg_sec"],
-            "part7_avg_speed_sec": part_speeds["part7_avg_speed_sec"],
+            "part5_avg_speed_sec": part_speeds.get("part5_avg_sec", 0.0),
+            "part6_avg_speed_sec": part_speeds.get("part6_avg_sec", 0.0),
+            "part7_avg_speed_sec": part_speeds.get("part7_avg_sec", 0.0),
             "estimated_rc_range": {
                 "min_score": min_est,
                 "max_score": max_est,

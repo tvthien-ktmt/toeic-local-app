@@ -52,19 +52,25 @@ Trả về 1 JSON object:
 }}
 CHỈ trả JSON object. Không thêm bớt text ngoài JSON."""
 
+    data = None
     if api_key:
-        data = query_gemini_with_cache(db, prompt_type, prompt_text, clean_topic)
-    else:
+        try:
+            data = query_gemini_with_cache(db, prompt_type, prompt_text, clean_topic)
+        except Exception as gemini_err:
+            logger.warning(f"[GRAMMAR REFERENCE AI ERROR] Gemini query failed for '{clean_topic}': {gemini_err}. Using rule-based fallback.")
+            data = None
+
+    if not data or not isinstance(data, dict):
         data = {
             "topic_name": clean_topic,
-            "formula": f"Standard Structure for {clean_topic}",
+            "formula": f"Standard Structure & Usage for {clean_topic}",
             "key_rules": [
-                f"Rule 1 for {clean_topic}: Always match the subject with correct verb forms in TOEIC Part 5.",
-                f"Rule 2 for {clean_topic}: Pay attention to keywords and signal words."
+                f"Quy tắc cốt lõi ({clean_topic}): Xác định đúng vị trí và chức năng ngữ pháp của từ trong câu trước khi chọn đáp án.",
+                f"Lưu ý bẫy ({clean_topic}): Chú ý các liên từ, dấu hiệu nhận biết thời thì và sự hòa hợp giữa chủ ngữ - vị ngữ."
             ],
             "example_sentences": [
-                f"She successfully completed the task ahead of schedule. (Cô ấy đã hoàn thành công việc trước thời hạn.)",
-                f"All employees are required to wear identification badges."
+                f"The management announced that the project will be completed ahead of schedule. (Ban quản lý thông báo rằng dự án sẽ hoàn thành trước thời hạn.)",
+                f"All employees are required to submit their quarterly expense reports by Friday."
             ]
         }
 

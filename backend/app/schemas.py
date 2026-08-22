@@ -15,7 +15,7 @@ class DocumentResponse(DocumentBase):
     content_hash: Optional[str] = None
     markdown_content: str
     status: str
-    uploaded_at: datetime
+    uploaded_at: Optional[datetime] = None
 
     model_config = ConfigDict(from_attributes=True)
 
@@ -23,7 +23,7 @@ class DocumentSummary(DocumentBase):
     id: int
     content_hash: Optional[str] = None
     status: str
-    uploaded_at: datetime
+    uploaded_at: Optional[datetime] = None
     markdown_length: int
 
     model_config = ConfigDict(from_attributes=True)
@@ -42,7 +42,7 @@ class QuestionResponse(BaseModel):
     grammar_topic: Optional[str] = None
     topic_tag: Optional[str] = None
     is_generated: bool = False
-    created_at: datetime
+    created_at: Optional[datetime] = None
 
     model_config = ConfigDict(from_attributes=True)
 

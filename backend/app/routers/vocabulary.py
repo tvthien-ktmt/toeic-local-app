@@ -76,6 +76,7 @@ def list_vocabulary(
         "items": items
     }
 
+@router.get("/topics")
 @router.get("/topics/albums")
 def get_topic_albums(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
     """
