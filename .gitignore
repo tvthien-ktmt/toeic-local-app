@@ -77,6 +77,27 @@ frontend/.venv/
 .eslintcache
 
 # =====================================================================
+# AI AGENT RULES, SKILLS, PROMPTS & INTERNAL DEV DOCS (LOCAL ONLY)
+# =====================================================================
+.agents/
+.claude/
+dev-rules/
+python-backend-dev-rules/
+AGENTS.md
+CLAUDE.md
+backend/CLAUDE.md
+SKILL.md
+SKILL_*.md
+BAO_CAO_*.md
+BUG_REPORT_*.md
+LC_Web*.md
+MODULE_*.md
+PROMPT_*.md
+TOEIC_*.md
+thieu.md
+toeic-local-*.md
+
+# =====================================================================
 # IDE, EDITORS & OS METADATA
 # =====================================================================
 .DS_Store
