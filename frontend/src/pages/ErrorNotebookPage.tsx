@@ -53,16 +53,19 @@ export const ErrorNotebookPage: React.FC = () => {
     loadData();
   }, [partFilter, statusFilter, selectedTopic]);
 
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
+
   const handleStartRetestSession = async () => {
     try {
       setIsLoading(true);
+      setStatusMessage(null);
       const sessionData = await fetchRetestSession({
         part: partFilter,
         grammar_topic: selectedTopic || undefined,
         limit: 10
       });
       if (sessionData.questions.length === 0) {
-        alert('Hiện tại bạn không có câu hỏi nào trong danh sách lỗi sai để ôn tập!');
+        setStatusMessage('Hiện tại bạn không có câu hỏi nào trong danh sách lỗi sai để ôn tập!');
         setIsLoading(false);
 
         return;
@@ -74,7 +77,7 @@ export const ErrorNotebookPage: React.FC = () => {
       setRetestScore({ correct: 0, total: 0 });
       setIsRetestActive(true);
     } catch {
-      alert('Không thể tạo phiên ôn tập câu sai. Vui lòng thử lại.');
+      setStatusMessage('Không thể tạo phiên ôn tập câu sai. Vui lòng kiểm tra lại kết nối!');
     } finally {
       setIsLoading(false);
     }
@@ -130,6 +133,18 @@ export const ErrorNotebookPage: React.FC = () => {
         isLoading={isLoading}
         onStartRetestSession={handleStartRetestSession}
       />
+
+      {statusMessage && (
+        <div className="p-4 rounded-xl bg-theme-warning/15 border border-theme-warning/30 text-theme-warning text-xs font-semibold flex items-center justify-between">
+          <span>{statusMessage}</span>
+          <button
+            onClick={() => setStatusMessage(null)}
+            className="text-xs font-bold hover:underline cursor-pointer ml-4"
+          >
+            Đóng
+          </button>
+        </div>
+      )}
 
       {/* Top Mistake Categories Quick Bar */}
       {data && data.topics_breakdown && data.topics_breakdown.length > 0 && (

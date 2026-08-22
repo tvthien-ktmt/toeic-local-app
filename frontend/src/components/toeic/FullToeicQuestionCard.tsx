@@ -1,5 +1,6 @@
 import React from 'react';
 import { Flag } from 'lucide-react';
+import { getFullToeicQuestion } from '../../data/fullToeicExamData';
 
 interface FullToeicQuestionCardProps {
   currentQuestionNumber: number;
@@ -28,6 +29,7 @@ export const FullToeicQuestionCard: React.FC<FullToeicQuestionCardProps> = ({
   onNextQuestion,
 }) => {
   const choices = ['A', 'B', 'C', 'D'] as const;
+  const questionItem = getFullToeicQuestion(currentQuestionNumber);
 
   return (
     <div className="bg-theme-surface border border-theme rounded-2xl p-6 shadow-xs space-y-4">
@@ -36,13 +38,12 @@ export const FullToeicQuestionCard: React.FC<FullToeicQuestionCardProps> = ({
           <span className="w-7 h-7 rounded-xl bg-theme-accent/15 text-theme-accent font-black text-xs flex items-center justify-center shrink-0 mt-0.5">
             {currentQuestionNumber}
           </span>
-          <div>
-            <h3 className="text-sm sm:text-base font-bold text-theme-primary">
-              {currentQuestionNumber <= 100
-                ? `Question ${currentQuestionNumber}: Listen and choose the best response / answer.`
-                : currentQuestionNumber <= 130
-                ? `Question ${currentQuestionNumber}: Select the word that best completes the sentence.`
-                : `Question ${currentQuestionNumber}: What is indicated about the reservation?`}
+          <div className="space-y-1">
+            <span className="text-[11px] font-bold text-theme-secondary uppercase tracking-wider">
+              {questionItem.partName}
+            </span>
+            <h3 className="text-sm sm:text-base font-bold text-theme-primary leading-relaxed">
+              {questionItem.promptEn}
             </h3>
           </div>
         </div>
@@ -50,7 +51,7 @@ export const FullToeicQuestionCard: React.FC<FullToeicQuestionCardProps> = ({
         <button
           type="button"
           onClick={() => onToggleFlag(currentQuestionNumber)}
-          className={`p-2 rounded-xl border text-xs transition-colors cursor-pointer ${
+          className={`p-2 rounded-xl border text-xs transition-colors cursor-pointer shrink-0 ${
             isFlagged
               ? 'bg-theme-warning/20 border-theme-warning/40 text-theme-warning'
               : 'border-theme text-theme-secondary hover:bg-theme-surface-2'
@@ -65,20 +66,21 @@ export const FullToeicQuestionCard: React.FC<FullToeicQuestionCardProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
         {choices.map((letter) => {
           const isSelected = selectedAnswer === letter;
+          const optionText = questionItem.options[letter];
 
           return (
             <button
               key={letter}
               type="button"
               onClick={() => onSelectOption(currentQuestionNumber, letter)}
-              className={`p-3 rounded-xl border text-left flex items-center gap-3 transition-all cursor-pointer ${
+              className={`p-3 rounded-xl border text-left flex items-start gap-3 transition-all cursor-pointer ${
                 isSelected
                   ? 'border-theme-accent bg-theme-accent/10 text-theme-accent font-bold ring-1 ring-theme-accent'
                   : 'border-theme hover:bg-theme-surface-2 text-theme-primary'
               }`}
             >
               <span
-                className={`w-6 h-6 rounded-lg font-bold text-xs flex items-center justify-center shrink-0 ${
+                className={`w-6 h-6 rounded-lg font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 ${
                   isSelected
                     ? 'bg-theme-accent text-white'
                     : 'bg-theme-surface-2 text-theme-secondary border border-theme'
@@ -86,14 +88,8 @@ export const FullToeicQuestionCard: React.FC<FullToeicQuestionCardProps> = ({
               >
                 {letter}
               </span>
-              <span className="text-xs leading-snug">
-                {letter === 'A'
-                  ? 'At the central conference hall.'
-                  : letter === 'B'
-                  ? 'By submitting an online form.'
-                  : letter === 'C'
-                  ? 'The maintenance team will handle it.'
-                  : 'Within two business days.'}
+              <span className="text-xs leading-relaxed">
+                {optionText}
               </span>
             </button>
           );

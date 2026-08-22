@@ -87,16 +87,38 @@ export const RoadmapPage: React.FC = () => {
     }
   }, [view, dailyMinutes]);
 
+  const LEVEL_MAP: Record<string, string[]> = {
+    '500': ['500', 'basic'],
+    '650': ['650', 'intermediate'],
+    '800': ['800', 'advanced'],
+    '900': ['900', 'advanced', 'expert'],
+  };
+
+  const STATUS_MAP: Record<string, string[]> = {
+    'not_started': ['unknown', 'not_started'],
+    'learning': ['weak', 'learning', 'in_progress'],
+    'review_needed': ['weak', 'review_needed'],
+    'mastered': ['ok', 'mastered', 'completed'],
+  };
+
   const filteredTopics = topics.filter((topicItem) => {
-    const status = topicItem.status ?? topicItem.mastery?.status ?? 'unknown';
-    if (filterLevel !== 'all' && topicItem.level !== filterLevel) {
-      return false;
+    const topicStatus = topicItem.status ?? topicItem.mastery?.status ?? 'unknown';
+    const topicLevel = (topicItem.level ?? '').toLowerCase();
+
+    if (filterLevel !== 'all') {
+      const allowedLevels = LEVEL_MAP[filterLevel] ?? [filterLevel.toLowerCase()];
+      if (!allowedLevels.includes(topicLevel)) {
+        return false;
+      }
     }
     if (filterCategory !== 'all' && topicItem.category !== filterCategory) {
       return false;
     }
-    if (filterStatus !== 'all' && status !== filterStatus) {
-      return false;
+    if (filterStatus !== 'all') {
+      const allowedStatuses = STATUS_MAP[filterStatus] ?? [filterStatus];
+      if (!allowedStatuses.includes(topicStatus)) {
+        return false;
+      }
     }
 
     return true;

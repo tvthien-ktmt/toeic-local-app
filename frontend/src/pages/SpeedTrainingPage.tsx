@@ -28,19 +28,22 @@ export const SpeedTrainingPage: React.FC = () => {
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const sprintStartRef = useRef<number>(0);
 
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
+
   const config = SPRINT_CONFIGS[selectedSprint];
 
   const handleStartSprint = async (sprintType: SprintType) => {
     setSelectedSprint(sprintType);
     const chosenConfig = SPRINT_CONFIGS[sprintType];
     setIsLoading(true);
+    setStatusMessage(null);
     try {
       const response = await fetchQuestions({
         part: chosenConfig.part,
         limit: chosenConfig.questionCount
       });
       if (!response.items || response.items.length === 0) {
-        alert('Không tìm thấy câu hỏi nào cho phần này. Hãy upload thêm đề thi!');
+        setStatusMessage('Không tìm thấy câu hỏi nào cho phần này. Hãy upload thêm đề thi để luyện tập!');
         setIsLoading(false);
 
         return;
@@ -72,7 +75,7 @@ export const SpeedTrainingPage: React.FC = () => {
         });
       }, 1000);
     } catch {
-      alert('Lỗi nạp câu hỏi Sprint. Vui lòng thử lại.');
+      setStatusMessage('Lỗi nạp câu hỏi Sprint. Vui lòng kiểm tra lại kết nối!');
     } finally {
       setIsLoading(false);
     }
@@ -140,6 +143,18 @@ export const SpeedTrainingPage: React.FC = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 space-y-8 animate-in fade-in duration-200">
+      {statusMessage && (
+        <div className="p-4 rounded-xl bg-theme-warning/15 border border-theme-warning/30 text-theme-warning text-xs font-semibold flex items-center justify-between">
+          <span>{statusMessage}</span>
+          <button
+            onClick={() => setStatusMessage(null)}
+            className="text-xs font-bold hover:underline cursor-pointer ml-4"
+          >
+            Đóng
+          </button>
+        </div>
+      )}
+
       {/* Sprint Lobby View */}
       {!isSprintActive && !isCompleted && (
         <SpeedTrainingLobbyView

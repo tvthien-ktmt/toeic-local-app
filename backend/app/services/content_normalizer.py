@@ -83,7 +83,7 @@ def detect_document_type(text: str, header: str = "") -> str:
         return "MEMO"
     if any(k in comb for k in ["article", "newspaper", "press release", "journal", "report"]):
         return "ARTICLE"
-    if any(k in comb for k in ["advertisement", "ad", "for sale", "hiring", "special offer"]):
+    if re.search(r'\b(advertisement|advertisements|ads?|for sale|now hiring|job opening|special offer|discount voucher)\b', comb):
         return "ADVERTISEMENT"
     if any(k in comb for k in ["form", "application", "survey", "questionnaire"]):
         return "FORM"

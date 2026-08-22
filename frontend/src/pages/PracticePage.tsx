@@ -49,7 +49,7 @@ export const PracticePage: React.FC = () => {
       const newQ = await generateSimilarQuestion(origQuestionId);
       setQuestions((prev) => [newQ, ...prev]);
     } catch (err) {
-      alert('Lỗi khi sinh câu hỏi tương tự.');
+      console.warn('Lỗi khi sinh câu hỏi tương tự:', err);
     } finally {
       setGeneratingId(null);
     }

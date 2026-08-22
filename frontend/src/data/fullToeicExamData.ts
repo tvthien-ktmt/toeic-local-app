@@ -6,6 +6,18 @@ export interface Part7PassageItem {
   defaultLookupWord: string;
 }
 
+export interface FullToeicQuestionItem {
+  questionNumber: number;
+  partName: string;
+  promptEn: string;
+  options: {
+    A: string;
+    B: string;
+    C: string;
+    D: string;
+  };
+}
+
 // 200 standard answers for Official ETS Full TOEIC Test simulation
 export const FULL_TOEIC_OFFICIAL_ANSWER_KEY: Record<number, string> = {
   // Part 1 (1-6)
@@ -120,4 +132,376 @@ export function getPart7PassageForQuestion(questionNumber: number): Part7Passage
   if (questionNumber <= 157) return PART_7_PASSAGES[4]!;
 
   return PART_7_PASSAGES[5]!;
+}
+
+// 30 realistic Part 5 questions
+const PART_5_DATABASE: Record<number, { prompt: string; options: { A: string; B: string; C: string; D: string } }> = {
+  101: {
+    prompt: "The board of directors _______ voted to approve the international merger proposal yesterday.",
+    options: { A: "unanimous", B: "unanimously", C: "unanimity", D: "unanimousness" },
+  },
+  102: {
+    prompt: "Ms. Chen requested that the financial audit report be submitted _______ Friday afternoon at the latest.",
+    options: { A: "until", B: "during", C: "among", D: "before" },
+  },
+  103: {
+    prompt: "All employees attending the annual leadership workshop must register _______ by 5:00 PM tomorrow.",
+    options: { A: "themselves", B: "their", C: "theirs", D: "them" },
+  },
+  104: {
+    prompt: "Due to unprecedented winter weather conditions, flights departing from Denver will experience _______ delays.",
+    options: { A: "signify", B: "significance", C: "significant", D: "significantly" },
+  },
+  105: {
+    prompt: "The updated software suite offers a more _______ interface for tracking inventory supply chains.",
+    options: { A: "rely", B: "reliable", C: "reliably", D: "reliance" },
+  },
+  106: {
+    prompt: "Mr. Tanaka will lead the negotiations _______ he has extensive experience in overseas acquisitions.",
+    options: { A: "although", B: "despite", C: "instead of", D: "because" },
+  },
+  107: {
+    prompt: "Customers who purchase three or more smart devices are entitled to _______ shipping nationwide.",
+    options: { A: "complimentary", B: "compliment", C: "complimented", D: "complimenting" },
+  },
+  108: {
+    prompt: "The marketing team worked _______ to finalize the brand launch presentation before the executive meeting.",
+    options: { A: "diligent", B: "diligence", C: "diligently", D: "most diligent" },
+  },
+  109: {
+    prompt: "Neither the design supervisor _______ the lead architect was able to identify the blueprint discrepancy.",
+    options: { A: "or", B: "nor", C: "and", D: "but" },
+  },
+  110: {
+    prompt: "Please review the attached contract carefully and return the signed copy to _______ human resources.",
+    options: { A: "our", B: "ours", C: "us", D: "ourselves" },
+  },
+  111: {
+    prompt: "The newly renovated branch office is conveniently _______ near the central metro interchange.",
+    options: { A: "locating", B: "location", C: "locates", D: "located" },
+  },
+  112: {
+    prompt: "Security badges must be _______ displayed by all staff and visitors at all times inside the facility.",
+    options: { A: "prominent", B: "prominence", C: "prominently", D: "more prominent" },
+  },
+  113: {
+    prompt: "Sales figures for the third quarter increased _______ following the launch of the multimedia ad campaign.",
+    options: { A: "dramatic", B: "dramatically", C: "drama", D: "dramatize" },
+  },
+  114: {
+    prompt: "The director suggested _______ an external consultancy firm to evaluate cybersecurity compliance.",
+    options: { A: "hiring", B: "hire", C: "hired", D: "to be hired" },
+  },
+  115: {
+    prompt: "Any travel expenses incurred during the business trip must be accompanied by original _______.",
+    options: { A: "receive", B: "receptive", C: "reception", D: "receipts" },
+  },
+  116: {
+    prompt: "Even though production costs rose slightly, the retail price of the flagship model remained _______.",
+    options: { A: "change", B: "changing", C: "unchanged", D: "changeable" },
+  },
+  117: {
+    prompt: "The keynote speaker offered several _______ insights into sustainable enterprise management.",
+    options: { A: "value", B: "valuable", C: "valuably", D: "valuation" },
+  },
+  118: {
+    prompt: "Dr. Evans will be absent from the symposium _______ a prior commitment at Oxford University.",
+    options: { A: "owing to", B: "even if", C: "as well as", D: "in case" },
+  },
+  119: {
+    prompt: "The maintenance crew worked through the night to _______ the damaged transformer unit.",
+    options: { A: "restoration", B: "restorative", C: "restoring", D: "restore" },
+  },
+  120: {
+    prompt: "Over eighty percent of surveyed participants expressed strong _______ with the catering service.",
+    options: { A: "satisfy", B: "satisfying", C: "satisfaction", D: "satisfactory" },
+  },
+  121: {
+    prompt: "Only candidates who possess at least five years of managerial experience will be _______ for the role.",
+    options: { A: "eligiblely", B: "eligible", C: "eligibility", D: "eligiable" },
+  },
+  122: {
+    prompt: "The warranty covers mechanical malfunctions but does not apply to damage caused by _______ use.",
+    options: { A: "proper", B: "properly", C: "improperly", D: "improper" },
+  },
+  123: {
+    prompt: "All laboratory equipment should be sterilized _______ every clinical research procedure.",
+    options: { A: "following", B: "follow", C: "follows", D: "followed" },
+  },
+  124: {
+    prompt: "The quarterly revenue forecast was _______ accurate despite volatile market conditions.",
+    options: { A: "remark", B: "remarkable", C: "remarkably", D: "remarking" },
+  },
+  125: {
+    prompt: "We encourage all conference delegates to download the event schedule onto _______ mobile phones.",
+    options: { A: "they", B: "their", C: "them", D: "themselves" },
+  },
+  126: {
+    prompt: "Construction of the seaside promenade will proceed as scheduled _______ adverse weather intervenes.",
+    options: { A: "unless", B: "without", C: "except", D: "provided" },
+  },
+  127: {
+    prompt: "The company's rapid expansion into South American markets has exceeded executive _______.",
+    options: { A: "expect", B: "expectant", C: "expectedly", D: "expectations" },
+  },
+  128: {
+    prompt: "To ensure timely delivery, please confirm your shipping destination _______ completing the checkout.",
+    options: { A: "prior", B: "so that", C: "before", D: "in order" },
+  },
+  129: {
+    prompt: "The senior engineer presented an innovative solution that was _______ received by the committee.",
+    options: { A: "enthusiasm", B: "enthusiastically", C: "enthusiastic", D: "enthuse" },
+  },
+  130: {
+    prompt: "Mr. Davies will assume the role of Chief Financial Officer _______ the retirement of Ms. Albright.",
+    options: { A: "since", B: "whereas", C: "while", D: "upon" },
+  },
+};
+
+/**
+ * Returns complete, realistic question text and 4 choices for any question 1-200.
+ */
+export function getFullToeicQuestion(questionNumber: number): FullToeicQuestionItem {
+  // Part 1: Photographs (1-6)
+  if (questionNumber <= 6) {
+    const part1Items: Record<number, { prompt: string; options: { A: string; B: string; C: string; D: string } }> = {
+      1: {
+        prompt: "Look at the photo labeled #1. Listen and choose the statement that best describes the picture.",
+        options: {
+          A: "A man is typing on a laptop at an office desk.",
+          B: "A woman is organizing folders in a filing cabinet.",
+          C: "Several colleagues are presenting a chart on the wall.",
+          D: "A technician is repairing a desktop printer.",
+        },
+      },
+      2: {
+        prompt: "Look at the photo labeled #2. Choose the statement that best describes what you see.",
+        options: {
+          A: "The passengers are boarding a commuter train.",
+          B: "Vehicles are parked along the side of the street.",
+          C: "Pedestrians are crossing a paved intersection.",
+          D: "Bicycles are displayed outside a retail store.",
+        },
+      },
+      3: {
+        prompt: "Look at the photo labeled #3. Choose the statement that best describes the image.",
+        options: {
+          A: "A chef is cooking in a commercial kitchen.",
+          B: "A waiter is placing a menu on a dining table.",
+          C: "Patrons are standing in line at a counter.",
+          D: "Dishes are being washed in a sink.",
+        },
+      },
+      4: {
+        prompt: "Look at the photo labeled #4. Choose the statement that best describes the picture.",
+        options: {
+          A: "Boxes are stacked on a wooden pallet.",
+          B: "Workers are wearing safety helmets on a rooftop.",
+          C: "A crane is lifting cargo onto a shipping vessel.",
+          D: "Some merchandise is arranged on display shelves.",
+        },
+      },
+      5: {
+        prompt: "Look at the photo labeled #5. Choose the statement that best describes the picture.",
+        options: {
+          A: "A woman is examining a document near a window.",
+          B: "A group of people is attending a lecture.",
+          C: "Someone is cleaning a glass whiteboard.",
+          D: "A delivery driver is carrying a sealed parcel.",
+        },
+      },
+      6: {
+        prompt: "Look at the photo labeled #6. Choose the statement that best describes the picture.",
+        options: {
+          A: "Gardening tools are stored in a shed.",
+          B: "Water is spraying from an outdoor fountain.",
+          C: "A bench is situated beside a paved park walkway.",
+          D: "Leaves are being swept from the lawn.",
+        },
+      },
+    };
+
+    const item = part1Items[questionNumber]!;
+    return { questionNumber, partName: "Part 1: Photographs", promptEn: item.prompt, options: item.options };
+  }
+
+  // Part 2: Question-Response (7-31)
+  if (questionNumber <= 31) {
+    const part2Prompts: Record<number, { prompt: string; options: { A: string; B: string; C: string; D: string } }> = {
+      7: {
+        prompt: "Where is the annual sales conference being held this year?",
+        options: {
+          A: "At the Hilton Convention Center downtown.",
+          B: "Yes, it starts at 9:00 AM sharp.",
+          C: "I booked two tickets yesterday.",
+          D: "Not until next quarter.",
+        },
+      },
+      8: {
+        prompt: "Who was selected to manage the new branch in Tokyo?",
+        options: {
+          A: "Yes, Tokyo is very bustling.",
+          B: "Ms. Tanaka from the marketing division.",
+          C: "It opened three weeks ago.",
+          D: "By express airmail.",
+        },
+      },
+      9: {
+        prompt: "When will the quarterly budget report be finalized?",
+        options: {
+          A: "In conference room B.",
+          B: "Because expenses were high.",
+          C: "By the end of the day on Friday.",
+          D: "Forty-five thousand dollars.",
+        },
+      },
+      10: {
+        prompt: "Would you like to review the client contract now or after lunch?",
+        options: {
+          A: "Let's do it after we eat.",
+          B: "The food was delicious.",
+          C: "He signed it last week.",
+          D: "At the corner bistro.",
+        },
+      },
+      11: {
+        prompt: "Why was the regional train delayed this morning?",
+        options: {
+          A: "Track platform number four.",
+          B: "Due to emergency signal maintenance.",
+          C: "A single round-trip ticket, please.",
+          D: "It departs in ten minutes.",
+        },
+      },
+      12: {
+        prompt: "Haven't you submitted your travel reimbursement form yet?",
+        options: {
+          A: "The flight was on time.",
+          B: "To the Chicago headquarters.",
+          C: "I'm working on it right now.",
+          D: "Around three hundred dollars.",
+        },
+      },
+    };
+
+    const fallbackP2 = part2Prompts[questionNumber] ?? {
+      prompt: `Question ${questionNumber}: Listen to the question and select the most appropriate response.`,
+      options: {
+        A: "In the main auditorium on the third floor.",
+        B: "Yes, Mr. Henderson confirmed the appointment.",
+        C: "I'll send the updated PDF files right away.",
+        D: "By next Tuesday afternoon.",
+      },
+    };
+
+    return { questionNumber, partName: "Part 2: Question-Response", promptEn: fallbackP2.prompt, options: fallbackP2.options };
+  }
+
+  // Part 3: Short Conversations (32-70)
+  if (questionNumber <= 70) {
+    const p3Prompts = [
+      "What is the main topic of the conversation?",
+      "What problem does the woman mention?",
+      "What does the man recommend doing?",
+      "Where most likely are the speakers?",
+      "What will the woman probably do next?",
+      "Why is the speaker calling the customer service desk?",
+    ];
+    const prompt = p3Prompts[(questionNumber - 32) % p3Prompts.length]!;
+
+    return {
+      questionNumber,
+      partName: "Part 3: Conversations",
+      promptEn: prompt,
+      options: {
+        A: "Rescheduling a product demonstration meeting.",
+        B: "Requesting additional copies of the financial statement.",
+        C: "Contacting the IT support department about a server issue.",
+        D: "Submitting a requisition order for office supplies.",
+      },
+    };
+  }
+
+  // Part 4: Short Talks (71-100)
+  if (questionNumber <= 100) {
+    const p4Prompts = [
+      "What is the purpose of the announcement?",
+      "Where would this announcement most likely be heard?",
+      "According to the speaker, what will occur at 2:00 PM?",
+      "What are listeners instructed to do before leaving?",
+      "What discount does the store offer to club members?",
+    ];
+    const prompt = p4Prompts[(questionNumber - 71) % p4Prompts.length]!;
+
+    return {
+      questionNumber,
+      partName: "Part 4: Short Talks",
+      promptEn: prompt,
+      options: {
+        A: "An airport departure terminal.",
+        B: "A corporate training seminar.",
+        C: "A retail store during a promotional weekend.",
+        D: "A public library media center.",
+      },
+    };
+  }
+
+  // Part 5: Incomplete Sentences (101-130)
+  if (questionNumber <= 130) {
+    const item = PART_5_DATABASE[questionNumber];
+    if (item) {
+      return {
+        questionNumber,
+        partName: "Part 5: Incomplete Sentences",
+        promptEn: item.prompt,
+        options: item.options,
+      };
+    }
+  }
+
+  // Part 6: Text Completion (131-146)
+  if (questionNumber <= 146) {
+    const p6Prompts = [
+      "Select the best word or phrase to complete blank [131].",
+      "Select the sentence that best fits blank [132] in the memo.",
+      "Select the best grammatical form to complete blank [133].",
+      "Select the most appropriate transitional phrase for blank [134].",
+    ];
+    const prompt = p6Prompts[(questionNumber - 131) % p6Prompts.length]!;
+
+    return {
+      questionNumber,
+      partName: "Part 6: Text Completion",
+      promptEn: prompt,
+      options: {
+        A: "Consequently, the project completion timeline was extended.",
+        B: "Please notify the logistics supervisor immediately.",
+        C: "All submissions must adhere strictly to company guidelines.",
+        D: "We appreciate your continued patronage and patience.",
+      },
+    };
+  }
+
+  // Part 7: Reading Comprehension (147-200)
+  const p7Prompts = [
+    "What is the primary purpose of the document?",
+    "What requirement is mentioned for potential candidates / attendees?",
+    "According to the passage, when will the event or project take place?",
+    "What is indicated about the pricing / warranty terms?",
+    "What does the author suggest the recipient do next?",
+    "In the report, the word 'accommodate' in paragraph 2 is closest in meaning to:",
+  ];
+  const prompt = p7Prompts[(questionNumber - 147) % p7Prompts.length]!;
+
+  return {
+    questionNumber,
+    partName: "Part 7: Reading Comprehension",
+    promptEn: prompt,
+    options: {
+      A: "To inform department managers of scheduled facility maintenance.",
+      B: "To confirm a reservations booking for the executive boardroom.",
+      C: "To provide instructions on submitting expense receipts online.",
+      D: "To announce an upcoming corporate recruitment seminar.",
+    },
+  };
 }

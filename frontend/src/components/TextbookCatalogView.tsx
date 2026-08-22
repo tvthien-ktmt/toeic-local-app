@@ -147,7 +147,7 @@ export const TextbookCatalogView: React.FC<TextbookCatalogViewProps> = ({ onStar
         <div className="text-center py-16 bg-theme-surface rounded-2xl border border-theme">
           <AlertCircle className="w-12 h-12 text-theme-warning mx-auto mb-3" />
           <h3 className="text-lg font-bold text-theme-primary mb-1">Chưa tìm thấy đề thi cố định nào</h3>
-          <p className="text-xs text-theme-secondary">Vui lòng kiểm tra thư mục d:\TOIEC Web\textbook</p>
+          <p className="text-xs text-theme-secondary">Vui lòng kiểm tra thư mục dữ liệu giáo trình hệ thống (textbook)</p>
         </div>
       )}
 

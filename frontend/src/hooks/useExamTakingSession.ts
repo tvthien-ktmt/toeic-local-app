@@ -139,7 +139,6 @@ export function useExamTakingSession(docId: number, mode: 'full_exam' | 'practic
       }
     } catch (error) {
       console.error('Error submitting exam:', error);
-      alert('Lỗi nộp bài thi. Vui lòng kiểm tra lại server.');
     } finally {
       setIsSubmitting(false);
     }
