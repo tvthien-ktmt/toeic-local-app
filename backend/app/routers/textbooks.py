@@ -1,7 +1,7 @@
 import json
 import re
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, List, Optional, Annotated
 from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel
@@ -247,7 +247,7 @@ def submit_exam(req: ExamSubmitRequest, db: Annotated[Session, Depends(get_db)])
         part5_correct=part5_correct,
         part6_correct=part6_correct,
         part7_correct=part7_correct,
-        completed_at=datetime.utcnow(),
+        completed_at=datetime.now(timezone.utc),
         answers_json=json.dumps(req.answers, ensure_ascii=False)
     )
     db.add(attempt)
@@ -299,16 +299,23 @@ def submit_exam(req: ExamSubmitRequest, db: Annotated[Session, Depends(get_db)])
         "part6_total": 16,
         "part7_correct": part7_correct,
         "part7_total": 54,
-        "completed_at": (attempt.completed_at or datetime.utcnow()).isoformat(),
+        "completed_at": (attempt.completed_at or datetime.now(timezone.utc)).isoformat(),
         "time_analysis": time_analysis,
         "detailed_results": detailed_results
     }
 
 
 @router.get("/history")
-def get_exam_history(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
-    """Returns list of past exam attempts for dashboard analytics."""
-    attempts = db.query(ExamAttempt).order_by(ExamAttempt.completed_at.desc()).all()
+def get_exam_history(
+    db: Annotated[Session, Depends(get_db)],
+    limit: int = Query(50, ge=1, le=200),
+    offset: int = Query(0, ge=0)
+) -> Dict[str, Any]:
+    """Returns paginated list of past exam attempts for dashboard analytics."""
+    total_count = db.query(ExamAttempt).count()
+    attempts = db.query(ExamAttempt).order_by(
+        ExamAttempt.completed_at.desc()
+    ).offset(offset).limit(limit).all()
 
     history = []
     for a in attempts:
@@ -324,11 +331,12 @@ def get_exam_history(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
             "part5_correct": a.part5_correct,
             "part6_correct": a.part6_correct,
             "part7_correct": a.part7_correct,
-            "completed_at": a.completed_at.isoformat()
+            "completed_at": a.completed_at.isoformat() if a.completed_at else ""
         })
 
     return {
         "status": "success",
+        "total_count": total_count,
         "attempts_count": len(history),
         "history": history
     }

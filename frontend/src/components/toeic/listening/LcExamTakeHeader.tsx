@@ -70,7 +70,7 @@ export const LcExamTakeHeader: React.FC<LcExamTakeHeaderProps> = ({
             <div className="flex items-center gap-2 text-[11px] text-theme-secondary mt-0.5">
               <span className="flex items-center gap-1">
                 <Headphones className="w-3.5 h-3.5 text-theme-accent" />
-                <span>100 Câu LC (Part 1-4)</span>
+                <span>{totalQuestions} Câu LC (Part 1-4)</span>
               </span>
               <span>&bull;</span>
               <span>Đã làm: <strong className="text-theme-primary">{answeredCount}/{totalQuestions}</strong></span>

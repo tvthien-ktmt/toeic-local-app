@@ -3,7 +3,7 @@ import sys
 import re
 import logging
 from typing import List, Dict, Any, Optional, Annotated
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, BackgroundTasks, status
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, BackgroundTasks, status, Query
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 from ..db import get_db, SessionLocal
@@ -46,38 +46,32 @@ def process_document_background(doc_id: int, content_bytes: bytes, filename: str
             doc.status = "converted"
             db.commit()
 
-            # Auto-trigger AI extraction
-            logger.info(f"[BACKGROUND TASK] Auto-triggering AI extraction for Document #{doc_id}...")
-            process_document_extraction(db, doc.id)
-
-        db.commit()
-        logger.info(f"[BACKGROUND TASK COMPLETED] Document #{doc_id} is ready with status='{doc.status}'!")
-
+            # Trigger AI extraction in sequence
+            logger.info(f"[BACKGROUND TASK] Starting AI Extraction for Document #{doc_id} ('{filename}')...")
+            try:
+                extraction_result = process_document_extraction(doc_id, markdown_text, doc.doc_type, db)
+                doc.status = "extracted"
+                db.commit()
+                logger.info(f"[BACKGROUND TASK SUCCESS] Document #{doc_id} extracted: {extraction_result}")
+            except Exception as extract_err:
+                logger.error(f"[BACKGROUND TASK ERROR] Extraction failed for Doc #{doc_id}: {extract_err}")
+                doc.status = "extraction_failed"
+                db.commit()
     except Exception as e:
-        logger.error(f"[BACKGROUND TASK ERROR] Document #{doc_id} failed: {e}")
-        doc = db.query(Document).filter(Document.id == doc_id).first()
-        if doc:
-            doc.status = "conversion_failed"
-            doc.markdown_content = f"# Lỗi xử lý nền\n\n*{str(e)}*"
-            db.commit()
+        logger.error(f"[BACKGROUND TASK FATAL] Failed conversion for Doc #{doc_id}: {e}")
+        try:
+            doc = db.query(Document).filter(Document.id == doc_id).first()
+            if doc:
+                doc.status = "conversion_failed"
+                doc.markdown_content = f"# Lỗi xử lý OCR:\n\n{str(e)}"
+                db.commit()
+        except Exception:
+            pass
     finally:
         db.close()
 
 
-@router.post("/{doc_id}/extract")
-def extract_document_questions_and_vocab(doc_id: int, db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
-    """Triggers AI/regex question and vocabulary extraction on an uploaded document."""
-    try:
-        extraction_result = process_document_extraction(db, doc_id)
-        return extraction_result
-    except Exception as e:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Lỗi khi trích xuất dữ liệu từ tài liệu: {str(e)}"
-        )
-
-
-@router.post("/upload", response_model=DocumentResponse, status_code=status.HTTP_201_CREATED)
+@router.post("/upload", response_model=DocumentResponse)
 async def upload_document(
     background_tasks: BackgroundTasks,
     file: UploadFile = File(...),
@@ -164,8 +158,12 @@ async def upload_document(
 
 
 @router.get("", response_model=List[DocumentSummary])
-def list_documents(db: Annotated[Session, Depends(get_db)]) -> List[DocumentSummary]:
-    """Returns a list of all user-uploaded exam and transcript documents without loading heavy markdown bodies."""
+def list_documents(
+    db: Annotated[Session, Depends(get_db)],
+    limit: int = Query(100, ge=1, le=500),
+    offset: int = Query(0, ge=0)
+) -> List[DocumentSummary]:
+    """Returns a list of user-uploaded exam and transcript documents without loading heavy markdown bodies."""
     doc_rows = db.query(
         Document.id,
         Document.filename,
@@ -174,7 +172,7 @@ def list_documents(db: Annotated[Session, Depends(get_db)]) -> List[DocumentSumm
         Document.status,
         Document.uploaded_at,
         func.length(func.coalesce(Document.markdown_content, "")).label("markdown_length")
-    ).order_by(Document.uploaded_at.desc()).all()
+    ).order_by(Document.uploaded_at.desc()).offset(offset).limit(limit).all()
 
     summaries = []
     for doc_id, filename, doc_type, content_hash, doc_status, uploaded_at, md_len in doc_rows:

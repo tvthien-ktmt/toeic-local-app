@@ -73,7 +73,7 @@ export const LcExamMatrixSidebar: React.FC<LcExamMatrixSidebarProps> = ({
         <div className="flex items-center gap-2">
           <LayoutGrid className="w-4 h-4 text-theme-accent shrink-0" />
           <h3 className="font-bold text-xs sm:text-sm text-theme-primary">
-            Ma Trận 100 Câu LC
+            Ma Trận {totalQuestions} Câu LC
           </h3>
         </div>
         <button
