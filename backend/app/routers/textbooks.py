@@ -59,13 +59,22 @@ def get_textbook_catalog(db: Annotated[Session, Depends(get_db)]) -> List[Dict[s
     q_count_rows = db.query(Question.document_id, func.count(Question.id)).group_by(Question.document_id).all()
     q_count_map = {doc_id: cnt for doc_id, cnt in q_count_rows}
 
-    # Get user attempts mapped by document_id
-    attempts = db.query(ExamAttempt).all()
+    # Get user attempts summary mapped by document_id (only query necessary columns to avoid loading heavy JSON blobs)
+    attempt_rows = db.query(
+        ExamAttempt.document_id,
+        ExamAttempt.toeic_score,
+        ExamAttempt.raw_score,
+        ExamAttempt.completed_at
+    ).all()
     attempts_map = {}
-    for att in attempts:
-        if att.document_id not in attempts_map:
-            attempts_map[att.document_id] = []
-        attempts_map[att.document_id].append(att)
+    for doc_id, toeic_score, raw_score, completed_at in attempt_rows:
+        if doc_id not in attempts_map:
+            attempts_map[doc_id] = []
+        attempts_map[doc_id].append({
+            "toeic_score": toeic_score,
+            "raw_score": raw_score,
+            "completed_at": completed_at
+        })
 
     # Group by category -> series
     categories_dict = {}
@@ -81,11 +90,12 @@ def get_textbook_catalog(db: Annotated[Session, Depends(get_db)]) -> List[Dict[s
 
         q_count = q_count_map.get(d.id, 0)
         doc_attempts = attempts_map.get(d.id, [])
-        highest_score = max([a.toeic_score for a in doc_attempts], default=None)
-        highest_raw = max([a.raw_score for a in doc_attempts], default=None)
+        highest_score = max([a["toeic_score"] for a in doc_attempts if a["toeic_score"] is not None], default=None)
+        highest_raw = max([a["raw_score"] for a in doc_attempts if a["raw_score"] is not None], default=None)
         attempt_count = len(doc_attempts)
-        average_score = round(sum([a.toeic_score for a in doc_attempts]) / attempt_count) if attempt_count > 0 else None
-        last_completed = max([a.completed_at.isoformat() for a in doc_attempts], default=None)
+        valid_scores = [a["toeic_score"] for a in doc_attempts if a["toeic_score"] is not None]
+        average_score = round(sum(valid_scores) / len(valid_scores)) if valid_scores else None
+        last_completed = max([a["completed_at"].isoformat() for a in doc_attempts if a["completed_at"] is not None], default=None)
 
         # Calculate standard difficulty & format similarity per Category
         difficulty_map = {
@@ -364,17 +374,28 @@ def get_weakness_report(db: Annotated[Session, Depends(get_db)]) -> Dict[str, An
 
     topic_stats: dict = {}
 
+    # Batch load all questions for relevant documents in a single query
+    # to avoid N+1 (previously: 1 query per attempt × up to 50 attempts)
+    attempt_document_ids = {attempt.document_id for attempt in attempts}
+    questions_by_document: dict = {}
+    if attempt_document_ids:
+        batch_questions = db.query(Question).filter(Question.document_id.in_(attempt_document_ids)).all()
+        for question_record in batch_questions:
+            if question_record.document_id not in questions_by_document:
+                questions_by_document[question_record.document_id] = []
+            questions_by_document[question_record.document_id].append(question_record)
+
     for attempt in attempts:
         try:
             answers = json.loads(attempt.answers_json) if attempt.answers_json else {}
         except Exception:
             continue
 
-        qs = db.query(Question).filter(Question.document_id == attempt.document_id).all()
-        for q in qs:
-            topic = q.grammar_topic or f"Part {q.part}"
-            user_ans = answers.get(str(q.id), "").strip().upper()
-            corr_ans = (q.correct_answer or "").strip().upper()
+        questions_for_doc = questions_by_document.get(attempt.document_id, [])
+        for question_record in questions_for_doc:
+            topic = question_record.grammar_topic or f"Part {question_record.part}"
+            user_ans = answers.get(str(question_record.id), "").strip().upper()
+            corr_ans = (question_record.correct_answer or "").strip().upper()
 
             if topic not in topic_stats:
                 topic_stats[topic] = {"correct": 0, "wrong": 0, "skipped": 0, "total": 0}

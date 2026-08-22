@@ -1,26 +1,41 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 import { Navbar } from './components/Navbar';
 import type { AppNavTab } from './components/Navbar';
-import { TextbookCatalogView } from './components/TextbookCatalogView';
-import { ExamTakePage } from './pages/ExamTakePage';
-import { UploadPage } from './pages/UploadPage';
-import { DocumentDetailPage } from './pages/DocumentDetailPage';
-import { PracticePage } from './pages/PracticePage';
-import { FlashcardPage } from './pages/FlashcardPage';
-import { DashboardPage } from './pages/DashboardPage';
-import RoadmapPage from './pages/RoadmapPage';
-import { ErrorNotebookPage } from './pages/ErrorNotebookPage';
-import { SpeedTrainingPage } from './pages/SpeedTrainingPage';
-import { LcCatalogView } from './components/toeic/listening/LcCatalogView';
-import { LcExamTakePage } from './pages/LcExamTakePage';
-import { LcPracticeHubPage } from './pages/LcPracticeHubPage';
-import { LcDashboardPage } from './pages/LcDashboardPage';
-import { LcErrorNotebookPage } from './pages/LcErrorNotebookPage';
-import { FullToeicExamTakePage } from './pages/FullToeicExamTakePage';
-import { RcKnowledgeHubPage } from './pages/RcKnowledgeHubPage';
-import { QuestionTypePracticePage } from './pages/QuestionTypePracticePage';
-import { FrequentVocabBankPage } from './pages/FrequentVocabBankPage';
 import type { LCExamDocument } from './types/toeicListening';
+
+// Route-based code-splitting: each page becomes a separate JS chunk loaded on demand,
+// reducing initial bundle size from ~1MB to ~100KB (Navbar + active page only).
+const TextbookCatalogView = lazy(() => import('./components/TextbookCatalogView').then(m => ({ default: m.TextbookCatalogView })));
+const ExamTakePage = lazy(() => import('./pages/ExamTakePage').then(m => ({ default: m.ExamTakePage })));
+const UploadPage = lazy(() => import('./pages/UploadPage').then(m => ({ default: m.UploadPage })));
+const DocumentDetailPage = lazy(() => import('./pages/DocumentDetailPage').then(m => ({ default: m.DocumentDetailPage })));
+const PracticePage = lazy(() => import('./pages/PracticePage').then(m => ({ default: m.PracticePage })));
+const FlashcardPage = lazy(() => import('./pages/FlashcardPage').then(m => ({ default: m.FlashcardPage })));
+const DashboardPage = lazy(() => import('./pages/DashboardPage').then(m => ({ default: m.DashboardPage })));
+const RoadmapPage = lazy(() => import('./pages/RoadmapPage'));
+const ErrorNotebookPage = lazy(() => import('./pages/ErrorNotebookPage').then(m => ({ default: m.ErrorNotebookPage })));
+const SpeedTrainingPage = lazy(() => import('./pages/SpeedTrainingPage').then(m => ({ default: m.SpeedTrainingPage })));
+const LcCatalogView = lazy(() => import('./components/toeic/listening/LcCatalogView').then(m => ({ default: m.LcCatalogView })));
+const LcExamTakePage = lazy(() => import('./pages/LcExamTakePage').then(m => ({ default: m.LcExamTakePage })));
+const LcPracticeHubPage = lazy(() => import('./pages/LcPracticeHubPage').then(m => ({ default: m.LcPracticeHubPage })));
+const LcDashboardPage = lazy(() => import('./pages/LcDashboardPage').then(m => ({ default: m.LcDashboardPage })));
+const LcErrorNotebookPage = lazy(() => import('./pages/LcErrorNotebookPage').then(m => ({ default: m.LcErrorNotebookPage })));
+const FullToeicExamTakePage = lazy(() => import('./pages/FullToeicExamTakePage').then(m => ({ default: m.FullToeicExamTakePage })));
+const RcKnowledgeHubPage = lazy(() => import('./pages/RcKnowledgeHubPage').then(m => ({ default: m.RcKnowledgeHubPage })));
+const QuestionTypePracticePage = lazy(() => import('./pages/QuestionTypePracticePage').then(m => ({ default: m.QuestionTypePracticePage })));
+const FrequentVocabBankPage = lazy(() => import('./pages/FrequentVocabBankPage').then(m => ({ default: m.FrequentVocabBankPage })));
+
+/**
+ * Fullscreen loading skeleton shown while lazy-loaded page chunks are being fetched.
+ */
+function PageLoadingSkeleton() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-3 text-theme-secondary animate-pulse">
+      <div className="w-10 h-10 rounded-full border-4 border-theme-accent border-t-transparent animate-spin" />
+      <p className="text-sm font-medium">Đang tải trang...</p>
+    </div>
+  );
+}
 
 /**
  * Root application component orchestrating top-level navigation between LC & RC tracks.
@@ -84,6 +99,7 @@ export function App() {
 
       {/* Main Container */}
       <main className="flex-1 pb-16">
+      <Suspense fallback={<PageLoadingSkeleton />}>
         {/* Full 2-Skill Exam Track */}
         {activeTab === 'full_exam' && (
           <FullToeicExamTakePage
@@ -182,6 +198,7 @@ export function App() {
             <UploadPage onSelectDocument={handleSelectDocument} />
           )
         )}
+      </Suspense>
       </main>
 
       {/* Footer */}

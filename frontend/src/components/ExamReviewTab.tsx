@@ -38,17 +38,19 @@ export const ExamReviewTab: React.FC<ExamReviewTabProps> = ({
       {/* Filter Row */}
       <div className="sticky top-0 z-10 bg-theme-surface border-b border-theme px-6 py-3 flex items-center gap-2 overflow-x-auto">
         <span className="text-xs font-semibold text-theme-secondary shrink-0">Lọc câu:</span>
-        {[
-          { id: 'ALL', label: 'Tất Cả' },
-          { id: 'INCORRECT', label: 'Câu Sai' },
-          { id: 'SKIPPED', label: 'Bỏ Trống' },
-          { id: 'PART5', label: 'Part 5' },
-          { id: 'PART6', label: 'Part 6' },
-          { id: 'PART7', label: 'Part 7' },
-        ].map((filterOption) => (
+        {(
+          [
+            { id: 'ALL', label: 'Tất Cả' },
+            { id: 'INCORRECT', label: 'Câu Sai' },
+            { id: 'SKIPPED', label: 'Bỏ Trống' },
+            { id: 'PART5', label: 'Part 5' },
+            { id: 'PART6', label: 'Part 6' },
+            { id: 'PART7', label: 'Part 7' },
+          ] as const
+        ).map((filterOption) => (
           <button
             key={filterOption.id}
-            onClick={() => onSetFilterPart(filterOption.id as any)}
+            onClick={() => onSetFilterPart(filterOption.id)}
             className={`px-3 py-1 rounded-lg text-xs font-semibold transition-colors shrink-0 ${
               filterPart === filterOption.id
                 ? 'bg-theme-accent text-white'

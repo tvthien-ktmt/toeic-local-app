@@ -21,7 +21,7 @@ export const FlashcardTypingView: React.FC<FlashcardTypingViewProps> = ({
 }) => {
   const [typingInput, setTypingInput] = useState('');
   const [typingStatus, setTypingStatus] = useState<'idle' | 'correct' | 'incorrect'>('idle');
-  const typingTimerRef = useRef<any>(null);
+  const typingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     return () => {

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Sparkles, AlertTriangle, RotateCcw, X, Brain, ListChecks, BookOpen, Lightbulb, Languages } from 'lucide-react';
-import type { DetailedQuestionResult } from '../types/examResults';
+import type { DetailedQuestionResult, AiExplanationResult } from '../types/examResults';
 
 interface ExamAiModalProps {
   selectedAiQuestion: DetailedQuestionResult | null;
   isAiLoading: boolean;
-  aiExplanationData: any | null;
+  aiExplanationData: AiExplanationResult | null;
   aiErrorMsg: string | null;
   onClose: () => void;
   onRetry: (questionItem: DetailedQuestionResult) => void;

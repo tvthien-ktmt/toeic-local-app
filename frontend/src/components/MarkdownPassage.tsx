@@ -141,35 +141,44 @@ export const MarkdownPassage: React.FC<MarkdownPassageProps> = ({ text, classNam
   );
 };
 
+interface MarkdownChildrenProps {
+  children?: React.ReactNode;
+}
+
+interface MarkdownInputProps {
+  type?: string;
+  checked?: boolean;
+}
+
 const customMarkdownComponents = {
   // Styled Tables for Part 6 / 7 forms, receipts, schedules
-  table: ({ children }: any) => (
+  table: ({ children }: MarkdownChildrenProps) => (
     <div className="overflow-x-auto my-3 rounded-xl border border-theme shadow-sm bg-theme-surface/60">
       <table className="min-w-full divide-y divide-theme text-xs">{children}</table>
     </div>
   ),
-  thead: ({ children }: any) => (
+  thead: ({ children }: MarkdownChildrenProps) => (
     <thead className="bg-theme-surface-2 text-theme-primary font-bold">{children}</thead>
   ),
-  tbody: ({ children }: any) => (
+  tbody: ({ children }: MarkdownChildrenProps) => (
     <tbody className="divide-y divide-theme/40 bg-theme-surface/50">{children}</tbody>
   ),
-  tr: ({ children }: any) => (
+  tr: ({ children }: MarkdownChildrenProps) => (
     <tr className="hover:bg-theme-surface-2/60 transition-colors">{children}</tr>
   ),
-  th: ({ children }: any) => (
+  th: ({ children }: MarkdownChildrenProps) => (
     <th className="px-3 py-2 text-left font-bold text-theme-primary uppercase text-[11px] tracking-wider border-b border-theme">
       {children}
     </th>
   ),
-  td: ({ children }: any) => (
+  td: ({ children }: MarkdownChildrenProps) => (
     <td className="px-3 py-2 text-theme-primary text-xs font-medium border-b border-theme/30">
       {children}
     </td>
   ),
 
   // Custom GFM Task List Checkboxes ([x] / [ ])
-  input: ({ type, checked }: any) => {
+  input: ({ type, checked }: MarkdownInputProps) => {
     if (type === 'checkbox') {
       return (
         <span className="inline-flex items-center align-middle mr-1.5 -mt-0.5">
@@ -190,7 +199,7 @@ const customMarkdownComponents = {
   },
 
   // Paragraphs & Inline Insertion Marker Highlighting ([1], [2], [3], [4], [131])
-  p: ({ children }: any) => {
+  p: ({ children }: MarkdownChildrenProps) => {
     return (
       <p className="mb-2 leading-relaxed text-xs sm:text-sm text-theme-primary">
         {React.Children.map(children, (child) => {
@@ -225,24 +234,24 @@ const customMarkdownComponents = {
   },
 
   // Lists
-  ul: ({ children }: any) => <ul className="list-disc list-inside space-y-1 my-2 pl-2 text-xs sm:text-sm text-theme-primary">{children}</ul>,
-  ol: ({ children }: any) => <ol className="list-decimal list-inside space-y-1 my-2 pl-2 text-xs sm:text-sm text-theme-primary">{children}</ol>,
-  li: ({ children }: any) => <li className="text-theme-primary leading-relaxed">{children}</li>,
+  ul: ({ children }: MarkdownChildrenProps) => <ul className="list-disc list-inside space-y-1 my-2 pl-2 text-xs sm:text-sm text-theme-primary">{children}</ul>,
+  ol: ({ children }: MarkdownChildrenProps) => <ol className="list-decimal list-inside space-y-1 my-2 pl-2 text-xs sm:text-sm text-theme-primary">{children}</ol>,
+  li: ({ children }: MarkdownChildrenProps) => <li className="text-theme-primary leading-relaxed">{children}</li>,
 
   // Headers
-  h1: ({ children }: any) => <h1 className="text-sm sm:text-base font-extrabold text-theme-primary mt-3 mb-1.5 border-b border-theme pb-1">{children}</h1>,
-  h2: ({ children }: any) => <h2 className="text-xs sm:text-sm font-bold text-theme-primary mt-2.5 mb-1 text-theme-accent">{children}</h2>,
-  h3: ({ children }: any) => <h3 className="text-xs font-bold text-theme-primary mt-2 mb-1">{children}</h3>,
+  h1: ({ children }: MarkdownChildrenProps) => <h1 className="text-sm sm:text-base font-extrabold text-theme-primary mt-3 mb-1.5 border-b border-theme pb-1">{children}</h1>,
+  h2: ({ children }: MarkdownChildrenProps) => <h2 className="text-xs sm:text-sm font-bold text-theme-primary mt-2.5 mb-1 text-theme-accent">{children}</h2>,
+  h3: ({ children }: MarkdownChildrenProps) => <h3 className="text-xs font-bold text-theme-primary mt-2 mb-1">{children}</h3>,
 
   // Blockquotes (Email & Memo cards)
-  blockquote: ({ children }: any) => (
+  blockquote: ({ children }: MarkdownChildrenProps) => (
     <blockquote className="my-2.5 p-3 rounded-xl bg-theme-surface border-l-4 border-l-theme-accent border border-theme text-xs text-theme-primary space-y-1 shadow-sm">
       {children}
     </blockquote>
   ),
 
   // Code blocks & Horizontal Dividers
-  code: ({ children }: any) => (
+  code: ({ children }: MarkdownChildrenProps) => (
     <code className="px-1.5 py-0.5 rounded bg-theme-surface-2 border border-theme font-mono text-xs text-theme-accent">
       {children}
     </code>

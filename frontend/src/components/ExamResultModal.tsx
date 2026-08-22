@@ -5,7 +5,7 @@ import { ExamWeaknessTab } from './ExamWeaknessTab';
 import { ExamReviewTab } from './ExamReviewTab';
 import { ExamHistoryTab } from './ExamHistoryTab';
 import { ExamAiModal } from './ExamAiModal';
-import type { ExamResultData, DetailedQuestionResult } from '../types/examResults';
+import type { ExamResultData, DetailedQuestionResult, AiExplanationResult } from '../types/examResults';
 
 interface ExamResultModalProps {
   result: ExamResultData;
@@ -28,7 +28,7 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({
   // AI Modal
   const [selectedAiQuestion, setSelectedAiQuestion] = useState<DetailedQuestionResult | null>(null);
   const [isAiLoading, setIsAiLoading] = useState<boolean>(false);
-  const [aiExplanationData, setAiExplanationData] = useState<any | null>(null);
+  const [aiExplanationData, setAiExplanationData] = useState<AiExplanationResult | null>(null);
   const [aiErrorMsg, setAiErrorMsg] = useState<string | null>(null);
 
   const fetchAiExplanation = async (questionItem: DetailedQuestionResult) => {
@@ -175,15 +175,17 @@ export const ExamResultModal: React.FC<ExamResultModalProps> = ({
 
         {/* Tab switcher */}
         <div className="flex items-center gap-1 px-5 py-2 bg-theme-surface border-b border-theme shrink-0 overflow-x-auto">
-          {[
-            { id: 'score', label: 'Điểm Số' },
-            { id: 'weakness', label: `Tổng Ôn Lỗi Sai ${weaknessGroups.length > 0 ? `(${weaknessGroups.length} chủ điểm)` : ''}` },
-            { id: 'review', label: 'Xem Lại 100 Câu' },
-            { id: 'history', label: 'Lịch Sử Thi' },
-          ].map((tab) => (
+          {(
+            [
+              { id: 'score', label: 'Điểm Số' },
+              { id: 'weakness', label: `Tổng Ôn Lỗi Sai ${weaknessGroups.length > 0 ? `(${weaknessGroups.length} chủ điểm)` : ''}` },
+              { id: 'review', label: 'Xem Lại 100 Câu' },
+              { id: 'history', label: 'Lịch Sử Thi' },
+            ] as const
+          ).map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id as any)}
+              onClick={() => setActiveTab(tab.id)}
               className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap border cursor-pointer ${
                 activeTab === tab.id
                   ? 'bg-theme-accent text-white border-theme-accent shadow-sm'

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BookOpen, CheckCircle2 } from 'lucide-react';
 
-interface DailyLesson {
+export interface DailyLesson {
   topic_id: number;
   canonical_name: string;
   category: string;
@@ -9,7 +9,7 @@ interface DailyLesson {
   has_lesson_generated: boolean;
 }
 
-interface DailyPlanData {
+export interface DailyPlanData {
   today_lessons: DailyLesson[];
 }
 

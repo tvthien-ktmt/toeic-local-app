@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowLeft, Clock, Send, Trophy, Flag } from 'lucide-react';
+import type { ExamResultData } from '../types/examResults';
 
 interface ExamDocument {
   id: number;
@@ -20,7 +21,7 @@ interface ExamTakeHeaderProps {
   flaggedCount: number;
   timeLeft: number;
   isSubmitting: boolean;
-  examResult: any | null;
+  examResult: ExamResultData | null;
   onBack: () => void;
   onSubmitExam: () => void;
   onShowResultModal: () => void;

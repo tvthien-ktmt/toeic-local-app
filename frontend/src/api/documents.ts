@@ -67,8 +67,8 @@ export interface TodayPlanStep {
   title: string;
   description: string;
   target_time: string;
-  action_tab: string;
-  badge: string;
+  action_tab: 'textbooks' | 'upload' | 'practice' | 'flashcards' | 'dashboard' | 'roadmap' | 'errors' | 'speed';
+  badge?: string;
 }
 
 export interface DashboardSummaryData {

@@ -11,22 +11,9 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from ..db import get_db
+from ..constants.scoring import TOEIC_LC_SCORE_TABLE
 
 router = APIRouter(prefix="/api/listening", tags=["TOEIC Listening Comprehension (LC)"])
-
-# ETS Scaled Score Conversion Table for LC (0-100 raw -> 5-495 scaled)
-TOEIC_LC_SCORE_TABLE = {
-    100: 495, 99: 495, 98: 495, 97: 495, 96: 490, 95: 485, 94: 480, 93: 475, 92: 470, 91: 465,
-    90: 460, 89: 455, 88: 450, 87: 445, 86: 440, 85: 435, 84: 430, 83: 425, 82: 420, 81: 415,
-    80: 410, 79: 405, 78: 400, 77: 395, 76: 390, 75: 385, 74: 380, 73: 375, 72: 370, 71: 365,
-    70: 360, 69: 355, 68: 350, 67: 345, 66: 340, 65: 335, 64: 330, 63: 325, 62: 320, 61: 315,
-    60: 310, 59: 305, 58: 300, 57: 295, 56: 290, 55: 285, 54: 280, 53: 275, 52: 270, 51: 265,
-    50: 260, 49: 255, 48: 250, 47: 245, 46: 240, 45: 235, 44: 230, 43: 225, 42: 220, 41: 215,
-    40: 210, 39: 205, 38: 200, 37: 195, 36: 190, 35: 185, 34: 180, 33: 175, 32: 170, 31: 165,
-    30: 160, 29: 155, 28: 150, 27: 145, 26: 140, 25: 135, 24: 130, 23: 125, 22: 120, 21: 115,
-    20: 110, 19: 105, 18: 100, 17: 95, 16: 90, 15: 85, 14: 80, 13: 75, 12: 70, 11: 65,
-    10: 60, 9: 55, 8: 50, 7: 45, 6: 40, 5: 35, 4: 30, 3: 25, 2: 20, 1: 10, 0: 5
-}
 
 
 def _create_series_tests(series_name: str, category: str, start_id: int, count: int = 10) -> List[Dict[str, Any]]:
@@ -52,6 +39,7 @@ class LcSubmitRequest(BaseModel):
     mode: str = "full_exam"  # full_exam / practice
     time_spent_seconds: int = 0
     answers: Dict[str, str]  # { "1": "A", "2": "B", ... }
+    answer_key: Optional[Dict[str, str]] = None  # { "1": "C", "2": "A", ... } — correct answers for grading
 
 
 @router.get("/catalog")
@@ -115,20 +103,37 @@ def submit_listening_exam(
     payload: LcSubmitRequest,
     db: Annotated[Session, Depends(get_db)]
 ) -> Dict[str, Any]:
-    """Calculates scaled score (5 to 495) and diagnostic breakdown for submitted LC answers."""
-    total_q = 100
-    user_answers = payload.answers
-    raw_correct = 0
+    """Calculates scaled score (5 to 495) and diagnostic breakdown for submitted LC answers.
 
-    # Calculate score
-    scaled_score = TOEIC_LC_SCORE_TABLE.get(raw_correct, 5)
+    Compares each user answer against the correct answer key sent in the payload.
+    LC exam scoring currently runs client-side (via lcScoreCalculator.ts), but this
+    endpoint exists for future backend persistence and cross-validation.
+    """
+    user_answers = payload.answers
+    answer_key = getattr(payload, 'answer_key', {}) or {}
+    total_questions = max(1, len(answer_key)) if answer_key else 100
+
+    # Compare each user answer against the provided answer key
+    raw_correct = 0
+    for question_number_str, correct_option in answer_key.items():
+        user_option = user_answers.get(question_number_str, "")
+        if user_option.strip().upper() == correct_option.strip().upper():
+            raw_correct += 1
+
+    # When no answer key is provided, count is zero — this matches
+    # the pre-fix behavior and signals that scoring was not performed server-side
+    scaled_score = TOEIC_LC_SCORE_TABLE.get(
+        min(100, raw_correct) if total_questions == 100
+        else min(100, round((raw_correct / total_questions) * 100)),
+        5
+    )
 
     return {
         "test_id": payload.test_id,
         "mode": payload.mode,
         "scaled_score": scaled_score,
         "raw_correct": raw_correct,
-        "total_questions": total_q,
-        "accuracy_percentage": round((raw_correct / total_q) * 100, 1) if total_q > 0 else 0,
+        "total_questions": total_questions,
+        "accuracy_percentage": round((raw_correct / total_questions) * 100, 1) if total_questions > 0 else 0,
         "time_spent_seconds": payload.time_spent_seconds,
     }

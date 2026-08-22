@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import type { QuestionItem } from '../utils/examGrouping';
 import type { NormalizedParts } from '../types/toeicContent';
+import type { ExamResultData, AiExplanationResult } from '../types/examResults';
 
 export interface ExamDocument {
   id: number;
@@ -10,6 +11,30 @@ export interface ExamDocument {
   test_number: number;
   markdown_content: string;
   is_builtin: boolean;
+}
+
+export interface ExamSessionState {
+  examData: NormalizedParts | null;
+  questions: QuestionItem[];
+  isLoading: boolean;
+  userAnswers: Record<number, string>;
+  flaggedQuestions: Record<number, boolean>;
+  revealedExplanations: Record<number, boolean>;
+  timeLeft: number;
+  isSubmitting: boolean;
+  examResult: ExamResultData | null;
+  isShowConfirmDialog: boolean;
+  isShowResumeDialog: boolean;
+  pendingDraft: {
+    answers: Record<number, string>;
+    flags: Record<number, boolean>;
+    timeLeft: number;
+  } | null;
+  selectedAiQuestion: QuestionItem | null;
+  isAiLoading: boolean;
+  aiExplanationData: AiExplanationResult | null;
+  aiErrorMsg: string | null;
+  isShowResultModal: boolean;
 }
 
 /**
@@ -28,7 +53,7 @@ export function useExamTakingSession(docId: number, mode: 'full_exam' | 'practic
 
   const [timeLeft, setTimeLeft] = useState<number>(mode === 'full_exam' ? 4500 : 0);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [examResult, setExamResult] = useState<any | null>(null);
+  const [examResult, setExamResult] = useState<ExamResultData | null>(null);
 
   const [isShowConfirmDialog, setIsShowConfirmDialog] = useState<boolean>(false);
   const [isShowResumeDialog, setIsShowResumeDialog] = useState<boolean>(false);
@@ -40,7 +65,7 @@ export function useExamTakingSession(docId: number, mode: 'full_exam' | 'practic
 
   const [selectedAiQuestion, setSelectedAiQuestion] = useState<QuestionItem | null>(null);
   const [isAiLoading, setIsAiLoading] = useState<boolean>(false);
-  const [aiExplanationData, setAiExplanationData] = useState<any | null>(null);
+  const [aiExplanationData, setAiExplanationData] = useState<AiExplanationResult | null>(null);
   const [aiErrorMsg, setAiErrorMsg] = useState<string | null>(null);
   const [isShowResultModal, setIsShowResultModal] = useState<boolean>(false);
 
@@ -83,7 +108,7 @@ export function useExamTakingSession(docId: number, mode: 'full_exam' | 'practic
     fetchExamData();
   }, [docId]);
 
-  const handleConfirmSubmit = async () => {
+  const handleConfirmSubmit = useCallback(async () => {
     setIsShowConfirmDialog(false);
     if (isSubmitting) {
       return;
@@ -118,7 +143,14 @@ export function useExamTakingSession(docId: number, mode: 'full_exam' | 'practic
     } finally {
       setIsSubmitting(false);
     }
-  };
+  }, [userAnswers, timeLeft, isSubmitting, mode, docId, draftKey]);
+
+  // Stable ref ensures the timer interval always calls the latest handleConfirmSubmit,
+  // avoiding stale closures that would lose user answers on auto-submit at time expiry.
+  const confirmSubmitRef = useRef(handleConfirmSubmit);
+  useEffect(() => {
+    confirmSubmitRef.current = handleConfirmSubmit;
+  }, [handleConfirmSubmit]);
 
   useEffect(() => {
     if (mode !== 'full_exam' || examResult || isLoading) {
@@ -129,7 +161,7 @@ export function useExamTakingSession(docId: number, mode: 'full_exam' | 'practic
       setTimeLeft((previousTimeLeft) => {
         if (previousTimeLeft <= 1) {
           clearInterval(timer);
-          handleConfirmSubmit();
+          confirmSubmitRef.current();
 
           return 0;
         }
@@ -141,6 +173,8 @@ export function useExamTakingSession(docId: number, mode: 'full_exam' | 'practic
     return () => clearInterval(timer);
   }, [mode, examResult, isLoading]);
 
+  // Save draft answers and flags when they change — excludes timeLeft to avoid
+  // writing localStorage every second (timer ticks). TimeLeft is saved separately below.
   useEffect(() => {
     if (isLoading || examResult || questions.length === 0) {
       return;
@@ -152,7 +186,29 @@ export function useExamTakingSession(docId: number, mode: 'full_exam' | 'practic
       timeLeft,
     };
     localStorage.setItem(draftKey, JSON.stringify(draft));
-  }, [userAnswers, flaggedQuestions, timeLeft, isLoading, examResult, questions.length]);
+  }, [userAnswers, flaggedQuestions, isLoading, examResult, questions.length]);
+
+  // Debounced save of timeLeft — persists every 30 seconds instead of every second
+  useEffect(() => {
+    if (isLoading || examResult || mode !== 'full_exam') {
+      return;
+    }
+
+    const debouncedTimeSave = setTimeout(() => {
+      const existingDraft = localStorage.getItem(draftKey);
+      if (existingDraft) {
+        try {
+          const parsed = JSON.parse(existingDraft);
+          parsed.timeLeft = timeLeft;
+          localStorage.setItem(draftKey, JSON.stringify(parsed));
+        } catch {
+          // Draft parse failed — will be recreated on next answer change
+        }
+      }
+    }, 30_000);
+
+    return () => clearTimeout(debouncedTimeSave);
+  }, [timeLeft, isLoading, examResult, mode, draftKey]);
 
   const handleResumeDraft = () => {
     if (pendingDraft) {

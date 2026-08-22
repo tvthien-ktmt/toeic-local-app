@@ -276,20 +276,25 @@ def list_curriculum_topics(
         query = query.filter(CurriculumTopic.level == level)
 
     topics = query.all()
+
+    # Batch load mastery and lesson existence to avoid N+1 (2 queries per topic → 2 total)
+    mastery_by_topic = {m.curriculum_topic_id: m for m in db.query(UserMastery).all()}
+    lesson_topic_ids = {row.curriculum_topic_id for row in db.query(Lesson.curriculum_topic_id).all()}
+
     result = []
-    for t in topics:
-        mastery = db.query(UserMastery).filter(UserMastery.curriculum_topic_id == t.id).first()
-        has_lesson = db.query(Lesson).filter(Lesson.curriculum_topic_id == t.id).count() > 0
+    for topic in topics:
+        mastery = mastery_by_topic.get(topic.id)
+        has_lesson = topic.id in lesson_topic_ids
         result.append({
-            "id": t.id,
-            "canonical_name": t.canonical_name,
-            "category": t.category,
-            "level": t.level,
-            "parts": json.loads(t.parts_json or "[]"),
-            "source_count": t.source_count,
-            "prerequisite_topic_id": t.prerequisite_topic_id,
-            "question_count": t.question_count,
-            "has_specific_db_topic": t.has_specific_db_topic,
+            "id": topic.id,
+            "canonical_name": topic.canonical_name,
+            "category": topic.category,
+            "level": topic.level,
+            "parts": json.loads(topic.parts_json or "[]"),
+            "source_count": topic.source_count,
+            "prerequisite_topic_id": topic.prerequisite_topic_id,
+            "question_count": topic.question_count,
+            "has_specific_db_topic": topic.has_specific_db_topic,
             "has_lesson": has_lesson,
             "mastery": {
                 "status": mastery.status if mastery else "unknown",
@@ -354,24 +359,28 @@ def get_roadmap(db: Annotated[Session, Depends(get_db)]) -> Dict[str, Any]:
         mastery_map[m.curriculum_topic_id] = m
 
     roadmap = []
-    for t in ordered:
-        m = mastery_map.get(t.id)
-        status = m.status if m else "unknown"
-        has_lesson = db.query(Lesson).filter(Lesson.curriculum_topic_id == t.id).count() > 0
+
+    # Batch load lesson existence — avoids 1 query per topic in the loop below
+    lesson_topic_ids = {row.curriculum_topic_id for row in db.query(Lesson.curriculum_topic_id).all()}
+
+    for topic in ordered:
+        mastery_record = mastery_map.get(topic.id)
+        status = mastery_record.status if mastery_record else "unknown"
+        has_lesson = topic.id in lesson_topic_ids
 
         # Priority order for sorting: unknown (0) > weak (1) > ok (2)
         priority = {"unknown": 0, "weak": 1, "ok": 2}.get(status, 0)
 
         roadmap.append({
-            "id": t.id,
-            "canonical_name": t.canonical_name,
-            "category": t.category,
-            "level": t.level,
-            "parts": json.loads(t.parts_json or "[]"),
-            "prerequisite_topic_id": t.prerequisite_topic_id,
+            "id": topic.id,
+            "canonical_name": topic.canonical_name,
+            "category": topic.category,
+            "level": topic.level,
+            "parts": json.loads(topic.parts_json or "[]"),
+            "prerequisite_topic_id": topic.prerequisite_topic_id,
             "status": status,
-            "mastery_pct": m.mastery_pct if m else 0.0,
-            "question_count": t.question_count,
+            "mastery_pct": mastery_record.mastery_pct if mastery_record else 0.0,
+            "question_count": topic.question_count,
             "has_lesson": has_lesson,
             "priority": priority,
         })
@@ -646,23 +655,26 @@ def get_daily_plan(
 
     mastery_map_db = {m.curriculum_topic_id: m for m in db.query(UserMastery).all()}
 
+    # Batch load lesson existence — avoids 1 query per topic
+    lesson_topic_ids = {row.curriculum_topic_id for row in db.query(Lesson.curriculum_topic_id).all()}
+
     today_lessons = []
-    for t in ordered:
+    for topic in ordered:
         if len(today_lessons) >= max_lessons:
             break
-        m = mastery_map_db.get(t.id)
-        status = m.status if m else "unknown"
+        mastery_record = mastery_map_db.get(topic.id)
+        status = mastery_record.status if mastery_record else "unknown"
         if status in ("unknown", "weak"):
-            has_lesson = db.query(Lesson).filter(Lesson.curriculum_topic_id == t.id).count() > 0
+            has_lesson = topic.id in lesson_topic_ids
             today_lessons.append({
-                "topic_id": t.id,
-                "canonical_name": t.canonical_name,
-                "category": t.category,
-                "level": t.level,
+                "topic_id": topic.id,
+                "canonical_name": topic.canonical_name,
+                "category": topic.category,
+                "level": topic.level,
                 "status": status,
-                "mastery_pct": m.mastery_pct if m else 0.0,
+                "mastery_pct": mastery_record.mastery_pct if mastery_record else 0.0,
                 "has_lesson_generated": has_lesson,
-                "parts": json.loads(t.parts_json or "[]"),
+                "parts": json.loads(topic.parts_json or "[]"),
             })
 
     quick_questions = []

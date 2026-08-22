@@ -1,6 +1,7 @@
 import React from 'react';
 import { Flag, HelpCircle } from 'lucide-react';
 import type { QuestionItem } from '../utils/examGrouping';
+import type { ExamResultData } from '../types/examResults';
 
 interface ExamMatrixSidebarProps {
   questions: QuestionItem[];
@@ -11,7 +12,7 @@ interface ExamMatrixSidebarProps {
   matrixFilter: 'ALL' | 'PART5' | 'PART6' | 'PART7' | 'FLAGGED' | 'UNANSWERED';
   userAnswers: Record<number, string>;
   flaggedQuestions: Record<number, boolean>;
-  examResult: any | null;
+  examResult: ExamResultData | null;
   onSetMatrixFilter: (filter: 'ALL' | 'PART5' | 'PART6' | 'PART7' | 'FLAGGED' | 'UNANSWERED') => void;
   onScrollToQuestion: (questionId: number) => void;
 }

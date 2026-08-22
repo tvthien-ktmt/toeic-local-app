@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, AlertTriangle, RefreshCw, X, Brain, ListChecks, BookOpen, Lightbulb, Languages, Zap } from 'lucide-react';
+import type { AiExplanationResult } from '../types/examResults';
 
 interface QuestionItem {
   id: number;
@@ -18,7 +19,7 @@ interface QuestionItem {
 interface ExamTakeAiModalProps {
   selectedAiQuestion: QuestionItem | null;
   isAiLoading: boolean;
-  aiExplanationData: any | null;
+  aiExplanationData: AiExplanationResult | null;
   aiErrorMsg: string | null;
   onClose: () => void;
   onRetry: (questionItem: QuestionItem) => void;

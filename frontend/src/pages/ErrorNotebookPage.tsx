@@ -198,7 +198,7 @@ export const ErrorNotebookPage: React.FC = () => {
           <span className="text-xs font-semibold text-theme-secondary">Trạng thái:</span>
           <select
             value={statusFilter}
-            onChange={(event) => setStatusFilter(event.target.value as any)}
+            onChange={(event) => setStatusFilter(event.target.value as 'all' | 'needs_review' | 'mastered')}
             className="px-3 py-1.5 rounded-xl bg-theme-surface-2 border border-theme text-xs font-semibold text-theme-primary focus:outline-none focus:border-theme-accent"
           >
             <option value="all">Tất Cả</option>

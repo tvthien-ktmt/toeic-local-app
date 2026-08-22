@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PlacementTest } from '../components/PlacementTest';
 import { LessonModal } from '../components/LessonModal';
-import { RoadmapDailyPlanTab } from '../components/RoadmapDailyPlanTab';
+import { RoadmapDailyPlanTab, type DailyPlanData } from '../components/RoadmapDailyPlanTab';
 import { RoadmapTopicCard } from '../components/RoadmapTopicCard';
 
 interface MasteryInfo {
@@ -55,7 +55,7 @@ export const RoadmapPage: React.FC = () => {
   const [filterLevel, setFilterLevel] = useState<string>('all');
   const [filterCategory, setFilterCategory] = useState<string>('all');
   const [filterStatus, setFilterStatus] = useState<string>('all');
-  const [dailyPlan, setDailyPlan] = useState<any>(null);
+  const [dailyPlan, setDailyPlan] = useState<DailyPlanData | null>(null);
   const [dailyMinutes, setDailyMinutes] = useState(40);
 
   const fetchRoadmap = () => {

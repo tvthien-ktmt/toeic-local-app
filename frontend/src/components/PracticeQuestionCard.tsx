@@ -19,7 +19,7 @@ interface PracticeQuestionCardProps {
 /**
  * Practice question component rendering question prompt, choices A-D, grammar tags, Guided Mode strategy, and AI similar question generator.
  */
-export const PracticeQuestionCard: React.FC<PracticeQuestionCardProps> = ({
+const PracticeQuestionCardComponent: React.FC<PracticeQuestionCardProps> = ({
   questionItem,
   index,
   userChoice,
@@ -254,3 +254,5 @@ export const PracticeQuestionCard: React.FC<PracticeQuestionCardProps> = ({
     </div>
   );
 };
+
+export const PracticeQuestionCard = React.memo(PracticeQuestionCardComponent);

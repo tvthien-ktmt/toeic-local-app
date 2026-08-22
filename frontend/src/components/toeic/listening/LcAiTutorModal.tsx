@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { X, Bot, AlertTriangle, ArrowRightLeft, Send } from 'lucide-react';
 import { getLcTrapLabelVi } from '../../../utils/lcScoreCalculator';
+import type { LCTrapType } from '../../../types/toeicListening';
 
 interface LcAiTutorModalProps {
   questionNumber: number;
   part: 1 | 2 | 3 | 4;
   questionStem: string;
   transcriptExcerpt?: string;
-  trapType?: string;
+  trapType?: LCTrapType;
   paraphraseText?: string;
   isOpen: boolean;
   onClose: () => void;
@@ -34,7 +35,7 @@ export const LcAiTutorModal: React.FC<LcAiTutorModalProps> = ({
     return null;
   }
 
-  const trapInfo = trapType ? getLcTrapLabelVi(trapType as any) : null;
+  const trapInfo = trapType ? getLcTrapLabelVi(trapType) : null;
 
   const handleSendPrompt = (prompt: string) => {
     if (!prompt.trim()) {

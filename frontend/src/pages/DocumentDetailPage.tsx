@@ -91,14 +91,15 @@ export const DocumentDetailPage: React.FC<DocumentDetailPageProps> = ({ docId, o
       await triggerExtraction(doc.id);
       await loadDetail();
       setActiveTab('questions');
-    } catch (error: any) {
-      setErrorMsg(error.response?.data?.detail || 'Có lỗi xảy ra trong quá trình trích xuất AI.');
+    } catch (error) {
+      const maybeAxios = error as { response?: { data?: { detail?: string } } };
+      setErrorMsg(maybeAxios.response?.data?.detail || 'Có lỗi xảy ra trong quá trình trích xuất AI.');
     } finally {
       setIsExtracting(false);
     }
   };
 
-  const copyTimerRef = useRef<any>(null);
+  const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     return () => {

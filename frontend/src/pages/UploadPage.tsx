@@ -26,7 +26,7 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
     try {
       const data = await fetchDocuments();
       setDocuments(data);
-    } catch (err: any) {
+    } catch {
       setErrorMsg('Không thể tải danh sách tài liệu từ server backend.');
     } finally {
       if (showLoading) setIsLoadingList(false);
@@ -68,9 +68,10 @@ export const UploadPage: React.FC<UploadPageProps> = ({ onSelectDocument }) => {
         setSuccessMsg(`Tải lên & chuyển đổi thành công! Trích xuất ${result.markdown_content?.length.toLocaleString() || 0} ký tự Markdown.`);
       }
       await loadDocs(false);
-    } catch (error: any) {
+    } catch (error) {
       console.error(error);
-      setErrorMsg(error.response?.data?.detail || 'Có lỗi xảy ra khi tải lên hoặc chuyển đổi file PDF.');
+      const maybeAxios = error as { response?: { data?: { detail?: string } } };
+      setErrorMsg(maybeAxios.response?.data?.detail || 'Có lỗi xảy ra khi tải lên hoặc chuyển đổi file PDF.');
     } finally {
       setIsUploading(false);
     }

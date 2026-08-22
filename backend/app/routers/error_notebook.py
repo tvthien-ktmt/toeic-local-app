@@ -59,8 +59,20 @@ def get_error_notebook(
             }
         mistakes_map[question_id]["wrong_count"] += wrong_count
 
-    # 2. Collect wrong questions from ExamAttempt
+    # 2. Collect wrong questions from ExamAttempt — batch load all questions
+    # to avoid N+1 (previously: 1 query per attempt × N attempts)
     exam_attempts = db.query(ExamAttempt).all()
+
+    # Batch load all relevant questions in a single query grouped by document_id
+    exam_document_ids = {attempt.document_id for attempt in exam_attempts if attempt.answers_json}
+    all_exam_questions: dict = {}
+    if exam_document_ids:
+        batch_questions = db.query(Question).filter(Question.document_id.in_(exam_document_ids)).all()
+        for question_record in batch_questions:
+            if question_record.document_id not in all_exam_questions:
+                all_exam_questions[question_record.document_id] = []
+            all_exam_questions[question_record.document_id].append(question_record)
+
     for attempt in exam_attempts:
         if not attempt.answers_json:
             continue
@@ -69,8 +81,8 @@ def get_error_notebook(
         except Exception:
             continue
 
-        exam_questions = db.query(Question).filter(Question.document_id == attempt.document_id).all()
-        for q_item in exam_questions:
+        questions_for_doc = all_exam_questions.get(attempt.document_id, [])
+        for q_item in questions_for_doc:
             user_ans = user_answers.get(str(q_item.id))
             corr_ans = (q_item.correct_answer or "").strip().upper()
             if not corr_ans:

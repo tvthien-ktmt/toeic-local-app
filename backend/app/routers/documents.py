@@ -152,18 +152,27 @@ async def upload_document(
 
 @router.get("", response_model=List[DocumentSummary])
 def list_documents(db: Annotated[Session, Depends(get_db)]) -> List[DocumentSummary]:
-    """Returns a list of all user-uploaded exam and transcript documents."""
-    docs = db.query(Document).order_by(Document.uploaded_at.desc()).all()
+    """Returns a list of all user-uploaded exam and transcript documents without loading heavy markdown bodies."""
+    doc_rows = db.query(
+        Document.id,
+        Document.filename,
+        Document.doc_type,
+        Document.content_hash,
+        Document.status,
+        Document.uploaded_at,
+        func.length(func.coalesce(Document.markdown_content, "")).label("markdown_length")
+    ).order_by(Document.uploaded_at.desc()).all()
+
     summaries = []
-    for d in docs:
+    for doc_id, filename, doc_type, content_hash, doc_status, uploaded_at, md_len in doc_rows:
         summaries.append(DocumentSummary(
-            id=d.id,
-            filename=d.filename,
-            doc_type=d.doc_type,
-            content_hash=d.content_hash,
-            status=d.status,
-            uploaded_at=d.uploaded_at,
-            markdown_length=len(d.markdown_content) if d.markdown_content else 0
+            id=doc_id,
+            filename=filename,
+            doc_type=doc_type,
+            content_hash=content_hash,
+            status=doc_status,
+            uploaded_at=uploaded_at,
+            markdown_length=md_len or 0
         ))
     return summaries
 

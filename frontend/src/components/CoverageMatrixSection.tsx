@@ -104,15 +104,17 @@ export const CoverageMatrixSection: React.FC<CoverageMatrixSectionProps> = () =>
 
       {/* Part filter buttons */}
       <div className="flex items-center gap-2 overflow-x-auto pb-1">
-        {[
-          { id: 'ALL', label: 'Tất Cả 3 Part' },
-          { id: 5, label: 'Part 5 (Word Form, Verb, Prep, Connector...)' },
-          { id: 6, label: 'Part 6 (Context, Transition, Insertion...)' },
-          { id: 7, label: 'Part 7 (Detail, Inference, Purpose, Synthesis...)' },
-        ].map((tabItem) => (
+        {(
+          [
+            { id: 'ALL', label: 'Tất Cả 3 Part' },
+            { id: 5, label: 'Part 5 (Word Form, Verb, Prep, Connector...)' },
+            { id: 6, label: 'Part 6 (Context, Transition, Insertion...)' },
+            { id: 7, label: 'Part 7 (Detail, Inference, Purpose, Synthesis...)' },
+          ] as const
+        ).map((tabItem) => (
           <button
             key={tabItem.label}
-            onClick={() => setPartFilter(tabItem.id as any)}
+            onClick={() => setPartFilter(tabItem.id)}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition whitespace-nowrap cursor-pointer ${
               partFilter === tabItem.id
                 ? 'bg-theme-accent text-white shadow-sm'

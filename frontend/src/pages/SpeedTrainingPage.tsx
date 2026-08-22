@@ -25,7 +25,7 @@ export const SpeedTrainingPage: React.FC = () => {
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const timerRef = useRef<any>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const sprintStartRef = useRef<number>(0);
 
   const config = SPRINT_CONFIGS[selectedSprint];
@@ -60,7 +60,9 @@ export const SpeedTrainingPage: React.FC = () => {
       timerRef.current = setInterval(() => {
         setTimeLeft((prev) => {
           if (prev <= 1) {
-            clearInterval(timerRef.current);
+            if (timerRef.current) {
+              clearInterval(timerRef.current);
+            }
             handleFinishSprint();
 
             return 0;
@@ -197,10 +199,14 @@ export const SpeedTrainingPage: React.FC = () => {
             <div className="grid grid-cols-1 gap-3">
               {(() => {
                 let opts: string[] = [];
-                try {
-                  opts = JSON.parse(currentQ.options as any) || [];
-                } catch {
-                  opts = (currentQ.options as any) || [];
+                if (Array.isArray(currentQ.options)) {
+                  opts = currentQ.options;
+                } else if (typeof currentQ.options === 'string') {
+                  try {
+                    opts = JSON.parse(currentQ.options) || [];
+                  } catch {
+                    opts = [];
+                  }
                 }
 
                 return opts.map((optText, optIdx) => {

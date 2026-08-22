@@ -34,7 +34,7 @@ interface ExamQuestionCardProps {
 /**
  * Individual exam question card with A-D option selection, flagging, instant practice reveal, and AI explanation launcher.
  */
-export const ExamQuestionCard: React.FC<ExamQuestionCardProps> = ({
+const ExamQuestionCardComponent: React.FC<ExamQuestionCardProps> = ({
   questionItem,
   promptText,
   isNestedInGroup = false,
@@ -244,3 +244,5 @@ export const ExamQuestionCard: React.FC<ExamQuestionCardProps> = ({
     </div>
   );
 };
+
+export const ExamQuestionCard = React.memo(ExamQuestionCardComponent);

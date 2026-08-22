@@ -63,7 +63,7 @@ export const DashboardAdaptivePlanSection: React.FC<DashboardAdaptivePlanSection
                 Thời lượng: <strong>{stepItem.target_time}</strong>
               </span>
               <button
-                onClick={() => onNavigateTab && onNavigateTab(stepItem.action_tab as any)}
+                onClick={() => onNavigateTab && onNavigateTab(stepItem.action_tab)}
                 className="w-full py-1.5 rounded-lg bg-theme-accent hover:bg-theme-accent-hover text-white font-bold text-xs shadow-sm transition cursor-pointer"
               >
                 Bắt đầu ngay

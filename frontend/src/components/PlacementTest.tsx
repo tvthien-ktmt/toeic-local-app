@@ -12,6 +12,12 @@ interface PlacementQuestion {
   correct_answer: string;
 }
 
+interface PlacementTestResult {
+  overall_score?: number;
+  strong_topics?: string[];
+  weak_topics?: string[];
+}
+
 interface PlacementTestProps {
   onComplete: () => void;
 }
@@ -26,7 +32,7 @@ export const PlacementTest: React.FC<PlacementTestProps> = ({ onComplete }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<PlacementTestResult | null>(null);
 
   useEffect(() => {
     fetch(`${API_BASE}/api/curriculum/placement-test/start`, { method: 'POST' })

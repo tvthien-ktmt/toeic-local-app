@@ -45,15 +45,22 @@ export interface ExamResultData {
   document_id?: number;
 }
 
-export interface HistoryAttempt {
-  id: number;
-  mode: string;
-  raw_score: number;
-  total_questions: number;
-  toeic_score: number;
-  time_spent_seconds: number;
-  part5_correct: number;
-  part6_correct: number;
-  part7_correct: number;
-  completed_at: string;
+export interface KeyVocabularyItem {
+  word: string;
+  pos?: string;
+  meaning_vi: string;
+}
+
+export interface AiExplanationResult {
+  detailed_explanation: string;
+  grammar_recall?: string;
+  grammar_topic?: string;
+  source?: string;
+  option_explanations?: Record<string, string>;
+  common_trap?: string;
+  sentence_translation?: string;
+  translated_sentence?: string;
+  exam_tip?: string | null;
+  key_vocabulary?: KeyVocabularyItem[];
+  vocabulary_breakdown?: KeyVocabularyItem[];
 }
